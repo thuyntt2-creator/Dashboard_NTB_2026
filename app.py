@@ -2773,5 +2773,5 @@ if __name__ == '__main__':
                         add_to_history(aging, treo)
         threading.Thread(target=startup_cache_init, daemon=True).start()
             
-    print("Dashboard server starts on http://127.0.0.1:5000/")
-    app.run(debug=False, host='127.0.0.1', port=5000)
+    print("Dashboard server starts on http://0.0.0.0:5000/")
+    app.run(debug=False, host='0.0.0.0', port=5000)
