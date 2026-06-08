@@ -1,0 +1,3 @@
+shopee_tiktok columns: ['Date', 'Vùng', 'Tỉnh', 'Quận/Huyện', 'Phường/Xã', 'Bưu cục', 'Khách hàng', 'Volume', 'Khối lượng', 'warehouse_id', 'bat_on', 'province_name']
+buu_cuc_bat_on columns: ['ID Bưu cục', 'Tên Bưu cục', 'Trạng thái']
+CoCauBuuCuc columns: ['warehouse_id', 'Bưu cục', 'Tỉnh', 'AM', 'am_id', 'am_tele']

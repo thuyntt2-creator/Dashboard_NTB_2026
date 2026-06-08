@@ -1,0 +1,44 @@
+New Orders GTC Delivered Volume by Province for WTD:
+         Tỉnh  gtc_vol
+0  Bình Thuận  63660.0
+1   Khánh Hòa  67756.0
+2    Lâm Đồng  57510.0
+3  Ninh Thuận  26787.0
+4    Đắk Nông  26800.0
+Total: 242513.99999959124
+
+New Orders GTC Delivered Volume for D (2026-06-07):
+         Tỉnh  gtc_vol
+0  Bình Thuận   9506.0
+1   Khánh Hòa   9690.0
+2    Lâm Đồng   7650.0
+3  Ninh Thuận   3841.0
+4    Đắk Nông   3416.0
+Total: 34103.999999889726
+
+New Orders GTC Delivered Volume for D-1 (2026-06-06):
+         Tỉnh  gtc_vol
+0  Bình Thuận   9289.0
+1   Khánh Hòa   9633.0
+2    Lâm Đồng   8340.0
+3  Ninh Thuận   3741.0
+4    Đắk Nông   4609.0
+Total: 35611.99999983245
+
+New Orders GTC Delivered Volume for D-2 (2026-06-05):
+         Tỉnh  gtc_vol
+0  Bình Thuận   9437.0
+1   Khánh Hòa  10727.0
+2    Lâm Đồng   9027.0
+3  Ninh Thuận   4678.0
+4    Đắk Nông   4019.0
+Total: 37888.00000005326
+
+New Orders GTC Delivered Volume for D-7 (2026-05-31):
+         Tỉnh  gtc_vol
+0  Bình Thuận   7185.0
+1   Khánh Hòa   6838.0
+2    Lâm Đồng   6785.0
+3  Ninh Thuận   2923.0
+4    Đắk Nông   3364.0
+Total: 27095.0000000383

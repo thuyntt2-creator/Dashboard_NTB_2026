@@ -1,0 +1,58 @@
+=== Column Names ===
+['Date', 'Vùng', 'Tỉnh', 'Quận/Huyện', 'Phường/Xã', 'Bưu cục', 'Khách hàng', 'Volume', 'Khối lượng', 'warehouse_id', 'bat_on', 'province_name']
+
+=== Value Counts for bat_on ===
+bat_on
+Bình thường              56834
+Nằm TOP Bất ổn            8978
+Cấp cảnh báo              6708
+BC Cũ/Không thuộc ĐCL     5223
+
+=== Date range in sheet ===
+Min Date: 2026-05-07 00:00:00
+Max Date: 2026-06-07 00:00:00
+
+Latest Date (Today / Day N): 2026-06-07
+
+=== Total volume by date (last 7 days, unfiltered) ===
+Date
+2026-06-07    41678
+2026-06-06    69329
+2026-06-05    54003
+2026-06-04    52500
+2026-06-03    53590
+2026-06-02    54083
+2026-06-01    60735
+2026-05-31    36788
+2026-05-30    47596
+2026-05-29    47806
+
+=== Total volume by date (last 7 days, filtered: excluding BC Cũ/Không thuộc ĐCL) ===
+Date
+2026-06-07    39567
+2026-06-06    65687
+2026-06-05    51274
+2026-06-04    50664
+2026-06-03    51645
+2026-06-02    52885
+2026-06-01    59496
+2026-05-31    35931
+2026-05-30    46617
+2026-05-29    46744
+
+=== Detailed Volume by Province for latest date (filtered) ===
+      Tỉnh  Volume
+Bình Thuận   10369
+ Khánh Hòa   11515
+  Lâm Đồng    9496
+Ninh Thuận    3727
+  Đắk Nông    4460
+
+=== Detailed Volume by Province for latest date (unfiltered) ===
+      Tỉnh  Volume
+Bình Thuận   10369
+ Khánh Hòa   11515
+  Lâm Đồng   11274
+Ninh Thuận    4051
+  Đắk Nông    4469
+

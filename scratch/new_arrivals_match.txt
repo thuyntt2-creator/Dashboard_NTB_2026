@@ -1,0 +1,44 @@
+Sum of Hàng Mới Về Trong Ngày by Province for WTD (2026-06-01 to 2026-06-07):
+         Tỉnh  Hàng Mới Về Trong Ngày
+0  Bình Thuận                   87666
+1   Khánh Hòa                   93857
+2    Lâm Đồng                   93260
+3  Ninh Thuận                   35540
+4    Đắk Nông                   41583
+Total: 351917
+
+Sum of Hàng Mới Về Trong Ngày for D (2026-06-07):
+         Tỉnh  Hàng Mới Về Trong Ngày
+0  Bình Thuận                   13271
+1   Khánh Hòa                   14335
+2    Lâm Đồng                   12657
+3  Ninh Thuận                    5349
+4    Đắk Nông                    5499
+Total: 51122
+
+Sum of Hàng Mới Về Trong Ngày for D-1 (2026-06-06):
+         Tỉnh  Hàng Mới Về Trong Ngày
+0  Bình Thuận                   12428
+1   Khánh Hòa                   13851
+2    Lâm Đồng                   14598
+3  Ninh Thuận                    5051
+4    Đắk Nông                    6794
+Total: 52722
+
+Sum of Hàng Mới Về Trong Ngày for D-2 (2026-06-05):
+         Tỉnh  Hàng Mới Về Trong Ngày
+0  Bình Thuận                   13158
+1   Khánh Hòa                   14669
+2    Lâm Đồng                   14105
+3  Ninh Thuận                    6004
+4    Đắk Nông                    6107
+Total: 54043
+
+Sum of Hàng Mới Về Trong Ngày for D-7 (2026-05-31):
+         Tỉnh  Hàng Mới Về Trong Ngày
+0  Bình Thuận                   10663
+1   Khánh Hòa                   11160
+2    Lâm Đồng                   12712
+3  Ninh Thuận                    4038
+4    Đắk Nông                    6045
+Total: 44618

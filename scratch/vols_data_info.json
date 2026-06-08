@@ -1,0 +1,22 @@
+{
+    "provinces": [
+        "Đắk Nông",
+        "Bình Thuận",
+        "Khánh Hòa",
+        "Lâm Đồng",
+        "Ninh Thuận"
+    ],
+    "customers": [
+        "Shopee-Bulky",
+        "TTS-nhỏ",
+        "Shopee-nhỏ",
+        "SME",
+        "Khác"
+    ],
+    "bat_on": [
+        "Cấp cảnh báo",
+        "Bình thường",
+        "BC Cũ/Không thuộc ĐCL",
+        "Nằm TOP Bất ổn"
+    ]
+}

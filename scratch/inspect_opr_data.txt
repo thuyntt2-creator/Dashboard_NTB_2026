@@ -1,0 +1,30 @@
+Sheet: data, Shape: (970, 9)
+  Columns: ['vung', 'madh', 'BC lấy', 'Thời gian tạo', 'Thời gian LTC', 'sellername', 'ly_do_tre_12h', 'AM', 'TG tạo đơn']
+  First 3 rows:
+  vung             madh                                        BC lấy           Thời gian tạo           Thời gian LTC                sellername ly_do_tre_12h                  AM         TG tạo đơn
+0  NTB  VNGH80198796305    Bưu Cục 95 Thống Nhất-Phan Rang-Ninh Thuận 2026-05-25 15:35:23.712 2026-05-26 16:41:39.840  Đồ Bộ ToLe Nhà Chua     1.Gan_tre     Nguyễn Duy Long  Trong khung 9-19h
+1  NTB  VNGH80049626306  Bưu Cục Cao Bá Quát-Phường 7-Đà Lạt-Lâm Đồng 2026-05-26 06:43:42.240 2026-05-26 17:10:52.032  Đặc sản ngọc sương        4.Khác         Lê Minh Đại           Trước 9h
+2  NTB  VNGH80273356306       Bưu Cục Tổ Dân Phố 2-Ninh Hoà-Khánh Hoà 2026-05-25 23:46:16.608 2026-05-26 14:20:23.136     Đặc sản KhánhHòa        4.Khác  Phạm Bá Thành Công            Sau 19h
+    Col 'Thời gian tạo': unique count = 252, min = 2026-05-23 15:34:18.912000, max = 2026-05-26 08:56:43.008000
+    Col 'Thời gian LTC': unique count = 286, min = 2026-05-26 07:08:34.368000, max = 2026-05-26 19:38:00.384000
+    Col 'TG tạo đơn': unique count = 3, min = Sau 19h, max = Trước 9h
+Sheet: RAW n-1, Shape: (51133, 8)
+  Columns: ['vung', 'madh', 'BC lấy', 'Thời gian tạo', 'Thời gian LTC', 'sellername', 'ly_do_tre_12h', 'AM']
+  First 3 rows:
+      vung             madh                                                   BC lấy       Thời gian tạo       Thời gian LTC                            sellername ly_do_tre_12h   AM
+0  HCM-HCM  VNGH80429696305  Bưu Cục Số 17 Đường Hoàng Văn Hợp-An Lạc A-Bình Tân-HCM 2026-05-25 20:51:09 2026-05-26 16:11:46  đồ chơi trẻ em thời đại mới        4.Khác  NaN
+1  HCM-HCM  VNGH80510746306  Bưu Cục Số 17 Đường Hoàng Văn Hợp-An Lạc A-Bình Tân-HCM 2026-05-25 20:51:08 2026-05-26 16:11:46  đồ chơi trẻ em thời đại mới        4.Khác  NaN
+2      TNT  VNGH80167106307             Bưu Cục 38 Lê Quý Đôn-Phường Duy Tiên-Hà Nam 2026-05-26 08:09:51 2026-05-26 15:39:13           đồ chơi thông minh 2025        4.Khác  NaN
+    Col 'Thời gian tạo': unique count = 14317, min = 2026-05-18 08:15:45, max = 2026-05-26 08:59:58
+    Col 'Thời gian LTC': unique count = 9852, min = 2026-05-26 00:11:13, max = 2026-05-26 23:37:33
+Sheet: OPR, Shape: (394, 14)
+  Columns: ['tutinh', 'kholay', 'NgayLTC', 'khung_gio_tao_don', 'ly_do_tre_12h', 'sellername', 'vol_ltc', 'tuan', 'vung', 'ot', 'Tuần', 'AM', 'Khung giờ tạo', 'Đơn trễ']
+  First 3 rows:
+       tutinh                                            kholay    NgayLTC khung_gio_tao_don ly_do_tre_12h                       sellername  vol_ltc  tuan vung    ot Tuần                 AM    Khung giờ tạo  Đơn trễ
+0    Lâm Đồng                Bưu cục Ngô Thỳ Sỹ-Đà Lạt-Lâm Đồng 2026-06-07   2.Tạo từ 9h-19h  0.Ontime OPR  SONDA GARDEN - Sen đá Đà Lạt     24.0  24.0  NTB  24.0  W23        Lê Minh Đại  1.Tạo từ 9h-19h        0
+1  Bình Thuận  Bưu Cục 237 Nguyễn Tất Thành-Bắc Bình-Bình Thuận 2026-06-07   2.Tạo từ 9h-19h  0.Ontime OPR          SảnPhẩmNôngnghiệp      7.0  24.0  NTB   7.0  W23  Nguyễn Ngọc Khánh  1.Tạo từ 9h-19h        0
+2    Lâm Đồng                         Bưu Cục Đạ Huoai-Lâm Đồng 2026-06-07    1.Tạo trước 9h  0.Ontime OPR      An Vy Shop - 49 Lâm Đồng     20.0  24.0  NTB  20.0  W23     Huỳnh Tấn Hiền  2.Tạo từ 19h-9h        0
+    Col 'NgayLTC': unique count = 1, min = 2026-06-07 00:00:00, max = 2026-06-07 00:00:00
+    Col 'khung_gio_tao_don': unique count = 3, min = 1.Tạo trước 9h, max = 3.Tạo sau 19h
+    Col 'vol_ltc': unique count = 41, min = 1.0, max = 240.0
+    Col 'Khung giờ tạo': unique count = 2, min = 1.Tạo từ 9h-19h, max = 2.Tạo từ 19h-9h

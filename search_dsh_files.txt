@@ -1,0 +1,8 @@
+Searching for files containing 'DSH', 'Hưng Yên', or 'Thái Bình'...
+
+Scanning directory: c:\Users\lap4all\Desktop\New folder
+Found: c:\Users\lap4all\Desktop\New folder\search_dsh_files.txt
+
+Scanning directory: c:\Users\lap4all\Desktop
+Found: c:\Users\lap4all\Desktop\gtc-report\data\Untitled_spreadsheet.xlsx
+Found: c:\Users\lap4all\Desktop\New folder\search_dsh_files.txt

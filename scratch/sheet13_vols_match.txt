@@ -1,0 +1,1 @@
+Sheet13 columns: ['Cấp Quản Lý', 'Chi tiết', 'Loại Hàng', 'Time', 'Volume', '% Gán', '% GTC', '% Chuyển trả', 'Leadtime'], total rows: 6229

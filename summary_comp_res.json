@@ -1,0 +1,185 @@
+{
+  "completed_vols": [
+    {
+      "province": "Bình Thuận",
+      "LTC": 2570,
+      "GTC": 12573,
+      "TTC": 12918,
+      "LTC_pct": 95.01,
+      "GTC_pct": 68.49,
+      "TTC_pct": 70.37
+    },
+    {
+      "province": "Khánh Hòa",
+      "LTC": 3605,
+      "GTC": 12849,
+      "TTC": 13409,
+      "LTC_pct": 91.45,
+      "GTC_pct": 63.37,
+      "TTC_pct": 66.13
+    },
+    {
+      "province": "Không xác định",
+      "LTC": 14640,
+      "GTC": 50128,
+      "TTC": 52019,
+      "LTC_pct": 91.55,
+      "GTC_pct": 62.53,
+      "TTC_pct": 64.89
+    },
+    {
+      "province": "Lâm Đồng",
+      "LTC": 3852,
+      "GTC": 13975,
+      "TTC": 14510,
+      "LTC_pct": 92.11,
+      "GTC_pct": 56.12,
+      "TTC_pct": 58.27
+    },
+    {
+      "province": "Ninh Thuận",
+      "LTC": 1781,
+      "GTC": 5288,
+      "TTC": 5515,
+      "LTC_pct": 96.32,
+      "GTC_pct": 70.39,
+      "TTC_pct": 73.41
+    },
+    {
+      "province": "Đắk Nông",
+      "LTC": 2827,
+      "GTC": 5441,
+      "TTC": 5665,
+      "LTC_pct": 86.32,
+      "GTC_pct": 59.75,
+      "TTC_pct": 62.21
+    }
+  ],
+  "backlog_by_am": [
+    {
+      "am": "Huỳnh Thị Kim Chi",
+      "chua_lay": 6,
+      "chua_giao": 391,
+      "chua_tra": 37
+    },
+    {
+      "am": "Huỳnh Tấn Hiền",
+      "chua_lay": 0,
+      "chua_giao": 6,
+      "chua_tra": 0
+    },
+    {
+      "am": "Hồng Bích Nga",
+      "chua_lay": 7,
+      "chua_giao": 105,
+      "chua_tra": 20
+    },
+    {
+      "am": "Không xác định",
+      "chua_lay": 0,
+      "chua_giao": 16,
+      "chua_tra": 0
+    },
+    {
+      "am": "Lê Minh Đại",
+      "chua_lay": 6,
+      "chua_giao": 230,
+      "chua_tra": 39
+    },
+    {
+      "am": "Lê Thanh Nhựt",
+      "chua_lay": 0,
+      "chua_giao": 3,
+      "chua_tra": 0
+    },
+    {
+      "am": "Lê Văn Trường",
+      "chua_lay": 1,
+      "chua_giao": 5,
+      "chua_tra": 5
+    },
+    {
+      "am": "Nguyễn Duy Long",
+      "chua_lay": 3,
+      "chua_giao": 10,
+      "chua_tra": 13
+    },
+    {
+      "am": "Nguyễn Hoàng Phi",
+      "chua_lay": 0,
+      "chua_giao": 5,
+      "chua_tra": 0
+    },
+    {
+      "am": "Nguyễn Lê Nguyên Vũ",
+      "chua_lay": 2,
+      "chua_giao": 1,
+      "chua_tra": 0
+    },
+    {
+      "am": "Nguyễn Ngọc Khánh",
+      "chua_lay": 0,
+      "chua_giao": 17,
+      "chua_tra": 6
+    },
+    {
+      "am": "Nguyễn Thanh Long",
+      "chua_lay": 1,
+      "chua_giao": 10,
+      "chua_tra": 3
+    },
+    {
+      "am": "Phan Đình Duy",
+      "chua_lay": 1,
+      "chua_giao": 2,
+      "chua_tra": 2
+    },
+    {
+      "am": "Phạm Bá Thành Công",
+      "chua_lay": 3,
+      "chua_giao": 5,
+      "chua_tra": 12
+    },
+    {
+      "am": "Thái Thị Thanh Thư",
+      "chua_lay": 6,
+      "chua_giao": 175,
+      "chua_tra": 52
+    },
+    {
+      "am": "Trầm Hữu Tiến",
+      "chua_lay": 4,
+      "chua_giao": 314,
+      "chua_tra": 44
+    },
+    {
+      "am": "Trần Công Hậu",
+      "chua_lay": 2,
+      "chua_giao": 37,
+      "chua_tra": 17
+    },
+    {
+      "am": "Trần Thị Nhung",
+      "chua_lay": 2,
+      "chua_giao": 10,
+      "chua_tra": 4
+    },
+    {
+      "am": "Trần Văn Phước",
+      "chua_lay": 2,
+      "chua_giao": 86,
+      "chua_tra": 10
+    },
+    {
+      "am": "Võ Tấn Lợi",
+      "chua_lay": 0,
+      "chua_giao": 1,
+      "chua_tra": 0
+    }
+  ],
+  "overall": {
+    "ltc": 91.64,
+    "gtc": 62.53,
+    "ttc": 64.89
+  }
+}

@@ -1,0 +1,63 @@
+WTD Volume (2026-06-01 to 2026-06-07) by Tỉnh:
+         Tỉnh      Volume
+0  Bình Thuận  120949.000
+1   Khánh Hòa  125323.469
+2    Lâm Đồng  139730.612
+3  Ninh Thuận   45775.152
+4    Đắk Nông   58515.703
+Total WTD: 490293.936
+
+D (2026-06-07) Volume by Tỉnh:
+         Tỉnh     Volume
+0  Bình Thuận  17802.000
+1   Khánh Hòa  19252.061
+2    Lâm Đồng  19039.886
+3  Ninh Thuận   7342.000
+4    Đắk Nông   8392.000
+Total D (2026-06-07): 71827.947
+
+D-1 (2026-06-06) Volume by Tỉnh:
+         Tỉnh     Volume
+0  Bình Thuận  17576.000
+1   Khánh Hòa  19074.135
+2    Lâm Đồng  20978.752
+3  Ninh Thuận   6881.000
+4    Đắk Nông   8316.287
+Total D-1 (2026-06-06): 72826.174
+
+D-2 (2026-06-05) Volume by Tỉnh:
+         Tỉnh     Volume
+0  Bình Thuận  18359.000
+1   Khánh Hòa  18973.307
+2    Lâm Đồng  20802.106
+3  Ninh Thuận   5365.152
+4    Đắk Nông   9106.000
+Total D-2 (2026-06-05): 72605.565
+
+D-7 (2026-05-31) Volume by Tỉnh:
+         Tỉnh     Volume
+0  Bình Thuận  15916.000
+1   Khánh Hòa  16306.804
+2    Lâm Đồng  20495.205
+3  Ninh Thuận   5798.000
+4    Đắk Nông   8911.000
+Total D-7 (2026-05-31): 67427.009
+
+WTD-1 Volume by Tỉnh:
+         Tỉnh      Volume
+0  Bình Thuận  115657.000
+1   Khánh Hòa  116141.225
+2    Lâm Đồng  144293.641
+3  Ninh Thuận   46130.000
+4    Đắk Nông   56295.396
+Total WTD-1: 478517.26200000005
+
+WTD-2 Volume by Tỉnh:
+         Tỉnh      Volume
+0  Bình Thuận  112506.000
+1   Khánh Hòa  124271.906
+2    Lâm Đồng  152709.199
+3  Ninh Thuận   44700.099
+4    Đắk Nông   56692.222
+Total WTD-2: 490879.426
+

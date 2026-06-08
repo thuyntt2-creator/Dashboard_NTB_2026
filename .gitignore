@@ -1,0 +1,33 @@
+# Secrets and Environment Variables
+.env
+
+# Configurations
+config.json
+backlog_history.json
+
+# Excel and CSV databases containing private operational metrics
+*.xlsx
+*.xls
+*.csv
+!*.env.example
+
+# Intermediate inspection and log files
+*_res.txt
+*res.txt
+*_output.txt
+*.log
+google_sheet_details.txt
+google_sheet_html_head.txt
+provinces_all.txt
+sheet_tab_html.txt
+
+# Python runtime and build caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE Settings
+.vscode/
+.idea/
+.gemini/

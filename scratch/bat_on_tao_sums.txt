@@ -1,0 +1,22 @@
+
+====================================
+Sheet: Datatoday
+====================================
+Tỉnh col: tinh_giao, tao_n1 col: tao_n1, tao_avg col: tao_avg_7ngay
+    tinh_giao   tao_n1  tao_avg_7ngay   gtc_n1  gtc_avg_7ngay
+0  Bình Thuận   9809.0   14597.714285  12454.0        12209.8
+1   Khánh Hòa  11334.0   16018.000001  13298.0        13103.1
+2    Lâm Đồng  11456.0   16190.285714  13912.0        14283.1
+3  Ninh Thuận   3876.0    5728.714286   4852.0         4805.2
+4    Đắk Nông   4363.0    6097.595238   4641.0         5247.8
+
+Totals:
+  tao_n1: 40838.0
+  tao_avg_7ngay: 58632.309524058
+  gtc_n1: 49157.0
+  gtc_avg_7ngay: 49649.0
+
+====================================
+Sheet: NTB
+====================================
+Tỉnh col: None, tao_n1 col: None, tao_avg col: None

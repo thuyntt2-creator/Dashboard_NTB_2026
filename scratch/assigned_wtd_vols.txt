@@ -1,0 +1,63 @@
+Assigned Volume by Province for WTD (2026-06-01 to 2026-06-07):
+         Tỉnh   assigned_vol
+0  Bình Thuận  106540.000000
+1   Khánh Hòa  129436.999999
+2    Lâm Đồng  125170.000000
+3  Ninh Thuận   44152.000000
+4    Đắk Nông   57479.000000
+Total Assigned WTD: 462780.9999990497
+
+Assigned Volume by Province for WTD-1:
+         Tỉnh  assigned_vol
+0  Bình Thuận      101741.0
+1   Khánh Hòa      126320.0
+2    Lâm Đồng      128154.0
+3  Ninh Thuận       42347.0
+4    Đắk Nông       56371.0
+Total Assigned WTD-1: 454932.9999993884
+
+Assigned Volume by Province for WTD-2:
+         Tỉnh  assigned_vol
+0  Bình Thuận      101798.0
+1   Khánh Hòa      126741.0
+2    Lâm Đồng      128342.0
+3  Ninh Thuận       42321.0
+4    Đắk Nông       57380.0
+Total Assigned WTD-2: 456581.9999998767
+
+Assigned Volume for D (2026-06-07):
+         Tỉnh  assigned_vol
+0  Bình Thuận       15525.0
+1   Khánh Hòa       19527.0
+2    Lâm Đồng       17491.0
+3  Ninh Thuận        6538.0
+4    Đắk Nông        7694.0
+Total Assigned for D (2026-06-07): 66778.00000019123
+
+Assigned Volume for D-1 (2026-06-06):
+         Tỉnh  assigned_vol
+0  Bình Thuận       15761.0
+1   Khánh Hòa       18424.0
+2    Lâm Đồng       17748.0
+3  Ninh Thuận        6335.0
+4    Đắk Nông        8852.0
+Total Assigned for D-1 (2026-06-06): 67119.99999956723
+
+Assigned Volume for D-2 (2026-06-05):
+         Tỉnh  assigned_vol
+0  Bình Thuận       15971.0
+1   Khánh Hòa       19089.0
+2    Lâm Đồng       18590.0
+3  Ninh Thuận        7109.0
+4    Đắk Nông        8382.0
+Total Assigned for D-2 (2026-06-05): 69140.99999979827
+
+Assigned Volume for D-7 (2026-05-31):
+         Tỉnh  assigned_vol
+0  Bình Thuận       13645.0
+1   Khánh Hòa       16152.0
+2    Lâm Đồng       16612.0
+3  Ninh Thuận        5514.0
+4    Đắk Nông        8085.0
+Total Assigned for D-7 (2026-05-31): 60008.00000002617
+

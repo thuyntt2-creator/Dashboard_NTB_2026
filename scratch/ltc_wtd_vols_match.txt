@@ -1,0 +1,75 @@
+Sum of LTC Volume by Province for WTD (2026-06-01 to 2026-06-07):
+         Tỉnh  Volume
+0  Bình Thuận   20208
+1   Khánh Hòa   27849
+2    Lâm Đồng   29884
+3  Ninh Thuận   10715
+4    Đắk Nông   26701
+
+Sum of LTC Successful Volume by Province for WTD (2026-06-01 to 2026-06-07):
+         Tỉnh  ltc_vol
+0  Bình Thuận  19082.0
+1   Khánh Hòa  25231.0
+2    Lâm Đồng  27627.0
+3  Ninh Thuận  10370.0
+4    Đắk Nông  23229.0
+
+Sum of LTC Volume for D (2026-06-07):
+         Tỉnh  Volume
+0  Bình Thuận    2186
+1   Khánh Hòa    3330
+2    Lâm Đồng    4346
+3  Ninh Thuận    1125
+4    Đắk Nông    3003
+Sum of LTC Successful Volume for D (2026-06-07):
+         Tỉnh  ltc_vol
+0  Bình Thuận   2004.0
+1   Khánh Hòa   2931.0
+2    Lâm Đồng   4044.0
+3  Ninh Thuận   1079.0
+4    Đắk Nông   2405.0
+
+Sum of LTC Volume for D-1 (2026-06-06):
+         Tỉnh  Volume
+0  Bình Thuận    2607
+1   Khánh Hòa    4103
+2    Lâm Đồng    5065
+3  Ninh Thuận    2080
+4    Đắk Nông    3772
+Sum of LTC Successful Volume for D-1 (2026-06-06):
+         Tỉnh  ltc_vol
+0  Bình Thuận   2446.0
+1   Khánh Hòa   3554.0
+2    Lâm Đồng   4649.0
+3  Ninh Thuận   2040.0
+4    Đắk Nông   3221.0
+
+Sum of LTC Volume for D-2 (2026-06-05):
+         Tỉnh  Volume
+0  Bình Thuận    2706
+1   Khánh Hòa    3943
+2    Lâm Đồng    4146
+3  Ninh Thuận    1850
+4    Đắk Nông    3313
+Sum of LTC Successful Volume for D-2 (2026-06-05):
+         Tỉnh  ltc_vol
+0  Bình Thuận   2571.0
+1   Khánh Hòa   3606.0
+2    Lâm Đồng   3819.0
+3  Ninh Thuận   1782.0
+4    Đắk Nông   2862.0
+
+Sum of LTC Volume for D-7 (2026-05-31):
+         Tỉnh  Volume
+0  Bình Thuận    2885
+1   Khánh Hòa    2864
+2    Lâm Đồng    3297
+3  Ninh Thuận    1061
+4    Đắk Nông    3877
+Sum of LTC Successful Volume for D-7 (2026-05-31):
+         Tỉnh  ltc_vol
+0  Bình Thuận   2694.0
+1   Khánh Hòa   2446.0
+2    Lâm Đồng   3032.0
+3  Ninh Thuận   1021.0
+4    Đắk Nông   3223.0

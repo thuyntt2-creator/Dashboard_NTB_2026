@@ -1,0 +1,47 @@
+GTC + Return Volume by Province for WTD:
+   clean_prov  gtc_plus_return
+0  Bình Thuận          85529.0
+1   Khánh Hòa          89605.0
+2    Lâm Đồng          90984.0
+3  Ninh Thuận          33879.0
+4         nan              1.0
+5    Đắk Nông          40617.0
+Total WTD: 340614.9999994252
+
+GTC + Return Volume for D (2026-06-07):
+   clean_prov  gtc_plus_return
+0  Bình Thuận          12438.0
+1   Khánh Hòa          12982.0
+2    Lâm Đồng          12559.0
+3  Ninh Thuận           4869.0
+4         nan              1.0
+5    Đắk Nông           5233.0
+Total for D (2026-06-07): 48081.999999694955
+
+GTC + Return Volume for D-1 (2026-06-06):
+   clean_prov  gtc_plus_return
+0  Bình Thuận          12651.0
+1   Khánh Hòa          12515.0
+2    Lâm Đồng          12528.0
+3  Ninh Thuận           4691.0
+4    Đắk Nông           6446.0
+Total for D-1 (2026-06-06): 48830.999999821026
+
+GTC + Return Volume for D-2 (2026-06-05):
+   clean_prov  gtc_plus_return
+0  Bình Thuận          12918.0
+1   Khánh Hòa          13400.0
+2    Lâm Đồng          14046.0
+3  Ninh Thuận           5514.0
+4    Đắk Nông           6118.0
+Total for D-2 (2026-06-05): 51996.0000001716
+
+GTC + Return Volume for D-7 (2026-05-31):
+   clean_prov  gtc_plus_return
+0  Bình Thuận          10519.0
+1   Khánh Hòa           9381.0
+2    Lâm Đồng          10926.0
+3  Ninh Thuận           3896.0
+4    Đắk Nông           5107.0
+Total for D-7 (2026-05-31): 39829.000000004264
+

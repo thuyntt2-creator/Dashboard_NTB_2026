@@ -1,0 +1,40 @@
+
+Scanning Excel: Aging _5 ngày.xlsx
+  FOUND string in sheet 'data LM' at row 8604, col 1: val=VNGH80393956703
+  FOUND string in sheet 'data LM' at row 8990, col 1: val=VNGH80193956703
+  FOUND string in sheet 'data LM' at row 26767, col 1: val=VNGH80783956704
+  FOUND string in sheet 'data LM' at row 39926, col 1: val=VNGH80512746704
+
+Scanning Excel: buu_cuc_bat_on.xlsx
+
+Scanning Excel: Copy o NTB - BÁO CÁO VẬN HÀNH.xlsx
+
+Scanning Excel: co_cau_ntb.xlsx
+
+Scanning CSV: ODR TTS.csv
+
+Scanning Excel: off_tuyen_spe.xlsx
+
+Scanning Excel: OPR TTS.xlsx
+  FOUND string in sheet 'RAW n-1' at row 48, col 1: val=VNGH80656876306
+  FOUND string in sheet 'RAW n-1' at row 4981, col 1: val=VNGH80395676306
+  FOUND string in sheet 'RAW n-1' at row 17099, col 1: val=VNGH80359316306
+  FOUND string in sheet 'RAW n-1' at row 24333, col 1: val=VNGH80395676303
+
+Scanning Excel: temp_ops_check.xlsx
+
+Scanning CSV: thu_cung_ky.csv
+
+Scanning Excel: Treo luân chuyển GIAO_TRẢ by IMTHIR.xlsx
+  FOUND string in sheet 'stuck' at row 6871, col 1: val=VNGH80983956703
+  FOUND string in sheet 'stuck' at row 9831, col 1: val=VNGH80512746704
+  FOUND string in sheet 'stuck' at row 12386, col 1: val=VNGH80293956703
+  FOUND string in sheet 'stuck' at row 13673, col 1: val=VNGH80643956702
+  FOUND string in sheet '2' at row 6871, col 1: val=VNGH80983956703
+  FOUND string in sheet '2' at row 9831, col 1: val=VNGH80512746704
+  FOUND string in sheet '2' at row 12386, col 1: val=VNGH80293956703
+  FOUND string in sheet '2' at row 13673, col 1: val=VNGH80643956702
+  FOUND string in sheet '1' at row 6871, col 1: val=VNGH80983956703
+  FOUND string in sheet '1' at row 9831, col 1: val=VNGH80512746704
+  FOUND string in sheet '1' at row 12386, col 1: val=VNGH80293956703
+  FOUND string in sheet '1' at row 13673, col 1: val=VNGH80643956702

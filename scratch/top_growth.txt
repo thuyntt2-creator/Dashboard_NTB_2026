@@ -1,0 +1,66 @@
+          Tỉnh                                                       Bưu cục  Volume_latest  Volume_d7  growth  pct_growth
+65    Lâm Đồng                            Bưu cục Ngô Thỳ Sỹ-Đà Lạt-Lâm Đồng            642        0.0   642.0         inf
+72  Ninh Thuận                       Bưu Cục Phước Minh-Thuận Nam-Ninh Thuận            324        0.0   324.0         inf
+20   Khánh Hòa                     Bưu Cục 195 Đường 2/4-Nha Trang-Khánh Hòa           1365     1110.0   255.0   22.972973
+54    Lâm Đồng                               Bưu Cục QL55-Bảo Lâm 3-Lâm Đồng            238        0.0   238.0         inf
+21   Khánh Hòa                Bưu Cục 229 Phước Long-Nam Nha Trang-Khánh Hòa            886      662.0   224.0   33.836858
+10  Bình Thuận                        Bưu Cục Phú Thủy-Phan Thiết-Bình Thuận            980      765.0   215.0   28.104575
+36   Khánh Hòa                       Bưu Cục Tổ Dân Phố 2-Ninh Hoà-Khánh Hoà            889      699.0   190.0   27.181688
+18   Khánh Hòa               Bưu Cục 06 Lê Hồng Phong-TP.Nha Trang-Khánh Hòa            778      593.0   185.0   31.197302
+15  Bình Thuận                        Bưu cục DT707-Hàm Thuận Nam-Bình Thuận            802      625.0   177.0   28.320000
+71  Ninh Thuận                    Bưu Cục 95 Thống Nhất-Phan Rang-Ninh Thuận            977      810.0   167.0   20.617284
+16  Bình Thuận              Bưu cục Thị Trấn Liên Hương-Tuy Phong-Bình Thuận            674      511.0   163.0   31.898239
+24   Khánh Hòa                      Bưu Cục 40A Yết Kiêu-Nha Trang-Khánh Hòa            672      519.0   153.0   29.479769
+6   Bình Thuận                      Bưu Cục 46 Hùng Vương-Hàm Tân-Bình Thuận            536      383.0   153.0   39.947781
+25   Khánh Hòa                        Bưu Cục 42 Nguyễn Du-Cam Lâm-Khánh Hoà            537      396.0   141.0   35.606061
+11  Bình Thuận                         Bưu Cục Phú Tài-Phan Thiết-Bình Thuận            820      681.0   139.0   20.411160
+55    Lâm Đồng         Bưu Cục Số 6 Trương Văn Hoàn-Phường 9-Đà Lạt-Lâm Đồng            685      553.0   132.0   23.869801
+27   Khánh Hòa                 Bưu Cục 56 Phan Đình Phùng-Cam Linh-Khánh Hòa            721      590.0   131.0   22.203390
+66    Lâm Đồng                              Bưu cục Đinh Văn-Lâm Hà-Lâm Đồng            622      494.0   128.0   25.910931
+4   Bình Thuận   Bưu Cục 430 Tôn Đức Thắng-Tân Phước-Thị xã La Gi-Bình Thuận            815      690.0   125.0   18.115942
+28   Khánh Hòa        Bưu Cục 571 Hùng Vương-Cam Nghĩa-TP.Cam Ranh-Khánh Hoà            364      241.0   123.0   51.037344
+69  Ninh Thuận                Bưu Cục 51 Phạm Ngọc Thạch-Ninh Hải-Ninh Thuận            727      607.0   120.0   19.769357
+9   Bình Thuận                     Bưu Cục Hàm Liêm-Hàm Thuận Bắc-Bình Thuận            606      493.0   113.0   22.920892
+3   Bình Thuận              Bưu Cục 237 Nguyễn Tất Thành-Bắc Bình-Bình Thuận            512      402.0   110.0   27.363184
+26   Khánh Hòa                   Bưu Cục 466 Đường 23/10-Nha Trang-Khánh Hòa            756      657.0    99.0   15.068493
+33   Khánh Hòa             Bưu Cục Thôn Phú An Nam 2-Xã Diên Khánh-Khánh Hòa            386      292.0    94.0   32.191781
+5   Bình Thuận        Bưu Cục 454 Võ Văn Kiệt-Đặc Khu Đảo Phú Quý-Bình Thuận            350      264.0    86.0   32.575758
+13  Bình Thuận                      Bưu Cục Xã Nam Chính-Đức Linh-Bình Thuận            896      810.0    86.0   10.617284
+40    Lâm Đồng  Bưu Cục 190/11 Phù Đổng Thiên Vương-Phường 8-Đà Lạt-Lâm Đồng            433      349.0    84.0   24.068768
+39    Lâm Đồng                      Bưu Cục 1322 Hùng Vương-Di Linh-Lâm Đồng            631      548.0    83.0   15.145985
+31   Khánh Hòa                        Bưu Cục Thôn Dầu Sơn-Cam Lâm-Khánh Hoà            330      250.0    80.0   32.000000
+37   Khánh Hòa        Bưu Cục Đường 35 Hà Quang 1-Xã Nam Nha Trang-Khánh Hòa            604      526.0    78.0   14.828897
+8   Bình Thuận          Bưu Cục 585 Nguyễn Tất Thành-Xã Lương Sơn-Bình Thuận            352      274.0    78.0   28.467153
+64    Lâm Đồng               Bưu cục 1479 Trần Phú-Lộc Châu-Bảo Lộc-Lâm Đồng            561      483.0    78.0   16.149068
+67  Ninh Thuận  Bưu Cục 254A Đường 21 tháng 8-Phan Rang-Tháp Chàm-Ninh Thuận            776      704.0    72.0   10.227273
+2   Bình Thuận            Bưu Cục 21 Trần Hưng Đạo-Xã Phan Rí Cửa-Bình Thuận            484      417.0    67.0   16.067146
+1   Bình Thuận             Bưu Cục 16 Huỳnh Thúc Kháng-Phan Thiết-Bình Thuận            471      405.0    66.0   16.296296
+14  Bình Thuận             Bưu cục 47 Trần Hưng Đạo-Hàm Thuận Nam-Bình Thuận            336      270.0    66.0   24.444444
+19   Khánh Hòa                       Bưu Cục 111 Lê Duẫn-Khánh Sơn-Khánh Hoà            194      131.0    63.0   48.091603
+62    Lâm Đồng                                     Bưu Cục Đạ Huoai-Lâm Đồng            349      291.0    58.0   19.931271
+50    Lâm Đồng                  Bưu Cục Cao Bá Quát-Phường 7-Đà Lạt-Lâm Đồng            920      862.0    58.0    6.728538
+77    Đắk Nông                 Bưu Cục 73 Nguyễn Tất Thành-Krông Nô-Đắk Nông            542      484.0    58.0   11.983471
+22   Khánh Hòa                        Bưu Cục 36 Bà Triệu-Vạn Ninh-Khánh Hoà            518      463.0    55.0   11.879050
+48    Lâm Đồng          Bưu Cục 468 Quốc Lộ 20-Liên Nghĩa-Đức Trọng-Lâm Đồng            590      536.0    54.0   10.074627
+43    Lâm Đồng             Bưu Cục 337 Hùng Vương-Lộc Thắng-Bảo Lâm-Lâm Đồng            321      273.0    48.0   17.582418
+7   Bình Thuận                Bưu Cục 575 Quốc Lộ 28-Xã Hàm Thuận-Bình Thuận            711      669.0    42.0    6.278027
+12  Bình Thuận                     Bưu Cục Số 7 Lê Thánh Tôn-LaGi-Bình Thuận            388      346.0    42.0   12.138728
+35   Khánh Hòa            Bưu Cục Tổ 5 Đường Ngô Gia Tự-Khánh Vĩnh-Khánh Hòa            220      179.0    41.0   22.905028
+86    Đắk Nông                                      Bưu Cục Đắk Mil-Đắk Nông            806      772.0    34.0    4.404145
+29   Khánh Hòa         Bưu Cục 70 Lê Hồng Phong-Ninh Diêm-Ninh Hoà-Khánh Hoà            463      431.0    32.0    7.424594
+73  Ninh Thuận                      Bưu Cục Quốc Lộ 1A-Ninh Phước-Ninh Thuận            797      770.0    27.0    3.506494
+52    Lâm Đồng            Bưu Cục Lê Hồng Phong-Liên Hiệp-Đức Trọng-Lâm Đồng            377      351.0    26.0    7.407407
+61    Lâm Đồng                       Bưu Cục Đường Trần Lê-Cát Tiên-Lâm Đồng            215      189.0    26.0   13.756614
+44    Lâm Đồng           Bưu Cục 412 Nguyễn Văn Cừ-Lộc Phát-Bảo Lộc-Lâm Đồng            487      468.0    19.0    4.059829
+78    Đắk Nông             Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông            264      245.0    19.0    7.755102
+30   Khánh Hòa                        Bưu Cục Phước Đồng-Nha Trang-Khánh Hoà            276      258.0    18.0    6.976744
+59    Lâm Đồng                   Bưu Cục Thôn R'Chai 2-Xã Đức Trọng-Lâm Đồng            357      346.0    11.0    3.179191
+42    Lâm Đồng                          Bưu Cục 300 Tự Phước-Đà Lạt-Lâm Đồng            353      342.0    11.0    3.216374
+56    Lâm Đồng                           Bưu Cục TDP Ba Đình-Lâm Hà-Lâm Đồng            312      303.0     9.0    2.970297
+32   Khánh Hòa             Bưu Cục Thôn Long Hoà-Vạn Long-Vạn Ninh-Khánh Hoà            369      360.0     9.0    2.500000
+76    Đắk Nông       Bưu Cục 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông            194      186.0     8.0    4.301075
+34   Khánh Hòa                    Bưu Cục Thôn Xuân Hoà 1-Ninh Hoà-Khánh Hoà            295      288.0     7.0    2.430556
+75    Đắk Nông                    Bưu Cục 40 Nguyễn Văn Linh-Cư Jút-Đắk Nông            500      493.0     7.0    1.419878
+58    Lâm Đồng              Bưu Cục Thôn Phúc Hưng-Xã Tân Hà Lâm Hà-Lâm Đồng            313      307.0     6.0    1.954397
+81    Đắk Nông                          Bưu Cục Quảng Sơn-Đắk Glong-Đắk Nông            281      280.0     1.0    0.357143
+89    Đắk Nông  Điểm lấy hàng Nguyễn Đình Chiểu-Nghĩa Tân-Gia Nghĩa-Đăk Nông              9        8.0     1.0   12.500000

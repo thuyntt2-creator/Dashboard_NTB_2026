@@ -1,0 +1,138 @@
+
+=========================================
+Workbook: Aging _5 ngày.xlsx
+=========================================
+Sheet names: ['Đơn giao aging trên 5 ngày', 'PIVOT', 'Cơ cấu', 'Nguyễn Thanh Long', 'Nguyễn Lê Nguyên Vũ', 'data LM', 'Phan Đình Duy', 'Nguyễn Tống Hùng Phong', 'Trần Văn Phước', 'Trầm Hữu Tiến', 'Huỳnh Thị Kim Chi', 'Nguyễn Hoàng Phi', 'Lê Minh Đại', 'Hồng Bích Nga', 'Thái Thị Thanh Thư', 'Trần Công Hậu', 'Cao Thị Thanh Thủy', 'Lê Văn Trường', 'Trần Thị Nhung', 'Nguyễn Ngọc Khánh', 'Nguyễn Duy Long', 'Huỳnh Tấn Hiền', 'Phạm Bá Thành Công', 'Lê Thanh Nhựt', 'Võ Tấn Lợi']
+  Sheet 'Đơn giao aging trên 5 ngày': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+  Sheet 'PIVOT': columns=['Đơn aging >5 ngày', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4'], shape=(2, 5)
+  Sheet 'Cơ cấu': columns=['warehouse_id', 'Bưu cục', 'Tỉnh', 'AM', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', '0_6', '(1) 00-06h', '(0) Dưới 1 ngày', '(0) 00-24h'], shape=(2, 13)
+  Sheet 'Nguyễn Thanh Long': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+  Sheet 'Nguyễn Lê Nguyên Vũ': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+  Sheet 'data LM': columns=['Thông tin người xuất: 3066021 - Nguyễn Thị Thanh Thủy', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6'], shape=(2, 7)
+  Sheet 'Phan Đình Duy': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+  Sheet 'Nguyễn Tống Hùng Phong': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(1, 14)
+  Sheet 'Trần Văn Phước': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+  Sheet 'Trầm Hữu Tiến': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+  Sheet 'Huỳnh Thị Kim Chi': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+  Sheet 'Nguyễn Hoàng Phi': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+  Sheet 'Lê Minh Đại': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+  Sheet 'Hồng Bích Nga': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+  Sheet 'Thái Thị Thanh Thư': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+  Sheet 'Trần Công Hậu': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+  Sheet 'Cao Thị Thanh Thủy': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+  Sheet 'Lê Văn Trường': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+  Sheet 'Trần Thị Nhung': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+  Sheet 'Nguyễn Ngọc Khánh': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+  Sheet 'Nguyễn Duy Long': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+  Sheet 'Huỳnh Tấn Hiền': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+  Sheet 'Phạm Bá Thành Công': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+  Sheet 'Lê Thanh Nhựt': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+  Sheet 'Võ Tấn Lợi': columns=['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD', 'am_tele', 'am_name', 'Trạng thái'], shape=(2, 14)
+
+=========================================
+Workbook: buu_cuc_bat_on.xlsx
+=========================================
+Sheet names: ['NTB', 'Datatoday', 'Cocau', 'Data']
+  Sheet 'NTB': columns=['Thời gian cập nhật', 'Unnamed: 1', datetime.datetime(2026, 6, 8, 0, 0), 'Unnamed: 3', 'Logic thuộc 1 trong 4 trường hợp sau:\n\nTồn LM: Lượng đơn Backlogs LastMile trên tổng đơn GTC trung bình 7 ngày gần nhất (L7D) lớn hơn 2 (ngày).\nTồn KTC: Lượng đơn Backlogs KTC cùng tỉnh trên tổng đơn GTC trung bình 7 ngày gần nhất (L7D) lớn hơn 2 (ngày).\nTồn LM + Tồn KTC: Các bưu cục đồng thời thuộc cả 2 nhóm: Tồn LM và Tồn KTC\nTồn Aging >5 ngày: tỷ lệ đơn tồn trên 5 ngày chiếm từ 10% trở lên trên tổng lượng Backlogs LastMile.'], shape=(1, 5)
+  Sheet 'Datatoday': columns=['ngay', 'vung_giao', 'tinh_giao', 'kho_giao_id', 'kho_giao_name', 'warehouse_type', 'BL LM', 'BL LM >5 ngay', '%BL LM >5 ngay', 'BL KTC', 'BL KTC cung tinh', '%BL KTC cung tinh', 'tao_n1', 'tao_avg_7ngay', 'gtc_n1', 'gtc_avg_7ngay', 'gtc_max_7ngay', 'du_kien_clear_ton', 'tinh_hinh', 'ly_do_bat_on'], shape=(2, 20)
+  Sheet 'Cocau': columns=['warehouse_id', 'Bưu cục', 'Tỉnh', 'AM'], shape=(2, 4)
+  Sheet 'Data': columns=['ngay', 'vung_giao', 'tinh_giao', 'kho_giao_id', 'kho_giao_name', 'ly_do_bat_on'], shape=(2, 6)
+
+=========================================
+Workbook: Copy o NTB - BÁO CÁO VẬN HÀNH.xlsx
+=========================================
+Sheet names: ['Tổng quan', 'Trang tính12', 'Bưu cục', 'Thứ cùng kỳ', 'Ca1 - Ca2 - Tồn', 'Trang tính6', 'Data', 'DataLTC', 'rawltc', 'Sheet13', 'Cơ cấu']
+  Sheet 'Tổng quan': columns=[], shape=(0, 0)
+  Sheet 'Trang tính12': columns=[], shape=(0, 0)
+  Sheet 'Bưu cục': columns=['Unnamed: 0', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9', 'Unnamed: 10', 'Unnamed: 11', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15', 'TOP BƯU CỤC %GTC TỆ NHẤT', 'Unnamed: 17', 'Unnamed: 18', 'Unnamed: 19', 'Unnamed: 20', 'Unnamed: 21', 'Unnamed: 22', 'Unnamed: 23', 'Unnamed: 24', 'Unnamed: 25', 'Unnamed: 26', 'Unnamed: 27', 'Unnamed: 28', 'Unnamed: 29', 'Unnamed: 30', 'Unnamed: 31', 'TOP  20 BƯU CỤC %GTC TỐT NHẤT'], shape=(2, 33)
+  Sheet 'Thứ cùng kỳ': columns=[], shape=(0, 0)
+  Sheet 'Ca1 - Ca2 - Tồn': columns=['Ca1 + Tồn', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9', 'Unnamed: 10', 'Unnamed: 11', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15', 'Tồn', 'Unnamed: 17', 'Unnamed: 18', 'Unnamed: 19', 'Unnamed: 20', 'Unnamed: 21', 'Unnamed: 22', 'Unnamed: 23', 'Unnamed: 24', 'Unnamed: 25', 'Unnamed: 26', 'Unnamed: 27', 'Unnamed: 28', 'Unnamed: 29', 'Unnamed: 30', 'Unnamed: 31', 'Ca1', 'Unnamed: 33', 'Unnamed: 34', 'Unnamed: 35', 'Unnamed: 36', 'Unnamed: 37', 'Unnamed: 38', 'Unnamed: 39', 'Unnamed: 40', 'Unnamed: 41', 'Unnamed: 42', 'Unnamed: 43', 'Unnamed: 44', 'Unnamed: 45', 'Unnamed: 46', 'Unnamed: 47', 'Ca2'], shape=(0, 49)
+  Sheet 'Trang tính6': columns=[], shape=(0, 0)
+  Sheet 'Data': columns=['Cấp Quản Lý', 'Chi tiết', 'Loại Hàng', 'Time', 'Volume', '% Gán', '% GTC', '% Chuyển trả', 'Leadtime', 'Sản Lượng Giao Thành Công', 'Sản Lượng Chuyển Trả', 'Sản Lượng Gán', 'Sản Lượng Trả', 'Sản Lượng Tồn', 'Sản Lượng Chưa Gán', '% Chưa Gán', '%Tồn', 'Hàng Mới Về Trong Ngày', 'Tỉnh', 'Vùng', 'AM'], shape=(2, 21)
+  Sheet 'DataLTC': columns=['Cấp Quản Lý', 'Chi tiết', 'Loại Hàng', 'Time', 'Volume', '% Gán', '% LTC', '% Chuyển trả', 'Leadtime', 'Sản Lượng Lấy Thành Công', 'Sản Lượng Chuyển Trả', 'Sản Lượng Gán', 'Sản Lượng Trả', 'Sản Lượng Tồn', 'Sản Lượng Chưa Gán', '% Chưa Gán', '%Tồn', 'Hàng Mới Về Trong Ngày', 'Tỉnh', 'Vùng', 'AM'], shape=(2, 21)
+  Sheet 'rawltc': columns=['Cấp quản lý', 'Chi tiết', 'Ca', 'Time', 'Volume', '%Gán', '%LTC', '%LC', 'Leadtime'], shape=(2, 9)
+  Sheet 'Sheet13': columns=['Cấp Quản Lý', 'Chi tiết', 'Loại Hàng', 'Time', 'Volume', '% Gán', '% GTC', '% Chuyển trả', 'Leadtime'], shape=(2, 9)
+  Sheet 'Cơ cấu': columns=['Mã bưu cục', 'Bưu cục', 'BC', 'Tỉnh', 'Am', 'ID - Họ Tên Am'], shape=(2, 6)
+
+=========================================
+Workbook: co_cau_ntb.xlsx
+=========================================
+Sheet names: ['Sheet1']
+  Sheet 'Sheet1': columns=['warehouse_id', 'Bưu cục', 'Tỉnh', 'AM'], shape=(2, 4)
+
+=========================================
+Workbook: off_tuyen_spe.xlsx
+=========================================
+Sheet names: ['DRAFT', 'TEST', 'Đang OFF', 'Note RQ', 'MaBuuCuc', 'MaVung']
+  Sheet 'DRAFT': columns=['Tháng', 'Ngày đề xuất', 'Vùng', 'Tỉnh', 'Quận/ huyện', 'Phường/xã cần tắt', 'ID phường/xã\n(MÀU ĐỎ LÀ ĐANG OFF)', 'ID Bưu cục', 'Bưu Cục\nVùng để trống cột bất kỳ từ cột B-> R \nNhập sai format\n=> KHÔNG REVIEW', 'SL Shopee TB 7 ngày', 'Nhân sự hiện tại', 'Định biên nhân sự', 'Nhân sự đang thiếu', 'GTC 3 ngày gần nhất\n(Không tính Thứ 7-CN)', 'Số ngày nằm trong cảnh báo tháng N-1', 'Số ngày nằm trong cảnh báo tháng N', 'Thời gian request tắt', 'Thời gian request mở', 'Vùng Request', 'HRBP Regions xác nhận', 'Kết quả (KA) update', '% Cap Down (KA)', 'Thời gian tắt (KA)', 'Thời gian mở (KA)', 'Thời gian tắt', 'Thời gian mở', 'KA NOTE', 'Thời gian off gần nhất ', 'Note'], shape=(2, 29)
+  Sheet 'TEST': columns=['Tháng', 'Ngày đề xuất', 'Vùng', 'Tỉnh', 'Quận/ huyện', 'Phường/xã cần tắt', 'ID phường/xã\n(MÀU ĐỎ LÀ ĐANG OFF)', 'ID Bưu cục', 'Bưu Cục\nVùng để trống cột bất kỳ từ cột B-> R \nNhập sai format\n=> KHÔNG REVIEW', 'SL Shopee TB 7 ngày', 'Nhân sự hiện tại', 'Định biên nhân sự', 'Nhân sự đang thiếu', 'GTC 3 ngày gần nhất\n(Không tính Thứ 7-CN)', 'Số ngày nằm trong cảnh báo tháng N-1', 'Số ngày nằm trong cảnh báo tháng N', 'Thời gian request tắt', 'Thời gian request mở', 'Vùng Request', 'HRBP Regions xác nhận', 'Kết quả (KA) update', '% Cap Down (KA)', 'Thời gian tắt (KA)', 'Thời gian mở (KA)', 'Thời gian tắt', 'Thời gian mở', 'KA NOTE', 'Thời gian off gần nhất ', 'Note'], shape=(2, 29)
+  Sheet 'Đang OFF': columns=['Tỉnh', 'Quận/ huyện', 'Phường/xã cần tắt', 'Bưu Cục\nVùng để trống cột bất kỳ từ cột B-> R \nNhập sai format\n=> KHÔNG REVIEW', 'Kết quả (KA) update', '% Cap Down (KA)', 'Thời gian tắt (KA)', 'Thời gian mở (KA)', 'Note', 'ID phường/xã\n(MÀU ĐỎ LÀ ĐANG OFF)'], shape=(2, 10)
+  Sheet 'Note RQ': columns=['Ngày input', 'Vùng', 'Tỉnh', 'Quận/ huyện', 'Phường/xã cần tắt', 'ID phường/xã', 'ID Bưu cục', 'Bưu Cục', 'SL Shopee TB 7 ngày', 'Nhân sự hiện tại', 'Định biên nhân sự', 'Nhân sự đang thiếu', 'GTC 3 ngày gần nhất\n(Không tính Thứ 7-CN)', 'Số ngày nằm trong cảnh báo tháng N-1', 'Số ngày nằm trong cảnh báo tháng N', 'Thời gian request tắt', 'Thời gian request mở', 'Request '], shape=(2, 18)
+  Sheet 'MaBuuCuc': columns=['Tỉnh ', 'ID Huyện ', 'Huyện/TP', 'ward_code', 'Phường/Xã ', 'ID BC', 'Bưu cục'], shape=(2, 7)
+  Sheet 'MaVung': columns=['ward_id', 'ward_name', 'district_id', 'district_name', 'province_id', 'province_name', 'region_id', 'region_fullname', 'region_shortname'], shape=(2, 9)
+
+=========================================
+Workbook: OPR TTS.xlsx
+=========================================
+Sheet names: ['OPR', 'OE_madh', 'rawopr', 'CoCauVung', 'REPORT_OPR', 'Sheet35', 'Pivot Table 10', 'TEMP_AM_REPORT', 'Pivot Table 9', 'Sheet33', 'raw', 'RAW n-1', 'data', 'Pivot Table 8']
+  Sheet 'OPR': columns=['tutinh', 'kholay', 'NgayLTC', 'khung_gio_tao_don', 'ly_do_tre_12h', 'sellername', 'vol_ltc', 'tuan', 'vung', 'ot', 'Tuần', 'AM', 'Khung giờ tạo', 'Đơn trễ'], shape=(2, 14)
+  Sheet 'OE_madh': columns=['tutinh', 'kholay', 'thoigiantaoghn', 'NgayLTC', 'sellername', 'khung_gio_tao_don', 'ly_do_tre_12h', 'madh', 'vung', 'AM', 'Khung giờ tạo'], shape=(2, 11)
+  Sheet 'rawopr': columns=['tutinh', 'kholay', 'NgayLTC', 'khung_gio_tao_don', 'ly_do_tre_12h', 'sellername', 'vol_ltc', 'tuan', 'vung', 'ot', 'Tuần', 'AM', 'Filter'], shape=(2, 13)
+  Sheet 'CoCauVung': columns=['warehouse_id', 'Bưu cục', 'Tỉnh', 'AM'], shape=(2, 4)
+  Sheet 'REPORT_OPR': columns=['BÁO CÁO HIỆU SUẤT VẬN HÀNH OPR'], shape=(1, 1)
+  Sheet 'Sheet35': columns=[], shape=(0, 0)
+  Sheet 'Pivot Table 10': columns=['%OPR THEO AM - KPI 80%', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9', 'Unnamed: 10', 'Unnamed: 11', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15', '%OPR tạo từ 9h-19h', 'Unnamed: 17', 'Unnamed: 18', 'Unnamed: 19', 'Unnamed: 20', 'Unnamed: 21', 'Unnamed: 22', '%OPR tạo từ 19h-9h', 'Unnamed: 24', 'Unnamed: 25', 'Unnamed: 26', 'Unnamed: 27', 'Unnamed: 28', 'Unnamed: 29', 'Tỷ trọng lỗi OPR TTS theo khung giờ tạo'], shape=(0, 31)
+  Sheet 'TEMP_AM_REPORT': columns=['CHI TIẾT ĐƠF TRỄ CẦN GIẢI TRÌNH OPR'], shape=(2, 1)
+  Sheet 'Pivot Table 9': columns=[], shape=(0, 0)
+  Sheet 'Sheet33': columns=['Cấp Quản Lý', 'Chi tiết', 'Time', 'Volume', '% Gán', '% GTC', '% Chuyển trả', 'Leadtime'], shape=(2, 8)
+  Sheet 'raw': columns=['Quản lý', 'AM', 'Khung giờ tạo', 'Time', 'LTC', '% OT', 'Số đơn late', '%Contribute', 'TỶ TRỌNG LỖI THEO AM', 'Unnamed: 9'], shape=(2, 10)
+  Sheet 'RAW n-1': columns=['vung', 'madh', 'BC lấy', 'Thời gian tạo', 'Thời gian LTC', 'sellername', 'ly_do_tre_12h', 'AM'], shape=(2, 8)
+  Sheet 'data': columns=['vung', 'madh', 'BC lấy', 'Thời gian tạo', 'Thời gian LTC', 'sellername', 'ly_do_tre_12h', 'AM', 'TG tạo đơn'], shape=(2, 9)
+  Sheet 'Pivot Table 8': columns=[], shape=(0, 0)
+
+=========================================
+Workbook: temp_ops_check.xlsx
+=========================================
+Sheet names: ['Tổng quan', 'Trang tính12', 'Bưu cục', 'Thứ cùng kỳ', 'Ca1 - Ca2 - Tồn', 'Trang tính6', 'Data', 'DataLTC', 'rawltc', 'Sheet13', 'Cơ cấu']
+  Sheet 'Tổng quan': columns=[], shape=(0, 0)
+  Sheet 'Trang tính12': columns=[], shape=(0, 0)
+  Sheet 'Bưu cục': columns=['Unnamed: 0', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9', 'Unnamed: 10', 'Unnamed: 11', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15', 'TOP BƯU CỤC %GTC TỆ NHẤT', 'Unnamed: 17', 'Unnamed: 18', 'Unnamed: 19', 'Unnamed: 20', 'Unnamed: 21', 'Unnamed: 22', 'Unnamed: 23', 'Unnamed: 24', 'Unnamed: 25', 'Unnamed: 26', 'Unnamed: 27', 'Unnamed: 28', 'Unnamed: 29', 'Unnamed: 30', 'Unnamed: 31', 'TOP  20 BƯU CỤC %GTC TỐT NHẤT'], shape=(2, 33)
+  Sheet 'Thứ cùng kỳ': columns=[], shape=(0, 0)
+  Sheet 'Ca1 - Ca2 - Tồn': columns=['Ca1 + Tồn', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9', 'Unnamed: 10', 'Unnamed: 11', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15', 'Tồn', 'Unnamed: 17', 'Unnamed: 18', 'Unnamed: 19', 'Unnamed: 20', 'Unnamed: 21', 'Unnamed: 22', 'Unnamed: 23', 'Unnamed: 24', 'Unnamed: 25', 'Unnamed: 26', 'Unnamed: 27', 'Unnamed: 28', 'Unnamed: 29', 'Unnamed: 30', 'Unnamed: 31', 'Ca1', 'Unnamed: 33', 'Unnamed: 34', 'Unnamed: 35', 'Unnamed: 36', 'Unnamed: 37', 'Unnamed: 38', 'Unnamed: 39', 'Unnamed: 40', 'Unnamed: 41', 'Unnamed: 42', 'Unnamed: 43', 'Unnamed: 44', 'Unnamed: 45', 'Unnamed: 46', 'Unnamed: 47', 'Ca2'], shape=(0, 49)
+  Sheet 'Trang tính6': columns=[], shape=(0, 0)
+  Sheet 'Data': columns=['Cấp Quản Lý', 'Chi tiết', 'Loại Hàng', 'Time', 'Volume', '% Gán', '% GTC', '% Chuyển trả', 'Leadtime', 'Sản Lượng Giao Thành Công', 'Sản Lượng Chuyển Trả', 'Sản Lượng Gán', 'Sản Lượng Trả', 'Sản Lượng Tồn', 'Sản Lượng Chưa Gán', '% Chưa Gán', '%Tồn', 'Hàng Mới Về Trong Ngày', 'Tỉnh', 'Vùng', 'AM'], shape=(2, 21)
+  Sheet 'DataLTC': columns=['Cấp Quản Lý', 'Chi tiết', 'Loại Hàng', 'Time', 'Volume', '% Gán', '% GTC', '% Chuyển trả', 'Leadtime', 'Sản Lượng Lấy Thành Công', 'Sản Lượng Chuyển Trả', 'Sản Lượng Gán', 'Sản Lượng Trả', 'Sản Lượng Tồn', 'Sản Lượng Chưa Gán', '% Chưa Gán', '%Tồn', 'Hàng Mới Về Trong Ngày', 'Tỉnh', 'Vùng', 'AM'], shape=(2, 21)
+  Sheet 'rawltc': columns=['Cấp quản lý', 'Chi tiết', 'Ca', 'Time', 'Volume', '%Gán', '%LTC', '%LC', 'Leadtime'], shape=(2, 9)
+  Sheet 'Sheet13': columns=['Cấp Quản Lý', 'Chi tiết', 'Loại Hàng', 'Time', 'Volume', '% Gán', '% GTC', '% Chuyển trả', 'Leadtime'], shape=(2, 9)
+  Sheet 'Cơ cấu': columns=['Mã bưu cục', 'Bưu cục', 'BC', 'Tỉnh', 'Am', 'ID - Họ Tên Am'], shape=(2, 6)
+
+=========================================
+Workbook: Treo luân chuyển GIAO_TRẢ by IMTHIR.xlsx
+=========================================
+Sheet names: ['stuck', 'PIVOT', 'Phạm Bá Thành Công', '2', '1', 'Cơ cấu', 'Nguyễn Tống Hùng Phong', 'Huỳnh Thị Kim Chi', 'Trầm Hữu Tiến', 'Lê Minh Đại', 'Nguyễn Duy Long', 'Nguyễn Thanh Long', 'Nguyễn Lê Nguyên Vũ', 'Lê Thanh Nhựt', 'Cao Thị Thanh Thủy', 'Trần Văn Phước', 'Hồng Bích Nga', 'Thái Thị Thanh Thư', 'Trần Thị Nhung', 'Phan Đình Duy', 'Nguyễn Ngọc Khánh', 'Lê Văn Trường', 'Huỳnh Tấn Hiền', 'Võ Tấn Lợi', 'Trần Công Hậu', 'Nguyễn Hoàng Phi']
+  Sheet 'stuck': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(2, 10)
+  Sheet 'PIVOT': columns=['Đơn treo LUÂN CHUYỂN giao/trả trên 36h (Chưa/Không cần đóng kiện)', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5'], shape=(2, 6)
+  Sheet 'Phạm Bá Thành Công': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(2, 10)
+  Sheet '2': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name'], shape=(2, 7)
+  Sheet '1': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng'], shape=(2, 6)
+  Sheet 'Cơ cấu': columns=['warehouse_id', 'Bưu cục', 'Tỉnh', 'AM', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9', '0_6', '(1) 00-06h', '(0) Dưới 1 ngày', '(0) 00-24h', 'Unnamed: 14', 'Unnamed: 15', '0_6.1', 'A. 0-6'], shape=(2, 18)
+  Sheet 'Nguyễn Tống Hùng Phong': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(1, 10)
+  Sheet 'Huỳnh Thị Kim Chi': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(2, 10)
+  Sheet 'Trầm Hữu Tiến': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(2, 10)
+  Sheet 'Lê Minh Đại': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(2, 10)
+  Sheet 'Nguyễn Duy Long': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(2, 10)
+  Sheet 'Nguyễn Thanh Long': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(2, 10)
+  Sheet 'Nguyễn Lê Nguyên Vũ': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(1, 10)
+  Sheet 'Lê Thanh Nhựt': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(1, 10)
+  Sheet 'Cao Thị Thanh Thủy': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(2, 10)
+  Sheet 'Trần Văn Phước': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(2, 10)
+  Sheet 'Hồng Bích Nga': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(2, 10)
+  Sheet 'Thái Thị Thanh Thư': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(2, 10)
+  Sheet 'Trần Thị Nhung': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(2, 10)
+  Sheet 'Phan Đình Duy': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(2, 10)
+  Sheet 'Nguyễn Ngọc Khánh': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(2, 10)
+  Sheet 'Lê Văn Trường': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(2, 10)
+  Sheet 'Huỳnh Tấn Hiền': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(2, 10)
+  Sheet 'Võ Tấn Lợi': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(1, 10)
+  Sheet 'Trần Công Hậu': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(2, 10)
+  Sheet 'Nguyễn Hoàng Phi': columns=['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name', 'province_name', 'am_name', 'BL'], shape=(2, 10)
