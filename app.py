@@ -1847,17 +1847,20 @@ def upload_file():
     except Exception as e:
         return jsonify({"error": f"Lỗi lưu file hoặc cập nhật cache: {str(e)}"}), 500
 
-@app.route('/api/sync', methods=['POST'])
-@requires_auth
-def trigger_sync():
-    global OPERATIONAL_CACHE, OPR_CACHE, BACKLOG_CACHE_RAW, UNSTABLE_PO_CACHE, OFF_SPE_CACHE
-    with CACHE_LOCK:
-        if is_admin():
-            # Load config and download Google Sheets
+SYNC_STATUS = {
+    "status": "idle",
+    "progress": "",
+    "error": None,
+    "timestamp": None
+}
+
+def async_sync_task(is_admin_flag):
+    global OPERATIONAL_CACHE, OPR_CACHE, BACKLOG_CACHE_RAW, UNSTABLE_PO_CACHE, OFF_SPE_CACHE, SYNC_STATUS
+    try:
+        if is_admin_flag:
             config = load_config()
             download_errors = []
             
-            # Mapping URLs to local file names
             mappings = [
                 ("ops_url", 'Copy o NTB - BÁO CÁO VẬN HÀNH.xlsx', "Báo cáo Vận hành"),
                 ("opr_url", 'OPR TTS.xlsx', "OPR TTS"),
@@ -1868,35 +1871,78 @@ def trigger_sync():
                 ("tao_don_url", 'vols_tao_don.xlsx', "Volume tạo đơn")
             ]
             
+            total_urls = sum(1 for k, _, _ in mappings if config.get(k, "").strip())
+            current_idx = 0
+            
             for key, filename, label in mappings:
                 url = config.get(key, "")
                 if url and url.strip():
+                    current_idx += 1
+                    SYNC_STATUS["progress"] = f"Đang tải {label} ({current_idx}/{total_urls})..."
                     filepath = os.path.join(WORKSPACE_DIR, filename)
                     success, msg = download_google_sheet(url, filepath)
                     if not success:
                         download_errors.append(f"{label}: {msg}")
-                        
+            
             if download_errors:
-                return jsonify({"error": "Lỗi đồng bộ Google Sheets:\n" + "\n".join(download_errors)}), 400
+                SYNC_STATUS["status"] = "error"
+                SYNC_STATUS["error"] = "Lỗi đồng bộ Google Sheets:\n" + "\n".join(download_errors)
+                return
                 
-        update_all_caches()
+        SYNC_STATUS["progress"] = "Đang xử lý dữ liệu và cập nhật bộ nhớ đệm..."
         
-        if OPERATIONAL_CACHE and "error" in OPERATIONAL_CACHE:
-            return jsonify({"error": OPERATIONAL_CACHE["error"]}), 400
-        if OPR_CACHE and "error" in OPR_CACHE:
-            return jsonify({"error": OPR_CACHE["error"]}), 400
-        if BACKLOG_CACHE_RAW:
-            if "error" in BACKLOG_CACHE_RAW["aging"]:
-                return jsonify({"error": BACKLOG_CACHE_RAW["aging"]["error"]}), 400
-            if "error" in BACKLOG_CACHE_RAW["treo"]:
-                return jsonify({"error": BACKLOG_CACHE_RAW["treo"]["error"]}), 400
-        if UNSTABLE_PO_CACHE and "error" in UNSTABLE_PO_CACHE:
-            # We only raise a sync error if the file is expected (i.e. url is configured or file exists)
-            # otherwise it can fallback to empty/error message in its own panel
-            pass
-                
-        ts = add_to_history(BACKLOG_CACHE_RAW["aging"], BACKLOG_CACHE_RAW["treo"])
-    return jsonify({"success": True, "timestamp": ts})
+        with CACHE_LOCK:
+            update_all_caches()
+            
+            if OPERATIONAL_CACHE and "error" in OPERATIONAL_CACHE:
+                SYNC_STATUS["status"] = "error"
+                SYNC_STATUS["error"] = OPERATIONAL_CACHE["error"]
+                return
+            if OPR_CACHE and "error" in OPR_CACHE:
+                SYNC_STATUS["status"] = "error"
+                SYNC_STATUS["error"] = OPR_CACHE["error"]
+                return
+            if BACKLOG_CACHE_RAW:
+                if "error" in BACKLOG_CACHE_RAW["aging"]:
+                    SYNC_STATUS["status"] = "error"
+                    SYNC_STATUS["error"] = BACKLOG_CACHE_RAW["aging"]["error"]
+                    return
+                if "error" in BACKLOG_CACHE_RAW["treo"]:
+                    SYNC_STATUS["status"] = "error"
+                    SYNC_STATUS["error"] = BACKLOG_CACHE_RAW["treo"]["error"]
+                    return
+            
+            ts = add_to_history(BACKLOG_CACHE_RAW["aging"], BACKLOG_CACHE_RAW["treo"])
+            
+        SYNC_STATUS["status"] = "success"
+        SYNC_STATUS["timestamp"] = ts
+        SYNC_STATUS["progress"] = "Đồng bộ hoàn tất!"
+        
+    except Exception as e:
+        SYNC_STATUS["status"] = "error"
+        SYNC_STATUS["error"] = f"Lỗi hệ thống khi đồng bộ: {str(e)}"
+
+@app.route('/api/sync', methods=['POST'])
+@requires_auth
+def trigger_sync():
+    global SYNC_STATUS
+    if SYNC_STATUS["status"] == "processing":
+        return jsonify({"error": "Đang có quá trình đồng bộ đang chạy."}), 400
+        
+    SYNC_STATUS["status"] = "processing"
+    SYNC_STATUS["error"] = None
+    SYNC_STATUS["progress"] = "Đang khởi tạo đồng bộ..."
+    
+    admin_flag = is_admin()
+    threading.Thread(target=async_sync_task, args=(admin_flag,), daemon=True).start()
+    return jsonify({"success": True, "status": "started"})
+
+@app.route('/api/sync/status', methods=['GET'])
+@requires_auth
+def get_sync_status():
+    global SYNC_STATUS
+    return jsonify(SYNC_STATUS)
+
 
 @app.route('/api/summary-dashboard')
 @requires_auth

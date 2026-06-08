@@ -3394,23 +3394,50 @@
         }
 
         async function syncData() {
-            showLoading("Đang cào & đồng bộ dữ liệu. Vui lòng chờ...");
+            showLoading("Đang khởi tạo đồng bộ...");
             try {
                 const res = await fetch(getApiUrl('/api/sync'), getFetchOptions({ method: 'POST' }));
-                if (res.ok) {
-                    // Reload
-                    await loadHistoryDropdown();
-                    await loadAllData();
-                    await loadFilesStatus();
-                    alert("Đồng bộ dữ liệu thành công!");
-                } else {
+                if (!res.ok) {
                     const err = await res.json();
                     alert("Đồng bộ thất bại: " + err.error);
+                    hideLoading();
+                    return;
                 }
+                
+                const pollInterval = setInterval(async () => {
+                    try {
+                        const statusRes = await fetch(getApiUrl('/api/sync/status'), getFetchOptions());
+                        if (statusRes.ok) {
+                            const statusData = await statusRes.json();
+                            if (statusData.status === "processing") {
+                                showLoading(statusData.progress || "Đang đồng bộ...");
+                            } else if (statusData.status === "success") {
+                                clearInterval(pollInterval);
+                                await loadHistoryDropdown();
+                                await loadAllData();
+                                await loadFilesStatus();
+                                hideLoading();
+                                alert("Đồng bộ dữ liệu thành công!");
+                            } else if (statusData.status === "error") {
+                                clearInterval(pollInterval);
+                                hideLoading();
+                                alert("Đồng bộ thất bại:\n" + statusData.error);
+                            }
+                        } else {
+                            clearInterval(pollInterval);
+                            hideLoading();
+                            alert("Mất kết nối với máy chủ khi kiểm tra trạng thái.");
+                        }
+                    } catch (err) {
+                        clearInterval(pollInterval);
+                        hideLoading();
+                        alert("Lỗi kết nối khi kiểm tra trạng thái: " + err.message);
+                    }
+                }, 2000);
+                
             } catch (e) {
-                alert("Lỗi kết nối server: " + e.message);
-            } finally {
                 hideLoading();
+                alert("Lỗi kết nối server: " + e.message);
             }
         }
 
