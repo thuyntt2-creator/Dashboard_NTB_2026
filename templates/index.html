@@ -214,6 +214,105 @@
             gap: 12px;
         }
 
+        /* Custom Login Page Styling */
+        #login-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0f172a;
+            background-image: 
+                radial-gradient(circle at top right, rgba(59, 130, 246, 0.08), transparent 400px),
+                radial-gradient(circle at bottom left, rgba(6, 182, 212, 0.08), transparent 400px),
+                linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
+                url('/static/ghn_bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 9999;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 400px;
+            padding: 32px;
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .login-input {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.6) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: #ffffff !important;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .login-input:focus {
+            border-color: var(--color-indigo) !important;
+            box-shadow: 0 0 0 2px rgba(255, 95, 0, 0.2) !important;
+        }
+
+        /* User Management Admin Panel */
+        .user-mgmt-section {
+            margin-top: 32px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 24px;
+        }
+
+        .user-mgmt-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .permissions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-top: 6px;
+        }
+
+        .permission-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .permission-item input {
+            cursor: pointer;
+            accent-color: var(--color-ghn-orange);
+            width: 16px;
+            height: 16px;
+        }
+
         /* Dropdowns & Inputs */
         .select-input,
         .text-input {
@@ -1547,6 +1646,43 @@
         <p id="loading-text">Đang tải dữ liệu...</p>
     </div>
 
+    <!-- Custom Login Overlay -->
+    <div id="login-container" style="display: none;">
+        <div class="login-card">
+            <div style="text-align: center; margin-bottom: 24px;">
+                <div style="width: 64px; height: 64px; border-radius: 16px; margin: 0 auto 16px auto; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #007bc3, #299ce6); box-shadow: 0 0 30px rgba(0, 123, 195, 0.3);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap" style="color: #ffffff;"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
+                </div>
+                <h2 style="font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 4px; background: linear-gradient(135deg, #ffffff, #cbd5e1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">NTB Ops Dashboard</h2>
+                <p style="font-size: 13px; color: #94a3b8;">Hệ thống quản lý vận hành khu vực Nam Trung Bộ</p>
+            </div>
+            
+            <div style="background: rgba(239, 68, 68, 0.15); border-left: 3px solid #ef4444; padding: 12px; border-radius: 6px; margin-bottom: 20px; font-size: 12.5px; color: #fca5a5; display: none;" id="login-error-msg">
+                <i class="fa-solid fa-triangle-exclamation" style="margin-right: 4px;"></i> <span id="login-error-text">Sai thông tin đăng nhập!</span>
+            </div>
+            
+            <form id="login-form" style="display: flex; flex-direction: column; gap: 16px;" onsubmit="handleLoginSubmit(event)">
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <label style="font-size: 11px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">Mã Nhân Viên</label>
+                    <input type="text" id="login-username" required placeholder="Nhập mã nhân viên hoặc 'admin'" class="login-input" autocomplete="username">
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <label style="font-size: 11px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">Mật Khẩu</label>
+                    <input type="password" id="login-password" required placeholder="Nhập mật khẩu" class="login-input" autocomplete="current-password">
+                </div>
+                
+                <button type="submit" style="background: linear-gradient(135deg, #007bc3, #299ce6); color: #ffffff; padding: 12px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; outline: none; margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(0, 123, 195, 0.2);">
+                    Đăng Nhập <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+            
+            <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.08); text-align: center;">
+                <p style="font-size: 11px; color: #64748b;">Demo: admin / admin123 hoặc staff / staff123</p>
+            </div>
+        </div>
+    </div>
+
     <div class="app-layout">
         <!-- Sidebar Navigation -->
         <aside class="sidebar">
@@ -1554,39 +1690,42 @@
                 <img src="/static/ghn_logo.png" alt="GHN Logo" style="max-height: 48px; max-width: 100%; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.02));">
             </div>
             <ul class="sidebar-menu">
-                <li class="menu-item active" onclick="switchTab('tab-dashboard', this)">
+                <li class="menu-item active" id="nav-tab-dashboard" onclick="switchTab('tab-dashboard', this)">
                     <i class="fa-solid fa-chart-pie"></i> Tổng quan
                 </li>
-                <li class="menu-item" onclick="switchTab('tab-introduction', this)">
+                <li class="menu-item" id="nav-tab-introduction" onclick="switchTab('tab-introduction', this)">
                     <i class="fa-solid fa-map-location-dot"></i> Giới thiệu NTB
                 </li>
-                <li class="menu-item" onclick="switchTab('tab-ntb-summary', this)">
+                <li class="menu-item" id="nav-tab-ntb-summary" onclick="switchTab('tab-ntb-summary', this)">
                     <i class="fa-solid fa-chart-line"></i> Chỉ số NTB
                 </li>
-                <li class="menu-item" onclick="switchTab('tab-operational', this)">
+                <li class="menu-item" id="nav-tab-operational" onclick="switchTab('tab-operational', this)">
                     <i class="fa-solid fa-truck-ramp-box"></i> Báo cáo Vận hành
                 </li>
-                <li class="menu-item" onclick="switchTab('tab-opr', this)">
+                <li class="menu-item" id="nav-tab-opr" onclick="switchTab('tab-opr', this)">
                     <i class="fa-solid fa-user-clock"></i> OPR TTS
                 </li>
-                <li class="menu-item" onclick="switchTab('tab-backlog', this)">
+                <li class="menu-item" id="nav-tab-backlog" onclick="switchTab('tab-backlog', this)">
                     <i class="fa-solid fa-boxes-stacked"></i> Giám sát Backlog
                 </li>
-                <li class="menu-item" onclick="switchTab('tab-unstable-po', this)">
+                <li class="menu-item" id="nav-tab-unstable-po" onclick="switchTab('tab-unstable-po', this)">
                     <i class="fa-solid fa-triangle-exclamation"></i> Bưu cục bất ổn
                 </li>
-                <li class="menu-item" onclick="switchTab('tab-off-spe', this)">
+                <li class="menu-item" id="nav-tab-off-spe" onclick="switchTab('tab-off-spe', this)">
                     <i class="fa-solid fa-power-off"></i> OFF Tuyến SPE
                 </li>
-                <li class="menu-item" onclick="switchTab('tab-volume-creation', this)">
+                <li class="menu-item" id="nav-tab-volume-creation" onclick="switchTab('tab-volume-creation', this)">
                     <i class="fa-solid fa-file-invoice"></i> Volume tạo đơn
                 </li>
-                <li class="menu-item" onclick="switchTab('tab-sync', this)">
+                <li class="menu-item" id="nav-tab-sync" onclick="switchTab('tab-sync', this)">
                     <i class="fa-solid fa-rotate"></i> Đồng bộ & Files
                 </li>
             </ul>
-            <div class="sidebar-footer">
-                GHN Ops v2.0 &bull; 2026
+            <div class="sidebar-footer" style="display: flex; flex-direction: column; gap: 8px; align-items: center; padding: 12px 16px;">
+                <div>GHN Ops v2.0 &bull; 2026</div>
+                <div style="font-weight: 600; font-size: 11px; color: var(--text-secondary); display: flex; align-items: center; gap: 4px; border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; background: rgba(0,0,0,0.01);" onclick="handleLogout()" id="sidebar-logout-btn">
+                    <i class="fa-solid fa-right-from-bracket" style="color: var(--color-danger);"></i> Đăng xuất
+                </div>
             </div>
         </aside>
 
@@ -2952,6 +3091,81 @@
                         </button>
                     </div>
                 </div>
+
+                <!-- CARD: USER MANAGEMENT (ADMIN ONLY) -->
+                <div class="card" id="card-user-management" style="margin-top: 24px; display: none;">
+                    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 16px; margin-bottom: 20px;">
+                        <h3 style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 20px; color: var(--color-ghn-blue); text-transform: uppercase; margin: 0; display: flex; align-items: center; gap: 8px;">
+                            <i class="fa-solid fa-users-gear"></i> Quản lý người dùng & phân quyền
+                        </h3>
+                        <button class="btn btn-primary btn-sm" onclick="showAddUserModal()" style="padding: 6px 12px; font-size: 12px; border-radius: 6px;">
+                            <i class="fa-solid fa-user-plus"></i> Thêm người dùng
+                        </button>
+                    </div>
+
+                    <!-- Add/Edit User Form container (collapsible) -->
+                    <div id="user-form-container" style="display: none; background: rgba(0, 0, 0, 0.02); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 24px; animation: fadeIn 0.3s;">
+                        <h4 id="user-form-title" style="font-size: 15px; font-weight: 700; margin-bottom: 16px; color: var(--text-primary);">Thêm Người Dùng Mới</h4>
+                        <form id="user-mgmt-form" onsubmit="saveUser(event)" style="display: flex; flex-direction: column; gap: 16px;">
+                            <input type="hidden" id="mgmt-user-is-edit" value="false">
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+                                <div class="filter-group">
+                                    <label style="font-size: 11px; font-weight: 600; color: var(--text-secondary);">Mã Nhân Viên (Username)</label>
+                                    <input type="text" id="mgmt-username" required placeholder="Nhập mã nhân viên" class="text-input" style="width: 100%;">
+                                </div>
+                                <div class="filter-group">
+                                    <label style="font-size: 11px; font-weight: 600; color: var(--text-secondary);">Mật Khẩu</label>
+                                    <input type="password" id="mgmt-password" placeholder="Nhập mật khẩu" class="text-input" style="width: 100%;">
+                                    <small id="mgmt-password-help" style="font-size: 10px; color: var(--text-muted); margin-top: 4px; display: none;">Để trống nếu giữ nguyên mật khẩu cũ</small>
+                                </div>
+                                <div class="filter-group">
+                                    <label style="font-size: 11px; font-weight: 600; color: var(--text-secondary);">Vai Trò (Role)</label>
+                                    <select id="mgmt-role" class="select-input" style="width: 100%;" onchange="onMgmtRoleChange(this.value)">
+                                        <option value="staff" selected>Nhân viên (Staff)</option>
+                                        <option value="admin">Quản trị viên (Admin)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="filter-group">
+                                <label style="font-size: 11px; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px; display: block;">Chức năng được phép xem (Permissions)</label>
+                                <div class="permissions-grid" id="mgmt-permissions-grid">
+                                    <label class="permission-item"><input type="checkbox" value="tab-dashboard" checked> Tổng quan</label>
+                                    <label class="permission-item"><input type="checkbox" value="tab-introduction" checked> Giới thiệu NTB</label>
+                                    <label class="permission-item"><input type="checkbox" value="tab-ntb-summary" checked> Chỉ số NTB</label>
+                                    <label class="permission-item"><input type="checkbox" value="tab-operational" checked> Báo cáo Vận hành</label>
+                                    <label class="permission-item"><input type="checkbox" value="tab-opr" checked> OPR TTS</label>
+                                    <label class="permission-item"><input type="checkbox" value="tab-backlog" checked> Giám sát Backlog</label>
+                                    <label class="permission-item"><input type="checkbox" value="tab-unstable-po" checked> Bưu cục bất ổn</label>
+                                    <label class="permission-item"><input type="checkbox" value="tab-off-spe" checked> OFF Tuyến SPE</label>
+                                    <label class="permission-item"><input type="checkbox" value="tab-volume-creation" checked> Volume tạo đơn</label>
+                                    <label class="permission-item"><input type="checkbox" value="tab-sync"> Đồng bộ & Files</label>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; gap: 8px; justify-content: flex-end; margin-top: 8px;">
+                                <button type="button" class="btn btn-secondary" onclick="hideUserForm()" style="padding: 8px 16px;">Hủy</button>
+                                <button type="submit" class="btn btn-primary" style="padding: 8px 16px;">Lưu thông tin</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="custom-table" id="table-users-mgmt" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: left; width: 150px;">Mã Nhân Viên</th>
+                                    <th style="text-align: center; width: 150px;">Vai Trò</th>
+                                    <th style="text-align: left;">Quyền Xem Chức Năng</th>
+                                    <th style="text-align: center; width: 150px;">Thao Tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-users-mgmt-body">
+                                <!-- Users list populated dynamically via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
@@ -2966,6 +3180,7 @@
 
         // Builder for fetch options (headers)
         function getFetchOptions(options = {}) {
+            options.credentials = 'include';
             if (window.location.protocol === 'file:') {
                 if (!options.headers) options.headers = {};
                 options.headers['Authorization'] = 'Basic ' + btoa('admin:admin123');
@@ -3103,41 +3318,404 @@
             }
         }
 
-        let userRole = 'staff'; // default
+        let userRole = 'staff';
+        let userPermissions = [];
+        let loggedInUsername = '';
 
         async function checkUserRole() {
             try {
                 const res = await fetch(getApiUrl('/api/user-role'), getFetchOptions());
+                if (res.status === 401) {
+                    // Show login overlay
+                    document.querySelector('.app-layout').style.display = 'none';
+                    document.getElementById('login-container').style.display = 'flex';
+                    hideLoading();
+                    return false;
+                }
+                
                 if (res.ok) {
                     const data = await res.json();
                     userRole = data.role;
-                    if (userRole !== 'admin') {
+                    userPermissions = data.permissions || [];
+                    loggedInUsername = data.username;
+
+                    // Hide login overlay, show app layout
+                    document.getElementById('login-container').style.display = 'none';
+                    document.querySelector('.app-layout').style.display = 'flex';
+
+                    // Update UI elements based on role & permissions
+                    gateMenuTabs();
+
+                    if (userRole === 'admin') {
+                        // Show Google Sheets config card
+                        const configCard = document.getElementById('card-google-sheets-config');
+                        if (configCard) configCard.style.display = 'block';
+                        
+                        // Show sync buttons
+                        const headerSyncBtn = document.getElementById('header-sync-btn');
+                        if (headerSyncBtn) headerSyncBtn.style.display = 'inline-flex';
+                        
+                        const footerSyncBtn = document.getElementById('footer-sync-btn');
+                        if (footerSyncBtn) footerSyncBtn.style.display = 'inline-block';
+
+                        // Show user management card
+                        const userMgmtCard = document.getElementById('card-user-management');
+                        if (userMgmtCard) {
+                            userMgmtCard.style.display = 'block';
+                            loadUsersList();
+                        }
+                    } else {
                         // Hide Google Sheets config card
                         const configCard = document.getElementById('card-google-sheets-config');
                         if (configCard) configCard.style.display = 'none';
                         
-                        // Hide sync buttons
+                        // Show sync buttons
                         const headerSyncBtn = document.getElementById('header-sync-btn');
                         if (headerSyncBtn) headerSyncBtn.style.display = 'none';
                         
                         const footerSyncBtn = document.getElementById('footer-sync-btn');
                         if (footerSyncBtn) footerSyncBtn.style.display = 'none';
+
+                        // Hide user management card
+                        const userMgmtCard = document.getElementById('card-user-management');
+                        if (userMgmtCard) userMgmtCard.style.display = 'none';
                     }
+                    return true;
                 }
             } catch (err) {
                 console.error("Lỗi kiểm tra quyền người dùng: ", err);
+            }
+            return false;
+        }
+
+        function gateMenuTabs() {
+            // Define all tab mappings
+            const tabIds = [
+                'tab-dashboard',
+                'tab-introduction',
+                'tab-ntb-summary',
+                'tab-operational',
+                'tab-opr',
+                'tab-backlog',
+                'tab-unstable-po',
+                'tab-off-spe',
+                'tab-volume-creation',
+                'tab-sync'
+            ];
+
+            let firstAllowedTab = null;
+
+            tabIds.forEach(tabId => {
+                const navItem = document.getElementById('nav-' + tabId);
+                if (!navItem) return;
+
+                // Admin has all permissions. Otherwise check if tabId in userPermissions
+                const isAllowed = userRole === 'admin' || userPermissions.includes(tabId);
+                
+                if (isAllowed) {
+                    navItem.style.display = 'flex';
+                    if (!firstAllowedTab) firstAllowedTab = tabId;
+                } else {
+                    navItem.style.display = 'none';
+                }
+            });
+
+            // If current active tab is not allowed, switch to the first allowed tab
+            const activePanel = document.querySelector('.content-panel.active');
+            const activeTabId = activePanel ? activePanel.id : 'tab-dashboard';
+
+            const isCurrentAllowed = userRole === 'admin' || userPermissions.includes(activeTabId);
+            if (!isCurrentAllowed && firstAllowedTab) {
+                const navBtn = document.getElementById('nav-' + firstAllowedTab);
+                if (navBtn) {
+                    switchTab(firstAllowedTab, navBtn);
+                }
+            }
+        }
+
+        async function handleLoginSubmit(event) {
+            event.preventDefault();
+            const usernameInput = document.getElementById('login-username');
+            const passwordInput = document.getElementById('login-password');
+            const errorMsg = document.getElementById('login-error-msg');
+            const errorText = document.getElementById('login-error-text');
+
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value;
+
+            if (!username || !password) return;
+
+            showLoading("Đang xác thực...");
+            errorMsg.style.display = 'none';
+
+            try {
+                const res = await fetch(getApiUrl('/api/login'), getFetchOptions({
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                }));
+
+                if (res.ok) {
+                    const data = await res.json();
+                    usernameInput.value = '';
+                    passwordInput.value = '';
+                    
+                    const loggedIn = await checkUserRole();
+                    if (loggedIn) {
+                        loadAllData();
+                        loadFilesStatus();
+                        loadHistoryDropdown();
+                        loadNtbSummaryData();
+                        loadGoogleSheetsConfig();
+                        loadNtbStructure();
+                    }
+                } else {
+                    const errData = await res.json();
+                    errorText.innerText = errData.error || "Mã nhân viên hoặc mật khẩu không đúng.";
+                    errorMsg.style.display = 'flex';
+                }
+            } catch (err) {
+                errorText.innerText = "Lỗi kết nối máy chủ: " + err.message;
+                errorMsg.style.display = 'flex';
+            } finally {
+                hideLoading();
+            }
+        }
+
+        async function handleLogout() {
+            if (!confirm("Bạn có chắc chắn muốn đăng xuất không?")) return;
+            showLoading("Đang đăng xuất...");
+            try {
+                const res = await fetch(getApiUrl('/api/logout'), getFetchOptions({
+                    method: 'POST'
+                }));
+                if (res.ok) {
+                    userRole = 'staff';
+                    userPermissions = [];
+                    loggedInUsername = '';
+                    
+                    document.querySelector('.app-layout').style.display = 'none';
+                    document.getElementById('login-container').style.display = 'flex';
+                }
+            } catch (err) {
+                console.error("Lỗi khi đăng xuất: ", err);
+            } finally {
+                hideLoading();
+            }
+        }
+
+        // USER CRUD LOGIC FOR ADMIN
+        async function loadUsersList() {
+            try {
+                const res = await fetch(getApiUrl('/api/users'), getFetchOptions());
+                if (res.ok) {
+                    const users = await res.json();
+                    const tbody = document.getElementById('table-users-mgmt-body');
+                    tbody.innerHTML = '';
+
+                    const friendlyTabNames = {
+                        'tab-dashboard': 'Tổng quan',
+                        'tab-introduction': 'Giới thiệu',
+                        'tab-ntb-summary': 'Chỉ số',
+                        'tab-operational': 'Vận hành',
+                        'tab-opr': 'OPR',
+                        'tab-backlog': 'Backlog',
+                        'tab-unstable-po': 'Bất ổn',
+                        'tab-off-spe': 'OFF SPE',
+                        'tab-volume-creation': 'Sản lượng',
+                        'tab-sync': 'Đồng bộ'
+                    };
+
+                    users.forEach(u => {
+                        const tr = document.createElement('tr');
+                        
+                        let badgeHtml = '';
+                        if (u.role === 'admin') {
+                            badgeHtml = '<span class="status-badge stable">Admin</span>';
+                        } else {
+                            badgeHtml = '<span class="status-badge warning">Staff</span>';
+                        }
+
+                        let permissionsHtml = '';
+                        if (u.role === 'admin') {
+                            permissionsHtml = '<span style="color: var(--text-muted); font-style: italic;">Có toàn quyền hệ thống</span>';
+                        } else {
+                            const pNames = (u.permissions || []).map(p => friendlyTabNames[p] || p);
+                            permissionsHtml = pNames.length > 0 
+                                ? pNames.map(p => `<span class="status-badge" style="background: rgba(0,123,195,0.08); color: var(--color-ghn-blue); margin-right: 4px; border: 1px solid rgba(0,123,195,0.15);">${p}</span>`).join(' ')
+                                : '<span style="color: var(--color-danger); font-size: 11px;">Không được xem tab nào</span>';
+                        }
+
+                        const isSelf = u.username === loggedInUsername;
+
+                        tr.innerHTML = `
+                            <td style="text-align: left; font-weight: 700;">
+                                ${escapeHTML(u.username)} ${isSelf ? ' <span style="color: var(--text-muted); font-weight: normal; font-size: 11px;">(Bạn)</span>' : ''}
+                            </td>
+                            <td style="text-align: center;">${badgeHtml}</td>
+                            <td style="text-align: left; line-height: 1.8;">${permissionsHtml}</td>
+                            <td style="text-align: center; display: flex; gap: 8px; justify-content: center; align-items: center;">
+                                <button class="btn btn-secondary btn-sm" onclick="editUser('${escapeHTML(u.username)}', '${escapeHTML(u.role)}', '${escapeHTML(JSON.stringify(u.permissions))}')" style="padding: 4px 8px; font-size: 11px; cursor: pointer; border-radius: 4px;">
+                                    <i class="fa-solid fa-pen-to-square"></i> Sửa
+                                </button>
+                                <button class="btn btn-secondary btn-sm" onclick="deleteUser('${escapeHTML(u.username)}')" ${isSelf ? 'disabled style="opacity: 0.5; cursor: not-allowed; padding: 4px 8px; font-size: 11px;"' : 'style="padding: 4px 8px; font-size: 11px; cursor: pointer; border-radius: 4px;"'}>
+                                    <i class="fa-solid fa-trash-can" style="color: var(--color-danger);"></i> Xóa
+                                </button>
+                            </td>
+                        `;
+                        tbody.appendChild(tr);
+                    });
+                }
+            } catch (err) {
+                console.error("Lỗi load danh sách user: ", err);
+            }
+        }
+
+        function showAddUserModal() {
+            document.getElementById('user-form-title').innerText = "Thêm Người Dùng Mới";
+            document.getElementById('mgmt-username').value = '';
+            document.getElementById('mgmt-username').disabled = false;
+            document.getElementById('mgmt-password').value = '';
+            document.getElementById('mgmt-password').required = true;
+            document.getElementById('mgmt-password-help').style.display = 'none';
+            document.getElementById('mgmt-user-is-edit').value = 'false';
+            document.getElementById('mgmt-role').value = 'staff';
+            
+            document.querySelectorAll('#mgmt-permissions-grid input[type="checkbox"]').forEach(cb => {
+                cb.checked = cb.value !== 'tab-sync';
+                cb.disabled = false;
+            });
+
+            document.getElementById('user-form-container').style.display = 'block';
+            document.getElementById('mgmt-username').focus();
+        }
+
+        function editUser(username, role, permissionsStr) {
+            const permissions = JSON.parse(permissionsStr);
+            
+            document.getElementById('user-form-title').innerText = "Cập Nhật Người Dùng: " + username;
+            document.getElementById('mgmt-username').value = username;
+            document.getElementById('mgmt-username').disabled = true;
+            document.getElementById('mgmt-password').value = '';
+            document.getElementById('mgmt-password').required = false;
+            document.getElementById('mgmt-password-help').style.display = 'block';
+            document.getElementById('mgmt-user-is-edit').value = 'true';
+            document.getElementById('mgmt-role').value = role;
+
+            onMgmtRoleChange(role);
+
+            if (role === 'admin') {
+                document.querySelectorAll('#mgmt-permissions-grid input[type="checkbox"]').forEach(cb => {
+                    cb.checked = true;
+                    cb.disabled = true;
+                });
+            } else {
+                document.querySelectorAll('#mgmt-permissions-grid input[type="checkbox"]').forEach(cb => {
+                    cb.checked = permissions.includes(cb.value);
+                    cb.disabled = false;
+                });
+            }
+
+            document.getElementById('user-form-container').style.display = 'block';
+            document.getElementById('mgmt-password').focus();
+        }
+
+        function onMgmtRoleChange(role) {
+            if (role === 'admin') {
+                document.querySelectorAll('#mgmt-permissions-grid input[type="checkbox"]').forEach(cb => {
+                    cb.checked = true;
+                    cb.disabled = true;
+                });
+            } else {
+                document.querySelectorAll('#mgmt-permissions-grid input[type="checkbox"]').forEach(cb => {
+                    cb.disabled = false;
+                });
+            }
+        }
+
+        function hideUserForm() {
+            document.getElementById('user-form-container').style.display = 'none';
+        }
+
+        async function saveUser(event) {
+            event.preventDefault();
+            const username = document.getElementById('mgmt-username').value.trim();
+            const password = document.getElementById('mgmt-password').value;
+            const role = document.getElementById('mgmt-role').value;
+            const isEdit = document.getElementById('mgmt-user-is-edit').value === 'true';
+
+            if (!username) return;
+
+            const permissions = [];
+            document.querySelectorAll('#mgmt-permissions-grid input[type="checkbox"]').forEach(cb => {
+                if (cb.checked) {
+                    permissions.push(cb.value);
+                }
+            });
+
+            const payload = { username, role, permissions };
+            if (password) payload.password = password;
+
+            showLoading("Đang lưu...");
+            try {
+                const res = await fetch(getApiUrl('/api/users'), getFetchOptions({
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                }));
+
+                if (res.ok) {
+                    hideUserForm();
+                    await loadUsersList();
+                    if (username === loggedInUsername) {
+                        await checkUserRole();
+                    }
+                    alert("Đã lưu thông tin người dùng thành công!");
+                } else {
+                    const err = await res.json();
+                    alert("Lỗi lưu người dùng: " + err.error);
+                }
+            } catch (err) {
+                alert("Lỗi kết nối máy chủ: " + err.message);
+            } finally {
+                hideLoading();
+            }
+        }
+
+        async function deleteUser(username) {
+            if (!confirm(`Bạn có chắc chắn muốn xóa người dùng ${username} không?`)) return;
+            
+            showLoading("Đang xóa...");
+            try {
+                const res = await fetch(getApiUrl('/api/users/' + encodeURIComponent(username)), getFetchOptions({
+                    method: 'DELETE'
+                }));
+
+                if (res.ok) {
+                    await loadUsersList();
+                    alert(`Đã xóa người dùng ${username} thành công!`);
+                } else {
+                    const err = await res.json();
+                    alert("Lỗi xóa người dùng: " + err.error);
+                }
+            } catch (err) {
+                alert("Lỗi kết nối máy chủ: " + err.message);
+            } finally {
+                hideLoading();
             }
         }
 
         // Initialize and load data
         window.addEventListener('DOMContentLoaded', async () => {
-            await checkUserRole();
-            loadAllData();
-            loadFilesStatus();
-            loadHistoryDropdown();
-            loadNtbSummaryData();
-            loadGoogleSheetsConfig();
-            loadNtbStructure();
+            const isLoggedIn = await checkUserRole();
+            if (isLoggedIn) {
+                loadAllData();
+                loadFilesStatus();
+                loadHistoryDropdown();
+                loadNtbSummaryData();
+                loadGoogleSheetsConfig();
+                loadNtbStructure();
+            }
         });
 
         async function loadGoogleSheetsConfig() {

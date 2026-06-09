@@ -37,7 +37,7 @@ def _patched_read_excel(*args, **kwargs):
 pd.read_excel = _patched_read_excel
 
 import numpy as np
-from flask import Flask, jsonify, render_template, request, Response
+from flask import Flask, jsonify, render_template, request, Response, session
 import threading
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
@@ -46,34 +46,148 @@ import requests
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
+app.secret_key = os.environ.get('SECRET_KEY', 'ntb-ops-dashboard-secret-key-2026-xyz-987')
+app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(days=30)
 CACHE_LOCK = threading.RLock()
 
-# PBKDF2:SHA256 hash of 'admin123' and 'staff123'
-PASSWORD_HASH = generate_password_hash('admin123', method='pbkdf2:sha256')
-STAFF_PASSWORD_HASH = generate_password_hash('staff123', method='pbkdf2:sha256')
+# Helper functions to load/save users with permissions
+DEFAULT_USERS = {
+    "admin": {
+        "username": "admin",
+        "password": generate_password_hash("admin123", method="pbkdf2:sha256"),
+        "role": "admin",
+        "permissions": [
+            "tab-dashboard",
+            "tab-introduction",
+            "tab-ntb-summary",
+            "tab-operational",
+            "tab-opr",
+            "tab-backlog",
+            "tab-unstable-po",
+            "tab-off-spe",
+            "tab-volume-creation",
+            "tab-sync"
+        ]
+    },
+    "staff": {
+        "username": "staff",
+        "password": generate_password_hash("staff123", method="pbkdf2:sha256"),
+        "role": "staff",
+        "permissions": [
+            "tab-dashboard",
+            "tab-introduction",
+            "tab-ntb-summary",
+            "tab-operational",
+            "tab-opr",
+            "tab-backlog",
+            "tab-unstable-po",
+            "tab-off-spe",
+            "tab-volume-creation"
+        ]
+    }
+}
+
+def load_users():
+    users_file = resolve_path('users.json', write=False)
+    if not os.path.exists(users_file):
+        save_users(DEFAULT_USERS)
+        return DEFAULT_USERS
+    try:
+        with open(users_file, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"Error loading users.json: {e}")
+        return DEFAULT_USERS
+
+def save_users(users):
+    try:
+        users_file = resolve_path('users.json', write=True)
+        with open(users_file, 'w', encoding='utf-8') as f:
+            json.dump(users, f, indent=4, ensure_ascii=False)
+        return True
+    except Exception as e:
+        print(f"Error saving users.json: {e}")
+        return False
 
 def check_auth(username, password):
-    if username == 'admin' and check_password_hash(PASSWORD_HASH, password):
-        return 'admin'
-    elif username == 'staff' and check_password_hash(STAFF_PASSWORD_HASH, password):
-        return 'staff'
+    users = load_users()
+    if username in users and check_password_hash(users[username]["password"], password):
+        return username
     return None
 
 def is_admin():
+    if session.get('role') == 'admin':
+        return True
     auth = request.authorization
-    return auth and auth.username == 'admin'
+    if auth:
+        users = load_users()
+        return auth.username in users and users[auth.username].get("role") == "admin"
+    return False
 
 def requires_auth(f):
     @wraps(f)
     def decorated(*args, **kwargs):
+        # 1. Try session authentication first
+        if 'username' in session:
+            return f(*args, **kwargs)
+            
+        # 2. Try Basic Auth (backward compatibility for automated scripts)
         auth = request.authorization
-        if not auth or not check_auth(auth.username, auth.password):
-            return Response(
-                'Yêu cầu đăng nhập để truy cập hệ thống.', 401,
-                {'WWW-Authenticate': 'Basic realm="Dashboard Login Required"'}
-            )
-        return f(*args, **kwargs)
+        if auth and check_auth(auth.username, auth.password):
+            session['username'] = auth.username
+            users = load_users()
+            user = users.get(auth.username, {})
+            session['role'] = user.get("role", "staff")
+            session['permissions'] = user.get("permissions", [])
+            return f(*args, **kwargs)
+            
+        # 3. If neither succeeds, return 401. 
+        # Add WWW-Authenticate header only if basic auth headers were provided to avoid browser dialogs in standard usage.
+        headers = {}
+        if request.headers.get('Authorization'):
+            headers['WWW-Authenticate'] = 'Basic realm="Dashboard Login Required"'
+        return Response(
+            json.dumps({"error": "Yêu cầu đăng nhập để truy cập hệ thống."}),
+            401,
+            headers,
+            mimetype='application/json'
+        )
     return decorated
+
+def requires_permission(permission):
+    def decorator(f):
+        @wraps(f)
+        def decorated(*args, **kwargs):
+            # 1. Check/Authenticate session
+            if 'username' not in session:
+                auth = request.authorization
+                if auth and check_auth(auth.username, auth.password):
+                    session['username'] = auth.username
+                    users = load_users()
+                    user = users.get(auth.username, {})
+                    session['role'] = user.get("role", "staff")
+                    session['permissions'] = user.get("permissions", [])
+                    
+            if 'username' not in session:
+                headers = {}
+                if request.headers.get('Authorization'):
+                    headers['WWW-Authenticate'] = 'Basic realm="Dashboard Login Required"'
+                return Response(
+                    json.dumps({"error": "Yêu cầu đăng nhập để truy cập hệ thống."}),
+                    401,
+                    headers,
+                    mimetype='application/json'
+                )
+                
+            # 2. Verify role & permission
+            user_permissions = session.get('permissions', [])
+            if session.get('role') == 'admin' or permission in user_permissions:
+                return f(*args, **kwargs)
+                
+            return jsonify({"error": "Quyền truy cập bị từ chối. Bạn không có quyền sử dụng chức năng này."}), 403
+        return decorated
+    return decorator
+
 
 import functools
 def with_lock(lock):
@@ -104,9 +218,26 @@ def add_security_headers(response):
     response.headers['Permissions-Policy'] = 'geolocation=(), microphone=(), camera=()'
     response.headers.pop('X-Powered-By', None)
     return response
+def resolve_path(filename, write=False):
+    """
+    Tự động phân giải đường dẫn đọc/ghi file.
+    Trên Vercel hoặc môi trường read-only:
+      - Ghi file (write=True): Lưu vào /tmp/<filename>
+      - Đọc file (write=False): Đọc từ /tmp/<filename> nếu tồn tại, ngược lại đọc từ thư mục gốc.
+    """
+    if os.environ.get("VERCEL") or not os.access(os.getcwd(), os.W_OK):
+        tmp_path = os.path.join('/tmp', filename)
+        if write:
+            # Đảm bảo thư mục /tmp tồn tại (trong trường hợp chạy cục bộ mô phỏng)
+            os.makedirs('/tmp', exist_ok=True)
+            return tmp_path
+        else:
+            if os.path.exists(tmp_path):
+                return tmp_path
+            return os.path.join(os.getcwd(), filename)
+    return os.path.join(os.getcwd(), filename)
+
 WORKSPACE_DIR = os.getcwd()
-HISTORY_FILE = os.path.join(WORKSPACE_DIR, 'backlog_history.json')
-CONFIG_FILE = os.path.join(WORKSPACE_DIR, 'config.json')
 
 def load_config():
     defaults = {
@@ -120,9 +251,10 @@ def load_config():
     }
     
     config = {}
-    if os.path.exists(CONFIG_FILE):
+    config_file = resolve_path('config.json', write=False)
+    if os.path.exists(config_file):
         try:
-            with open(CONFIG_FILE, 'r', encoding='utf-8') as f:
+            with open(config_file, 'r', encoding='utf-8') as f:
                 config = json.load(f)
         except Exception as e:
             print(f"Error loading config.json: {e}")
@@ -170,9 +302,9 @@ def save_config(config):
         for k, env_name in keys_map.items():
             os.environ[env_name] = clean_config[k]
             
-        # 2. Update .env file if it exists, otherwise update config.json
+        # 2. Update .env file if it exists and is writeable, otherwise update config.json
         env_file = os.path.join(WORKSPACE_DIR, '.env')
-        if os.path.exists(env_file):
+        if not os.environ.get("VERCEL") and os.path.exists(env_file) and os.access(env_file, os.W_OK):
             lines = []
             with open(env_file, 'r', encoding='utf-8') as f:
                 lines = f.readlines()
@@ -197,7 +329,8 @@ def save_config(config):
             with open(env_file, 'w', encoding='utf-8') as f:
                 f.writelines(new_lines)
         else:
-            with open(CONFIG_FILE, 'w', encoding='utf-8') as f:
+            config_file = resolve_path('config.json', write=True)
+            with open(config_file, 'w', encoding='utf-8') as f:
                 json.dump(clean_config, f, indent=4, ensure_ascii=False)
                 
         return True
@@ -401,7 +534,7 @@ def read_ops_sheet(xls, sheet_type):
 # 1. PROCESS OPERATIONAL REPORT
 # ==========================================
 def process_operational_report(df_gtc=None, df_ltc=None):
-    file_path = os.path.join(WORKSPACE_DIR, 'Copy o NTB - BÁO CÁO VẬN HÀNH.xlsx')
+    file_path = resolve_path('Copy o NTB - BÁO CÁO VẬN HÀNH.xlsx', write=False)
     
     try:
         if df_gtc is None or df_ltc is None:
@@ -526,7 +659,7 @@ def process_operational_report(df_gtc=None, df_ltc=None):
 # 2. PROCESS OPR TTS REPORT
 # ==========================================
 def process_opr_report(df_opr=None, df_oe=None, df_rawopr=None):
-    file_path = os.path.join(WORKSPACE_DIR, 'OPR TTS.xlsx')
+    file_path = resolve_path('OPR TTS.xlsx', write=False)
     
     try:
         if df_opr is None or df_oe is None or df_rawopr is None:
@@ -654,7 +787,7 @@ def process_opr_report(df_opr=None, df_oe=None, df_rawopr=None):
 # 3. PROCESS BACKLOG AGING
 # ==========================================
 def process_aging_backlog(df_raw=None, df_co_cau=None):
-    file_path = os.path.join(WORKSPACE_DIR, 'Aging _5 ngày.xlsx')
+    file_path = resolve_path('Aging _5 ngày.xlsx', write=False)
     
     try:
         if df_raw is None or df_co_cau is None:
@@ -737,7 +870,7 @@ def process_aging_backlog(df_raw=None, df_co_cau=None):
 # 4. PROCESS PENDING TRANSIT (TREO LUÂN CHUYỂN)
 # ==========================================
 def process_treo_backlog(df_raw=None, df_co_cau=None):
-    file_path = os.path.join(WORKSPACE_DIR, 'Treo luân chuyển GIAO_TRẢ by IMTHIR.xlsx')
+    file_path = resolve_path('Treo luân chuyển GIAO_TRẢ by IMTHIR.xlsx', write=False)
     
     try:
         if df_raw is None or df_co_cau is None:
@@ -888,7 +1021,7 @@ def map_po_to_am_prov(po_id, po_name, id_to_am, id_to_prov, name_to_am, name_to_
     return default_am, default_prov
 
 def process_unstable_po():
-    file_path = os.path.join(WORKSPACE_DIR, 'buu_cuc_bat_on.xlsx')
+    file_path = resolve_path('buu_cuc_bat_on.xlsx', write=False)
     if not os.path.exists(file_path):
         return {"error": f"Không tìm thấy file: {os.path.basename(file_path)}. Vui lòng đồng bộ hoặc tải lên."}
     
@@ -959,7 +1092,7 @@ def process_unstable_po():
         id_to_prov = {}
         name_to_am = {}
         name_to_prov = {}
-        co_cau_path = os.path.join(WORKSPACE_DIR, 'co_cau_ntb.xlsx')
+        co_cau_path = resolve_path('co_cau_ntb.xlsx', write=False)
         if os.path.exists(co_cau_path):
             try:
                 df_cc = pd.read_excel(co_cau_path, sheet_name='Sheet1')
@@ -1075,7 +1208,7 @@ def process_unstable_po():
         return {"error": f"Lỗi xử lý bưu cục bất ổn: {str(e)}"}
 
 def process_off_spe():
-    file_path = os.path.join(WORKSPACE_DIR, 'off_tuyen_spe.xlsx')
+    file_path = resolve_path('off_tuyen_spe.xlsx', write=False)
     if not os.path.exists(file_path):
         return {"error": f"Không tìm thấy file: {os.path.basename(file_path)}. Vui lòng đồng bộ hoặc tải lên."}
     
@@ -1203,17 +1336,19 @@ def process_off_spe():
 # 5. SYNC & HISTORY CACHE MANAGEMENT
 # ==========================================
 def load_history():
-    if not os.path.exists(HISTORY_FILE):
+    history_file = resolve_path('backlog_history.json', write=False)
+    if not os.path.exists(history_file):
         return []
     try:
-        with open(HISTORY_FILE, 'r', encoding='utf-8') as f:
+        with open(history_file, 'r', encoding='utf-8') as f:
             return json.load(f)
     except:
         return []
 
 def save_history(history):
     try:
-        with open(HISTORY_FILE, 'w', encoding='utf-8') as f:
+        history_file = resolve_path('backlog_history.json', write=True)
+        with open(history_file, 'w', encoding='utf-8') as f:
             json.dump(history, f, indent=4, ensure_ascii=False)
     except Exception as e:
         print(f"Error saving history: {e}")
@@ -1337,7 +1472,7 @@ DF_TAO_DON_CACHE = None
 DF_BUU_CUC_TYPE_MAP = None
 
 def load_buu_cuc_type_map():
-    file_path = os.path.join(WORKSPACE_DIR, 'buu_cuc_bat_on.xlsx')
+    file_path = resolve_path('buu_cuc_bat_on.xlsx', write=False)
     if not os.path.exists(file_path):
         return {}
     try:
@@ -1383,7 +1518,7 @@ def load_buu_cuc_type_map():
     return {}
 
 def load_vols_tao_don_df():
-    file_path = os.path.join(WORKSPACE_DIR, 'vols_tao_don.xlsx')
+    file_path = resolve_path('vols_tao_don.xlsx', write=False)
     if not os.path.exists(file_path):
         return None
     try:
@@ -1422,7 +1557,7 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         bc_to_prov = {}
         
         # 1. Load and process Báo cáo Vận hành
-        file_path = os.path.join(WORKSPACE_DIR, 'Copy o NTB - BÁO CÁO VẬN HÀNH.xlsx')
+        file_path = resolve_path('Copy o NTB - BÁO CÁO VẬN HÀNH.xlsx', write=False)
         if raw_gtc is None or raw_ltc is None or raw_co_cau is None:
             if not os.path.exists(file_path):
                 raise FileNotFoundError("Không tìm thấy file: BÁO CÁO VẬN HÀNH")
@@ -1462,7 +1597,7 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         gc.collect()
         
         # 2. Load and process Aging
-        path_aging = os.path.join(WORKSPACE_DIR, 'Aging _5 ngày.xlsx')
+        path_aging = resolve_path('Aging _5 ngày.xlsx', write=False)
         if raw_aging is None or raw_co_cau_aging is None:
             if not os.path.exists(path_aging):
                 raise FileNotFoundError("Không tìm thấy file: Aging _5 ngày")
@@ -1493,7 +1628,7 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         gc.collect()
         
         # 3. Load and process Treo
-        path_treo = os.path.join(WORKSPACE_DIR, 'Treo luân chuyển GIAO_TRẢ by IMTHIR.xlsx')
+        path_treo = resolve_path('Treo luân chuyển GIAO_TRẢ by IMTHIR.xlsx', write=False)
         if raw_treo is None or raw_co_cau_treo is None:
             if not os.path.exists(path_treo):
                 raise FileNotFoundError("Không tìm thấy file: Treo luân chuyển")
@@ -1636,7 +1771,7 @@ def update_all_caches():
     try:
         print("Parsing OPR report...")
         # Since OPR TTS is loaded here, we load it and process it
-        path_opr = os.path.join(WORKSPACE_DIR, 'OPR TTS.xlsx')
+        path_opr = resolve_path('OPR TTS.xlsx', write=False)
         if os.path.exists(path_opr):
             with pd.ExcelFile(path_opr) as xls_opr:
                 raw_opr = pd.read_excel(xls_opr, sheet_name="OPR")
@@ -1656,7 +1791,7 @@ def update_all_caches():
     try:
         print("Parsing Backlog reports...")
         # We pass the cached dataframes!
-        path_aging = os.path.join(WORKSPACE_DIR, 'Aging _5 ngày.xlsx')
+        path_aging = resolve_path('Aging _5 ngày.xlsx', write=False)
         if os.path.exists(path_aging):
             with pd.ExcelFile(path_aging) as xls_aging:
                 raw_co_cau_aging = pd.read_excel(xls_aging, sheet_name="Cơ cấu")
@@ -1665,7 +1800,7 @@ def update_all_caches():
         else:
             aging = {"error": "Không tìm thấy file Aging"}
             
-        path_treo = os.path.join(WORKSPACE_DIR, 'Treo luân chuyển GIAO_TRẢ by IMTHIR.xlsx')
+        path_treo = resolve_path('Treo luân chuyển GIAO_TRẢ by IMTHIR.xlsx', write=False)
         if os.path.exists(path_treo):
             with pd.ExcelFile(path_treo) as xls_treo:
                 raw_co_cau_treo = pd.read_excel(xls_treo, sheet_name="Cơ cấu")
@@ -1718,12 +1853,117 @@ def update_all_caches():
 # 7. API FLASK ENDPOINTS
 # ==========================================
 @app.route('/')
-@requires_auth
 def home():
     return render_template('index.html')
 
+@app.route('/api/login', methods=['POST'])
+def api_login():
+    try:
+        data = request.json or {}
+        username = data.get("username", "").strip()
+        password = data.get("password", "").strip()
+        
+        if not username or not password:
+            return jsonify({"error": "Vui lòng nhập đầy đủ mã nhân viên và mật khẩu."}), 400
+            
+        users = load_users()
+        if username in users and check_password_hash(users[username]["password"], password):
+            session.clear()
+            session['username'] = username
+            session['role'] = users[username].get("role", "staff")
+            session['permissions'] = users[username].get("permissions", [])
+            session.permanent = True
+            return jsonify({
+                "success": True,
+                "username": username,
+                "role": session['role'],
+                "permissions": session['permissions']
+            })
+        return jsonify({"error": "Sai mã nhân viên hoặc mật khẩu."}), 401
+    except Exception as e:
+        return jsonify({"error": f"Lỗi đăng nhập: {str(e)}"}), 500
+
+@app.route('/api/logout', methods=['POST'])
+def api_logout():
+    session.clear()
+    return jsonify({"success": True, "message": "Đăng xuất thành công."})
+
+@app.route('/api/users', methods=['GET', 'POST'])
+@requires_permission('tab-sync')
+def api_users():
+    if not is_admin():
+        return jsonify({"error": "Quyền truy cập bị từ chối."}), 403
+        
+    users = load_users()
+    
+    if request.method == 'GET':
+        users_list = []
+        for uname, udata in users.items():
+            users_list.append({
+                "username": udata["username"],
+                "role": udata.get("role", "staff"),
+                "permissions": udata.get("permissions", [])
+            })
+        return jsonify(users_list)
+        
+    elif request.method == 'POST':
+        data = request.json or {}
+        username = data.get("username", "").strip()
+        password = data.get("password", "").strip()
+        role = data.get("role", "staff").strip()
+        permissions = data.get("permissions", [])
+        
+        if not username:
+            return jsonify({"error": "Username không được để trống."}), 400
+            
+        if username not in users and not password:
+            return jsonify({"error": "Mật khẩu không được để trống khi tạo mới user."}), 400
+            
+        if username in users:
+            users[username]["role"] = role
+            users[username]["permissions"] = permissions
+            if password:
+                users[username]["password"] = generate_password_hash(password, method="pbkdf2:sha256")
+        else:
+            users[username] = {
+                "username": username,
+                "password": generate_password_hash(password, method="pbkdf2:sha256"),
+                "role": role,
+                "permissions": permissions
+            }
+            
+        save_users(users)
+        return jsonify({"success": True, "message": f"User {username} đã được lưu thành công."})
+
+@app.route('/api/users/<username>', methods=['DELETE'])
+@requires_permission('tab-sync')
+def api_delete_user(username):
+    if not is_admin():
+        return jsonify({"error": "Quyền truy cập bị từ chối."}), 403
+        
+    current_user = session.get('username')
+    if not current_user:
+        auth = request.authorization
+        if auth:
+            current_user = auth.username
+            
+    if current_user == username:
+        return jsonify({"error": "Không thể tự xóa chính mình."}), 400
+        
+    users = load_users()
+    if username not in users:
+        return jsonify({"error": "User không tồn tại."}), 404
+        
+    admin_count = sum(1 for u in users.values() if u.get("role") == "admin")
+    if users[username].get("role") == "admin" and admin_count <= 1:
+        return jsonify({"error": "Không thể xóa admin duy nhất của hệ thống."}), 400
+        
+    del users[username]
+    save_users(users)
+    return jsonify({"success": True, "message": f"User {username} đã được xóa."})
+
 @app.route('/api/unstable-po')
-@requires_auth
+@requires_permission('tab-unstable-po')
 def get_unstable_po():
     global UNSTABLE_PO_CACHE
     if UNSTABLE_PO_CACHE is None:
@@ -1733,7 +1973,7 @@ def get_unstable_po():
     return jsonify(UNSTABLE_PO_CACHE)
 
 @app.route('/api/off-spe')
-@requires_auth
+@requires_permission('tab-off-spe')
 def get_off_spe():
     global OFF_SPE_CACHE
     if OFF_SPE_CACHE is None:
@@ -1743,7 +1983,7 @@ def get_off_spe():
     return jsonify(OFF_SPE_CACHE)
 
 @app.route('/api/operational')
-@requires_auth
+@requires_permission('tab-operational')
 def get_operational():
     global OPERATIONAL_CACHE
     with CACHE_LOCK:
@@ -1752,7 +1992,7 @@ def get_operational():
     return jsonify(clean_nan(OPERATIONAL_CACHE))
 
 @app.route('/api/opr')
-@requires_auth
+@requires_permission('tab-opr')
 def get_opr():
     global OPR_CACHE
     with CACHE_LOCK:
@@ -1761,7 +2001,7 @@ def get_opr():
     return jsonify(clean_nan(OPR_CACHE))
 
 @app.route('/api/backlog')
-@requires_auth
+@requires_permission('tab-backlog')
 def get_backlog():
     global BACKLOG_CACHE_RAW
     with CACHE_LOCK:
@@ -1802,7 +2042,7 @@ def get_backlog():
     return jsonify(clean_nan(current_data))
 
 @app.route('/api/history')
-@requires_auth
+@requires_permission('tab-backlog')
 def get_history():
     history = load_history()
     timestamps = [entry["timestamp"] for entry in history]
@@ -1811,8 +2051,14 @@ def get_history():
 @app.route('/api/user-role')
 @requires_auth
 def get_user_role():
+    username = session.get('username')
+    if not username and request.authorization:
+        username = request.authorization.username
     role = 'admin' if is_admin() else 'staff'
-    return jsonify({"username": request.authorization.username, "role": role})
+    users = load_users()
+    user = users.get(username, {})
+    permissions = user.get("permissions", [])
+    return jsonify({"username": username, "role": role, "permissions": permissions})
 
 def mask_url(url):
     if not url:
@@ -1829,7 +2075,7 @@ def mask_url(url):
     return masked_url
 
 @app.route('/api/config', methods=['GET', 'POST'])
-@requires_auth
+@requires_permission('tab-sync')
 def manage_config():
     if request.method == 'POST':
         if not is_admin():
@@ -1863,7 +2109,7 @@ def manage_config():
         return jsonify(masked_config)
 
 @app.route('/api/download-template', methods=['GET'])
-@requires_auth
+@requires_permission('tab-sync')
 def download_template():
     from flask import send_from_directory
     filename = request.args.get('filename', '').strip()
@@ -1880,12 +2126,14 @@ def download_template():
         return jsonify({"error": "Tên file không hợp lệ."}), 400
         
     try:
-        return send_from_directory(WORKSPACE_DIR, filename, as_attachment=True)
+        download_path = resolve_path(filename, write=False)
+        directory, file_only = os.path.split(download_path)
+        return send_from_directory(directory, file_only, as_attachment=True)
     except Exception as e:
         return jsonify({"error": f"Không thể tải file: {str(e)}"}), 500
 
 @app.route('/api/upload', methods=['POST'])
-@requires_auth
+@requires_permission('tab-sync')
 def upload_file():
     global OPERATIONAL_CACHE, OPR_CACHE, BACKLOG_CACHE_RAW
     if 'file' not in request.files:
@@ -1914,7 +2162,7 @@ def upload_file():
         return jsonify({"error": "Định dạng file không hợp lệ. Chỉ hỗ trợ file Excel (.xlsx, .xls)."}), 400
         
     try:
-        filepath = os.path.join(WORKSPACE_DIR, filename)
+        filepath = resolve_path(filename, write=True)
         file.save(filepath)
         
         update_all_caches()
@@ -1957,7 +2205,7 @@ def async_sync_task(is_admin_flag):
                 if url and url.strip():
                     current_idx += 1
                     SYNC_STATUS["progress"] = f"Đang tải {label} ({current_idx}/{total_urls})..."
-                    filepath = os.path.join(WORKSPACE_DIR, filename)
+                    filepath = resolve_path(filename, write=True)
                     success, msg = download_google_sheet(url, filepath)
                     if not success:
                         download_errors.append(f"{label}: {msg}")
@@ -2000,7 +2248,7 @@ def async_sync_task(is_admin_flag):
         SYNC_STATUS["error"] = f"Lỗi hệ thống khi đồng bộ: {str(e)}"
 
 @app.route('/api/sync', methods=['POST'])
-@requires_auth
+@requires_permission('tab-sync')
 def trigger_sync():
     global SYNC_STATUS
     if SYNC_STATUS["status"] == "processing":
@@ -2015,14 +2263,14 @@ def trigger_sync():
     return jsonify({"success": True, "status": "started"})
 
 @app.route('/api/sync/status', methods=['GET'])
-@requires_auth
+@requires_permission('tab-sync')
 def get_sync_status():
     global SYNC_STATUS
     return jsonify(SYNC_STATUS)
 
 
 @app.route('/api/summary-dashboard')
-@requires_auth
+@requires_permission('tab-dashboard')
 def api_summary_dashboard():
     try:
         df_gtc, df_ltc, df_aging, df_treo = get_dataframes()
@@ -2197,7 +2445,7 @@ def api_summary_dashboard():
         return jsonify({"error": f"Lỗi tính toán summary: {str(e)}"}), 500
 
 @app.route('/api/trends-dashboard')
-@requires_auth
+@requires_permission('tab-dashboard')
 def api_trends_dashboard():
     try:
         df_gtc, df_ltc, _, _ = get_dataframes()
@@ -2290,7 +2538,7 @@ def api_trends_dashboard():
         return jsonify({"error": f"Lỗi tính toán xu hướng: {str(e)}"}), 500
 
 @app.route('/api/matrix-tables')
-@requires_auth
+@requires_permission('tab-volume-creation')
 def api_matrix_tables():
     try:
         df_gtc, df_ltc, _, _ = get_dataframes()
@@ -2426,7 +2674,7 @@ def api_chat():
                 
             # Worst ODR (Ontime Delivery) from ODR TTS.csv
             try:
-                odr_path = os.path.join(WORKSPACE_DIR, 'ODR TTS.csv')
+                odr_path = resolve_path('ODR TTS.csv', write=False)
                 if os.path.exists(odr_path):
                     df_odr = pd.read_csv(odr_path)
                     df_odr['GTC'] = pd.to_numeric(df_odr['GTC'], errors='coerce')
@@ -2461,7 +2709,7 @@ def api_chat():
         # 3. ODR (Ontime Delivery Rate)
         elif 'odr' in message or 'đúng giờ' in message or 'trễ' in message or 'tre' in message or 'dung gio' in message:
             try:
-                odr_path = os.path.join(WORKSPACE_DIR, 'ODR TTS.csv')
+                odr_path = resolve_path('ODR TTS.csv', write=False)
                 if os.path.exists(odr_path):
                     df_odr = pd.read_csv(odr_path)
                     df_odr['GTC'] = pd.to_numeric(df_odr['GTC'], errors='coerce')
@@ -2529,10 +2777,10 @@ def api_chat():
         return jsonify({"reply": f"🤖 Đã xảy ra lỗi hệ thống: {str(ex)}"}), 500
 
 @app.route('/api/ntb-structure')
-@requires_auth
+@requires_permission('tab-introduction')
 def get_ntb_structure():
     try:
-        path = os.path.join(WORKSPACE_DIR, 'co_cau_ntb.xlsx')
+        path = resolve_path('co_cau_ntb.xlsx', write=False)
         if not os.path.exists(path):
             return jsonify({"error": "Không tìm thấy file co_cau_ntb.xlsx"})
         
@@ -2552,7 +2800,7 @@ def get_ntb_structure():
         return jsonify({"error": f"Lỗi đọc file cơ cấu: {str(e)}"}), 500
 
 @app.route('/api/files-status')
-@requires_auth
+@requires_permission('tab-sync')
 def get_files_status():
     files = [
         'Aging _5 ngày.xlsx',
@@ -2566,7 +2814,7 @@ def get_files_status():
     ]
     status = []
     for f in files:
-        path = os.path.join(WORKSPACE_DIR, f)
+        path = resolve_path(f, write=False)
         if os.path.exists(path):
             stat = os.stat(path)
             mtime = datetime.datetime.fromtimestamp(stat.st_mtime).strftime("%Y-%m-%d %H:%M:%S")
@@ -2576,7 +2824,7 @@ def get_files_status():
             status.append({"name": f, "exists": False, "mtime": "-", "size_mb": 0})
     return jsonify(status)
 @app.route('/api/volume-creation')
-@requires_auth
+@requires_permission('tab-volume-creation')
 def get_volume_creation():
     global DF_TAO_DON_CACHE, DF_BUU_CUC_TYPE_MAP
     
