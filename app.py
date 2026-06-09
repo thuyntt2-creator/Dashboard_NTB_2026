@@ -221,16 +221,16 @@ def download_google_sheet(url, output_path):
     export_url = f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/export?format=xlsx"
     
     try:
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)'
-        }
-        response = requests.get(export_url, headers=headers, timeout=60)
-        if response.status_code == 200:
+        import urllib.request
+        req = urllib.request.Request(
+            export_url,
+            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)'}
+        )
+        with urllib.request.urlopen(req, timeout=60) as response:
+            content = response.read()
             with open(output_path, 'wb') as f:
-                f.write(response.content)
-            return True, "Tải thành công."
-        else:
-            return False, f"Tải thất bại (Mã lỗi: {response.status_code}). Vui lòng kiểm tra quyền chia sẻ link (phải để ở chế độ 'Người có liên kết có quyền xem')."
+                f.write(content)
+        return True, "Tải thành công."
     except Exception as e:
         return False, mask_url(f"Lỗi kết nối khi tải: {str(e)}")
 

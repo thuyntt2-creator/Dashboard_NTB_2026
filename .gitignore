@@ -10,6 +10,7 @@ backlog_history.json
 *.xls
 *.csv
 !*.env.example
+!co_cau_ntb.xlsx
 
 # Intermediate inspection and log files
 *_res.txt
