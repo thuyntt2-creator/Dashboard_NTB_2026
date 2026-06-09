@@ -1412,7 +1412,6 @@ def clean_str_key(val):
     }
     return replacements.get(val, val.replace(" ", "_"))
 
-@with_lock(CACHE_LOCK)
 def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw_aging=None, raw_co_cau_aging=None, raw_treo=None, raw_co_cau_treo=None):
     global DF_GTC_CACHE, DF_LTC_CACHE, DF_CO_CAU_CACHE, DF_AGING_CACHE, DF_TREO_CACHE
     import gc
@@ -1916,10 +1915,9 @@ def upload_file():
         filepath = os.path.join(WORKSPACE_DIR, filename)
         file.save(filepath)
         
-        with CACHE_LOCK:
-            update_all_caches()
-            if BACKLOG_CACHE_RAW and "error" not in BACKLOG_CACHE_RAW["aging"] and "error" not in BACKLOG_CACHE_RAW["treo"]:
-                add_to_history(BACKLOG_CACHE_RAW["aging"], BACKLOG_CACHE_RAW["treo"])
+        update_all_caches()
+        if BACKLOG_CACHE_RAW and "error" not in BACKLOG_CACHE_RAW["aging"] and "error" not in BACKLOG_CACHE_RAW["treo"]:
+            add_to_history(BACKLOG_CACHE_RAW["aging"], BACKLOG_CACHE_RAW["treo"])
                 
         return jsonify({"success": True, "message": f"Tải lên và đồng bộ file {filename} thành công!"})
     except Exception as e:
@@ -1969,28 +1967,27 @@ def async_sync_task(is_admin_flag):
                 
         SYNC_STATUS["progress"] = "Đang xử lý dữ liệu và cập nhật bộ nhớ đệm..."
         
-        with CACHE_LOCK:
-            update_all_caches()
-            
-            if OPERATIONAL_CACHE and "error" in OPERATIONAL_CACHE:
+        update_all_caches()
+        
+        if OPERATIONAL_CACHE and "error" in OPERATIONAL_CACHE:
+            SYNC_STATUS["status"] = "error"
+            SYNC_STATUS["error"] = OPERATIONAL_CACHE["error"]
+            return
+        if OPR_CACHE and "error" in OPR_CACHE:
+            SYNC_STATUS["status"] = "error"
+            SYNC_STATUS["error"] = OPR_CACHE["error"]
+            return
+        if BACKLOG_CACHE_RAW:
+            if "error" in BACKLOG_CACHE_RAW["aging"]:
                 SYNC_STATUS["status"] = "error"
-                SYNC_STATUS["error"] = OPERATIONAL_CACHE["error"]
+                SYNC_STATUS["error"] = BACKLOG_CACHE_RAW["aging"]["error"]
                 return
-            if OPR_CACHE and "error" in OPR_CACHE:
+            if "error" in BACKLOG_CACHE_RAW["treo"]:
                 SYNC_STATUS["status"] = "error"
-                SYNC_STATUS["error"] = OPR_CACHE["error"]
+                SYNC_STATUS["error"] = BACKLOG_CACHE_RAW["treo"]["error"]
                 return
-            if BACKLOG_CACHE_RAW:
-                if "error" in BACKLOG_CACHE_RAW["aging"]:
-                    SYNC_STATUS["status"] = "error"
-                    SYNC_STATUS["error"] = BACKLOG_CACHE_RAW["aging"]["error"]
-                    return
-                if "error" in BACKLOG_CACHE_RAW["treo"]:
-                    SYNC_STATUS["status"] = "error"
-                    SYNC_STATUS["error"] = BACKLOG_CACHE_RAW["treo"]["error"]
-                    return
-            
-            ts = add_to_history(BACKLOG_CACHE_RAW["aging"], BACKLOG_CACHE_RAW["treo"])
+        
+        ts = add_to_history(BACKLOG_CACHE_RAW["aging"], BACKLOG_CACHE_RAW["treo"])
             
         SYNC_STATUS["status"] = "success"
         SYNC_STATUS["timestamp"] = ts
