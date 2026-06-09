@@ -433,43 +433,63 @@ def read_ops_sheet(xls, sheet_type):
                 cols_lower = {c.strip().lower(): c for c in df.columns}
                 rename_map = {}
                 
-                # Normalize core columns
-                core_ltc_cols = {
-                    'cấp quản lý': 'Cấp quản lý',
-                    'chi tiết': 'Chi tiết',
-                    'ca': 'Ca',
-                    'time': 'Time',
-                    'volume': 'Volume',
-                    'leadtime': 'Leadtime'
-                }
-                for k, standard_name in core_ltc_cols.items():
-                    if k in cols_lower and cols_lower[k] != standard_name:
-                        rename_map[cols_lower[k]] = standard_name
-                        
-                # Rename `% gtc` -> `%LTC` or `% ltc` -> `%LTC` if %ltc is not present
-                if '%ltc' not in cols_lower:
+                # Check for shifted column signature in dataltc style
+                if 'loại hàng' in cols_lower and 'time' in cols_lower and 'volume' in cols_lower and '% gán' in cols_lower:
+                    rename_map[cols_lower['loại hàng']] = 'Time'
+                    rename_map[cols_lower['time']] = 'Volume'
+                    rename_map[cols_lower['volume']] = '% Gán'
+                    rename_map[cols_lower['% gán']] = '%LTC'
                     if '% ltc' in cols_lower:
-                        rename_map[cols_lower['% ltc']] = '%LTC'
-                    elif '% gtc' in cols_lower:
-                        rename_map[cols_lower['% gtc']] = '%LTC'
-                else:
-                    rename_map[cols_lower['%ltc']] = '%LTC'
+                        rename_map[cols_lower['% ltc']] = '%LC'
+                    elif '%ltc' in cols_lower:
+                        rename_map[cols_lower['%ltc']] = '%LC'
                     
-                # Rename `% lc` -> `%LC` or `% chuyển trả` -> `%LC` if %lc is not present
-                if '%lc' not in cols_lower:
-                    if '% lc' in cols_lower:
-                        rename_map[cols_lower['% lc']] = '%LC'
-                    elif '% chuyển trả' in cols_lower:
-                        rename_map[cols_lower['% chuyển trả']] = '%LC'
+                    other_cols = {
+                        'cấp quản lý': 'Cấp quản lý',
+                        'chi tiết': 'Chi tiết',
+                        'leadtime': 'Leadtime'
+                    }
+                    for k, standard_name in other_cols.items():
+                        if k in cols_lower and cols_lower[k] != standard_name:
+                            rename_map[cols_lower[k]] = standard_name
                 else:
-                    rename_map[cols_lower['%lc']] = '%LC'
-                    
-                # Rename `% gán` -> `%Gán` if %gán is not present
-                if '%gán' not in cols_lower:
-                    if '% gán' in cols_lower:
-                        rename_map[cols_lower['% gán']] = '%Gán'
-                else:
-                    rename_map[cols_lower['%gán']] = '%Gán'
+                    # Normalize core columns
+                    core_ltc_cols = {
+                        'cấp quản lý': 'Cấp quản lý',
+                        'chi tiết': 'Chi tiết',
+                        'ca': 'Ca',
+                        'time': 'Time',
+                        'volume': 'Volume',
+                        'leadtime': 'Leadtime'
+                    }
+                    for k, standard_name in core_ltc_cols.items():
+                        if k in cols_lower and cols_lower[k] != standard_name:
+                            rename_map[cols_lower[k]] = standard_name
+                            
+                    # Rename `% gtc` -> `%LTC` or `% ltc` -> `%LTC` if %ltc is not present
+                    if '%ltc' not in cols_lower:
+                        if '% ltc' in cols_lower:
+                            rename_map[cols_lower['% ltc']] = '%LTC'
+                        elif '% gtc' in cols_lower:
+                            rename_map[cols_lower['% gtc']] = '%LTC'
+                    else:
+                        rename_map[cols_lower['%ltc']] = '%LTC'
+                        
+                    # Rename `% lc` -> `%LC` or `% chuyển trả` -> `%LC` if %lc is not present
+                    if '%lc' not in cols_lower:
+                        if '% lc' in cols_lower:
+                            rename_map[cols_lower['% lc']] = '%LC'
+                        elif '% chuyển trả' in cols_lower:
+                            rename_map[cols_lower['% chuyển trả']] = '%LC'
+                    else:
+                        rename_map[cols_lower['%lc']] = '%LC'
+                        
+                    # Rename `% gán` -> `%Gán` if %gán is not present
+                    if '%gán' not in cols_lower:
+                        if '% gán' in cols_lower:
+                            rename_map[cols_lower['% gán']] = '%Gán'
+                    else:
+                        rename_map[cols_lower['%gán']] = '%Gán'
                     
                 if rename_map:
                     df = df.rename(columns=rename_map)
@@ -482,40 +502,60 @@ def read_ops_sheet(xls, sheet_type):
                 cols_lower = {c.strip().lower(): c for c in df.columns}
                 rename_map = {}
                 
-                # Normalize core columns
-                core_ltc_cols = {
-                    'cấp quản lý': 'Cấp quản lý',
-                    'chi tiết': 'Chi tiết',
-                    'ca': 'Ca',
-                    'time': 'Time',
-                    'volume': 'Volume',
-                    'leadtime': 'Leadtime'
-                }
-                for k, standard_name in core_ltc_cols.items():
-                    if k in cols_lower and cols_lower[k] != standard_name:
-                        rename_map[cols_lower[k]] = standard_name
-                        
-                if '%ltc' not in cols_lower:
+                # Check for shifted column signature in dataltc style
+                if 'loại hàng' in cols_lower and 'time' in cols_lower and 'volume' in cols_lower and '% gán' in cols_lower:
+                    rename_map[cols_lower['loại hàng']] = 'Time'
+                    rename_map[cols_lower['time']] = 'Volume'
+                    rename_map[cols_lower['volume']] = '% Gán'
+                    rename_map[cols_lower['% gán']] = '%LTC'
                     if '% ltc' in cols_lower:
-                        rename_map[cols_lower['% ltc']] = '%LTC'
-                    elif '% gtc' in cols_lower:
-                        rename_map[cols_lower['% gtc']] = '%LTC'
-                else:
-                    rename_map[cols_lower['%ltc']] = '%LTC'
+                        rename_map[cols_lower['% ltc']] = '%LC'
+                    elif '%ltc' in cols_lower:
+                        rename_map[cols_lower['%ltc']] = '%LC'
                     
-                if '%lc' not in cols_lower:
-                    if '% lc' in cols_lower:
-                        rename_map[cols_lower['% lc']] = '%LC'
-                    elif '% chuyển trả' in cols_lower:
-                        rename_map[cols_lower['% chuyển trả']] = '%LC'
+                    other_cols = {
+                        'cấp quản lý': 'Cấp quản lý',
+                        'chi tiết': 'Chi tiết',
+                        'leadtime': 'Leadtime'
+                    }
+                    for k, standard_name in other_cols.items():
+                        if k in cols_lower and cols_lower[k] != standard_name:
+                            rename_map[cols_lower[k]] = standard_name
                 else:
-                    rename_map[cols_lower['%lc']] = '%LC'
-                    
-                if '%gán' not in cols_lower:
-                    if '% gán' in cols_lower:
-                        rename_map[cols_lower['% gán']] = '%Gán'
-                else:
-                    rename_map[cols_lower['%gán']] = '%Gán'
+                    # Normalize core columns
+                    core_ltc_cols = {
+                        'cấp quản lý': 'Cấp quản lý',
+                        'chi tiết': 'Chi tiết',
+                        'ca': 'Ca',
+                        'time': 'Time',
+                        'volume': 'Volume',
+                        'leadtime': 'Leadtime'
+                    }
+                    for k, standard_name in core_ltc_cols.items():
+                        if k in cols_lower and cols_lower[k] != standard_name:
+                            rename_map[cols_lower[k]] = standard_name
+                            
+                    if '%ltc' not in cols_lower:
+                        if '% ltc' in cols_lower:
+                            rename_map[cols_lower['% ltc']] = '%LTC'
+                        elif '% gtc' in cols_lower:
+                            rename_map[cols_lower['% gtc']] = '%LTC'
+                    else:
+                        rename_map[cols_lower['%ltc']] = '%LTC'
+                        
+                    if '%lc' not in cols_lower:
+                        if '% lc' in cols_lower:
+                            rename_map[cols_lower['% lc']] = '%LC'
+                        elif '% chuyển trả' in cols_lower:
+                            rename_map[cols_lower['% chuyển trả']] = '%LC'
+                    else:
+                        rename_map[cols_lower['%lc']] = '%LC'
+                        
+                    if '%gán' not in cols_lower:
+                        if '% gán' in cols_lower:
+                            rename_map[cols_lower['% gán']] = '%Gán'
+                    else:
+                        rename_map[cols_lower['%gán']] = '%Gán'
                     
                 if rename_map:
                     df = df.rename(columns=rename_map)
