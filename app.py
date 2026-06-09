@@ -1415,9 +1415,13 @@ def clean_str_key(val):
 @with_lock(CACHE_LOCK)
 def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw_aging=None, raw_co_cau_aging=None, raw_treo=None, raw_co_cau_treo=None):
     global DF_GTC_CACHE, DF_LTC_CACHE, DF_CO_CAU_CACHE, DF_AGING_CACHE, DF_TREO_CACHE
+    import gc
     if force or DF_GTC_CACHE is None or DF_LTC_CACHE is None or DF_CO_CAU_CACHE is None or DF_AGING_CACHE is None or DF_TREO_CACHE is None:
-        file_path = os.path.join(WORKSPACE_DIR, 'Copy o NTB - BÁO CÁO VẬN HÀNH.xlsx')
+        bc_to_am = {}
+        bc_to_prov = {}
         
+        # 1. Load and process Báo cáo Vận hành
+        file_path = os.path.join(WORKSPACE_DIR, 'Copy o NTB - BÁO CÁO VẬN HÀNH.xlsx')
         if raw_gtc is None or raw_ltc is None or raw_co_cau is None:
             if not os.path.exists(file_path):
                 raise FileNotFoundError("Không tìm thấy file: BÁO CÁO VẬN HÀNH")
@@ -1428,7 +1432,7 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
                     raw_ltc = read_ops_sheet(xls, "ltc")
                 if raw_co_cau is None:
                     raw_co_cau = read_ops_sheet(xls, "co_cau")
-        
+                    
         df_gtc = raw_gtc[raw_gtc['Cấp Quản Lý'] != 'Grand Total'].dropna(subset=["Volume"]).copy()
         df_gtc['Leadtime'] = pd.to_numeric(df_gtc['Leadtime'], errors='coerce')
         
@@ -1437,6 +1441,26 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         
         df_co_cau = raw_co_cau.copy()
         
+        # Map co_cau
+        for _, r in df_co_cau.iterrows():
+            bc = str(r.get('BC', '')).strip().lower()
+            buucuc = str(r.get('Bưu cục', '')).strip().lower()
+            am = str(r.get('Am', r.get('ID - Họ Tên Am', ''))).strip()
+            prov = str(r.get('Tỉnh', '')).strip()
+            if prov == 'Bình Phước':
+                prov = 'Lâm Đồng'
+            if bc and bc != 'nan':
+                bc_to_am[bc] = am
+                bc_to_prov[bc] = prov
+            if buucuc and buucuc != 'nan':
+                bc_to_am[buucuc] = am
+                bc_to_prov[buucuc] = prov
+                
+        # Delete raw and clean memory
+        del raw_gtc, raw_ltc, raw_co_cau
+        gc.collect()
+        
+        # 2. Load and process Aging
         path_aging = os.path.join(WORKSPACE_DIR, 'Aging _5 ngày.xlsx')
         if raw_aging is None or raw_co_cau_aging is None:
             if not os.path.exists(path_aging):
@@ -1450,6 +1474,24 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         df_aging = raw_aging.copy()
         df_co_cau_aging = raw_co_cau_aging.copy()
         
+        for _, r in df_co_cau_aging.iterrows():
+            bc = str(r.get('BC', '')).strip().lower()
+            buucuc = str(r.get('Bưu cục', '')).strip().lower()
+            am = str(r.get('Am', r.get('ID - Họ Tên Am', ''))).strip()
+            prov = str(r.get('Tỉnh', '')).strip()
+            if prov == 'Bình Phước':
+                prov = 'Lâm Đồng'
+            if bc and bc != 'nan':
+                bc_to_am[bc] = am
+                bc_to_prov[bc] = prov
+            if buucuc and buucuc != 'nan':
+                bc_to_am[buucuc] = am
+                bc_to_prov[buucuc] = prov
+                
+        del raw_aging, raw_co_cau_aging
+        gc.collect()
+        
+        # 3. Load and process Treo
         path_treo = os.path.join(WORKSPACE_DIR, 'Treo luân chuyển GIAO_TRẢ by IMTHIR.xlsx')
         if raw_treo is None or raw_co_cau_treo is None:
             if not os.path.exists(path_treo):
@@ -1463,24 +1505,24 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         df_treo = raw_treo.copy()
         df_co_cau_treo = raw_co_cau_treo.copy()
         
-        bc_to_am = {}
-        bc_to_prov = {}
+        for _, r in df_co_cau_treo.iterrows():
+            bc = str(r.get('BC', '')).strip().lower()
+            buucuc = str(r.get('Bưu cục', '')).strip().lower()
+            am = str(r.get('Am', r.get('ID - Họ Tên Am', ''))).strip()
+            prov = str(r.get('Tỉnh', '')).strip()
+            if prov == 'Bình Phước':
+                prov = 'Lâm Đồng'
+            if bc and bc != 'nan':
+                bc_to_am[bc] = am
+                bc_to_prov[bc] = prov
+            if buucuc and buucuc != 'nan':
+                bc_to_am[buucuc] = am
+                bc_to_prov[buucuc] = prov
+                
+        del raw_treo, raw_co_cau_treo
+        gc.collect()
         
-        for df_cc in [df_co_cau, df_co_cau_aging, df_co_cau_treo]:
-            for _, r in df_cc.iterrows():
-                bc = str(r.get('BC', '')).strip().lower()
-                buucuc = str(r.get('Bưu cục', '')).strip().lower()
-                am = str(r.get('Am', r.get('ID - Họ Tên Am', ''))).strip()
-                prov = str(r.get('Tỉnh', '')).strip()
-                if prov == 'Bình Phước':
-                    prov = 'Lâm Đồng'
-                if bc and bc != 'nan':
-                    bc_to_am[bc] = am
-                    bc_to_prov[bc] = prov
-                if buucuc and buucuc != 'nan':
-                    bc_to_am[buucuc] = am
-                    bc_to_prov[buucuc] = prov
-                    
+        # 4. Final Processing & Mapping
         df_gtc['clean_bc'] = df_gtc['Chi tiết'].apply(clean_str)
         df_gtc['mapped_prov'] = df_gtc['clean_bc'].map(bc_to_prov).fillna(df_gtc['Tỉnh']).fillna("Không xác định")
         df_gtc['mapped_am'] = df_gtc['clean_bc'].map(bc_to_am).fillna(df_gtc['AM']).fillna("Không xác định")
@@ -1537,6 +1579,8 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         DF_AGING_CACHE = df_aging
         DF_TREO_CACHE = df_treo_filtered
         
+        gc.collect()
+        
     return DF_GTC_CACHE, DF_LTC_CACHE, DF_AGING_CACHE, DF_TREO_CACHE
 
 def apply_filters(df, am=None, province=None, post_office=None):
@@ -1549,126 +1593,125 @@ def apply_filters(df, am=None, province=None, post_office=None):
         df_filtered = df_filtered[df_filtered['clean_bc'] == post_office.strip().lower()]
     return df_filtered
 
-@with_lock(CACHE_LOCK)
 def update_all_caches():
     global OPERATIONAL_CACHE, OPR_CACHE, BACKLOG_CACHE_RAW, UNSTABLE_PO_CACHE, OFF_SPE_CACHE, DF_TAO_DON_CACHE, DF_BUU_CUC_TYPE_MAP
+    import gc
+    
     print("--------------------------------------------------")
-    print("STARTING CACHE LOAD: Processing raw Excel files...")
+    print("STARTING MEMORY-EFFICIENT CACHE LOAD...")
     print("--------------------------------------------------")
     
+    # 1. First trigger get_dataframes(force=True) to build DF_GTC_CACHE, DF_LTC_CACHE, DF_AGING_CACHE, DF_TREO_CACHE
+    # sequentially and efficiently!
     try:
-        # Load all files once in one go
-        path_ops = os.path.join(WORKSPACE_DIR, 'Copy o NTB - BÁO CÁO VẬN HÀNH.xlsx')
-        print("Loading Copy o NTB - BAO CAO VAN HANH.xlsx...")
-        with pd.ExcelFile(path_ops) as xls_ops:
-            raw_gtc = read_ops_sheet(xls_ops, "gtc")
-            raw_ltc = read_ops_sheet(xls_ops, "ltc")
-            raw_co_cau = read_ops_sheet(xls_ops, "co_cau")
-            
-        path_aging = os.path.join(WORKSPACE_DIR, 'Aging _5 ngày.xlsx')
-        print("Loading Aging _5 ngay.xlsx...")
-        with pd.ExcelFile(path_aging) as xls_aging:
-            raw_aging = pd.read_excel(xls_aging, sheet_name="Đơn giao aging trên 5 ngày")
-            raw_co_cau_aging = pd.read_excel(xls_aging, sheet_name="Cơ cấu")
-            
-        path_treo = os.path.join(WORKSPACE_DIR, 'Treo luân chuyển GIAO_TRẢ by IMTHIR.xlsx')
-        print("Loading Treo luan chuyen GIAO_TRA by IMTHIR.xlsx...")
-        with pd.ExcelFile(path_treo) as xls_treo:
-            raw_treo = pd.read_excel(xls_treo, sheet_name="stuck")
-            raw_co_cau_treo = pd.read_excel(xls_treo, sheet_name="Cơ cấu")
-            
-        path_opr = os.path.join(WORKSPACE_DIR, 'OPR TTS.xlsx')
-        print("Loading OPR TTS.xlsx...")
-        with pd.ExcelFile(path_opr) as xls_opr:
-            raw_opr = pd.read_excel(xls_opr, sheet_name="OPR")
-            raw_oe = pd.read_excel(xls_opr, sheet_name="OE_madh")
-            raw_rawopr = pd.read_excel(xls_opr, sheet_name="rawopr") if "rawopr" in xls_opr.sheet_names else None
-            
+        get_dataframes(force=True)
+        print("-> Pandas DataFrames loaded sequentially.")
     except Exception as e:
         err_msg = f"Loi doc file Excel: {str(e)}"
-        print(err_msg.encode('ascii', errors='backslashreplace').decode('ascii'))
+        print(err_msg)
         OPERATIONAL_CACHE = {"error": err_msg}
         OPR_CACHE = {"error": err_msg}
         BACKLOG_CACHE_RAW = {"aging": {"error": err_msg}, "treo": {"error": err_msg}}
         UNSTABLE_PO_CACHE = {"error": err_msg}
         OFF_SPE_CACHE = {"error": err_msg}
         return
-        
-    # Preload dataframes
-    print("Preloading pandas dataframes for NTB summary dashboard...")
+
+    # 2. Now process operational report using cached DataFrames
     try:
-        get_dataframes(force=True,
-                       raw_gtc=raw_gtc, raw_ltc=raw_ltc, raw_co_cau=raw_co_cau,
-                       raw_aging=raw_aging, raw_co_cau_aging=raw_co_cau_aging,
-                       raw_treo=raw_treo, raw_co_cau_treo=raw_co_cau_treo)
-        print("-> Dataframes loaded and cached successfully.")
+        print("Parsing Operational report...")
+        # Note: process_operational_report reads file_path inside if df_gtc is None
+        # We pass the cached dataframes so it doesn't need to load the file again!
+        ops = process_operational_report(df_gtc=DF_GTC_CACHE, df_ltc=DF_LTC_CACHE)
+        if "error" not in ops:
+            OPERATIONAL_CACHE = ops
+            print("-> Operational report processed and cached.")
+        else:
+            OPERATIONAL_CACHE = ops
+            print("-> Error processing operational report.")
     except Exception as e:
-        print(f"-> Error preloading dataframes: {str(e)}")
+        OPERATIONAL_CACHE = {"error": f"Lỗi xử lý báo cáo vận hành: {e}"}
         
-    # 1. Operational Report
-    print("Parsing 'Copy o NTB - BAO CAO VAN HANH.xlsx'...")
-    ops = process_operational_report(df_gtc=raw_gtc, df_ltc=raw_ltc)
-    if "error" not in ops:
-        OPERATIONAL_CACHE = ops
-        print("-> Operational report loaded and cached successfully.")
-    else:
-        OPERATIONAL_CACHE = ops  # Store error dictionary
-        print("-> Error parsing operational report.")
+    # 3. Process OPR report
+    try:
+        print("Parsing OPR report...")
+        # Since OPR TTS is loaded here, we load it and process it
+        path_opr = os.path.join(WORKSPACE_DIR, 'OPR TTS.xlsx')
+        if os.path.exists(path_opr):
+            with pd.ExcelFile(path_opr) as xls_opr:
+                raw_opr = pd.read_excel(xls_opr, sheet_name="OPR")
+                raw_oe = pd.read_excel(xls_opr, sheet_name="OE_madh")
+                raw_rawopr = pd.read_excel(xls_opr, sheet_name="rawopr") if "rawopr" in xls_opr.sheet_names else None
+            opr = process_opr_report(df_opr=raw_opr, df_oe=raw_oe, df_rawopr=raw_rawopr)
+            OPR_CACHE = opr
+            del raw_opr, raw_oe, raw_rawopr
+            print("-> OPR report processed and cached.")
+        else:
+            OPR_CACHE = {"error": "Không tìm thấy file OPR TTS.xlsx"}
+        gc.collect()
+    except Exception as e:
+        OPR_CACHE = {"error": f"Lỗi xử lý OPR: {e}"}
         
-    # 2. OPR Report
-    print("Parsing 'OPR TTS.xlsx'...")
-    opr = process_opr_report(df_opr=raw_opr, df_oe=raw_oe, df_rawopr=raw_rawopr)
-    if "error" not in opr:
-        OPR_CACHE = opr
-        print("-> OPR report loaded and cached successfully.")
-    else:
-        OPR_CACHE = opr  # Store error dictionary
-        print("-> Error parsing OPR report.")
+    # 4. Process Backlog reports (Aging and Treo)
+    try:
+        print("Parsing Backlog reports...")
+        # We pass the cached dataframes!
+        path_aging = os.path.join(WORKSPACE_DIR, 'Aging _5 ngày.xlsx')
+        if os.path.exists(path_aging):
+            with pd.ExcelFile(path_aging) as xls_aging:
+                raw_co_cau_aging = pd.read_excel(xls_aging, sheet_name="Cơ cấu")
+            aging = process_aging_backlog(df_raw=DF_AGING_CACHE, df_co_cau=raw_co_cau_aging)
+            del raw_co_cau_aging
+        else:
+            aging = {"error": "Không tìm thấy file Aging"}
+            
+        path_treo = os.path.join(WORKSPACE_DIR, 'Treo luân chuyển GIAO_TRẢ by IMTHIR.xlsx')
+        if os.path.exists(path_treo):
+            with pd.ExcelFile(path_treo) as xls_treo:
+                raw_co_cau_treo = pd.read_excel(xls_treo, sheet_name="Cơ cấu")
+            treo = process_treo_backlog(df_raw=DF_TREO_CACHE, df_co_cau=raw_co_cau_treo)
+            del raw_co_cau_treo
+        else:
+            treo = {"error": "Không tìm thấy file Treo"}
+            
+        BACKLOG_CACHE_RAW = {
+            "aging": aging,
+            "treo": treo
+        }
+        print("-> Backlog reports processed and cached.")
+        gc.collect()
+    except Exception as e:
+        BACKLOG_CACHE_RAW = {"aging": {"error": f"Lỗi: {e}"}, "treo": {"error": f"Lỗi: {e}"}}
         
-    # 3. Backlog Reports (Aging + Treo)
-    print("Parsing 'Aging _5 ngay.xlsx' and 'Treo luan chuyen GIAO_TRA by IMTHIR.xlsx'...")
-    aging = process_aging_backlog(df_raw=raw_aging, df_co_cau=raw_co_cau_aging)
-    treo = process_treo_backlog(df_raw=raw_treo, df_co_cau=raw_co_cau_treo)
-    BACKLOG_CACHE_RAW = {
-        "aging": aging,
-        "treo": treo
-    }
-    if "error" not in aging and "error" not in treo:
-        print("-> Backlog reports loaded and cached successfully.")
-    else:
-        print("-> Error parsing backlog reports.")
+    # 5. Process Unstable POs
+    try:
+        print("Parsing Unstable POs...")
+        UNSTABLE_PO_CACHE = process_unstable_po()
+        gc.collect()
+    except Exception as e:
+        UNSTABLE_PO_CACHE = {"error": f"Lỗi: {e}"}
         
-    # 4. Unstable Post Offices
-    print("Parsing 'buu_cuc_bat_on.xlsx'...")
-    UNSTABLE_PO_CACHE = process_unstable_po()
-    if "error" not in UNSTABLE_PO_CACHE:
-        print("-> Unstable PO cache loaded successfully.")
-    else:
-        print(f"-> Unstable PO status: {UNSTABLE_PO_CACHE['error']}")
+    # 6. Process OFF SPE
+    try:
+        print("Parsing OFF SPE...")
+        OFF_SPE_CACHE = process_off_spe()
+        gc.collect()
+    except Exception as e:
+        OFF_SPE_CACHE = {"error": f"Lỗi: {e}"}
         
-    # 5. OFF SPE Routes
-    print("Parsing 'off_tuyen_spe.xlsx'...")
-    OFF_SPE_CACHE = process_off_spe()
-    if "error" not in OFF_SPE_CACHE:
-        print("-> OFF SPE cache loaded successfully.")
-    else:
-        print(f"-> OFF SPE status: {OFF_SPE_CACHE['error']}")
-        
-    # 6. Volume Creation Data
-    print("Parsing 'vols_tao_don.xlsx' and warehouse type mapping...")
-    DF_TAO_DON_CACHE = load_vols_tao_don_df()
-    DF_BUU_CUC_TYPE_MAP = load_buu_cuc_type_map()
-    if DF_TAO_DON_CACHE is not None:
-        print("-> Volume creation cache loaded successfully.")
-    else:
-        print("-> Volume creation cache failed or is empty.")
+    # 7. Process Volume Creation
+    try:
+        print("Parsing Volume Creation...")
+        DF_TAO_DON_CACHE = load_vols_tao_don_df()
+        DF_BUU_CUC_TYPE_MAP = load_buu_cuc_type_map()
+        gc.collect()
+    except Exception as e:
+        print(f"Error volume: {e}")
         
     print("--------------------------------------------------")
-    print("CACHE LOAD COMPLETE.")
+    print("MEMORY-EFFICIENT CACHE LOAD COMPLETE.")
     print("--------------------------------------------------")
-    
-    import gc
     gc.collect()
+
 
 # ==========================================
 # 7. API FLASK ENDPOINTS
