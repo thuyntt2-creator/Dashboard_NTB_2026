@@ -1683,16 +1683,28 @@ def process_unstable_po():
             elif len(df_table.columns) > 19:
                 status_val = str(r.iloc[19]).strip() if pd.notna(r.iloc[19]) else "Bình thường"
                 
+            try:
+                po_id_clean = int(float(po_id)) if pd.notna(po_id) else None
+            except:
+                # Skip header/footer description rows
+                continue
+                
+            def safe_int(val):
+                try:
+                    return int(float(val)) if pd.notna(val) else 0
+                except:
+                    return 0
+
             record = {
-                "id": int(float(po_id)) if pd.notna(po_id) else None,
+                "id": po_id_clean,
                 "name": str(po_name).strip() if pd.notna(po_name) else "",
                 "am": mapped_am,
                 "province": mapped_prov,
-                "ton_lm": int(float(r.get('BL LM', 0))) if pd.notna(r.get('BL LM')) else 0,
-                "ton_lm_5n": int(float(r.get('BL LM >5 ngay', 0))) if pd.notna(r.get('BL LM >5 ngay')) else 0,
+                "ton_lm": safe_int(r.get('BL LM', 0)),
+                "ton_lm_5n": safe_int(r.get('BL LM >5 ngay', 0)),
                 "pct_lm_5n": round(parse_unstable_pct(r.get('%BL LM >5 ngay', 0)), 2),
-                "ton_ktc": int(float(r.get('BL KTC', 0))) if pd.notna(r.get('BL KTC')) else 0,
-                "ton_ktc_cung_tinh": int(float(r.get('BL KTC cung tinh %', r.get('BL KTC cung tinh', 0)))) if pd.notna(r.get('BL KTC cung tinh %', r.get('BL KTC cung tinh'))) else 0,
+                "ton_ktc": safe_int(r.get('BL KTC', 0)),
+                "ton_ktc_cung_tinh": safe_int(r.get('BL KTC cung tinh %', r.get('BL KTC cung tinh', 0))),
                 "pct_ktc_cung_tinh": round(parse_unstable_pct(r.get('%BL KTC cung tinh', 0)), 2),
                 "days_unstable": days_val,
                 "reason": reason_val,
