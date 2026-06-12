@@ -2092,7 +2092,14 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
     import gc
     if force or DF_GTC_CACHE is None or DF_LTC_CACHE is None or DF_CO_CAU_CACHE is None or DF_AGING_CACHE is None or DF_TREO_CACHE is None or DF_TTS_CACHE is None:
         if not force:
-            raise RuntimeError("Dữ liệu đang được tải vào bộ nhớ đệm hoặc chưa được đồng bộ. Vui lòng đợi vài giây hoặc nhấn nút Đồng bộ dữ liệu.")
+            print("Cache is empty. Initializing cache synchronously...")
+            try:
+                update_all_caches()
+            except Exception as e:
+                print(f"Error loading cache synchronously: {e}")
+                raise RuntimeError("Dữ liệu đang được tải vào bộ nhớ đệm hoặc chưa được đồng bộ. Vui lòng đợi vài giây hoặc nhấn nút Đồng bộ dữ liệu.")
+            if DF_GTC_CACHE is None or DF_LTC_CACHE is None or DF_CO_CAU_CACHE is None or DF_AGING_CACHE is None or DF_TREO_CACHE is None or DF_TTS_CACHE is None:
+                raise RuntimeError("Dữ liệu đang được tải vào bộ nhớ đệm hoặc chưa được đồng bộ. Vui lòng đợi vài giây hoặc nhấn nút Đồng bộ dữ liệu.")
         bc_to_am = {}
         bc_to_prov = {}
         
@@ -3136,7 +3143,8 @@ def trigger_sync():
     admin_flag = is_admin()
     
     # On Vercel, run synchronously because background threads are killed immediately when the HTTP response returns.
-    if os.environ.get("VERCEL"):
+    is_vercel = os.environ.get("VERCEL") or (request.host and "vercel.app" in request.host) or (request.headers.get("Host") and "vercel.app" in request.headers.get("Host"))
+    if is_vercel:
         async_sync_task(admin_flag)
         if SYNC_STATUS["status"] == "error":
             return jsonify({"error": SYNC_STATUS["error"]}), 500
