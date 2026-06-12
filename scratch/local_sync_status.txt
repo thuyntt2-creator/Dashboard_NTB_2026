@@ -1,0 +1,2 @@
+Status code: 200
+Response JSON: {'error': None, 'progress': 'Đồng bộ hoàn tất!', 'status': 'success', 'timestamp': '2026-06-12 09:32:42'}

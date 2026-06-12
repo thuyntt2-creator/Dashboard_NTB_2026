@@ -1,4 +1,5 @@
 @echo off
+cd /d "%~dp0"
 title NTB Ops Dashboard Runner
 echo ===================================================
 echo   KHOI DONG NTB OPS CONTROL DASHBOARD SERVER

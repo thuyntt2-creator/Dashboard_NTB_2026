@@ -1,7 +1,7 @@
 import urllib.request
 import ssl
 
-url = "https://baocaovanhanhntb-tivk.vercel.app/"
+url = "https://ntb-mauve.vercel.app/"
 output = r"scratch/vercel_index.html"
 
 # Bypass SSL verification if needed

@@ -336,6 +336,12 @@ def get_db_engine():
 def save_df_to_db(df, filename):
     if df is None:
         return False
+    is_vercel = os.environ.get("VERCEL") or not os.access(os.getcwd(), os.W_OK)
+    if not is_vercel:
+        # Local run: skip remote DB write to speed up sync from minutes to seconds
+        print(f"Local run: skipping remote DB write for {filename} (local CSV is saved).")
+        return True
+        
     engine = get_db_engine()
     if engine is None:
         return False
@@ -397,17 +403,37 @@ def load_json_from_db(filename):
 
 def load_config():
     config = {}
-    db_config = load_json_from_db('config.json')
-    if db_config:
-        config = db_config
-    else:
+    is_vercel = os.environ.get("VERCEL") or not os.access(os.getcwd(), os.W_OK)
+    
+    if not is_vercel:
+        # 1. Local run: prioritize local config.json file
         config_file = resolve_path('config.json', write=False)
         if os.path.exists(config_file):
             try:
                 with open(config_file, 'r', encoding='utf-8') as f:
                     config = json.load(f)
             except Exception as e:
-                print(f"Error loading config.json: {e}")
+                print(f"Error loading local config.json: {e}")
+                
+        # 2. Fall back to database
+        if not config:
+            db_config = load_json_from_db('config.json')
+            if db_config:
+                config = db_config
+    else:
+        # 1. Vercel/Read-only: load from database first
+        db_config = load_json_from_db('config.json')
+        if db_config:
+            config = db_config
+        else:
+            config_file = resolve_path('config.json', write=False)
+            if os.path.exists(config_file):
+                try:
+                    with open(config_file, 'r', encoding='utf-8') as f:
+                        config = json.load(f)
+                except Exception as e:
+                    print(f"Error loading config.json: {e}")
+            
             
     final_config = {}
     val = os.environ.get("CONSOLIDATED_URL", "")
@@ -568,25 +594,52 @@ def standardize_am_names(df):
 # Safe CSV reader and percentage helpers
 def safe_read_csv(filepath, **kwargs):
     filename = os.path.basename(filepath)
-    # 1. Try to load from database first
-    db_df = load_df_from_db(filename)
-    if db_df is not None:
-        standardize_am_names(db_df)
-        return db_df
-        
-    # 2. Fall back to local file
-    if not os.path.exists(filepath):
-        return None
-    for encoding in ['utf-8', 'utf-8-sig', 'latin-1', 'cp1252']:
-        try:
-            df = pd.read_csv(filepath, encoding=encoding, **kwargs)
-            standardize_am_names(df)
-            return df
-        except Exception as e:
-            last_err = e
-            continue
-    print(f"Error reading CSV {filepath}: {last_err}")
+    # Check if running on Vercel or in a read-only environment
+    is_vercel = os.environ.get("VERCEL") or not os.access(os.getcwd(), os.W_OK)
+    
+    if not is_vercel:
+        # 1. Local run: prioritize local file to ensure latest synced data is read instantly
+        if os.path.exists(filepath):
+            for encoding in ['utf-8', 'utf-8-sig', 'latin-1', 'cp1252']:
+                try:
+                    df = pd.read_csv(filepath, encoding=encoding, **kwargs)
+                    standardize_am_names(df)
+                    return df
+                except Exception as e:
+                    last_err = e
+                    continue
+            print(f"Error reading local CSV {filepath}: {last_err}")
+            
+        # 2. Fall back to database if local file does not exist
+        db_df = load_df_from_db(filename)
+        if db_df is not None:
+            standardize_am_names(db_df)
+            return db_df
+    else:
+        # 1. Vercel/Read-only: load from database first
+        db_df = load_df_from_db(filename)
+        if db_df is not None:
+            standardize_am_names(db_df)
+            return db_df
+            
+        # 2. Fall back to local file
+        if os.path.exists(filepath):
+            for encoding in ['utf-8', 'utf-8-sig', 'latin-1', 'cp1252']:
+                try:
+                    df = pd.read_csv(filepath, encoding=encoding, **kwargs)
+                    standardize_am_names(df)
+                    return df
+                except Exception as e:
+                    last_err = e
+                    continue
+            print(f"Error reading CSV {filepath} from DB fallback local: {last_err}")
     return None
+
+def safe_to_numeric(series, fillna_val=0.0):
+    if series is None:
+        return fillna_val
+    clean_series = series.astype(str).str.replace(',', '', regex=False).str.strip()
+    return pd.to_numeric(clean_series, errors='coerce').fillna(fillna_val)
 
 def normalize_pct_col(series):
     def convert_val(val):
@@ -833,11 +886,11 @@ def process_operational_report(df_gtc=None, df_ltc=None, df_tts=None, am=None, p
                     df_tts = df_tts[df_tts[po_col].astype(str).str.strip() == po_str]
         
         df_gtc = df_gtc.dropna(subset=["Volume"]).copy()
-        df_gtc['Volume'] = pd.to_numeric(df_gtc['Volume'], errors='coerce').fillna(0)
+        df_gtc['Volume'] = safe_to_numeric(df_gtc['Volume'])
         df_gtc['Leadtime'] = pd.to_numeric(df_gtc['Leadtime'], errors='coerce')
         
         df_ltc = df_ltc.dropna(subset=["Volume"]).copy()
-        df_ltc['Volume'] = pd.to_numeric(df_ltc['Volume'], errors='coerce').fillna(0)
+        df_ltc['Volume'] = safe_to_numeric(df_ltc['Volume'])
         df_ltc['Leadtime'] = pd.to_numeric(df_ltc['Leadtime'], errors='coerce')
         
         # Calculate overall metrics
@@ -852,7 +905,7 @@ def process_operational_report(df_gtc=None, df_ltc=None, df_tts=None, am=None, p
         
         df_ltc.columns = [c.strip() for c in df_ltc.columns]
         if 'Sản Lượng Lấy Thành Công' in df_ltc.columns:
-            df_ltc['ltc_vol'] = pd.to_numeric(df_ltc['Sản Lượng Lấy Thành Công'], errors='coerce').fillna(df_ltc['Volume'] * df_ltc['%LTC'])
+            df_ltc['ltc_vol'] = safe_to_numeric(df_ltc['Sản Lượng Lấy Thành Công'])
         else:
             df_ltc['ltc_vol'] = df_ltc['Volume'] * df_ltc['%LTC']
         
@@ -1445,8 +1498,10 @@ def process_treo_backlog(df_raw=None, df_co_cau=None):
         df_raw['mapped_am'] = df_raw['wh_clean'].map(bc_to_am)
         df_raw['mapped_province'] = df_raw['wh_clean'].map(bc_to_province)
         
-        df_raw['final_am'] = df_raw['mapped_am'].fillna(df_raw['am_name']).fillna("Không xác định")
-        df_raw['final_province'] = df_raw['mapped_province'].fillna(df_raw['province_name']).fillna("Không xác định")
+        fallback_am = df_raw['am_name'] if 'am_name' in df_raw.columns else pd.Series(np.nan, index=df_raw.index)
+        fallback_prov = df_raw['province_name'] if 'province_name' in df_raw.columns else pd.Series(np.nan, index=df_raw.index)
+        df_raw['final_am'] = df_raw['mapped_am'].fillna(fallback_am).fillna("Không xác định")
+        df_raw['final_province'] = df_raw['mapped_province'].fillna(fallback_prov).fillna("Không xác định")
         
         # Define delay brackets based on 'Thời gian tồn đọng'
         def get_treo_bracket(t):
@@ -1722,10 +1777,10 @@ def process_unstable_po():
             }
             processed_records.append(record)
             
-        # Group warning/unstable post offices by AM (both Bất ổn and Chuẩn bị nhảy nhóm)
+        # Group warning/unstable post offices by AM (only Bất ổn)
         unstable_by_am = {}
         for rec in processed_records:
-            if rec["status"] in ["Bất ổn", "Chuẩn bị nhảy nhóm"]:
+            if rec["status"] == "Bất ổn":
                 am_name = rec["am"]
                 if am_name not in unstable_by_am:
                     unstable_by_am[am_name] = []
@@ -1741,8 +1796,8 @@ def process_unstable_po():
             })
         am_deepdive = sorted(am_deepdive, key=lambda x: x["count"], reverse=True)
         
-        # Calculate actual total warnings (both Bất ổn and Chuẩn bị nhảy nhóm)
-        actual_total_warnings = sum(1 for rec in processed_records if rec["status"] in ["Bất ổn", "Chuẩn bị nhảy nhóm"])
+        # Calculate actual total warnings (only Bất ổn)
+        actual_total_warnings = sum(1 for rec in processed_records if rec["status"] == "Bất ổn")
         
         return {
             "update_time": update_time,
@@ -2231,7 +2286,7 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         df_gtc['mapped_prov'] = df_gtc['clean_bc'].map(bc_to_prov).fillna(df_gtc['Tỉnh']).fillna("Không xác định")
         df_gtc['mapped_am'] = df_gtc['clean_bc'].map(bc_to_am).fillna(df_gtc['AM']).fillna("Không xác định")
         
-        df_gtc['Volume'] = pd.to_numeric(df_gtc['Volume'], errors='coerce').fillna(0)
+        df_gtc['Volume'] = safe_to_numeric(df_gtc['Volume'])
         df_gtc['% GTC'] = normalize_pct_col(df_gtc['% GTC'])
         df_gtc['% Chuyển trả'] = normalize_pct_col(df_gtc['% Chuyển trả'])
         
@@ -2254,11 +2309,11 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         df_ltc['mapped_am'] = df_ltc['mapped_am'].fillna("Không xác định")
         
         # Normalize columns and map ltc_vol to Column K (Sản Lượng Lấy Thành Công)
-        df_ltc['Volume'] = pd.to_numeric(df_ltc['Volume'], errors='coerce').fillna(0)
+        df_ltc['Volume'] = safe_to_numeric(df_ltc['Volume'])
         df_ltc['%LTC'] = normalize_pct_col(df_ltc['%LTC'])
         df_ltc.columns = [c.strip() for c in df_ltc.columns]
         if 'Sản Lượng Lấy Thành Công' in df_ltc.columns:
-            df_ltc['ltc_vol'] = pd.to_numeric(df_ltc['Sản Lượng Lấy Thành Công'], errors='coerce').fillna(df_ltc['Volume'] * df_ltc['%LTC'])
+            df_ltc['ltc_vol'] = safe_to_numeric(df_ltc['Sản Lượng Lấy Thành Công'])
         else:
             df_ltc['ltc_vol'] = df_ltc['Volume'] * df_ltc['%LTC']
             
