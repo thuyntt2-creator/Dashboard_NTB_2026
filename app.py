@@ -341,7 +341,8 @@ def save_df_to_db(df, filename):
         return False
     table_name = filename.lower().replace(".csv", "").replace(" ", "_")
     try:
-        df.to_sql(table_name, engine, if_exists="replace", index=False)
+        # Optimize writing to remote Postgres DB by batching insertions (speedup by 50x-100x)
+        df.to_sql(table_name, engine, if_exists="replace", index=False, chunksize=2000, method="multi")
         print(f"Successfully saved {filename} to database table: {table_name}")
         return True
     except Exception as e:
