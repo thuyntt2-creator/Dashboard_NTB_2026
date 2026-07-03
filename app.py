@@ -609,6 +609,77 @@ def load_df_from_db(filename):
     try:
         df = pd.read_sql(f"SELECT * FROM {table_name}", engine)
         print(f"Successfully loaded {filename} from database table: {table_name}")
+        
+        # Postgres columns are lowercase, restore case to prevent KeyErrors in pandas
+        col_mappings = {
+            'bc': 'BC',
+            'time': 'Time',
+            'volume': 'Volume',
+            'tỉnh': 'Tỉnh',
+            'vùng': 'Vùng',
+            'am': 'AM',
+            'chi tiết': 'Chi tiết',
+            'loại hàng': 'Loại Hàng',
+            'ca': 'Ca',
+            'bưu cục': 'Bưu cục',
+            'mã đơn': 'Mã đơn',
+            'tệp khách': 'Tệp khách',
+            'ngày nhập bc giao': 'Ngày nhập BC Giao',
+            'ngày nhập bưu cục giao': 'Ngày nhập Bưu cục Giao',
+            'số ngày đã nhập bc': 'Số ngày đã nhập BC',
+            'giờ câp nhật': 'Giờ câp nhật',
+            'số lần giao': 'Số lần giao',
+            'nhóm bl': 'Nhóm BL',
+            'trạng thái': 'Trạng thái',
+            'mã bưu cục': 'Mã bưu cục',
+            'mã đơn hàng': 'Mã đơn hàng',
+            'loại đơn': 'Loại đơn',
+            'khách hàng': 'Khách hàng',
+            'thời gian tồn đọng': 'Thời gian tồn đọng',
+            'warehouse_name': 'warehouse_name',
+            'warehouse_id': 'warehouse_id',
+            'tên nhân viên': 'Tên nhân viên',
+            'chức vụ': 'Chức vụ',
+            'sp team?': 'SP Team?',
+            'fd': 'FD',
+            'fd n7': 'FD N7',
+            'leadtime': 'leadtime',
+            '% gán': '% Gán',
+            '% gtc': '% GTC',
+            '% chuyển trả': '% Chuyển trả',
+            '% ltc': '% LTC',
+            '% đóng kiện': '% Đóng kiện',
+            '% lc': '% LC',
+            'sản lượng giao thành công': 'Sản Lượng Giao Thành Công',
+            'sản lượng chuyển trả': 'Sản Lượng Chuyển Trả',
+            'sản lượng gán': 'Sản Lượng Gán',
+            'sản lượng trả': 'Sản Lượng Trả',
+            'sản lượng tồn': 'Sản Lượng Tồn',
+            'sản lượng chưa gán': 'Sản Lượng Chưa Gán',
+            '% chưa gán': '% Chưa Gán',
+            '%tồn': '%Tồn',
+            'hàng mới về trong ngày': 'Hàng Mới Về Trong Ngày',
+            'sản lượng lấy thành công': 'Sản Lượng Lấy Thành Công',
+            'am_name': 'am_name',
+            'province_name': 'province_name',
+            '%ontime': '%Ontime',
+            'gtc': 'GTC',
+            'id': 'ID',
+            'thời gian cập nhật': 'Thời gian cập nhật'
+        }
+        rename_dict = {}
+        for c in df.columns:
+            c_clean = str(c).strip().lower()
+            if c_clean == 'cấp quản lý':
+                if filename in ['ops_gtc.csv', 'ops_tts.csv']:
+                    rename_dict[c] = 'Cấp Quản Lý'
+                else:
+                    rename_dict[c] = 'Cấp quản lý'
+            elif c_clean in col_mappings:
+                rename_dict[c] = col_mappings[c_clean]
+        if rename_dict:
+            df.rename(columns=rename_dict, inplace=True)
+            
         return df
     except Exception as e:
         print(f"Error loading DataFrame {filename} from DB (falling back): {e}")
@@ -1051,15 +1122,21 @@ def safe_read_csv(filepath, filter_by_am=False, **kwargs):
             column_mapping = {
                 'bc': 'BC',
                 'order_code': 'Mã đơn',
-                'Nhóm khách': 'Tệp khách',
+                'nhóm khách': 'Tệp khách',
                 'thoi_gian_nhap_bc': 'Ngày nhập BC Giao',
-                'Aging': 'Số ngày đã nhập BC',
+                'aging': 'Số ngày đã nhập BC',
                 'updated_time': 'Giờ câp nhật',
                 'num_deliver': 'Số lần giao',
                 'vung': 'Vùng',
                 'tinh': 'Tỉnh'
             }
-            df.rename(columns=column_mapping, inplace=True)
+            rename_dict = {}
+            for col in df.columns:
+                col_lower = str(col).strip().lower()
+                if col_lower in column_mapping:
+                    rename_dict[col] = column_mapping[col_lower]
+            if rename_dict:
+                df.rename(columns=rename_dict, inplace=True)
 
     if df is not None and filter_by_am:
         df = filter_df_by_logged_in_am(df)
@@ -4096,7 +4173,8 @@ def sync_sheets_directly_as_csv(url):
         
     gid_map = {}
     for gid, name in matches:
-        gid_map[name.strip().lower()] = gid
+        norm_name = unicodedata.normalize('NFC', name.strip().lower())
+        gid_map[norm_name] = gid
         
     sheet_mappings = [
         (["data"], "ops_gtc.csv"),
@@ -4121,7 +4199,7 @@ def sync_sheets_directly_as_csv(url):
     for candidates, target_csv in sheet_mappings:
         matched_gid = None
         for cand in candidates:
-            cand_clean = cand.strip().lower()
+            cand_clean = unicodedata.normalize('NFC', cand.strip().lower())
             if cand_clean in gid_map:
                 matched_gid = gid_map[cand_clean]
                 break
