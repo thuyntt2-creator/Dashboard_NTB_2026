@@ -498,11 +498,10 @@ def add_security_headers(response):
     response.headers['Pragma'] = 'no-cache'
     response.headers['Expires'] = '0'
     
-    # Secure HTTP headers from rules with Nonce-based CSP
-    nonce = getattr(g, 'nonce', '')
+    # Secure HTTP headers from rules with CSP
     csp_directives = [
         "default-src 'self'",
-        f"script-src 'self' 'nonce-{nonce}' https://cdn.jsdelivr.net https://unpkg.com",
+        "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com",
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com",
         "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com",
         "img-src 'self' data: https://*.basemaps.cartocdn.com https://unpkg.com",
