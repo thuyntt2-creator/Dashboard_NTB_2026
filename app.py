@@ -449,7 +449,7 @@ def csrf_referer_check():
 
 @app.before_request
 def check_cache_ttl():
-    global LAST_CACHE_UPDATE_TIME, LAST_CACHE_CHECK_TIME
+    global LAST_CACHE_UPDATE_TIME, LAST_CACHE_CHECK_TIME, LAST_DB_SYNC_TIME
     if request.method == 'GET' and request.path.startswith('/api/'):
         if request.path in ['/api/sync/status', '/api/history', '/api/files-status', '/api/config']:
             return
@@ -467,9 +467,11 @@ def check_cache_ttl():
                     try:
                         meta = load_json_from_db("sync_metadata.json")
                         last_db_sync = meta.get("last_sync_time", 0) if meta else 0
+                        LAST_DB_SYNC_TIME = last_db_sync
                     except Exception as e:
                         print(f"Error reading sync metadata from DB: {e}")
                         last_db_sync = 0
+                        LAST_DB_SYNC_TIME = 0
                     
                     if LAST_CACHE_UPDATE_TIME is None or last_db_sync > LAST_CACHE_UPDATE_TIME or (now - LAST_CACHE_UPDATE_TIME > 600):
                         # Force refresh if cache never loaded, DB has been synced since last load, or 10 mins passed
@@ -679,6 +681,16 @@ def load_df_from_db(filename):
                 rename_dict[c] = col_mappings[c_clean]
         if rename_dict:
             df.rename(columns=rename_dict, inplace=True)
+            
+        # Cache to local /tmp on Vercel to speed up subsequent reads
+        is_vercel = os.environ.get("VERCEL") or not os.access(os.getcwd(), os.W_OK)
+        if is_vercel:
+            try:
+                tmp_path = os.path.join('/tmp', filename)
+                df.to_csv(tmp_path, index=False, encoding='utf-8-sig')
+                print(f"Cached loaded DB data to local path: {tmp_path}")
+            except Exception as e_cache:
+                print(f"Error caching DB data to /tmp: {e_cache}")
             
         return df
     except Exception as e:
@@ -1086,7 +1098,19 @@ def safe_read_csv(filepath, filter_by_am=False, **kwargs):
         # Vercel/Read-only: prioritize /tmp files (just synced), then DB, then bundled files
         # After sync, CSVs are saved to /tmp - reading from there is instant vs slow DB query
         tmp_path = os.path.join('/tmp', filename)
+        is_tmp_valid = False
         if os.path.exists(tmp_path):
+            is_tmp_valid = True
+            global LAST_DB_SYNC_TIME
+            if 'LAST_DB_SYNC_TIME' in globals() and LAST_DB_SYNC_TIME is not None and LAST_DB_SYNC_TIME > 0:
+                mtime = os.path.getmtime(tmp_path)
+                # If database sync is newer than /tmp file modification time (with a 2s clock skew buffer),
+                # invalidate /tmp file to force loading the fresh data from the database.
+                if LAST_DB_SYNC_TIME > mtime + 2:
+                    is_tmp_valid = False
+                    print(f"Local Vercel /tmp/{filename} is stale (DB sync: {LAST_DB_SYNC_TIME:.1f}, file mtime: {mtime:.1f}). Overriding with DB.")
+        
+        if is_tmp_valid:
             for encoding in ['utf-8', 'utf-8-sig', 'latin-1', 'cp1252']:
                 try:
                     df = pd.read_csv(tmp_path, encoding=encoding, **kwargs)
@@ -2914,6 +2938,7 @@ FD_CACHE = None
 
 LAST_CACHE_UPDATE_TIME = None
 LAST_CACHE_CHECK_TIME = 0
+LAST_DB_SYNC_TIME = 0
 
 # Dataframe caches for NTB Summary Dashboard
 DF_GTC_CACHE = None
