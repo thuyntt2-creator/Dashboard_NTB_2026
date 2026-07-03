@@ -4275,10 +4275,27 @@ def async_sync_task(is_admin_flag):
         SYNC_STATUS["status"] = "error"
         SYNC_STATUS["error"] = f"Lỗi hệ thống khi đồng bộ ({total_elapsed}s): {str(e)}"
 
-@app.route('/api/sync', methods=['POST'])
-@requires_permission('tab-sync')
+@app.route('/api/sync', methods=['GET', 'POST'])
 def trigger_sync():
     global SYNC_STATUS
+    
+    is_cron = False
+    auth_header = request.headers.get('Authorization')
+    cron_secret = os.environ.get('CRON_SECRET')
+    if request.method == 'GET' and cron_secret and auth_header == f"Bearer {cron_secret}":
+        is_cron = True
+        
+    if request.method == 'GET' and not is_cron:
+        return jsonify({"error": "Phương thức GET chỉ dành cho Vercel Cron tự động."}), 405
+        
+    if not is_cron:
+        if 'username' not in session:
+            return jsonify({"error": "Yêu cầu đăng nhập để truy cập hệ thống."}), 401
+        role = session.get('role')
+        perms = session.get('permissions', [])
+        if role != 'admin' and 'tab-sync' not in perms:
+            return jsonify({"error": "Quyền truy cập bị từ chối."}), 403
+            
     ip = request.remote_addr
     is_ok, retry_after = check_rate_limit(f"{ip}_sync", limit=3, period=60)
     if not is_ok:
@@ -4291,9 +4308,8 @@ def trigger_sync():
     SYNC_STATUS["error"] = None
     SYNC_STATUS["progress"] = "Đang khởi tạo đồng bộ..."
     
-    admin_flag = is_admin()
+    admin_flag = is_admin() or is_cron
     
-    # On Vercel, run synchronously because background threads are killed immediately when the HTTP response returns.
     is_vercel = os.environ.get("VERCEL") or (request.host and "vercel.app" in request.host) or (request.headers.get("Host") and "vercel.app" in request.headers.get("Host"))
     if is_vercel:
         async_sync_task(admin_flag)
