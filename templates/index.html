@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
+    <meta name="csrf-token" content="{{ session.get('csrf_token', '') }}">
     <title>GHN Ops Dashboard | Hệ thống quản lý vận hành</title>
 
     <!-- Google Fonts: Outfit & Inter -->
@@ -15,18 +16,26 @@
         rel="stylesheet">
 
     <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8="
+          crossorigin="anonymous" />
 
     <!-- Leaflet.js Map -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
     <script src="/static/vn_border_50.js?v={{ range(1, 100000) | random }}"></script>
     <script src="/static/vn_provinces_simplified.js?v={{ range(1, 100000) | random }}"></script>
 
     <!-- ApexCharts JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.41.0/dist/apexcharts.min.js"
+            integrity="sha256-JvfrbG0Jkj1XzwMu28wweq4DTzHgRAQHmC5f0stdU5Q="
+            crossorigin="anonymous"></script>
 
-    <style>
+    <style nonce="{{ nonce }}">
         :root {
             --bg-primary: #f8fafc;
             --bg-secondary: #ffffff;
@@ -3691,19 +3700,23 @@
     </div>
 
     <!-- MAIN DASHBOARD JS LOGIC -->
-    <script>
-        // Helper to handle local file:// api routing smoothly
+    <script nonce="{{ nonce }}">
+        // Helper to handle api routing
         function getApiUrl(endpoint) {
-            const baseUrl = window.location.protocol === 'file:' ? 'http://127.0.0.1:5000' : '';
-            return baseUrl + endpoint;
+            return endpoint;
         }
 
         // Builder for fetch options (headers)
         function getFetchOptions(options = {}) {
             options.credentials = 'include';
-            if (window.location.protocol === 'file:') {
-                if (!options.headers) options.headers = {};
-                options.headers['Authorization'] = 'Basic ' + btoa('admin:admin123');
+            if (!options.headers) options.headers = {};
+            
+            const csrfMeta = document.querySelector('meta[name="csrf-token"]');
+            if (csrfMeta) {
+                const token = csrfMeta.getAttribute('content');
+                if (token) {
+                    options.headers['X-CSRF-Token'] = token;
+                }
             }
             return options;
         }
@@ -4137,7 +4150,7 @@
                 }
                 
                 tr.innerHTML = `
-                    <td style="text-align: left; font-weight: 600; padding: 10px; color: var(--text-primary);">${tab.name}</td>
+                    <td style="text-align: left; font-weight: 600; padding: 10px; color: var(--text-primary);">${escapeHTML(tab.name)}</td>
                     <td style="text-align: center; padding: 10px;">
                         <input type="checkbox" class="matrix-cb" data-tab="${tab.id}" data-action="view" ${p.view ? 'checked' : ''} onchange="onViewCheckboxChange('${tab.id}', this)">
                     </td>
@@ -8856,8 +8869,10 @@
         </div>
     </div>
     <!-- Leaflet.js Map Library -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    <script nonce="{{ nonce }}">
         // ==========================================
         // RENDER: NHÂN SỰ & SCENARIO PLANNER (TAB)
         // ==========================================

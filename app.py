@@ -52,7 +52,8 @@ def _patched_read_excel(*args, **kwargs):
 pd.read_excel = _patched_read_excel
 
 import numpy as np
-from flask import Flask, jsonify, render_template, request, Response, session
+from flask import Flask, jsonify, render_template, request, Response, session, g
+import secrets
 import threading
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
@@ -398,6 +399,14 @@ def check_rate_limit(key, limit=5, period=60):
         return True, 0
 
 @app.before_request
+def generate_nonce():
+    g.nonce = secrets.token_hex(16)
+
+@app.context_processor
+def inject_nonce():
+    return dict(nonce=getattr(g, 'nonce', ''))
+
+@app.before_request
 def csrf_referer_check():
     if request.method in ['POST', 'PUT', 'PATCH', 'DELETE']:
         if request.path == '/api/login':
@@ -408,14 +417,19 @@ def csrf_referer_check():
         host_url = request.host_url
         
         is_valid = False
+        is_vercel = os.environ.get("VERCEL") or (request.host and "vercel.app" in request.host)
         
         if origin:
             o_clean = origin.rstrip('/')
             h_clean = host_url.rstrip('/')
-            if o_clean == h_clean or '127.0.0.1' in o_clean or 'localhost' in o_clean:
+            if o_clean == h_clean:
+                is_valid = True
+            elif ('127.0.0.1' in o_clean or 'localhost' in o_clean) and not is_vercel:
                 is_valid = True
         elif referer:
-            if referer.startswith(host_url) or '127.0.0.1' in referer or 'localhost' in referer:
+            if referer.startswith(host_url):
+                is_valid = True
+            elif (referer.startswith("http://127.0.0.1") or referer.startswith("http://localhost")) and not is_vercel:
                 is_valid = True
         else:
             if 'username' in session:
@@ -425,6 +439,13 @@ def csrf_referer_check():
                 
         if not is_valid and 'username' in session:
             return jsonify({"error": "Yêu cầu bị từ chối do vi phạm quy tắc bảo mật CSRF (Origin/Referer không hợp lệ)."}), 403
+
+        # CSRF Token Check
+        if 'username' in session:
+            csrf_token = request.headers.get('X-CSRF-Token')
+            session_token = session.get('csrf_token')
+            if not session_token or csrf_token != session_token:
+                return jsonify({"error": "Lỗi bảo mật: CSRF Token không hợp lệ hoặc đã hết hạn."}), 403
 
 @app.before_request
 def check_cache_ttl():
@@ -461,21 +482,44 @@ def check_cache_ttl():
 
 @app.after_request
 def add_security_headers(response):
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    response.headers['Access-Control-Allow-Headers'] = 'Content-Type,Authorization'
-    response.headers['Access-Control-Allow-Methods'] = 'GET,PUT,POST,DELETE,OPTIONS'
-    
+    # Dynamic CORS policy
+    origin = request.headers.get('Origin')
+    if origin:
+        parsed_origin = re.match(r'^https?://(localhost|127\.0\.0\.1)(:\d+)?$', origin)
+        is_vercel = os.environ.get("VERCEL") or (request.host and "vercel.app" in request.host)
+        if parsed_origin and not is_vercel:
+            response.headers['Access-Control-Allow-Origin'] = origin
+            response.headers['Access-Control-Allow-Credentials'] = 'true'
+            response.headers['Access-Control-Allow-Headers'] = 'Content-Type,Authorization,X-CSRF-Token'
+            response.headers['Access-Control-Allow-Methods'] = 'GET,PUT,POST,DELETE,OPTIONS'
+            
     # Disable caching to force updates
     response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
     response.headers['Pragma'] = 'no-cache'
     response.headers['Expires'] = '0'
     
-    # Secure HTTP headers from rules
-    response.headers['Content-Security-Policy'] = "default-src 'self' http://127.0.0.1:5000; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://*.basemaps.cartocdn.com https://unpkg.com; connect-src 'self' http://127.0.0.1:5000;"
+    # Secure HTTP headers from rules with Nonce-based CSP
+    nonce = getattr(g, 'nonce', '')
+    csp_directives = [
+        "default-src 'self'",
+        f"script-src 'self' 'nonce-{nonce}' https://cdn.jsdelivr.net https://unpkg.com",
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com",
+        "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com",
+        "img-src 'self' data: https://*.basemaps.cartocdn.com https://unpkg.com",
+        "connect-src 'self'"
+    ]
+    
+    # Allow local requests dynamically if accessed locally
+    host = request.host or ''
+    if any(h in host for h in ['localhost', '127.0.0.1']):
+        csp_directives[0] = "default-src 'self' http://127.0.0.1:5000 http://localhost:5000"
+        csp_directives[5] = "connect-src 'self' http://127.0.0.1:5000 http://localhost:5000"
+        
+    response.headers['Content-Security-Policy'] = "; ".join(csp_directives)
     response.headers['X-Frame-Options'] = 'DENY'
     response.headers['X-Content-Type-Options'] = 'nosniff'
     response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
-    response.headers['Permissions-Policy'] = 'geolocation=(), microphone=(), camera=()'
+    response.headers['Permissions-Policy'] = 'geolocation=(), microphone=(), camera=(), payment=(), usb=()'
     response.headers.pop('X-Powered-By', None)
     return response
 def resolve_path(filename, write=False):
@@ -3237,6 +3281,8 @@ def update_all_caches():
 # ==========================================
 @app.route('/')
 def home():
+    if 'csrf_token' not in session:
+        session['csrf_token'] = secrets.token_hex(32)
     return render_template('index.html')
 
 @app.route('/api/login', methods=['POST'])
@@ -3278,11 +3324,16 @@ def api_login():
             perms = get_user_permissions(username)
             session['permissions'] = perms
             session.permanent = True
+            
+            # Generate CSRF token
+            session['csrf_token'] = secrets.token_hex(32)
+            
             return jsonify({
                 "success": True,
                 "username": username,
                 "role": session['role'],
-                "permissions": perms
+                "permissions": perms,
+                "csrf_token": session['csrf_token']
             })
         return jsonify({"error": "Sai mã nhân viên hoặc mật khẩu."}), 401
     except Exception as e:
