@@ -4500,6 +4500,14 @@ def trigger_sync():
         return jsonify({"error": "Phương thức GET chỉ dành cho Vercel Cron tự động."}), 405
         
     if not is_cron:
+        auth = request.authorization
+        if auth and check_auth(auth.username, auth.password):
+            session['username'] = auth.username
+            users = load_users()
+            user = users.get(auth.username, {})
+            session['role'] = user.get("role", "staff")
+            session['permissions'] = user.get("permissions", [])
+            
         if 'username' not in session:
             return jsonify({"error": "Yêu cầu đăng nhập để truy cập hệ thống."}), 401
         role = session.get('role')
