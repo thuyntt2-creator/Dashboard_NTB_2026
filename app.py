@@ -412,6 +412,10 @@ def csrf_referer_check():
         if request.path == '/api/login':
             return
             
+        # Programmatic requests (basic auth, tokens, etc.) are safe from CSRF
+        if request.headers.get('Authorization') or request.authorization:
+            return
+            
         origin = request.headers.get('Origin')
         referer = request.headers.get('Referer')
         host_url = request.host_url
@@ -422,12 +426,12 @@ def csrf_referer_check():
         if origin:
             o_clean = origin.rstrip('/')
             h_clean = host_url.rstrip('/')
-            if o_clean == h_clean:
+            if o_clean == h_clean or o_clean.replace("https://", "http://") == h_clean.replace("https://", "http://"):
                 is_valid = True
             elif ('127.0.0.1' in o_clean or 'localhost' in o_clean) and not is_vercel:
                 is_valid = True
         elif referer:
-            if referer.startswith(host_url):
+            if referer.startswith(host_url) or referer.replace("https://", "http://").startswith(host_url.replace("https://", "http://")):
                 is_valid = True
             elif (referer.startswith("http://127.0.0.1") or referer.startswith("http://localhost")) and not is_vercel:
                 is_valid = True
@@ -874,7 +878,8 @@ ALLOWED_SPREADSHEET_IDS = {
     "1MjLW8NbD5ZjoOdd90myGv0i1NGAtlvScxebfAXMM1j8", # treo_url
     "1lmQv8KwHJzDFs_RMz64ydu4SOmG3M1YAzILNFGtzFec", # bat_on_url
     "1PjzFqJO-wkQ8SNsPHD721_CbPr6c_ArZKuGGU6KqDZg", # off_spe_url
-    "1OygEPTn6Qu8okwAqpbx_RBiYQr1cfpO5hiaxqu4AMNE"  # tao_don_url
+    "1OygEPTn6Qu8okwAqpbx_RBiYQr1cfpO5hiaxqu4AMNE", # tao_don_url
+    "1j6Xm7JRemUGRSfbL-wc8DMwt7qfR7j79w9q79_snVnU"  # SHEET_ID (report sheet with cocau tab)
 }
 
 def is_allowed_spreadsheet_url(url):
@@ -3236,6 +3241,8 @@ def apply_filters(df, am=None, province=None, post_office=None):
     df_filtered = df.copy()
     if am:
         df_filtered = filter_df_by_logged_in_am(df_filtered, force_am_name=am)
+        if df_filtered.empty:
+            return df_filtered
 
     if province:
         prov_cols = [c for c in df_filtered.columns if str(c).strip() in ['mapped_prov', 'Tỉnh', 'province_name', 'province']]
@@ -3247,6 +3254,8 @@ def apply_filters(df, am=None, province=None, post_office=None):
                 def match_prov(x):
                     return clean_str(x) == clean_str(province)
                 df_filtered = df_filtered[df_filtered[col].apply(match_prov)]
+        if df_filtered.empty:
+            return df_filtered
 
     if post_office:
         po_cols = [c for c in df_filtered.columns if str(c).strip() in ['clean_bc', 'BC', 'warehouse_name', 'Bưu cục', 'post_office']]
@@ -4100,10 +4109,49 @@ SYNC_STATUS = {
     "timestamp": None
 }
 
+def extract_and_save_user_cocau(df):
+    """
+    Helper to map user sheet cocau dataframe to co_cau_ntb.csv/ops_co_cau.csv format
+    """
+    try:
+        import pandas as pd
+        import unicodedata
+        
+        # Columns in cocau: 'Mã bưu cục', 'Bưu cục', 'BC', 'Tỉnh', 'Am', 'ID - Họ Tên Am'
+        # Check if columns exist
+        ma_bc_col = next((c for c in df.columns if str(c).strip().lower() == 'mã bưu cục'), None)
+        bc_name_col = next((c for c in df.columns if str(c).strip().lower() == 'bưu cục'), None)
+        bc_short_col = next((c for c in df.columns if str(c).strip().lower() == 'bc'), None)
+        tinh_col = next((c for c in df.columns if str(c).strip().lower() == 'tỉnh'), None)
+        am_col = next((c for c in df.columns if str(c).strip().lower() in ['am', 'am_name', 'quản lý', 'họ tên am']), None)
+        
+        if ma_bc_col is None or am_col is None:
+            print(f"Error mapping user cocau sheet: 'Mã bưu cục' or 'Am' columns not found. Found columns: {df.columns.tolist()}")
+            return False
+            
+        df_mapped = pd.DataFrame()
+        df_mapped['warehouse_id'] = df[ma_bc_col]
+        df_mapped['Bưu cục'] = df[bc_name_col] if bc_name_col else df[ma_bc_col]
+        df_mapped['BC'] = df[bc_short_col] if bc_short_col else df_mapped['Bưu cục']
+        df_mapped['Tỉnh'] = df[tinh_col] if tinh_col else 'Lâm Đồng'
+        df_mapped['AM'] = df[am_col].astype(str).str.strip().apply(lambda x: unicodedata.normalize('NFC', x))
+        
+        for target_csv in ['ops_co_cau.csv', 'co_cau_ntb.csv']:
+            csv_path = resolve_path(target_csv, write=True)
+            df_mapped.to_csv(csv_path, index=False, encoding='utf-8-sig')
+            save_df_to_db(df_mapped, target_csv)
+            
+        print("Successfully extracted and saved cocau structure mapping!")
+        return True
+    except Exception as e:
+        print(f"Error mapping user cocau sheet: {e}")
+        return False
+
 def split_excel_to_csvs(xlsx_path):
     print(f"Splitting {xlsx_path} to CSV files using optimized openpyxl...")
     import openpyxl
     import csv
+    import pandas as pd
     try:
         wb = openpyxl.load_workbook(xlsx_path, read_only=True, data_only=True)
         sheet_names = wb.sheetnames
@@ -4127,6 +4175,14 @@ def split_excel_to_csvs(xlsx_path):
             (["nhân sự", "nhan su"], "ops_nhan_su.csv")
         ]
         
+        # Check if the excel contains a dedicated user sheet style 'cocau' tab
+        # (This is different from 'cocauvung' as it has short names & columns like 'Mã bưu cục' / 'Am')
+        has_user_cocau_sheet = 'cocau' in sheet_names_lower
+        
+        if has_user_cocau_sheet:
+            print("Found user-defined 'cocau' sheet. Excluding from generic split mapping.")
+            sheet_mappings = [m for m in sheet_mappings if m[1] not in ["ops_co_cau.csv", "co_cau_ntb.csv"]]
+            
         for candidates, target_csv in sheet_mappings:
             matched_sheet = None
             for c in candidates:
@@ -4155,12 +4211,26 @@ def split_excel_to_csvs(xlsx_path):
             else:
                 print(f"Warning: sheet for {target_csv} not found in Excel workbook.")
         wb.close()
+        
+        # If user cocau sheet exists, read it with pandas and map/save it properly
+        if has_user_cocau_sheet:
+            idx = sheet_names_lower.index('cocau')
+            matched_sheet = sheet_names[idx]
+            print(f"Extracting user-style structure sheet '{matched_sheet}' using pandas...")
+            try:
+                df_cocau = pd.read_excel(xlsx_path, sheet_name=matched_sheet)
+                extract_and_save_user_cocau(df_cocau)
+            except Exception as e:
+                print(f"Error extracting user-style structure sheet: {e}")
+                
         return True
     except Exception as e:
         print(f"Error splitting Excel to CSVs: {e}")
         import traceback
         traceback.print_exc()
         return False
+
+
 
 def sync_sheets_directly_as_csv(url):
     import urllib.request
@@ -4201,11 +4271,43 @@ def sync_sheets_directly_as_csv(url):
         norm_name = unicodedata.normalize('NFC', name.strip().lower())
         gid_map[norm_name] = gid
         
+    sheet_id = os.environ.get("SHEET_ID", "1j6Xm7JRemUGRSfbL-wc8DMwt7qfR7j79w9q79_snVnU").strip()
+    
+    cocau_downloaded = False
+    if sheet_id:
+        print(f"Downloading structure from SHEET_ID: {sheet_id} (gid=1278866275)...")
+        try:
+            import io
+            cocau_url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid=1278866275"
+            cocau_req = urllib.request.Request(cocau_url, headers={'User-Agent': user_agent})
+            with urllib.request.urlopen(cocau_req, timeout=30) as response:
+                content = response.read()
+            df_cocau = pd.read_csv(io.BytesIO(content))
+            cocau_downloaded = extract_and_save_user_cocau(df_cocau)
+        except Exception as e:
+            print(f"Error downloading structure from Google Sheets: {e}")
+            
+    if not cocau_downloaded:
+        user_sheet_path = os.path.join(WORKSPACE_DIR, 'downloaded_user_sheet.xlsx')
+        if os.path.exists(user_sheet_path):
+            print("Extracting structure from local downloaded_user_sheet.xlsx...")
+            try:
+                df_cocau = pd.read_excel(user_sheet_path, sheet_name='cocau')
+                cocau_downloaded = extract_and_save_user_cocau(df_cocau)
+            except Exception as e:
+                print(f"Error reading local downloaded_user_sheet.xlsx: {e}")
+                
     sheet_mappings = [
         (["data"], "ops_gtc.csv"),
         (["dataltc", "rawltc", "data ltc"], "ops_ltc.csv"),
-        (["cocauvung", "cơ cấu", "co_cau", "co cau"], "ops_co_cau.csv"),
-        (["cocauvung", "cơ cấu", "co_cau", "co cau"], "co_cau_ntb.csv"),
+    ]
+    if not cocau_downloaded:
+        print("Fallback: downloading old structure from consolidated sheet...")
+        sheet_mappings.extend([
+            (["cocauvung", "cơ cấu", "co_cau", "co cau"], "ops_co_cau.csv"),
+            (["cocauvung", "cơ cấu", "co_cau", "co cau"], "co_cau_ntb.csv"),
+        ])
+    sheet_mappings.extend([
         (["tts"], "ops_tts.csv"),
         (["opr"], "opr_opr.csv"),
         (["raw n-1", "oe_madh", "raw_n-1", "raw n - 1", "oe madh"], "opr_oe.csv"),
@@ -4218,7 +4320,7 @@ def sync_sheets_directly_as_csv(url):
         (["odr tts", "odr_tts"], "ODR TTS.csv"),
         (["fd"], "ops_fd.csv"),
         (["nhân sự", "nhan su"], "ops_nhan_su.csv")
-    ]
+    ])
     
     gid_to_filenames = {}
     for candidates, target_csv in sheet_mappings:
@@ -4279,7 +4381,7 @@ def sync_sheets_directly_as_csv(url):
             except Exception as e:
                 print(f"Exception downloading GID {gid}: {e}")
                 
-    if success_count == 0:
+    if success_count == 0 and not cocau_downloaded:
         return False, "Không tải được file CSV nào từ Google Sheets."
     
     # Phase 2: Batch DB writes in parallel (deferred from download phase)
@@ -4295,6 +4397,9 @@ def sync_sheets_directly_as_csv(url):
             list(db_executor.map(write_one, pending_db_writes))
         print("DB writes complete.")
         
+    if cocau_downloaded:
+        success_count += 2
+            
     return True, f"Đã tải thành công {success_count} files."
 
 def async_sync_task(is_admin_flag):
