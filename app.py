@@ -5259,31 +5259,6 @@ def api_chat():
             
     except Exception as ex:
         return jsonify({"reply": f"🤖 Đã xảy ra lỗi hệ thống: {str(ex)}"}), 500
-
-@app.route('/api/debug-file-head')
-@requires_auth
-def debug_file_head():
-    filename = request.args.get('filename', 'co_cau_ntb.csv')
-    try:
-        path = resolve_path(filename, write=False)
-        df = safe_read_csv(path)
-        if df is None:
-            return jsonify({"status": "error", "message": "DataFrame is None"})
-        
-        info = {
-            "filename": filename,
-            "path": path,
-            "exists": os.path.exists(path),
-            "size": os.path.getsize(path) if os.path.exists(path) else -1,
-            "columns": df.columns.tolist(),
-            "shape": df.shape,
-            "unique_ams": df[df.columns[4]].dropna().unique().tolist() if len(df.columns) > 4 else [],
-            "head": df.head(10).to_dict(orient='records')
-        }
-        return jsonify(info)
-    except Exception as e:
-        return jsonify({"status": "error", "message": str(e)})
-
 @app.route('/api/ntb-structure')
 @requires_permission('tab-introduction')
 def get_ntb_structure():
