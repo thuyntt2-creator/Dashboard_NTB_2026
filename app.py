@@ -4117,16 +4117,19 @@ def extract_and_save_user_cocau(df):
         import pandas as pd
         import unicodedata
         
+        # Clean column names (strip BOM, whitespaces, lowercase, NFC normalize)
+        df.columns = [unicodedata.normalize('NFC', str(c).replace('\ufeff', '').strip().lower()) for c in df.columns]
+        
         # Columns in cocau: 'Mã bưu cục', 'Bưu cục', 'BC', 'Tỉnh', 'Am', 'ID - Họ Tên Am'
-        # Check if columns exist
-        ma_bc_col = next((c for c in df.columns if str(c).strip().lower() == 'mã bưu cục'), None)
-        bc_name_col = next((c for c in df.columns if str(c).strip().lower() == 'bưu cục'), None)
-        bc_short_col = next((c for c in df.columns if str(c).strip().lower() == 'bc'), None)
-        tinh_col = next((c for c in df.columns if str(c).strip().lower() == 'tỉnh'), None)
-        am_col = next((c for c in df.columns if str(c).strip().lower() in ['am', 'am_name', 'quản lý', 'họ tên am']), None)
+        # Check if columns exist using cleaned names
+        ma_bc_col = next((c for c in df.columns if c == 'mã bưu cục'), None)
+        bc_name_col = next((c for c in df.columns if c == 'bưu cục'), None)
+        bc_short_col = next((c for c in df.columns if c == 'bc'), None)
+        tinh_col = next((c for c in df.columns if c == 'tỉnh'), None)
+        am_col = next((c for c in df.columns if c in ['am', 'am_name', 'quản lý', 'họ tên am']), None)
         
         if ma_bc_col is None or am_col is None:
-            print(f"Error mapping user cocau sheet: 'Mã bưu cục' or 'Am' columns not found. Found columns: {df.columns.tolist()}")
+            print(f"Error mapping user cocau sheet: 'mã bưu cục' or 'am' columns not found. Found columns: {df.columns.tolist()}")
             return False
             
         df_mapped = pd.DataFrame()
