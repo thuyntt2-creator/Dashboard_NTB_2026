@@ -4274,43 +4274,11 @@ def sync_sheets_directly_as_csv(url):
         norm_name = unicodedata.normalize('NFC', name.strip().lower())
         gid_map[norm_name] = gid
         
-    sheet_id = os.environ.get("SHEET_ID", "1j6Xm7JRemUGRSfbL-wc8DMwt7qfR7j79w9q79_snVnU").strip()
-    
-    cocau_downloaded = False
-    if sheet_id:
-        print(f"Downloading structure from SHEET_ID: {sheet_id} (gid=1278866275)...")
-        try:
-            import io
-            cocau_url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid=1278866275"
-            cocau_req = urllib.request.Request(cocau_url, headers={'User-Agent': user_agent})
-            with urllib.request.urlopen(cocau_req, timeout=30) as response:
-                content = response.read()
-            df_cocau = pd.read_csv(io.BytesIO(content))
-            cocau_downloaded = extract_and_save_user_cocau(df_cocau)
-        except Exception as e:
-            print(f"Error downloading structure from Google Sheets: {e}")
-            
-    if not cocau_downloaded:
-        user_sheet_path = os.path.join(WORKSPACE_DIR, 'downloaded_user_sheet.xlsx')
-        if os.path.exists(user_sheet_path):
-            print("Extracting structure from local downloaded_user_sheet.xlsx...")
-            try:
-                df_cocau = pd.read_excel(user_sheet_path, sheet_name='cocau')
-                cocau_downloaded = extract_and_save_user_cocau(df_cocau)
-            except Exception as e:
-                print(f"Error reading local downloaded_user_sheet.xlsx: {e}")
-                
     sheet_mappings = [
         (["data"], "ops_gtc.csv"),
         (["dataltc", "rawltc", "data ltc"], "ops_ltc.csv"),
-    ]
-    if not cocau_downloaded:
-        print("Fallback: downloading old structure from consolidated sheet...")
-        sheet_mappings.extend([
-            (["cocauvung", "cơ cấu", "co_cau", "co cau"], "ops_co_cau.csv"),
-            (["cocauvung", "cơ cấu", "co_cau", "co cau"], "co_cau_ntb.csv"),
-        ])
-    sheet_mappings.extend([
+        (["cocauvung", "cơ cấu", "co_cau", "co cau"], "ops_co_cau.csv"),
+        (["cocauvung", "cơ cấu", "co_cau", "co cau"], "co_cau_ntb.csv"),
         (["tts"], "ops_tts.csv"),
         (["opr"], "opr_opr.csv"),
         (["raw n-1", "oe_madh", "raw_n-1", "raw n - 1", "oe madh"], "opr_oe.csv"),
@@ -4323,7 +4291,8 @@ def sync_sheets_directly_as_csv(url):
         (["odr tts", "odr_tts"], "ODR TTS.csv"),
         (["fd"], "ops_fd.csv"),
         (["nhân sự", "nhan su"], "ops_nhan_su.csv")
-    ])
+    ]
+    
     
     gid_to_filenames = {}
     for candidates, target_csv in sheet_mappings:
@@ -4384,7 +4353,7 @@ def sync_sheets_directly_as_csv(url):
             except Exception as e:
                 print(f"Exception downloading GID {gid}: {e}")
                 
-    if success_count == 0 and not cocau_downloaded:
+    if success_count == 0:
         return False, "Không tải được file CSV nào từ Google Sheets."
     
     # Phase 2: Batch DB writes in parallel (deferred from download phase)
@@ -4400,9 +4369,6 @@ def sync_sheets_directly_as_csv(url):
             list(db_executor.map(write_one, pending_db_writes))
         print("DB writes complete.")
         
-    if cocau_downloaded:
-        success_count += 2
-            
     return True, f"Đã tải thành công {success_count} files."
 
 def async_sync_task(is_admin_flag):
