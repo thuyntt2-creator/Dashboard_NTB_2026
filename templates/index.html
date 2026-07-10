@@ -3294,51 +3294,77 @@
                 <div class="panel-header">
                     <h2><i class="fa-solid fa-boxes-stacked"></i> Báo cáo Sản lượng theo Ca</h2>
                 </div>
-                <div style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 24px;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                        <h3 style="margin: 0; font-size: 16px; color: #1e293b;">View theo AM</h3>
-                        <button class="btn btn-primary" onclick="loadCaReportData()"><i class="fa-solid fa-rotate-right"></i> Tải lại dữ liệu</button>
+
+                <!-- Summary KPI Strip -->
+                <div id="ca-kpi-strip" style="display:grid; grid-template-columns: repeat(4,1fr); gap:16px; margin-bottom:24px;">
+                    <div style="background:#fff; border-radius:10px; padding:16px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.06); border-left:4px solid #6366f1;">
+                        <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Tổng Vol Ca 1</div>
+                        <div id="ca-kpi-vol1" style="font-size:26px;font-weight:800;color:#1e293b;">-</div>
                     </div>
-                    <div class="table-container">
-                        <table class="custom-table" id="table-ca-report-am">
-                            <thead>
-                                <tr>
-                                    <th>AM</th>
-                                    <th style="text-align:right">Hàng Mới Ca 1 (Volume)</th>
-                                    <th style="text-align:right">Hàng Mới Ca 1 (GTC)</th>
-                                    <th style="text-align:right">Hàng Mới Ca 2 (Volume)</th>
-                                    <th style="text-align:right">Hàng Mới Ca 2 (GTC)</th>
-                                    <th style="text-align:right">Hàng Tồn (Volume)</th>
-                                    <th style="text-align:right">Hàng Tồn (GTC)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td colspan="7" class="text-center">Đang tải dữ liệu...</td></tr>
-                            </tbody>
-                        </table>
+                    <div style="background:#fff; border-radius:10px; padding:16px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.06); border-left:4px solid #10b981;">
+                        <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Tổng Vol Ca 2</div>
+                        <div id="ca-kpi-vol2" style="font-size:26px;font-weight:800;color:#1e293b;">-</div>
+                    </div>
+                    <div style="background:#fff; border-radius:10px; padding:16px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.06); border-left:4px solid #f59e0b;">
+                        <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Tổng Vol Hàng Tồn</div>
+                        <div id="ca-kpi-vol3" style="font-size:26px;font-weight:800;color:#1e293b;">-</div>
+                    </div>
+                    <div style="background:#fff; border-radius:10px; padding:16px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.06); border-left:4px solid #ef4444;">
+                        <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Số Bưu cục</div>
+                        <div id="ca-kpi-bc-count" style="font-size:26px;font-weight:800;color:#1e293b;">-</div>
                     </div>
                 </div>
 
-                <div style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-                    <div style="margin-bottom: 15px;">
-                        <h3 style="margin: 0; font-size: 16px; color: #1e293b;">View theo Bưu Cục</h3>
+                <!-- Main table card -->
+                <div style="background:#fff; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,0.07); overflow:hidden;">
+                    <!-- Toolbar -->
+                    <div style="display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-bottom:1px solid #f1f5f9; flex-wrap:wrap; gap:12px;">
+                        <div style="display:flex; align-items:center; gap:10px; flex:1; min-width:220px;">
+                            <i class="fa-solid fa-magnifying-glass" style="color:#94a3b8;"></i>
+                            <input type="text" id="ca-search-input" placeholder="Tìm bưu cục..." oninput="filterCaTable()"
+                                style="border:1px solid #e2e8f0; border-radius:7px; padding:7px 12px; font-size:13px; width:100%; max-width:300px; outline:none; color:#1e293b;">
+                        </div>
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <span style="font-size:13px; color:#64748b; font-weight:500;" id="ca-row-count"></span>
+                            <button class="btn btn-primary" onclick="loadCaReportData()" style="font-size:13px; padding:7px 14px;">
+                                <i class="fa-solid fa-rotate-right"></i> Tải lại
+                            </button>
+                        </div>
                     </div>
-                    <div class="table-container">
-                        <table class="custom-table" id="table-ca-report-bc">
+
+                    <!-- Legend -->
+                    <div style="display:flex; gap:20px; padding:10px 20px; background:#fafbfc; border-bottom:1px solid #f1f5f9; font-size:12px; color:#64748b; flex-wrap:wrap;">
+                        <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#6366f1;margin-right:5px;"></span>Ca 1</span>
+                        <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#10b981;margin-right:5px;"></span>Ca 2</span>
+                        <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#f59e0b;margin-right:5px;"></span>Hàng Tồn</span>
+                        <span style="margin-left:auto;"><i class="fa-solid fa-circle-info" style="color:#94a3b8;margin-right:4px;"></i>% GTC = GTC / Volume</span>
+                    </div>
+
+                    <!-- Scrollable table -->
+                    <div style="overflow-x:auto; max-height:65vh; overflow-y:auto;">
+                        <table style="width:100%; border-collapse:collapse; font-size:13px;">
                             <thead>
-                                <tr>
-                                    <th>AM</th>
-                                    <th>Bưu Cục</th>
-                                    <th style="text-align:right">Hàng Mới Ca 1 (Volume)</th>
-                                    <th style="text-align:right">Hàng Mới Ca 1 (GTC)</th>
-                                    <th style="text-align:right">Hàng Mới Ca 2 (Volume)</th>
-                                    <th style="text-align:right">Hàng Mới Ca 2 (GTC)</th>
-                                    <th style="text-align:right">Hàng Tồn (Volume)</th>
-                                    <th style="text-align:right">Hàng Tồn (GTC)</th>
+                                <tr style="background:#f8fafc; position:sticky; top:0; z-index:5;">
+                                    <th style="padding:10px 14px; text-align:left; font-weight:700; color:#475569; border-bottom:2px solid #e2e8f0; white-space:nowrap; cursor:pointer;" onclick="sortCaTable('bc')" id="ca-th-bc">Bưu Cục <i class="fa-solid fa-sort" style="color:#cbd5e1; font-size:10px;"></i></th>
+                                    <th style="padding:10px 8px; text-align:center; font-weight:700; color:#6366f1; border-bottom:2px solid #e2e8f0; background:#f0f0ff; white-space:nowrap;" colspan="3">🌅 Hàng Mới Ca 1</th>
+                                    <th style="padding:10px 8px; text-align:center; font-weight:700; color:#10b981; border-bottom:2px solid #e2e8f0; background:#f0fdf4; white-space:nowrap;" colspan="3">🌆 Hàng Mới Ca 2</th>
+                                    <th style="padding:10px 8px; text-align:center; font-weight:700; color:#d97706; border-bottom:2px solid #e2e8f0; background:#fffbeb; white-space:nowrap;" colspan="3">📦 Hàng Tồn</th>
+                                </tr>
+                                <tr style="background:#f8fafc; position:sticky; top:40px; z-index:5;">
+                                    <th style="padding:6px 14px; text-align:left; font-weight:600; font-size:11px; color:#94a3b8; border-bottom:1px solid #e2e8f0;"></th>
+                                    <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#6366f1; border-bottom:1px solid #e2e8f0; background:#f5f5ff; cursor:pointer;" onclick="sortCaTable('v1')">Vol <i class="fa-solid fa-sort" style="color:#c7d2fe;font-size:9px;"></i></th>
+                                    <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#6366f1; border-bottom:1px solid #e2e8f0; background:#f5f5ff; cursor:pointer;" onclick="sortCaTable('g1')">GTC <i class="fa-solid fa-sort" style="color:#c7d2fe;font-size:9px;"></i></th>
+                                    <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#6366f1; border-bottom:1px solid #e2e8f0; background:#f5f5ff;">%GTC</th>
+                                    <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#10b981; border-bottom:1px solid #e2e8f0; background:#f0fdf4; cursor:pointer;" onclick="sortCaTable('v2')">Vol <i class="fa-solid fa-sort" style="color:#6ee7b7;font-size:9px;"></i></th>
+                                    <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#10b981; border-bottom:1px solid #e2e8f0; background:#f0fdf4; cursor:pointer;" onclick="sortCaTable('g2')">GTC <i class="fa-solid fa-sort" style="color:#6ee7b7;font-size:9px;"></i></th>
+                                    <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#10b981; border-bottom:1px solid #e2e8f0; background:#f0fdf4;">%GTC</th>
+                                    <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#d97706; border-bottom:1px solid #e2e8f0; background:#fef9ec; cursor:pointer;" onclick="sortCaTable('v3')">Vol <i class="fa-solid fa-sort" style="color:#fcd34d;font-size:9px;"></i></th>
+                                    <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#d97706; border-bottom:1px solid #e2e8f0; background:#fef9ec; cursor:pointer;" onclick="sortCaTable('g3')">GTC <i class="fa-solid fa-sort" style="color:#fcd34d;font-size:9px;"></i></th>
+                                    <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#d97706; border-bottom:1px solid #e2e8f0; background:#fef9ec;">%GTC</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr><td colspan="8" class="text-center">Đang tải dữ liệu...</td></tr>
+                            <tbody id="ca-table-body">
+                                <tr><td colspan="10" style="text-align:center; padding:40px; color:#94a3b8;"><i class="fa-solid fa-spinner fa-spin"></i> Đang tải...</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -9063,6 +9089,142 @@
             window.rowGrowthOverrides[whId] = isNaN(parsedVal) ? 0 : parsedVal;
             renderNhanSuTable();
         }
+        // ================================================
+        // BÁO CÁO SẢN LƯỢNG CA - JAVASCRIPT
+        // ================================================
+        let caReportAllRows = [];
+        let caReportSortKey = 'bc';
+        let caReportSortAsc = true;
+
+        async function loadCaReportData() {
+            const tbody = document.getElementById('ca-table-body');
+            if (!tbody) return;
+            tbody.innerHTML = `<tr><td colspan="10" style="text-align:center;padding:40px;color:#94a3b8;"><i class="fa-solid fa-spinner fa-spin"></i> Đang tải...</td></tr>`;
+
+            try {
+                const res = await fetch(getApiUrl('/api/ca-report'), getFetchOptions());
+                const data = await res.json();
+                if (data.error) {
+                    tbody.innerHTML = `<tr><td colspan="10" style="text-align:center;padding:40px;color:#ef4444;"><i class="fa-solid fa-triangle-exclamation"></i> ${data.error}</td></tr>`;
+                    return;
+                }
+
+                const rows = data.by_bc || [];
+                // Normalize each row to a consistent field set
+                caReportAllRows = rows.map(r => {
+                    // API returns cols like "Hàng Mới Ca 1_Volume", "Hàng Mới Ca 1_Sản Lượng Giao Thành Công"
+                    const v1 = r['Hàng Mới Ca 1_Volume'] || 0;
+                    const g1 = r['Hàng Mới Ca 1_Sản Lượng Giao Thành Công'] || 0;
+                    const v2 = r['Hàng Mới Ca 2_Volume'] || 0;
+                    const g2 = r['Hàng Mới Ca 2_Sản Lượng Giao Thành Công'] || 0;
+                    const v3 = r['Hàng Tồn_Volume'] || 0;
+                    const g3 = r['Hàng Tồn_Sản Lượng Giao Thành Công'] || 0;
+                    return {
+                        bc: r['Bưu Cục'] || r['BC'] || '',
+                        am: r['AM'] || '',
+                        v1, g1, p1: v1 > 0 ? Math.round(g1 / v1 * 100) : null,
+                        v2, g2, p2: v2 > 0 ? Math.round(g2 / v2 * 100) : null,
+                        v3, g3, p3: v3 > 0 ? Math.round(g3 / v3 * 100) : null,
+                    };
+                });
+
+                // Update KPI strip
+                const totalV1 = caReportAllRows.reduce((s, r) => s + r.v1, 0);
+                const totalV2 = caReportAllRows.reduce((s, r) => s + r.v2, 0);
+                const totalV3 = caReportAllRows.reduce((s, r) => s + r.v3, 0);
+                const el = id => document.getElementById(id);
+                if (el('ca-kpi-vol1')) el('ca-kpi-vol1').innerText = totalV1.toLocaleString('vi-VN');
+                if (el('ca-kpi-vol2')) el('ca-kpi-vol2').innerText = totalV2.toLocaleString('vi-VN');
+                if (el('ca-kpi-vol3')) el('ca-kpi-vol3').innerText = totalV3.toLocaleString('vi-VN');
+                if (el('ca-kpi-bc-count')) el('ca-kpi-bc-count').innerText = caReportAllRows.length;
+
+                renderCaTable();
+            } catch(e) {
+                tbody.innerHTML = `<tr><td colspan="10" style="text-align:center;padding:40px;color:#ef4444;"><i class="fa-solid fa-triangle-exclamation"></i> Lỗi tải dữ liệu: ${e.message}</td></tr>`;
+            }
+        }
+
+        function pctBadge(pct) {
+            if (pct === null || pct === undefined) return '<span style="color:#cbd5e1;">-</span>';
+            const color = pct >= 80 ? '#16a34a' : pct >= 60 ? '#d97706' : '#dc2626';
+            const bg    = pct >= 80 ? '#dcfce7'  : pct >= 60 ? '#fef9c3'  : '#fee2e2';
+            return `<span style="display:inline-block;padding:2px 8px;border-radius:12px;background:${bg};color:${color};font-weight:700;font-size:12px;">${pct}%</span>`;
+        }
+
+        function renderCaTable() {
+            const tbody = document.getElementById('ca-table-body');
+            if (!tbody) return;
+
+            const query = (document.getElementById('ca-search-input') || {}).value || '';
+            const q = query.toLowerCase().trim();
+
+            let filtered = q
+                ? caReportAllRows.filter(r => r.bc.toLowerCase().includes(q) || r.am.toLowerCase().includes(q))
+                : [...caReportAllRows];
+
+            // Sort
+            const key = caReportSortKey;
+            filtered.sort((a, b) => {
+                let av = a[key], bv = b[key];
+                if (typeof av === 'string') av = av.toLowerCase();
+                if (typeof bv === 'string') bv = bv.toLowerCase();
+                if (av === null) av = -Infinity;
+                if (bv === null) bv = -Infinity;
+                return caReportSortAsc ? (av > bv ? 1 : -1) : (av < bv ? 1 : -1);
+            });
+
+            const rowCount = document.getElementById('ca-row-count');
+            if (rowCount) rowCount.innerText = `${filtered.length} bưu cục`;
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="10" style="text-align:center;padding:30px;color:#94a3b8;">Không tìm thấy dữ liệu</td></tr>`;
+                return;
+            }
+
+            const cellStyle = (bg) => `style="padding:8px 10px;text-align:right;border-bottom:1px solid #f1f5f9;background:${bg};font-variant-numeric:tabular-nums;"`;
+            let html = '';
+            filtered.forEach((r, i) => {
+                const rowBg = i % 2 === 0 ? '' : '#fafbfc';
+                html += `<tr style="background:${rowBg};">
+                    <td style="padding:8px 14px;border-bottom:1px solid #f1f5f9;font-weight:600;color:#1e293b;max-width:280px;word-break:break-word;">
+                        ${r.bc}
+                        ${r.am ? `<div style="font-size:11px;color:#94a3b8;font-weight:400;margin-top:2px;"><i class="fa-solid fa-user" style="font-size:9px;"></i> ${r.am}</div>` : ''}
+                    </td>
+                    <td ${cellStyle('#f5f5ff')}>${r.v1.toLocaleString('vi-VN')}</td>
+                    <td ${cellStyle('#f5f5ff')}>${r.g1.toLocaleString('vi-VN')}</td>
+                    <td ${cellStyle('#f5f5ff')}>${pctBadge(r.p1)}</td>
+                    <td ${cellStyle('#f0fdf4')}>${r.v2.toLocaleString('vi-VN')}</td>
+                    <td ${cellStyle('#f0fdf4')}>${r.g2.toLocaleString('vi-VN')}</td>
+                    <td ${cellStyle('#f0fdf4')}>${pctBadge(r.p2)}</td>
+                    <td ${cellStyle('#fef9ec')}>${r.v3.toLocaleString('vi-VN')}</td>
+                    <td ${cellStyle('#fef9ec')}>${r.g3.toLocaleString('vi-VN')}</td>
+                    <td ${cellStyle('#fef9ec')}>${pctBadge(r.p3)}</td>
+                </tr>`;
+            });
+            tbody.innerHTML = html;
+        }
+
+         function filterCaTable() { renderCaTable(); }
+
+        function sortCaTable(key) {
+            if (caReportSortKey === key) {
+                caReportSortAsc = !caReportSortAsc;
+            } else {
+                caReportSortKey = key;
+                caReportSortAsc = key === 'bc';
+            }
+            renderCaTable();
+        }
+
+        // Hook: auto-load CA report when tab is opened
+        const _switchTabOrig = window.switchTab;
+        window.switchTab = function(tabId, el) {
+            if (typeof _switchTabOrig === 'function') _switchTabOrig(tabId, el);
+            if (tabId === 'tab-ca-report' && caReportAllRows.length === 0) {
+                loadCaReportData();
+            }
+        };
+
 </script>
 </body>
 
