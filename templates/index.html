@@ -1813,6 +1813,9 @@
                 <li class="menu-item" id="nav-tab-volume-creation" onclick="switchTab('tab-volume-creation', this)">
                     <i class="fa-solid fa-file-invoice"></i> Volume tạo đơn
                 </li>
+                                <li class="menu-item" id="nav-tab-ca-report" onclick="switchTab('tab-ca-report', this)">
+                    <i class="fa-solid fa-boxes-stacked"></i> Báo cáo Sản lượng Ca
+                </li>
                 <li class="menu-item" id="nav-tab-fd" onclick="switchTab('tab-fd', this)">
                     <i class="fa-solid fa-circle-xmark"></i> Chỉ số FD
                 </li>
@@ -3285,6 +3288,63 @@
                 </div>
             </div>
 
+            
+            <!-- TAB: BÁO CÁO SẢN LƯỢNG CA -->
+            <div id="tab-ca-report" class="content-panel">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-boxes-stacked"></i> Báo cáo Sản lượng theo Ca</h2>
+                </div>
+                <div style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 24px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <h3 style="margin: 0; font-size: 16px; color: #1e293b;">View theo AM</h3>
+                        <button class="btn btn-primary" onclick="loadCaReportData()"><i class="fa-solid fa-rotate-right"></i> Tải lại dữ liệu</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table" id="table-ca-report-am">
+                            <thead>
+                                <tr>
+                                    <th>AM</th>
+                                    <th style="text-align:right">Hàng Mới Ca 1 (Volume)</th>
+                                    <th style="text-align:right">Hàng Mới Ca 1 (GTC)</th>
+                                    <th style="text-align:right">Hàng Mới Ca 2 (Volume)</th>
+                                    <th style="text-align:right">Hàng Mới Ca 2 (GTC)</th>
+                                    <th style="text-align:right">Hàng Tồn (Volume)</th>
+                                    <th style="text-align:right">Hàng Tồn (GTC)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td colspan="7" class="text-center">Đang tải dữ liệu...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                    <div style="margin-bottom: 15px;">
+                        <h3 style="margin: 0; font-size: 16px; color: #1e293b;">View theo Bưu Cục</h3>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table" id="table-ca-report-bc">
+                            <thead>
+                                <tr>
+                                    <th>AM</th>
+                                    <th>Bưu Cục</th>
+                                    <th style="text-align:right">Hàng Mới Ca 1 (Volume)</th>
+                                    <th style="text-align:right">Hàng Mới Ca 1 (GTC)</th>
+                                    <th style="text-align:right">Hàng Mới Ca 2 (Volume)</th>
+                                    <th style="text-align:right">Hàng Mới Ca 2 (GTC)</th>
+                                    <th style="text-align:right">Hàng Tồn (Volume)</th>
+                                    <th style="text-align:right">Hàng Tồn (GTC)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td colspan="8" class="text-center">Đang tải dữ liệu...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
             <!-- TAB: CHỈ SỐ FD -->
             <div id="tab-fd" class="content-panel">
                 <!-- FD Overview KPI Cards -->
@@ -3935,6 +3995,7 @@
                 'tab-unstable-po',
                 'tab-off-spe',
                 'tab-volume-creation',
+                'tab-ca-report',
                 'tab-fd',
                 'tab-nhan-su',
                 'tab-sync'
@@ -4123,6 +4184,7 @@
                 { id: 'tab-unstable-po', name: 'Bưu cục bất ổn' },
                 { id: 'tab-off-spe', name: 'OFF Tuyến SPE' },
                 { id: 'tab-volume-creation', name: 'Volume tạo đơn' },
+                { id: 'tab-ca-report', name: 'Báo cáo Sản lượng Ca' },
                 { id: 'tab-fd', name: 'Chỉ số FD' },
                 { id: 'tab-nhan-su', name: 'Định biên nhân sự' },
                 { id: 'tab-sync', name: 'Đồng bộ & Cấu hình' }
@@ -4239,6 +4301,7 @@
                         'tab-unstable-po': 'Bất ổn',
                         'tab-off-spe': 'OFF SPE',
                         'tab-volume-creation': 'Sản lượng',
+                        'tab-ca-report': 'Báo cáo Ca',
                         'tab-fd': 'Chỉ số FD',
                         'tab-nhan-su': 'Nhân sự',
                         'tab-sync': 'Đồng bộ'

@@ -85,7 +85,7 @@ DEFAULT_USERS = {
             "tab-unstable-po",
             "tab-off-spe",
             "tab-volume-creation",
-            "tab-fd",
+            "tab-ca-report", "tab-fd",
             "tab-sync"
         ]
     },
@@ -103,7 +103,7 @@ DEFAULT_USERS = {
             "tab-unstable-po",
             "tab-off-spe",
             "tab-volume-creation",
-            "tab-fd"
+            "tab-ca-report", "tab-fd"
         ]
     }
 }
@@ -139,7 +139,7 @@ DEFAULT_ROLES = {
             for p in [
                 "tab-dashboard", "tab-introduction", "tab-ntb-summary", "tab-operational",
                 "tab-opr", "tab-backlog", "tab-unstable-po", "tab-off-spe",
-                "tab-volume-creation", "tab-fd", "tab-nhan-su", "tab-sync"
+                "tab-volume-creation", "tab-ca-report", "tab-ca-report", "tab-fd", "tab-nhan-su", "tab-sync"
             ]
         }
     },
@@ -151,7 +151,7 @@ DEFAULT_ROLES = {
             for p in [
                 "tab-dashboard", "tab-introduction", "tab-ntb-summary", "tab-operational",
                 "tab-opr", "tab-backlog", "tab-unstable-po", "tab-off-spe",
-                "tab-volume-creation", "tab-fd"
+                "tab-volume-creation", "tab-ca-report", "tab-fd"
             ]
         }
     },
@@ -165,6 +165,7 @@ DEFAULT_ROLES = {
             "tab-unstable-po": {"view": True, "add": True, "edit": True, "delete": False},
             "tab-off-spe": {"view": True, "add": True, "edit": True, "delete": False},
             "tab-volume-creation": {"view": True, "add": True, "edit": True, "delete": False},
+            "tab-ca-report": {"view": True, "add": True, "edit": True, "delete": False},
             "tab-fd": {"view": True, "add": True, "edit": True, "delete": False}
         }
     },
@@ -173,6 +174,7 @@ DEFAULT_ROLES = {
         "description": "Kế toán - quản lý tài chính",
         "permissions": {
             "tab-ntb-summary": {"view": True, "add": False, "edit": False, "delete": False},
+            "tab-ca-report": {"view": True, "add": True, "edit": True, "delete": False},
             "tab-fd": {"view": True, "add": False, "edit": False, "delete": False}
         }
     },
@@ -184,7 +186,7 @@ DEFAULT_ROLES = {
             for p in [
                 "tab-dashboard", "tab-introduction", "tab-ntb-summary", "tab-operational",
                 "tab-opr", "tab-backlog", "tab-unstable-po", "tab-off-spe",
-                "tab-volume-creation", "tab-fd"
+                "tab-volume-creation", "tab-ca-report", "tab-fd"
             ]
         }
     },
@@ -261,7 +263,7 @@ def get_user_permissions(username):
     all_pages = [
         "tab-dashboard", "tab-introduction", "tab-ntb-summary", "tab-operational",
         "tab-opr", "tab-backlog", "tab-unstable-po", "tab-off-spe",
-        "tab-volume-creation", "tab-fd", "tab-nhan-su", "tab-sync"
+        "tab-volume-creation", "tab-ca-report", "tab-ca-report", "tab-fd", "tab-nhan-su", "tab-sync"
     ]
     
     perms_dict = {}
@@ -2940,6 +2942,7 @@ BACKLOG_CACHE_RAW = None
 UNSTABLE_PO_CACHE = None
 OFF_SPE_CACHE = None
 FD_CACHE = None
+CA_REPORT_CACHE = None
 
 LAST_CACHE_UPDATE_TIME = None
 LAST_CACHE_CHECK_TIME = 0
@@ -3271,7 +3274,7 @@ def apply_filters(df, am=None, province=None, post_office=None):
     return df_filtered
 
 def update_all_caches():
-    global OPERATIONAL_CACHE, OPR_CACHE, BACKLOG_CACHE_RAW, UNSTABLE_PO_CACHE, OFF_SPE_CACHE, DF_TAO_DON_CACHE, DF_BUU_CUC_TYPE_MAP, FD_CACHE
+    global OPERATIONAL_CACHE, OPR_CACHE, BACKLOG_CACHE_RAW, UNSTABLE_PO_CACHE, OFF_SPE_CACHE, CA_REPORT_CACHE, DF_TAO_DON_CACHE, DF_BUU_CUC_TYPE_MAP, FD_CACHE
     import gc
     
     print("--------------------------------------------------")
@@ -3735,6 +3738,16 @@ def get_off_spe():
             if OFF_SPE_CACHE is None:
                 OFF_SPE_CACHE = process_off_spe()
     return jsonify(OFF_SPE_CACHE)
+
+
+@app.route('/api/ca-report')
+def api_ca_report():
+    global CA_REPORT_CACHE
+    if CA_REPORT_CACHE is None:
+        with CACHE_LOCK:
+            if CA_REPORT_CACHE is None:
+                CA_REPORT_CACHE = process_ca_report()
+    return jsonify(clean_nan(CA_REPORT_CACHE))
 
 @app.route('/api/fd')
 @requires_permission('tab-fd')
@@ -4372,7 +4385,7 @@ def sync_sheets_directly_as_csv(url):
     return True, f"Đã tải thành công {success_count} files."
 
 def async_sync_task(is_admin_flag):
-    global OPERATIONAL_CACHE, OPR_CACHE, BACKLOG_CACHE_RAW, UNSTABLE_PO_CACHE, OFF_SPE_CACHE, SYNC_STATUS
+    global OPERATIONAL_CACHE, OPR_CACHE, BACKLOG_CACHE_RAW, UNSTABLE_PO_CACHE, OFF_SPE_CACHE, CA_REPORT_CACHE, SYNC_STATUS
     import time
     sync_start = time.time()
     try:
@@ -4383,6 +4396,26 @@ def async_sync_task(is_admin_flag):
                 # Phase 1: Download CSVs from Google Sheets
                 SYNC_STATUS["progress"] = "Đang tải dữ liệu trực tiếp dưới dạng CSV (Tối ưu)..."
                 t0 = time.time()
+                
+                # Download CA Report Data
+                SYNC_STATUS["progress"] = "Đang tải báo cáo Sản lượng Ca..."
+                try:
+                    import urllib.request, io
+                    url_ca = 'https://docs.google.com/spreadsheets/d/1JZ1eRerRqrpwjZ4HBevQunjd8VquM_cvPFz12TaJfMQ/export?format=csv&gid=1451699200'
+                    req_ca = urllib.request.Request(url_ca, headers={'User-Agent': 'Mozilla/5.0'})
+                    with urllib.request.urlopen(req_ca, timeout=30) as resp:
+                        content_ca = resp.read()
+                    for enc in ['utf-8-sig', 'utf-8', 'latin-1', 'cp1252']:
+                        try:
+                            df_ca = pd.read_csv(io.BytesIO(content_ca), encoding=enc)
+                            save_df_to_db(df_ca, 'ops_ca_data.csv')
+                            print("Successfully downloaded ops_ca_data.csv")
+                            break
+                        except Exception:
+                            continue
+                except Exception as e:
+                    print(f"Error downloading CA data: {e}")
+
                 direct_success, direct_msg = sync_sheets_directly_as_csv(url)
                 download_elapsed = round(time.time() - t0, 1)
                 
