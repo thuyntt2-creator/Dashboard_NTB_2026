@@ -1816,6 +1816,9 @@
                                 <li class="menu-item" id="nav-tab-ca-report" onclick="switchTab('tab-ca-report', this)">
                     <i class="fa-solid fa-boxes-stacked"></i> Báo cáo Sản lượng Ca
                 </li>
+                <li class="menu-item" id="nav-tab-productivity-realtime" onclick="switchTab('tab-productivity-realtime', this)">
+                    <i class="fa-solid fa-bolt"></i> Năng suất NVPTTT Real time
+                </li>
                 <li class="menu-item" id="nav-tab-fd" onclick="switchTab('tab-fd', this)">
                     <i class="fa-solid fa-circle-xmark"></i> Chỉ số FD
                 </li>
@@ -3398,6 +3401,119 @@
                 </div>
             </div>
 
+            <!-- TAB: NĂNG SUẤT NVPTTT REAL TIME -->
+            <div id="tab-productivity-realtime" class="content-panel">
+                <div class="panel-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+                    <div>
+                        <h2><i class="fa-solid fa-bolt"></i> Năng suất NVPTTT Real time</h2>
+                    </div>
+                </div>
+
+                <!-- Delay Info Alert Banner -->
+                <div style="background: rgba(99, 102, 241, 0.08); border-left: 4px solid #6366f1; border-radius: 8px; padding: 12px 16px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; color: #4338ca; font-size: 13px; font-weight: 500;">
+                    <i class="fa-solid fa-circle-info" style="font-size: 16px;"></i>
+                    <span>Trạng thái dữ liệu sẽ bị trễ 2 tiếng so với thời gian cập nhật thực tế (Ví dụ: Thời gian cập nhật lúc 12:00 sẽ hiển thị dữ liệu của 10:00).</span>
+                </div>
+
+                <!-- Summary KPI Strip -->
+                <div id="prod-kpi-strip" style="display:grid; grid-template-columns: repeat(4, 1fr); gap:16px; margin-bottom:24px;">
+                    <div style="background:#fff; border-radius:10px; padding:16px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.06); border-left:4px solid #6366f1;">
+                        <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Tổng Nhân sự</div>
+                        <div id="prod-kpi-total-nv" style="font-size:26px;font-weight:800;color:#1e293b;">-</div>
+                    </div>
+                    <div style="background:#fff; border-radius:10px; padding:16px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.06); border-left:4px solid #10b981;">
+                        <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">% GTC Trung Bình</div>
+                        <div id="prod-kpi-avg-gtc" style="font-size:26px;font-weight:800;color:#1e293b;">-</div>
+                    </div>
+                    <div style="background:#fff; border-radius:10px; padding:16px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.06); border-left:4px solid #047857;">
+                        <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Đạt &amp; OK (&ge;80%)</div>
+                        <div id="prod-kpi-ok-rate" style="font-size:26px;font-weight:800;color:#1e293b;">-</div>
+                    </div>
+                    <div style="background:#fff; border-radius:10px; padding:16px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.06); border-left:4px solid #ef4444;">
+                        <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Thấp (&lt;80%)</div>
+                        <div id="prod-kpi-low-rate" style="font-size:26px;font-weight:800;color:#1e293b;">-</div>
+                    </div>
+                </div>
+
+                <!-- Main table card -->
+                <div style="background:#fff; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,0.07); overflow:hidden;">
+                    <!-- Toolbar -->
+                    <div style="display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-bottom:1px solid #f1f5f9; flex-wrap:wrap; gap:12px;">
+                        <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; flex:1; min-width:220px;">
+                            <!-- Search -->
+                            <div style="display:flex; align-items:center; gap:8px; border:1px solid #e2e8f0; border-radius:7px; padding:3px 10px; background:#fff; min-width:200px; max-width:260px; width:100%;">
+                                <i class="fa-solid fa-magnifying-glass" style="color:#94a3b8; font-size:13px;"></i>
+                                <input type="text" id="prod-search-input" placeholder="Tìm tên, mã NV hoặc bưu cục..." oninput="filterProdTable()"
+                                    style="border:none; font-size:13px; width:100%; outline:none; color:#1e293b; padding:4px 0; background:transparent;">
+                            </div>
+                            
+                            <!-- AM filter -->
+                            <div style="display:flex; align-items:center; gap:6px;">
+                                <span style="font-size:11px; color:#64748b; font-weight:600; text-transform:uppercase; letter-spacing:0.3px;">AM:</span>
+                                <select id="prod-filter-am" class="select-input" onchange="onProdAmChange()" style="padding:6px 10px; font-size:13px; border-radius:7px; border:1px solid #e2e8f0; background:#fff; color:#1e293b; outline:none; min-width:140px; max-width:220px;">
+                                    <option value="">Tất cả AM</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Bưu cục filter -->
+                            <div style="display:flex; align-items:center; gap:6px;">
+                                <span style="font-size:11px; color:#64748b; font-weight:600; text-transform:uppercase; letter-spacing:0.3px;">Bưu cục:</span>
+                                <select id="prod-filter-bc" class="select-input" onchange="filterProdTable()" style="padding:6px 10px; font-size:13px; border-radius:7px; border:1px solid #e2e8f0; background:#fff; color:#1e293b; outline:none; min-width:160px; max-width:240px;">
+                                    <option value="">Tất cả Bưu cục</option>
+                                </select>
+                            </div>
+
+                            <!-- Đánh giá filter -->
+                            <div style="display:flex; align-items:center; gap:6px;">
+                                <span style="font-size:11px; color:#64748b; font-weight:600; text-transform:uppercase; letter-spacing:0.3px;">Đánh giá:</span>
+                                <select id="prod-filter-eval" class="select-input" onchange="filterProdTable()" style="padding:6px 10px; font-size:13px; border-radius:7px; border:1px solid #e2e8f0; background:#fff; color:#1e293b; outline:none;">
+                                    <option value="">Tất cả</option>
+                                    <option value="Thấp">Thấp (&lt;80%)</option>
+                                    <option value="Đạt">Đạt (80-84.9%)</option>
+                                    <option value="OK">OK (&ge;85%)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <span style="font-size:13px; color:#64748b; font-weight:500;" id="prod-row-count"></span>
+                            <button class="btn btn-primary" onclick="loadProductivityRealtimeData()" style="font-size:13px; padding:7px 14px;">
+                                <i class="fa-solid fa-rotate-right"></i> Tải lại
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Legend -->
+                    <div style="display:flex; gap:20px; padding:12px 20px; background:#fafbfc; border-bottom:1px solid #f1f5f9; font-size:12px; color:#64748b; flex-wrap:wrap; align-items:center;">
+                        <span style="font-weight:600; text-transform:uppercase; letter-spacing:0.3px; color:#475569;">Phân loại hiệu suất:</span>
+                        <span><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#fee2e2;border:1px solid #fca5a5;margin-right:5px;vertical-align:middle;"></span>Thấp (&lt;80%)</span>
+                        <span><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#fef9c3;border:1px solid #fde047;margin-right:5px;vertical-align:middle;"></span>Đạt (80-84.9%)</span>
+                        <span><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#dcfce7;border:1px solid #86efac;margin-right:5px;vertical-align:middle;"></span>OK (&ge;85%)</span>
+                    </div>
+
+                    <!-- Scrollable table -->
+                    <div style="overflow-x:auto; max-height:65vh; overflow-y:auto;">
+                        <table style="width:100%; border-collapse:collapse; font-size:13px;">
+                            <thead>
+                                <tr style="background:#f8fafc; position:sticky; top:0; z-index:5;">
+                                    <th style="padding:12px 16px; text-align:left; font-weight:700; color:#475569; border-bottom:2px solid #e2e8f0; white-space:nowrap; cursor:pointer;" onclick="sortProdTable('Bưu Cục')" id="prod-th-bc">Bưu Cục <i class="fa-solid fa-sort" style="color:#cbd5e1; font-size:10px;"></i></th>
+                                    <th style="padding:12px 16px; text-align:left; font-weight:700; color:#475569; border-bottom:2px solid #e2e8f0; white-space:nowrap; cursor:pointer;" onclick="sortProdTable('AM')" id="prod-th-am">AM <i class="fa-solid fa-sort" style="color:#cbd5e1; font-size:10px;"></i></th>
+                                    <th style="padding:12px 16px; text-align:left; font-weight:700; color:#475569; border-bottom:2px solid #e2e8f0; white-space:nowrap; cursor:pointer;" onclick="sortProdTable('Mã NV')" id="prod-th-manv">Mã NV <i class="fa-solid fa-sort" style="color:#cbd5e1; font-size:10px;"></i></th>
+                                    <th style="padding:12px 16px; text-align:left; font-weight:700; color:#475569; border-bottom:2px solid #e2e8f0; white-space:nowrap; cursor:pointer;" onclick="sortProdTable('Nhân Viên')" id="prod-th-nv">Nhân Viên <i class="fa-solid fa-sort" style="color:#cbd5e1; font-size:10px;"></i></th>
+                                    <th style="padding:12px 16px; text-align:right; font-weight:700; color:#475569; border-bottom:2px solid #e2e8f0; white-space:nowrap; cursor:pointer;" onclick="sortProdTable('Gán Giao')" id="prod-th-gangiao">Gán Giao <i class="fa-solid fa-sort" style="color:#cbd5e1; font-size:10px;"></i></th>
+                                    <th style="padding:12px 16px; text-align:right; font-weight:700; color:#475569; border-bottom:2px solid #e2e8f0; white-space:nowrap; cursor:pointer;" onclick="sortProdTable('Giao TC')" id="prod-th-giaotc">Giao TC <i class="fa-solid fa-sort" style="color:#cbd5e1; font-size:10px;"></i></th>
+                                    <th style="padding:12px 16px; text-align:right; font-weight:700; color:#475569; border-bottom:2px solid #e2e8f0; white-space:nowrap; cursor:pointer;" onclick="sortProdTable('GTC_Val')" id="prod-th-gtc">%GTC <i class="fa-solid fa-sort" style="color:#cbd5e1; font-size:10px;"></i></th>
+                                    <th style="padding:12px 16px; text-align:right; font-weight:700; color:#475569; border-bottom:2px solid #e2e8f0; white-space:nowrap; cursor:pointer;" onclick="sortProdTable('LTC')" id="prod-th-ltc">LTC <i class="fa-solid fa-sort" style="color:#cbd5e1; font-size:10px;"></i></th>
+                                    <th style="padding:12px 16px; text-align:center; font-weight:700; color:#475569; border-bottom:2px solid #e2e8f0; white-space:nowrap; cursor:pointer;" onclick="sortProdTable('Đánh Giá')" id="prod-th-eval">Đánh Giá <i class="fa-solid fa-sort" style="color:#cbd5e1; font-size:10px;"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody id="prod-table-body">
+                                <tr><td colspan="9" style="text-align:center; padding:40px; color:#94a3b8;"><i class="fa-solid fa-spinner fa-spin"></i> Đang tải...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
             <!-- TAB: CHỈ SỐ FD -->
             <div id="tab-fd" class="content-panel">
                 <!-- FD Overview KPI Cards -->
@@ -4049,6 +4165,7 @@
                 'tab-off-spe',
                 'tab-volume-creation',
                 'tab-ca-report',
+                'tab-productivity-realtime',
                 'tab-fd',
                 'tab-nhan-su',
                 'tab-sync'
@@ -4238,6 +4355,7 @@
                 { id: 'tab-off-spe', name: 'OFF Tuyến SPE' },
                 { id: 'tab-volume-creation', name: 'Volume tạo đơn' },
                 { id: 'tab-ca-report', name: 'Báo cáo Sản lượng Ca' },
+                { id: 'tab-productivity-realtime', name: 'Năng suất Realtime' },
                 { id: 'tab-fd', name: 'Chỉ số FD' },
                 { id: 'tab-nhan-su', name: 'Định biên nhân sự' },
                 { id: 'tab-sync', name: 'Đồng bộ & Cấu hình' }
@@ -4355,6 +4473,7 @@
                         'tab-off-spe': 'OFF SPE',
                         'tab-volume-creation': 'Sản lượng',
                         'tab-ca-report': 'Báo cáo Ca',
+                        'tab-productivity-realtime': 'Năng suất Realtime',
                         'tab-fd': 'Chỉ số FD',
                         'tab-nhan-su': 'Nhân sự',
                         'tab-sync': 'Đồng bộ'
@@ -9338,8 +9457,284 @@
             if (tabId === 'tab-ca-report' && caReportRawRows.length === 0) {
                 loadCaReportData();
             }
+            if (tabId === 'tab-productivity-realtime' && prodRawRows.length === 0) {
+                loadProductivityRealtimeData();
+            }
         };
-
+
+        // BÁO CÁO NĂNG SUẤT NVPTTT REAL TIME - JAVASCRIPT
+        let prodRawRows = [];
+        let prodSortKey = 'Bưu Cục';
+        let prodSortAsc = true;
+
+        async function loadProductivityRealtimeData() {
+            const tbody = document.getElementById('prod-table-body');
+            if (!tbody) return;
+            tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;padding:40px;color:#94a3b8;"><i class="fa-solid fa-spinner fa-spin"></i> Đang tải...</td></tr>`;
+
+            try {
+                const res = await fetch(getApiUrl('/api/productivity-realtime'), getFetchOptions());
+                const data = await res.json();
+                if (data.error) {
+                    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;padding:40px;color:#ef4444;"><i class="fa-solid fa-triangle-exclamation"></i> ${data.error}</td></tr>`;
+                    return;
+                }
+
+                prodRawRows = data.records || [];
+                populateProdFilters(prodRawRows);
+                renderProdTable();
+            } catch(e) {
+                tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;padding:40px;color:#ef4444;"><i class="fa-solid fa-triangle-exclamation"></i> Lỗi tải dữ liệu: ${e.message}</td></tr>`;
+            }
+        }
+
+        function populateProdFilters(records) {
+            const amSelect = document.getElementById('prod-filter-am');
+            const bcSelect = document.getElementById('prod-filter-bc');
+            
+            // Extract unique AMs and Bưu cục
+            const ams = [...new Set(records.map(r => r.AM).filter(Boolean))].sort();
+            const bcs = [...new Set(records.map(r => r['Bưu Cục']).filter(Boolean))].sort();
+
+            if (amSelect) {
+                const currVal = amSelect.value;
+                amSelect.innerHTML = '<option value="">Tất cả AM</option>';
+                ams.forEach(a => {
+                    amSelect.innerHTML += `<option value="${a}">${a}</option>`;
+                });
+                if (currVal && ams.includes(currVal)) {
+                    amSelect.value = currVal;
+                }
+            }
+            if (bcSelect) {
+                const currVal = bcSelect.value;
+                bcSelect.innerHTML = '<option value="">Tất cả Bưu cục</option>';
+                bcs.forEach(b => {
+                    bcSelect.innerHTML += `<option value="${b}">${b}</option>`;
+                });
+                if (currVal && bcs.includes(currVal)) {
+                    bcSelect.value = currVal;
+                }
+            }
+        }
+
+        window.onProdAmChange = function() {
+            const selectedAm = document.getElementById('prod-filter-am').value;
+            const bcSelect = document.getElementById('prod-filter-bc');
+            if (!bcSelect) return;
+            
+            let filteredRows = prodRawRows;
+            if (selectedAm) {
+                filteredRows = prodRawRows.filter(r => r.AM === selectedAm);
+            }
+            
+            const bcs = [...new Set(filteredRows.map(r => r['Bưu Cục']).filter(Boolean))].sort();
+            const currVal = bcSelect.value;
+            bcSelect.innerHTML = '<option value="">Tất cả Bưu cục</option>';
+            bcs.forEach(b => {
+                bcSelect.innerHTML += `<option value="${b}">${b}</option>`;
+            });
+            if (currVal && bcs.includes(currVal)) {
+                bcSelect.value = currVal;
+            } else {
+                bcSelect.value = '';
+            }
+            filterProdTable();
+        }
+
+        window.filterProdTable = function() {
+            renderProdTable();
+        }
+
+        window.sortProdTable = function(key) {
+            if (prodSortKey === key) {
+                prodSortAsc = !prodSortAsc;
+            } else {
+                prodSortKey = key;
+                prodSortAsc = true;
+            }
+            renderProdTable();
+        }
+
+        function renderProdTable() {
+            const tbody = document.getElementById('prod-table-body');
+            if (!tbody) return;
+
+            const amFilter = document.getElementById('prod-filter-am').value;
+            const bcFilter = document.getElementById('prod-filter-bc').value;
+            const evalFilter = document.getElementById('prod-filter-eval').value;
+            const searchQuery = (document.getElementById('prod-search-input').value || '').toLowerCase().trim();
+
+            let displayRows = [...prodRawRows];
+
+            // 1. Filter
+            if (amFilter) {
+                displayRows = displayRows.filter(r => r.AM === amFilter);
+            }
+            if (bcFilter) {
+                displayRows = displayRows.filter(r => r['Bưu Cục'] === bcFilter);
+            }
+            if (evalFilter) {
+                displayRows = displayRows.filter(r => r['Đánh Giá'] === evalFilter);
+            }
+            if (searchQuery) {
+                displayRows = displayRows.filter(r => {
+                    return (r['Nhân Viên'] || '').toLowerCase().includes(searchQuery) ||
+                           (r['Mã NV'] || '').toLowerCase().includes(searchQuery) ||
+                           (r['Bưu Cục'] || '').toLowerCase().includes(searchQuery);
+                });
+            }
+
+            // 2. Sort
+            displayRows.sort((a, b) => {
+                let av = a[prodSortKey], bv = b[prodSortKey];
+                
+                // For string comparison
+                if (typeof av === 'string') av = av.toLowerCase();
+                if (typeof bv === 'string') bv = bv.toLowerCase();
+                
+                if (av === null || av === undefined) av = -Infinity;
+                if (bv === null || bv === undefined) bv = -Infinity;
+                
+                if (av === bv) return 0;
+                
+                return prodSortAsc ? (av > bv ? 1 : -1) : (av < bv ? 1 : -1);
+            });
+
+            // 3. Render Table
+            tbody.innerHTML = '';
+            
+            // Set header sorting icons
+            const headers = ['bc', 'am', 'manv', 'nv', 'gangiao', 'giaotc', 'gtc', 'ltc', 'eval'];
+            const keyToHeaderId = {
+                'Bưu Cục': 'prod-th-bc',
+                'AM': 'prod-th-am',
+                'Mã NV': 'prod-th-manv',
+                'Nhân Viên': 'prod-th-nv',
+                'Gán Giao': 'prod-th-gangiao',
+                'Giao TC': 'prod-th-giaotc',
+                'GTC_Val': 'prod-th-gtc',
+                'LTC': 'prod-th-ltc',
+                'Đánh Giá': 'prod-th-eval'
+            };
+            
+            Object.keys(keyToHeaderId).forEach(k => {
+                const el = document.getElementById(keyToHeaderId[k]);
+                if (el) {
+                    let text = k;
+                    if (k === 'GTC_Val') text = '%GTC';
+                    
+                    if (prodSortKey === k) {
+                        el.innerHTML = `${text} <i class="fa-solid ${prodSortAsc ? 'fa-sort-up' : 'fa-sort-down'}" style="color:var(--color-ghn-orange); font-size:10px;"></i>`;
+                    } else {
+                        el.innerHTML = `${text} <i class="fa-solid fa-sort" style="color:#cbd5e1; font-size:10px;"></i>`;
+                    }
+                }
+            });
+
+            const rowCountEl = document.getElementById('prod-row-count');
+            if (rowCountEl) {
+                rowCountEl.innerText = `${displayRows.length} Nhân sự`;
+            }
+
+            if (displayRows.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;padding:30px;color:#94a3b8;">Không tìm thấy dữ liệu nhân viên nào</td></tr>`;
+                updateProdKpis([]);
+                return;
+            }
+
+            let html = '';
+            displayRows.forEach((r, idx) => {
+                const rowBg = idx % 2 === 0 ? '' : '#fafbfc';
+                
+                let evalStyle = '';
+                const ev = (r['Đánh Giá'] || '').trim().toLowerCase();
+                
+                if (ev === 'ok') {
+                    evalStyle = 'background:#dcfce7; color:#15803d; border: 1px solid #bbf7d0; font-weight:700;';
+                } else if (ev === 'đạt') {
+                    evalStyle = 'background:#fef9c3; color:#a16207; border: 1px solid #fef08a; font-weight:700;';
+                } else if (ev === 'thấp') {
+                    evalStyle = 'background:#fee2e2; color:#b91c1c; border: 1px solid #fecaca; font-weight:700;';
+                } else {
+                    evalStyle = 'background:#f1f5f9; color:#475569; border: 1px solid #e2e8f0; font-weight:500;';
+                }
+
+                let rowStyle = '';
+                if (ev === 'thấp') {
+                    rowStyle = 'background: rgba(239, 68, 68, 0.015);';
+                }
+
+                html += `<tr style="${rowStyle} background-color:${rowBg}; border-bottom:1px solid #f1f5f9; transition: background 0.15s;" onmouseover="this.style.backgroundColor='rgba(0,0,0,0.015)'" onmouseout="this.style.backgroundColor='${rowBg}'">
+                    <td style="padding:10px 16px; font-weight:600; color:#1e293b;">${r['Bưu Cục']}</td>
+                    <td style="padding:10px 16px; color:#475569;">${r.AM}</td>
+                    <td style="padding:10px 16px; color:#64748b; font-family:monospace;">${r['Mã NV']}</td>
+                    <td style="padding:10px 16px; font-weight:500; color:#1e293b;">${r['Nhân Viên']}</td>
+                    <td style="padding:10px 16px; text-align:right; font-variant-numeric:tabular-nums; color:#334155;">${r['Gán Giao'].toLocaleString('vi-VN')}</td>
+                    <td style="padding:10px 16px; text-align:right; font-variant-numeric:tabular-nums; color:#334155;">${r['Giao TC'].toLocaleString('vi-VN')}</td>
+                    <td style="padding:10px 16px; text-align:right; font-variant-numeric:tabular-nums; font-weight:700; color:${r.GTC_Val >= 85 ? '#16a34a' : r.GTC_Val >= 80 ? '#d97706' : '#dc2626'}">${r['%GTC']}</td>
+                    <td style="padding:10px 16px; text-align:right; font-variant-numeric:tabular-nums; color:${r.LTC > 0 ? '#dc2626' : '#64748b'}; font-weight:${r.LTC > 0 ? '600' : 'normal'}">${r.LTC.toLocaleString('vi-VN')}</td>
+                    <td style="padding:10px 16px; text-align:center;">
+                        <span style="display:inline-block; padding:3px 10px; border-radius:12px; font-size:11px; ${evalStyle}">${r['Đánh Giá']}</span>
+                    </td>
+                </tr>`;
+            });
+            tbody.innerHTML = html;
+
+            // 4. Update KPIs
+            updateProdKpis(displayRows);
+        }
+
+        function updateProdKpis(rows) {
+            const totalNvEl = document.getElementById('prod-kpi-total-nv');
+            const avgGtcEl = document.getElementById('prod-kpi-avg-gtc');
+            const okRateEl = document.getElementById('prod-kpi-ok-rate');
+            const lowRateEl = document.getElementById('prod-kpi-low-rate');
+
+            if (!totalNvEl || !avgGtcEl || !okRateEl || !lowRateEl) return;
+
+            if (rows.length === 0) {
+                totalNvEl.innerText = '0';
+                avgGtcEl.innerText = '-';
+                okRateEl.innerText = '-';
+                lowRateEl.innerText = '-';
+                return;
+            }
+
+            totalNvEl.innerText = rows.length;
+
+            let sumGan = 0;
+            let sumGiao = 0;
+            rows.forEach(r => {
+                sumGan += r['Gán Giao'];
+                sumGiao += r['Giao TC'];
+            });
+            
+            let overallGtc = 0;
+            if (sumGan > 0) {
+                overallGtc = (sumGiao / sumGan) * 100;
+            } else {
+                const sumPercent = rows.reduce((acc, r) => acc + r.GTC_Val, 0);
+                overallGtc = sumPercent / rows.length;
+            }
+            avgGtcEl.innerText = `${overallGtc.toFixed(2)}%`;
+
+            const okCount = rows.filter(r => {
+                const ev = (r['Đánh Giá'] || '').trim().toLowerCase();
+                return ev === 'ok' || ev === 'đạt';
+            }).length;
+            const okPct = (okCount / rows.length) * 100;
+            okRateEl.innerText = `${okPct.toFixed(1)}% (${okCount}/${rows.length})`;
+
+            const lowCount = rows.filter(r => {
+                const ev = (r['Đánh Giá'] || '').trim().toLowerCase();
+                return ev === 'thấp';
+            }).length;
+            const lowPct = (lowCount / rows.length) * 100;
+            lowRateEl.innerText = `${lowPct.toFixed(1)}% (${lowCount}/${rows.length})`;
+        }
+
+
 </script>
 </body>
 

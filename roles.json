@@ -69,6 +69,12 @@
                 "edit": true,
                 "delete": true
             },
+            "tab-productivity-realtime": {
+                "view": true,
+                "add": true,
+                "edit": true,
+                "delete": true
+            },
             "tab-sync": {
                 "view": true,
                 "add": true,
@@ -142,6 +148,12 @@
                 "delete": false
             },
             "tab-nhan-su": {
+                "view": true,
+                "add": false,
+                "edit": false,
+                "delete": false
+            },
+            "tab-productivity-realtime": {
                 "view": true,
                 "add": false,
                 "edit": false,
@@ -221,6 +233,12 @@
             },
             "tab-nhan-su": {
                 "view": false,
+                "add": false,
+                "edit": false,
+                "delete": false
+            },
+            "tab-productivity-realtime": {
+                "view": true,
                 "add": false,
                 "edit": false,
                 "delete": false

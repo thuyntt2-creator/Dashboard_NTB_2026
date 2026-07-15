@@ -15,6 +15,7 @@
             "tab-volume-creation",
             "tab-fd",
             "tab-nhan-su",
+            "tab-productivity-realtime",
             "tab-sync"
         ]
     },
@@ -32,7 +33,8 @@
             "tab-unstable-po",
             "tab-off-spe",
             "tab-volume-creation",
-            "tab-fd"
+            "tab-fd",
+            "tab-productivity-realtime"
         ]
     },
     "testuser": {
@@ -46,7 +48,8 @@
             "tab-unstable-po",
             "tab-off-spe",
             "tab-volume-creation",
-            "tab-fd"
+            "tab-fd",
+            "tab-productivity-realtime"
         ]
     },
     "dev_user": {
@@ -110,6 +113,12 @@
             },
             "tab-fd": {
                 "view": false,
+                "add": false,
+                "edit": false,
+                "delete": false
+            },
+            "tab-productivity-realtime": {
+                "view": true,
                 "add": false,
                 "edit": false,
                 "delete": false

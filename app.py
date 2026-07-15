@@ -139,7 +139,7 @@ DEFAULT_ROLES = {
             for p in [
                 "tab-dashboard", "tab-introduction", "tab-ntb-summary", "tab-operational",
                 "tab-opr", "tab-backlog", "tab-unstable-po", "tab-off-spe",
-                "tab-volume-creation", "tab-ca-report", "tab-ca-report", "tab-fd", "tab-nhan-su", "tab-sync"
+                "tab-volume-creation", "tab-ca-report", "tab-ca-report", "tab-fd", "tab-nhan-su", "tab-productivity-realtime", "tab-sync"
             ]
         }
     },
@@ -151,7 +151,7 @@ DEFAULT_ROLES = {
             for p in [
                 "tab-dashboard", "tab-introduction", "tab-ntb-summary", "tab-operational",
                 "tab-opr", "tab-backlog", "tab-unstable-po", "tab-off-spe",
-                "tab-volume-creation", "tab-ca-report", "tab-fd"
+                "tab-volume-creation", "tab-ca-report", "tab-fd", "tab-productivity-realtime"
             ]
         }
     },
@@ -166,7 +166,8 @@ DEFAULT_ROLES = {
             "tab-off-spe": {"view": True, "add": True, "edit": True, "delete": False},
             "tab-volume-creation": {"view": True, "add": True, "edit": True, "delete": False},
             "tab-ca-report": {"view": True, "add": True, "edit": True, "delete": False},
-            "tab-fd": {"view": True, "add": True, "edit": True, "delete": False}
+            "tab-fd": {"view": True, "add": True, "edit": True, "delete": False},
+            "tab-productivity-realtime": {"view": True, "add": True, "edit": True, "delete": False}
         }
     },
     "accountant": {
@@ -175,7 +176,8 @@ DEFAULT_ROLES = {
         "permissions": {
             "tab-ntb-summary": {"view": True, "add": False, "edit": False, "delete": False},
             "tab-ca-report": {"view": True, "add": True, "edit": True, "delete": False},
-            "tab-fd": {"view": True, "add": False, "edit": False, "delete": False}
+            "tab-fd": {"view": True, "add": False, "edit": False, "delete": False},
+            "tab-productivity-realtime": {"view": True, "add": False, "edit": False, "delete": False}
         }
     },
     "viewer": {
@@ -186,7 +188,7 @@ DEFAULT_ROLES = {
             for p in [
                 "tab-dashboard", "tab-introduction", "tab-ntb-summary", "tab-operational",
                 "tab-opr", "tab-backlog", "tab-unstable-po", "tab-off-spe",
-                "tab-volume-creation", "tab-ca-report", "tab-fd"
+                "tab-volume-creation", "tab-ca-report", "tab-fd", "tab-productivity-realtime"
             ]
         }
     },
@@ -210,7 +212,8 @@ DEFAULT_ROLES = {
         "name": "Area Manager",
         "description": "Quản lý khu vực (AM)",
         "permissions": {
-            "tab-nhan-su": {"view": True, "add": False, "edit": True, "delete": False}
+            "tab-nhan-su": {"view": True, "add": False, "edit": True, "delete": False},
+            "tab-productivity-realtime": {"view": True, "add": False, "edit": False, "delete": False}
         }
     },
     "staff": {
@@ -218,7 +221,8 @@ DEFAULT_ROLES = {
         "description": "Quyền nhân viên cơ bản",
         "permissions": {
             "tab-dashboard": {"view": True, "add": False, "edit": False, "delete": False},
-            "tab-introduction": {"view": True, "add": False, "edit": False, "delete": False}
+            "tab-introduction": {"view": True, "add": False, "edit": False, "delete": False},
+            "tab-productivity-realtime": {"view": True, "add": False, "edit": False, "delete": False}
         }
     }
 }
@@ -263,7 +267,7 @@ def get_user_permissions(username):
     all_pages = [
         "tab-dashboard", "tab-introduction", "tab-ntb-summary", "tab-operational",
         "tab-opr", "tab-backlog", "tab-unstable-po", "tab-off-spe",
-        "tab-volume-creation", "tab-ca-report", "tab-ca-report", "tab-fd", "tab-nhan-su", "tab-sync"
+        "tab-volume-creation", "tab-ca-report", "tab-ca-report", "tab-fd", "tab-nhan-su", "tab-productivity-realtime", "tab-sync"
     ]
     
     perms_dict = {}
@@ -629,7 +633,14 @@ def load_df_from_db(filename):
             'chi tiết': 'Chi tiết',
             'loại hàng': 'Loại Hàng',
             'ca': 'Ca',
-            'bưu cục': 'Bưu cục',
+            'bưu cục': 'Bưu Cục',
+            'mã nv': 'Mã NV',
+            'nhân viên': 'Nhân Viên',
+            'gán giao': 'Gán Giao',
+            'giao tc': 'Giao TC',
+            '%gtc': '%GTC',
+            'ltc': 'LTC',
+            'đánh giá': 'Đánh Giá',
             'mã đơn': 'Mã đơn',
             'tệp khách': 'Tệp khách',
             'ngày nhập bc giao': 'Ngày nhập BC Giao',
@@ -3114,6 +3125,7 @@ UNSTABLE_PO_CACHE = None
 OFF_SPE_CACHE = None
 FD_CACHE = None
 CA_REPORT_CACHE = None
+PRODUCTIVITY_REALTIME_CACHE = None
 
 LAST_CACHE_UPDATE_TIME = None
 LAST_CACHE_CHECK_TIME = 0
@@ -3445,8 +3457,10 @@ def apply_filters(df, am=None, province=None, post_office=None):
     return df_filtered
 
 def update_all_caches():
-    global OPERATIONAL_CACHE, OPR_CACHE, BACKLOG_CACHE_RAW, UNSTABLE_PO_CACHE, OFF_SPE_CACHE, CA_REPORT_CACHE, DF_TAO_DON_CACHE, DF_BUU_CUC_TYPE_MAP, FD_CACHE
+    global OPERATIONAL_CACHE, OPR_CACHE, BACKLOG_CACHE_RAW, UNSTABLE_PO_CACHE, OFF_SPE_CACHE, CA_REPORT_CACHE, PRODUCTIVITY_REALTIME_CACHE, DF_TAO_DON_CACHE, DF_BUU_CUC_TYPE_MAP, FD_CACHE
     import gc
+    CA_REPORT_CACHE = None
+    PRODUCTIVITY_REALTIME_CACHE = None
     
     print("--------------------------------------------------")
     print("STARTING MEMORY-EFFICIENT CACHE LOAD...")
@@ -3920,6 +3934,104 @@ def api_ca_report():
                 CA_REPORT_CACHE = process_ca_report()
     return jsonify(clean_nan(CA_REPORT_CACHE))
 
+def process_productivity_realtime():
+    # Load from DB or CSV file
+    df = load_df_from_db('ops_productivity_realtime.csv')
+    if df is None or df.empty:
+        csv_path = resolve_path('ops_productivity_realtime.csv', write=False)
+        if os.path.exists(csv_path):
+            try:
+                df = pd.read_csv(csv_path, header=None)
+            except Exception as e:
+                return {"error": f"Lỗi đọc file: {str(e)}"}
+        else:
+            return {"error": "Không tìm thấy dữ liệu năng suất. Vui lòng đồng bộ lại."}
+            
+    # Check if headers are in the column names of df
+    col_names = [str(c).strip().lower() for c in df.columns]
+    if 'bưu cục' in col_names and 'mã nv' in col_names and 'nhân viên' in col_names:
+        table_df = df.iloc[:, 0:9].copy()
+        table_df.columns = df.columns[0:9]
+    else:
+        # Search for headers in the rows
+        header_idx = None
+        for idx, row in df.iterrows():
+            row_vals = [str(x).strip().lower() for x in row.values]
+            if 'bưu cục' in row_vals and 'mã nv' in row_vals and 'nhân viên' in row_vals:
+                header_idx = idx
+                break
+        if header_idx is not None:
+            headers = df.iloc[header_idx].values
+            table_df = df.iloc[header_idx + 1:, 0:9].copy()
+            table_df.columns = headers[0:9]
+        else:
+            return {"error": "Không tìm thấy cấu trúc bảng dữ liệu (Bưu Cục, Mã NV, Nhân Viên)."}
+
+    # Clean headers and drop rows where 'Bưu Cục' or 'Mã NV' is NaN/null or blank
+    table_df.rename(columns=lambda x: str(x).strip(), inplace=True)
+    table_df = table_df.dropna(subset=['Bưu Cục', 'Mã NV'])
+    table_df = table_df[table_df['Bưu Cục'].astype(str).str.strip() != '']
+    table_df = table_df[table_df['Mã NV'].astype(str).str.strip() != '']
+    
+    # Fill NA values
+    table_df = table_df.fillna({
+        'AM': 'Không xác định',
+        'Nhân Viên': 'Không xác định',
+        'Gán Giao': 0,
+        'Giao TC': 0,
+        '%GTC': '0%',
+        'LTC': 0,
+        'Đánh Giá': 'Chưa đánh giá'
+    })
+    
+    records = []
+    for _, row in table_df.iterrows():
+        try:
+            gan_giao = int(float(str(row['Gán Giao']).replace(',', '').replace('%', '').strip() or 0))
+        except:
+            gan_giao = 0
+            
+        try:
+            giao_tc = int(float(str(row['Giao TC']).replace(',', '').replace('%', '').strip() or 0))
+        except:
+            giao_tc = 0
+            
+        try:
+            ltc = int(float(str(row['LTC']).replace(',', '').replace('%', '').strip() or 0))
+        except:
+            ltc = 0
+            
+        gtc_str = str(row['%GTC']).strip()
+        try:
+            gtc_val = float(gtc_str.replace('%', '').strip())
+        except:
+            gtc_val = 0.0
+            
+        records.append({
+            'Bưu Cục': str(row['Bưu Cục']).strip(),
+            'AM': str(row['AM']).strip(),
+            'Mã NV': str(row['Mã NV']).strip(),
+            'Nhân Viên': str(row['Nhân Viên']).strip(),
+            'Gán Giao': gan_giao,
+            'Giao TC': giao_tc,
+            '%GTC': gtc_str,
+            'GTC_Val': gtc_val,
+            'LTC': ltc,
+            'Đánh Giá': str(row['Đánh Giá']).strip()
+        })
+        
+    return {"records": records}
+
+@app.route('/api/productivity-realtime')
+@requires_permission('tab-productivity-realtime')
+def api_productivity_realtime():
+    global PRODUCTIVITY_REALTIME_CACHE
+    if PRODUCTIVITY_REALTIME_CACHE is None:
+        with CACHE_LOCK:
+            if PRODUCTIVITY_REALTIME_CACHE is None:
+                PRODUCTIVITY_REALTIME_CACHE = process_productivity_realtime()
+    return jsonify(clean_nan(PRODUCTIVITY_REALTIME_CACHE))
+
 @app.route('/api/fd')
 @requires_permission('tab-fd')
 def get_fd():
@@ -4246,6 +4358,7 @@ def upload_file():
         'co_cau_ntb.csv',
         'ODR TTS.csv',
         'ops_fd.csv',
+        'ops_productivity_realtime.csv',
         'ops_nhan_su.csv'
     ]
     
@@ -4359,6 +4472,7 @@ def split_excel_to_csvs(xlsx_path):
             (["đang off", "dang off", "off", "off_tuyen", "off tuyến"], "off_tuyen_spe.csv"),
             (["shopee_tiktok", "tao_don", "tạo đơn"], "vols_tao_don.csv"),
             (["odr tts", "odr_tts"], "ODR TTS.csv"),
+            (["baocao", "báo cáo"], "ops_productivity_realtime.csv"),
             (["nhân sự", "nhan su"], "ops_nhan_su.csv")
         ]
         
@@ -4474,6 +4588,7 @@ def sync_sheets_directly_as_csv(url):
         (["shopee_tiktok", "tao_don", "tạo đơn"], "vols_tao_don.csv"),
         (["odr tts", "odr_tts"], "ODR TTS.csv"),
         (["fd"], "ops_fd.csv"),
+        (["baocao", "báo cáo"], "ops_productivity_realtime.csv"),
         (["nhân sự", "nhan su"], "ops_nhan_su.csv")
     ]
     
@@ -4556,7 +4671,7 @@ def sync_sheets_directly_as_csv(url):
     return True, f"Đã tải thành công {success_count} files."
 
 def async_sync_task(is_admin_flag):
-    global OPERATIONAL_CACHE, OPR_CACHE, BACKLOG_CACHE_RAW, UNSTABLE_PO_CACHE, OFF_SPE_CACHE, CA_REPORT_CACHE, SYNC_STATUS
+    global OPERATIONAL_CACHE, OPR_CACHE, BACKLOG_CACHE_RAW, UNSTABLE_PO_CACHE, OFF_SPE_CACHE, CA_REPORT_CACHE, PRODUCTIVITY_REALTIME_CACHE, SYNC_STATUS
     import time
     sync_start = time.time()
     try:
@@ -5647,6 +5762,7 @@ def get_files_status():
         'co_cau_ntb.csv',
         'ODR TTS.csv',
         'ops_fd.csv',
+        'ops_productivity_realtime.csv',
         'ops_nhan_su.csv'
     ]
     status = []
