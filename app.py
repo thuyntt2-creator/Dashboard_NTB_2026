@@ -2782,88 +2782,173 @@ def calculate_trend(current_data, baseline_entry):
 
 
 def process_ca_report():
-    df = load_df_from_db('ops_ca_data.csv')
+    import urllib.request, io as _io
+
+    CA_GID = '260711009'
+    CA_SHEET_ID = '1JZ1eRerRqrpwjZ4HBevQunjd8VquM_cvPFz12TaJfMQ'
+    url = f'https://docs.google.com/spreadsheets/d/{CA_SHEET_ID}/export?format=csv&gid={CA_GID}'
+
+    df = None
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            content = resp.read()
+        df = pd.read_csv(_io.BytesIO(content), header=1, encoding='utf-8')
+        print(f"[CA] Loaded from GSheet GID={CA_GID}, shape={df.shape}")
+    except Exception as e:
+        print(f"[CA] GSheet fetch failed: {e}, falling back to DB")
+        df = load_df_from_db('ops_ca_data.csv')
+
     if df is None or df.empty:
         return {"error": "Không tìm thấy dữ liệu báo cáo Ca."}
-        
-    name_to_am = {}
-    df_cc = load_df_from_db('co_cau_ntb.csv')
-    if df_cc is not None and not df_cc.empty:
-        for _, r in df_cc.iterrows():
-            bc_name = str(r.get('Bưu cục', '')).strip()
-            am_val = str(r.get('AM', '')).strip()
-            if bc_name:
-                name_clean = clean_po_name(bc_name)
-                name_to_am[name_clean] = am_val
 
     def clean_num(x):
         try:
-            if pd.isna(x) or x == '': return 0
-            return int(str(x).replace('.','').replace(',',''))
+            if pd.isna(x) or str(x).strip() == '': return 0
+            s = str(x).replace('.','').replace(',','').strip()
+            return int(s)
         except:
             return 0
 
     records = []
-    # Check what columns exist in the DB (they might be lowercase due to DB schema)
-    # Actually load_df_from_db might restore the original columns or lowercase them.
-    # The columns from GID 432631208 include ' Chi tiết.2', ' Volume.2' etc.
-    # We will search for keywords in columns instead of exact names to be safe.
-    cols = df.columns.tolist()
     
-    col_bc1 = next((c for c in cols if 'tiết.2' in str(c).lower()), ' Chi tiết.2')
-    col_vol1 = next((c for c in cols if 'volume.2' in str(c).lower()), ' Volume.2')
-    col_gtc1 = next((c for c in cols if 'gtc.2' in str(c).lower()), ' GTC.2')
-    
-    col_bc2 = next((c for c in cols if 'tiết.3' in str(c).lower()), ' Chi tiết.3')
-    col_vol2 = next((c for c in cols if 'volume.3' in str(c).lower()), ' Volume.3')
-    col_gtc2 = next((c for c in cols if 'gtc.3' in str(c).lower()), ' GTC.3')
-    
-    col_bc3 = next((c for c in cols if 'tiết.1' in str(c).lower()), ' Chi tiết.1')
-    col_vol3 = next((c for c in cols if 'volume.1' in str(c).lower()), ' Volume.1')
-    col_gtc3 = next((c for c in cols if 'gtc.1' in str(c).lower()), ' GTC.1')
+    # Check if we should parse by index or by column name pattern (in case DB fallback has different shape)
+    if df.shape[1] >= 41:
+        # Position-based parsing (highly robust for new layout)
+        for idx, row in df.iterrows():
+            # Ca 1
+            bc1 = str(row.iloc[1]).strip()
+            date1 = str(row.iloc[3]).strip()
+            vol1 = clean_num(row.iloc[4])
+            gtc1 = clean_num(row.iloc[7])
+            am1 = str(row.iloc[12]).strip()
+            if bc1 and bc1 not in ('nan', 'None', '', 'Cấp Quản Lý', 'Chi tiết'):
+                records.append({
+                    'Bưu Cục': bc1,
+                    'AM': am1 if am1 not in ('nan', 'None', '') else 'Không xác định',
+                    'Date': date1,
+                    'Loại Hàng': 'Hàng Mới Ca 1',
+                    'Volume': vol1,
+                    'Sản Lượng Giao Thành Công': gtc1
+                })
 
-    for idx, row in df.iterrows():
-        # Ca 1
-        bc1 = str(row.get(col_bc1, '')).strip()
-        vol1 = clean_num(row.get(col_vol1, 0))
-        gtc1 = clean_num(row.get(col_gtc1, 0))
-        if bc1 and bc1 != 'nan' and bc1 != 'None':
-            am1 = name_to_am.get(clean_po_name(bc1), 'Không xác định')
-            records.append({'Bưu Cục': bc1, 'AM': am1, 'Loại Hàng': 'Hàng Mới Ca 1', 'Volume': vol1, 'Sản Lượng Giao Thành Công': gtc1})
+            # Ca 2
+            bc2 = str(row.iloc[15]).strip()
+            date2 = str(row.iloc[17]).strip()
+            vol2 = clean_num(row.iloc[18])
+            gtc2 = clean_num(row.iloc[21])
+            am2 = str(row.iloc[26]).strip()
+            if bc2 and bc2 not in ('nan', 'None', '', 'Cấp Quản Lý', 'Chi tiết'):
+                records.append({
+                    'Bưu Cục': bc2,
+                    'AM': am2 if am2 not in ('nan', 'None', '') else 'Không xác định',
+                    'Date': date2,
+                    'Loại Hàng': 'Hàng Mới Ca 2',
+                    'Volume': vol2,
+                    'Sản Lượng Giao Thành Công': gtc2
+                })
 
-        # Ca 2
-        bc2 = str(row.get(col_bc2, '')).strip()
-        vol2 = clean_num(row.get(col_vol2, 0))
-        gtc2 = clean_num(row.get(col_gtc2, 0))
-        if bc2 and bc2 != 'nan' and bc2 != 'None':
-            am2 = name_to_am.get(clean_po_name(bc2), 'Không xác định')
-            records.append({'Bưu Cục': bc2, 'AM': am2, 'Loại Hàng': 'Hàng Mới Ca 2', 'Volume': vol2, 'Sản Lượng Giao Thành Công': gtc2})
+            # Hàng Tồn
+            bc3 = str(row.iloc[29]).strip()
+            date3 = str(row.iloc[31]).strip()
+            vol3 = clean_num(row.iloc[32])
+            gtc3 = clean_num(row.iloc[35])
+            am3 = str(row.iloc[40]).strip()
+            if bc3 and bc3 not in ('nan', 'None', '', 'Cấp Quản Lý', 'Chi tiết'):
+                records.append({
+                    'Bưu Cục': bc3,
+                    'AM': am3 if am3 not in ('nan', 'None', '') else 'Không xác định',
+                    'Date': date3,
+                    'Loại Hàng': 'Hàng Tồn',
+                    'Volume': vol3,
+                    'Sản Lượng Giao Thành Công': gtc3
+                })
+    else:
+        # Fallback to column name patterns if database layout is old
+        cols = df.columns.tolist()
+        
+        col_bc1  = next((c for c in cols if 'tiết' in str(c).lower() and '.1' not in str(c).lower() and '.2' not in str(c).lower()), 'Chi tiết')
+        col_vol1 = next((c for c in cols if 'volume' in str(c).lower() and '.1' not in str(c).lower() and '.2' not in str(c).lower()), 'Volume')
+        col_gtc1 = next((c for c in cols if 'giao thành công' in str(c).lower() and '.1' not in str(c).lower() and '.2' not in str(c).lower()), 'Sản Lượng Giao Thành Công')
+        col_am1  = next((c for c in cols if 'am' in str(c).lower() and '.1' not in str(c).lower() and '.2' not in str(c).lower()), 'AM')
+        col_date1 = next((c for c in cols if 'time' in str(c).lower() and '.1' not in str(c).lower() and '.2' not in str(c).lower()), 'Time')
 
-        # Tồn
-        bc3 = str(row.get(col_bc3, '')).strip()
-        vol3 = clean_num(row.get(col_vol3, 0))
-        gtc3 = clean_num(row.get(col_gtc3, 0))
-        if bc3 and bc3 != 'nan' and bc3 != 'None':
-            am3 = name_to_am.get(clean_po_name(bc3), 'Không xác định')
-            records.append({'Bưu Cục': bc3, 'AM': am3, 'Loại Hàng': 'Hàng Tồn', 'Volume': vol3, 'Sản Lượng Giao Thành Công': gtc3})
+        col_bc2  = next((c for c in cols if 'tiết.1' in str(c).lower()), 'Chi tiết.1')
+        col_vol2 = next((c for c in cols if 'volume.1' in str(c).lower()), 'Volume.1')
+        col_gtc2 = next((c for c in cols if 'giao thành công.1' in str(c).lower() or 'gtc.1' in str(c).lower()), 'Sản Lượng Giao Thành Công.1')
+        col_am2  = next((c for c in cols if 'am.1' in str(c).lower()), 'AM.1')
+        col_date2 = next((c for c in cols if 'time.1' in str(c).lower()), 'Time.1')
+
+        col_bc3  = next((c for c in cols if 'tiết.2' in str(c).lower()), 'Chi tiết.2')
+        col_vol3 = next((c for c in cols if 'volume.2' in str(c).lower()), 'Volume.2')
+        col_gtc3 = next((c for c in cols if 'giao thành công.2' in str(c).lower() or 'gtc.2' in str(c).lower()), 'Sản Lượng Giao Thành Công.2')
+        col_am3  = next((c for c in cols if 'am.2' in str(c).lower()), 'AM.2')
+        col_date3 = next((c for c in cols if 'time.2' in str(c).lower()), 'Time.2')
+
+        for idx, row in df.iterrows():
+            # Ca 1
+            bc1 = str(row.get(col_bc1, '')).strip()
+            vol1 = clean_num(row.get(col_vol1, 0))
+            gtc1 = clean_num(row.get(col_gtc1, 0))
+            am1 = str(row.get(col_am1, 'Không xác định')).strip()
+            date1 = str(row.get(col_date1, '')).strip()
+            if bc1 and bc1 not in ('nan', 'None', '', 'Cấp Quản Lý', 'Chi tiết'):
+                records.append({'Bưu Cục': bc1, 'AM': am1, 'Date': date1, 'Loại Hàng': 'Hàng Mới Ca 1', 'Volume': vol1, 'Sản Lượng Giao Thành Công': gtc1})
+
+            # Ca 2
+            bc2 = str(row.get(col_bc2, '')).strip()
+            vol2 = clean_num(row.get(col_vol2, 0))
+            gtc2 = clean_num(row.get(col_gtc2, 0))
+            am2 = str(row.get(col_am2, 'Không xác định')).strip()
+            date2 = str(row.get(col_date2, '')).strip()
+            if bc2 and bc2 not in ('nan', 'None', '', 'Cấp Quản Lý', 'Chi tiết'):
+                records.append({'Bưu Cục': bc2, 'AM': am2, 'Date': date2, 'Loại Hàng': 'Hàng Mới Ca 2', 'Volume': vol2, 'Sản Lượng Giao Thành Công': gtc2})
+
+            # Hàng Tồn
+            bc3 = str(row.get(col_bc3, '')).strip()
+            vol3 = clean_num(row.get(col_vol3, 0))
+            gtc3 = clean_num(row.get(col_gtc3, 0))
+            am3 = str(row.get(col_am3, 'Không xác định')).strip()
+            date3 = str(row.get(col_date3, '')).strip()
+            if bc3 and bc3 not in ('nan', 'None', '', 'Cấp Quản Lý', 'Chi tiết'):
+                records.append({'Bưu Cục': bc3, 'AM': am3, 'Date': date3, 'Loại Hàng': 'Hàng Tồn', 'Volume': vol3, 'Sản Lượng Giao Thành Công': gtc3})
 
     if not records:
         return {"error": "Không có dữ liệu trong báo cáo Ca."}
 
     df_parsed = pd.DataFrame(records)
 
+    # 1. Pivot Daily (for filters)
+    pt_daily = df_parsed.pivot_table(index=['Date', 'AM', 'Bưu Cục'], columns='Loại Hàng', values=['Volume', 'Sản Lượng Giao Thành Công'], aggfunc='sum', fill_value=0)
+    pt_daily.columns = [f"{c[1]}_{c[0]}" for c in pt_daily.columns]
+    pt_daily = pt_daily.reset_index()
+
+    # 2. Pivot BC (overall aggregated)
     pt_bc = df_parsed.pivot_table(index=['AM', 'Bưu Cục'], columns='Loại Hàng', values=['Volume', 'Sản Lượng Giao Thành Công'], aggfunc='sum', fill_value=0)
     pt_bc.columns = [f"{c[1]}_{c[0]}" for c in pt_bc.columns]
     pt_bc = pt_bc.reset_index()
 
+    # 3. Pivot AM (overall aggregated)
     pt_am = df_parsed.pivot_table(index=['AM'], columns='Loại Hàng', values=['Volume', 'Sản Lượng Giao Thành Công'], aggfunc='sum', fill_value=0)
     pt_am.columns = [f"{c[1]}_{c[0]}" for c in pt_am.columns]
     pt_am = pt_am.reset_index()
 
+    # Lists for dropdown filter options
+    unique_dates = df_parsed['Date'].unique().tolist()
+    unique_dates = sorted([d for d in unique_dates if d not in ('nan', '')])
+    
+    unique_ams = df_parsed['AM'].unique().tolist()
+    unique_ams = sorted([a for a in unique_ams if a not in ('nan', '', 'Không xác định')])
+
     return {
+        "by_bc_daily": clean_nan(pt_daily.to_dict(orient='records')),
         "by_bc": clean_nan(pt_bc.to_dict(orient='records')),
-        "by_am": clean_nan(pt_am.to_dict(orient='records'))
+        "by_am": clean_nan(pt_am.to_dict(orient='records')),
+        "unique_dates": unique_dates,
+        "unique_ams": unique_ams
     }
+
+
 
 def process_fd_report(am=None, province=None, post_office=None):
     import csv
@@ -4487,15 +4572,15 @@ def async_sync_task(is_admin_flag):
                 SYNC_STATUS["progress"] = "Đang tải báo cáo Sản lượng Ca..."
                 try:
                     import urllib.request, io
-                    url_ca = 'https://docs.google.com/spreadsheets/d/1JZ1eRerRqrpwjZ4HBevQunjd8VquM_cvPFz12TaJfMQ/export?format=csv&gid=432631208'
+                    url_ca = 'https://docs.google.com/spreadsheets/d/1JZ1eRerRqrpwjZ4HBevQunjd8VquM_cvPFz12TaJfMQ/export?format=csv&gid=260711009'
                     req_ca = urllib.request.Request(url_ca, headers={'User-Agent': 'Mozilla/5.0'})
                     with urllib.request.urlopen(req_ca, timeout=30) as resp:
                         content_ca = resp.read()
                     for enc in ['utf-8-sig', 'utf-8', 'latin-1', 'cp1252']:
                         try:
-                            df_ca = pd.read_csv(io.BytesIO(content_ca), encoding=enc)
+                            df_ca = pd.read_csv(io.BytesIO(content_ca), header=1, encoding=enc)
                             save_df_to_db(df_ca, 'ops_ca_data.csv')
-                            print("Successfully downloaded ops_ca_data.csv")
+                            print("Successfully downloaded ops_ca_data.csv with header=1")
                             break
                         except Exception:
                             continue
