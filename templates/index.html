@@ -3379,6 +3379,7 @@
                                     <th style="padding:10px 8px; text-align:center; font-weight:700; color:#6366f1; border-bottom:2px solid #e2e8f0; background:#f0f0ff; white-space:nowrap;" colspan="3">🌅 Hàng Mới Ca 1</th>
                                     <th style="padding:10px 8px; text-align:center; font-weight:700; color:#10b981; border-bottom:2px solid #e2e8f0; background:#f0fdf4; white-space:nowrap;" colspan="3">🌆 Hàng Mới Ca 2</th>
                                     <th style="padding:10px 8px; text-align:center; font-weight:700; color:#d97706; border-bottom:2px solid #e2e8f0; background:#fffbeb; white-space:nowrap;" colspan="3">📦 Hàng Tồn</th>
+                                    <th style="padding:10px 8px; text-align:center; font-weight:700; color:#475569; border-bottom:2px solid #e2e8f0; background:#f1f5f9; white-space:nowrap;" colspan="3">📊 Tổng cộng</th>
                                 </tr>
                                 <tr style="background:#f8fafc; position:sticky; top:40px; z-index:5;">
                                     <th style="padding:6px 14px; text-align:left; font-weight:600; font-size:11px; color:#94a3b8; border-bottom:1px solid #e2e8f0;"></th>
@@ -3391,10 +3392,13 @@
                                     <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#d97706; border-bottom:1px solid #e2e8f0; background:#fef9ec; cursor:pointer;" onclick="sortCaTable('v3')">Vol <i class="fa-solid fa-sort" style="color:#fcd34d;font-size:9px;"></i></th>
                                     <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#d97706; border-bottom:1px solid #e2e8f0; background:#fef9ec; cursor:pointer;" onclick="sortCaTable('g3')">GTC <i class="fa-solid fa-sort" style="color:#fcd34d;font-size:9px;"></i></th>
                                     <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#d97706; border-bottom:1px solid #e2e8f0; background:#fef9ec;">%GTC</th>
+                                    <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#475569; border-bottom:1px solid #e2e8f0; background:#f1f5f9; cursor:pointer;" onclick="sortCaTable('total_v')">Vol <i class="fa-solid fa-sort" style="color:#cbd5e1;font-size:9px;"></i></th>
+                                    <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#475569; border-bottom:1px solid #e2e8f0; background:#f1f5f9; cursor:pointer;" onclick="sortCaTable('total_g')">GTC <i class="fa-solid fa-sort" style="color:#cbd5e1;font-size:9px;"></i></th>
+                                    <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#475569; border-bottom:1px solid #e2e8f0; background:#f1f5f9;">%GTC</th>
                                 </tr>
                             </thead>
                             <tbody id="ca-table-body">
-                                <tr><td colspan="10" style="text-align:center; padding:40px; color:#94a3b8;"><i class="fa-solid fa-spinner fa-spin"></i> Đang tải...</td></tr>
+                                <tr><td colspan="13" style="text-align:center; padding:40px; color:#94a3b8;"><i class="fa-solid fa-spinner fa-spin"></i> Đang tải...</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -9248,13 +9252,13 @@
         async function loadCaReportData() {
             const tbody = document.getElementById('ca-table-body');
             if (!tbody) return;
-            tbody.innerHTML = `<tr><td colspan="10" style="text-align:center;padding:40px;color:#94a3b8;"><i class="fa-solid fa-spinner fa-spin"></i> Đang tải...</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="13" style="text-align:center;padding:40px;color:#94a3b8;"><i class="fa-solid fa-spinner fa-spin"></i> Đang tải...</td></tr>`;
 
             try {
                 const res = await fetch(getApiUrl('/api/ca-report'), getFetchOptions());
                 const data = await res.json();
                 if (data.error) {
-                    tbody.innerHTML = `<tr><td colspan="10" style="text-align:center;padding:40px;color:#ef4444;"><i class="fa-solid fa-triangle-exclamation"></i> ${data.error}</td></tr>`;
+                    tbody.innerHTML = `<tr><td colspan="13" style="text-align:center;padding:40px;color:#ef4444;"><i class="fa-solid fa-triangle-exclamation"></i> ${data.error}</td></tr>`;
                     return;
                 }
 
@@ -9266,7 +9270,7 @@
 
                 renderCaTable();
             } catch(e) {
-                tbody.innerHTML = `<tr><td colspan="10" style="text-align:center;padding:40px;color:#ef4444;"><i class="fa-solid fa-triangle-exclamation"></i> Lỗi tải dữ liệu: ${e.message}</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="13" style="text-align:center;padding:40px;color:#ef4444;"><i class="fa-solid fa-triangle-exclamation"></i> Lỗi tải dữ liệu: ${e.message}</td></tr>`;
             }
         }
 
@@ -9372,12 +9376,17 @@
             });
 
             let displayRows = Object.values(aggregated).map(r => {
+                const total_v = r.v1 + r.v2 + r.v3;
+                const total_g = r.g1 + r.g2 + r.g3;
                 return {
                     name: r.name,
                     am: r.am,
                     v1: r.v1, g1: r.g1, p1: r.v1 > 0 ? Math.round(r.g1 / r.v1 * 100) : null,
                     v2: r.v2, g2: r.g2, p2: r.v2 > 0 ? Math.round(r.g2 / r.v2 * 100) : null,
-                    v3: r.v3, g3: r.g3, p3: r.v3 > 0 ? Math.round(r.g3 / r.v3 * 100) : null
+                    v3: r.v3, g3: r.g3, p3: r.v3 > 0 ? Math.round(r.g3 / r.v3 * 100) : null,
+                    total_v: total_v,
+                    total_g: total_g,
+                    total_p: total_v > 0 ? Math.round(total_g / total_v * 100) : null
                 };
             });
 
@@ -9410,11 +9419,11 @@
             if (rowCount) rowCount.innerText = `${displayRows.length} ${groupby === 'am' ? 'AM' : 'bưu cục'}`;
 
             if (displayRows.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="10" style="text-align:center;padding:30px;color:#94a3b8;">Không tìm thấy dữ liệu</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="13" style="text-align:center;padding:30px;color:#94a3b8;">Không tìm thấy dữ liệu</td></tr>`;
                 return;
             }
 
-            const cellStyle = (bg) => `style="padding:8px 10px;text-align:right;border-bottom:1px solid #f1f5f9;background:${bg};font-variant-numeric:tabular-nums;"`;
+            const cellStyle = (bg, extra = '') => `style="padding:8px 10px;text-align:right;border-bottom:1px solid #f1f5f9;background:${bg};font-variant-numeric:tabular-nums;${extra}"`;
             let html = '';
             displayRows.forEach((r, i) => {
                 const rowBg = i % 2 === 0 ? '' : '#fafbfc';
@@ -9432,8 +9441,52 @@
                     <td ${cellStyle('#fef9ec')}>${r.v3.toLocaleString('vi-VN')}</td>
                     <td ${cellStyle('#fef9ec')}>${r.g3.toLocaleString('vi-VN')}</td>
                     <td ${cellStyle('#fef9ec')}>${pctBadge(r.p3)}</td>
+                    <td ${cellStyle('#f1f5f9', 'font-weight:700;color:#1e293b;')}>${r.total_v.toLocaleString('vi-VN')}</td>
+                    <td ${cellStyle('#f1f5f9', 'font-weight:700;color:#1e293b;')}>${r.total_g.toLocaleString('vi-VN')}</td>
+                    <td ${cellStyle('#f1f5f9')}>${pctBadge(r.total_p)}</td>
                 </tr>`;
             });
+
+            // Add aggregate Grand Total Row at the bottom of the table
+            if (displayRows.length > 0) {
+                const sum_v1 = displayRows.reduce((s, r) => s + r.v1, 0);
+                const sum_g1 = displayRows.reduce((s, r) => s + r.g1, 0);
+                const sum_p1 = sum_v1 > 0 ? Math.round(sum_g1 / sum_v1 * 100) : null;
+
+                const sum_v2 = displayRows.reduce((s, r) => s + r.v2, 0);
+                const sum_g2 = displayRows.reduce((s, r) => s + r.g2, 0);
+                const sum_p2 = sum_v2 > 0 ? Math.round(sum_g2 / sum_v2 * 100) : null;
+
+                const sum_v3 = displayRows.reduce((s, r) => s + r.v3, 0);
+                const sum_g3 = displayRows.reduce((s, r) => s + r.g3, 0);
+                const sum_p3 = sum_v3 > 0 ? Math.round(sum_g3 / sum_v3 * 100) : null;
+
+                const sum_total_v = displayRows.reduce((s, r) => s + r.total_v, 0);
+                const sum_total_g = displayRows.reduce((s, r) => s + r.total_g, 0);
+                const sum_total_p = sum_total_v > 0 ? Math.round(sum_total_g / sum_total_v * 100) : null;
+
+                const footerBg = '#f1f5f9';
+                const footerCellStyle = (bg, extra = '') => `style="padding:10px 10px;text-align:right;border-top:2px solid #cbd5e1;border-bottom:2px solid #cbd5e1;background:${bg};font-weight:700;font-variant-numeric:tabular-nums;${extra}"`;
+
+                html += `<tr style="background:${footerBg}; font-weight:700; border-top:2px solid #cbd5e1; border-bottom:2px solid #cbd5e1;">
+                    <td style="padding:10px 14px;border-top:2px solid #cbd5e1;border-bottom:2px solid #cbd5e1;font-weight:700;color:#0f172a;">
+                        TỔNG CỘNG
+                    </td>
+                    <td ${footerCellStyle('#f5f5ff')}>${sum_v1.toLocaleString('vi-VN')}</td>
+                    <td ${footerCellStyle('#f5f5ff')}>${sum_g1.toLocaleString('vi-VN')}</td>
+                    <td ${footerCellStyle('#f5f5ff')}>${pctBadge(sum_p1)}</td>
+                    <td ${footerCellStyle('#f0fdf4')}>${sum_v2.toLocaleString('vi-VN')}</td>
+                    <td ${footerCellStyle('#f0fdf4')}>${sum_g2.toLocaleString('vi-VN')}</td>
+                    <td ${footerCellStyle('#f0fdf4')}>${pctBadge(sum_p2)}</td>
+                    <td ${footerCellStyle('#fef9ec')}>${sum_v3.toLocaleString('vi-VN')}</td>
+                    <td ${footerCellStyle('#fef9ec')}>${sum_g3.toLocaleString('vi-VN')}</td>
+                    <td ${footerCellStyle('#fef9ec')}>${pctBadge(sum_p3)}</td>
+                    <td ${footerCellStyle('#e2e8f0', 'color:#0f172a;')}>${sum_total_v.toLocaleString('vi-VN')}</td>
+                    <td ${footerCellStyle('#e2e8f0', 'color:#0f172a;')}>${sum_total_g.toLocaleString('vi-VN')}</td>
+                    <td ${footerCellStyle('#e2e8f0')}>${pctBadge(sum_total_p)}</td>
+                </tr>`;
+            }
+
             tbody.innerHTML = html;
         }
 
