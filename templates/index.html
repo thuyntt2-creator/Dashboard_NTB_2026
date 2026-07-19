@@ -9344,6 +9344,15 @@
             if (n2Date) {
                 compareSelect.innerHTML += `<option value="${n2Date}">2 ngày trước (N-2): ${n2Date}</option>`;
             }
+
+            // N-3
+            const d3 = new Date(baseDate);
+            d3.setDate(baseDate.getDate() - 3);
+            const ymd3 = d3.toISOString().split('T')[0];
+            const n3Date = uniqueDates.find(d => getYMD(d) === ymd3);
+            if (n3Date) {
+                compareSelect.innerHTML += `<option value="${n3Date}">3 ngày trước (N-3): ${n3Date}</option>`;
+            }
             
             // N-7
             const d7 = new Date(baseDate);
@@ -9357,7 +9366,7 @@
             compareSelect.innerHTML += `<option disabled>──────────</option>`;
             
             uniqueDates.forEach(d => {
-                if (d !== selectedDate && d !== n1Date && d !== n2Date && d !== n7Date) {
+                if (d !== selectedDate && d !== n1Date && d !== n2Date && d !== n3Date && d !== n7Date) {
                     compareSelect.innerHTML += `<option value="${d}">${d}</option>`;
                 }
             });
