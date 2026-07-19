@@ -2821,6 +2821,19 @@ def process_ca_report():
         except:
             return 0
 
+    def clean_pct(x):
+        try:
+            if pd.isna(x) or str(x).strip() == '': return 0.0
+            val_str = str(x).strip()
+            has_percent = '%' in val_str
+            val_str = val_str.replace('%', '').replace(',', '.')
+            val = float(val_str)
+            if not has_percent and 0 < val <= 1.0:
+                val = val * 100
+            return val
+        except:
+            return 0.0
+
     records = []
     
     # Check if we should parse by index or by column name pattern (in case DB fallback has different shape)
@@ -2831,6 +2844,7 @@ def process_ca_report():
             bc1 = str(row.iloc[1]).strip()
             date1 = str(row.iloc[3]).strip()
             vol1 = clean_num(row.iloc[4])
+            pct_gan1 = clean_pct(row.iloc[5])
             gtc1 = clean_num(row.iloc[7])
             am1 = str(row.iloc[12]).strip()
             if bc1 and bc1 not in ('nan', 'None', '', 'Cấp Quản Lý', 'Chi tiết'):
@@ -2840,13 +2854,15 @@ def process_ca_report():
                     'Date': date1,
                     'Loại Hàng': 'Hàng Mới Ca 1',
                     'Volume': vol1,
-                    'Sản Lượng Giao Thành Công': gtc1
+                    'Sản Lượng Giao Thành Công': gtc1,
+                    'Assigned_Vol': vol1 * (pct_gan1 / 100.0)
                 })
 
             # Ca 2
             bc2 = str(row.iloc[15]).strip()
             date2 = str(row.iloc[17]).strip()
             vol2 = clean_num(row.iloc[18])
+            pct_gan2 = clean_pct(row.iloc[19])
             gtc2 = clean_num(row.iloc[21])
             am2 = str(row.iloc[26]).strip()
             if bc2 and bc2 not in ('nan', 'None', '', 'Cấp Quản Lý', 'Chi tiết'):
@@ -2856,13 +2872,15 @@ def process_ca_report():
                     'Date': date2,
                     'Loại Hàng': 'Hàng Mới Ca 2',
                     'Volume': vol2,
-                    'Sản Lượng Giao Thành Công': gtc2
+                    'Sản Lượng Giao Thành Công': gtc2,
+                    'Assigned_Vol': vol2 * (pct_gan2 / 100.0)
                 })
 
             # Hàng Tồn
             bc3 = str(row.iloc[29]).strip()
             date3 = str(row.iloc[31]).strip()
             vol3 = clean_num(row.iloc[32])
+            pct_gan3 = clean_pct(row.iloc[33])
             gtc3 = clean_num(row.iloc[35])
             am3 = str(row.iloc[40]).strip()
             if bc3 and bc3 not in ('nan', 'None', '', 'Cấp Quản Lý', 'Chi tiết'):
@@ -2872,7 +2890,8 @@ def process_ca_report():
                     'Date': date3,
                     'Loại Hàng': 'Hàng Tồn',
                     'Volume': vol3,
-                    'Sản Lượng Giao Thành Công': gtc3
+                    'Sản Lượng Giao Thành Công': gtc3,
+                    'Assigned_Vol': vol3 * (pct_gan3 / 100.0)
                 })
     else:
         # Fallback to column name patterns if database layout is old
@@ -2880,18 +2899,21 @@ def process_ca_report():
         
         col_bc1  = next((c for c in cols if 'tiết' in str(c).lower() and '.1' not in str(c).lower() and '.2' not in str(c).lower()), 'Chi tiết')
         col_vol1 = next((c for c in cols if 'volume' in str(c).lower() and '.1' not in str(c).lower() and '.2' not in str(c).lower()), 'Volume')
+        col_gan1 = next((c for c in cols if 'gán' in str(c).lower() and '.1' not in str(c).lower() and '.2' not in str(c).lower()), '% Gán')
         col_gtc1 = next((c for c in cols if 'giao thành công' in str(c).lower() and '.1' not in str(c).lower() and '.2' not in str(c).lower()), 'Sản Lượng Giao Thành Công')
         col_am1  = next((c for c in cols if 'am' in str(c).lower() and '.1' not in str(c).lower() and '.2' not in str(c).lower()), 'AM')
         col_date1 = next((c for c in cols if 'time' in str(c).lower() and '.1' not in str(c).lower() and '.2' not in str(c).lower()), 'Time')
 
         col_bc2  = next((c for c in cols if 'tiết.1' in str(c).lower()), 'Chi tiết.1')
         col_vol2 = next((c for c in cols if 'volume.1' in str(c).lower()), 'Volume.1')
+        col_gan2 = next((c for c in cols if 'gán.1' in str(c).lower() or ('gán' in str(c).lower() and '.1' in str(c).lower())), '% Gán.1')
         col_gtc2 = next((c for c in cols if 'giao thành công.1' in str(c).lower() or 'gtc.1' in str(c).lower()), 'Sản Lượng Giao Thành Công.1')
         col_am2  = next((c for c in cols if 'am.1' in str(c).lower()), 'AM.1')
         col_date2 = next((c for c in cols if 'time.1' in str(c).lower()), 'Time.1')
 
         col_bc3  = next((c for c in cols if 'tiết.2' in str(c).lower()), 'Chi tiết.2')
         col_vol3 = next((c for c in cols if 'volume.2' in str(c).lower()), 'Volume.2')
+        col_gan3 = next((c for c in cols if 'gán.2' in str(c).lower() or ('gán' in str(c).lower() and '.2' in str(c).lower())), '% Gán.2')
         col_gtc3 = next((c for c in cols if 'giao thành công.2' in str(c).lower() or 'gtc.2' in str(c).lower()), 'Sản Lượng Giao Thành Công.2')
         col_am3  = next((c for c in cols if 'am.2' in str(c).lower()), 'AM.2')
         col_date3 = next((c for c in cols if 'time.2' in str(c).lower()), 'Time.2')
@@ -2900,29 +2922,32 @@ def process_ca_report():
             # Ca 1
             bc1 = str(row.get(col_bc1, '')).strip()
             vol1 = clean_num(row.get(col_vol1, 0))
+            pct_gan1 = clean_pct(row.get(col_gan1, 0.0))
             gtc1 = clean_num(row.get(col_gtc1, 0))
             am1 = str(row.get(col_am1, 'Không xác định')).strip()
             date1 = str(row.get(col_date1, '')).strip()
             if bc1 and bc1 not in ('nan', 'None', '', 'Cấp Quản Lý', 'Chi tiết'):
-                records.append({'Bưu Cục': bc1, 'AM': am1, 'Date': date1, 'Loại Hàng': 'Hàng Mới Ca 1', 'Volume': vol1, 'Sản Lượng Giao Thành Công': gtc1})
+                records.append({'Bưu Cục': bc1, 'AM': am1, 'Date': date1, 'Loại Hàng': 'Hàng Mới Ca 1', 'Volume': vol1, 'Sản Lượng Giao Thành Công': gtc1, 'Assigned_Vol': vol1 * (pct_gan1 / 100.0)})
 
             # Ca 2
             bc2 = str(row.get(col_bc2, '')).strip()
             vol2 = clean_num(row.get(col_vol2, 0))
+            pct_gan2 = clean_pct(row.get(col_gan2, 0.0))
             gtc2 = clean_num(row.get(col_gtc2, 0))
             am2 = str(row.get(col_am2, 'Không xác định')).strip()
             date2 = str(row.get(col_date2, '')).strip()
             if bc2 and bc2 not in ('nan', 'None', '', 'Cấp Quản Lý', 'Chi tiết'):
-                records.append({'Bưu Cục': bc2, 'AM': am2, 'Date': date2, 'Loại Hàng': 'Hàng Mới Ca 2', 'Volume': vol2, 'Sản Lượng Giao Thành Công': gtc2})
+                records.append({'Bưu Cục': bc2, 'AM': am2, 'Date': date2, 'Loại Hàng': 'Hàng Mới Ca 2', 'Volume': vol2, 'Sản Lượng Giao Thành Công': gtc2, 'Assigned_Vol': vol2 * (pct_gan2 / 100.0)})
 
             # Hàng Tồn
             bc3 = str(row.get(col_bc3, '')).strip()
             vol3 = clean_num(row.get(col_vol3, 0))
+            pct_gan3 = clean_pct(row.get(col_gan3, 0.0))
             gtc3 = clean_num(row.get(col_gtc3, 0))
             am3 = str(row.get(col_am3, 'Không xác định')).strip()
             date3 = str(row.get(col_date3, '')).strip()
             if bc3 and bc3 not in ('nan', 'None', '', 'Cấp Quản Lý', 'Chi tiết'):
-                records.append({'Bưu Cục': bc3, 'AM': am3, 'Date': date3, 'Loại Hàng': 'Hàng Tồn', 'Volume': vol3, 'Sản Lượng Giao Thành Công': gtc3})
+                records.append({'Bưu Cục': bc3, 'AM': am3, 'Date': date3, 'Loại Hàng': 'Hàng Tồn', 'Volume': vol3, 'Sản Lượng Giao Thành Công': gtc3, 'Assigned_Vol': vol3 * (pct_gan3 / 100.0)})
 
     if not records:
         return {"error": "Không có dữ liệu trong báo cáo Ca."}
@@ -2930,17 +2955,17 @@ def process_ca_report():
     df_parsed = pd.DataFrame(records)
 
     # 1. Pivot Daily (for filters)
-    pt_daily = df_parsed.pivot_table(index=['Date', 'AM', 'Bưu Cục'], columns='Loại Hàng', values=['Volume', 'Sản Lượng Giao Thành Công'], aggfunc='sum', fill_value=0)
+    pt_daily = df_parsed.pivot_table(index=['Date', 'AM', 'Bưu Cục'], columns='Loại Hàng', values=['Volume', 'Sản Lượng Giao Thành Công', 'Assigned_Vol'], aggfunc='sum', fill_value=0)
     pt_daily.columns = [f"{c[1]}_{c[0]}" for c in pt_daily.columns]
     pt_daily = pt_daily.reset_index()
 
     # 2. Pivot BC (overall aggregated)
-    pt_bc = df_parsed.pivot_table(index=['AM', 'Bưu Cục'], columns='Loại Hàng', values=['Volume', 'Sản Lượng Giao Thành Công'], aggfunc='sum', fill_value=0)
+    pt_bc = df_parsed.pivot_table(index=['AM', 'Bưu Cục'], columns='Loại Hàng', values=['Volume', 'Sản Lượng Giao Thành Công', 'Assigned_Vol'], aggfunc='sum', fill_value=0)
     pt_bc.columns = [f"{c[1]}_{c[0]}" for c in pt_bc.columns]
     pt_bc = pt_bc.reset_index()
 
     # 3. Pivot AM (overall aggregated)
-    pt_am = df_parsed.pivot_table(index=['AM'], columns='Loại Hàng', values=['Volume', 'Sản Lượng Giao Thành Công'], aggfunc='sum', fill_value=0)
+    pt_am = df_parsed.pivot_table(index=['AM'], columns='Loại Hàng', values=['Volume', 'Sản Lượng Giao Thành Công', 'Assigned_Vol'], aggfunc='sum', fill_value=0)
     pt_am.columns = [f"{c[1]}_{c[0]}" for c in pt_am.columns]
     pt_am = pt_am.reset_index()
 
