@@ -2455,17 +2455,31 @@ def process_unstable_po(am=None, province=None, post_office=None):
                 except:
                     return 0
 
+            def get_col_val(r_row, possible_keys, positional_idx=None):
+                r_keys = {str(k).strip().lower(): k for k in r_row.index}
+                for pk in possible_keys:
+                    pk_clean = pk.strip().lower()
+                    if pk_clean in r_keys:
+                        val = r_row[r_keys[pk_clean]]
+                        if pd.notna(val) and str(val).strip() != "":
+                            return val
+                if positional_idx is not None and positional_idx < len(r_row):
+                    val = r_row.iloc[positional_idx]
+                    if pd.notna(val) and str(val).strip() != "":
+                        return val
+                return 0
+
             record = {
                 "id": po_id_clean,
                 "name": str(po_name).strip() if pd.notna(po_name) else "",
                 "am": mapped_am,
                 "province": mapped_prov,
-                "ton_lm": safe_int(r.get('BL LM', 0)),
-                "ton_lm_5n": safe_int(r.get('BL LM >5 ngay', 0)),
-                "pct_lm_5n": round(parse_unstable_pct(r.get('%BL LM >5 ngay', 0)), 2),
-                "ton_ktc": safe_int(r.get('BL KTC', 0)),
-                "ton_ktc_cung_tinh": safe_int(r.get('BL KTC cung tinh %', r.get('BL KTC cung tinh', 0))),
-                "pct_ktc_cung_tinh": round(parse_unstable_pct(r.get('%BL KTC cung tinh', 0)), 2),
+                "ton_lm": safe_int(get_col_val(r, ['bl lm', 'bl_lm', 'tồn lm', 'ton_lm'], 6)),
+                "ton_lm_5n": safe_int(get_col_val(r, ['bl lm >5 ngay', 'bl lm > 5 ngay', 'bl lm >5ngay', 'bl lm > 5 ngày', 'bl lm >5 ngày', 'bl_lm_5n'], 7)),
+                "pct_lm_5n": round(parse_unstable_pct(get_col_val(r, ['%bl lm >5 ngay', '%bl lm > 5 ngay', '%bl lm >5ngay', '%bl lm > 5 ngày', '%bl lm >5 ngày'], 8)), 2),
+                "ton_ktc": safe_int(get_col_val(r, ['bl ktc', 'bl_ktc', 'tồn ktc', 'ton_ktc'], 9)),
+                "ton_ktc_cung_tinh": safe_int(get_col_val(r, ['bl ktc cung tinh', 'bl ktc cung tinh %', 'bl ktc cùng tỉnh'], 10)),
+                "pct_ktc_cung_tinh": round(parse_unstable_pct(get_col_val(r, ['%bl ktc cung tinh', '%bl ktc cùng tỉnh'], 11)), 2),
                 "days_unstable": days_val,
                 "reason": reason_val,
                 "status": status_val
