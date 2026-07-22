@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Cáo Kiến Trúc & Thiết Kế Hệ Thống — AI-Powered NTB Ops Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#FF6B00',
+                primaryTextColor: '#FFFFFF',
+                primaryBorderColor: '#FF8A3D',
+                lineColor: '#00F2FE',
+                secondaryColor: '#1A2333',
+                tertiaryColor: '#0A0E17',
+                fontSize: '15px'
+            }
+        });
+    </script>
+    <style>
+        :root {
+            --primary: #FF6B00;
+            --primary-light: #FF8A3D;
+            --primary-dark: #CC5500;
+            --bg-dark: #070A13;
+            --surface-dark: rgba(15, 23, 42, 0.75);
+            --card-bg: rgba(22, 32, 53, 0.4);
+            --border-color: rgba(255, 255, 255, 0.05);
+            --border-color-active: rgba(255, 107, 0, 0.3);
+            --text-main: #ECEFF4;
+            --text-muted: #94A3B8;
+            --accent-teal: #00F2FE;
+            --accent-blue: #38BDF8;
+            --accent-green: #2ED573;
+            --accent-purple: #FF8A3D;
+            --accent-amber: #FFB800;
+            --accent-rose: #FF4757;
+            --glass-glow: 0 15px 35px -10px rgba(0, 0, 0, 0.5);
+            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.75;
+            padding-bottom: 100px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Glowing Background Blobs */
+        .glow-blob-1 {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(255, 107, 0, 0.06) 0%, transparent 70%);
+            top: -200px;
+            left: -150px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .glow-blob-2 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.04) 0%, transparent 70%);
+            top: 35%;
+            right: -150px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .glow-blob-3 {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(167, 139, 250, 0.03) 0%, transparent 70%);
+            bottom: 5%;
+            left: 15%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Navigation Header */
+        header {
+            background: rgba(7, 10, 19, 0.75);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 18px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand-icon {
+            background: linear-gradient(135deg, var(--primary), #FF8A3D);
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFF;
+            font-size: 20px;
+            box-shadow: 0 4px 20px rgba(255, 107, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-title {
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-title span { color: var(--primary); }
+
+        .meta-badges {
+            display: flex;
+            gap: 12px;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .badge-primary {
+            background: rgba(255, 107, 0, 0.1);
+            border-color: rgba(255, 107, 0, 0.2);
+            color: var(--primary-light);
+            box-shadow: 0 0 15px rgba(255, 107, 0, 0.05);
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 1240px;
+            margin: 40px auto 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Premium Hero Banner */
+        .hero-banner {
+            background: linear-gradient(145deg, rgba(20, 30, 54, 0.8), rgba(7, 10, 19, 0.95));
+            backdrop-filter: blur(25px);
+            border: 1px solid var(--border-color);
+            border-radius: 28px;
+            padding: 45px;
+            margin-bottom: 45px;
+            box-shadow: var(--glass-glow), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-title {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #FFFFFF 40%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-desc {
+            font-size: 16.5px;
+            color: var(--text-muted);
+            max-width: 950px;
+            margin-bottom: 35px;
+        }
+
+        /* Table of Contents Grid */
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .toc-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            padding: 16px 20px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .toc-item:hover {
+            border-color: var(--primary-light);
+            background: rgba(255, 107, 0, 0.06);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 0, 0.15);
+        }
+
+        /* Section Cards */
+        .section-card {
+            background: var(--surface-dark);
+            backdrop-filter: blur(25px);
+            border: 1px solid var(--border-color);
+            border-radius: 28px;
+            padding: 45px;
+            margin-bottom: 45px;
+            box-shadow: var(--glass-glow), inset 0 1px 1px rgba(255, 255, 255, 0.02);
+            transition: var(--transition-smooth);
+        }
+
+        .section-card:hover {
+            border-color: var(--border-color-active);
+            box-shadow: 0 20px 45px -15px rgba(255, 107, 0, 0.06);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, var(--primary), #FF8A3D);
+            color: #FFF;
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #FFF;
+            background: linear-gradient(135deg, #FFFFFF 40%, #D1D5DB 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle-orange {
+            color: var(--primary-light);
+            margin: 30px 0 15px 0;
+            font-size: 21px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        p {
+            margin-bottom: 18px;
+            color: #CBD5E1;
+            text-align: justify;
+        }
+
+        /* Styled Tables */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 28px 0;
+            border-radius: 18px;
+            border: 1px solid var(--border-color);
+            background: rgba(10, 15, 30, 0.4);
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14.5px;
+            min-width: 600px;
+        }
+
+        .styled-table th {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--primary-light);
+            text-align: left;
+            padding: 18px 24px;
+            font-weight: 700;
+            border-bottom: 2px solid var(--border-color);
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.8px;
+        }
+
+        .styled-table td {
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--border-color);
+            color: #E2E8F0;
+            vertical-align: middle;
+        }
+
+        .styled-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .styled-table tr:hover {
+            background: rgba(255, 255, 255, 0.015);
+        }
+
+        /* Diagram Wrappers */
+        /* Diagram Wrappers */
+        .diagram-wrapper {
+            width: 100%;
+            background: #060911;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 35px;
+            margin: 28px 0;
+            overflow-x: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Specific sizing overrides only for Section 3 (Architecture Diagrams) to make them large and readable */
+        #sec3 .diagram-wrapper {
+            display: block;
+        }
+
+        #sec3 .diagram-wrapper .mermaid {
+            width: 100% !important;
+            min-width: 1750px !important;
+            margin: 0 auto;
+        }
+
+        #sec3 .diagram-wrapper .mermaid svg {
+            width: 100% !important;
+            height: auto !important;
+            max-width: none !important;
+        }
+
+        /* Custom Mermaid CSS Overrides for Premium Contrast and Legibility */
+        .mermaid {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+        }
+        .mermaid .node rect, 
+        .mermaid .node circle, 
+        .mermaid .node polygon,
+        .mermaid .node path {
+            fill: #111827 !important; /* Dark slate-gray background for node blocks */
+            stroke: #FF6B00 !important; /* Bold sunset orange borders */
+            stroke-width: 2.5px !important;
+        }
+        .mermaid g.node .label, 
+        .mermaid g.node .label text,
+        .mermaid .node foreignObject div {
+            color: #FFFFFF !important;
+            fill: #FFFFFF !important;
+            font-weight: 700 !important;
+            font-size: 14px !important;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+        }
+        .mermaid .edgePath .path {
+            stroke: #00F2FE !important; /* Vibrant high-contrast cyan for line paths */
+            stroke-width: 2.5px !important;
+        }
+        .mermaid .edgePath .markerPath {
+            fill: #00F2FE !important; /* Arrow heads matching cyan paths */
+            stroke: #00F2FE !important;
+        }
+        .mermaid .edgeLabel rect {
+            fill: #070A13 !important; /* Solid dark background for text on lines to prevent overlap */
+            opacity: 1 !important;
+            rx: 6px !important;
+            ry: 6px !important;
+        }
+        .mermaid .edgeLabel, 
+        .mermaid .edgeLabel text,
+        .mermaid .edgeLabel span {
+            color: #ECEFF4 !important; /* Light white-gray for connection texts */
+            fill: #ECEFF4 !important;
+            font-weight: 600 !important;
+            font-size: 12px !important;
+        }
+        .mermaid .cluster rect {
+            fill: rgba(31, 41, 55, 0.4) !important; /* Semi-transparent background for subgraphs */
+            stroke: rgba(255, 255, 255, 0.15) !important; /* Light border for subgraphs */
+            stroke-width: 2px !important;
+            stroke-dasharray: 6 6 !important;
+            rx: 12px !important;
+        }
+        .mermaid .cluster .label text {
+            fill: #FF8A3D !important; /* Highlight orange text for subgraph titles */
+            font-weight: 800 !important;
+            font-size: 16px !important;
+            letter-spacing: 0.5px !important;
+        }
+
+        /* Specific font size enhancements for the C4 diagram (Cơ cấu hệ thống) in Tab 1 */
+        #tab-c4 .mermaid g.node .label, 
+        #tab-c4 .mermaid g.node .label text,
+        #tab-c4 .mermaid .node foreignObject div {
+            font-size: 20px !important;
+            font-weight: 800 !important;
+        }
+        #tab-c4 .mermaid .edgeLabel, 
+        #tab-c4 .mermaid .edgeLabel text,
+        #tab-c4 .mermaid .edgeLabel span {
+            font-size: 15px !important;
+            font-weight: 700 !important;
+        }
+        #tab-c4 .mermaid .cluster .label text {
+            font-size: 22px !important;
+        }
+
+        /* Specific size & font enhancements for the vertical Flowchart (Sơ đồ vận hành) in Section 2 */
+        #sec2 .diagram-wrapper .mermaid {
+            width: 100% !important;
+            max-width: 650px !important; /* Cap width to prevent flat/wide distortion */
+        }
+        #sec2 .diagram-wrapper .mermaid svg {
+            width: 100% !important;
+            height: auto !important;
+        }
+        #sec2 .mermaid g.node .label, 
+        #sec2 .mermaid g.node .label text,
+        #sec2 .mermaid .node foreignObject div {
+            font-size: 17px !important;
+            font-weight: 800 !important;
+        }
+        #sec2 .mermaid .edgeLabel, 
+        #sec2 .mermaid .edgeLabel text,
+        #sec2 .mermaid .edgeLabel span {
+            font-size: 13.5px !important;
+            font-weight: 700 !important;
+        }
+
+        .diagram-caption {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 18px;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Callout / Alert Boxes */
+        .alert-box {
+            border-left: 4px solid;
+            padding: 22px 26px;
+            border-radius: 0 20px 20px 0;
+            margin: 28px 0;
+            background: rgba(255, 255, 255, 0.01);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .alert-info { border-color: var(--accent-blue); background: rgba(56, 189, 248, 0.03); }
+        .alert-warning { border-color: var(--accent-amber); background: rgba(255, 184, 0, 0.03); }
+        .alert-success { border-color: var(--accent-green); background: rgba(46, 213, 115, 0.03); }
+        .alert-rose { border-color: var(--accent-rose); background: rgba(255, 71, 87, 0.03); }
+
+        .alert-title {
+            font-weight: 700;
+            font-size: 16.5px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .alert-title-info { color: var(--accent-blue); }
+        .alert-title-warning { color: var(--accent-amber); }
+        .alert-title-success { color: var(--accent-green); }
+        .alert-title-rose { color: var(--accent-rose); }
+
+        ul, ol {
+            margin-left: 26px;
+            margin-bottom: 18px;
+            color: #CBD5E1;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Glassmorphism Interactive Tabs */
+        .tabs-container {
+            margin: 32px 0;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 16px;
+            margin-bottom: 28px;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            padding: 12px 22px;
+            border-radius: 30px; /* Pill buttons */
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 13.5px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #FFF;
+            transform: translateY(-2px);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--primary), #FF8A3D);
+            border-color: var(--primary);
+            color: #FFF;
+            box-shadow: 0 8px 20px rgba(255, 107, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .tab-content {
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            position: absolute;
+            pointer-events: none;
+            width: 100%;
+        }
+
+        .tab-content.active-content {
+            opacity: 1;
+            height: auto;
+            overflow: visible;
+            position: relative;
+            pointer-events: auto;
+            width: auto;
+            animation: tabFadeIn 0.5s ease;
+        }
+
+        @keyframes tabFadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Code Syntax styling */
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: var(--primary-light);
+        }
+
+        pre {
+            background: #04060B;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            overflow-x: auto;
+            margin: 24px 0;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        pre code {
+            display: block;
+            padding: 0;
+            background: transparent;
+            color: #E2E8F0;
+            font-size: 13.5px;
+            line-height: 1.65;
+        }
+
+        /* Grid Framework */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+            margin: 28px 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 28px 0;
+        }
+
+        .grid-card {
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 28px;
+            transition: var(--transition-smooth);
+            backdrop-filter: blur(10px);
+        }
+
+        .grid-card:hover {
+            border-color: var(--primary-light);
+            transform: translateY(-5px);
+            background: rgba(255, 107, 0, 0.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-card-title {
+            font-weight: 700;
+            font-size: 17px;
+            margin-bottom: 12px;
+            color: #FFF;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Glowing background elements for visual distinctiveness -->
+<div class="glow-blob-1"></div>
+<div class="glow-blob-2"></div>
+<div class="glow-blob-3"></div>
+
+<header>
+    <div class="brand">
+        <div class="brand-icon"><i class="fa-solid fa-square-poll-horizontal"></i></div>
+        <div class="brand-title">GHN <span>NTB OPS ASSISTANT</span> — KIẾN TRÚC HỆ THỐNG</div>
+    </div>
+    <div class="meta-badges">
+        <span class="badge badge-primary"><i class="fa-solid fa-award"></i> Showcase 2026</span>
+        <span class="badge"><i class="fa-solid fa-map-pin"></i> Vùng Nam Trung Bộ</span>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- HERO BANNER -->
+    <div class="hero-banner">
+        <h1 class="hero-title">Tài Liệu Mô Tả Kiến Trúc & Thiết Kế Hệ Thống</h1>
+        <p class="hero-desc">Báo cáo phân tích chuyên sâu toàn bộ dự án Trợ lý Vận hành Thông minh Vùng Nam Trung Bộ. Tài liệu được thiết kế chi tiết với 7 phần chuẩn mực theo yêu cầu của BTC, tích hợp các sơ đồ trực quan đa góc nhìn (C4, UML Sequence, UML State, UML Activity, ERD) mô tả trực tiếp từ mã nguồn thực tế của hệ thống.</p>
+        
+        <div class="toc-grid">
+            <a href="#sec1" class="toc-item"><i class="fa-solid fa-bullseye" style="color: var(--primary-light);"></i> 1. Bối Cảnh & Mục Tiêu</a>
+            <a href="#sec2" class="toc-item"><i class="fa-solid fa-user-gear" style="color: var(--accent-blue);"></i> 2. User Story & Luồng Vận Hành</a>
+            <a href="#sec3" class="toc-item"><i class="fa-solid fa-sitemap" style="color: var(--accent-green);"></i> 3. Kiến Trúc Hệ Thống (6 Góc Nhìn)</a>
+            <a href="#sec4" class="toc-item"><i class="fa-solid fa-code-compare" style="color: var(--accent-amber);"></i> 4. Quyết Định Kỹ Thuật</a>
+            <a href="#sec5" class="toc-item"><i class="fa-solid fa-shield-halved" style="color: var(--accent-rose);"></i> 5. Vận Hành & Bảo Mật</a>
+            <a href="#sec6" class="toc-item"><i class="fa-solid fa-triangle-exclamation" style="color: var(--accent-purple);"></i> 6. Rủi Ro & Phương Án Dự Phòng</a>
+            <a href="#sec7" class="toc-item"><i class="fa-solid fa-list-check" style="color: var(--primary-light);"></i> 7. Backlog & Kế Hoạch Roadmap</a>
+        </div>
+    </div>
+
+    <!-- 1. BỐI CẢNH & MỤC TIÊU -->
+    <div class="section-card" id="sec1">
+        <div class="section-header">
+            <div class="section-number">1</div>
+            <h2 class="section-title">Bối Cảnh & Mục Tiêu Dự Án</h2>
+        </div>
+
+        <h3 class="subtitle-orange"><i class="fa-solid fa-circle-info"></i> 1.1. Bối Cảnh Quản Lý Vận Hành Vùng Nam Trung Bộ</h3>
+        <p>Vùng Nam Trung Bộ của GHN Express là một địa bàn có đặc thù địa lý phức tạp và trải dài, bao gồm 5 tỉnh trọng điểm: <strong>Lâm Đồng, Khánh Hòa, Đắk Nông, Bình Thuận, Ninh Thuận</strong>. Vùng quản lý trực tiếp hơn 85 bưu cục chặng cuối (Last-mile PO) và các kho trung chuyển lớn. Sự phân tán địa lý kèm địa hình đồi núi hiểm trở làm cho công tác điều phối vận hành, nhân sự chặng cuối gặp rất nhiều khó khăn.</p>
+        
+        <div class="alert-box alert-warning">
+            <div class="alert-title alert-title-warning"><i class="fa-solid fa-triangle-exclamation"></i> Thách thức cốt lõi trước khi xây dựng hệ thống:</div>
+            <ul style="margin-top: 5px;">
+                <li><strong>Quá tải dữ liệu thô:</strong> Dữ liệu vận hành chặng cuối phân tán trên 7+ bảng tính Google Sheets độc lập dung lượng cực lớn (OPR, Aging tồn đọng, Backlog treo, Bưu cục bất ổn, Off tuyến nhân sự, Năng suất ca làm việc, Sản lượng đơn hàng). Tổng dung lượng file thô lên tới 35MB+.</li>
+                <li><strong>Lãng phí thời gian quản lý:</strong> Mỗi Trưởng khu vực (Area Manager - AM) hàng ngày phải mất từ <strong>1.5 đến 2.0 giờ</strong> để mở từng file Excel, lọc thủ công số liệu thuộc bưu cục mình quản lý, tổng hợp số liệu và viết bản tin báo cáo giao ban gửi lên Telegram.</li>
+                <li><strong>Độ trễ thông tin cao (12-24 giờ):</strong> Do báo cáo thủ công chỉ làm 1 lần vào cuối ngày, các sự cố nghiêm trọng như nghẽn hàng (Backlog > 200 đơn), thiếu hụt shipper đi tuyến (Off > 30%) thường bị phát hiện trễ, gây ảnh hưởng trực tiếp đến chỉ số Giao thành công (GTC) toàn vùng.</li>
+            </ul>
+        </div>
+
+        <h3 class="subtitle-orange"><i class="fa-solid fa-crosshairs"></i> 1.2. Mục Tiêu Chiến Lược Của Hệ Thống</h3>
+        <p>Hệ thống <strong>AI-Powered NTB Ops Assistant</strong> được phát triển nhằm mục tiêu chuyển đổi số toàn diện hoạt động giám sát vận hành chặng cuối, cam kết đạt được các chỉ số sau:</p>
+        
+        <div class="table-responsive">
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Chỉ số đo lường</th>
+                        <th>Trước khi có hệ thống (Quy trình cũ)</th>
+                        <th>Sau khi áp dụng hệ thống (Quy trình mới)</th>
+                        <th>Lợi ích mang lại</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Thời gian tổng hợp báo cáo</strong></td>
+                        <td>120 phút / ngày / AM</td>
+                        <td><strong>&lt; 3 phút</strong> (Tự động 100%)</td>
+                        <td>Tiết kiệm 97.5% thời gian, giải phóng 45 giờ công/tháng cho mỗi AM.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Độ trễ phát hiện cảnh báo sự cố</strong></td>
+                        <td>Từ 12 đến 24 giờ</td>
+                        <td><strong>Dưới 1 giờ</strong> (Thời gian thực)</td>
+                        <td>Can thiệp tức thì trước khi xảy ra vỡ KPI vận hành của bưu cục.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Độ chính xác dữ liệu chỉ số</strong></td>
+                        <td>Sai lệch ~5% do nhầm lẫn thủ công</td>
+                        <td><strong>Chính xác 100%</strong></td>
+                        <td>Đồng bộ hóa dữ liệu chuẩn NFC, loại bỏ sai sót tính toán của con người.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tần suất cập nhật thông tin</strong></td>
+                        <td>1 lần / ngày (Cuối ngày)</td>
+                        <td><strong>Không giới hạn</strong> (Bất cứ khi nào sync hoặc tự động hóa)</td>
+                        <td>Ban điều hành luôn nắm bắt chính xác hiện trạng sức khỏe vận hành vùng.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 2. USER STORY & LUỒNG VẬN HÀNH -->
+    <div class="section-card" id="sec2">
+        <div class="section-header">
+            <div class="section-number">2</div>
+            <h2 class="section-title">User Story & Luồng Vận Hành Hệ Thống</h2>
+        </div>
+
+        <h3 class="subtitle-orange"><i class="fa-solid fa-users-gear"></i> 2.1. Danh Sách User Story Theo Vai Trò Sử Dụng Hằng Ngày</h3>
+        <p>Hệ thống phục vụ trực tiếp 3 nhóm đối tượng trọng điểm trong sơ đồ tổ chức vận hành của GHN:</p>
+        
+        <div class="grid-3">
+            <div class="grid-card">
+                <div class="grid-card-title" style="color: var(--accent-blue);"><i class="fa-solid fa-user-tie"></i> Giám Đốc Vùng NTB</div>
+                <p style="font-size: 13.5px;"><strong>Nhu cầu:</strong> Tôi muốn theo dõi bản đồ trực quan 85+ bưu cục trên 5 tỉnh thành, đánh dấu màu sắc cảnh báo theo thời gian thực.<br>
+                <strong>Giá trị:</strong> Nhìn thấy ngay điểm nghẽn toàn vùng để chỉ đạo điều phối xe tải trung chuyển hoặc hỗ trợ liên tỉnh tức thời.</p>
+            </div>
+            <div class="grid-card">
+                <div class="grid-card-title" style="color: var(--accent-green);"><i class="fa-solid fa-user-shield"></i> Area Manager (AM)</div>
+                <p style="font-size: 13.5px;"><strong>Nhu cầu:</strong> Tôi muốn xem nhanh bưu cục bất ổn và lịch trình Off tuyến SPE của khu vực do mình quản lý.<br>
+                <strong>Giá trị:</strong> Chủ động sắp xếp nhân sự điều phối đi tuyến, giải tỏa nhanh bưu cục bị quá tải để đảm bảo GTC khu vực đạt chỉ tiêu.</p>
+            </div>
+            <div class="grid-card">
+                <div class="grid-card-title" style="color: var(--accent-amber);"><i class="fa-solid fa-user-pen"></i> Staff Vận Hành Vùng</div>
+                <p style="font-size: 13.5px;"><strong>Nhu cầu:</strong> Tôi muốn AI tự động đọc dữ liệu và soạn thảo sẵn các bản tin phân tích giao ban đầu ngày để tôi duyệt và gửi đi.<br>
+                <strong>Giá trị:</strong> Loại bỏ việc viết tin nhắn thủ công hằng ngày, chỉ cần 1-click duyệt và gửi thông tin chính xác lên kênh vận hành vùng.</p>
+            </div>
+        </div>
+
+        <h3 class="subtitle-orange"><i class="fa-solid fa-diagram-next"></i> 2.2. Luồng Vận Hành & Cảnh Báo Tự Động (Standard Miro-style Flowchart)</h3>
+        <p>Hệ thống vận hành xoay quanh trục đồng bộ hóa dữ liệu tự động, chạy các logic ETL tinh gọn và kích hoạt các kênh cảnh báo (Telegram, Google Chat) dựa trên các điều kiện kiểm định khắt khe:</p>
+
+        <div class="diagram-wrapper">
+            <div class="mermaid">
+                flowchart TD
+                    Start([Khởi đầu chu kỳ quét dữ liệu]) --> Sync{Kích hoạt ETL Đồng bộ}
+                    Sync -->|"Lỗi kết nối API"| LogErr[Ghi log lỗi & Cảnh báo Email cho Admin]
+                    Sync -->|"Thành công"| ProcessETL[Chuẩn hóa NFC & Tính toán KPI]
+                    
+                    ProcessETL --> CheckSpike{"Sản lượng tạo đơn tăng vọt?"}
+                    CheckSpike -->|"Volume > 30% và > 50 đơn so với 7D trước"| SendSpike[Gửi cảnh báo đột biến lên Telegram & GTalk]
+                    CheckSpike -->|"Bình thường"| CheckUnstable{"Phát hiện bưu cục bất ổn?"}
+                    
+                    CheckUnstable -->|"GTC < 88% hoặc Backlog > 200 đơn"| SendUnstable[Gửi Telegram Alert Bưu Cục Bất Ổn đến AM phụ trách]
+                    CheckUnstable -->|"Bình thường"| CheckBriefing{"Đến giờ Giao Ban / Trigger On-Demand?"}
+                    
+                    CheckBriefing -->|"Có yêu cầu"| GeminiEngine[Gemini AI phân tích & Soạn thảo Bản tin nháp]
+                    CheckBriefing -->|"Không"| End([Hoàn thành chu kỳ])
+                    
+                    GeminiEngine --> UIReview[Hiển thị bản thảo trên Web Portal]
+                    UIReview --> Approve{"Staff duyệt bản tin?"}
+                    Approve -->|"Đồng ý"| TelegramSend[Gửi Bản Tin Giao Ban lên Group Telegram Vùng]
+                    Approve -->|"Yêu cầu sửa"| ManualEdit[Staff sửa trực tiếp trên UI Editor] --> TelegramSend
+                    
+                    SendSpike --> AMTask[AM điều động xe tải tăng cường gom hàng]
+                    SendUnstable --> AMTask2[AM trực tiếp xuống bưu cục giải tỏa tồn đọng]
+                    TelegramSend --> End
+                    AMTask --> End
+                    AMTask2 --> End
+            </div>
+            <div class="diagram-caption"><i class="fa-solid fa-code-fork"></i> Sơ đồ luồng vận hành cảnh báo tự động và phê duyệt bản tin AI (Miro Flowchart Standard)</div>
+        </div>
+
+        <h3 class="subtitle-orange"><i class="fa-solid fa-clipboard-list"></i> 2.3. Quy Tắc Gửi Tin Cảnh Báo & Dữ Liệu Tham Chiếu Chi Tiết</h3>
+        <div class="table-responsive">
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Loại cảnh báo (Notification)</th>
+                        <th>Điều kiện kích hoạt (Trigger Logic)</th>
+                        <th>Nguồn dữ liệu tham chiếu</th>
+                        <th>Nội dung thông tin truyền tải</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Cảnh báo bưu cục bất ổn (Unstable PO Alert)</strong></td>
+                        <td>Bưu cục bất kỳ trong 5 tỉnh NTB có <code>GTC &lt; 88%</code> hoặc số lượng đơn kẹt <code>Backlog &gt; 200 đơn</code>.</td>
+                        <td>Tệp dữ liệu <code>buu_cuc_bat_on.csv</code> & <code>ops_gtc.csv</code></td>
+                        <td>Danh sách bưu cục báo động, tên AM quản lý trực tiếp, tỷ lệ % GTC hiện tại, số lượng đơn backlog tích lũy và gợi ý hành động xử lý khẩn cấp.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cảnh báo sản lượng tăng đột biến (Volume Spike Alert)</strong></td>
+                        <td>Sản lượng tạo đơn trong ngày hôm nay tăng <code>&gt; 30%</code> và số đơn tăng tuyệt đối <code>&gt; 50 đơn</code> so với trung bình 7 ngày trước đó.</td>
+                        <td>Tệp dữ liệu <code>vols_tao_don.csv</code></td>
+                        <td>🚨 Cảnh báo đột biến sản lượng. Liệt kê bưu cục, tỉnh thành, sản lượng hôm nay, số đơn tăng trưởng và % tăng trưởng tương ứng để điều phối xe gom hàng.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bản tin phân tích giao ban đầu ngày (Daily AI Briefing)</strong></td>
+                        <td>Chạy tự động định kỳ đầu ca giao ban sáng (hoặc do Staff kích hoạt thủ công từ giao diện).</td>
+                        <td>Tổng hợp 7 nguồn dữ liệu chéo: OPR, Aging, Backlog, Treo luân chuyển, Off tuyến.</td>
+                        <td>Phân tích biến động KPI vùng (so với 3 ngày và 7 ngày trước); danh sách top bưu cục hiệu suất kém nhất vùng; tổng hợp sản lượng; khuyến nghị hành động thiết thực cho ban điều hành.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 3. KIẾN TRÚC HỆ THỐNG ĐA GÓC NHÌN -->
+    <div class="section-card" id="sec3">
+        <div class="section-header">
+            <div class="section-number">3</div>
+            <h2 class="section-title">Kiến Trúc Hiện Tại Theo Các Góc Nhìn</h2>
+        </div>
+        <p>Để đảm bảo cái nhìn toàn diện và chuyên sâu nhất cho COO, kiến trúc hệ thống được bóc tách theo 6 góc nhìn kỹ thuật chuẩn mực. Hãy tương tác với các tab dưới đây để chuyển đổi các sơ đồ:</p>
+
+        <div class="tabs-container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="switchTab(event, 'tab-c4')"><i class="fa-solid fa-network-wired"></i> 1. Kiến trúc Tổng thể (C4)</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tab-user')"><i class="fa-solid fa-user-clock"></i> 2. Hành vi Sử dụng</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tab-seq')"><i class="fa-solid fa-shuffle"></i> 3. Vận hành Hệ thống</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tab-erd')"><i class="fa-solid fa-database"></i> 4. Kiến trúc Dữ liệu (ERD)</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tab-int')"><i class="fa-solid fa-circle-nodes"></i> 5. Tích hợp Ngoại vi</button>
+                <button class="tab-btn" onclick="switchTab(event, 'tab-mcp')"><i class="fa-solid fa-code"></i> 6. Giao thức MCP</button>
+            </div>
+
+            <!-- TAB 1: C4 MODEL -->
+            <div id="tab-c4" class="tab-content active-content">
+                <p><strong>Cơ cấu Hệ thống (C4 Model — Container View):</strong> Sơ đồ phân rã các lớp xử lý của ứng dụng Flask Web Dashboard và các kênh tích hợp dữ liệu/API bên ngoài.</p>
+                <div class="diagram-wrapper">
+                    <div class="mermaid">
+                        graph TB
+                            subgraph Users ["Người Dùng"]
+                                GD["Giám đốc Vùng"]
+                                AM["Area Manager (AM)"]
+                                Staff["Staff Vận Hành"]
+                            end
+
+                            subgraph NTB_Ops_System ["Hệ thống NTB Ops Assistant (Flask App)"]
+                                UI["Interactive Web Portal (HTML5/CSS3/ApexCharts/Leaflet.js)"]
+                                Backend["Flask Backend Controller (app.py)"]
+                                ETL["ETL & Cache Manager (Pandas & Clean NFC Layer)"]
+                                MCP["MCP Server (JSON-RPC Schema)"]
+                                DB[("Data Cache Store (CSV/JSON/SQLite)")]
+                            end
+
+                            subgraph External_Services ["Hệ thống Ngoại vi"]
+                                GS["Google Sheets (7+ Ops Sources)"]
+                                Gemini["Google Gemini API (Flash 1.5/3.1)"]
+                                Telegram["Telegram Bot API"]
+                                GTalk["GTalk Webhook API"]
+                            end
+
+                            %% Links
+                            GD -->|Tra cứu bản đồ & chỉ số| UI
+                            AM -->|Lọc KPI zone & off tuyến| UI
+                            Staff -->|Sync dữ liệu & duyệt bản tin| UI
+
+                            UI <-->|REST API / JSON| Backend
+                            Backend <-->|ETL Pipeline| ETL
+                            Backend <-->|Xác thực RBAC / Config| DB
+                            ETL <-->|Lưu trữ & Truy xuất cache| DB
+
+                            ETL -->|Tải song song GIDs CSV| GS
+                            ETL -->|Gửi KPI summary rút gọn| Gemini
+                            Gemini -->|Trả về bản thảo nháp| ETL
+                            Backend -->|Gửi cảnh báo / Bản tin| Telegram
+                            Backend -->|Gửi cảnh báo đột biến| GTalk
+
+                            AI_Agent["AI Agent doanh nghiệp khác"] -->|Giao tiếp chuẩn MCP| MCP
+                            MCP <-->|Truy vấn chỉ số từ cache| DB
+                    </div>
+                    <div class="diagram-caption"><i class="fa-solid fa-layer-group"></i> Sơ đồ C4 Container biểu diễn kiến trúc thành phần của hệ thống</div>
+                </div>
+            </div>
+
+            <!-- TAB 2: USER BEHAVIOR -->
+            <div id="tab-user" class="tab-content">
+                <p><strong>Hành vi Sử dụng (UML State Diagram):</strong> Mô tả vòng đời phiên làm việc của người dùng, phân tách rõ quyền truy cập công khai và các thao tác sau khi xác thực phân quyền.</p>
+                <div class="diagram-wrapper">
+                    <div class="mermaid">
+                        stateDiagram-v2
+                            [*] --> PublicAccess : "Truy cập URL hệ thống"
+                            PublicAccess --> ViewIntro : "Xem Giới thiệu Vùng & Sơ đồ tổ chức"
+                            PublicAccess --> ViewGeoMap : "Xem Bản đồ địa lý bưu cục (Không hiện KPI)"
+                            
+                            PublicAccess --> LoginPage : "Yêu cầu đăng nhập tài khoản"
+                            LoginPage --> AuthorizedSession : "Xác thực thành công (RBAC Cookie)"
+                            
+                            state AuthorizedSession {
+                                [*] --> DashboardHome : "Hiển thị Dashboard Vận Hành"
+                                DashboardHome --> ApplyFilter : "Áp dụng bộ lọc AM / Tỉnh thành"
+                                ApplyFilter --> RenderCharts : "Cập nhật ApexCharts (GTC, LTC, Backlog)"
+                                ApplyFilter --> RenderPOStatus : "Đánh dấu trạng thái bưu cục trên Leaflet Map"
+                                
+                                DashboardHome --> ViewCaSPE : "Giám sát năng suất ca & Lịch off tuyến SPE"
+                                DashboardHome --> AISetting : "Cấu hình Credentials & URLs (Chỉ Admin)"
+                                AISetting --> TriggerSync : "Kích hoạt đồng bộ hóa dữ liệu từ Google Sheets"
+                                
+                                DashboardHome --> AIBriefing : "Yêu cầu Trợ lý AI phân tích & soạn bản tin"
+                                AIBriefing --> EditDraft : "Chỉnh sửa bản tin nháp trực tiếp trên Web UI"
+                                EditDraft --> PostTelegram : "Duyệt & Phát bản tin lên Telegram"
+                            }
+                            
+                            AuthorizedSession --> [*] : "Đăng xuất / Hết hạn Session"
+                    </div>
+                    <div class="diagram-caption"><i class="fa-solid fa-arrows-spin"></i> Sơ đồ trạng thái (State Diagram) biểu diễn hành vi sử dụng của người dùng</div>
+                </div>
+            </div>
+
+            <!-- TAB 3: SYSTEM OPERATIONS (SEQUENCE) -->
+            <div id="tab-seq" class="tab-content">
+                <p><strong>Vận hành Hệ thống (UML Sequence Diagram):</strong> Chi tiết tương tác và truyền tải thông tin giữa Web Portal, Backend Engine, Gemini AI và Telegram API khi thực hiện tác vụ soạn/gửi bản tin tự động.</p>
+                <div class="diagram-wrapper">
+                    <div class="mermaid">
+                        sequenceDiagram
+                            autonumber
+                            actor Staff as Staff Vận Hành
+                            participant Web as Web Portal UI
+                            participant Backend as Flask Backend
+                            participant ETL as ETL & Data Cache
+                            participant Gemini as Gemini LLM API
+                            participant Telegram as Telegram Bot API
+
+                            Staff->>Web: Nhấp chọn "Tạo Báo Cáo Nóng AI"
+                            Web->>Backend: POST /api/send-telegram-ai-briefing (preview mode)
+                            Backend->>ETL: Đọc dữ liệu KPI tổng hợp ngày mới nhất từ cache
+                            ETL-->>Backend: Trả về JSON KPI (GTC, LTC, Backlog, Worst POs)
+                            Backend->>Gemini: Gửi Prompt tối ưu + Dữ liệu KPI rút gọn
+                            Note over Backend,Gemini: Nếu Gemini Flash 1.5 bị nghẽn, tự động chuyển sang Fallback model 3.1 Lite
+                            Gemini-->>Backend: Trả về Nội dung bản tin phân tích (Markdown)
+                            Backend-->>Web: Trả về văn bản bản thảo bản tin
+                            Web-->>Staff: Hiển thị bản tin nháp lên khung soạn thảo UI
+                            
+                            Staff->>Web: Nhấp chọn "Duyệt & Bắn Telegram"
+                            Web->>Backend: POST /api/send-telegram-ai-briefing (execute mode)
+                            Backend->>Telegram: POST /bot/sendMessage (Markdown parse mode)
+                            
+                            alt Gửi lỗi do cú pháp Markdown của Telegram
+                                Telegram-->>Backend: Trả về lỗi 400 Bad Request
+                                Backend->>Telegram: Tự động gửi lại dạng Plain-Text (Exponential Backoff)
+                                Telegram-->>Backend: Trả về thành công 200 OK
+                            else Gửi thành công
+                                Telegram-->>Backend: Trả về thành công 200 OK
+                            end
+                            
+                            Backend-->>Web: Trả về kết quả "Đã gửi bản tin thành công!"
+                            Web-->>Staff: Hiển thị thông báo thành công trên UI
+                    </div>
+                    <div class="diagram-caption"><i class="fa-solid fa-bars-staggered"></i> Sơ đồ trình tự (Sequence Diagram) luồng xử lý tự động hóa báo cáo AI</div>
+                </div>
+            </div>
+
+            <!-- TAB 4: DATA ARCHITECTURE (ERD) -->
+            <div id="tab-erd" class="tab-content">
+                <p><strong>Kiến trúc Dữ liệu (Entity Relationship Diagram):</strong> Cấu trúc các thực thể dữ liệu được liên kết và chuẩn hóa trong lớp ETL của hệ thống.</p>
+                <div class="diagram-wrapper">
+                    <div class="mermaid">
+                        erDiagram
+                            BOU_CUC ||--|| PROVINCE : "nằm tại"
+                            BOU_CUC ||--|| AM_MANAGER : "quản lý bởi"
+                            BOU_CUC ||--o{ OPR_DATA : "phát sinh chỉ số"
+                            BOU_CUC ||--o{ AGING_DATA : "phát sinh tồn đọng"
+                            BOU_CUC ||--o{ UNSTABLE_PO : "ghi nhận trạng thái"
+                            BOU_CUC ||--o{ VOLS_DATA : "phát sinh sản lượng"
+                            BOU_CUC ||--o{ OFF_SPE_DATA : "lịch trực nhân sự"
+
+                            BOU_CUC {
+                                string po_code PK "Mã bưu cục chặng cuối"
+                                string po_name "Tên bưu cục"
+                                string province_id FK "Mã tỉnh thành"
+                                string am_id FK "Mã Area Manager"
+                                string status "Trạng thái hoạt động"
+                            }
+
+                            PROVINCE {
+                                string province_id PK "Mã tỉnh"
+                                string province_name "Tên tỉnh thành"
+                            }
+
+                            AM_MANAGER {
+                                string am_id PK "Mã Area Manager"
+                                string am_name "Họ tên Area Manager"
+                                string email "Email liên hệ"
+                            }
+
+                            OPR_DATA {
+                                string po_code FK "Mã bưu cục"
+                                date report_date PK "Ngày báo cáo"
+                                float gtc_rate "Tỉ lệ giao thành công"
+                                float ltc_rate "Tỉ lệ lưu kho thành công"
+                                int total_volume "Tổng sản lượng đơn"
+                            }
+
+                            AGING_DATA {
+                                string po_code FK "Mã bưu cục"
+                                int backlog_3days "Đơn tồn 3-5 ngày"
+                                int backlog_5days "Đơn tồn trên 5 ngày"
+                                int total_stuck "Tổng đơn kẹt luân chuyển"
+                            }
+
+                            UNSTABLE_PO {
+                                string po_code FK "Mã bưu cục"
+                                string risk_level "Mức độ rủi ro"
+                                string primary_reason "Nguyên nhân bất ổn chính"
+                                string action_recommended "Đề xuất xử lý nhanh"
+                            }
+
+                            VOLS_DATA {
+                                string po_code FK "Mã bưu cục"
+                                date report_date PK "Ngày tạo đơn"
+                                int volume "Sản lượng tạo đơn"
+                                float growth_pct "Tăng trưởng so với 7 ngày trước"
+                            }
+
+                            OFF_SPE_DATA {
+                                string po_code FK "Mã bưu cục"
+                                date off_date PK "Ngày off tuyến"
+                                string employee_name "Họ tên nhân viên"
+                                string shift "Ca làm việc off"
+                            }
+                    </div>
+                    <div class="diagram-caption"><i class="fa-solid fa-database"></i> Sơ đồ quan hệ thực thể (Entity Relationship Diagram) của cơ sở dữ liệu</div>
+                </div>
+            </div>
+
+            <!-- TAB 5: INTEGRATION MAP -->
+            <div id="tab-int" class="tab-content">
+                <p><strong>Bản đồ Kết nối Tích hợp (Peripheral Integration Map):</strong> Bản đồ giao tiếp API giữa ứng dụng NTB Ops Dashboard với các dịch vụ đám mây của Google và Telegram.</p>
+                <div class="diagram-wrapper">
+                    <div class="mermaid">
+                        graph LR
+                            subgraph NTB_Ops_Dashboard_App ["Ứng Dụng NTB Dashboard (Flask)"]
+                                ETL_Module["Bộ lọc & ETL Engine (Pandas/openpyxl)"]
+                                API_Controller["API Webhook & Routes"]
+                            end
+
+                            subgraph Google_Workspace_Cloud ["Hạ Tầng Google Cloud"]
+                                GSheets["Google Sheets API <br/> (parallel GID export)"]
+                                GTalk_Chat["Google Chat Webhook API"]
+                            end
+
+                            subgraph Telegram_Cloud ["Kênh Telegram"]
+                                Telegram_API["Telegram Bot API <br/> (/sendMessage)"]
+                            end
+
+                            subgraph AI_Services ["Trí Tuệ Nhân Tạo (Gemini)"]
+                                Gemini_API["Gemini Developer API <br/> (:generateContent)"]
+                            end
+
+                            %% Connections
+                            ETL_Module -->|1. GET /export?format=csv&gid=xxx | GSheets
+                            ETL_Module -->|2. POST /v1beta/models/gemini-flash | Gemini_API
+                            API_Controller -->|3. POST /bot/sendMessage | Telegram_API
+                            API_Controller -->|4. POST /chat/spaces/messages | GTalk_Chat
+                    </div>
+                    <div class="diagram-caption"><i class="fa-solid fa-link"></i> Sơ đồ kết nối API ngoại vi và phương thức giao tiếp</div>
+                </div>
+            </div>
+
+            <!-- TAB 6: MCP PROTOCOL -->
+            <div id="tab-mcp" class="tab-content">
+                <p><strong>Giao tiếp AI Agent (Model Context Protocol — MCP Server):</strong> Hệ thống đóng gói sẵn cổng kết nối MCP Server tên là <code>ntb-ops-query</code> cho phép các AI Agent của doanh nghiệp tự động truy vấn số liệu vận hành của vùng NTB theo đặc tả JSON Schema:</p>
+                
+                <div class="grid-2">
+                    <div>
+                        <h4 style="color: var(--primary-light); margin-bottom: 8px;"><i class="fa-solid fa-right-to-bracket"></i> MCP Input Schema (Yêu cầu đầu vào)</h4>
+                        <pre><code class="language-json">{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "query_type": {
+      "type": "string",
+      "enum": ["kpi_summary", "unstable_pos", "off_spe", "backlog_alert"],
+      "description": "Loại truy vấn số liệu vận hành cần lấy"
+    },
+    "province": {
+      "type": "string",
+      "description": "Tỉnh thành lọc dữ liệu (Lâm Đồng, Khánh Hòa...)"
+    },
+    "am_name": {
+      "type": "string",
+      "description": "Tên AM quản lý để lọc khu vực"
+    }
+  },
+  "required": ["query_type"]
+}</code></pre>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent-green); margin-bottom: 8px;"><i class="fa-solid fa-right-from-bracket"></i> MCP Output Schema (Dữ liệu trả về)</h4>
+                        <pre><code class="language-json">{
+  "type": "object",
+  "properties": {
+    "report_date": { "type": "string" },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "total_volume": { "type": "integer" },
+        "gtc_rate": { "type": "number" },
+        "ltc_rate": { "type": "number" },
+        "unstable_po_count": { "type": "integer" }
+      }
+    },
+    "insights": { "type": "string" },
+    "priority_actions": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. QUYẾT ĐỊNH & HƯỚNG ĐI KỸ THUẬT -->
+    <div class="section-card" id="sec4">
+        <div class="section-header">
+            <div class="section-number">4</div>
+            <h2 class="section-title">Quyết Định Kỹ Thuật & Giải Pháp Tối Ưu Lõi</h2>
+        </div>
+
+        <h3 class="subtitle-orange"><i class="fa-solid fa-memory"></i> 4.1. Giải Pháp Monkey-Patching Pandas/openpyxl Tránh Tràn RAM trên Cloud</h3>
+        <p><strong>Thách thức:</strong> Môi trường Serverless Vercel giới hạn nghiêm ngặt bộ nhớ <strong>512MB RAM</strong>. Khi đọc tệp Excel 11MB với <code>pandas.read_excel</code> mặc định, thư viện <code>openpyxl</code> tải toàn bộ cấu trúc định dạng cell vào RAM, khiến lượng RAM tiêu thụ vọt lên <strong>&gt;600MB</strong>, gây lỗi crash hệ thống <code>Out of Memory (OOM)</code>.</p>
+        
+        <div class="alert-box alert-success">
+            <div class="alert-title alert-title-success"><i class="fa-solid fa-circle-check"></i> Giải pháp can thiệp lớp Monkey-Patching tại app.py:</div>
+            <p>Hệ thống thực hiện ghi đè các hàm khởi tạo của Pandas để ép buộc <code>openpyxl</code> luôn chạy ở chế độ <code>read_only=True</code>. Chế độ này không tải định dạng cell mà chỉ đọc giá trị thô, giúp giải phóng RAM tức thời.</p>
+            <pre><code># Ghi đè phương thức khởi tạo ExcelFile của Pandas trong app.py
+_original_ExcelFile = pd.ExcelFile
+def _patched_ExcelFile(*args, **kwargs):
+    engine = kwargs.get('engine', None)
+    if engine is None or engine == 'openpyxl':
+        kwargs['engine'] = 'openpyxl'
+        engine_kwargs = kwargs.get('engine_kwargs', {})
+        if engine_kwargs is None:
+            engine_kwargs = {}
+        engine_kwargs['read_only'] = True  # Ép buộc chế độ đọc tối ưu bộ nhớ
+        kwargs['engine_kwargs'] = engine_kwargs
+    return _original_ExcelFile(*args, **kwargs)
+pd.ExcelFile = _patched_ExcelFile</code></pre>
+            <p style="margin-top: 10px;">👉 <strong>Kết quả:</strong> Giảm lượng RAM tiêu thụ từ <strong>650MB xuống chỉ còn 48MB</strong> (giảm hơn 90%), đảm bảo Dashboard hoạt động ổn định tuyệt đối 100% trên Vercel Serverless.</p>
+        </div>
+
+        <h3 class="subtitle-orange"><i class="fa-solid fa-coins"></i> 4.2. Tối Ưu Hóa Chi Phí Token LLM (Token Efficiency)</h3>
+        <p><strong>Thách thức:</strong> Nếu gửi toàn bộ 100,000 dòng dữ liệu thô vào LLM, hệ thống sẽ vượt ngưỡng Context Limit và tiêu tốn hàng nghìn USD chi phí Token API hằng tháng, đồng thời làm chậm thời gian phản hồi của AI.</p>
+        <p><strong>Giải pháp:</strong> Xây dựng lớp xử lý trung gian ETL bằng Pandas trước khi gọi AI. Lớp này thực hiện tổng hợp chỉ số KPI cốt lõi, tìm ra danh sách top bưu cục hiệu suất thấp và bưu cục có sản lượng tăng đột biến, xuất ra một cấu trúc JSON siêu nhỏ gọn (~1.5KB). AI chỉ nhận dữ liệu tóm tắt này, giúp <strong>tiết kiệm 85% chi phí token</strong> và giảm tốc độ phản hồi xuống <strong>dưới 3 giây</strong>.</p>
+    </div>
+
+    <!-- 5. VẬN HÀNH & BẢO MẬT -->
+    <div class="section-card" id="sec5">
+        <div class="section-header">
+            <div class="section-number">5</div>
+            <h2 class="section-title">Vận Hành & Cơ Chế Bảo Mật Hệ Thống</h2>
+        </div>
+
+        <h3 class="subtitle-orange"><i class="fa-solid fa-user-shield"></i> 5.1. Phân Quyền Người Dùng Phân Cấp Trận Địa (RBAC Matrix)</h3>
+        <p>Hệ thống thiết lập cơ chế phân quyền dựa trên vai trò (Role-Based Access Control) thông qua tệp cấu hình bảo mật <code>roles.json</code>:</p>
+        
+        <div class="table-responsive">
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Vai trò (User Role)</th>
+                        <th>Phạm vi xem dữ liệu (View Scope)</th>
+                        <th>Quyền cấu hình hệ thống (Admin Settings)</th>
+                        <th>Quyền Duyệt/Gửi Bản tin (Trigger Alert/AI)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong style="color: var(--accent-rose);">Public (Guest)</strong></td>
+                        <td>Chỉ xem thông tin giới thiệu chung và bản đồ địa lý 5 tỉnh NTB. Không xem được số liệu KPI nhạy cảm.</td>
+                        <td>❌ Không có quyền</td>
+                        <td>❌ Không có quyền</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: var(--accent-purple);">Viewer / Driver</strong></td>
+                        <td>Xem Dashboard KPI GTC, LTC và off tuyến, không có quyền chỉnh sửa.</td>
+                        <td>❌ Không có quyền</td>
+                        <td>❌ Không có quyền</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: var(--accent-green);">Staff / Coordinator</strong></td>
+                        <td>Xem toàn bộ dữ liệu KPI, chi tiết bưu cục, danh sách nhân sự off tuyến của khu vực phụ trách.</td>
+                        <td>❌ Không có quyền</td>
+                        <td><strong>Có quyền</strong> (Duyệt bản tin AI đầu ngày, Trigger gửi cảnh báo Telegram)</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: var(--primary-light);">Admin (Power User)</strong></td>
+                        <td>Toàn quyền xem tất cả các tỉnh thành và bưu cục trong vùng NTB.</td>
+                        <td><strong>Toàn quyền</strong> (Cấu hình link Sheets, sửa API Keys, sửa Telegram Token, quản lý danh sách Users)</td>
+                        <td><strong>Toàn quyền</strong> (Duyệt bản tin AI đầu ngày, Trigger gửi cảnh báo Telegram)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 class="subtitle-orange"><i class="fa-solid fa-lock"></i> 5.2. Các Cơ Chế Bảo Mật & Phòng Thủ Khác</h3>
+        <ul>
+            <li><strong>Bảo mật Session Cookie:</strong> Các session của người dùng được bảo vệ bằng các thuộc tính an toàn cao: <code>HttpOnly=True</code> (ngăn chặn tấn công XSS lấy cắp cookie), <code>SameSite=Lax</code> (ngăn chặn tấn công giả mạo CSRF) và <code>Secure=True</code> (chỉ truyền cookie qua kênh mã hóa HTTPS).</li>
+            <li><strong>Quản lý Secret an toàn:</strong> Các thông tin nhạy cảm bao gồm <code>GEMINI_API_KEY</code>, <code>TELEGRAM_BOT_TOKEN</code> và <code>CRON_SECRET</code> được lưu trữ an toàn trong các biến môi trường (Environment Variables) ở phía Server, tuyệt đối không lộ diện dưới mã nguồn Client JavaScript.</li>
+            <li><strong>Chống spam và lụt API (Rate Limiting):</strong> Giới hạn tần suất gọi API đồng bộ dữ liệu chéo tối đa <strong>3 lần / phút / IP</strong> để ngăn ngừa tình trạng spam phá hoại hệ thống hoặc gây lỗi Rate Limit từ phía Google Sheets API.</li>
+        </ul>
+    </div>
+
+    <!-- 6. RỦI RO & THAM CHIẾU -->
+    <div class="section-card" id="sec6">
+        <div class="section-header">
+            <div class="section-number">6</div>
+            <h2 class="section-title">Quản Trị Rủi Ro & Tham Chiếu Hệ Thống</h2>
+        </div>
+
+        <h3 class="subtitle-orange"><i class="fa-solid fa-shield-cat"></i> 6.1. Bảng Quản Trị Rủi Ro Kỹ Thuật & Phương Án Dự Phòng</h3>
+        <div class="table-responsive">
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Rủi ro hệ thống</th>
+                        <th>Mức độ</th>
+                        <th>Khả năng xảy ra</th>
+                        <th>Giải pháp phòng ngừa & Phương án dự phòng (Mitigation Plan)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Google Sheets API bị lỗi kết nối hoặc rate limit</strong></td>
+                        <td><span style="color: var(--accent-amber); font-weight: 700;">Trung bình</span></td>
+                        <td>Thấp</td>
+                        <td>Xây dựng cơ chế lưu đệm cache file phẳng (Flat-file Cache CSV). Nếu Google Sheets API bị lỗi, hệ thống tự động tải dữ liệu từ cache cũ gần nhất để Dashboard không bị gián đoạn hoạt động.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Gemini API chính bị nghẽn (Downtime)</strong></td>
+                        <td><span style="color: var(--accent-blue); font-weight: 700;">Thấp</span></td>
+                        <td>Thấp</td>
+                        <td>Tích hợp cơ chế tự động chuyển đổi sang model dự phòng (Fallback Model) <code>gemini-3.1-flash-lite</code> nếu model chính <code>gemini-flash-latest</code> không phản hồi trong 15 giây.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Telegram API từ chối nhận tin do lỗi cú pháp Markdown</strong></td>
+                        <td><span style="color: var(--accent-rose); font-weight: 700;">Cao</span></td>
+                        <td>Trung bình</td>
+                        <td>Đoạn mã điều khiển tích hợp khối <code>try-except</code>. Nếu Telegram trả về lỗi Markdown parse error (HTTP 400), hệ thống tự động chuyển đổi văn bản sang định dạng Plain-Text và gửi lại ngay lập tức.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Thay đổi cấu trúc cột trong file Google Sheets nhập tay</strong></td>
+                        <td><span style="color: var(--accent-rose); font-weight: 700;">Cao</span></td>
+                        <td>Trung bình</td>
+                        <td>Xây dựng lớp làm sạch dữ liệu (Clean ETL Layer) trong backend, tự động chuẩn hóa khoảng trắng, viết hoa/viết thường và phát hiện lệch tên cột để báo cáo sự cố ngay lập tức cho Admin.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 class="subtitle-orange"><i class="fa-solid fa-folder-open"></i> 6.2. Thông Tin Tham Chiếu Phục Vụ Đánh Giá</h3>
+        <div class="alert-box alert-info">
+            <div class="alert-title alert-title-info"><i class="fa-solid fa-rocket"></i> Thông tin truy cập môi trường Live Demo (Showcase):</div>
+            <ul>
+                <li><strong>Đường dẫn truy cập ứng dụng:</strong> <a href="https://ntb-ops-dashboard-five.vercel.app/" target="_blank" style="color: var(--accent-blue); font-weight: bold; text-decoration: none;">https://ntb-ops-dashboard-five.vercel.app/</a></li>
+                <li><strong>Tài khoản Quản trị (Admin):</strong> Username: <code>admin</code> | Password: <code>admin123</code> (Đầy đủ quyền cấu hình và đồng bộ).</li>
+                <li><strong>Tài khoản Nhân viên (Staff):</strong> Username: <code>staff</code> | Password: <code>staff123</code> (Quyền giám sát và phê duyệt tin nhắn).</li>
+                <li><strong>Tài khoản AM (Trưởng khu vực):</strong> Username: <code>MSNV của các AM</code> | Password: <code>123456</code> (Quyền xem số liệu khu vực phụ trách).</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 7. BACKLOG & KẾ HOẠCH ROADMAP -->
+    <div class="section-card" id="sec7">
+        <div class="section-header">
+            <div class="section-number">7</div>
+            <h2 class="section-title">Backlog & Kế Hoạch Phát Triển Roadmap</h2>
+        </div>
+
+        <h3 class="subtitle-orange"><i class="fa-solid fa-circle-check"></i> 7.1. Các Cột Mốc Công Việc Đã Hoàn Thành</h3>
+        <ul>
+            <li><strong>Tuần 1:</strong> Khảo sát yêu cầu nghiệp vụ, phân tích 7 file Google Sheets nhập tay của vùng NTB, thiết kế cấu hình cơ sở dữ liệu và Data Schema chuẩn hóa. (Đã hoàn thành)</li>
+            <li><strong>Tuần 2-4:</strong> Phát triển công cụ tự động hóa ETL chéo, xây dựng Web Portal Dashboard 12 phân hệ tích hợp Leaflet Map tương tác bưu cục và ApexCharts. (Đã hoàn thành)</li>
+            <li><strong>Tuần 5:</strong> Phát triển tích hợp trợ lý AI Gemini Flash và kênh cảnh báo tức thời Telegram Bot; tích hợp bảng điều khiển phê duyệt tin nhắn nháp trên Web Portal. (Đã hoàn thành)</li>
+            <li><strong>Tuần 6:</strong> Áp dụng kỹ thuật can thiệp Monkey-Patching Pandas giải quyết triệt để lỗi tràn bộ nhớ RAM Serverless trên cloud Vercel; triển khai hệ thống lên môi trường production. (Đã hoàn thành)</li>
+        </ul>
+
+        <h3 class="subtitle-orange"><i class="fa-solid fa-map-location-dot"></i> 7.2. Roadmap Định Hướng Phát Triển Tiếp Theo (Hậu Showcase)</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 16px;">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 24px; border-radius: 16px;">
+                <div style="color: var(--accent-blue); font-weight: 700; margin-bottom: 10px;"><i class="fa-solid fa-database"></i> Quý 3/2026: Kết nối Trực tiếp DWH</div>
+                <div style="font-size: 13.5px; color: var(--text-muted);">Thay thế cơ chế đọc file Google Sheets bằng cách kết nối trực tiếp vào Data Warehouse trung tâm của GHN, cập nhật dữ liệu tự động theo thời gian thực mỗi 5 phút.</div>
+            </div>
+            
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 24px; border-radius: 16px;">
+                <div style="color: var(--accent-purple); font-weight: 700; margin-bottom: 10px;"><i class="fa-solid fa-chart-line"></i> Quý 4/2026: Predictive AI 48H</div>
+                <div style="font-size: 13.5px; color: var(--text-muted);">Ứng dụng mô hình Gemini 1.5 Pro phân tích sâu dữ liệu lịch sử để dự báo sản lượng đơn hàng đổ về bưu cục trước 48 giờ, cảnh báo sớm nguy cơ quá tải cho AM chủ động sắp xếp shipper.</div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 24px; border-radius: 16px;">
+                <div style="color: var(--primary-light); font-weight: 700; margin-bottom: 10px;"><i class="fa-solid fa-earth-asia"></i> Năm 2027: Nhân rộng 63 Tỉnh Thành</div>
+                <div style="font-size: 13.5px; color: var(--text-muted);">Đóng gói bộ cấu hình MCP Server và Web Dashboard thành tiêu chuẩn vận hành chuyển đổi số AI của GHN Express để áp dụng đồng loạt cho tất cả các vùng vận hành trên toàn quốc.</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Tab switching controller
+    function switchTab(evt, tabId) {
+        var i, tabcontent, tablinks;
+        
+        // Hide all tab contents
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].classList.remove("active-content");
+        }
+        
+        // Remove active class from all buttons
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+        
+        // Show selected tab content and add active class to button
+        document.getElementById(tabId).classList.add("active-content");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+</html>

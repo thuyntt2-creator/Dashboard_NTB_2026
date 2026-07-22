@@ -3798,6 +3798,51 @@
                     </div>
                 </div>
 
+                <!-- CARD: MCP AI INTEGRATION CONFIG -->
+                <div class="card" id="card-mcp-integration" style="margin-top: 24px;">
+                    <div class="card-header">
+                        <h3 style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 18px; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
+                            <i class="fa-solid fa-brain" style="color: var(--color-indigo);"></i>
+                            Tích hợp Trợ lý AI qua Giao thức MCP (Model Context Protocol)
+                        </h3>
+                    </div>
+                    <div style="margin-bottom: 16px; padding: 20px;">
+                        <p style="font-size: 14px; line-height: 1.6; color: var(--text-secondary); text-align: justify; margin-bottom: 12px;">
+                            Hệ thống hỗ trợ cổng giao thức <strong>MCP (Model Context Protocol)</strong> cho phép sếp hoặc quản trị viên tích hợp trực tiếp dữ liệu vận hành vùng Nam Trung Bộ vào các Trợ lý AI (như Claude Desktop, Cursor IDE, Copilot) để hỏi đáp nhanh số liệu thay vì đọc báo cáo thô.
+                        </p>
+                        
+                        <div style="background: rgba(99, 102, 241, 0.05); border-left: 4px solid var(--color-indigo); padding: 16px; border-radius: 0 12px 12px 0; margin-bottom: 20px;">
+                            <strong style="color: var(--color-indigo); font-size: 14px; display: block; margin-bottom: 6px;"><i class="fa-solid fa-circle-info"></i> Lợi ích của MCP:</strong>
+                            <span style="font-size: 13px; color: var(--text-secondary);">
+                                Đọc trực tiếp từ tệp cache đệm đã qua ETL (GTC, LTC, Backlog, Off-SPE) giúp AI trả lời trong &lt; 10ms, tiêu tốn cực ít tài nguyên server và tránh hoàn toàn lỗi tràn RAM (OOM) hay Timeout khi parse file Excel thô trên Cloud.
+                            </span>
+                        </div>
+
+                        <h4 style="font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;"><i class="fa-solid fa-terminal"></i> Hướng dẫn cấu hình trên Cursor IDE:</h4>
+                        <ol style="font-size: 13px; color: var(--text-secondary); margin-left: 20px; margin-bottom: 20px; line-height: 1.6;">
+                            <li>Mở <strong>Cursor Settings</strong> &rarr; <strong>Features</strong> &rarr; <strong>MCP</strong>.</li>
+                            <li>Bấm nút <strong>+ Add New MCP Server</strong>.</li>
+                            <li>Cài đặt các thông tin:
+                                <br>&bull; <strong>Name</strong>: <code style="background: rgba(0,0,0,0.05); padding: 2px 6px; border-radius: 4px; font-family: monospace;">NTB-Ops-Assistant</code>
+                                <br>&bull; <strong>Type</strong>: <code style="background: rgba(0,0,0,0.05); padding: 2px 6px; border-radius: 4px; font-family: monospace;">command</code>
+                                <br>&bull; **Command**: <code style="background: rgba(0,0,0,0.05); padding: 2px 6px; border-radius: 4px; font-family: monospace;">python "C:\Users\lap4all\Desktop\New folder\mcp_server.py"</code>
+                            </li>
+                            <li>Bấm <strong>Save</strong>. Bây giờ sếp có thể chat trực tiếp với AI để hỏi số liệu (Ví dụ: <em>"Bưu cục nào của AM Trần Văn Phước đang bất ổn?"</em>).</li>
+                        </ol>
+
+                        <h4 style="font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;"><i class="fa-solid fa-code"></i> Cấu hình kết nối Claude Desktop (JSON):</h4>
+                        <pre style="background: #0f172a; color: #f8fafc; padding: 14px; border-radius: 8px; font-family: monospace; font-size: 12px; overflow-x: auto; margin-bottom: 0;">{
+  "mcpServers": {
+    "ntb-ops-assistant": {
+      "command": "python",
+      "args": [
+        "C:\\Users\\lap4all\\Desktop\\New folder\\mcp_server.py"
+      ]
+    }
+  }
+}</pre>
+                    </div>
+
                 <!-- CARD: USER MANAGEMENT (ADMIN ONLY) -->
                 <div class="card" id="card-user-management" style="margin-top: 24px; display: none;">
                     <div class="card-header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 16px; margin-bottom: 20px;">

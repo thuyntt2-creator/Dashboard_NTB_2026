@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showcase Presentation — AI-Powered NTB Ops Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF6B00;
+            --primary-hover: #E05E00;
+            --primary-light: #FF8A3D;
+            --bg-dark: #070A13;
+            --card-bg: rgba(15, 23, 42, 0.6);
+            --card-border: rgba(255, 255, 255, 0.05);
+            --text-main: #ECEFF4;
+            --text-muted: #94A3B8;
+            --accent-teal: #00F2FE;
+            --accent-blue: #38BDF8;
+            --accent-green: #2ED573;
+            --accent-purple: #FF8A3D;
+            --accent-amber: #FFB800;
+            --accent-rose: #FF4757;
+            --glass-glow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+        }
+
+        /* Slide Deck Ambient Aura Blobs */
+        .slide-glow-1 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 107, 0, 0.05) 0%, transparent 70%);
+            top: -100px;
+            left: -100px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .slide-glow-2 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.04) 0%, transparent 70%);
+            bottom: -200px;
+            right: -100px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Slides Wrapper */
+        .slides-wrapper {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform: scale(0.97) translateY(10px);
+            padding: 35px 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1) translateY(0);
+        }
+
+        /* Top Header Bar */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo-text {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        .slide-counter {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Slide Content Areas */
+        .slide-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .slide-title {
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #FFFFFF 40%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.25;
+            letter-spacing: -0.5px;
+        }
+
+        .slide-subtitle {
+            font-size: 17px;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            max-width: 850px;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 26px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--glass-glow);
+        }
+
+        .glass-card:hover {
+            border-color: var(--primary-light);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 107, 0, 0.12);
+            background: rgba(22, 32, 53, 0.5);
+        }
+
+        .card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .icon-orange { background: rgba(255, 107, 0, 0.12); color: var(--primary-light); }
+        .icon-blue { background: rgba(56, 189, 248, 0.12); color: var(--accent-blue); }
+        .icon-green { background: rgba(46, 213, 115, 0.12); color: var(--accent-green); }
+        .icon-orange { background: rgba(167, 139, 250, 0.12); color: var(--accent-purple); }
+        .icon-amber { background: rgba(255, 184, 0, 0.12); color: var(--accent-amber); }
+        .icon-teal { background: rgba(0, 242, 254, 0.12); color: var(--accent-teal); }
+
+        .card-title {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #FFF;
+        }
+
+        .card-desc {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Large Stat Numbers */
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary-light);
+            margin-bottom: 4px;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, var(--primary-light) 50%, var(--accent-amber) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 10px;
+        }
+
+        /* Slide Bottom Navigation Controls */
+        .bottom-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 16px;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-nav {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            color: #FFF;
+            padding: 10px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13.5px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-nav:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .progress-container {
+            flex: 1;
+            max-width: 400px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+            margin: 0 30px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 12.5%;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Cover Slide Specific layout */
+        .cover-slide {
+            text-align: center;
+            align-items: center;
+        }
+
+        .badge-pill {
+            background: rgba(255, 107, 0, 0.1);
+            border: 1px solid rgba(255, 107, 0, 0.2);
+            color: var(--primary-light);
+            padding: 8px 22px;
+            border-radius: 30px;
+            font-size: 13.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.05);
+        }
+
+        .hero-banner-title {
+            font-size: 58px;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 18px;
+            background: linear-gradient(135deg, #FFFFFF 30%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 19px;
+            color: var(--text-muted);
+            max-width: 850px;
+            margin: 0 auto 35px auto;
+            line-height: 1.6;
+        }
+
+        .presenter-tag {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(15, 23, 42, 0.8);
+            padding: 14px 26px;
+            border-radius: 50px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--glass-glow);
+        }
+
+        .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 800;
+            color: #FFF;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .live-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #FFF;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(255, 107, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .live-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 0, 0.55);
+        }
+
+        /* Pipeline Visual */
+        .pipeline-flow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 15px;
+        }
+
+        .pipeline-step {
+            flex: 1;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 22px;
+            text-align: center;
+            box-shadow: var(--glass-glow);
+        }
+
+        .pipeline-arrow {
+            color: var(--primary-light);
+            font-size: 18px;
+            animation: pulseArrow 1.5s infinite;
+        }
+
+        @keyframes pulseArrow {
+            0% { transform: translateX(0); opacity: 0.5; }
+            50% { transform: translateX(4px); opacity: 1; }
+            100% { transform: translateX(0); opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Ambient background glows -->
+<div class="slide-glow-1"></div>
+<div class="slide-glow-2"></div>
+
+<div class="slides-wrapper">
+
+    <!-- SLIDE 1: COVER SLIDE -->
+    <div class="slide active cover-slide">
+        <div class="top-bar">
+            <div class="logo-group">
+                <div class="logo-icon"><i class="fa-solid fa-square-poll-horizontal"></i></div>
+                <div class="logo-text">GHN <span>NTB OPS</span></div>
+            </div>
+            <div class="slide-counter">Slide 1 / 8</div>
+        </div>
+
+        <div class="slide-content">
+            <div class="badge-pill"><i class="fa-solid fa-trophy"></i> BÁO CÁO DỰ THI VÒNG SHOWCASE 2026</div>
+            <h1 class="hero-banner-title">AI-Powered NTB Ops Assistant</h1>
+            <p class="hero-subtitle">Trợ lý Vận hành Thông minh Vùng Nam Trung Bộ — Tự động hóa ETL 7+ nguồn dữ liệu, tích hợp Gemini LLM & Telegram Bot Cảnh báo tức thời</p>
+            
+            <div style="display: flex; justify-content: center; gap: 20px; align-items: center;">
+                <div class="presenter-tag">
+                    <div class="avatar">TNT</div>
+                    <div style="text-align: left;">
+                        <div style="font-weight: 700; font-size: 15.5px; color: #FFF;">Trần Ngọc Trung</div>
+                        <div style="font-size: 12.5px; color: var(--text-muted);">Giám đốc Vùng Nam Trung Bộ — GHN Express</div>
+                    </div>
+                </div>
+                <a href="https://ntb-ops-dashboard-five.vercel.app/" target="_blank" class="live-link">
+                    <i class="fa-solid fa-rocket"></i> Truy Cập Môi Trường Live
+                </a>
+            </div>
+        </div>
+
+        <div class="bottom-bar">
+            <div style="font-size: 13px; color: var(--text-muted);">Dự án chuyển đổi số vận hành chặng cuối GHN Express</div>
+            <div class="progress-container"><div class="progress-bar" style="width: 12.5%;"></div></div>
+            <div class="nav-buttons">
+                <button class="btn-nav" onclick="nextSlide()">Tiếp theo <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: PAIN POINTS & PROBLEM -->
+    <div class="slide">
+        <div class="top-bar">
+            <div class="logo-group">
+                <div class="logo-icon"><i class="fa-solid fa-square-poll-horizontal"></i></div>
+                <div class="logo-text">GHN <span>NTB OPS</span></div>
+            </div>
+            <div class="slide-counter">Slide 2 / 8</div>
+        </div>
+
+        <div class="slide-content">
+            <h2 class="slide-title">1. Bài Toán & Nhu Cầu Thực Tế</h2>
+            <p class="slide-subtitle">Thách thức lớn nhất trong công tác quản lý vận hành chặng cuối tại 5 tỉnh Nam Trung Bộ</p>
+
+            <div class="grid-3">
+                <div class="glass-card">
+                    <div class="card-icon icon-orange"><i class="fa-solid fa-database"></i></div>
+                    <div class="card-title">Dữ Liệu Phân Tán</div>
+                    <div class="card-desc">Hơn 7 file Google Sheets độc lập (OPR, Aging, Backlog, Off tuyến, Ca làm việc, Bưu cục bất ổn...) nặng tới 35MB+ khiến việc tra cứu manh mún, phức tạp.</div>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-icon icon-amber"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                    <div class="card-title">Lãng Phí 1.5 - 2 Giờ/Ngày</div>
+                    <div class="card-desc">Mỗi AM (Area Manager) phải bỏ ra gần 2 tiếng mỗi ngày để lọc excel thủ công, tính toán số liệu và viết bản thảo báo cáo giao ban gửi lên Telegram.</div>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-icon icon-orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <div class="card-title">Độ Trễ Cảnh Báo Lớn</div>
+                    <div class="card-desc">Bưu cục xảy ra nghẽn hàng (Backlog > 200 đơn) hoặc thiếu shipper thường trễ 12-24 tiếng mới được phát hiện, gây ảnh hưởng nghiêm trọng đến KPI GTC toàn vùng.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-bar">
+            <div class="nav-buttons"><button class="btn-nav" onclick="prevSlide()"><i class="fa-solid fa-arrow-left"></i> Trước</button></div>
+            <div class="progress-container"><div class="progress-bar" style="width: 25%;"></div></div>
+            <div class="nav-buttons"><button class="btn-nav" onclick="nextSlide()">Tiếp theo <i class="fa-solid fa-arrow-right"></i></button></div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: AI SOLUTION ARCHITECTURE -->
+    <div class="slide">
+        <div class="top-bar">
+            <div class="logo-group">
+                <div class="logo-icon"><i class="fa-solid fa-square-poll-horizontal"></i></div>
+                <div class="logo-text">GHN <span>NTB OPS</span></div>
+            </div>
+            <div class="slide-counter">Slide 3 / 8</div>
+        </div>
+
+        <div class="slide-content">
+            <h2 class="slide-title">2. Giải Pháp AI Assistant & Kiến Trúc Lõi</h2>
+            <p class="slide-subtitle">Hệ thống tích hợp ETL tự động + Mô hình ngôn ngữ lớn Gemini LLM + Bot Telegram thông minh</p>
+
+            <div class="pipeline-flow">
+                <div class="pipeline-step">
+                    <div class="card-icon icon-blue" style="margin: 0 auto 10px auto;"><i class="fa-solid fa-file-excel"></i></div>
+                    <div style="font-weight: 700; font-size: 16px;">7+ Google Sheets</div>
+                    <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">OPR, Aging, Backlog, Off-tuyen, Vols...</div>
+                </div>
+                <div class="pipeline-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                <div class="pipeline-step">
+                    <div class="card-icon icon-orange" style="margin: 0 auto 10px auto;"><i class="fa-solid fa-gears"></i></div>
+                    <div style="font-weight: 700; font-size: 16px;">Python ETL & Cache</div>
+                    <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Monkey-patch Pandas, Read-Only RAM Opt.</div>
+                </div>
+                <div class="pipeline-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                <div class="pipeline-step">
+                    <div class="card-icon icon-green" style="margin: 0 auto 10px auto;"><i class="fa-solid fa-brain"></i></div>
+                    <div style="font-weight: 700; font-size: 16px;">Gemini Flash LLM</div>
+                    <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Phân tích điểm nóng, Đề xuất hành động</div>
+                </div>
+                <div class="pipeline-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                <div class="pipeline-step">
+                    <div class="card-icon icon-orange" style="margin: 0 auto 10px auto;"><i class="fa-solid fa-paper-plane"></i></div>
+                    <div style="font-weight: 700; font-size: 16px;">Telegram Bot & Portal</div>
+                    <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Cảnh báo tức thời & Dashboard 12 Tabs</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-bar">
+            <div class="nav-buttons"><button class="btn-nav" onclick="prevSlide()"><i class="fa-solid fa-arrow-left"></i> Trước</button></div>
+            <div class="progress-container"><div class="progress-bar" style="width: 37.5%;"></div></div>
+            <div class="nav-buttons"><button class="btn-nav" onclick="nextSlide()">Tiếp theo <i class="fa-solid fa-arrow-right"></i></button></div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: SUCCESS METRICS -->
+    <div class="slide">
+        <div class="top-bar">
+            <div class="logo-group">
+                <div class="logo-icon"><i class="fa-solid fa-square-poll-horizontal"></i></div>
+                <div class="logo-text">GHN <span>NTB OPS</span></div>
+            </div>
+            <div class="slide-counter">Slide 4 / 8</div>
+        </div>
+
+        <div class="slide-content">
+            <h2 class="slide-title">3. Chỉ Số ROI & Hiệu Quả Đạt Được</h2>
+            <p class="slide-subtitle">Kết quả thực tế đo lường qua quá trình ứng dụng vận hành tại vùng Nam Trung Bộ</p>
+
+            <div class="grid-4">
+                <div class="glass-card" style="text-align: center;">
+                    <div class="stat-number">&lt; 3m</div>
+                    <div class="stat-label">Thời gian làm báo cáo</div>
+                    <div class="card-desc" style="margin-top: 10px;">Giảm từ 120 phút xuống dưới 3 phút (Tự động 100%).</div>
+                </div>
+
+                <div class="glass-card" style="text-align: center;">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Chính xác số liệu</div>
+                    <div class="card-desc" style="margin-top: 10px;">Triệt tiêu hoàn toàn sai sót nhập dữ liệu của con người.</div>
+                </div>
+
+                <div class="glass-card" style="text-align: center;">
+                    <div class="stat-number">45h</div>
+                    <div class="stat-label">Tiết kiệm/AM/Tháng</div>
+                    <div class="card-desc" style="margin-top: 10px;">Giải phóng AM tập trung trực tiếp xuống tuyến xử lý bưu cục.</div>
+                </div>
+
+                <div class="glass-card" style="text-align: center;">
+                    <div class="stat-number">&lt; 1h</div>
+                    <div class="stat-label">Độ trễ cảnh báo</div>
+                    <div class="card-desc" style="margin-top: 10px;">Phát hiện bưu cục bất ổn tức thì qua hệ thống cảnh báo Telegram.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-bar">
+            <div class="nav-buttons"><button class="btn-nav" onclick="prevSlide()"><i class="fa-solid fa-arrow-left"></i> Trước</button></div>
+            <div class="progress-container"><div class="progress-bar" style="width: 50%;"></div></div>
+            <div class="nav-buttons"><button class="btn-nav" onclick="nextSlide()">Tiếp theo <i class="fa-solid fa-arrow-right"></i></button></div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: KEY FEATURES & DASHBOARD MODULES -->
+    <div class="slide">
+        <div class="top-bar">
+            <div class="logo-group">
+                <div class="logo-icon"><i class="fa-solid fa-square-poll-horizontal"></i></div>
+                <div class="logo-text">GHN <span>NTB OPS</span></div>
+            </div>
+            <div class="slide-counter">Slide 5 / 8</div>
+        </div>
+
+        <div class="slide-content">
+            <h2 class="slide-title">4. Tính Năng Nổi Bật Trên Web Portal</h2>
+            <p class="slide-subtitle">12 Phân hệ quản lý chuyên sâu dành cho Giám đốc Vùng và Đội ngũ AM</p>
+
+            <div class="grid-3">
+                <div class="glass-card">
+                    <div class="card-icon icon-orange"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <div class="card-title">Bản Đồ Bưu Cục Tương Tác</div>
+                    <div class="card-desc">Sử dụng Leaflet.js trực quan hóa vị trí địa lý 85+ bưu cục NTB, đánh dấu màu sắc cảnh báo theo thời gian thực.</div>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-icon icon-blue"><i class="fa-solid fa-chart-line"></i></div>
+                    <div class="card-title">Phân Tích KPI Xu Hướng</div>
+                    <div class="card-desc">Tích hợp ApexCharts phân tích trực quan biến động GTC, LTC và sản lượng tạo đơn theo tuần, ngày và từng AM.</div>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-icon icon-green"><i class="fa-solid fa-robot"></i></div>
+                    <div class="card-title">Trợ Lý AI Biên Soạn Bản Tin</div>
+                    <div class="card-desc">Đọc dữ liệu KPI tổng hợp và tự động biên soạn bản tin giao ban chuẩn cấu trúc gửi duyệt 1-click lên Telegram.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-bar">
+            <div class="nav-buttons"><button class="btn-nav" onclick="prevSlide()"><i class="fa-solid fa-arrow-left"></i> Trước</button></div>
+            <div class="progress-container"><div class="progress-bar" style="width: 62.5%;"></div></div>
+            <div class="nav-buttons"><button class="btn-nav" onclick="nextSlide()">Tiếp theo <i class="fa-solid fa-arrow-right"></i></button></div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: TECHNICAL HIGHLIGHTS & MCP PROTOCOL -->
+    <div class="slide">
+        <div class="top-bar">
+            <div class="logo-group">
+                <div class="logo-icon"><i class="fa-solid fa-square-poll-horizontal"></i></div>
+                <div class="logo-text">GHN <span>NTB OPS</span></div>
+            </div>
+            <div class="slide-counter">Slide 6 / 8</div>
+        </div>
+
+        <div class="slide-content">
+            <h2 class="slide-title">5. Điểm Sáng Kỹ Thuật & Chuẩn MCP</h2>
+            <p class="slide-subtitle">Giải pháp tối ưu hóa bộ nhớ RAM trên Vercel Serverless và chuẩn hóa giao tiếp Agent</p>
+
+            <div class="grid-2">
+                <div class="glass-card">
+                    <div class="card-icon icon-orange"><i class="fa-solid fa-memory"></i></div>
+                    <div class="card-title">Monkey-Patching Pandas (-90% RAM)</div>
+                    <div class="card-desc">Can thiệp lớp đọc openpyxl của Pandas sang chế độ `read_only=True` và giải phóng cache tức thì, khắc phục hoàn toàn sự cố tràn bộ nhớ OOM trên Vercel 512MB RAM khi đọc file excel lớn.</div>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-icon icon-teal"><i class="fa-solid fa-network-wired"></i></div>
+                    <div class="card-title">MCP Protocol (`ntb-ops-query`)</div>
+                    <div class="card-desc">Đóng gói sẵn giao thức Model Context Protocol cho phép các AI Agent trong hệ sinh thái doanh nghiệp truy vấn số liệu KPI, bưu cục bất ổn và gợi ý hành động linh hoạt.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-bar">
+            <div class="nav-buttons"><button class="btn-nav" onclick="prevSlide()"><i class="fa-solid fa-arrow-left"></i> Trước</button></div>
+            <div class="progress-container"><div class="progress-bar" style="width: 75%;"></div></div>
+            <div class="nav-buttons"><button class="btn-nav" onclick="nextSlide()">Tiếp theo <i class="fa-solid fa-arrow-right"></i></button></div>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: LIVE DEMO & ACCESS -->
+    <div class="slide">
+        <div class="top-bar">
+            <div class="logo-group">
+                <div class="logo-icon"><i class="fa-solid fa-square-poll-horizontal"></i></div>
+                <div class="logo-text">GHN <span>NTB OPS</span></div>
+            </div>
+            <div class="slide-counter">Slide 7 / 8</div>
+        </div>
+
+        <div class="slide-content" style="text-align: center;">
+            <div class="card-icon icon-teal" style="margin: 0 auto 20px auto; width: 60px; height: 60px; font-size: 28px;"><i class="fa-solid fa-globe"></i></div>
+            <h2 class="slide-title">6. Trải Nghiệm Sản Phẩm Thực Tế</h2>
+            <p class="slide-subtitle" style="margin-left: auto; margin-right: auto;">Hệ thống đã triển khai sẵn sàng trên đám mây Cloud Vercel</p>
+
+            <div class="glass-card" style="max-width: 650px; margin: 0 auto; padding: 32px; text-align: left;">
+                <div style="font-weight: 700; font-size: 16px; color: var(--primary-light); margin-bottom: 12px;"><i class="fa-solid fa-link"></i> Đường Dẫn Truy Cập Dashboard:</div>
+                <div style="font-size: 18px; font-weight: 800; font-family: monospace; background: rgba(0,0,0,0.4); padding: 12px 18px; border-radius: 12px; color: var(--accent-blue); margin-bottom: 20px; border: 1px solid var(--card-border);">
+                    https://ntb-ops-dashboard-five.vercel.app/
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; font-size: 13px;">
+                    <div style="background: rgba(255,255,255,0.02); padding: 12px; border-radius: 12px; border: 1px solid var(--card-border);">
+                        <strong style="color: #FFF;"><i class="fa-solid fa-user-shield" style="color: var(--accent-amber);"></i> Quyền Admin:</strong><br>
+                        User: <code style="color: var(--primary-light);">admin</code><br>Pass: <code style="color: var(--primary-light);">admin123</code>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.02); padding: 12px; border-radius: 12px; border: 1px solid var(--card-border);">
+                        <strong style="color: #FFF;"><i class="fa-solid fa-user-check" style="color: var(--accent-green);"></i> Quyền Staff:</strong><br>
+                        User: <code style="color: var(--accent-green);">staff</code><br>Pass: <code style="color: var(--accent-green);">staff123</code>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.02); padding: 12px; border-radius: 12px; border: 1px solid var(--card-border);">
+                        <strong style="color: #FFF;"><i class="fa-solid fa-user-tag" style="color: var(--accent-blue);"></i> Quyền AM:</strong><br>
+                        User: <code style="color: var(--accent-blue);">MSNV của AM</code><br>Pass: <code style="color: var(--accent-blue);">123456</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-bar">
+            <div class="nav-buttons"><button class="btn-nav" onclick="prevSlide()"><i class="fa-solid fa-arrow-left"></i> Trước</button></div>
+            <div class="progress-container"><div class="progress-bar" style="width: 87.5%;"></div></div>
+            <div class="nav-buttons"><button class="btn-nav" onclick="nextSlide()">Tiếp theo <i class="fa-solid fa-arrow-right"></i></button></div>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: ROADMAP & CONCLUSION -->
+    <div class="slide">
+        <div class="top-bar">
+            <div class="logo-group">
+                <div class="logo-icon"><i class="fa-solid fa-square-poll-horizontal"></i></div>
+                <div class="logo-text">GHN <span>NTB OPS</span></div>
+            </div>
+            <div class="slide-counter">Slide 8 / 8</div>
+        </div>
+
+        <div class="slide-content">
+            <h2 class="slide-title">7. Kế Hoạch Mở Rộng & Định Hướng</h2>
+            <p class="slide-subtitle">Cột mốc tiếp theo đưa AI Assistant thành tiêu chuẩn vận hành toàn công ty GHN</p>
+
+            <div class="grid-3">
+                <div class="glass-card">
+                    <div class="card-icon icon-blue"><i class="fa-solid fa-server"></i></div>
+                    <div class="card-title">Kết Nối Trực Tiếp DWH</div>
+                    <div class="card-desc">Chuyển đổi từ đọc Google Sheets sang truy xuất trực tiếp Data Warehouse trung tâm GHN cho báo cáo Realtime từng phút.</div>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-icon icon-green"><i class="fa-solid fa-chart-pie"></i></div>
+                    <div class="card-title">Dự Báo Sản Lượng 48H</div>
+                    <div class="card-desc">Nâng cấp Gemini 1.5 Pro ứng dụng Predictive Analytics dự báo tải bưu cục trước 48 giờ để AM điều phối nhân sự chủ động.</div>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-icon icon-orange"><i class="fa-solid fa-earth-asia"></i></div>
+                    <div class="card-title">Mở Rộng 63 Tỉnh Thành</div>
+                    <div class="card-desc">Chuẩn hóa gói giải pháp MCP & Web Portal để nhân rộng cho toàn bộ các vùng vận hành GHN trên toàn quốc.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-bar">
+            <div class="nav-buttons"><button class="btn-nav" onclick="prevSlide()"><i class="fa-solid fa-arrow-left"></i> Trước</button></div>
+            <div class="progress-container"><div class="progress-bar" style="width: 100%;"></div></div>
+            <div class="nav-buttons"><button class="btn-nav" onclick="location.reload()">Xem Lại từ đầu <i class="fa-solid fa-rotate-right"></i></button></div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
+            }
+        });
+    }
+
+    function nextSlide() {
+        if (currentSlide < slides.length - 1) {
+            currentSlide++;
+            showSlide(currentSlide);
+        }
+    }
+
+    function prevSlide() {
+        if (currentSlide > 0) {
+            currentSlide--;
+            showSlide(currentSlide);
+        }
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'Space') {
+            nextSlide();
+        } else if (e.key === 'ArrowLeft') {
+            prevSlide();
+        }
+    });
+</script>
+</body>
+</html>
