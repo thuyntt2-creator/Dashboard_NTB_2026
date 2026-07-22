@@ -4355,6 +4355,14 @@
                     usernameInput.value = '';
                     passwordInput.value = '';
                     
+                    // Update CSRF token in meta tag for subsequent API calls
+                    if (data.csrf_token) {
+                        const csrfMeta = document.querySelector('meta[name="csrf-token"]');
+                        if (csrfMeta) {
+                            csrfMeta.setAttribute('content', data.csrf_token);
+                        }
+                    }
+                    
                     const loggedIn = await checkUserRole();
                     if (loggedIn) {
                         loadAllData();
