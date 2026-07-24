@@ -5082,6 +5082,14 @@ def api_summary_dashboard():
             gtc_d = apply_filters(gtc_d, filter_am, filter_prov, filter_po)
             ltc_d = apply_filters(ltc_d, filter_am, filter_prov, filter_po)
             
+            if 'ltc_vol' not in ltc_d.columns:
+                if 'Sản Lượng Lấy Thành Công' in ltc_d.columns:
+                    ltc_d['ltc_vol'] = safe_to_numeric(ltc_d['Sản Lượng Lấy Thành Công'])
+                elif '%LTC' in ltc_d.columns:
+                    ltc_d['ltc_vol'] = safe_to_numeric(ltc_d['Volume']) * normalize_pct_col(ltc_d['%LTC'])
+                else:
+                    ltc_d['ltc_vol'] = 0.0
+
             ltc_vol = ltc_d['Volume'].sum()
             ltc_done = ltc_d['ltc_vol'].sum()
             gtc_vol = gtc_d['Volume'].sum()
