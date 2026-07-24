@@ -29,6 +29,9 @@ backlog_history.json
 !ODR TTS.csv
 !ops_nhan_su.csv
 !ops_fd.csv
+!raw_tren10kg.csv
+!ops_heavy_10kg.csv
+!ops_tao_don_10kg.csv
 
 
 # Intermediate inspection and log files

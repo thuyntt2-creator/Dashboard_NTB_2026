@@ -5067,7 +5067,8 @@ def split_excel_to_csvs(xlsx_path):
             (["shopee_tiktok", "tao_don", "tạo đơn"], "vols_tao_don.csv"),
             (["odr tts", "odr_tts"], "ODR TTS.csv"),
             (["baocao", "báo cáo"], "ops_productivity_realtime.csv"),
-            (["nhân sự", "nhan su"], "ops_nhan_su.csv")
+            (["nhân sự", "nhan su"], "ops_nhan_su.csv"),
+            (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "10kg", "hàng 10kg"], "raw_tren10kg.csv")
         ]
         
         # Check if the excel contains a dedicated user sheet style 'cocau' tab
@@ -5106,6 +5107,10 @@ def split_excel_to_csvs(xlsx_path):
             else:
                 print(f"Warning: sheet for {target_csv} not found in Excel workbook.")
         wb.close()
+        try:
+            split_raw_tren10kg()
+        except Exception as e:
+            print(f"Error splitting raw_tren10kg in split_excel_to_csvs: {e}")
         
         # If user cocau sheet exists, read it with pandas and map/save it properly
         if has_user_cocau_sheet:

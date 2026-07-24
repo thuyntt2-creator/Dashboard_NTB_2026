@@ -1,0 +1,716 @@
+﻿hen_lay,deliverywarehouseid,warehouse_name,nhom_kh,nhom_kg,vol,kl_kg,AM
+2026-07-24,1896,(LDO) Đạ Huoai,Shopee-nhỏ,4. 10-20kg,6,1900.3,Lê Hồng Minh Tâm
+2026-07-24,1896,(LDO) Đạ Huoai,Khác,4. 10-20kg,18,1900.10,Lê Hồng Minh Tâm
+2026-07-24,1896,(LDO) Đạ Huoai,TTS-nhỏ,4. 10-20kg,85,1262.8,Lê Hồng Minh Tâm
+2026-07-24,1896,(LDO) Đạ Huoai,SME,4. 10-20kg,358,5886.7,Lê Hồng Minh Tâm
+2026-07-24,1896,(LDO) Đạ Huoai,Shopee-Bulky,4. 10-20kg,431,5941.6,Lê Hồng Minh Tâm
+2026-07-24,1896,(LDO) Đạ Huoai,Khác,5. 20-30kg,32,,Lê Hồng Minh Tâm
+2026-07-24,1896,(LDO) Đạ Huoai,SME,5. 20-30kg,119,2851.7,Lê Hồng Minh Tâm
+2026-07-24,1896,(LDO) Đạ Huoai,TTS-nhỏ,5. 20-30kg,9,,Lê Hồng Minh Tâm
+2026-07-24,1896,(LDO) Đạ Huoai,Shopee-Bulky,5. 20-30kg,227,5201.4,Lê Hồng Minh Tâm
+2026-07-24,1896,(LDO) Đạ Huoai,TTS-nhỏ,6. >30kg,19,,Lê Hồng Minh Tâm
+2026-07-24,1896,(LDO) Đạ Huoai,SME,6. >30kg,198,,Lê Hồng Minh Tâm
+2026-07-24,1896,(LDO) Đạ Huoai,Shopee-Bulky,6. >30kg,108,4696.2,Lê Hồng Minh Tâm
+2026-07-24,2309,(DNO) Đức Lập,TTS-nhỏ,4. 10-20kg,392,5403.5,Trần Thị Nhung
+2026-07-24,2309,(DNO) Đức Lập,SME,4. 10-20kg,595,1923.4,Trần Thị Nhung
+2026-07-24,2309,(DNO) Đức Lập,Shopee-Bulky,4. 10-20kg,1087,,Trần Thị Nhung
+2026-07-24,2309,(DNO) Đức Lập,Khác,4. 10-20kg,12,,Trần Thị Nhung
+2026-07-24,2309,(DNO) Đức Lập,Khác,5. 20-30kg,49,1903.6,Trần Thị Nhung
+2026-07-24,2309,(DNO) Đức Lập,Shopee-Bulky,5. 20-30kg,438,,Trần Thị Nhung
+2026-07-24,2309,(DNO) Đức Lập,SME,5. 20-30kg,97,2422.2,Trần Thị Nhung
+2026-07-24,2309,(DNO) Đức Lập,Shopee-Bulky,6. >30kg,440,,Trần Thị Nhung
+2026-07-24,2309,(DNO) Đức Lập,TTS-nhỏ,6. >30kg,11,,Trần Thị Nhung
+2026-07-24,2309,(DNO) Đức Lập,SME,6. >30kg,270,1938.2,Trần Thị Nhung
+2026-07-24,2309,(DNO) Đức Lập,Khác,6. >30kg,48,1907.12,Trần Thị Nhung
+2026-07-24,2357,(BTH) Đồng Kho,TTS-nhỏ,4. 10-20kg,253,3644.6,Nguyễn Ngọc Khánh
+2026-07-24,2357,(BTH) Đồng Kho,SME,4. 10-20kg,347,5164.4,Nguyễn Ngọc Khánh
+2026-07-24,2357,(BTH) Đồng Kho,Khác,4. 10-20kg,14,,Nguyễn Ngọc Khánh
+2026-07-24,2357,(BTH) Đồng Kho,Shopee-Bulky,4. 10-20kg,780,,Nguyễn Ngọc Khánh
+2026-07-24,2357,(BTH) Đồng Kho,Shopee-Bulky,5. 20-30kg,279,6978.3,Nguyễn Ngọc Khánh
+2026-07-24,2357,(BTH) Đồng Kho,SME,5. 20-30kg,82,2182.4,Nguyễn Ngọc Khánh
+2026-07-24,2357,(BTH) Đồng Kho,Shopee-Bulky,6. >30kg,274,,Nguyễn Ngọc Khánh
+2026-07-24,2357,(BTH) Đồng Kho,TTS-nhỏ,6. >30kg,16,,Nguyễn Ngọc Khánh
+2026-07-24,2357,(BTH) Đồng Kho,Khác,6. >30kg,21,1901.12,Nguyễn Ngọc Khánh
+2026-07-24,2357,(BTH) Đồng Kho,SME,6. >30kg,172,,Nguyễn Ngọc Khánh
+2026-07-24,2399,(KHO) Bắc Nha Trang,Shopee-Bulky,4. 10-20kg,1341,,Phạm Bá Thành Công
+2026-07-24,2399,(KHO) Bắc Nha Trang,Khác,4. 10-20kg,9,,Phạm Bá Thành Công
+2026-07-24,2399,(KHO) Bắc Nha Trang,Shopee-nhỏ,4. 10-20kg,64,,Phạm Bá Thành Công
+2026-07-24,2399,(KHO) Bắc Nha Trang,TTS-nhỏ,4. 10-20kg,321,4021.8,Phạm Bá Thành Công
+2026-07-24,2399,(KHO) Bắc Nha Trang,SME,4. 10-20kg,464,6144.4,Phạm Bá Thành Công
+2026-07-24,2399,(KHO) Bắc Nha Trang,SME,5. 20-30kg,47,1173.5,Phạm Bá Thành Công
+2026-07-24,2399,(KHO) Bắc Nha Trang,Khác,5. 20-30kg,7,,Phạm Bá Thành Công
+2026-07-24,2399,(KHO) Bắc Nha Trang,Shopee-Bulky,5. 20-30kg,85,1890.7,Phạm Bá Thành Công
+2026-07-24,2399,(KHO) Bắc Nha Trang,SME,6. >30kg,21,1169.7,Phạm Bá Thành Công
+2026-07-24,2502,(KHO) Nam Nha Trang 5,SME,4. 10-20kg,154,2144.3,Thái Thị Thanh Thư
+2026-07-24,2502,(KHO) Nam Nha Trang 5,TTS-nhỏ,4. 10-20kg,88,1156.3,Thái Thị Thanh Thư
+2026-07-24,2502,(KHO) Nam Nha Trang 5,Shopee-Bulky,4. 10-20kg,362,5110.1,Thái Thị Thanh Thư
+2026-07-24,20143000,(KHO) Diên Khánh 2,Shopee-nhỏ,4. 10-20kg,2,2026.3,Nguyễn Hoàng Phi
+2026-07-24,20143000,(KHO) Diên Khánh 2,TTS-nhỏ,4. 10-20kg,124,1904.7,Nguyễn Hoàng Phi
+2026-07-24,20143000,(KHO) Diên Khánh 2,Shopee-Bulky,4. 10-20kg,388,5338.7,Nguyễn Hoàng Phi
+2026-07-24,20143000,(KHO) Diên Khánh 2,SME,4. 10-20kg,180,2460.8,Nguyễn Hoàng Phi
+2026-07-24,20143000,(KHO) Diên Khánh 2,SME,5. 20-30kg,3,1900.3,Nguyễn Hoàng Phi
+2026-07-24,20143000,(KHO) Diên Khánh 2,Shopee-Bulky,5. 20-30kg,29,,Nguyễn Hoàng Phi
+2026-07-24,20143000,(KHO) Diên Khánh 2,Shopee-Bulky,6. >30kg,22,1062.5,Nguyễn Hoàng Phi
+2026-07-24,20143000,(KHO) Diên Khánh 2,SME,6. >30kg,16,1901.10,Nguyễn Hoàng Phi
+2026-07-24,20144000,(BTH) Mũi Né,Shopee-nhỏ,4. 10-20kg,11,,Nguyễn Ngọc Khánh
+2026-07-24,20144000,(BTH) Mũi Né,Shopee-Bulky,4. 10-20kg,619,8263.7,Nguyễn Ngọc Khánh
+2026-07-24,20144000,(BTH) Mũi Né,SME,4. 10-20kg,68,1049.2,Nguyễn Ngọc Khánh
+2026-07-24,20144000,(BTH) Mũi Né,TTS-nhỏ,4. 10-20kg,97,1291.6,Nguyễn Ngọc Khánh
+2026-07-24,20144000,(BTH) Mũi Né,SME,5. 20-30kg,12,,Nguyễn Ngọc Khánh
+2026-07-24,20144000,(BTH) Mũi Né,Shopee-Bulky,5. 20-30kg,60,1903.12,Nguyễn Ngọc Khánh
+2026-07-24,20144000,(BTH) Mũi Né,SME,6. >30kg,104,,Nguyễn Ngọc Khánh
+2026-07-24,20144000,(BTH) Mũi Né,Shopee-Bulky,6. >30kg,85,4754.5,Nguyễn Ngọc Khánh
+2026-07-24,20150000,(NTH) Bảo An,SME,4. 10-20kg,285,3835.5,Nguyễn Duy Long
+2026-07-24,20150000,(NTH) Bảo An,Shopee-Bulky,4. 10-20kg,940,,Nguyễn Duy Long
+2026-07-24,20150000,(NTH) Bảo An,Khác,4. 10-20kg,24,,Nguyễn Duy Long
+2026-07-24,20150000,(NTH) Bảo An,TTS-nhỏ,4. 10-20kg,206,2541.9,Nguyễn Duy Long
+2026-07-24,20150000,(NTH) Bảo An,SME,5. 20-30kg,60,1904.3,Nguyễn Duy Long
+2026-07-24,20150000,(NTH) Bảo An,Shopee-Bulky,5. 20-30kg,39,1046.3,Nguyễn Duy Long
+2026-07-24,20150000,(NTH) Bảo An,Khác,5. 20-30kg,16,,Nguyễn Duy Long
+2026-07-24,20150000,(NTH) Bảo An,Shopee-Bulky,6. >30kg,68,3166.5,Nguyễn Duy Long
+2026-07-24,20150000,(NTH) Bảo An,SME,6. >30kg,78,5199.6,Nguyễn Duy Long
+2026-07-24,20269000,(DNO) Kiến Đức,Shopee-Bulky,4. 10-20kg,424,5869.5,Trần Văn Phước
+2026-07-24,20269000,(DNO) Kiến Đức,TTS-nhỏ,4. 10-20kg,105,1440.5,Trần Văn Phước
+2026-07-24,20269000,(DNO) Kiến Đức,SME,4. 10-20kg,360,5142.1,Trần Văn Phước
+2026-07-24,20269000,(DNO) Kiến Đức,SME,5. 20-30kg,73,1992.6,Trần Văn Phước
+2026-07-24,20269000,(DNO) Kiến Đức,Shopee-Bulky,5. 20-30kg,93,2321.2,Trần Văn Phước
+2026-07-24,20269000,(DNO) Kiến Đức,Khác,5. 20-30kg,19,,Trần Văn Phước
+2026-07-24,20269000,(DNO) Kiến Đức,Shopee-Bulky,6. >30kg,137,6419.2,Trần Văn Phước
+2026-07-24,20269000,(DNO) Kiến Đức,SME,6. >30kg,57,2806.6,Trần Văn Phước
+2026-07-24,20269003,(DNO) Nhân Cơ,Shopee-Bulky,4. 10-20kg,168,2061.6,Trần Văn Phước
+2026-07-24,20269003,(DNO) Nhân Cơ,TTS-nhỏ,4. 10-20kg,30,,Trần Văn Phước
+2026-07-24,20269003,(DNO) Nhân Cơ,SME,4. 10-20kg,509,6531.7,Trần Văn Phước
+2026-07-24,20269003,(DNO) Nhân Cơ,Shopee-nhỏ,4. 10-20kg,1,2026.1,Trần Văn Phước
+2026-07-24,20269003,(DNO) Nhân Cơ,SME,5. 20-30kg,13,1900.11,Trần Văn Phước
+2026-07-24,20269003,(DNO) Nhân Cơ,Shopee-Bulky,5. 20-30kg,26,,Trần Văn Phước
+2026-07-24,20269003,(DNO) Nhân Cơ,Khác,6. >30kg,16,1901.11,Trần Văn Phước
+2026-07-24,20269003,(DNO) Nhân Cơ,SME,6. >30kg,10,1901.3,Trần Văn Phước
+2026-07-24,20316000,(NTH) Ninh Sơn,SME,4. 10-20kg,139,2267.6,Nguyễn Duy Long
+2026-07-24,20316000,(NTH) Ninh Sơn,Shopee-Bulky,4. 10-20kg,385,5438.8,Nguyễn Duy Long
+2026-07-24,20316000,(NTH) Ninh Sơn,TTS-nhỏ,4. 10-20kg,235,3230.5,Nguyễn Duy Long
+2026-07-24,20316000,(NTH) Ninh Sơn,SME,5. 20-30kg,79,1899.6,Nguyễn Duy Long
+2026-07-24,20316000,(NTH) Ninh Sơn,Shopee-Bulky,5. 20-30kg,135,3476.2,Nguyễn Duy Long
+2026-07-24,20316000,(NTH) Ninh Sơn,Khác,5. 20-30kg,40,1902.10,Nguyễn Duy Long
+2026-07-24,20316000,(NTH) Ninh Sơn,Shopee-Bulky,6. >30kg,153,7078.8,Nguyễn Duy Long
+2026-07-24,20316000,(NTH) Ninh Sơn,SME,6. >30kg,72,4180.3,Nguyễn Duy Long
+2026-07-24,20320000,(KHO) Tây Nha Trang,SME,4. 10-20kg,310,4478.6,Phan Đình Duy
+2026-07-24,20320000,(KHO) Tây Nha Trang,Shopee-Bulky,4. 10-20kg,1028,,Phan Đình Duy
+2026-07-24,20320000,(KHO) Tây Nha Trang,TTS-nhỏ,4. 10-20kg,248,3190.4,Phan Đình Duy
+2026-07-24,20320000,(KHO) Tây Nha Trang,Khác,4. 10-20kg,12,,Phan Đình Duy
+2026-07-24,20320000,(KHO) Tây Nha Trang,Shopee-Bulky,5. 20-30kg,68,1566.2,Phan Đình Duy
+2026-07-24,20320000,(KHO) Tây Nha Trang,SME,5. 20-30kg,40,,Phan Đình Duy
+2026-07-24,20320000,(KHO) Tây Nha Trang,Shopee-Bulky,6. >30kg,1,,Phan Đình Duy
+2026-07-24,20495000,(KHO) Nha Trang,TTS-nhỏ,4. 10-20kg,68,1113.3,Phan Đình Duy
+2026-07-24,20495000,(KHO) Nha Trang,Shopee-Bulky,4. 10-20kg,723,9322.6,Phan Đình Duy
+2026-07-24,20495000,(KHO) Nha Trang,Shopee-nhỏ,4. 10-20kg,12,1900.5,Phan Đình Duy
+2026-07-24,20495000,(KHO) Nha Trang,Khác,4. 10-20kg,32,,Phan Đình Duy
+2026-07-24,20495000,(KHO) Nha Trang,SME,4. 10-20kg,423,6167.8,Phan Đình Duy
+2026-07-24,20495000,(KHO) Nha Trang,SME,5. 20-30kg,47,1088.8,Phan Đình Duy
+2026-07-24,20495000,(KHO) Nha Trang,Shopee-Bulky,5. 20-30kg,58,1361.5,Phan Đình Duy
+2026-07-24,20495000,(KHO) Nha Trang,SME,6. >30kg,175,7912.3,Phan Đình Duy
+2026-07-24,20499000,(NTH) Phước Dinh,SME,4. 10-20kg,252,3131.6,Nguyễn Duy Long
+2026-07-24,20499000,(NTH) Phước Dinh,TTS-nhỏ,4. 10-20kg,190,2571.4,Nguyễn Duy Long
+2026-07-24,20499000,(NTH) Phước Dinh,Shopee-Bulky,4. 10-20kg,887,1934.11,Nguyễn Duy Long
+2026-07-24,20499000,(NTH) Phước Dinh,SME,5. 20-30kg,127,3329.8,Nguyễn Duy Long
+2026-07-24,20499000,(NTH) Phước Dinh,Shopee-Bulky,5. 20-30kg,53,1349.9,Nguyễn Duy Long
+2026-07-24,20499000,(NTH) Phước Dinh,Khác,5. 20-30kg,53,1302.1,Nguyễn Duy Long
+2026-07-24,20499000,(NTH) Phước Dinh,SME,6. >30kg,108,,Nguyễn Duy Long
+2026-07-24,20499000,(NTH) Phước Dinh,Shopee-Bulky,6. >30kg,32,1586.4,Nguyễn Duy Long
+2026-07-24,20499000,(NTH) Phước Dinh,Khác,6. >30kg,3,1900.6,Nguyễn Duy Long
+2026-07-24,20543000,(KHO) Ninh Hòa 2,Shopee-nhỏ,4. 10-20kg,10,1900.4,Phạm Bá Thành Công
+2026-07-24,20543000,(KHO) Ninh Hòa 2,TTS-nhỏ,4. 10-20kg,280,3927.9,Phạm Bá Thành Công
+2026-07-24,20543000,(KHO) Ninh Hòa 2,Khác,4. 10-20kg,29,,Phạm Bá Thành Công
+2026-07-24,20543000,(KHO) Ninh Hòa 2,SME,4. 10-20kg,214,3087.7,Phạm Bá Thành Công
+2026-07-24,20543000,(KHO) Ninh Hòa 2,Shopee-Bulky,4. 10-20kg,838,,Phạm Bá Thành Công
+2026-07-24,20543000,(KHO) Ninh Hòa 2,Shopee-Bulky,5. 20-30kg,314,7516.6,Phạm Bá Thành Công
+2026-07-24,20543000,(KHO) Ninh Hòa 2,Khác,5. 20-30kg,31,1902.3,Phạm Bá Thành Công
+2026-07-24,20543000,(KHO) Ninh Hòa 2,SME,5. 20-30kg,53,1903.12,Phạm Bá Thành Công
+2026-07-24,20543000,(KHO) Ninh Hòa 2,Khác,6. >30kg,30,1212.4,Phạm Bá Thành Công
+2026-07-24,20543000,(KHO) Ninh Hòa 2,Shopee-Bulky,6. >30kg,208,,Phạm Bá Thành Công
+2026-07-24,20543000,(KHO) Ninh Hòa 2,SME,6. >30kg,94,1915.6,Phạm Bá Thành Công
+2026-07-24,20558000,(KHO) Khánh Vĩnh,Shopee-Bulky,4. 10-20kg,187,2795.5,Nguyễn Hoàng Phi
+2026-07-24,20558000,(KHO) Khánh Vĩnh,TTS-nhỏ,4. 10-20kg,85,1279.1,Nguyễn Hoàng Phi
+2026-07-24,20558000,(KHO) Khánh Vĩnh,SME,4. 10-20kg,77,1172.6,Nguyễn Hoàng Phi
+2026-07-24,20558000,(KHO) Khánh Vĩnh,Khác,5. 20-30kg,9,,Nguyễn Hoàng Phi
+2026-07-24,20558000,(KHO) Khánh Vĩnh,Shopee-Bulky,5. 20-30kg,49,1157.3,Nguyễn Hoàng Phi
+2026-07-24,20558000,(KHO) Khánh Vĩnh,SME,5. 20-30kg,7,1900.7,Nguyễn Hoàng Phi
+2026-07-24,20558000,(KHO) Khánh Vĩnh,SME,6. >30kg,36,1595.6,Nguyễn Hoàng Phi
+2026-07-24,20558000,(KHO) Khánh Vĩnh,Khác,6. >30kg,1,,Nguyễn Hoàng Phi
+2026-07-24,20558000,(KHO) Khánh Vĩnh,Shopee-Bulky,6. >30kg,115,5199.7,Nguyễn Hoàng Phi
+2026-07-24,20588000,(KHO) Cam Lâm 2,TTS-nhỏ,4. 10-20kg,122,1457.6,Nguyễn Thanh Long
+2026-07-24,20588000,(KHO) Cam Lâm 2,SME,4. 10-20kg,453,6928.1,Nguyễn Thanh Long
+2026-07-24,20588000,(KHO) Cam Lâm 2,Shopee-Bulky,4. 10-20kg,579,8166.6,Nguyễn Thanh Long
+2026-07-24,20588000,(KHO) Cam Lâm 2,Khác,4. 10-20kg,12,,Nguyễn Thanh Long
+2026-07-24,20588000,(KHO) Cam Lâm 2,Shopee-Bulky,5. 20-30kg,120,2575.9,Nguyễn Thanh Long
+2026-07-24,20588000,(KHO) Cam Lâm 2,SME,5. 20-30kg,46,1196.8,Nguyễn Thanh Long
+2026-07-24,20588000,(KHO) Cam Lâm 2,Khác,5. 20-30kg,1,2026.1,Nguyễn Thanh Long
+2026-07-24,20588000,(KHO) Cam Lâm 2,SME,6. >30kg,126,,Nguyễn Thanh Long
+2026-07-24,20588000,(KHO) Cam Lâm 2,Shopee-Bulky,6. >30kg,160,8302.6,Nguyễn Thanh Long
+2026-07-24,20588000,(KHO) Cam Lâm 2,Khác,6. >30kg,48,2032.5,Nguyễn Thanh Long
+2026-07-24,20590000,(DNO) Tuy Đức,SME,4. 10-20kg,246,3695.9,Trần Thị Nhung
+2026-07-24,20590000,(DNO) Tuy Đức,TTS-nhỏ,4. 10-20kg,28,,Trần Thị Nhung
+2026-07-24,20590000,(DNO) Tuy Đức,Shopee-Bulky,4. 10-20kg,315,4689.5,Trần Thị Nhung
+2026-07-24,20590000,(DNO) Tuy Đức,SME,5. 20-30kg,25,1901.10,Trần Thị Nhung
+2026-07-24,20590000,(DNO) Tuy Đức,Shopee-Bulky,5. 20-30kg,36,,Trần Thị Nhung
+2026-07-24,20590000,(DNO) Tuy Đức,Khác,5. 20-30kg,8,1900.8,Trần Thị Nhung
+2026-07-24,20590000,(DNO) Tuy Đức,TTS-nhỏ,5. 20-30kg,18,,Trần Thị Nhung
+2026-07-24,20590000,(DNO) Tuy Đức,Khác,6. >30kg,8,1900.11,Trần Thị Nhung
+2026-07-24,20590000,(DNO) Tuy Đức,SME,6. >30kg,193,,Trần Thị Nhung
+2026-07-24,20590000,(DNO) Tuy Đức,Shopee-Bulky,6. >30kg,77,3023.3,Trần Thị Nhung
+2026-07-24,20591000,(DNO) Krông Nô,SME,4. 10-20kg,322,4350.1,Trần Thị Nhung
+2026-07-24,20591000,(DNO) Krông Nô,Shopee-Bulky,4. 10-20kg,396,5910.6,Trần Thị Nhung
+2026-07-24,20591000,(DNO) Krông Nô,TTS-nhỏ,4. 10-20kg,208,2992.2,Trần Thị Nhung
+2026-07-24,20591000,(DNO) Krông Nô,SME,5. 20-30kg,56,1471.8,Trần Thị Nhung
+2026-07-24,20591000,(DNO) Krông Nô,Khác,5. 20-30kg,41,1057.6,Trần Thị Nhung
+2026-07-24,20591000,(DNO) Krông Nô,Shopee-Bulky,5. 20-30kg,142,3505.9,Trần Thị Nhung
+2026-07-24,20591000,(DNO) Krông Nô,SME,6. >30kg,337,,Trần Thị Nhung
+2026-07-24,20591000,(DNO) Krông Nô,Khác,6. >30kg,1,,Trần Thị Nhung
+2026-07-24,20591000,(DNO) Krông Nô,Shopee-Bulky,6. >30kg,126,1914.4,Trần Thị Nhung
+2026-07-24,20633000,(BTH) Bắc Bình,Shopee-Bulky,4. 10-20kg,553,8185.3,Nguyễn Ngọc Khánh
+2026-07-24,20633000,(BTH) Bắc Bình,SME,4. 10-20kg,352,5557.5,Nguyễn Ngọc Khánh
+2026-07-24,20633000,(BTH) Bắc Bình,TTS-nhỏ,4. 10-20kg,162,2270.2,Nguyễn Ngọc Khánh
+2026-07-24,20633000,(BTH) Bắc Bình,SME,5. 20-30kg,12,1900.11,Nguyễn Ngọc Khánh
+2026-07-24,20633000,(BTH) Bắc Bình,Shopee-Bulky,5. 20-30kg,29,,Nguyễn Ngọc Khánh
+2026-07-24,20648000,(NTH) Ninh Chử,Shopee-nhỏ,4. 10-20kg,21,,Nguyễn Duy Long
+2026-07-24,20648000,(NTH) Ninh Chử,TTS-nhỏ,4. 10-20kg,230,3299.7,Nguyễn Duy Long
+2026-07-24,20648000,(NTH) Ninh Chử,SME,4. 10-20kg,349,5175.6,Nguyễn Duy Long
+2026-07-24,20648000,(NTH) Ninh Chử,Shopee-Bulky,4. 10-20kg,724,9961.5,Nguyễn Duy Long
+2026-07-24,20648000,(NTH) Ninh Chử,SME,5. 20-30kg,38,,Nguyễn Duy Long
+2026-07-24,20648000,(NTH) Ninh Chử,TTS-nhỏ,5. 20-30kg,6,,Nguyễn Duy Long
+2026-07-24,20648000,(NTH) Ninh Chử,Shopee-Bulky,5. 20-30kg,132,1909.2,Nguyễn Duy Long
+2026-07-24,20648000,(NTH) Ninh Chử,Shopee-Bulky,6. >30kg,72,3113.5,Nguyễn Duy Long
+2026-07-24,20648000,(NTH) Ninh Chử,SME,6. >30kg,36,6267.2,Nguyễn Duy Long
+2026-07-24,20648000,(NTH) Ninh Chử,Khác,6. >30kg,15,,Nguyễn Duy Long
+2026-07-24,20663000,(LDO) Đạ Tẻh,TTS-nhỏ,4. 10-20kg,155,1906.1,Nguyễn Lê Nguyên Vũ
+2026-07-24,20663000,(LDO) Đạ Tẻh,SME,4. 10-20kg,338,5081.8,Nguyễn Lê Nguyên Vũ
+2026-07-24,20663000,(LDO) Đạ Tẻh,Shopee-Bulky,4. 10-20kg,477,7094.4,Nguyễn Lê Nguyên Vũ
+2026-07-24,20663000,(LDO) Đạ Tẻh,SME,5. 20-30kg,113,2895.5,Nguyễn Lê Nguyên Vũ
+2026-07-24,20663000,(LDO) Đạ Tẻh,Shopee-Bulky,5. 20-30kg,107,2749.6,Nguyễn Lê Nguyên Vũ
+2026-07-24,20663000,(LDO) Đạ Tẻh,Khác,5. 20-30kg,19,,Nguyễn Lê Nguyên Vũ
+2026-07-24,20663000,(LDO) Đạ Tẻh,Shopee-Bulky,6. >30kg,201,1925.10,Nguyễn Lê Nguyên Vũ
+2026-07-24,20663000,(LDO) Đạ Tẻh,Khác,6. >30kg,4,,Nguyễn Lê Nguyên Vũ
+2026-07-24,20663000,(LDO) Đạ Tẻh,SME,6. >30kg,99,4794.5,Nguyễn Lê Nguyên Vũ
+2026-07-24,20669000,(LDO) Cát Tiên,Shopee-Bulky,4. 10-20kg,403,1916.5,Nguyễn Lê Nguyên Vũ
+2026-07-24,20669000,(LDO) Cát Tiên,Khác,4. 10-20kg,2,2026.5,Nguyễn Lê Nguyên Vũ
+2026-07-24,20669000,(LDO) Cát Tiên,TTS-nhỏ,4. 10-20kg,140,2023.6,Nguyễn Lê Nguyên Vũ
+2026-07-24,20669000,(LDO) Cát Tiên,SME,4. 10-20kg,111,1619.3,Nguyễn Lê Nguyên Vũ
+2026-07-24,20669000,(LDO) Cát Tiên,Shopee-Bulky,5. 20-30kg,94,2328.9,Nguyễn Lê Nguyên Vũ
+2026-07-24,20669000,(LDO) Cát Tiên,Khác,5. 20-30kg,9,1900.7,Nguyễn Lê Nguyên Vũ
+2026-07-24,20669000,(LDO) Cát Tiên,SME,5. 20-30kg,178,4421.2,Nguyễn Lê Nguyên Vũ
+2026-07-24,20669000,(LDO) Cát Tiên,Khác,6. >30kg,1,2026.1,Nguyễn Lê Nguyên Vũ
+2026-07-24,20669000,(LDO) Cát Tiên,Shopee-Bulky,6. >30kg,101,4360.9,Nguyễn Lê Nguyên Vũ
+2026-07-24,20669000,(LDO) Cát Tiên,SME,6. >30kg,87,4542.5,Nguyễn Lê Nguyên Vũ
+2026-07-24,20670000,(LDO) Đam Rông 3,Khác,4. 10-20kg,4,1900.2,Huỳnh Thị Kim Chi
+2026-07-24,20670000,(LDO) Đam Rông 3,SME,4. 10-20kg,87,1295.8,Huỳnh Thị Kim Chi
+2026-07-24,20670000,(LDO) Đam Rông 3,Shopee-nhỏ,4. 10-20kg,1,2026.5,Huỳnh Thị Kim Chi
+2026-07-24,20670000,(LDO) Đam Rông 3,TTS-nhỏ,4. 10-20kg,89,1335.4,Huỳnh Thị Kim Chi
+2026-07-24,20670000,(LDO) Đam Rông 3,Shopee-Bulky,4. 10-20kg,528,7908.4,Huỳnh Thị Kim Chi
+2026-07-24,20670000,(LDO) Đam Rông 3,Shopee-Bulky,5. 20-30kg,149,3914.9,Huỳnh Thị Kim Chi
+2026-07-24,20670000,(LDO) Đam Rông 3,Khác,5. 20-30kg,24,1901.7,Huỳnh Thị Kim Chi
+2026-07-24,20670000,(LDO) Đam Rông 3,SME,5. 20-30kg,106,2606.2,Huỳnh Thị Kim Chi
+2026-07-24,20670000,(LDO) Đam Rông 3,SME,6. >30kg,121,1948.4,Huỳnh Thị Kim Chi
+2026-07-24,20670000,(LDO) Đam Rông 3,Khác,6. >30kg,17,1239.8,Huỳnh Thị Kim Chi
+2026-07-24,20670000,(LDO) Đam Rông 3,Shopee-Bulky,6. >30kg,131,6402.7,Huỳnh Thị Kim Chi
+2026-07-24,20673000,(DNO) Cư Jút,Shopee-Bulky,4. 10-20kg,459,6314.4,Trần Thị Nhung
+2026-07-24,20673000,(DNO) Cư Jút,Shopee-nhỏ,4. 10-20kg,8,,Trần Thị Nhung
+2026-07-24,20673000,(DNO) Cư Jút,TTS-nhỏ,4. 10-20kg,129,2000.6,Trần Thị Nhung
+2026-07-24,20673000,(DNO) Cư Jút,SME,4. 10-20kg,373,5060.4,Trần Thị Nhung
+2026-07-24,20673000,(DNO) Cư Jút,TTS-nhỏ,5. 20-30kg,18,,Trần Thị Nhung
+2026-07-24,20673000,(DNO) Cư Jút,Shopee-Bulky,5. 20-30kg,272,6334.3,Trần Thị Nhung
+2026-07-24,20673000,(DNO) Cư Jút,Khác,5. 20-30kg,13,,Trần Thị Nhung
+2026-07-24,20673000,(DNO) Cư Jút,SME,5. 20-30kg,54,1444.9,Trần Thị Nhung
+2026-07-24,20673000,(DNO) Cư Jút,Khác,6. >30kg,31,1804.5,Trần Thị Nhung
+2026-07-24,20673000,(DNO) Cư Jút,Shopee-Bulky,6. >30kg,53,2245.8,Trần Thị Nhung
+2026-07-24,20673000,(DNO) Cư Jút,SME,6. >30kg,201,,Trần Thị Nhung
+2026-07-24,20687000,(BTH) Hàm Tân,SME,4. 10-20kg,67,1902.6,Lê Thanh Nhựt
+2026-07-24,20687000,(BTH) Hàm Tân,Shopee-Bulky,4. 10-20kg,625,8665.4,Lê Thanh Nhựt
+2026-07-24,20687000,(BTH) Hàm Tân,Shopee-nhỏ,4. 10-20kg,1,2026.5,Lê Thanh Nhựt
+2026-07-24,20687000,(BTH) Hàm Tân,TTS-nhỏ,4. 10-20kg,247,3346.5,Lê Thanh Nhựt
+2026-07-24,20687000,(BTH) Hàm Tân,Khác,4. 10-20kg,11,1900.6,Lê Thanh Nhựt
+2026-07-24,20687000,(BTH) Hàm Tân,SME,5. 20-30kg,10,1900.9,Lê Thanh Nhựt
+2026-07-24,20687000,(BTH) Hàm Tân,Shopee-Bulky,5. 20-30kg,22,,Lê Thanh Nhựt
+2026-07-24,20687000,(BTH) Hàm Tân,Shopee-Bulky,6. >30kg,5,,Lê Thanh Nhựt
+2026-07-24,20687000,(BTH) Hàm Tân,SME,6. >30kg,31,1929.8,Lê Thanh Nhựt
+2026-07-24,20694000,(KHO) Ninh Hòa 1,SME,4. 10-20kg,151,2002.1,Phạm Bá Thành Công
+2026-07-24,20694000,(KHO) Ninh Hòa 1,TTS-nhỏ,4. 10-20kg,41,,Phạm Bá Thành Công
+2026-07-24,20694000,(KHO) Ninh Hòa 1,Shopee-Bulky,4. 10-20kg,211,3046.6,Phạm Bá Thành Công
+2026-07-24,20694000,(KHO) Ninh Hòa 1,Khác,5. 20-30kg,1,1900.1,Phạm Bá Thành Công
+2026-07-24,20694000,(KHO) Ninh Hòa 1,Shopee-Bulky,5. 20-30kg,22,,Phạm Bá Thành Công
+2026-07-24,20694000,(KHO) Ninh Hòa 1,TTS-nhỏ,5. 20-30kg,1,2026.1,Phạm Bá Thành Công
+2026-07-24,20694000,(KHO) Ninh Hòa 1,Shopee-Bulky,6. >30kg,101,4640.2,Phạm Bá Thành Công
+2026-07-24,20694000,(KHO) Ninh Hòa 1,Khác,6. >30kg,15,1901.8,Phạm Bá Thành Công
+2026-07-24,20694000,(KHO) Ninh Hòa 1,SME,6. >30kg,67,2813.1,Phạm Bá Thành Công
+2026-07-24,20784000,(KHO) Khánh Sơn,SME,4. 10-20kg,97,1581.6,Phan Đình Duy
+2026-07-24,20784000,(KHO) Khánh Sơn,Shopee-Bulky,4. 10-20kg,230,3318.1,Phan Đình Duy
+2026-07-24,20784000,(KHO) Khánh Sơn,TTS-nhỏ,4. 10-20kg,25,,Phan Đình Duy
+2026-07-24,20784000,(KHO) Khánh Sơn,Shopee-Bulky,5. 20-30kg,78,1905.2,Phan Đình Duy
+2026-07-24,20784000,(KHO) Khánh Sơn,SME,5. 20-30kg,54,1903.6,Phan Đình Duy
+2026-07-24,20784000,(KHO) Khánh Sơn,Khác,5. 20-30kg,15,1900.11,Phan Đình Duy
+2026-07-24,20784000,(KHO) Khánh Sơn,Shopee-Bulky,6. >30kg,54,2970.6,Phan Đình Duy
+2026-07-24,20784000,(KHO) Khánh Sơn,Khác,6. >30kg,9,,Phan Đình Duy
+2026-07-24,20784000,(KHO) Khánh Sơn,SME,6. >30kg,21,,Phan Đình Duy
+2026-07-24,20785000,(LDO) B'Lao,TTS-nhỏ,4. 10-20kg,120,1528.5,Hồng Bích Nga
+2026-07-24,20785000,(LDO) B'Lao,Shopee-nhỏ,4. 10-20kg,1,2026.2,Hồng Bích Nga
+2026-07-24,20785000,(LDO) B'Lao,SME,4. 10-20kg,491,6239.4,Hồng Bích Nga
+2026-07-24,20785000,(LDO) B'Lao,Shopee-Bulky,4. 10-20kg,695,8455.6,Hồng Bích Nga
+2026-07-24,20785000,(LDO) B'Lao,Shopee-Bulky,5. 20-30kg,28,,Hồng Bích Nga
+2026-07-24,20785000,(LDO) B'Lao,SME,5. 20-30kg,4,1900.4,Hồng Bích Nga
+2026-07-24,20785000,(LDO) B'Lao,Shopee-Bulky,6. >30kg,25,,Hồng Bích Nga
+2026-07-24,20849000,(LDO) Ninh Gia,Shopee-Bulky,4. 10-20kg,386,5645.7,Lê Văn Trường
+2026-07-24,20849000,(LDO) Ninh Gia,TTS-nhỏ,4. 10-20kg,88,1375.5,Lê Văn Trường
+2026-07-24,20849000,(LDO) Ninh Gia,Shopee-nhỏ,4. 10-20kg,1,2026.2,Lê Văn Trường
+2026-07-24,20849000,(LDO) Ninh Gia,SME,4. 10-20kg,162,2292.9,Lê Văn Trường
+2026-07-24,20849000,(LDO) Ninh Gia,Shopee-Bulky,5. 20-30kg,228,5823.7,Lê Văn Trường
+2026-07-24,20849000,(LDO) Ninh Gia,Khác,5. 20-30kg,16,,Lê Văn Trường
+2026-07-24,20849000,(LDO) Ninh Gia,SME,5. 20-30kg,66,1903.12,Lê Văn Trường
+2026-07-24,20849000,(LDO) Ninh Gia,SME,6. >30kg,76,7208.1,Lê Văn Trường
+2026-07-24,20849000,(LDO) Ninh Gia,Khác,6. >30kg,2,1900.8,Lê Văn Trường
+2026-07-24,20849000,(LDO) Ninh Gia,Shopee-Bulky,6. >30kg,80,3777.4,Lê Văn Trường
+2026-07-24,20942000,(LDO) Di Linh,Shopee-Bulky,4. 10-20kg,719,9867.9,Trầm Hữu Tiến
+2026-07-24,20942000,(LDO) Di Linh,TTS-nhỏ,4. 10-20kg,216,2904.6,Trầm Hữu Tiến
+2026-07-24,20942000,(LDO) Di Linh,Khác,4. 10-20kg,31,,Trầm Hữu Tiến
+2026-07-24,20942000,(LDO) Di Linh,SME,4. 10-20kg,331,4037.9,Trầm Hữu Tiến
+2026-07-24,20942000,(LDO) Di Linh,Shopee-Bulky,5. 20-30kg,269,6917.9,Trầm Hữu Tiến
+2026-07-24,20942000,(LDO) Di Linh,Khác,5. 20-30kg,35,1902.5,Trầm Hữu Tiến
+2026-07-24,20942000,(LDO) Di Linh,SME,5. 20-30kg,38,,Trầm Hữu Tiến
+2026-07-24,20942000,(LDO) Di Linh,SME,6. >30kg,130,8131.4,Trầm Hữu Tiến
+2026-07-24,20942000,(LDO) Di Linh,Shopee-Bulky,6. >30kg,162,6528.6,Trầm Hữu Tiến
+2026-07-24,20942000,(LDO) Di Linh,Khác,6. >30kg,14,1901.8,Trầm Hữu Tiến
+2026-07-24,21046000,(KHO) Vạn Ninh,SME,4. 10-20kg,229,3056.2,Phạm Bá Thành Công
+2026-07-24,21046000,(KHO) Vạn Ninh,Shopee-Bulky,4. 10-20kg,391,5866.8,Phạm Bá Thành Công
+2026-07-24,21046000,(KHO) Vạn Ninh,Khác,4. 10-20kg,1,2026.5,Phạm Bá Thành Công
+2026-07-24,21046000,(KHO) Vạn Ninh,Shopee-nhỏ,4. 10-20kg,1,2026.4,Phạm Bá Thành Công
+2026-07-24,21046000,(KHO) Vạn Ninh,TTS-nhỏ,4. 10-20kg,75,1140.1,Phạm Bá Thành Công
+2026-07-24,21046000,(KHO) Vạn Ninh,SME,5. 20-30kg,45,,Phạm Bá Thành Công
+2026-07-24,21046000,(KHO) Vạn Ninh,Shopee-Bulky,5. 20-30kg,273,6661.1,Phạm Bá Thành Công
+2026-07-24,21046000,(KHO) Vạn Ninh,Khác,5. 20-30kg,11,,Phạm Bá Thành Công
+2026-07-24,21046000,(KHO) Vạn Ninh,Shopee-Bulky,6. >30kg,197,9202.7,Phạm Bá Thành Công
+2026-07-24,21046000,(KHO) Vạn Ninh,SME,6. >30kg,91,5319.6,Phạm Bá Thành Công
+2026-07-24,21065000,(BTH) Hàm Thuận Nam,SME,4. 10-20kg,132,2105.4,Lê Thanh Nhựt
+2026-07-24,21065000,(BTH) Hàm Thuận Nam,TTS-nhỏ,4. 10-20kg,107,1377.1,Lê Thanh Nhựt
+2026-07-24,21065000,(BTH) Hàm Thuận Nam,Shopee-Bulky,4. 10-20kg,295,4636.4,Lê Thanh Nhựt
+2026-07-24,21065000,(BTH) Hàm Thuận Nam,Shopee-nhỏ,4. 10-20kg,25,,Lê Thanh Nhựt
+2026-07-24,21065000,(BTH) Hàm Thuận Nam,Khác,5. 20-30kg,22,1901.7,Lê Thanh Nhựt
+2026-07-24,21065000,(BTH) Hàm Thuận Nam,Shopee-Bulky,5. 20-30kg,104,2594.2,Lê Thanh Nhựt
+2026-07-24,21065000,(BTH) Hàm Thuận Nam,SME,5. 20-30kg,38,1902.11,Lê Thanh Nhựt
+2026-07-24,21065000,(BTH) Hàm Thuận Nam,SME,6. >30kg,53,1910.5,Lê Thanh Nhựt
+2026-07-24,21065000,(BTH) Hàm Thuận Nam,Shopee-Bulky,6. >30kg,172,8788.9,Lê Thanh Nhựt
+2026-07-24,21067000,(BTH) Tân Hải,Khác,4. 10-20kg,16,,Nguyễn Ngọc Khánh
+2026-07-24,21067000,(BTH) Tân Hải,Shopee-nhỏ,4. 10-20kg,1,2026.1,Nguyễn Ngọc Khánh
+2026-07-24,21067000,(BTH) Tân Hải,TTS-nhỏ,4. 10-20kg,49,1901.10,Nguyễn Ngọc Khánh
+2026-07-24,21067000,(BTH) Tân Hải,SME,4. 10-20kg,96,1454.3,Nguyễn Ngọc Khánh
+2026-07-24,21067000,(BTH) Tân Hải,Shopee-Bulky,4. 10-20kg,397,5180.4,Nguyễn Ngọc Khánh
+2026-07-24,21067000,(BTH) Tân Hải,Shopee-Bulky,5. 20-30kg,78,1905.4,Nguyễn Ngọc Khánh
+2026-07-24,21067000,(BTH) Tân Hải,SME,5. 20-30kg,14,1900.11,Nguyễn Ngọc Khánh
+2026-07-24,21067000,(BTH) Tân Hải,Shopee-Bulky,6. >30kg,88,5862.1,Nguyễn Ngọc Khánh
+2026-07-24,21067000,(BTH) Tân Hải,SME,6. >30kg,43,2173.4,Nguyễn Ngọc Khánh
+2026-07-24,21067000,(BTH) Tân Hải,TTS-nhỏ,6. >30kg,9,,Nguyễn Ngọc Khánh
+2026-07-24,21126000,(LDO) Xuân Hương - Đà Lạt,TTS-nhỏ,4. 10-20kg,160,1998.8,Lê Văn Trường
+2026-07-24,21126000,(LDO) Xuân Hương - Đà Lạt,Shopee-Bulky,4. 10-20kg,1158,,Lê Văn Trường
+2026-07-24,21126000,(LDO) Xuân Hương - Đà Lạt,SME,4. 10-20kg,248,3391.5,Lê Văn Trường
+2026-07-24,21126000,(LDO) Xuân Hương - Đà Lạt,Khác,4. 10-20kg,47,,Lê Văn Trường
+2026-07-24,21126000,(LDO) Xuân Hương - Đà Lạt,Shopee-Bulky,5. 20-30kg,30,1902.1,Lê Văn Trường
+2026-07-24,21126000,(LDO) Xuân Hương - Đà Lạt,Khác,5. 20-30kg,10,,Lê Văn Trường
+2026-07-24,21126000,(LDO) Xuân Hương - Đà Lạt,SME,5. 20-30kg,52,1167.9,Lê Văn Trường
+2026-07-24,21126000,(LDO) Xuân Hương - Đà Lạt,SME,6. >30kg,34,1365.4,Lê Văn Trường
+2026-07-24,21126000,(LDO) Xuân Hương - Đà Lạt,Shopee-Bulky,6. >30kg,6,,Lê Văn Trường
+2026-07-24,21150000,(DNO) Quảng Sơn,TTS-nhỏ,4. 10-20kg,248,3469.6,Trần Thị Nhung
+2026-07-24,21150000,(DNO) Quảng Sơn,Shopee-Bulky,4. 10-20kg,457,6403.1,Trần Thị Nhung
+2026-07-24,21150000,(DNO) Quảng Sơn,SME,4. 10-20kg,223,3396.8,Trần Thị Nhung
+2026-07-24,21150000,(DNO) Quảng Sơn,TTS-nhỏ,5. 20-30kg,19,,Trần Thị Nhung
+2026-07-24,21150000,(DNO) Quảng Sơn,SME,5. 20-30kg,89,1905.10,Trần Thị Nhung
+2026-07-24,21150000,(DNO) Quảng Sơn,Khác,5. 20-30kg,1,1900.1,Trần Thị Nhung
+2026-07-24,21150000,(DNO) Quảng Sơn,Shopee-Bulky,5. 20-30kg,197,4824.7,Trần Thị Nhung
+2026-07-24,21150000,(DNO) Quảng Sơn,SME,6. >30kg,91,9123.2,Trần Thị Nhung
+2026-07-24,21150000,(DNO) Quảng Sơn,Shopee-Bulky,6. >30kg,147,7476.8,Trần Thị Nhung
+2026-07-24,21150000,(DNO) Quảng Sơn,Khác,6. >30kg,24,1396.5,Trần Thị Nhung
+2026-07-24,21290000,(BTH) Tuyên Quang,Shopee-Bulky,4. 10-20kg,725,,Lê Thanh Nhựt
+2026-07-24,21290000,(BTH) Tuyên Quang,TTS-nhỏ,4. 10-20kg,84,1152.9,Lê Thanh Nhựt
+2026-07-24,21290000,(BTH) Tuyên Quang,SME,4. 10-20kg,112,1559.8,Lê Thanh Nhựt
+2026-07-24,21290000,(BTH) Tuyên Quang,SME,5. 20-30kg,95,2360.8,Lê Thanh Nhựt
+2026-07-24,21290000,(BTH) Tuyên Quang,Shopee-Bulky,5. 20-30kg,190,4835.6,Lê Thanh Nhựt
+2026-07-24,21290000,(BTH) Tuyên Quang,SME,6. >30kg,120,1921.9,Lê Thanh Nhựt
+2026-07-24,21290000,(BTH) Tuyên Quang,Shopee-Bulky,6. >30kg,258,,Lê Thanh Nhựt
+2026-07-24,21290000,(BTH) Tuyên Quang,Khác,6. >30kg,52,2329.8,Lê Thanh Nhựt
+2026-07-24,21294000,(LDO) Đinh Văn Lâm Hà,Shopee-Bulky,4. 10-20kg,527,7531.1,Huỳnh Thị Kim Chi
+2026-07-24,21294000,(LDO) Đinh Văn Lâm Hà,Khác,4. 10-20kg,13,,Huỳnh Thị Kim Chi
+2026-07-24,21294000,(LDO) Đinh Văn Lâm Hà,SME,4. 10-20kg,412,5938.9,Huỳnh Thị Kim Chi
+2026-07-24,21294000,(LDO) Đinh Văn Lâm Hà,TTS-nhỏ,4. 10-20kg,53,,Huỳnh Thị Kim Chi
+2026-07-24,21294000,(LDO) Đinh Văn Lâm Hà,Shopee-Bulky,5. 20-30kg,104,2615.5,Huỳnh Thị Kim Chi
+2026-07-24,21294000,(LDO) Đinh Văn Lâm Hà,SME,5. 20-30kg,52,1158.7,Huỳnh Thị Kim Chi
+2026-07-24,21294000,(LDO) Đinh Văn Lâm Hà,Shopee-Bulky,6. >30kg,60,2504.6,Huỳnh Thị Kim Chi
+2026-07-24,21294000,(LDO) Đinh Văn Lâm Hà,SME,6. >30kg,99,4965.5,Huỳnh Thị Kim Chi
+2026-07-24,21298000,(BTH) Liên Hương,TTS-nhỏ,4. 10-20kg,126,1631.9,Nguyễn Duy Long
+2026-07-24,21298000,(BTH) Liên Hương,SME,4. 10-20kg,258,1910.1,Nguyễn Duy Long
+2026-07-24,21298000,(BTH) Liên Hương,Khác,4. 10-20kg,7,,Nguyễn Duy Long
+2026-07-24,21298000,(BTH) Liên Hương,Shopee-Bulky,4. 10-20kg,866,,Nguyễn Duy Long
+2026-07-24,21320000,(BTH) Phú Thủy,Shopee-nhỏ,4. 10-20kg,19,,Nguyễn Ngọc Khánh
+2026-07-24,21320000,(BTH) Phú Thủy,SME,4. 10-20kg,435,1917.1,Nguyễn Ngọc Khánh
+2026-07-24,21320000,(BTH) Phú Thủy,TTS-nhỏ,4. 10-20kg,45,,Nguyễn Ngọc Khánh
+2026-07-24,21320000,(BTH) Phú Thủy,Shopee-Bulky,4. 10-20kg,1498,,Nguyễn Ngọc Khánh
+2026-07-24,21320000,(BTH) Phú Thủy,SME,5. 20-30kg,17,,Nguyễn Ngọc Khánh
+2026-07-24,21320000,(BTH) Phú Thủy,Shopee-Bulky,5. 20-30kg,247,6159.1,Nguyễn Ngọc Khánh
+2026-07-24,21320000,(BTH) Phú Thủy,Shopee-Bulky,6. >30kg,396,,Nguyễn Ngọc Khánh
+2026-07-24,21320000,(BTH) Phú Thủy,SME,6. >30kg,90,,Nguyễn Ngọc Khánh
+2026-07-24,21331000,(KHO) Cam Lâm 1,TTS-nhỏ,4. 10-20kg,94,1413.1,Nguyễn Hoàng Phi
+2026-07-24,21331000,(KHO) Cam Lâm 1,SME,4. 10-20kg,166,2414.3,Nguyễn Hoàng Phi
+2026-07-24,21331000,(KHO) Cam Lâm 1,Shopee-Bulky,4. 10-20kg,385,5593.9,Nguyễn Hoàng Phi
+2026-07-24,21331000,(KHO) Cam Lâm 1,Khác,5. 20-30kg,16,1901.1,Nguyễn Hoàng Phi
+2026-07-24,21331000,(KHO) Cam Lâm 1,Shopee-Bulky,5. 20-30kg,43,1045.2,Nguyễn Hoàng Phi
+2026-07-24,21331000,(KHO) Cam Lâm 1,SME,5. 20-30kg,44,1065.7,Nguyễn Hoàng Phi
+2026-07-24,21331000,(KHO) Cam Lâm 1,SME,6. >30kg,158,,Nguyễn Hoàng Phi
+2026-07-24,21331000,(KHO) Cam Lâm 1,Shopee-Bulky,6. >30kg,114,5004.4,Nguyễn Hoàng Phi
+2026-07-24,21331000,(KHO) Cam Lâm 1,Khác,6. >30kg,11,,Nguyễn Hoàng Phi
+2026-07-24,21364000,(DNO) Quảng Khê,TTS-nhỏ,4. 10-20kg,100,1480.1,Trần Thị Nhung
+2026-07-24,21364000,(DNO) Quảng Khê,Shopee-Bulky,4. 10-20kg,301,4619.9,Trần Thị Nhung
+2026-07-24,21364000,(DNO) Quảng Khê,SME,4. 10-20kg,116,1775.4,Trần Thị Nhung
+2026-07-24,21364000,(DNO) Quảng Khê,Khác,4. 10-20kg,12,1900.6,Trần Thị Nhung
+2026-07-24,21364000,(DNO) Quảng Khê,Khác,5. 20-30kg,10,,Trần Thị Nhung
+2026-07-24,21364000,(DNO) Quảng Khê,SME,5. 20-30kg,19,1901.4,Trần Thị Nhung
+2026-07-24,21364000,(DNO) Quảng Khê,Shopee-Bulky,5. 20-30kg,48,1120.6,Trần Thị Nhung
+2026-07-24,21364000,(DNO) Quảng Khê,SME,6. >30kg,9,1901.5,Trần Thị Nhung
+2026-07-24,21364000,(DNO) Quảng Khê,Khác,6. >30kg,10,1901.7,Trần Thị Nhung
+2026-07-24,21364000,(DNO) Quảng Khê,Shopee-Bulky,6. >30kg,111,5718.6,Trần Thị Nhung
+2026-07-24,21377000,(LDO) Đơn Dương,SME,4. 10-20kg,483,7036.9,Lê Minh Đại
+2026-07-24,21377000,(LDO) Đơn Dương,Shopee-Bulky,4. 10-20kg,946,1937.3,Lê Minh Đại
+2026-07-24,21377000,(LDO) Đơn Dương,TTS-nhỏ,4. 10-20kg,187,2626.9,Lê Minh Đại
+2026-07-24,21377000,(LDO) Đơn Dương,SME,5. 20-30kg,64,1596.5,Lê Minh Đại
+2026-07-24,21377000,(LDO) Đơn Dương,Khác,5. 20-30kg,41,1902.12,Lê Minh Đại
+2026-07-24,21377000,(LDO) Đơn Dương,Shopee-Bulky,5. 20-30kg,441,,Lê Minh Đại
+2026-07-24,21377000,(LDO) Đơn Dương,Khác,6. >30kg,62,2535.7,Lê Minh Đại
+2026-07-24,21377000,(LDO) Đơn Dương,Shopee-Bulky,6. >30kg,447,,Lê Minh Đại
+2026-07-24,21377000,(LDO) Đơn Dương,SME,6. >30kg,246,,Lê Minh Đại
+2026-07-24,21396000,(BTH) Hàm Thắng,Shopee-nhỏ,4. 10-20kg,1,2026.1,Nguyễn Ngọc Khánh
+2026-07-24,21396000,(BTH) Hàm Thắng,TTS-nhỏ,4. 10-20kg,90,1141.3,Nguyễn Ngọc Khánh
+2026-07-24,21396000,(BTH) Hàm Thắng,Shopee-Bulky,4. 10-20kg,722,9921.4,Nguyễn Ngọc Khánh
+2026-07-24,21396000,(BTH) Hàm Thắng,SME,4. 10-20kg,346,5085.5,Nguyễn Ngọc Khánh
+2026-07-24,21396000,(BTH) Hàm Thắng,SME,5. 20-30kg,43,1165.1,Nguyễn Ngọc Khánh
+2026-07-24,21396000,(BTH) Hàm Thắng,Shopee-Bulky,5. 20-30kg,46,1903.4,Nguyễn Ngọc Khánh
+2026-07-24,21396000,(BTH) Hàm Thắng,Khác,5. 20-30kg,1,2026.5,Nguyễn Ngọc Khánh
+2026-07-24,21396000,(BTH) Hàm Thắng,Shopee-Bulky,6. >30kg,36,1281.7,Nguyễn Ngọc Khánh
+2026-07-24,21396000,(BTH) Hàm Thắng,SME,6. >30kg,50,5009.8,Nguyễn Ngọc Khánh
+2026-07-24,21403000,(BTH) Hàm Liêm,TTS-nhỏ,4. 10-20kg,135,1802.5,Nguyễn Ngọc Khánh
+2026-07-24,21403000,(BTH) Hàm Liêm,SME,4. 10-20kg,256,3872.7,Nguyễn Ngọc Khánh
+2026-07-24,21403000,(BTH) Hàm Liêm,Shopee-nhỏ,4. 10-20kg,7,,Nguyễn Ngọc Khánh
+2026-07-24,21403000,(BTH) Hàm Liêm,Shopee-Bulky,4. 10-20kg,544,8161.8,Nguyễn Ngọc Khánh
+2026-07-24,21403000,(BTH) Hàm Liêm,Shopee-Bulky,5. 20-30kg,199,5107.7,Nguyễn Ngọc Khánh
+2026-07-24,21403000,(BTH) Hàm Liêm,Khác,5. 20-30kg,38,1902.7,Nguyễn Ngọc Khánh
+2026-07-24,21403000,(BTH) Hàm Liêm,SME,5. 20-30kg,64,1904.4,Nguyễn Ngọc Khánh
+2026-07-24,21403000,(BTH) Hàm Liêm,Shopee-Bulky,6. >30kg,195,,Nguyễn Ngọc Khánh
+2026-07-24,21403000,(BTH) Hàm Liêm,SME,6. >30kg,62,4922.6,Nguyễn Ngọc Khánh
+2026-07-24,21403000,(BTH) Hàm Liêm,Khác,6. >30kg,16,,Nguyễn Ngọc Khánh
+2026-07-24,21456000,(BTH) Đức Linh,Khác,4. 10-20kg,8,,Nguyễn Ngọc Khánh
+2026-07-24,21456000,(BTH) Đức Linh,Shopee-nhỏ,4. 10-20kg,10,1900.4,Nguyễn Ngọc Khánh
+2026-07-24,21456000,(BTH) Đức Linh,Shopee-Bulky,4. 10-20kg,1113,,Nguyễn Ngọc Khánh
+2026-07-24,21456000,(BTH) Đức Linh,SME,4. 10-20kg,698,,Nguyễn Ngọc Khánh
+2026-07-24,21456000,(BTH) Đức Linh,TTS-nhỏ,4. 10-20kg,264,3906.3,Nguyễn Ngọc Khánh
+2026-07-24,21456000,(BTH) Đức Linh,SME,5. 20-30kg,192,4630.6,Nguyễn Ngọc Khánh
+2026-07-24,21456000,(BTH) Đức Linh,Shopee-Bulky,5. 20-30kg,497,,Nguyễn Ngọc Khánh
+2026-07-24,21456000,(BTH) Đức Linh,Khác,5. 20-30kg,1,2026.1,Nguyễn Ngọc Khánh
+2026-07-24,21456000,(BTH) Đức Linh,Shopee-Bulky,6. >30kg,510,,Nguyễn Ngọc Khánh
+2026-07-24,21456000,(BTH) Đức Linh,Khác,6. >30kg,53,2482.4,Nguyễn Ngọc Khánh
+2026-07-24,21456000,(BTH) Đức Linh,SME,6. >30kg,212,,Nguyễn Ngọc Khánh
+2026-07-24,21458000,(LDO) Nam Ban Lâm Hà,SME,4. 10-20kg,134,2012.8,Huỳnh Thị Kim Chi
+2026-07-24,21458000,(LDO) Nam Ban Lâm Hà,TTS-nhỏ,4. 10-20kg,113,1483.9,Huỳnh Thị Kim Chi
+2026-07-24,21458000,(LDO) Nam Ban Lâm Hà,Shopee-nhỏ,4. 10-20kg,1,2026.5,Huỳnh Thị Kim Chi
+2026-07-24,21458000,(LDO) Nam Ban Lâm Hà,Shopee-Bulky,4. 10-20kg,407,1916.1,Huỳnh Thị Kim Chi
+2026-07-24,21458000,(LDO) Nam Ban Lâm Hà,SME,5. 20-30kg,1,1900.1,Huỳnh Thị Kim Chi
+2026-07-24,21458000,(LDO) Nam Ban Lâm Hà,Shopee-Bulky,5. 20-30kg,19,,Huỳnh Thị Kim Chi
+2026-07-24,21458000,(LDO) Nam Ban Lâm Hà,SME,6. >30kg,36,2511.3,Huỳnh Thị Kim Chi
+2026-07-24,21468000,(LDO) 3 Bảo Lộc,SME,4. 10-20kg,231,1908.6,Nguyễn Lê Nguyên Vũ
+2026-07-24,21468000,(LDO) 3 Bảo Lộc,TTS-nhỏ,4. 10-20kg,89,1903.2,Nguyễn Lê Nguyên Vũ
+2026-07-24,21468000,(LDO) 3 Bảo Lộc,Shopee-Bulky,4. 10-20kg,456,5509.2,Nguyễn Lê Nguyên Vũ
+2026-07-24,21468000,(LDO) 3 Bảo Lộc,Shopee-nhỏ,4. 10-20kg,2,2026.5,Nguyễn Lê Nguyên Vũ
+2026-07-24,21468000,(LDO) 3 Bảo Lộc,SME,5. 20-30kg,6,,Nguyễn Lê Nguyên Vũ
+2026-07-24,21468000,(LDO) 3 Bảo Lộc,Shopee-Bulky,5. 20-30kg,29,,Nguyễn Lê Nguyên Vũ
+2026-07-24,21468000,(LDO) 3 Bảo Lộc,Shopee-Bulky,6. >30kg,2,,Nguyễn Lê Nguyên Vũ
+2026-07-24,21468000,(LDO) 3 Bảo Lộc,SME,6. >30kg,58,2395.6,Nguyễn Lê Nguyên Vũ
+2026-07-24,21477000,(DNO) Đức An,TTS-nhỏ,4. 10-20kg,128,1747.5,Trần Thị Nhung
+2026-07-24,21477000,(DNO) Đức An,Shopee-Bulky,4. 10-20kg,271,3826.5,Trần Thị Nhung
+2026-07-24,21477000,(DNO) Đức An,Khác,4. 10-20kg,6,1900.3,Trần Thị Nhung
+2026-07-24,21477000,(DNO) Đức An,SME,4. 10-20kg,272,3778.4,Trần Thị Nhung
+2026-07-24,21477000,(DNO) Đức An,Shopee-nhỏ,4. 10-20kg,1,2026.6,Trần Thị Nhung
+2026-07-24,21477000,(DNO) Đức An,Khác,5. 20-30kg,48,1145.8,Trần Thị Nhung
+2026-07-24,21477000,(DNO) Đức An,SME,5. 20-30kg,54,1312.2,Trần Thị Nhung
+2026-07-24,21477000,(DNO) Đức An,Shopee-Bulky,5. 20-30kg,147,3497.7,Trần Thị Nhung
+2026-07-24,21477000,(DNO) Đức An,Khác,6. >30kg,20,1425.5,Trần Thị Nhung
+2026-07-24,21477000,(DNO) Đức An,Shopee-Bulky,6. >30kg,114,5054.3,Trần Thị Nhung
+2026-07-24,21477000,(DNO) Đức An,SME,6. >30kg,62,4007.5,Trần Thị Nhung
+2026-07-24,21477000,(DNO) Đức An,TTS-nhỏ,6. >30kg,15,,Trần Thị Nhung
+2026-07-24,21479000,(KHO) Bắc Cam Ranh,TTS-nhỏ,4. 10-20kg,129,1751.9,Phạm Bá Thành Công
+2026-07-24,21479000,(KHO) Bắc Cam Ranh,SME,4. 10-20kg,66,,Phạm Bá Thành Công
+2026-07-24,21479000,(KHO) Bắc Cam Ranh,Shopee-Bulky,4. 10-20kg,307,3854.6,Phạm Bá Thành Công
+2026-07-24,21479000,(KHO) Bắc Cam Ranh,Shopee-nhỏ,4. 10-20kg,25,1900.9,Phạm Bá Thành Công
+2026-07-24,21479000,(KHO) Bắc Cam Ranh,Shopee-Bulky,5. 20-30kg,41,1000.3,Phạm Bá Thành Công
+2026-07-24,21479000,(KHO) Bắc Cam Ranh,SME,5. 20-30kg,15,1900.11,Phạm Bá Thành Công
+2026-07-24,21479000,(KHO) Bắc Cam Ranh,SME,6. >30kg,14,,Phạm Bá Thành Công
+2026-07-24,21516000,(LDO) Đức Trọng 2,Shopee-Bulky,4. 10-20kg,413,5035.7,Trầm Hữu Tiến
+2026-07-24,21516000,(LDO) Đức Trọng 2,SME,4. 10-20kg,182,2449.3,Trầm Hữu Tiến
+2026-07-24,21516000,(LDO) Đức Trọng 2,TTS-nhỏ,4. 10-20kg,75,,Trầm Hữu Tiến
+2026-07-24,21516000,(LDO) Đức Trọng 2,SME,5. 20-30kg,26,1901.8,Trầm Hữu Tiến
+2026-07-24,21516000,(LDO) Đức Trọng 2,SME,6. >30kg,4,,Trầm Hữu Tiến
+2026-07-24,21537000,(LDO) Lâm Viên - Đà Lạt 2,Khác,4. 10-20kg,4,,Lê Văn Trường
+2026-07-24,21537000,(LDO) Lâm Viên - Đà Lạt 2,Shopee-Bulky,4. 10-20kg,513,6096.9,Lê Văn Trường
+2026-07-24,21537000,(LDO) Lâm Viên - Đà Lạt 2,SME,4. 10-20kg,126,1625.8,Lê Văn Trường
+2026-07-24,21537000,(LDO) Lâm Viên - Đà Lạt 2,TTS-nhỏ,4. 10-20kg,96,1286.4,Lê Văn Trường
+2026-07-24,21537000,(LDO) Lâm Viên - Đà Lạt 2,SME,5. 20-30kg,23,,Lê Văn Trường
+2026-07-24,21537000,(LDO) Lâm Viên - Đà Lạt 2,SME,6. >30kg,20,,Lê Văn Trường
+2026-07-24,21569000,(KHO) Đông Ninh Hòa,SME,4. 10-20kg,154,2382.1,Phạm Bá Thành Công
+2026-07-24,21569000,(KHO) Đông Ninh Hòa,Khác,4. 10-20kg,6,1900.4,Phạm Bá Thành Công
+2026-07-24,21569000,(KHO) Đông Ninh Hòa,TTS-nhỏ,4. 10-20kg,249,3508.3,Phạm Bá Thành Công
+2026-07-24,21569000,(KHO) Đông Ninh Hòa,Shopee-Bulky,4. 10-20kg,480,6789.9,Phạm Bá Thành Công
+2026-07-24,21569000,(KHO) Đông Ninh Hòa,SME,5. 20-30kg,41,1902.10,Phạm Bá Thành Công
+2026-07-24,21569000,(KHO) Đông Ninh Hòa,Shopee-Bulky,5. 20-30kg,239,5986.3,Phạm Bá Thành Công
+2026-07-24,21569000,(KHO) Đông Ninh Hòa,Khác,6. >30kg,18,1902.1,Phạm Bá Thành Công
+2026-07-24,21569000,(KHO) Đông Ninh Hòa,Shopee-Bulky,6. >30kg,106,5398.4,Phạm Bá Thành Công
+2026-07-24,21569000,(KHO) Đông Ninh Hòa,SME,6. >30kg,284,,Phạm Bá Thành Công
+2026-07-24,21594000,(BTH) Phước Hội,Shopee-Bulky,4. 10-20kg,666,1925.2,Nguyễn Ngọc Khánh
+2026-07-24,21594000,(BTH) Phước Hội,Shopee-nhỏ,4. 10-20kg,12,,Nguyễn Ngọc Khánh
+2026-07-24,21594000,(BTH) Phước Hội,TTS-nhỏ,4. 10-20kg,136,1781.9,Nguyễn Ngọc Khánh
+2026-07-24,21594000,(BTH) Phước Hội,SME,4. 10-20kg,389,5138.9,Nguyễn Ngọc Khánh
+2026-07-24,21594000,(BTH) Phước Hội,Shopee-Bulky,5. 20-30kg,114,2930.3,Nguyễn Ngọc Khánh
+2026-07-24,21594000,(BTH) Phước Hội,SME,5. 20-30kg,32,,Nguyễn Ngọc Khánh
+2026-07-24,21594000,(BTH) Phước Hội,Khác,5. 20-30kg,28,1902.1,Nguyễn Ngọc Khánh
+2026-07-24,21594000,(BTH) Phước Hội,SME,6. >30kg,21,1904.1,Nguyễn Ngọc Khánh
+2026-07-24,21594000,(BTH) Phước Hội,Shopee-Bulky,6. >30kg,38,1930.5,Nguyễn Ngọc Khánh
+2026-07-24,21687000,(LDO) Lang Biang - Đà Lạt 2,Shopee-nhỏ,4. 10-20kg,18,1900.7,Lê Văn Trường
+2026-07-24,21687000,(LDO) Lang Biang - Đà Lạt 2,SME,4. 10-20kg,341,4406.5,Lê Văn Trường
+2026-07-24,21687000,(LDO) Lang Biang - Đà Lạt 2,Khác,4. 10-20kg,1,2026.1,Lê Văn Trường
+2026-07-24,21687000,(LDO) Lang Biang - Đà Lạt 2,Shopee-Bulky,4. 10-20kg,1235,,Lê Văn Trường
+2026-07-24,21687000,(LDO) Lang Biang - Đà Lạt 2,TTS-nhỏ,4. 10-20kg,135,1708.8,Lê Văn Trường
+2026-07-24,21687000,(LDO) Lang Biang - Đà Lạt 2,Shopee-Bulky,5. 20-30kg,23,,Lê Văn Trường
+2026-07-24,21687000,(LDO) Lang Biang - Đà Lạt 2,SME,5. 20-30kg,13,,Lê Văn Trường
+2026-07-24,21687000,(LDO) Lang Biang - Đà Lạt 2,Shopee-Bulky,6. >30kg,57,3264.5,Lê Văn Trường
+2026-07-24,21687000,(LDO) Lang Biang - Đà Lạt 2,Khác,6. >30kg,1,,Lê Văn Trường
+2026-07-24,21688000,(LDO) 1 Bảo Lộc,TTS-nhỏ,4. 10-20kg,169,2090.1,Hồng Bích Nga
+2026-07-24,21688000,(LDO) 1 Bảo Lộc,SME,4. 10-20kg,224,3076.3,Hồng Bích Nga
+2026-07-24,21688000,(LDO) 1 Bảo Lộc,Khác,4. 10-20kg,5,1900.3,Hồng Bích Nga
+2026-07-24,21688000,(LDO) 1 Bảo Lộc,Shopee-Bulky,4. 10-20kg,468,1915.10,Hồng Bích Nga
+2026-07-24,21688000,(LDO) 1 Bảo Lộc,SME,5. 20-30kg,7,,Hồng Bích Nga
+2026-07-24,21722000,(KHO) Tu Bông,TTS-nhỏ,4. 10-20kg,151,1905.12,Phạm Bá Thành Công
+2026-07-24,21722000,(KHO) Tu Bông,SME,4. 10-20kg,178,2572.3,Phạm Bá Thành Công
+2026-07-24,21722000,(KHO) Tu Bông,Shopee-Bulky,4. 10-20kg,374,5700.5,Phạm Bá Thành Công
+2026-07-24,21722000,(KHO) Tu Bông,SME,5. 20-30kg,25,1901.10,Phạm Bá Thành Công
+2026-07-24,21722000,(KHO) Tu Bông,Shopee-Bulky,5. 20-30kg,129,3091.8,Phạm Bá Thành Công
+2026-07-24,21722000,(KHO) Tu Bông,Shopee-Bulky,6. >30kg,151,9757.1,Phạm Bá Thành Công
+2026-07-24,21722000,(KHO) Tu Bông,Khác,6. >30kg,16,1902.2,Phạm Bá Thành Công
+2026-07-24,21722000,(KHO) Tu Bông,SME,6. >30kg,132,9323.8,Phạm Bá Thành Công
+2026-07-24,22048000,(DNO) Đông Gia Nghĩa,Shopee-Bulky,4. 10-20kg,266,3391.8,Trần Văn Phước
+2026-07-24,22048000,(DNO) Đông Gia Nghĩa,Shopee-nhỏ,4. 10-20kg,4,1900.2,Trần Văn Phước
+2026-07-24,22048000,(DNO) Đông Gia Nghĩa,SME,4. 10-20kg,106,1903.8,Trần Văn Phước
+2026-07-24,22048000,(DNO) Đông Gia Nghĩa,Khác,4. 10-20kg,11,,Trần Văn Phước
+2026-07-24,22048000,(DNO) Đông Gia Nghĩa,TTS-nhỏ,4. 10-20kg,41,,Trần Văn Phước
+2026-07-24,22048000,(DNO) Đông Gia Nghĩa,Shopee-Bulky,5. 20-30kg,30,,Trần Văn Phước
+2026-07-24,22048000,(DNO) Đông Gia Nghĩa,SME,5. 20-30kg,26,,Trần Văn Phước
+2026-07-24,22048000,(DNO) Đông Gia Nghĩa,Khác,5. 20-30kg,8,1900.7,Trần Văn Phước
+2026-07-24,22048000,(DNO) Đông Gia Nghĩa,Shopee-Bulky,6. >30kg,16,1242.2,Trần Văn Phước
+2026-07-24,22048000,(DNO) Đông Gia Nghĩa,SME,6. >30kg,21,1902.1,Trần Văn Phước
+2026-07-24,22048000,(DNO) Đông Gia Nghĩa,Khác,6. >30kg,14,1901.5,Trần Văn Phước
+2026-07-24,22051000,(LDO) Lang Biang - Đà Lạt 1,Shopee-Bulky,4. 10-20kg,606,7643.4,Lê Minh Đại
+2026-07-24,22051000,(LDO) Lang Biang - Đà Lạt 1,SME,4. 10-20kg,142,1880.6,Lê Minh Đại
+2026-07-24,22051000,(LDO) Lang Biang - Đà Lạt 1,Khác,4. 10-20kg,4,1900.2,Lê Minh Đại
+2026-07-24,22051000,(LDO) Lang Biang - Đà Lạt 1,TTS-nhỏ,4. 10-20kg,35,,Lê Minh Đại
+2026-07-24,22051000,(LDO) Lang Biang - Đà Lạt 1,Shopee-Bulky,5. 20-30kg,67,1579.2,Lê Minh Đại
+2026-07-24,22051000,(LDO) Lang Biang - Đà Lạt 1,SME,5. 20-30kg,27,1902.1,Lê Minh Đại
+2026-07-24,22051000,(LDO) Lang Biang - Đà Lạt 1,Shopee-Bulky,6. >30kg,50,2520.5,Lê Minh Đại
+2026-07-24,22051000,(LDO) Lang Biang - Đà Lạt 1,SME,6. >30kg,22,1903.1,Lê Minh Đại
+2026-07-24,22086000,(DNO) Trường Xuân,TTS-nhỏ,4. 10-20kg,76,,Trần Thị Nhung
+2026-07-24,22086000,(DNO) Trường Xuân,Shopee-nhỏ,4. 10-20kg,16,,Trần Thị Nhung
+2026-07-24,22086000,(DNO) Trường Xuân,Shopee-Bulky,4. 10-20kg,324,4455.1,Trần Thị Nhung
+2026-07-24,22086000,(DNO) Trường Xuân,SME,4. 10-20kg,195,3230.5,Trần Thị Nhung
+2026-07-24,22086000,(DNO) Trường Xuân,SME,5. 20-30kg,35,,Trần Thị Nhung
+2026-07-24,22086000,(DNO) Trường Xuân,Khác,5. 20-30kg,5,1900.4,Trần Thị Nhung
+2026-07-24,22086000,(DNO) Trường Xuân,TTS-nhỏ,5. 20-30kg,19,,Trần Thị Nhung
+2026-07-24,22086000,(DNO) Trường Xuân,Shopee-Bulky,5. 20-30kg,138,3563.1,Trần Thị Nhung
+2026-07-24,22086000,(DNO) Trường Xuân,SME,6. >30kg,327,,Trần Thị Nhung
+2026-07-24,22086000,(DNO) Trường Xuân,Shopee-Bulky,6. >30kg,72,3252.5,Trần Thị Nhung
+2026-07-24,22086000,(DNO) Trường Xuân,Khác,6. >30kg,2,1900.7,Trần Thị Nhung
+2026-07-24,22116000,(LDO) Xuân Trường - Đà Lạt,TTS-nhỏ,4. 10-20kg,136,1604.2,Phan Thị Ngọc Diễm
+2026-07-24,22116000,(LDO) Xuân Trường - Đà Lạt,Shopee-Bulky,4. 10-20kg,662,8918.2,Phan Thị Ngọc Diễm
+2026-07-24,22116000,(LDO) Xuân Trường - Đà Lạt,Khác,4. 10-20kg,12,,Phan Thị Ngọc Diễm
+2026-07-24,22116000,(LDO) Xuân Trường - Đà Lạt,SME,4. 10-20kg,249,3026.1,Phan Thị Ngọc Diễm
+2026-07-24,22116000,(LDO) Xuân Trường - Đà Lạt,Khác,5. 20-30kg,9,1900.7,Phan Thị Ngọc Diễm
+2026-07-24,22116000,(LDO) Xuân Trường - Đà Lạt,Shopee-Bulky,5. 20-30kg,154,3759.7,Phan Thị Ngọc Diễm
+2026-07-24,22116000,(LDO) Xuân Trường - Đà Lạt,SME,5. 20-30kg,18,1901.3,Phan Thị Ngọc Diễm
+2026-07-24,22116000,(LDO) Xuân Trường - Đà Lạt,Khác,6. >30kg,3,,Phan Thị Ngọc Diễm
+2026-07-24,22116000,(LDO) Xuân Trường - Đà Lạt,SME,6. >30kg,44,3129.7,Phan Thị Ngọc Diễm
+2026-07-24,22116000,(LDO) Xuân Trường - Đà Lạt,Shopee-Bulky,6. >30kg,95,4041.2,Phan Thị Ngọc Diễm
+2026-07-24,22222000,(LDO) Bảo Lâm 1,TTS-nhỏ,4. 10-20kg,220,3408.8,Hồng Bích Nga
+2026-07-24,22222000,(LDO) Bảo Lâm 1,Khác,4. 10-20kg,1,1900.1,Hồng Bích Nga
+2026-07-24,22222000,(LDO) Bảo Lâm 1,SME,4. 10-20kg,131,1904.12,Hồng Bích Nga
+2026-07-24,22222000,(LDO) Bảo Lâm 1,Shopee-Bulky,4. 10-20kg,449,6651.9,Hồng Bích Nga
+2026-07-24,22222000,(LDO) Bảo Lâm 1,Shopee-Bulky,5. 20-30kg,5,,Hồng Bích Nga
+2026-07-24,22222000,(LDO) Bảo Lâm 1,SME,6. >30kg,5,,Hồng Bích Nga
+2026-07-24,22222000,(LDO) Bảo Lâm 1,Shopee-Bulky,6. >30kg,18,1902.6,Hồng Bích Nga
+2026-07-24,22242000,(DNO) Bắc Gia Nghĩa,TTS-nhỏ,4. 10-20kg,54,,Trần Văn Phước
+2026-07-24,22242000,(DNO) Bắc Gia Nghĩa,SME,4. 10-20kg,161,1906.2,Trần Văn Phước
+2026-07-24,22242000,(DNO) Bắc Gia Nghĩa,Shopee-Bulky,4. 10-20kg,181,1906.5,Trần Văn Phước
+2026-07-24,22242000,(DNO) Bắc Gia Nghĩa,SME,5. 20-30kg,1,1900.1,Trần Văn Phước
+2026-07-24,22242000,(DNO) Bắc Gia Nghĩa,Shopee-Bulky,5. 20-30kg,32,,Trần Văn Phước
+2026-07-24,22242000,(DNO) Bắc Gia Nghĩa,SME,6. >30kg,43,1912.1,Trần Văn Phước
+2026-07-24,22242000,(DNO) Bắc Gia Nghĩa,Shopee-Bulky,6. >30kg,42,1905.11,Trần Văn Phước
+2026-07-24,22255000,(LDO) Hiệp Thạnh,SME,4. 10-20kg,174,2149.5,Lê Văn Trường
+2026-07-24,22255000,(LDO) Hiệp Thạnh,Shopee-Bulky,4. 10-20kg,169,1957.2,Lê Văn Trường
+2026-07-24,22255000,(LDO) Hiệp Thạnh,TTS-nhỏ,4. 10-20kg,38,1901.7,Lê Văn Trường
+2026-07-24,22255000,(LDO) Hiệp Thạnh,Shopee-Bulky,5. 20-30kg,1,2026.4,Lê Văn Trường
+2026-07-24,22255000,(LDO) Hiệp Thạnh,SME,5. 20-30kg,2,1900.2,Lê Văn Trường
+2026-07-24,22255000,(LDO) Hiệp Thạnh,Shopee-Bulky,6. >30kg,1,,Lê Văn Trường
+2026-07-24,22312000,(LDO) Lâm Viên - Đà Lạt 1,Shopee-Bulky,4. 10-20kg,878,,Phan Thị Ngọc Diễm
+2026-07-24,22312000,(LDO) Lâm Viên - Đà Lạt 1,Khác,4. 10-20kg,1,2026.1,Phan Thị Ngọc Diễm
+2026-07-24,22312000,(LDO) Lâm Viên - Đà Lạt 1,SME,4. 10-20kg,318,4259.9,Phan Thị Ngọc Diễm
+2026-07-24,22312000,(LDO) Lâm Viên - Đà Lạt 1,TTS-nhỏ,4. 10-20kg,175,2164.7,Phan Thị Ngọc Diễm
+2026-07-24,22312000,(LDO) Lâm Viên - Đà Lạt 1,Shopee-nhỏ,4. 10-20kg,12,,Phan Thị Ngọc Diễm
+2026-07-24,22312000,(LDO) Lâm Viên - Đà Lạt 1,SME,5. 20-30kg,2,,Phan Thị Ngọc Diễm
+2026-07-24,22312000,(LDO) Lâm Viên - Đà Lạt 1,SME,6. >30kg,6,1901.3,Phan Thị Ngọc Diễm
+2026-07-24,22357000,(NTH) Thuận Nam,Shopee-Bulky,4. 10-20kg,387,5500.9,Nguyễn Duy Long
+2026-07-24,22357000,(NTH) Thuận Nam,TTS-nhỏ,4. 10-20kg,156,2064.2,Nguyễn Duy Long
+2026-07-24,22357000,(NTH) Thuận Nam,Khác,4. 10-20kg,32,,Nguyễn Duy Long
+2026-07-24,22357000,(NTH) Thuận Nam,SME,4. 10-20kg,135,2033.5,Nguyễn Duy Long
+2026-07-24,22357000,(NTH) Thuận Nam,TTS-nhỏ,5. 20-30kg,19,,Nguyễn Duy Long
+2026-07-24,22357000,(NTH) Thuận Nam,Shopee-Bulky,5. 20-30kg,135,3307.7,Nguyễn Duy Long
+2026-07-24,22357000,(NTH) Thuận Nam,SME,5. 20-30kg,15,,Nguyễn Duy Long
+2026-07-24,22357000,(NTH) Thuận Nam,Khác,5. 20-30kg,21,1901.5,Nguyễn Duy Long
+2026-07-24,22357000,(NTH) Thuận Nam,Shopee-Bulky,6. >30kg,106,4173.3,Nguyễn Duy Long
+2026-07-24,22357000,(NTH) Thuận Nam,SME,6. >30kg,23,1221.1,Nguyễn Duy Long
+2026-07-24,22363000,(KHO) Nam Nha Trang 3,Shopee-Bulky,4. 10-20kg,1168,,Thái Thị Thanh Thư
+2026-07-24,22363000,(KHO) Nam Nha Trang 3,SME,4. 10-20kg,215,2889.3,Thái Thị Thanh Thư
+2026-07-24,22363000,(KHO) Nam Nha Trang 3,Khác,4. 10-20kg,24,,Thái Thị Thanh Thư
+2026-07-24,22363000,(KHO) Nam Nha Trang 3,TTS-nhỏ,4. 10-20kg,80,,Thái Thị Thanh Thư
+2026-07-24,22363000,(KHO) Nam Nha Trang 3,Khác,5. 20-30kg,1,2026.1,Thái Thị Thanh Thư
+2026-07-24,22363000,(KHO) Nam Nha Trang 3,SME,5. 20-30kg,17,,Thái Thị Thanh Thư
+2026-07-24,22363000,(KHO) Nam Nha Trang 3,Shopee-Bulky,5. 20-30kg,181,4313.4,Thái Thị Thanh Thư
+2026-07-24,22363000,(KHO) Nam Nha Trang 3,SME,6. >30kg,12,,Thái Thị Thanh Thư
+2026-07-24,22363000,(KHO) Nam Nha Trang 3,Shopee-Bulky,6. >30kg,44,1904.8,Thái Thị Thanh Thư
+2026-07-24,22389000,(LDO) Đức Trọng 1,SME,4. 10-20kg,218,2748.6,Trầm Hữu Tiến
+2026-07-24,22389000,(LDO) Đức Trọng 1,Shopee-Bulky,4. 10-20kg,164,2161.1,Trầm Hữu Tiến
+2026-07-24,22389000,(LDO) Đức Trọng 1,TTS-nhỏ,4. 10-20kg,69,,Trầm Hữu Tiến
+2026-07-24,22389000,(LDO) Đức Trọng 1,Shopee-Bulky,5. 20-30kg,9,,Trầm Hữu Tiến
+2026-07-24,22389000,(LDO) Đức Trọng 1,SME,5. 20-30kg,3,1900.3,Trầm Hữu Tiến
+2026-07-24,22389000,(LDO) Đức Trọng 1,Khác,5. 20-30kg,1,2026.9,Trầm Hữu Tiến
+2026-07-24,22389000,(LDO) Đức Trọng 1,Shopee-Bulky,6. >30kg,28,1902.10,Trầm Hữu Tiến
+2026-07-24,22394000,(DNO) Quảng Tín,Khác,4. 10-20kg,3,,Trần Văn Phước
+2026-07-24,22394000,(DNO) Quảng Tín,SME,4. 10-20kg,219,2897.9,Trần Văn Phước
+2026-07-24,22394000,(DNO) Quảng Tín,TTS-nhỏ,4. 10-20kg,179,1906.7,Trần Văn Phước
+2026-07-24,22394000,(DNO) Quảng Tín,Shopee-Bulky,4. 10-20kg,264,1909.11,Trần Văn Phước
+2026-07-24,22394000,(DNO) Quảng Tín,Khác,5. 20-30kg,10,1900.9,Trần Văn Phước
+2026-07-24,22394000,(DNO) Quảng Tín,TTS-nhỏ,5. 20-30kg,4,,Trần Văn Phước
+2026-07-24,22394000,(DNO) Quảng Tín,Shopee-Bulky,5. 20-30kg,147,3519.7,Trần Văn Phước
+2026-07-24,22394000,(DNO) Quảng Tín,SME,5. 20-30kg,38,1032.6,Trần Văn Phước
+2026-07-24,22394000,(DNO) Quảng Tín,Khác,6. >30kg,4,,Trần Văn Phước
+2026-07-24,22394000,(DNO) Quảng Tín,Shopee-Bulky,6. >30kg,56,3154.4,Trần Văn Phước
+2026-07-24,22394000,(DNO) Quảng Tín,SME,6. >30kg,184,,Trần Văn Phước
+2026-07-24,22425000,(LDO) Tân Hà Lâm Hà,TTS-nhỏ,4. 10-20kg,190,2633.9,Huỳnh Thị Kim Chi
+2026-07-24,22425000,(LDO) Tân Hà Lâm Hà,SME,4. 10-20kg,341,4878.6,Huỳnh Thị Kim Chi
+2026-07-24,22425000,(LDO) Tân Hà Lâm Hà,Shopee-nhỏ,4. 10-20kg,6,1900.3,Huỳnh Thị Kim Chi
+2026-07-24,22425000,(LDO) Tân Hà Lâm Hà,Shopee-Bulky,4. 10-20kg,476,6797.5,Huỳnh Thị Kim Chi
+2026-07-24,22425000,(LDO) Tân Hà Lâm Hà,SME,5. 20-30kg,39,,Huỳnh Thị Kim Chi
+2026-07-24,22425000,(LDO) Tân Hà Lâm Hà,Shopee-Bulky,5. 20-30kg,81,1980.5,Huỳnh Thị Kim Chi
+2026-07-24,22425000,(LDO) Tân Hà Lâm Hà,Shopee-Bulky,6. >30kg,109,5441.6,Huỳnh Thị Kim Chi
+2026-07-24,22425000,(LDO) Tân Hà Lâm Hà,SME,6. >30kg,161,,Huỳnh Thị Kim Chi
+2026-07-24,22425000,(LDO) Tân Hà Lâm Hà,Khác,6. >30kg,14,,Huỳnh Thị Kim Chi
+2026-07-24,22452000,(BTH) Phú Quý,SME,4. 10-20kg,90,1380.4,Nguyễn Ngọc Khánh
+2026-07-24,22452000,(BTH) Phú Quý,TTS-nhỏ,4. 10-20kg,83,1317.3,Nguyễn Ngọc Khánh
+2026-07-24,22452000,(BTH) Phú Quý,Khác,4. 10-20kg,11,,Nguyễn Ngọc Khánh
+2026-07-24,22452000,(BTH) Phú Quý,Shopee-nhỏ,4. 10-20kg,11,,Nguyễn Ngọc Khánh
+2026-07-24,22452000,(BTH) Phú Quý,Shopee-Bulky,4. 10-20kg,1145,,Nguyễn Ngọc Khánh
+2026-07-24,22452000,(BTH) Phú Quý,Khác,5. 20-30kg,16,,Nguyễn Ngọc Khánh
+2026-07-24,22452000,(BTH) Phú Quý,SME,5. 20-30kg,38,,Nguyễn Ngọc Khánh
+2026-07-24,22452000,(BTH) Phú Quý,Shopee-Bulky,5. 20-30kg,235,5785.6,Nguyễn Ngọc Khánh
+2026-07-24,22452000,(BTH) Phú Quý,Shopee-Bulky,6. >30kg,158,7231.3,Nguyễn Ngọc Khánh
+2026-07-24,22452000,(BTH) Phú Quý,SME,6. >30kg,7,1900.12,Nguyễn Ngọc Khánh
+2026-07-24,22483000,(BTH) Hàm Thuận,Shopee-Bulky,4. 10-20kg,858,,Nguyễn Ngọc Khánh
+2026-07-24,22483000,(BTH) Hàm Thuận,TTS-nhỏ,4. 10-20kg,183,2460.8,Nguyễn Ngọc Khánh
+2026-07-24,22483000,(BTH) Hàm Thuận,Khác,4. 10-20kg,22,1900.11,Nguyễn Ngọc Khánh
+2026-07-24,22483000,(BTH) Hàm Thuận,Shopee-nhỏ,4. 10-20kg,8,,Nguyễn Ngọc Khánh
+2026-07-24,22483000,(BTH) Hàm Thuận,SME,4. 10-20kg,307,4296.2,Nguyễn Ngọc Khánh
+2026-07-24,22483000,(BTH) Hàm Thuận,SME,5. 20-30kg,101,2479.1,Nguyễn Ngọc Khánh
+2026-07-24,22483000,(BTH) Hàm Thuận,Shopee-Bulky,5. 20-30kg,284,6611.7,Nguyễn Ngọc Khánh
+2026-07-24,22483000,(BTH) Hàm Thuận,TTS-nhỏ,6. >30kg,1,,Nguyễn Ngọc Khánh
+2026-07-24,22483000,(BTH) Hàm Thuận,Shopee-Bulky,6. >30kg,231,,Nguyễn Ngọc Khánh
+2026-07-24,22483000,(BTH) Hàm Thuận,SME,6. >30kg,206,,Nguyễn Ngọc Khánh
+2026-07-24,22549000,(BTH) Phan Rí Cửa,TTS-nhỏ,4. 10-20kg,30,,Nguyễn Duy Long
+2026-07-24,22549000,(BTH) Phan Rí Cửa,SME,4. 10-20kg,271,1909.3,Nguyễn Duy Long
+2026-07-24,22549000,(BTH) Phan Rí Cửa,Shopee-Bulky,4. 10-20kg,483,6739.3,Nguyễn Duy Long
+2026-07-24,22549000,(BTH) Phan Rí Cửa,Shopee-nhỏ,4. 10-20kg,6,1900.3,Nguyễn Duy Long
+2026-07-24,22549000,(BTH) Phan Rí Cửa,SME,5. 20-30kg,40,,Nguyễn Duy Long
+2026-07-24,22549000,(BTH) Phan Rí Cửa,SME,6. >30kg,12,1901.3,Nguyễn Duy Long
+2026-07-24,22704000,(KHO) Nam Nha Trang 2,SME,4. 10-20kg,455,6306.3,Thái Thị Thanh Thư
+2026-07-24,22704000,(KHO) Nam Nha Trang 2,TTS-nhỏ,4. 10-20kg,177,1906.11,Thái Thị Thanh Thư
+2026-07-24,22704000,(KHO) Nam Nha Trang 2,Shopee-Bulky,4. 10-20kg,1479,,Thái Thị Thanh Thư
+2026-07-24,22704000,(KHO) Nam Nha Trang 2,SME,5. 20-30kg,120,2946.8,Thái Thị Thanh Thư
+2026-07-24,22704000,(KHO) Nam Nha Trang 2,Shopee-Bulky,5. 20-30kg,305,7377.7,Thái Thị Thanh Thư
+2026-07-24,22704000,(KHO) Nam Nha Trang 2,Shopee-Bulky,6. >30kg,378,,Thái Thị Thanh Thư
+2026-07-24,22704000,(KHO) Nam Nha Trang 2,SME,6. >30kg,115,,Thái Thị Thanh Thư
+2026-07-24,22746000,(KHO) Nam Nha Trang 1,Shopee-Bulky,4. 10-20kg,1688,,Thái Thị Thanh Thư
+2026-07-24,22746000,(KHO) Nam Nha Trang 1,SME,4. 10-20kg,365,5212.9,Thái Thị Thanh Thư
+2026-07-24,22746000,(KHO) Nam Nha Trang 1,TTS-nhỏ,4. 10-20kg,281,3576.1,Thái Thị Thanh Thư
+2026-07-24,22746000,(KHO) Nam Nha Trang 1,Shopee-Bulky,5. 20-30kg,153,3573.1,Thái Thị Thanh Thư
+2026-07-24,22746000,(KHO) Nam Nha Trang 1,SME,5. 20-30kg,52,1203.3,Thái Thị Thanh Thư
+2026-07-24,22746000,(KHO) Nam Nha Trang 1,SME,6. >30kg,16,1901.9,Thái Thị Thanh Thư
+2026-07-24,22746000,(KHO) Nam Nha Trang 1,Shopee-Bulky,6. >30kg,43,1501.5,Thái Thị Thanh Thư
+2026-07-24,22746000,(KHO) Nam Nha Trang 1,TTS-nhỏ,6. >30kg,3,,Thái Thị Thanh Thư
+2026-07-24,22759000,(LDO) Hòa Ninh,Shopee-nhỏ,4. 10-20kg,9,,Lê Hồng Minh Tâm
+2026-07-24,22759000,(LDO) Hòa Ninh,Khác,4. 10-20kg,10,,Lê Hồng Minh Tâm
+2026-07-24,22759000,(LDO) Hòa Ninh,TTS-nhỏ,4. 10-20kg,112,1904.9,Lê Hồng Minh Tâm
+2026-07-24,22759000,(LDO) Hòa Ninh,SME,4. 10-20kg,213,3102.2,Lê Hồng Minh Tâm
+2026-07-24,22759000,(LDO) Hòa Ninh,Shopee-Bulky,4. 10-20kg,364,4910.8,Lê Hồng Minh Tâm
+2026-07-24,22759000,(LDO) Hòa Ninh,Khác,5. 20-30kg,6,1900.6,Lê Hồng Minh Tâm
+2026-07-24,22759000,(LDO) Hòa Ninh,Shopee-Bulky,5. 20-30kg,62,1551.7,Lê Hồng Minh Tâm
+2026-07-24,22759000,(LDO) Hòa Ninh,SME,5. 20-30kg,53,1903.3,Lê Hồng Minh Tâm
+2026-07-24,22759000,(LDO) Hòa Ninh,TTS-nhỏ,5. 20-30kg,18,,Lê Hồng Minh Tâm
+2026-07-24,22759000,(LDO) Hòa Ninh,Khác,6. >30kg,13,1901.8,Lê Hồng Minh Tâm
+2026-07-24,22759000,(LDO) Hòa Ninh,SME,6. >30kg,50,2670.6,Lê Hồng Minh Tâm
+2026-07-24,22759000,(LDO) Hòa Ninh,Shopee-Bulky,6. >30kg,90,4257.1,Lê Hồng Minh Tâm
+2026-07-24,22774000,(KHO) Diên Khánh 1,Shopee-Bulky,4. 10-20kg,381,5361.4,Nguyễn Hoàng Phi
+2026-07-24,22774000,(KHO) Diên Khánh 1,SME,4. 10-20kg,139,1824.9,Nguyễn Hoàng Phi
+2026-07-24,22774000,(KHO) Diên Khánh 1,TTS-nhỏ,4. 10-20kg,90,1205.5,Nguyễn Hoàng Phi
+2026-07-24,22774000,(KHO) Diên Khánh 1,Khác,4. 10-20kg,3,1900.2,Nguyễn Hoàng Phi
+2026-07-24,22774000,(KHO) Diên Khánh 1,SME,5. 20-30kg,26,1901.8,Nguyễn Hoàng Phi
+2026-07-24,22774000,(KHO) Diên Khánh 1,Shopee-Bulky,5. 20-30kg,74,1648.5,Nguyễn Hoàng Phi
+2026-07-24,22774000,(KHO) Diên Khánh 1,Shopee-Bulky,6. >30kg,18,,Nguyễn Hoàng Phi
+2026-07-24,22793000,(KHO) Diên Thọ,Shopee-nhỏ,4. 10-20kg,1,2026.5,Nguyễn Hoàng Phi
+2026-07-24,22793000,(KHO) Diên Thọ,Khác,4. 10-20kg,4,1900.3,Nguyễn Hoàng Phi
+2026-07-24,22793000,(KHO) Diên Thọ,SME,4. 10-20kg,166,1906.7,Nguyễn Hoàng Phi
+2026-07-24,22793000,(KHO) Diên Thọ,Shopee-Bulky,4. 10-20kg,361,5016.2,Nguyễn Hoàng Phi
+2026-07-24,22793000,(KHO) Diên Thọ,TTS-nhỏ,4. 10-20kg,60,,Nguyễn Hoàng Phi
+2026-07-24,22793000,(KHO) Diên Thọ,SME,5. 20-30kg,13,,Nguyễn Hoàng Phi
+2026-07-24,22793000,(KHO) Diên Thọ,Shopee-Bulky,5. 20-30kg,74,1779.6,Nguyễn Hoàng Phi
+2026-07-24,22793000,(KHO) Diên Thọ,Shopee-Bulky,6. >30kg,24,1902.10,Nguyễn Hoàng Phi
+2026-07-24,22793000,(KHO) Diên Thọ,SME,6. >30kg,19,,Nguyễn Hoàng Phi
+2026-07-24,22830000,(KHO) Cam Linh,TTS-nhỏ,4. 10-20kg,187,2465.2,Nguyễn Thanh Long 
+2026-07-24,22830000,(KHO) Cam Linh,SME,4. 10-20kg,325,4404.2,Nguyễn Thanh Long 
+2026-07-24,22830000,(KHO) Cam Linh,Shopee-nhỏ,4. 10-20kg,15,,Nguyễn Thanh Long 
+2026-07-24,22830000,(KHO) Cam Linh,Shopee-Bulky,4. 10-20kg,938,,Nguyễn Thanh Long 
+2026-07-24,22830000,(KHO) Cam Linh,Shopee-Bulky,5. 20-30kg,58,1332.9,Nguyễn Thanh Long 
+2026-07-24,22830000,(KHO) Cam Linh,SME,5. 20-30kg,40,1902.8,Nguyễn Thanh Long 
+2026-07-24,22830000,(KHO) Cam Linh,Khác,6. >30kg,7,1900.8,Nguyễn Thanh Long 
+2026-07-24,22830000,(KHO) Cam Linh,Shopee-Bulky,6. >30kg,74,4399.6,Nguyễn Thanh Long 
+2026-07-24,22830000,(KHO) Cam Linh,SME,6. >30kg,10,,Nguyễn Thanh Long 
+2026-07-24,22861000,(NTH) Phan Rang,SME,4. 10-20kg,272,3644.6,Nguyễn Duy Long
+2026-07-24,22861000,(NTH) Phan Rang,Shopee-nhỏ,4. 10-20kg,39,,Nguyễn Duy Long
+2026-07-24,22861000,(NTH) Phan Rang,TTS-nhỏ,4. 10-20kg,185,2228.8,Nguyễn Duy Long
+2026-07-24,22861000,(NTH) Phan Rang,Shopee-Bulky,4. 10-20kg,862,,Nguyễn Duy Long
+2026-07-24,22861000,(NTH) Phan Rang,Khác,5. 20-30kg,1,2026.3,Nguyễn Duy Long
+2026-07-24,22861000,(NTH) Phan Rang,Shopee-Bulky,5. 20-30kg,53,1375.7,Nguyễn Duy Long
+2026-07-24,22861000,(NTH) Phan Rang,SME,5. 20-30kg,9,,Nguyễn Duy Long
+2026-07-24,22861000,(NTH) Phan Rang,Khác,6. >30kg,40,1289.4,Nguyễn Duy Long
+2026-07-24,22861000,(NTH) Phan Rang,SME,6. >30kg,62,3364.8,Nguyễn Duy Long
+2026-07-24,22861000,(NTH) Phan Rang,Shopee-Bulky,6. >30kg,35,1696.1,Nguyễn Duy Long
+2026-07-24,22934000,(BTH) Lương Sơn,SME,4. 10-20kg,115,1524.5,Nguyễn Ngọc Khánh
+2026-07-24,22934000,(BTH) Lương Sơn,Shopee-Bulky,4. 10-20kg,428,6705.4,Nguyễn Ngọc Khánh
+2026-07-24,22934000,(BTH) Lương Sơn,TTS-nhỏ,4. 10-20kg,114,1669.1,Nguyễn Ngọc Khánh
+2026-07-24,22934000,(BTH) Lương Sơn,Shopee-Bulky,5. 20-30kg,167,1910.12,Nguyễn Ngọc Khánh
+2026-07-24,22934000,(BTH) Lương Sơn,Khác,5. 20-30kg,1,2026.2,Nguyễn Ngọc Khánh
+2026-07-24,22934000,(BTH) Lương Sơn,SME,5. 20-30kg,34,1902.6,Nguyễn Ngọc Khánh
+2026-07-24,22934000,(BTH) Lương Sơn,SME,6. >30kg,62,4933.3,Nguyễn Ngọc Khánh
+2026-07-24,22934000,(BTH) Lương Sơn,Khác,6. >30kg,1,1900.3,Nguyễn Ngọc Khánh
+2026-07-24,22934000,(BTH) Lương Sơn,Shopee-Bulky,6. >30kg,126,6198.8,Nguyễn Ngọc Khánh
+2026-07-24,23015000,(LDO) Bảo Lâm 3,Shopee-Bulky,4. 10-20kg,287,3788.2,Hồng Bích Nga
+2026-07-24,23015000,(LDO) Bảo Lâm 3,SME,4. 10-20kg,123,1803.7,Hồng Bích Nga
+2026-07-24,23015000,(LDO) Bảo Lâm 3,TTS-nhỏ,4. 10-20kg,69,1204.7,Hồng Bích Nga
+2026-07-24,23015000,(LDO) Bảo Lâm 3,TTS-nhỏ,5. 20-30kg,9,,Hồng Bích Nga
+2026-07-24,23015000,(LDO) Bảo Lâm 3,Shopee-Bulky,5. 20-30kg,96,2322.6,Hồng Bích Nga
+2026-07-24,23015000,(LDO) Bảo Lâm 3,Khác,5. 20-30kg,1,1900.1,Hồng Bích Nga
+2026-07-24,23015000,(LDO) Bảo Lâm 3,SME,5. 20-30kg,29,,Hồng Bích Nga
+2026-07-24,23015000,(LDO) Bảo Lâm 3,Shopee-Bulky,6. >30kg,155,6998.9,Hồng Bích Nga
+2026-07-24,23015000,(LDO) Bảo Lâm 3,SME,6. >30kg,41,2704.6,Hồng Bích Nga
