@@ -662,7 +662,8 @@ def load_df_from_db(filename):
             'sp team?': 'SP Team?',
             'fd': 'FD',
             'fd n7': 'FD N7',
-            'leadtime': 'leadtime',
+            'idbuucuc': 'IDBuuCuc',
+            'leadtime': 'Leadtime',
             '% gán': '% Gán',
             '% gtc': '% GTC',
             '% chuyển trả': '% Chuyển trả',
@@ -1295,8 +1296,39 @@ def clean_ops_df(df, sheet_type):
         
     elif sheet_type == "ltc":
         rename_map = {}
-        # Check for shifted column signature in dataltc style
-        if 'loại hàng' in cols_lower and 'time' in cols_lower and 'volume' in cols_lower and '% gán' in cols_lower:
+        # Check A: Shifted dataltc layout with 'IDBuuCuc' containing date strings
+        is_idbuucuc_shifted = False
+        if 'idbuucuc' in cols_lower and 'time' in cols_lower and 'volume' in cols_lower:
+            first_id_val = str(df[cols_lower['idbuucuc']].dropna().iloc[0]) if len(df) > 0 else ''
+            if ' - ' in first_id_val or '-' in first_id_val or '/' in first_id_val:
+                is_idbuucuc_shifted = True
+                
+        if is_idbuucuc_shifted:
+            rename_map[cols_lower['idbuucuc']] = 'Time'
+            rename_map[cols_lower['time']] = 'Volume'
+            rename_map[cols_lower['volume']] = '%Gán'
+            rename_map[cols_lower['%gán']] = '%LTC'
+            if '%ltc' in cols_lower:
+                rename_map[cols_lower['%ltc']] = '%Đóng kiện'
+            if '%đóng kiện' in cols_lower:
+                rename_map[cols_lower['%đóng kiện']] = '%LC'
+            if '%lc' in cols_lower:
+                rename_map[cols_lower['%lc']] = 'Leadtime'
+                
+            other_cols = {
+                'cấp quản lý': 'Cấp quản lý',
+                'chi tiết': 'Chi tiết',
+                'ca': 'Ca',
+                'tỉnh': 'Tỉnh',
+                'vùng': 'Vùng',
+                'am': 'AM',
+                'sản lượng lấy thành công': 'Sản Lượng Lấy Thành Công'
+            }
+            for k, standard_name in other_cols.items():
+                if k in cols_lower and cols_lower[k] != standard_name:
+                    rename_map[cols_lower[k]] = standard_name
+        # Check B: Shifted dataltc layout with 'loại hàng' containing date strings
+        elif 'loại hàng' in cols_lower and 'time' in cols_lower and 'volume' in cols_lower and '% gán' in cols_lower:
             rename_map[cols_lower['loại hàng']] = 'Time'
             rename_map[cols_lower['time']] = 'Volume'
             rename_map[cols_lower['volume']] = '% Gán'
@@ -1313,7 +1345,8 @@ def clean_ops_df(df, sheet_type):
                 'lead time': 'Leadtime',
                 'leadtime (h)': 'Leadtime',
                 'leadtime giao': 'Leadtime',
-                'lead time (h)': 'Leadtime'
+                'lead time (h)': 'Leadtime',
+                'sản lượng lấy thành công': 'Sản Lượng Lấy Thành Công'
             }
             for k, standard_name in other_cols.items():
                 if k in cols_lower and cols_lower[k] != standard_name:
@@ -1330,7 +1363,8 @@ def clean_ops_df(df, sheet_type):
                 'lead time': 'Leadtime',
                 'leadtime (h)': 'Leadtime',
                 'leadtime giao': 'Leadtime',
-                'lead time (h)': 'Leadtime'
+                'lead time (h)': 'Leadtime',
+                'sản lượng lấy thành công': 'Sản Lượng Lấy Thành Công'
             }
             for k, standard_name in core_ltc_cols.items():
                 if k in cols_lower and cols_lower[k] != standard_name:
@@ -1397,10 +1431,15 @@ def process_operational_report(df_gtc=None, df_ltc=None, df_tts=None, am=None, p
     try:
         if df_gtc is None:
             df_gtc = safe_read_csv(resolve_path('ops_gtc.csv', write=False))
+        df_gtc = clean_ops_df(df_gtc, "gtc")
+
         if df_ltc is None:
             df_ltc = safe_read_csv(resolve_path('ops_ltc.csv', write=False))
+        df_ltc = clean_ops_df(df_ltc, "ltc")
+
         if df_tts is None:
             df_tts = safe_read_csv(resolve_path('ops_tts.csv', write=False))
+        if df_tts is not None:
             df_tts = clean_ops_df(df_tts, "tts")
             
         if df_gtc is None or df_ltc is None:
@@ -3328,13 +3367,31 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         if raw_gtc is None or raw_ltc is None or raw_co_cau is None:
             raise FileNotFoundError("Không tìm thấy dữ liệu vận hành CSV (ops_gtc.csv, ops_ltc.csv hoặc ops_co_cau.csv).")
             
-        df_gtc = raw_gtc[raw_gtc['Cấp Quản Lý'] != 'Grand Total'].dropna(subset=["Volume"]).copy()
+        cq_gtc = next((c for c in raw_gtc.columns if c.lower() == 'cấp quản lý'), None)
+        vol_gtc = next((c for c in raw_gtc.columns if c.lower() == 'volume'), None)
+        df_gtc = raw_gtc.copy()
+        if cq_gtc:
+            df_gtc = df_gtc[df_gtc[cq_gtc] != 'Grand Total']
+        if vol_gtc:
+            df_gtc = df_gtc.dropna(subset=[vol_gtc]).copy()
+        else:
+            df_gtc = df_gtc.copy()
+
         if 'Leadtime' not in df_gtc.columns:
             df_gtc['Leadtime'] = np.nan
         else:
             df_gtc['Leadtime'] = pd.to_numeric(df_gtc['Leadtime'], errors='coerce')
         
-        df_ltc = raw_ltc[raw_ltc['Cấp quản lý'] != 'Grand Total'].dropna(subset=["Volume"]).copy()
+        cq_ltc = next((c for c in raw_ltc.columns if c.lower() == 'cấp quản lý'), None)
+        vol_ltc = next((c for c in raw_ltc.columns if c.lower() == 'volume'), None)
+        df_ltc = raw_ltc.copy()
+        if cq_ltc:
+            df_ltc = df_ltc[df_ltc[cq_ltc] != 'Grand Total']
+        if vol_ltc:
+            df_ltc = df_ltc.dropna(subset=[vol_ltc]).copy()
+        else:
+            df_ltc = df_ltc.copy()
+
         if 'Leadtime' not in df_ltc.columns:
             df_ltc['Leadtime'] = np.nan
         else:
@@ -3342,9 +3399,13 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         
         df_tts = None
         if raw_tts is not None:
-            df_tts = raw_tts.dropna(subset=["Volume"]).copy()
-            if 'Cấp Quản Lý' in df_tts.columns:
-                df_tts = df_tts[df_tts['Cấp Quản Lý'] != 'Grand Total'].copy()
+            df_tts = raw_tts.copy()
+            vol_tts = next((c for c in raw_tts.columns if c.lower() == 'volume'), None)
+            if vol_tts:
+                df_tts = df_tts.dropna(subset=[vol_tts]).copy()
+            cq_tts = next((c for c in df_tts.columns if c.lower() == 'cấp quản lý'), None)
+            if cq_tts:
+                df_tts = df_tts[df_tts[cq_tts] != 'Grand Total'].copy()
             leadtime_col = next((c for c in df_tts.columns if c.lower() == 'leadtime'), 'Leadtime')
             df_tts['Leadtime'] = pd.to_numeric(df_tts.get(leadtime_col, 0), errors='coerce')
             
