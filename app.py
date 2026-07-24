@@ -1516,10 +1516,17 @@ def process_operational_report(df_gtc=None, df_ltc=None, df_tts=None, am=None, p
             df_ltc['Leadtime'] = pd.to_numeric(df_ltc['Leadtime'], errors='coerce')
         
         # Calculate overall metrics
-        df_gtc['% GTC'] = normalize_pct_col(df_gtc['% GTC'])
-        df_gtc['% Gán'] = normalize_pct_col(df_gtc['% Gán'])
-        df_gtc['% Chuyển trả'] = normalize_pct_col(df_gtc['% Chuyển trả'])
-        df_ltc['%LTC'] = normalize_pct_col(df_ltc['%LTC'])
+        gtc_pct_col = next((c for c in df_gtc.columns if c.lower() in ['% gtc', '%gtc']), None)
+        df_gtc['% GTC'] = normalize_pct_col(df_gtc[gtc_pct_col]) if gtc_pct_col else 0.0
+
+        gan_pct_col = next((c for c in df_gtc.columns if c.lower() in ['% gán', '%gán']), None)
+        df_gtc['% Gán'] = normalize_pct_col(df_gtc[gan_pct_col]) if gan_pct_col else 0.0
+
+        ct_pct_col = next((c for c in df_gtc.columns if c.lower() in ['% chuyển trả', '%chuyển trả']), None)
+        df_gtc['% Chuyển trả'] = normalize_pct_col(df_gtc[ct_pct_col]) if ct_pct_col else 0.0
+
+        ltc_pct_col = next((c for c in df_ltc.columns if c.lower() in ['%ltc', '% ltc']), None)
+        df_ltc['%LTC'] = normalize_pct_col(df_ltc[ltc_pct_col]) if ltc_pct_col else 0.0
         
         df_gtc['delivered_vol'] = df_gtc['Volume'] * df_gtc['% GTC']
         df_gtc['assigned_vol'] = df_gtc['Volume'] * df_gtc['% Gán']
@@ -3525,8 +3532,11 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         vol_gtc_col_map = next((c for c in df_gtc.columns if c.lower() == 'volume'), 'Volume')
         df_gtc['Volume'] = safe_to_numeric(df_gtc[vol_gtc_col_map]) if vol_gtc_col_map in df_gtc.columns else 0.0
 
-        df_gtc['% GTC'] = normalize_pct_col(df_gtc['% GTC'])
-        df_gtc['% Chuyển trả'] = normalize_pct_col(df_gtc['% Chuyển trả'])
+        gtc_pct_col = next((c for c in df_gtc.columns if c.lower() in ['% gtc', '%gtc']), None)
+        df_gtc['% GTC'] = normalize_pct_col(df_gtc[gtc_pct_col]) if gtc_pct_col else 0.0
+
+        ct_pct_col = next((c for c in df_gtc.columns if c.lower() in ['% chuyển trả', '%chuyển trả']), None)
+        df_gtc['% Chuyển trả'] = normalize_pct_col(df_gtc[ct_pct_col]) if ct_pct_col else 0.0
         
         df_gtc['delivered_vol'] = df_gtc['Volume'] * df_gtc['% GTC']
         df_gtc['return_vol'] = df_gtc['Volume'] * df_gtc['% Chuyển trả']
@@ -3557,7 +3567,8 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         vol_ltc_col_map = next((c for c in df_ltc.columns if c.lower() == 'volume'), 'Volume')
         df_ltc['Volume'] = safe_to_numeric(df_ltc[vol_ltc_col_map]) if vol_ltc_col_map in df_ltc.columns else 0.0
 
-        df_ltc['%LTC'] = normalize_pct_col(df_ltc['%LTC'])
+        ltc_pct_col = next((c for c in df_ltc.columns if c.lower() in ['%ltc', '% ltc']), None)
+        df_ltc['%LTC'] = normalize_pct_col(df_ltc[ltc_pct_col]) if ltc_pct_col else 0.0
         df_ltc.columns = [c.strip() for c in df_ltc.columns]
         if 'Sản Lượng Lấy Thành Công' in df_ltc.columns:
             df_ltc['ltc_vol'] = safe_to_numeric(df_ltc['Sản Lượng Lấy Thành Công'])
