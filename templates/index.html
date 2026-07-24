@@ -8530,6 +8530,13 @@
                 document.getElementById('heavy-kpi-30kg-pct').innerText = (data.pct_heavy_30kg || 0) + "%";
                 document.getElementById('heavy-kpi-leadtime').innerText = (data.avg_leadtime || 0) + "h";
 
+                if (!data.total_created_vol && !data.total_ops_vol) {
+                    const tableBody = document.getElementById('table-heavy-po-body');
+                    if (tableBody) {
+                        tableBody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: var(--text-muted); padding: 24px;">Chưa có dữ liệu Hàng Nặng (>10kg). Vui lòng nhấn nút <b style="color:var(--color-ghn-orange);">"🔄 Đồng bộ dữ liệu"</b> ở góc trên để khởi tạo dữ liệu.</td></tr>`;
+                    }
+                }
+
                 // 1. Daily Creation & Ops Trend Chart
                 const opsTrend = data.ops_trend || [];
                 const creationTrend = data.creation_trend || [];

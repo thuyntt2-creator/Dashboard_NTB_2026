@@ -2435,28 +2435,46 @@ def process_treo_backlog(df_raw=None, df_co_cau=None, am=None, province=None, po
 # 4a. SPLIT RAW HEAVY 10KG SHEET DATA
 # ==========================================
 def split_raw_tren10kg():
-    raw_path = resolve_path('raw_tren10kg.csv', write=False)
-    if os.path.exists(raw_path):
-        try:
-            df = safe_read_csv(raw_path, header=None)
-            if df is not None and len(df) > 1:
-                # Cols 0..20 -> ops_heavy_10kg.csv
-                df_ops = df.iloc[:, 0:21].copy()
+    try:
+        raw_path = resolve_path('raw_tren10kg.csv', write=False)
+        df_raw = safe_read_csv(raw_path, header=None)
+        if df_raw is None or len(df_raw) == 0:
+            df_raw = load_df_from_db('raw_tren10kg.csv')
+            
+        if df_raw is not None and len(df_raw) > 1:
+            header_row = 0
+            for r_idx in range(min(5, len(df_raw))):
+                row_vals = [str(v).lower() for v in df_raw.iloc[r_idx] if pd.notnull(v)]
+                if any('cấp quản lý' in v or 'chi tiết' in v or 'loại hàng' in v or 'hen_lay' in v for v in row_vals):
+                    header_row = r_idx
+                    break
+
+            # Cols 0..20 -> ops_heavy_10kg.csv
+            df_ops = df_raw.iloc[header_row:].copy()
+            if df_ops.shape[1] >= 21:
+                df_ops = df_ops.iloc[:, 0:21]
                 df_ops.columns = [str(c).strip() for c in df_ops.iloc[0]]
                 df_ops = df_ops.iloc[1:].dropna(how='all')
-                df_ops.to_csv(resolve_path('ops_heavy_10kg.csv', write=True), index=False, encoding='utf-8-sig')
+                try:
+                    df_ops.to_csv(resolve_path('ops_heavy_10kg.csv', write=True), index=False, encoding='utf-8-sig')
+                except Exception:
+                    pass
                 save_df_to_db(df_ops, 'ops_heavy_10kg.csv')
 
-                # Cols 22..29 -> ops_tao_don_10kg.csv
-                if df.shape[1] >= 30:
-                    df_tao = df.iloc[:, 22:30].copy()
-                    df_tao.columns = [str(c).strip() for c in df_tao.iloc[0]]
-                    df_tao = df_tao.iloc[1:].dropna(how='all')
+            # Cols 22..29 -> ops_tao_don_10kg.csv
+            if df_raw.shape[1] >= 30:
+                df_tao = df_raw.iloc[header_row:].copy()
+                df_tao = df_tao.iloc[:, 22:30]
+                df_tao.columns = [str(c).strip() for c in df_tao.iloc[0]]
+                df_tao = df_tao.iloc[1:].dropna(how='all')
+                try:
                     df_tao.to_csv(resolve_path('ops_tao_don_10kg.csv', write=True), index=False, encoding='utf-8-sig')
-                    save_df_to_db(df_tao, 'ops_tao_don_10kg.csv')
-                print("[Heavy 10kg] Successfully split raw_tren10kg.csv into ops_heavy_10kg.csv and ops_tao_don_10kg.csv")
-        except Exception as e:
-            print(f"[Heavy 10kg] Error splitting raw_tren10kg.csv: {e}")
+                except Exception:
+                    pass
+                save_df_to_db(df_tao, 'ops_tao_don_10kg.csv')
+            print("[Heavy 10kg] Successfully split raw_tren10kg into ops_heavy_10kg and ops_tao_don_10kg")
+    except Exception as e:
+        print(f"[Heavy 10kg] Error splitting raw_tren10kg: {e}")
 
 # ==========================================
 # 4b. PROCESS HEAVY GOODS > 10KG REPORT
@@ -5947,7 +5965,8 @@ def api_heavy_10kg():
             data = process_heavy_10kg_report(am=am, province=province, post_office=post_office)
         else:
             global HEAVY_10KG_CACHE
-            if HEAVY_10KG_CACHE is None or (isinstance(HEAVY_10KG_CACHE, dict) and "error" in HEAVY_10KG_CACHE):
+            if (HEAVY_10KG_CACHE is None or 
+                (isinstance(HEAVY_10KG_CACHE, dict) and ("error" in HEAVY_10KG_CACHE or HEAVY_10KG_CACHE.get('total_ops_vol', 0) == 0 or HEAVY_10KG_CACHE.get('total_created_vol', 0) == 0))):
                 HEAVY_10KG_CACHE = process_heavy_10kg_report()
             data = HEAVY_10KG_CACHE
 
