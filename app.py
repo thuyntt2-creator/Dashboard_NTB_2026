@@ -1148,19 +1148,20 @@ def safe_read_csv(filepath, filter_by_am=False, **kwargs):
                     continue
         
         # 2. Fall back to database
-        if df is None:
+        if df is None or len(df) == 0:
             db_df = load_df_from_db(filename)
             df = apply_kwargs_to_df(db_df, filename)
-            if df is not None:
+            if df is not None and len(df) > 0:
                 standardize_am_names(df)
             
         # 3. Fall back to bundled file in cwd
-        if df is None and os.path.exists(filepath):
+        if (df is None or len(df) == 0) and os.path.exists(filepath):
             for encoding in ['utf-8', 'utf-8-sig', 'latin-1', 'cp1252']:
                 try:
                     df = pd.read_csv(filepath, encoding=encoding, **kwargs)
-                    standardize_am_names(df)
-                    break
+                    if df is not None and len(df) > 0:
+                        standardize_am_names(df)
+                        break
                 except Exception as e:
                     last_err = e
                     continue
