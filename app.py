@@ -1549,17 +1549,18 @@ def process_operational_report(df_gtc=None, df_ltc=None, df_tts=None, am=None, p
         else:
             df_ltc['ltc_vol'] = df_ltc['Volume'] * df_ltc['%LTC']
         
-        # Align dates: ensure df_ltc contains rows for any dates present in df_gtc to avoid null/zero reporting
+        # Align dates: ensure both df_gtc and df_ltc cover all dates present in either dataset
         if len(df_gtc) > 0 and len(df_ltc) > 0:
-            gtc_dates = df_gtc['Time'].dropna().unique()
-            ltc_dates = df_ltc['Time'].dropna().unique()
+            gtc_dates = set(df_gtc['Time'].dropna().unique())
+            ltc_dates = set(df_ltc['Time'].dropna().unique())
+            
             missing_ltc_dates = [d for d in gtc_dates if d not in ltc_dates]
             if missing_ltc_dates and len(ltc_dates) > 0:
                 try:
-                    ltc_dates_sorted = sorted(ltc_dates, key=lambda x: pd.to_datetime(str(x).split(' - ')[0]))
+                    ltc_dates_sorted = sorted(list(ltc_dates), key=lambda x: pd.to_datetime(str(x).split(' - ')[0]))
                     latest_ltc_date = ltc_dates_sorted[-1]
                 except Exception as e:
-                    latest_ltc_date = ltc_dates[-1]
+                    latest_ltc_date = list(ltc_dates)[-1]
                 
                 latest_ltc_rows = df_ltc[df_ltc['Time'] == latest_ltc_date].copy()
                 new_rows_list = []
@@ -1569,6 +1570,23 @@ def process_operational_report(df_gtc=None, df_ltc=None, df_tts=None, am=None, p
                     new_rows_list.append(copied)
                 if new_rows_list:
                     df_ltc = pd.concat([df_ltc] + new_rows_list, ignore_index=True)
+
+            missing_gtc_dates = [d for d in ltc_dates if d not in gtc_dates]
+            if missing_gtc_dates and len(gtc_dates) > 0:
+                try:
+                    gtc_dates_sorted = sorted(list(gtc_dates), key=lambda x: pd.to_datetime(str(x).split(' - ')[0]))
+                    latest_gtc_date = gtc_dates_sorted[-1]
+                except Exception as e:
+                    latest_gtc_date = list(gtc_dates)[-1]
+                
+                latest_gtc_rows = df_gtc[df_gtc['Time'] == latest_gtc_date].copy()
+                new_rows_list = []
+                for missing_date in missing_gtc_dates:
+                    copied = latest_gtc_rows.copy()
+                    copied['Time'] = missing_date
+                    new_rows_list.append(copied)
+                if new_rows_list:
+                    df_gtc = pd.concat([df_gtc] + new_rows_list, ignore_index=True)
         
         # Determine the latest date dynamically from Time column safely
         latest_date_gtc = None
@@ -3553,8 +3571,8 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         gtc_prov_col = next((df_gtc[c] for c in df_gtc.columns if c.lower() in ['tỉnh', 'tinh', 'province']), pd.Series("Không xác định", index=df_gtc.index))
         gtc_am_col = next((df_gtc[c] for c in df_gtc.columns if c.lower() in ['am', 'am_name']), pd.Series("Không xác định", index=df_gtc.index))
 
-        df_gtc['mapped_prov'] = df_gtc['clean_bc'].map(bc_to_prov).fillna(gtc_prov_col).fillna("Không xác định")
-        df_gtc['mapped_am'] = df_gtc['clean_bc'].map(bc_to_am).fillna(gtc_am_col).fillna("Không xác định")
+        df_gtc['mapped_prov'] = df_gtc['clean_bc'].map(bc_to_prov).replace({'': np.nan, 'none': np.nan, 'nan': np.nan}).fillna(gtc_prov_col).fillna("Không xác định")
+        df_gtc['mapped_am'] = df_gtc['clean_bc'].map(bc_to_am).replace({'': np.nan, 'none': np.nan, 'nan': np.nan}).fillna(gtc_am_col).fillna("Không xác định")
         
         vol_gtc_col_map = next((c for c in df_gtc.columns if c.lower() == 'volume'), 'Volume')
         df_gtc['Volume'] = safe_to_numeric(df_gtc[vol_gtc_col_map]) if vol_gtc_col_map in df_gtc.columns else 0.0
@@ -3580,12 +3598,12 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         prov_col = next((c for c in df_ltc.columns if c.lower() in ['tỉnh', 'tinh', 'province']), None)
         am_col = next((c for c in df_ltc.columns if c.lower() in ['am', 'am_name']), None)
         
-        df_ltc['mapped_prov'] = df_ltc['clean_bc'].map(bc_to_prov)
+        df_ltc['mapped_prov'] = df_ltc['clean_bc'].map(bc_to_prov).replace({'': np.nan, 'none': np.nan, 'nan': np.nan})
         if prov_col:
             df_ltc['mapped_prov'] = df_ltc['mapped_prov'].fillna(df_ltc[prov_col])
         df_ltc['mapped_prov'] = df_ltc['mapped_prov'].fillna("Không xác định")
         
-        df_ltc['mapped_am'] = df_ltc['clean_bc'].map(bc_to_am)
+        df_ltc['mapped_am'] = df_ltc['clean_bc'].map(bc_to_am).replace({'': np.nan, 'none': np.nan, 'nan': np.nan})
         if am_col:
             df_ltc['mapped_am'] = df_ltc['mapped_am'].fillna(df_ltc[am_col])
         df_ltc['mapped_am'] = df_ltc['mapped_am'].fillna("Không xác định")
@@ -3602,17 +3620,18 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         else:
             df_ltc['ltc_vol'] = df_ltc['Volume'] * df_ltc['%LTC']
             
-        # Align dates: ensure df_ltc contains rows for any dates present in df_gtc to avoid null/zero reporting
+        # Align dates: ensure both df_gtc and df_ltc cover all dates present in either dataset
         if len(df_gtc) > 0 and len(df_ltc) > 0:
-            gtc_dates = df_gtc['Time'].dropna().unique()
-            ltc_dates = df_ltc['Time'].dropna().unique()
+            gtc_dates = set(df_gtc['Time'].dropna().unique())
+            ltc_dates = set(df_ltc['Time'].dropna().unique())
+            
             missing_ltc_dates = [d for d in gtc_dates if d not in ltc_dates]
             if missing_ltc_dates and len(ltc_dates) > 0:
                 try:
-                    ltc_dates_sorted = sorted(ltc_dates, key=lambda x: pd.to_datetime(str(x).split(' - ')[0]))
+                    ltc_dates_sorted = sorted(list(ltc_dates), key=lambda x: pd.to_datetime(str(x).split(' - ')[0]))
                     latest_ltc_date = ltc_dates_sorted[-1]
                 except Exception as e:
-                    latest_ltc_date = ltc_dates[-1]
+                    latest_ltc_date = list(ltc_dates)[-1]
                 
                 latest_ltc_rows = df_ltc[df_ltc['Time'] == latest_ltc_date].copy()
                 new_rows_list = []
@@ -3622,6 +3641,23 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
                     new_rows_list.append(copied)
                 if new_rows_list:
                     df_ltc = pd.concat([df_ltc] + new_rows_list, ignore_index=True)
+
+            missing_gtc_dates = [d for d in ltc_dates if d not in gtc_dates]
+            if missing_gtc_dates and len(gtc_dates) > 0:
+                try:
+                    gtc_dates_sorted = sorted(list(gtc_dates), key=lambda x: pd.to_datetime(str(x).split(' - ')[0]))
+                    latest_gtc_date = gtc_dates_sorted[-1]
+                except Exception as e:
+                    latest_gtc_date = list(gtc_dates)[-1]
+                
+                latest_gtc_rows = df_gtc[df_gtc['Time'] == latest_gtc_date].copy()
+                new_rows_list = []
+                for missing_date in missing_gtc_dates:
+                    copied = latest_gtc_rows.copy()
+                    copied['Time'] = missing_date
+                    new_rows_list.append(copied)
+                if new_rows_list:
+                    df_gtc = pd.concat([df_gtc] + new_rows_list, ignore_index=True)
         
         aging_bc_col = next((c for c in df_aging.columns if c.lower() in ['bc', 'bưu cục', 'buucuc', 'chi tiết']), 'BC')
         if aging_bc_col in df_aging.columns:
@@ -5490,12 +5526,20 @@ def api_trends_dashboard():
                 else:
                     prov_gtc.append(None)
                     
-            # Normalize key to lowercase with underscores to match frontend (e.g. 'lâm_đồng', 'bình_thuận')
-            trend_key = str(prov).strip().lower().replace(" ", "_")
-            trends[trend_key] = {
+            clean_prov = str(prov).strip()
+            trend_data = {
                 'ltc': prov_ltc,
                 'gtc': prov_gtc
             }
+            # Add multiple key formats so frontend can access by 'lam_dong', 'lâm_đồng', or 'Lâm Đồng'
+            trends[clean_prov] = trend_data
+            trends[clean_prov.lower().replace(" ", "_")] = trend_data
+            
+            # Unaccented key (e.g. 'lam_dong' for 'Lâm Đồng')
+            import unicodedata
+            nfkd_form = unicodedata.normalize('NFKD', clean_prov)
+            unaccented = "".join([c for c in nfkd_form if not unicodedata.combining(c)]).replace('đ', 'd').replace('Đ', 'D').lower().replace(" ", "_")
+            trends[unaccented] = trend_data
             
         # Overall
         overall_ltc = []

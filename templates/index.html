@@ -8280,7 +8280,7 @@
                     stroke: { width: 3, curve: 'smooth' },
                     theme: { mode: 'light' },
                     legend: { position: 'bottom', labels: { colors: '#64748b' } },
-                    dataLabels: { enabled: true, formatter: val => val + "%", style: { fontSize: '9px' } }
+                    dataLabels: { enabled: true, formatter: val => (val !== null && val !== undefined && !isNaN(val)) ? val + "%" : "", style: { fontSize: '9px' } }
                 };
                 
                 if (ntbLtcTrendChart) ntbLtcTrendChart.destroy();
@@ -8296,7 +8296,7 @@
                     stroke: { width: 3, curve: 'smooth' },
                     theme: { mode: 'light' },
                     legend: { position: 'bottom', labels: { colors: '#64748b' } },
-                    dataLabels: { enabled: true, formatter: val => val + "%", style: { fontSize: '9px' } }
+                    dataLabels: { enabled: true, formatter: val => (val !== null && val !== undefined && !isNaN(val)) ? val + "%" : "", style: { fontSize: '9px' } }
                 };
                 
                 if (ntbGtcTrendChart) ntbGtcTrendChart.destroy();
