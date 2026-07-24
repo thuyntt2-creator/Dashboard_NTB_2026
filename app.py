@@ -1602,7 +1602,10 @@ def process_operational_report(df_gtc=None, df_ltc=None, df_tts=None, am=None, p
         gtc_agg = {'Volume': 'sum', 'delivered_vol': 'sum'}
         if 'Leadtime' in df_gtc_latest.columns:
             gtc_agg['Leadtime'] = 'mean'
-        po_gtc = df_gtc_latest.groupby('Chi tiết').agg(gtc_agg).reset_index()
+        chi_tiet_gtc = next((c for c in df_gtc_latest.columns if c.lower() in ['chi tiết', 'chitiết', 'bưu cục', 'buucuc', 'bc', 'warehouse_name']), 'Chi tiết')
+        po_gtc = df_gtc_latest.groupby(chi_tiet_gtc).agg(gtc_agg).reset_index()
+        if chi_tiet_gtc != 'Chi tiết':
+            po_gtc = po_gtc.rename(columns={chi_tiet_gtc: 'Chi tiết'})
         if 'Leadtime' not in po_gtc.columns:
             po_gtc['Leadtime'] = 0.0
         po_gtc['% GTC'] = (po_gtc['delivered_vol'] / po_gtc['Volume']) * 100
@@ -1615,7 +1618,10 @@ def process_operational_report(df_gtc=None, df_ltc=None, df_tts=None, am=None, p
         ltc_agg = {'Volume': 'sum', 'ltc_vol': 'sum'}
         if 'Leadtime' in df_ltc_latest.columns:
             ltc_agg['Leadtime'] = 'mean'
-        po_ltc = df_ltc_latest.groupby('Chi tiết').agg(ltc_agg).reset_index()
+        chi_tiet_ltc = next((c for c in df_ltc_latest.columns if c.lower() in ['chi tiết', 'chitiết', 'bưu cục', 'buucuc', 'bc', 'warehouse_name']), 'Chi tiết')
+        po_ltc = df_ltc_latest.groupby(chi_tiet_ltc).agg(ltc_agg).reset_index()
+        if chi_tiet_ltc != 'Chi tiết':
+            po_ltc = po_ltc.rename(columns={chi_tiet_ltc: 'Chi tiết'})
         if 'Leadtime' not in po_ltc.columns:
             po_ltc['Leadtime'] = 0.0
         po_ltc['% LTC'] = (po_ltc['ltc_vol'] / po_ltc['Volume']) * 100
@@ -3471,7 +3477,14 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         gc.collect()
         
         # 4. Final Processing & Mapping
-        df_gtc['clean_bc'] = df_gtc['Chi tiết'].apply(clean_str)
+        chi_tiet_gtc = next((c for c in df_gtc.columns if c.lower() in ['chi tiết', 'chitiết', 'bưu cục', 'buucuc', 'bc', 'warehouse_name']), None)
+        if chi_tiet_gtc:
+            df_gtc['Chi tiết'] = df_gtc[chi_tiet_gtc]
+            df_gtc['clean_bc'] = df_gtc[chi_tiet_gtc].apply(clean_str)
+        else:
+            df_gtc['Chi tiết'] = "Không xác định"
+            df_gtc['clean_bc'] = ""
+
         df_gtc['mapped_prov'] = df_gtc['clean_bc'].map(bc_to_prov).fillna(df_gtc['Tỉnh']).fillna("Không xác định")
         df_gtc['mapped_am'] = df_gtc['clean_bc'].map(bc_to_am).fillna(df_gtc['AM']).fillna("Không xác định")
         
@@ -3483,7 +3496,14 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         df_gtc['return_vol'] = df_gtc['Volume'] * df_gtc['% Chuyển trả']
         df_gtc['ttc_vol'] = df_gtc['delivered_vol'] + df_gtc['return_vol']
         
-        df_ltc['clean_bc'] = df_ltc['Chi tiết'].apply(clean_str)
+        chi_tiet_ltc = next((c for c in df_ltc.columns if c.lower() in ['chi tiết', 'chitiết', 'bưu cục', 'buucuc', 'bc', 'warehouse_name']), None)
+        if chi_tiet_ltc:
+            df_ltc['Chi tiết'] = df_ltc[chi_tiet_ltc]
+            df_ltc['clean_bc'] = df_ltc[chi_tiet_ltc].apply(clean_str)
+        else:
+            df_ltc['Chi tiết'] = "Không xác định"
+            df_ltc['clean_bc'] = ""
+
         prov_col = next((c for c in df_ltc.columns if c.lower() == 'tỉnh'), None)
         am_col = next((c for c in df_ltc.columns if c.lower() == 'am'), None)
         
