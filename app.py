@@ -2426,7 +2426,207 @@ def process_treo_backlog(df_raw=None, df_co_cau=None, am=None, province=None, po
         return {"error": f"Lỗi xử lý file treo luân chuyển: {str(e)}"}
 
 # ==========================================
-# 4b. PROCESS UNSTABLE POST OFFICES
+# 4a. SPLIT RAW HEAVY 10KG SHEET DATA
+# ==========================================
+def split_raw_tren10kg():
+    raw_path = resolve_path('raw_tren10kg.csv', write=False)
+    if os.path.exists(raw_path):
+        try:
+            df = safe_read_csv(raw_path, header=None)
+            if df is not None and len(df) > 1:
+                # Cols 0..20 -> ops_heavy_10kg.csv
+                df_ops = df.iloc[:, 0:21].copy()
+                df_ops.columns = [str(c).strip() for c in df_ops.iloc[0]]
+                df_ops = df_ops.iloc[1:].dropna(how='all')
+                df_ops.to_csv(resolve_path('ops_heavy_10kg.csv', write=True), index=False, encoding='utf-8-sig')
+                save_df_to_db(df_ops, 'ops_heavy_10kg.csv')
+
+                # Cols 22..29 -> ops_tao_don_10kg.csv
+                if df.shape[1] >= 30:
+                    df_tao = df.iloc[:, 22:30].copy()
+                    df_tao.columns = [str(c).strip() for c in df_tao.iloc[0]]
+                    df_tao = df_tao.iloc[1:].dropna(how='all')
+                    df_tao.to_csv(resolve_path('ops_tao_don_10kg.csv', write=True), index=False, encoding='utf-8-sig')
+                    save_df_to_db(df_tao, 'ops_tao_don_10kg.csv')
+                print("[Heavy 10kg] Successfully split raw_tren10kg.csv into ops_heavy_10kg.csv and ops_tao_don_10kg.csv")
+        except Exception as e:
+            print(f"[Heavy 10kg] Error splitting raw_tren10kg.csv: {e}")
+
+# ==========================================
+# 4b. PROCESS HEAVY GOODS > 10KG REPORT
+# ==========================================
+def process_heavy_10kg_report(am=None, province=None, post_office=None):
+    try:
+        heavy_ops_path = resolve_path('ops_heavy_10kg.csv', write=False)
+        heavy_tao_path = resolve_path('ops_tao_don_10kg.csv', write=False)
+        
+        if not os.path.exists(heavy_ops_path) or not os.path.exists(heavy_tao_path):
+            split_raw_tren10kg()
+
+        df_ops = safe_read_csv(heavy_ops_path)
+        df_tao = safe_read_csv(heavy_tao_path)
+
+        df_co_cau = DF_CO_CAU_CACHE if DF_CO_CAU_CACHE is not None else safe_read_csv(resolve_path('ops_co_cau.csv', write=False))
+        bc_to_prov = {}
+        bc_to_am = {}
+        if df_co_cau is not None and len(df_co_cau) > 0:
+            buucuc_col = next((c for c in df_co_cau.columns if c.lower() in ['bưu cục', 'buucuc', 'bc', 'chi tiết']), None)
+            prov_col_cc = next((c for c in df_co_cau.columns if c.lower() in ['tỉnh', 'tinh']), None)
+            am_col_cc = next((c for c in df_co_cau.columns if c.lower() in ['am', 'id - họ tên am', 'họ tên am']), None)
+            if buucuc_col:
+                df_co_cau['bc_clean'] = df_co_cau[buucuc_col].astype(str).str.strip().str.lower()
+                if prov_col_cc:
+                    bc_to_prov = dict(zip(df_co_cau['bc_clean'], df_co_cau[prov_col_cc]))
+                if am_col_cc:
+                    bc_to_am = dict(zip(df_co_cau['bc_clean'], df_co_cau[am_col_cc]))
+
+        # Phase 1: Process Operational Data (A:U)
+        if len(df_ops) > 0:
+            df_ops.columns = [c.strip() for c in df_ops.columns]
+            vol_col = next((c for c in df_ops.columns if c.lower() == 'volume'), 'Volume')
+            df_ops['Volume'] = safe_to_numeric(df_ops[vol_col]) if vol_col in df_ops.columns else 0.0
+            
+            gtc_col = next((c for c in df_ops.columns if c.lower() in ['% gtc', '%gtc']), None)
+            df_ops['% GTC'] = normalize_pct_col(df_ops[gtc_col]) if gtc_col else 0.0
+            
+            gan_col = next((c for c in df_ops.columns if c.lower() in ['% gán', '%gán']), None)
+            df_ops['% Gán'] = normalize_pct_col(df_ops[gan_col]) if gan_col else 0.0
+
+            leadtime_col = next((c for c in df_ops.columns if c.lower() in ['leadtime', 'lead time']), None)
+            df_ops['Leadtime'] = safe_to_numeric(df_ops[leadtime_col]) if leadtime_col else 0.0
+
+            if 'Sản Lượng Giao Thành Công' in df_ops.columns:
+                df_ops['delivered_vol'] = safe_to_numeric(df_ops['Sản Lượng Giao Thành Công'])
+            else:
+                df_ops['delivered_vol'] = df_ops['Volume'] * df_ops['% GTC']
+
+            chi_tiet_col = next((c for c in df_ops.columns if c.lower() in ['chi tiết', 'chitiết', 'bưu cục', 'buucuc', 'bc']), 'Chi tiết')
+            df_ops['clean_bc'] = df_ops[chi_tiet_col].apply(clean_str)
+            prov_col = next((df_ops[c] for c in df_ops.columns if c.lower() in ['tỉnh', 'tinh']), pd.Series("Không xác định", index=df_ops.index))
+            am_col = next((df_ops[c] for c in df_ops.columns if c.lower() in ['am', 'am_name']), pd.Series("Không xác định", index=df_ops.index))
+
+            df_ops['mapped_prov'] = df_ops['clean_bc'].map(bc_to_prov).replace({'': np.nan, 'none': np.nan, 'nan': np.nan}).fillna(prov_col).fillna("Không xác định")
+            df_ops['mapped_am'] = df_ops['clean_bc'].map(bc_to_am).replace({'': np.nan, 'none': np.nan, 'nan': np.nan}).fillna(am_col).fillna("Không xác định")
+
+            df_ops = apply_filters(df_ops, am=am, province=province, post_office=post_office)
+
+        # Phase 2: Process Order Creation Data (W:AD)
+        if len(df_tao) > 0:
+            df_tao.columns = [c.strip() for c in df_tao.columns]
+            v_col = next((c for c in df_tao.columns if c.lower() in ['vol', 'volume', 'sản lượng']), 'vol')
+            k_col = next((c for c in df_tao.columns if c.lower() in ['kl_kg', 'khối lượng', 'khoi_luong']), 'kl_kg')
+            w_col = next((c for c in df_tao.columns if c.lower() in ['warehouse_name', 'bưu cục', 'buucuc', 'bc']), 'warehouse_name')
+
+            df_tao['vol'] = safe_to_numeric(df_tao[v_col])
+            df_tao['kl_kg'] = safe_to_numeric(df_tao[k_col])
+            df_tao['clean_bc'] = df_tao[w_col].apply(clean_str)
+
+            prov_col_t = next((df_tao[c] for c in df_tao.columns if c.lower() in ['tỉnh', 'tinh']), pd.Series("Không xác định", index=df_tao.index))
+            am_col_t = next((df_tao[c] for c in df_tao.columns if c.lower() in ['am', 'am_name']), pd.Series("Không xác định", index=df_tao.index))
+
+            df_tao['mapped_prov'] = df_tao['clean_bc'].map(bc_to_prov).replace({'': np.nan, 'none': np.nan, 'nan': np.nan}).fillna(prov_col_t).fillna("Không xác định")
+            df_tao['mapped_am'] = df_tao['clean_bc'].map(bc_to_am).replace({'': np.nan, 'none': np.nan, 'nan': np.nan}).fillna(am_col_t).fillna("Không xác định")
+
+            df_tao = apply_filters(df_tao, am=am, province=province, post_office=post_office)
+
+        # Calculate Ops Aggregates
+        total_ops_vol = float(df_ops['Volume'].sum()) if len(df_ops) > 0 else 0.0
+        total_delivered = float(df_ops['delivered_vol'].sum()) if len(df_ops) > 0 else 0.0
+        overall_gtc = round((total_delivered / total_ops_vol * 100), 2) if total_ops_vol > 0 else 0.0
+
+        valid_lt = df_ops[df_ops['Leadtime'] > 0]['Leadtime'] if len(df_ops) > 0 else []
+        avg_leadtime = round(float(valid_lt.mean()), 2) if len(valid_lt) > 0 else 0.0
+
+        # Calculate Creation Aggregates
+        total_created_vol = float(df_tao['vol'].sum()) if len(df_tao) > 0 else 0.0
+        total_created_weight_kg = float(df_tao['kl_kg'].sum()) if len(df_tao) > 0 else 0.0
+        total_created_weight_ton = round(total_created_weight_kg / 1000.0, 2)
+
+        # Weight Bracket Breakdown
+        kg_col_name = next((c for c in df_tao.columns if c.lower() in ['nhom_kg', 'nhóm kg']), None) if len(df_tao) > 0 else None
+        weight_bracket_summary = []
+        pct_heavy_30kg = 0.0
+
+        if kg_col_name and len(df_tao) > 0:
+            kg_grp = df_tao.groupby(kg_col_name).agg({'vol': 'sum', 'kl_kg': 'sum'}).reset_index()
+            kg_grp['pct_vol'] = (kg_grp['vol'] / total_created_vol * 100).round(2) if total_created_vol > 0 else 0.0
+            weight_bracket_summary = kg_grp.to_dict(orient='records')
+            
+            over_30_vol = float(kg_grp[kg_grp[kg_col_name].astype(str).str.contains('>30|30', case=False)]['vol'].sum())
+            pct_heavy_30kg = round((over_30_vol / total_created_vol * 100), 2) if total_created_vol > 0 else 0.0
+
+        # Customer Group Breakdown
+        kh_col_name = next((c for c in df_tao.columns if c.lower() in ['nhom_kh', 'nhóm kh']), None) if len(df_tao) > 0 else None
+        customer_group_summary = []
+        if kh_col_name and len(df_tao) > 0:
+            kh_grp = df_tao.groupby(kh_col_name).agg({'vol': 'sum', 'kl_kg': 'sum'}).reset_index()
+            kh_grp['pct_vol'] = (kh_grp['vol'] / total_created_vol * 100).round(2) if total_created_vol > 0 else 0.0
+            customer_group_summary = kh_grp.to_dict(orient='records')
+
+        # Warehouse / PO Breakdown (Tạo đơn)
+        wh_col_name = next((c for c in df_tao.columns if c.lower() in ['warehouse_name', 'bưu cục', 'buucuc']), 'warehouse_name') if len(df_tao) > 0 else None
+        po_creation_summary = []
+        if wh_col_name and len(df_tao) > 0:
+            po_grp = df_tao.groupby([wh_col_name, 'mapped_am', 'mapped_prov']).agg({'vol': 'sum', 'kl_kg': 'sum'}).reset_index()
+            po_grp = po_grp.sort_values(by='vol', ascending=False)
+            po_creation_summary = po_grp.head(30).to_dict(orient='records')
+
+        # PO Operational Summary Table
+        po_ops_summary = []
+        top_pos = []
+        worst_pos = []
+        if len(df_ops) > 0 and 'Chi tiết' in df_ops.columns:
+            po_ops = df_ops.groupby(['Chi tiết', 'mapped_am', 'mapped_prov']).agg({
+                'Volume': 'sum',
+                'delivered_vol': 'sum',
+                'Leadtime': 'mean'
+            }).reset_index()
+            po_ops['% GTC'] = (po_ops['delivered_vol'] / po_ops['Volume'] * 100).round(2)
+            po_ops['Leadtime'] = po_ops['Leadtime'].round(2)
+            po_ops_summary = po_ops.sort_values(by='Volume', ascending=False).to_dict(orient='records')
+
+            # Filter min 10 volume for top/worst
+            po_filtered = po_ops[po_ops['Volume'] >= 10]
+            if len(po_filtered) > 0:
+                top_pos = po_filtered.sort_values(by='% GTC', ascending=False).head(5).to_dict(orient='records')
+                worst_pos = po_filtered.sort_values(by='% GTC', ascending=True).head(5).to_dict(orient='records')
+
+        # Creation Trend by Date
+        creation_trend = []
+        date_col_t = next((c for c in df_tao.columns if c.lower() in ['hen_lay', 'time', 'ngày']), None) if len(df_tao) > 0 else None
+        if date_col_t and len(df_tao) > 0:
+            c_trend = df_tao.groupby(date_col_t).agg({'vol': 'sum', 'kl_kg': 'sum'}).reset_index()
+            creation_trend = c_trend.to_dict(orient='records')
+
+        # Operational Trend by Date
+        ops_trend = []
+        if len(df_ops) > 0 and 'Time' in df_ops.columns:
+            o_trend = df_ops.groupby('Time').agg({'Volume': 'sum', 'delivered_vol': 'sum'}).reset_index()
+            o_trend['% GTC'] = (o_trend['delivered_vol'] / o_trend['Volume'] * 100).round(2)
+            ops_trend = o_trend.to_dict(orient='records')
+
+        return {
+            "total_ops_vol": total_ops_vol,
+            "overall_gtc": overall_gtc,
+            "avg_leadtime": avg_leadtime,
+            "total_created_vol": total_created_vol,
+            "total_created_weight_kg": total_created_weight_kg,
+            "total_created_weight_ton": total_created_weight_ton,
+            "pct_heavy_30kg": pct_heavy_30kg,
+            "weight_bracket_summary": weight_bracket_summary,
+            "customer_group_summary": customer_group_summary,
+            "po_creation_summary": po_creation_summary,
+            "po_ops_summary": po_ops_summary,
+            "top_pos": top_pos,
+            "worst_pos": worst_pos,
+            "creation_trend": creation_trend,
+            "ops_trend": ops_trend
+        }
+    except Exception as e:
+        return {"error": f"Lỗi xử lý báo cáo hàng nặng >10kg: {str(e)}"}
+
+# ==========================================
+# 4c. PROCESS UNSTABLE POST OFFICES
 # ==========================================
 def clean_po_name(name):
     if not name:
@@ -3339,6 +3539,7 @@ OFF_SPE_CACHE = None
 FD_CACHE = None
 CA_REPORT_CACHE = None
 PRODUCTIVITY_REALTIME_CACHE = None
+HEAVY_10KG_CACHE = None
 
 LAST_CACHE_UPDATE_TIME = None
 LAST_CACHE_CHECK_TIME = 0
@@ -3757,7 +3958,7 @@ def apply_filters(df, am=None, province=None, post_office=None):
     return df_filtered
 
 def update_all_caches():
-    global OPERATIONAL_CACHE, OPR_CACHE, BACKLOG_CACHE_RAW, UNSTABLE_PO_CACHE, OFF_SPE_CACHE, CA_REPORT_CACHE, PRODUCTIVITY_REALTIME_CACHE, DF_TAO_DON_CACHE, DF_BUU_CUC_TYPE_MAP, FD_CACHE
+    global OPERATIONAL_CACHE, OPR_CACHE, BACKLOG_CACHE_RAW, UNSTABLE_PO_CACHE, OFF_SPE_CACHE, CA_REPORT_CACHE, PRODUCTIVITY_REALTIME_CACHE, DF_TAO_DON_CACHE, DF_BUU_CUC_TYPE_MAP, FD_CACHE, HEAVY_10KG_CACHE
     import gc
     CA_REPORT_CACHE = None
     PRODUCTIVITY_REALTIME_CACHE = None
@@ -3863,6 +4064,15 @@ def update_all_caches():
         gc.collect()
     except Exception as e:
         print(f"Error volume: {e}")
+
+    # 8. Process Heavy Goods >10kg
+    try:
+        print("Parsing Heavy Goods >10kg...")
+        HEAVY_10KG_CACHE = process_heavy_10kg_report()
+        gc.collect()
+    except Exception as e:
+        print(f"Error Heavy Goods: {e}")
+        HEAVY_10KG_CACHE = {"error": f"Lỗi: {e}"}
         
     print("--------------------------------------------------")
     print("MEMORY-EFFICIENT CACHE LOAD COMPLETE.")
@@ -4889,7 +5099,8 @@ def sync_sheets_directly_as_csv(url):
         (["odr tts", "odr_tts"], "ODR TTS.csv"),
         (["fd"], "ops_fd.csv"),
         (["baocao", "báo cáo"], "ops_productivity_realtime.csv"),
-        (["nhân sự", "nhan su"], "ops_nhan_su.csv")
+        (["nhân sự", "nhan su"], "ops_nhan_su.csv"),
+        (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "10kg", "hàng 10kg"], "raw_tren10kg.csv")
     ]
     
     
@@ -4967,6 +5178,10 @@ def sync_sheets_directly_as_csv(url):
         with concurrent.futures.ThreadPoolExecutor(max_workers=4) as db_executor:
             list(db_executor.map(write_one, pending_db_writes))
         print("DB writes complete.")
+        try:
+            split_raw_tren10kg()
+        except Exception as e:
+            print(f"Error splitting raw_tren10kg: {e}")
         
     return True, f"Đã tải thành công {success_count} files."
 
@@ -5664,6 +5879,26 @@ def api_matrix_tables():
         import traceback
         print(traceback.format_exc())
         return jsonify({"error": f"Lỗi tính toán matrix tables: {str(e)}"}), 500
+
+@app.route('/api/heavy-10kg')
+@requires_auth
+def api_heavy_10kg():
+    try:
+        am = request.args.get('am')
+        province = request.args.get('province')
+        post_office = request.args.get('post_office')
+
+        if am or province or post_office:
+            data = process_heavy_10kg_report(am=am, province=province, post_office=post_office)
+        else:
+            global HEAVY_10KG_CACHE
+            if HEAVY_10KG_CACHE is None or (isinstance(HEAVY_10KG_CACHE, dict) and "error" in HEAVY_10KG_CACHE):
+                HEAVY_10KG_CACHE = process_heavy_10kg_report()
+            data = HEAVY_10KG_CACHE
+
+        return jsonify(clean_nan(data))
+    except Exception as e:
+        return jsonify({"error": f"Lỗi lấy dữ liệu hàng nặng >10kg: {str(e)}"}), 500
 
 @app.route('/api/chat', methods=['POST'])
 @requires_auth
