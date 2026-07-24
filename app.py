@@ -687,7 +687,13 @@ def load_df_from_db(filename):
             '%ontime': '%Ontime',
             'gtc': 'GTC',
             'id': 'ID',
-            'thời gian cập nhật': 'Thời gian cập nhật'
+            'thời gian cập nhật': 'Thời gian cập nhật',
+            'hen_lay': 'hen_lay',
+            'deliverywarehouseid': 'deliverywarehouseid',
+            'nhom_kh': 'nhom_kh',
+            'nhom_kg': 'nhom_kg',
+            'vol': 'vol',
+            'kl_kg': 'kl_kg'
         }
         rename_dict = {}
         for c in df.columns:
@@ -2482,9 +2488,9 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None):
 
         # Phase 1: Process Operational Data (A:U)
         if len(df_ops) > 0:
-            df_ops.columns = [c.strip() for c in df_ops.columns]
-            vol_col = next((c for c in df_ops.columns if c.lower() == 'volume'), 'Volume')
-            df_ops['Volume'] = safe_to_numeric(df_ops[vol_col]) if vol_col in df_ops.columns else 0.0
+            df_ops.columns = [str(c).strip() for c in df_ops.columns]
+            vol_col = next((c for c in df_ops.columns if c.lower() == 'volume'), None)
+            df_ops['Volume'] = safe_to_numeric(df_ops[vol_col]) if vol_col else 0.0
             
             gtc_col = next((c for c in df_ops.columns if c.lower() in ['% gtc', '%gtc']), None)
             df_ops['% GTC'] = normalize_pct_col(df_ops[gtc_col]) if gtc_col else 0.0
@@ -2495,31 +2501,49 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None):
             leadtime_col = next((c for c in df_ops.columns if c.lower() in ['leadtime', 'lead time']), None)
             df_ops['Leadtime'] = safe_to_numeric(df_ops[leadtime_col]) if leadtime_col else 0.0
 
-            if 'Sản Lượng Giao Thành Công' in df_ops.columns:
-                df_ops['delivered_vol'] = safe_to_numeric(df_ops['Sản Lượng Giao Thành Công'])
+            deliv_col = next((c for c in df_ops.columns if c.lower() in ['sản lượng giao thành công', 'san luong giao thanh cong']), None)
+            if deliv_col:
+                df_ops['delivered_vol'] = safe_to_numeric(df_ops[deliv_col])
             else:
                 df_ops['delivered_vol'] = df_ops['Volume'] * df_ops['% GTC']
 
-            chi_tiet_col = next((c for c in df_ops.columns if c.lower() in ['chi tiết', 'chitiết', 'bưu cục', 'buucuc', 'bc']), 'Chi tiết')
-            df_ops['clean_bc'] = df_ops[chi_tiet_col].apply(clean_str)
+            chi_tiet_col = next((c for c in df_ops.columns if c.lower() in ['chi tiết', 'chitiết', 'bưu cục', 'buucuc', 'bc']), None)
+            if chi_tiet_col:
+                df_ops['Chi tiết'] = df_ops[chi_tiet_col]
+            else:
+                df_ops['Chi tiết'] = "Không xác định"
+
+            df_ops['clean_bc'] = df_ops['Chi tiết'].apply(clean_str)
             prov_col = next((df_ops[c] for c in df_ops.columns if c.lower() in ['tỉnh', 'tinh']), pd.Series("Không xác định", index=df_ops.index))
             am_col = next((df_ops[c] for c in df_ops.columns if c.lower() in ['am', 'am_name']), pd.Series("Không xác định", index=df_ops.index))
 
             df_ops['mapped_prov'] = df_ops['clean_bc'].map(bc_to_prov).replace({'': np.nan, 'none': np.nan, 'nan': np.nan}).fillna(prov_col).fillna("Không xác định")
             df_ops['mapped_am'] = df_ops['clean_bc'].map(bc_to_am).replace({'': np.nan, 'none': np.nan, 'nan': np.nan}).fillna(am_col).fillna("Không xác định")
 
+            time_col = next((c for c in df_ops.columns if c.lower() in ['time', 'thời gian']), None)
+            if time_col:
+                df_ops['Time'] = df_ops[time_col]
+            else:
+                df_ops['Time'] = "Chưa xác định"
+
             df_ops = apply_filters(df_ops, am=am, province=province, post_office=post_office)
 
         # Phase 2: Process Order Creation Data (W:AD)
         if len(df_tao) > 0:
-            df_tao.columns = [c.strip() for c in df_tao.columns]
-            v_col = next((c for c in df_tao.columns if c.lower() in ['vol', 'volume', 'sản lượng']), 'vol')
-            k_col = next((c for c in df_tao.columns if c.lower() in ['kl_kg', 'khối lượng', 'khoi_luong']), 'kl_kg')
-            w_col = next((c for c in df_tao.columns if c.lower() in ['warehouse_name', 'bưu cục', 'buucuc', 'bc']), 'warehouse_name')
+            df_tao.columns = [str(c).strip() for c in df_tao.columns]
+            v_col = next((c for c in df_tao.columns if c.lower() in ['vol', 'volume', 'sản lượng']), None)
+            k_col = next((c for c in df_tao.columns if c.lower() in ['kl_kg', 'khối lượng', 'khoi_luong']), None)
+            w_col = next((c for c in df_tao.columns if c.lower() in ['warehouse_name', 'bưu cục', 'buucuc', 'bc']), None)
 
-            df_tao['vol'] = safe_to_numeric(df_tao[v_col])
-            df_tao['kl_kg'] = safe_to_numeric(df_tao[k_col])
-            df_tao['clean_bc'] = df_tao[w_col].apply(clean_str)
+            df_tao['vol'] = safe_to_numeric(df_tao[v_col]) if v_col else 0.0
+            df_tao['kl_kg'] = safe_to_numeric(df_tao[k_col]) if k_col else 0.0
+            
+            if w_col:
+                df_tao['warehouse_name'] = df_tao[w_col]
+            else:
+                df_tao['warehouse_name'] = "Không xác định"
+
+            df_tao['clean_bc'] = df_tao['warehouse_name'].apply(clean_str)
 
             prov_col_t = next((df_tao[c] for c in df_tao.columns if c.lower() in ['tỉnh', 'tinh']), pd.Series("Không xác định", index=df_tao.index))
             am_col_t = next((df_tao[c] for c in df_tao.columns if c.lower() in ['am', 'am_name']), pd.Series("Không xác định", index=df_tao.index))

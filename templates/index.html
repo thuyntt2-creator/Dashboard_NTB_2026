@@ -8515,6 +8515,10 @@
 
                 if (data.error) {
                     console.error("Error loading heavy 10kg data:", data.error);
+                    const tableBody = document.getElementById('table-heavy-po-body');
+                    if (tableBody) {
+                        tableBody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: var(--color-danger); padding: 24px;">${data.error}. Vui lòng nhấn nút <b>"Đồng bộ dữ liệu"</b> để khởi tạo dữ liệu.</td></tr>`;
+                    }
                     return;
                 }
 
