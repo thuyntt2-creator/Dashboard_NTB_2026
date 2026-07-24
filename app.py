@@ -1491,15 +1491,25 @@ def process_operational_report(df_gtc=None, df_ltc=None, df_tts=None, am=None, p
                 else:
                     df_tts = df_tts[df_tts[po_col].astype(str).str.strip() == po_str]
         
-        df_gtc = df_gtc.dropna(subset=["Volume"]).copy()
-        df_gtc['Volume'] = safe_to_numeric(df_gtc['Volume'])
+        vol_gtc_col = next((c for c in df_gtc.columns if c.lower() == 'volume'), None)
+        if vol_gtc_col:
+            df_gtc['Volume'] = safe_to_numeric(df_gtc[vol_gtc_col])
+            df_gtc = df_gtc.dropna(subset=['Volume']).copy()
+        else:
+            df_gtc['Volume'] = 0.0
+
         if 'Leadtime' not in df_gtc.columns:
             df_gtc['Leadtime'] = np.nan
         else:
             df_gtc['Leadtime'] = pd.to_numeric(df_gtc['Leadtime'], errors='coerce')
         
-        df_ltc = df_ltc.dropna(subset=["Volume"]).copy()
-        df_ltc['Volume'] = safe_to_numeric(df_ltc['Volume'])
+        vol_ltc_col = next((c for c in df_ltc.columns if c.lower() == 'volume'), None)
+        if vol_ltc_col:
+            df_ltc['Volume'] = safe_to_numeric(df_ltc[vol_ltc_col])
+            df_ltc = df_ltc.dropna(subset=['Volume']).copy()
+        else:
+            df_ltc['Volume'] = 0.0
+
         if 'Leadtime' not in df_ltc.columns:
             df_ltc['Leadtime'] = np.nan
         else:
@@ -3512,7 +3522,9 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         df_gtc['mapped_prov'] = df_gtc['clean_bc'].map(bc_to_prov).fillna(gtc_prov_col).fillna("Không xác định")
         df_gtc['mapped_am'] = df_gtc['clean_bc'].map(bc_to_am).fillna(gtc_am_col).fillna("Không xác định")
         
-        df_gtc['Volume'] = safe_to_numeric(df_gtc['Volume'])
+        vol_gtc_col_map = next((c for c in df_gtc.columns if c.lower() == 'volume'), 'Volume')
+        df_gtc['Volume'] = safe_to_numeric(df_gtc[vol_gtc_col_map]) if vol_gtc_col_map in df_gtc.columns else 0.0
+
         df_gtc['% GTC'] = normalize_pct_col(df_gtc['% GTC'])
         df_gtc['% Chuyển trả'] = normalize_pct_col(df_gtc['% Chuyển trả'])
         
@@ -3542,7 +3554,9 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         df_ltc['mapped_am'] = df_ltc['mapped_am'].fillna("Không xác định")
         
         # Normalize columns and map ltc_vol to Column K (Sản Lượng Lấy Thành Công)
-        df_ltc['Volume'] = safe_to_numeric(df_ltc['Volume'])
+        vol_ltc_col_map = next((c for c in df_ltc.columns if c.lower() == 'volume'), 'Volume')
+        df_ltc['Volume'] = safe_to_numeric(df_ltc[vol_ltc_col_map]) if vol_ltc_col_map in df_ltc.columns else 0.0
+
         df_ltc['%LTC'] = normalize_pct_col(df_ltc['%LTC'])
         df_ltc.columns = [c.strip() for c in df_ltc.columns]
         if 'Sản Lượng Lấy Thành Công' in df_ltc.columns:
