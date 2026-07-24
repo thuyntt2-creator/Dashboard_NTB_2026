@@ -653,6 +653,7 @@ def load_df_from_db(filename):
             'mã bưu cục': 'Mã bưu cục',
             'mã đơn hàng': 'Mã đơn hàng',
             'loại đơn': 'Loại đơn',
+            'loại hàng': 'Loại Hàng',
             'khách hàng': 'Khách hàng',
             'thời gian tồn đọng': 'Thời gian tồn đọng',
             'warehouse_name': 'warehouse_name',
@@ -1610,9 +1611,15 @@ def process_operational_report(df_gtc=None, df_ltc=None, df_tts=None, am=None, p
         avg_leadtime = float(df_gtc_latest['Leadtime'].mean()) if ('Leadtime' in df_gtc_latest.columns and not df_gtc_latest['Leadtime'].isna().all()) else 0.0
         
         # Shift breakdown (Ca 1, Ca 2, Tồn) in Datagtc
-        ca1_vol = float(df_gtc_latest[df_gtc_latest['Loại Hàng'] == 'Hàng Mới Ca 1']['Volume'].sum())
-        ca2_vol = float(df_gtc_latest[df_gtc_latest['Loại Hàng'] == 'Hàng Mới Ca 2']['Volume'].sum())
-        ton_vol = float(df_gtc_latest[df_gtc_latest['Loại Hàng'] == 'Hàng Tồn']['Volume'].sum())
+        loai_hang_col = next((c for c in df_gtc_latest.columns if c.lower() in ['loại hàng', 'loai hang', 'ca']), None)
+        if loai_hang_col:
+            ca1_vol = float(df_gtc_latest[df_gtc_latest[loai_hang_col] == 'Hàng Mới Ca 1']['Volume'].sum())
+            ca2_vol = float(df_gtc_latest[df_gtc_latest[loai_hang_col] == 'Hàng Mới Ca 2']['Volume'].sum())
+            ton_vol = float(df_gtc_latest[df_gtc_latest[loai_hang_col] == 'Hàng Tồn']['Volume'].sum())
+        else:
+            ca1_vol = 0.0
+            ca2_vol = 0.0
+            ton_vol = 0.0
         new_vol = ca1_vol + ca2_vol
         
         # Top 10 Best and Worst Post Offices by GTC
