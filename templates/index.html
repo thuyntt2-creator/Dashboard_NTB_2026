@@ -5370,6 +5370,7 @@
                 renderOffSpe(globalData.offSpe);
                 renderVolumeCreation(globalData.volumeCreation);
                 renderFdDashboard(globalData.fd);
+                loadHeavy10kgData();
 
             } catch (err) {
                 console.error(err);
@@ -5720,6 +5721,9 @@
 
             // Dynamic fetch for Operational tab
             loadOperationalData();
+            
+            // Dynamic fetch for Heavy 10kg tab
+            loadHeavy10kgData();
         }
 
         // ==========================================
@@ -8499,6 +8503,23 @@
             } catch (err) {
                 console.error("Error loading NTB data:", err);
             }
+        }
+
+        function getFilterParams() {
+            const params = new URLSearchParams();
+            const amEl = document.getElementById('global-filter-am') || document.getElementById('filter-am');
+            const provEl = document.getElementById('global-filter-province') || document.getElementById('filter-province');
+            const poEl = document.getElementById('global-filter-po') || document.getElementById('filter-po');
+
+            const am = amEl ? amEl.value : '';
+            const prov = provEl ? provEl.value : '';
+            const po = poEl ? poEl.value : '';
+
+            if (am && am !== 'all' && am !== 'Tất cả') params.append('am', am);
+            if (prov && prov !== 'all' && prov !== 'Tất cả') params.append('province', prov);
+            if (po && po !== 'all' && po !== 'Tất cả') params.append('post_office', po);
+
+            return params;
         }
 
         /* ==========================================================================
