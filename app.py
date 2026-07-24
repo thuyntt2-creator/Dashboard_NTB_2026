@@ -2431,9 +2431,52 @@ def process_treo_backlog(df_raw=None, df_co_cau=None, am=None, province=None, po
     except Exception as e:
         return {"error": f"Lỗi xử lý file treo luân chuyển: {str(e)}"}
 
-# ==========================================
-# 4a. SPLIT RAW HEAVY 10KG SHEET DATA
-# ==========================================
+# Helper: Universal Raw Tren10kg Splitter (Handles headerless CSVs & named DB DataFrames)
+def split_raw_tren10kg_df(df_raw):
+    if df_raw is None or len(df_raw) == 0:
+        return None, None
+    df_raw = df_raw.copy()
+    is_headerless = any(isinstance(c, int) for c in df_raw.columns) or all(str(c).isdigit() for c in df_raw.columns)
+    if is_headerless:
+        header_row = 0
+        for r_idx in range(min(5, len(df_raw))):
+            row_vals = [str(v).lower() for v in df_raw.iloc[r_idx] if pd.notnull(v)]
+            if any('cấp quản lý' in v or 'chi tiết' in v or 'loại hàng' in v or 'hen_lay' in v for v in row_vals):
+                header_row = r_idx
+                break
+        df_ops = df_raw.iloc[header_row:].copy()
+        if df_ops.shape[1] >= 21:
+            df_ops = df_ops.iloc[:, 0:21]
+            df_ops.columns = [str(c).strip() for c in df_ops.iloc[0]]
+            df_ops = df_ops.iloc[1:].dropna(how='all')
+        else:
+            df_ops = pd.DataFrame()
+
+        if df_raw.shape[1] >= 30:
+            df_tao = df_raw.iloc[header_row:].copy()
+            df_tao = df_tao.iloc[:, 22:30]
+            df_tao.columns = [str(c).strip() for c in df_tao.iloc[0]]
+            df_tao = df_tao.iloc[1:].dropna(how='all')
+        else:
+            df_tao = pd.DataFrame()
+    else:
+        cols_lower = [str(c).strip().lower() for c in df_raw.columns]
+        has_creation_cols = any(k in cols_lower for k in ['hen_lay', 'deliverywarehouseid', 'nhom_kh', 'nhom_kg', 'vol', 'kl_kg'])
+        if df_raw.shape[1] >= 30:
+            df_ops = df_raw.iloc[:, 0:21].copy()
+            df_ops.columns = [str(c).strip() for c in df_ops.columns]
+            df_tao = df_raw.iloc[:, 22:30].copy()
+            df_tao.columns = [str(c).strip() for c in df_tao.columns]
+        elif has_creation_cols:
+            df_ops = pd.DataFrame()
+            df_tao = df_raw.copy()
+            df_tao.columns = [str(c).strip() for c in df_tao.columns]
+        else:
+            df_ops = df_raw.copy()
+            df_ops.columns = [str(c).strip() for c in df_ops.columns]
+            df_tao = pd.DataFrame()
+    return df_ops, df_tao
+
 def split_raw_tren10kg():
     try:
         raw_path = resolve_path('raw_tren10kg.csv', write=False)
@@ -2441,38 +2484,23 @@ def split_raw_tren10kg():
         if df_raw is None or len(df_raw) == 0:
             df_raw = load_df_from_db('raw_tren10kg.csv')
             
-        if df_raw is not None and len(df_raw) > 1:
-            header_row = 0
-            for r_idx in range(min(5, len(df_raw))):
-                row_vals = [str(v).lower() for v in df_raw.iloc[r_idx] if pd.notnull(v)]
-                if any('cấp quản lý' in v or 'chi tiết' in v or 'loại hàng' in v or 'hen_lay' in v for v in row_vals):
-                    header_row = r_idx
-                    break
+        df_ops, df_tao = split_raw_tren10kg_df(df_raw)
+        
+        if df_ops is not None and len(df_ops) > 0:
+            try:
+                df_ops.to_csv(resolve_path('ops_heavy_10kg.csv', write=True), index=False, encoding='utf-8-sig')
+            except Exception:
+                pass
+            save_df_to_db(df_ops, 'ops_heavy_10kg.csv')
 
-            # Cols 0..20 -> ops_heavy_10kg.csv
-            df_ops = df_raw.iloc[header_row:].copy()
-            if df_ops.shape[1] >= 21:
-                df_ops = df_ops.iloc[:, 0:21]
-                df_ops.columns = [str(c).strip() for c in df_ops.iloc[0]]
-                df_ops = df_ops.iloc[1:].dropna(how='all')
-                try:
-                    df_ops.to_csv(resolve_path('ops_heavy_10kg.csv', write=True), index=False, encoding='utf-8-sig')
-                except Exception:
-                    pass
-                save_df_to_db(df_ops, 'ops_heavy_10kg.csv')
-
-            # Cols 22..29 -> ops_tao_don_10kg.csv
-            if df_raw.shape[1] >= 30:
-                df_tao = df_raw.iloc[header_row:].copy()
-                df_tao = df_tao.iloc[:, 22:30]
-                df_tao.columns = [str(c).strip() for c in df_tao.iloc[0]]
-                df_tao = df_tao.iloc[1:].dropna(how='all')
-                try:
-                    df_tao.to_csv(resolve_path('ops_tao_don_10kg.csv', write=True), index=False, encoding='utf-8-sig')
-                except Exception:
-                    pass
-                save_df_to_db(df_tao, 'ops_tao_don_10kg.csv')
-            print("[Heavy 10kg] Successfully split raw_tren10kg into ops_heavy_10kg and ops_tao_don_10kg")
+        if df_tao is not None and len(df_tao) > 0:
+            try:
+                df_tao.to_csv(resolve_path('ops_tao_don_10kg.csv', write=True), index=False, encoding='utf-8-sig')
+            except Exception:
+                pass
+            save_df_to_db(df_tao, 'ops_tao_don_10kg.csv')
+            
+        print("[Heavy 10kg] Successfully split raw_tren10kg into ops_heavy_10kg and ops_tao_don_10kg")
     except Exception as e:
         print(f"[Heavy 10kg] Error splitting raw_tren10kg: {e}")
 
@@ -2483,38 +2511,21 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None):
     try:
         heavy_ops_path = resolve_path('ops_heavy_10kg.csv', write=False)
         heavy_tao_path = resolve_path('ops_tao_don_10kg.csv', write=False)
-        
-        if not os.path.exists(heavy_ops_path) or not os.path.exists(heavy_tao_path):
-            split_raw_tren10kg()
 
         df_ops = safe_read_csv(heavy_ops_path)
         df_tao = safe_read_csv(heavy_tao_path)
 
         # Fallback: if df_ops or df_tao is empty, attempt to read raw_tren10kg.csv directly
         if (df_ops is None or len(df_ops) == 0) or (df_tao is None or len(df_tao) == 0):
-            df_raw = safe_read_csv(resolve_path('raw_tren10kg.csv', write=False))
-            if df_raw is not None and len(df_raw) > 1:
-                try:
-                    header_row = 0
-                    for r_idx in range(min(5, len(df_raw))):
-                        row_vals = [str(v).lower() for v in df_raw.iloc[r_idx] if pd.notnull(v)]
-                        if any('cấp quản lý' in v or 'chi tiết' in v or 'loại hàng' in v for v in row_vals):
-                            header_row = r_idx
-                            break
-
-                    if (df_ops is None or len(df_ops) == 0) and df_raw.shape[1] >= 21:
-                        df_ops = df_raw.iloc[header_row:].copy()
-                        df_ops = df_ops.iloc[:, 0:21]
-                        df_ops.columns = [str(c).strip() for c in df_ops.iloc[0]]
-                        df_ops = df_ops.iloc[1:].dropna(how='all')
-
-                    if (df_tao is None or len(df_tao) == 0) and df_raw.shape[1] >= 30:
-                        df_tao = df_raw.iloc[header_row:].copy()
-                        df_tao = df_tao.iloc[:, 22:30]
-                        df_tao.columns = [str(c).strip() for c in df_tao.iloc[0]]
-                        df_tao = df_tao.iloc[1:].dropna(how='all')
-                except Exception as e:
-                    print(f"[Heavy 10kg] Fallback split error: {e}")
+            df_raw = safe_read_csv(resolve_path('raw_tren10kg.csv', write=False), header=None)
+            if df_raw is None or len(df_raw) == 0:
+                df_raw = load_df_from_db('raw_tren10kg.csv')
+            
+            fb_ops, fb_tao = split_raw_tren10kg_df(df_raw)
+            if (df_ops is None or len(df_ops) == 0) and fb_ops is not None:
+                df_ops = fb_ops
+            if (df_tao is None or len(df_tao) == 0) and fb_tao is not None:
+                df_tao = fb_tao
 
         if df_ops is None:
             df_ops = pd.DataFrame()
