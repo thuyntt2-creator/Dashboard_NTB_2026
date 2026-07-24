@@ -2327,6 +2327,12 @@ def process_treo_backlog(df_raw=None, df_co_cau=None, am=None, province=None, po
         bc_to_am = dict(zip(df_co_cau['bc_clean'], df_co_cau[am_col_cc])) if am_col_cc else {}
         bc_to_province = dict(zip(df_co_cau['bc_clean'], df_co_cau[prov_col_cc])) if prov_col_cc else {}
         
+        wh_col = next((c for c in df_raw.columns if c.lower() in ['warehouse_name', 'bưu cục', 'buucuc', 'bc', 'chi tiết']), None)
+        if wh_col:
+            df_raw['wh_clean'] = df_raw[wh_col].astype(str).str.strip().str.lower()
+        else:
+            df_raw['wh_clean'] = ""
+        
         df_raw['mapped_am'] = df_raw['wh_clean'].map(bc_to_am)
         df_raw['mapped_province'] = df_raw['wh_clean'].map(bc_to_province)
         
