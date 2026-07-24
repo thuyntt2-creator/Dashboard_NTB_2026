@@ -3506,8 +3506,11 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
             df_gtc['Chi tiết'] = "Không xác định"
             df_gtc['clean_bc'] = ""
 
-        df_gtc['mapped_prov'] = df_gtc['clean_bc'].map(bc_to_prov).fillna(df_gtc['Tỉnh']).fillna("Không xác định")
-        df_gtc['mapped_am'] = df_gtc['clean_bc'].map(bc_to_am).fillna(df_gtc['AM']).fillna("Không xác định")
+        gtc_prov_col = next((df_gtc[c] for c in df_gtc.columns if c.lower() in ['tỉnh', 'tinh', 'province']), pd.Series("Không xác định", index=df_gtc.index))
+        gtc_am_col = next((df_gtc[c] for c in df_gtc.columns if c.lower() in ['am', 'am_name']), pd.Series("Không xác định", index=df_gtc.index))
+
+        df_gtc['mapped_prov'] = df_gtc['clean_bc'].map(bc_to_prov).fillna(gtc_prov_col).fillna("Không xác định")
+        df_gtc['mapped_am'] = df_gtc['clean_bc'].map(bc_to_am).fillna(gtc_am_col).fillna("Không xác định")
         
         df_gtc['Volume'] = safe_to_numeric(df_gtc['Volume'])
         df_gtc['% GTC'] = normalize_pct_col(df_gtc['% GTC'])
@@ -3525,8 +3528,8 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
             df_ltc['Chi tiết'] = "Không xác định"
             df_ltc['clean_bc'] = ""
 
-        prov_col = next((c for c in df_ltc.columns if c.lower() == 'tỉnh'), None)
-        am_col = next((c for c in df_ltc.columns if c.lower() == 'am'), None)
+        prov_col = next((c for c in df_ltc.columns if c.lower() in ['tỉnh', 'tinh', 'province']), None)
+        am_col = next((c for c in df_ltc.columns if c.lower() in ['am', 'am_name']), None)
         
         df_ltc['mapped_prov'] = df_ltc['clean_bc'].map(bc_to_prov)
         if prov_col:
@@ -3568,13 +3571,29 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
                 if new_rows_list:
                     df_ltc = pd.concat([df_ltc] + new_rows_list, ignore_index=True)
         
-        df_aging['clean_bc'] = df_aging['BC'].apply(clean_str)
-        df_aging['mapped_prov'] = df_aging['clean_bc'].map(bc_to_prov).fillna(df_aging['Tỉnh']).fillna("Không xác định")
-        df_aging['mapped_am'] = df_aging['clean_bc'].map(bc_to_am).fillna(df_aging['am_name']).fillna("Không xác định")
+        aging_bc_col = next((c for c in df_aging.columns if c.lower() in ['bc', 'bưu cục', 'buucuc', 'chi tiết']), 'BC')
+        if aging_bc_col in df_aging.columns:
+            df_aging['clean_bc'] = df_aging[aging_bc_col].apply(clean_str)
+        else:
+            df_aging['clean_bc'] = ""
+
+        aging_prov_fallback = next((df_aging[c] for c in df_aging.columns if c.lower() in ['tỉnh', 'tinh', 'province', 'mapped_prov']), pd.Series("Không xác định", index=df_aging.index))
+        aging_am_fallback = next((df_aging[c] for c in df_aging.columns if c.lower() in ['am', 'am_name', 'mapped_am']), pd.Series("Không xác định", index=df_aging.index))
+
+        df_aging['mapped_prov'] = df_aging['clean_bc'].map(bc_to_prov).fillna(aging_prov_fallback).fillna("Không xác định")
+        df_aging['mapped_am'] = df_aging['clean_bc'].map(bc_to_am).fillna(aging_am_fallback).fillna("Không xác định")
         
-        df_treo['clean_bc'] = df_treo['warehouse_name'].apply(clean_str)
-        df_treo['mapped_prov'] = df_treo['clean_bc'].map(bc_to_prov).fillna(df_treo['province_name']).fillna("Không xác định")
-        df_treo['mapped_am'] = df_treo['clean_bc'].map(bc_to_am).fillna(df_treo['am_name']).fillna("Không xác định")
+        treo_bc_col = next((c for c in df_treo.columns if c.lower() in ['warehouse_name', 'bưu cục', 'buucuc', 'bc', 'chi tiết']), 'warehouse_name')
+        if treo_bc_col in df_treo.columns:
+            df_treo['clean_bc'] = df_treo[treo_bc_col].apply(clean_str)
+        else:
+            df_treo['clean_bc'] = ""
+
+        treo_prov_fallback = next((df_treo[c] for c in df_treo.columns if c.lower() in ['province_name', 'tỉnh', 'tinh', 'province']), pd.Series("Không xác định", index=df_treo.index))
+        treo_am_fallback = next((df_treo[c] for c in df_treo.columns if c.lower() in ['am_name', 'am', 'mapped_am']), pd.Series("Không xác định", index=df_treo.index))
+
+        df_treo['mapped_prov'] = df_treo['clean_bc'].map(bc_to_prov).fillna(treo_prov_fallback).fillna("Không xác định")
+        df_treo['mapped_am'] = df_treo['clean_bc'].map(bc_to_am).fillna(treo_am_fallback).fillna("Không xác định")
         
         allowed_statuses = ['Chưa đóng kiện', 'Không cần đóng kiện']
         df_treo_filtered = df_treo[df_treo['Trạng thái'].isin(allowed_statuses)].copy()
