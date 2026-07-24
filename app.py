@@ -2472,6 +2472,37 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None):
         df_ops = safe_read_csv(heavy_ops_path)
         df_tao = safe_read_csv(heavy_tao_path)
 
+        # Fallback: if df_ops or df_tao is empty, attempt to read raw_tren10kg.csv directly
+        if (df_ops is None or len(df_ops) == 0) or (df_tao is None or len(df_tao) == 0):
+            df_raw = safe_read_csv(resolve_path('raw_tren10kg.csv', write=False))
+            if df_raw is not None and len(df_raw) > 1:
+                try:
+                    header_row = 0
+                    for r_idx in range(min(5, len(df_raw))):
+                        row_vals = [str(v).lower() for v in df_raw.iloc[r_idx] if pd.notnull(v)]
+                        if any('cấp quản lý' in v or 'chi tiết' in v or 'loại hàng' in v for v in row_vals):
+                            header_row = r_idx
+                            break
+
+                    if (df_ops is None or len(df_ops) == 0) and df_raw.shape[1] >= 21:
+                        df_ops = df_raw.iloc[header_row:].copy()
+                        df_ops = df_ops.iloc[:, 0:21]
+                        df_ops.columns = [str(c).strip() for c in df_ops.iloc[0]]
+                        df_ops = df_ops.iloc[1:].dropna(how='all')
+
+                    if (df_tao is None or len(df_tao) == 0) and df_raw.shape[1] >= 30:
+                        df_tao = df_raw.iloc[header_row:].copy()
+                        df_tao = df_tao.iloc[:, 22:30]
+                        df_tao.columns = [str(c).strip() for c in df_tao.iloc[0]]
+                        df_tao = df_tao.iloc[1:].dropna(how='all')
+                except Exception as e:
+                    print(f"[Heavy 10kg] Fallback split error: {e}")
+
+        if df_ops is None:
+            df_ops = pd.DataFrame()
+        if df_tao is None:
+            df_tao = pd.DataFrame()
+
         df_co_cau = DF_CO_CAU_CACHE if DF_CO_CAU_CACHE is not None else safe_read_csv(resolve_path('ops_co_cau.csv', write=False))
         bc_to_prov = {}
         bc_to_am = {}
