@@ -664,6 +664,7 @@ def load_df_from_db(filename):
             'fd': 'FD',
             'fd n7': 'FD N7',
             'idbuucuc': 'IDBuuCuc',
+            'time': 'Time',
             'leadtime': 'Leadtime',
             '% gán': '% Gán',
             '% gtc': '% GTC',
@@ -1446,6 +1447,13 @@ def process_operational_report(df_gtc=None, df_ltc=None, df_tts=None, am=None, p
         if df_gtc is None or df_ltc is None:
             return {"error": "Không tìm thấy dữ liệu vận hành (ops_gtc.csv hoặc ops_ltc.csv)."}
             
+        # Normalize Time column across all dataframes
+        for _df in [df_gtc, df_ltc, df_tts]:
+            if _df is not None:
+                t_col = next((c for c in _df.columns if c.lower() in ['time', 'date', 'ngayltc', 'ngay']), None)
+                if t_col and t_col != 'Time':
+                    _df['Time'] = _df[t_col]
+
         # Apply filters to GTC, LTC, TTS if provided
         if am:
             am_str = str(am).strip()
@@ -1673,9 +1681,13 @@ def process_operational_report(df_gtc=None, df_ltc=None, df_tts=None, am=None, p
             df_odr = safe_read_csv(odr_path)
             if df_odr is not None and not df_odr.empty:
                 df_odr.columns = [str(c).strip() for c in df_odr.columns]
-                df_odr['GTC'] = pd.to_numeric(df_odr['GTC'], errors='coerce')
+                t_col_odr = next((c for c in df_odr.columns if c.lower() in ['time', 'date', 'ngay']), 'Time')
+                if t_col_odr in df_odr.columns:
+                    df_odr['Time'] = df_odr[t_col_odr]
+                gtc_col_odr = next((c for c in df_odr.columns if c.lower() == 'gtc'), 'GTC')
+                df_odr['GTC'] = pd.to_numeric(df_odr[gtc_col_odr] if gtc_col_odr in df_odr.columns else 0, errors='coerce')
                 ontime_col = next((c for c in df_odr.columns if c.lower() in ['%ontime', '% ontime', '%on time', '% on time']), '%Ontime')
-                df_odr['%Ontime'] = normalize_pct_col(df_odr[ontime_col])
+                df_odr['%Ontime'] = normalize_pct_col(df_odr[ontime_col]) if ontime_col in df_odr.columns else 0.0
                 df_odr['ontime_vol'] = df_odr['GTC'] * df_odr['%Ontime']
                 
                 # Trend
