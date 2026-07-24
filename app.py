@@ -2164,14 +2164,33 @@ def process_aging_backlog(df_raw=None, df_co_cau=None, am=None, province=None, p
         if df_raw is None or df_co_cau is None:
             return {"error": "Không tìm thấy dữ liệu aging (aging_raw.csv hoặc ops_co_cau.csv)."}
         
-        df_raw = df_raw.dropna(subset=["Mã đơn"]).copy()
-        df_co_cau = df_co_cau.dropna(subset=["Bưu cục"]).copy()
-        
-        df_raw['bc_clean'] = df_raw['BC'].astype(str).str.strip().str.lower()
-        df_co_cau['bc_clean'] = df_co_cau['Bưu cục'].astype(str).str.strip().str.lower()
-        
-        bc_to_am = dict(zip(df_co_cau['bc_clean'], df_co_cau['AM']))
-        bc_to_province = dict(zip(df_co_cau['bc_clean'], df_co_cau['Tỉnh']))
+        ma_don_col = next((c for c in df_raw.columns if c.lower() in ['mã đơn', 'mã đơn hàng', 'madh', 'ma don']), None)
+        if ma_don_col:
+            df_raw = df_raw.dropna(subset=[ma_don_col]).copy()
+            df_raw['Mã đơn'] = df_raw[ma_don_col]
+        else:
+            df_raw['Mã đơn'] = ""
+
+        buucuc_col = next((c for c in df_co_cau.columns if c.lower() in ['bưu cục', 'buucuc', 'bc', 'chi tiết']), None)
+        if buucuc_col:
+            df_co_cau = df_co_cau.dropna(subset=[buucuc_col]).copy()
+            df_co_cau['bc_clean'] = df_co_cau[buucuc_col].astype(str).str.strip().str.lower()
+        else:
+            df_co_cau['bc_clean'] = ""
+
+        bc_col_raw = next((c for c in df_raw.columns if c.lower() in ['bc', 'bưu cục', 'buucuc', 'chi tiết']), None)
+        if bc_col_raw:
+            df_raw['bc_clean'] = df_raw[bc_col_raw].astype(str).str.strip().str.lower()
+            df_raw['BC'] = df_raw[bc_col_raw]
+        else:
+            df_raw['bc_clean'] = ""
+            df_raw['BC'] = "Không rõ"
+
+        am_col_cc = next((c for c in df_co_cau.columns if c.lower() in ['am', 'id - họ tên am', 'họ tên am']), None)
+        prov_col_cc = next((c for c in df_co_cau.columns if c.lower() in ['tỉnh', 'tinh']), None)
+
+        bc_to_am = dict(zip(df_co_cau['bc_clean'], df_co_cau[am_col_cc])) if am_col_cc else {}
+        bc_to_province = dict(zip(df_co_cau['bc_clean'], df_co_cau[prov_col_cc])) if prov_col_cc else {}
         
         df_raw['mapped_am'] = df_raw['bc_clean'].map(bc_to_am)
         df_raw['mapped_province'] = df_raw['bc_clean'].map(bc_to_province)
@@ -2250,23 +2269,25 @@ def process_treo_backlog(df_raw=None, df_co_cau=None, am=None, province=None, po
         if df_raw is None or df_co_cau is None:
             return {"error": "Không tìm thấy dữ liệu treo luân chuyển (treo_stuck.csv hoặc ops_co_cau.csv)."}
                     
-        df_raw = df_raw.dropna(subset=["Mã đơn hàng"]).copy()
-        df_co_cau = df_co_cau.dropna(subset=["Bưu cục"]).copy()
-        
-        # Clean
-        df_raw = df_raw.dropna(subset=["Mã đơn hàng"])
-        df_co_cau = df_co_cau.dropna(subset=["Bưu cục"])
-        
-        # Apply filter: Trạng thái must be 'Chưa đóng kiện' or 'Không cần đóng kiện'
-        allowed_statuses = ['Chưa đóng kiện', 'Không cần đóng kiện']
-        df_raw = df_raw[df_raw['Trạng thái'].isin(allowed_statuses)]
-        
-        # Map AM dynamically via warehouse_name
-        df_raw['wh_clean'] = df_raw['warehouse_name'].astype(str).str.strip().str.lower()
-        df_co_cau['bc_clean'] = df_co_cau['Bưu cục'].astype(str).str.strip().str.lower()
-        
-        bc_to_am = dict(zip(df_co_cau['bc_clean'], df_co_cau['AM']))
-        bc_to_province = dict(zip(df_co_cau['bc_clean'], df_co_cau['Tỉnh']))
+        ma_don_col = next((c for c in df_raw.columns if c.lower() in ['mã đơn hàng', 'mã đơn', 'madh', 'ma don']), None)
+        if ma_don_col:
+            df_raw = df_raw.dropna(subset=[ma_don_col]).copy()
+            df_raw['Mã đơn hàng'] = df_raw[ma_don_col]
+        else:
+            df_raw['Mã đơn hàng'] = ""
+
+        buucuc_col = next((c for c in df_co_cau.columns if c.lower() in ['bưu cục', 'buucuc', 'bc', 'chi tiết']), None)
+        if buucuc_col:
+            df_co_cau = df_co_cau.dropna(subset=[buucuc_col]).copy()
+            df_co_cau['bc_clean'] = df_co_cau[buucuc_col].astype(str).str.strip().str.lower()
+        else:
+            df_co_cau['bc_clean'] = ""
+
+        am_col_cc = next((c for c in df_co_cau.columns if c.lower() in ['am', 'id - họ tên am', 'họ tên am']), None)
+        prov_col_cc = next((c for c in df_co_cau.columns if c.lower() in ['tỉnh', 'tinh']), None)
+
+        bc_to_am = dict(zip(df_co_cau['bc_clean'], df_co_cau[am_col_cc])) if am_col_cc else {}
+        bc_to_province = dict(zip(df_co_cau['bc_clean'], df_co_cau[prov_col_cc])) if prov_col_cc else {}
         
         df_raw['mapped_am'] = df_raw['wh_clean'].map(bc_to_am)
         df_raw['mapped_province'] = df_raw['wh_clean'].map(bc_to_province)
