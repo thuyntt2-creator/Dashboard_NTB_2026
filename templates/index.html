@@ -9521,24 +9521,9 @@
             let totalV2 = filteredRaw.reduce((s, r) => s + (r['Hàng Mới Ca 2_Volume'] || 0), 0);
             const totalV3 = filteredRaw.reduce((s, r) => s + (r['Hàng Tồn_Volume'] || 0), 0);
             
-            let ca2Note = '';
-            if (totalV2 === 0 && selectedDate && caReportRawRows.length > 0) {
-                const rowsWithCa2 = caReportRawRows.filter(r => (r['Hàng Mới Ca 2_Volume'] || 0) > 0);
-                if (rowsWithCa2.length > 0) {
-                    const ca2Dates = Array.from(new Set(rowsWithCa2.map(r => r.Date))).sort();
-                    const latestCa2Date = ca2Dates[ca2Dates.length - 1];
-                    const latestCa2Rows = caReportRawRows.filter(r => r.Date === latestCa2Date && (!selectedAm || r.AM === selectedAm));
-                    const fallbackV2 = latestCa2Rows.reduce((s, r) => s + (r['Hàng Mới Ca 2_Volume'] || 0), 0);
-                    if (fallbackV2 > 0) {
-                        totalV2 = fallbackV2;
-                        ca2Note = ` (${latestCa2Date.split(' - ')[0]})`;
-                    }
-                }
-            }
-
             const el = id => document.getElementById(id);
             if (el('ca-kpi-vol1')) el('ca-kpi-vol1').innerText = totalV1.toLocaleString('vi-VN');
-            if (el('ca-kpi-vol2')) el('ca-kpi-vol2').innerText = totalV2.toLocaleString('vi-VN') + ca2Note;
+            if (el('ca-kpi-vol2')) el('ca-kpi-vol2').innerText = totalV2.toLocaleString('vi-VN');
             if (el('ca-kpi-vol3')) el('ca-kpi-vol3').innerText = totalV3.toLocaleString('vi-VN');
 
             // 3. Aggregate comparison date data by Group By dimension

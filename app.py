@@ -2886,9 +2886,15 @@ def process_ca_report():
     if df.shape[1] >= 41:
         # Position-based parsing (highly robust for new layout)
         for idx, row in df.iterrows():
+            date1 = str(row.iloc[3]).strip()
+            date2 = str(row.iloc[17]).strip()
+            date3 = str(row.iloc[31]).strip()
+            row_date = date1 if (date1 and date1 not in ('nan', 'None', '')) else (date2 if (date2 and date2 not in ('nan', 'None', '')) else date3)
+            if not row_date or row_date in ('nan', 'None', '', 'Time'):
+                continue
+
             # Ca 1
             bc1 = str(row.iloc[1]).strip()
-            date1 = str(row.iloc[3]).strip()
             vol1 = clean_num(row.iloc[4])
             pct_gan1 = clean_pct(row.iloc[5])
             gtc1 = clean_num(row.iloc[7])
@@ -2897,7 +2903,7 @@ def process_ca_report():
                 records.append({
                     'Bưu Cục': bc1,
                     'AM': am1 if am1 not in ('nan', 'None', '') else 'Không xác định',
-                    'Date': date1,
+                    'Date': row_date,
                     'Loại Hàng': 'Hàng Mới Ca 1',
                     'Volume': vol1,
                     'Sản Lượng Giao Thành Công': gtc1,
@@ -2906,7 +2912,6 @@ def process_ca_report():
 
             # Ca 2
             bc2 = str(row.iloc[15]).strip()
-            date2 = str(row.iloc[17]).strip()
             vol2 = clean_num(row.iloc[18])
             pct_gan2 = clean_pct(row.iloc[19])
             gtc2 = clean_num(row.iloc[21])
@@ -2915,7 +2920,7 @@ def process_ca_report():
                 records.append({
                     'Bưu Cục': bc2,
                     'AM': am2 if am2 not in ('nan', 'None', '') else 'Không xác định',
-                    'Date': date2,
+                    'Date': row_date,
                     'Loại Hàng': 'Hàng Mới Ca 2',
                     'Volume': vol2,
                     'Sản Lượng Giao Thành Công': gtc2,
@@ -2924,7 +2929,6 @@ def process_ca_report():
 
             # Hàng Tồn
             bc3 = str(row.iloc[29]).strip()
-            date3 = str(row.iloc[31]).strip()
             vol3 = clean_num(row.iloc[32])
             pct_gan3 = clean_pct(row.iloc[33])
             gtc3 = clean_num(row.iloc[35])
@@ -2933,7 +2937,7 @@ def process_ca_report():
                 records.append({
                     'Bưu Cục': bc3,
                     'AM': am3 if am3 not in ('nan', 'None', '') else 'Không xác định',
-                    'Date': date3,
+                    'Date': row_date,
                     'Loại Hàng': 'Hàng Tồn',
                     'Volume': vol3,
                     'Sản Lượng Giao Thành Công': gtc3,
@@ -2965,15 +2969,21 @@ def process_ca_report():
         col_date3 = next((c for c in cols if 'time.2' in str(c).lower()), 'Time.2')
 
         for idx, row in df.iterrows():
+            date1 = str(row.get(col_date1, '')).strip()
+            date2 = str(row.get(col_date2, '')).strip()
+            date3 = str(row.get(col_date3, '')).strip()
+            row_date = date1 if (date1 and date1 not in ('nan', 'None', '')) else (date2 if (date2 and date2 not in ('nan', 'None', '')) else date3)
+            if not row_date or row_date in ('nan', 'None', '', 'Time'):
+                continue
+
             # Ca 1
             bc1 = str(row.get(col_bc1, '')).strip()
             vol1 = clean_num(row.get(col_vol1, 0))
             pct_gan1 = clean_pct(row.get(col_gan1, 0.0))
             gtc1 = clean_num(row.get(col_gtc1, 0))
             am1 = str(row.get(col_am1, 'Không xác định')).strip()
-            date1 = str(row.get(col_date1, '')).strip()
             if bc1 and bc1 not in ('nan', 'None', '', 'Cấp Quản Lý', 'Chi tiết'):
-                records.append({'Bưu Cục': bc1, 'AM': am1, 'Date': date1, 'Loại Hàng': 'Hàng Mới Ca 1', 'Volume': vol1, 'Sản Lượng Giao Thành Công': gtc1, 'Assigned_Vol': vol1 * (pct_gan1 / 100.0)})
+                records.append({'Bưu Cục': bc1, 'AM': am1, 'Date': row_date, 'Loại Hàng': 'Hàng Mới Ca 1', 'Volume': vol1, 'Sản Lượng Giao Thành Công': gtc1, 'Assigned_Vol': vol1 * (pct_gan1 / 100.0)})
 
             # Ca 2
             bc2 = str(row.get(col_bc2, '')).strip()
@@ -2981,9 +2991,8 @@ def process_ca_report():
             pct_gan2 = clean_pct(row.get(col_gan2, 0.0))
             gtc2 = clean_num(row.get(col_gtc2, 0))
             am2 = str(row.get(col_am2, 'Không xác định')).strip()
-            date2 = str(row.get(col_date2, '')).strip()
             if bc2 and bc2 not in ('nan', 'None', '', 'Cấp Quản Lý', 'Chi tiết'):
-                records.append({'Bưu Cục': bc2, 'AM': am2, 'Date': date2, 'Loại Hàng': 'Hàng Mới Ca 2', 'Volume': vol2, 'Sản Lượng Giao Thành Công': gtc2, 'Assigned_Vol': vol2 * (pct_gan2 / 100.0)})
+                records.append({'Bưu Cục': bc2, 'AM': am2, 'Date': row_date, 'Loại Hàng': 'Hàng Mới Ca 2', 'Volume': vol2, 'Sản Lượng Giao Thành Công': gtc2, 'Assigned_Vol': vol2 * (pct_gan2 / 100.0)})
 
             # Hàng Tồn
             bc3 = str(row.get(col_bc3, '')).strip()
@@ -2991,9 +3000,8 @@ def process_ca_report():
             pct_gan3 = clean_pct(row.get(col_gan3, 0.0))
             gtc3 = clean_num(row.get(col_gtc3, 0))
             am3 = str(row.get(col_am3, 'Không xác định')).strip()
-            date3 = str(row.get(col_date3, '')).strip()
             if bc3 and bc3 not in ('nan', 'None', '', 'Cấp Quản Lý', 'Chi tiết'):
-                records.append({'Bưu Cục': bc3, 'AM': am3, 'Date': date3, 'Loại Hàng': 'Hàng Tồn', 'Volume': vol3, 'Sản Lượng Giao Thành Công': gtc3, 'Assigned_Vol': vol3 * (pct_gan3 / 100.0)})
+                records.append({'Bưu Cục': bc3, 'AM': am3, 'Date': row_date, 'Loại Hàng': 'Hàng Tồn', 'Volume': vol3, 'Sản Lượng Giao Thành Công': gtc3, 'Assigned_Vol': vol3 * (pct_gan3 / 100.0)})
 
     if not records:
         return {"error": "Không có dữ liệu trong báo cáo Ca."}
