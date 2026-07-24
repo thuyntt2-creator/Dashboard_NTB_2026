@@ -3297,68 +3297,115 @@
             <!-- TAB: HÀNG NẶNG >10KG -->
             <div id="tab-heavy-10kg" class="content-panel">
                 <!-- Section Header -->
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
                     <div>
                         <h2 style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 22px; color: var(--color-ghn-orange); margin: 0; display: flex; align-items: center; gap: 10px;">
                             <i class="fa-solid fa-boxes-stacked"></i> QUẢN LÝ & THEO DÕI HÀNG NẶNG (>10KG)
                         </h2>
                         <p style="font-size: 13px; color: var(--text-muted); margin: 4px 0 0 0;">
-                            Theo dõi sản lượng tạo đơn nặng (>10kg), tỷ lệ % GTC vận hành, phân bổ nhóm khối lượng & bưu cục
+                            Theo dõi đơn tạo đột biến (Cột AB), hàng mới về đột biến (Cột R), % GTC vận hành & phân bổ bưu cục
                         </p>
                     </div>
                 </div>
 
-                <!-- KPI Summary Cards Grid (4 Cards) -->
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 24px;">
-                    <!-- KPI Card 1: Created Volume & Total Weight -->
-                    <div class="card" style="padding: 20px; border-top: 4px solid #ff5f00; margin-bottom: 0;">
-                        <div style="font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">
-                            <i class="fa-solid fa-box-archive" style="color: #ff5f00; margin-right: 6px;"></i> Sản lượng đơn tạo (>10kg)
+                <!-- Dedicated Filter Bar for Heavy 10kg -->
+                <div class="card" style="padding: 16px; margin-bottom: 20px; background: rgba(255, 255, 255, 0.9); border: 1px solid var(--border-color); border-radius: 12px;">
+                    <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+                        <div style="display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 200px;">
+                            <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+                                <i class="fa-solid fa-store" style="color: var(--color-ghn-orange);"></i> Bưu Cục / Kho Nhận
+                            </label>
+                            <select id="heavy-filter-po" onchange="filterHeavyTable()" class="select-input" style="width: 100%; font-size: 13px; font-weight: 600;">
+                                <option value="all">-- Tất cả Bưu Cục / Kho --</option>
+                            </select>
                         </div>
-                        <div style="font-size: 28px; font-weight: 800; color: var(--text-primary); margin: 8px 0 4px 0;" id="heavy-kpi-created-vol">
+
+                        <div style="display: flex; flex-direction: column; gap: 4px; flex: 1.2; min-width: 240px;">
+                            <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+                                <i class="fa-solid fa-bolt" style="color: #ef4444;"></i> Phân Loại & Cảnh Báo Đột Biến
+                            </label>
+                            <select id="heavy-filter-sort" onchange="filterHeavyTable()" class="select-input" style="width: 100%; font-size: 13px; font-weight: 700; color: #007bc3;">
+                                <option value="volume_desc">📊 Mặc định (Volume Vận Hành Cao -> Thấp)</option>
+                                <option value="created_spike">🔥 Đơn Tạo Đột Biến (Cột AB - Cao -> Thấp)</option>
+                                <option value="incoming_spike">⚡ Hàng Mới Về Đột Biến (Cột R - Cao -> Thấp)</option>
+                                <option value="gtc_asc">⚠️ Tỷ Lệ % GTC (Thấp -> Cao)</option>
+                                <option value="gtc_desc">🏆 Tỷ Lệ % GTC (Cao -> Thấp)</option>
+                            </select>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 180px;">
+                            <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+                                <i class="fa-solid fa-magnifying-glass"></i> Tìm Kiếm Nhanh
+                            </label>
+                            <input type="text" id="heavy-po-search" placeholder="Tìm bưu cục / AM..." onkeyup="filterHeavyTable()" class="select-input" style="width: 100%; font-size: 13px;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KPI Summary Cards Grid (5 Cards) -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px;">
+                    <!-- KPI Card 1: Created Volume & Total Weight (Cột AB) -->
+                    <div class="card" style="padding: 18px; border-top: 4px solid #ff5f00; margin-bottom: 0;">
+                        <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+                            <i class="fa-solid fa-box-archive" style="color: #ff5f00; margin-right: 6px;"></i> Sản lượng đơn tạo (Cột AB)
+                        </div>
+                        <div style="font-size: 26px; font-weight: 800; color: var(--text-primary); margin: 6px 0 2px 0;" id="heavy-kpi-created-vol">
                             0
                         </div>
-                        <div style="font-size: 12px; color: var(--text-muted); font-weight: 500;">
-                            Tổng khối lượng: <span id="heavy-kpi-created-ton" style="font-weight: 700; color: #ff5f00;">0 Tấn</span>
+                        <div style="font-size: 11px; color: var(--text-muted); font-weight: 500;">
+                            Khối lượng: <span id="heavy-kpi-created-ton" style="font-weight: 700; color: #ff5f00;">0 Tấn</span>
                         </div>
                     </div>
 
-                    <!-- KPI Card 2: Operational % GTC Heavy Goods -->
-                    <div class="card" style="padding: 20px; border-top: 4px solid #007bc3; margin-bottom: 0;">
-                        <div style="font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">
+                    <!-- KPI Card 2: Hàng Mới Về Trong Ngày (Cột R) -->
+                    <div class="card" style="padding: 18px; border-top: 4px solid #ef4444; margin-bottom: 0;">
+                        <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+                            <i class="fa-solid fa-bolt" style="color: #ef4444; margin-right: 6px;"></i> Hàng Mới Về (Cột R)
+                        </div>
+                        <div style="font-size: 26px; font-weight: 800; color: var(--text-primary); margin: 6px 0 2px 0;" id="heavy-kpi-incoming-vol">
+                            0
+                        </div>
+                        <div style="font-size: 11px; color: var(--text-muted); font-weight: 500;" id="heavy-kpi-incoming-sub">
+                            Đơn mới nhập kho hôm nay
+                        </div>
+                    </div>
+
+                    <!-- KPI Card 3: Operational % GTC Heavy Goods -->
+                    <div class="card" style="padding: 18px; border-top: 4px solid #007bc3; margin-bottom: 0;">
+                        <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
                             <i class="fa-solid fa-truck-fast" style="color: #007bc3; margin-right: 6px;"></i> Tỷ lệ % GTC Hàng Nặng
                         </div>
-                        <div style="font-size: 28px; font-weight: 800; color: var(--text-primary); margin: 8px 0 4px 0;" id="heavy-kpi-gtc">
+                        <div style="font-size: 26px; font-weight: 800; color: var(--text-primary); margin: 6px 0 2px 0;" id="heavy-kpi-gtc">
                             0%
                         </div>
-                        <div style="font-size: 12px; color: var(--text-muted); font-weight: 500;">
-                            Tổng volume vận hành: <span id="heavy-kpi-ops-vol" style="font-weight: 700; color: #007bc3;">0</span>
+                        <div style="font-size: 11px; color: var(--text-muted); font-weight: 500;">
+                            Volume vận hành: <span id="heavy-kpi-ops-vol" style="font-weight: 700; color: #007bc3;">0</span>
                         </div>
                     </div>
 
-                    <!-- KPI Card 3: % >30kg Heavy Parcel Ratio -->
-                    <div class="card" style="padding: 20px; border-top: 4px solid #10b981; margin-bottom: 0;">
-                        <div style="font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">
-                            <i class="fa-solid fa-weight-hanging" style="color: #10b981; margin-right: 6px;"></i> Tỷ trọng Hàng Siêu Nặng (>30kg)
+                    <!-- KPI Card 4: % >30kg Heavy Parcel Ratio -->
+                    <div class="card" style="padding: 18px; border-top: 4px solid #10b981; margin-bottom: 0;">
+                        <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+                            <i class="fa-solid fa-weight-hanging" style="color: #10b981; margin-right: 6px;"></i> Tỷ trọng >30kg
                         </div>
-                        <div style="font-size: 28px; font-weight: 800; color: var(--text-primary); margin: 8px 0 4px 0;" id="heavy-kpi-30kg-pct">
+                        <div style="font-size: 26px; font-weight: 800; color: var(--text-primary); margin: 6px 0 2px 0;" id="heavy-kpi-30kg-pct">
                             0%
                         </div>
-                        <div style="font-size: 12px; color: var(--text-muted); font-weight: 500;">
-                            Nhóm khối lượng: <span style="font-weight: 700; color: #10b981;">6. >30kg</span>
+                        <div style="font-size: 11px; color: var(--text-muted); font-weight: 500;">
+                            Nhóm: <span style="font-weight: 700; color: #10b981;">>30kg</span>
                         </div>
                     </div>
 
-                    <!-- KPI Card 4: Average Leadtime Heavy Goods -->
-                    <div class="card" style="padding: 20px; border-top: 4px solid #8b5cf6; margin-bottom: 0;">
-                        <div style="font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">
-                            <i class="fa-solid fa-clock" style="color: #8b5cf6; margin-right: 6px;"></i> Leadtime Giao Hàng Nặng
+                    <!-- KPI Card 5: Average Leadtime Heavy Goods -->
+                    <div class="card" style="padding: 18px; border-top: 4px solid #8b5cf6; margin-bottom: 0;">
+                        <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+                            <i class="fa-solid fa-clock" style="color: #8b5cf6; margin-right: 6px;"></i> Leadtime Giao
                         </div>
-                        <div style="font-size: 28px; font-weight: 800; color: var(--text-primary); margin: 8px 0 4px 0;" id="heavy-kpi-leadtime">
+                        <div style="font-size: 26px; font-weight: 800; color: var(--text-primary); margin: 6px 0 2px 0;" id="heavy-kpi-leadtime">
                             0h
                         </div>
-                        <div style="font-size: 12px; color: var(--text-muted); font-weight: 500;">
-                            Thời gian giao trung bình
+                        <div style="font-size: 11px; color: var(--text-muted); font-weight: 500;">
+                            Thời gian trung bình
                         </div>
                     </div>
                 </div>
@@ -3445,9 +3492,8 @@
                 <div class="card" style="margin-bottom: 24px;">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 16px; margin-bottom: 20px;">
                         <h3 style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 18px; color: var(--color-ghn-blue); text-transform: uppercase; margin: 0; display: flex; align-items: center; gap: 8px;">
-                            <i class="fa-solid fa-table"></i> Báo cáo Chi tiết Vận hành & Tạo đơn Hàng Nặng theo Bưu cục
+                            <i class="fa-solid fa-table"></i> Báo cáo Chi tiết Vận hành, Tạo đơn & Hàng mới về theo Bưu cục
                         </h3>
-                        <input type="text" id="heavy-po-search" placeholder="Tìm kiếm bưu cục / AM..." onkeyup="filterHeavyTable()" class="select-input" style="padding: 6px 12px; width: 220px; font-size: 12px;">
                     </div>
                     <div class="table-responsive">
                         <table class="custom-table" id="table-heavy-po-summary" style="font-size: 12px; text-align: center;">
@@ -3457,15 +3503,18 @@
                                     <th style="text-align: left;">Bưu cục / Kho</th>
                                     <th>AM Quản lý</th>
                                     <th>Tỉnh</th>
+                                    <th style="color: #ff5f00; font-weight: 700;">Đơn Tạo (Cột AB)</th>
+                                    <th style="color: #ef4444; font-weight: 700;">Hàng Mới Về (Cột R)</th>
                                     <th>Volume Vận hành</th>
                                     <th>Giao Thành Công</th>
                                     <th>% GTC</th>
                                     <th>Leadtime (h)</th>
+                                    <th>Cảnh Báo Đột Biến</th>
                                 </tr>
                             </thead>
                             <tbody id="table-heavy-po-body">
                                 <tr>
-                                    <td colspan="8" style="text-align: center; color: var(--text-muted); padding: 24px;">
+                                    <td colspan="11" style="text-align: center; color: var(--text-muted); padding: 24px;">
                                         Đang tải dữ liệu...
                                     </td>
                                 </tr>
@@ -8527,6 +8576,7 @@
            ========================================================================== */
         let heavyDailyTrendChart = null;
         let heavyWeightDonutChart = null;
+        let rawHeavyData = null;
 
         async function loadHeavy10kgData() {
             try {
@@ -8538,18 +8588,27 @@
                     console.error("Error loading heavy 10kg data:", data.error);
                     const tableBody = document.getElementById('table-heavy-po-body');
                     if (tableBody) {
-                        tableBody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: var(--color-danger); padding: 24px;">${data.error}. Vui lòng nhấn nút <b>"Đồng bộ dữ liệu"</b> để khởi tạo dữ liệu.</td></tr>`;
+                        tableBody.innerHTML = `<tr><td colspan="11" style="text-align: center; color: var(--color-danger); padding: 24px;">${data.error}. Vui lòng nhấn nút <b>"Đồng bộ dữ liệu"</b> để khởi tạo dữ liệu.</td></tr>`;
                     }
                     return;
                 }
 
+                rawHeavyData = data;
+
                 // Render Summary KPI Cards
                 document.getElementById('heavy-kpi-created-vol').innerText = roundNum(data.total_created_vol || 0).toLocaleString();
                 document.getElementById('heavy-kpi-created-ton').innerText = (data.total_created_weight_ton || 0).toLocaleString() + " Tấn";
+                
+                const incomingVolEl = document.getElementById('heavy-kpi-incoming-vol');
+                if (incomingVolEl) incomingVolEl.innerText = roundNum(data.total_new_incoming_vol || 0).toLocaleString();
+
                 document.getElementById('heavy-kpi-gtc').innerText = (data.overall_gtc || 0) + "%";
                 document.getElementById('heavy-kpi-ops-vol').innerText = roundNum(data.total_ops_vol || 0).toLocaleString();
                 document.getElementById('heavy-kpi-30kg-pct').innerText = (data.pct_heavy_30kg || 0) + "%";
                 document.getElementById('heavy-kpi-leadtime').innerText = (data.avg_leadtime || 0) + "h";
+
+                // Populate PO Dropdown Filter
+                populateHeavyPoDropdown(data.po_list || []);
 
                 // 1. Daily Creation & Ops Trend Chart
                 try {
@@ -8645,57 +8704,124 @@
                         : '<tr><td colspan="4" style="text-align: center; color: var(--text-muted); padding: 12px;">Không có dữ liệu phù hợp</td></tr>';
                 }
 
-                // 4. Detailed PO Operational Summary Table
-                const tableBody = document.getElementById('table-heavy-po-body');
-                if (tableBody) {
-                    const poSummary = data.po_ops_summary || [];
-                    if (poSummary.length > 0) {
-                        tableBody.innerHTML = poSummary.map((r, idx) => {
-                            const gtcVal = r['% GTC'] !== undefined ? r['% GTC'] : (r['% gtc'] !== undefined ? r['% gtc'] : 0);
-                            const gtcClass = gtcVal >= 85 ? 'success' : (gtcVal >= 75 ? 'warning' : 'danger');
-                            return `
-                                <tr>
-                                    <td style="text-align: left;">${idx + 1}</td>
-                                    <td style="font-weight: 700; text-align: left; color: var(--text-primary);">${r['Chi tiết'] || r['chi tiết'] || '-'}</td>
-                                    <td>${r.mapped_am || '-'}</td>
-                                    <td>${r.mapped_prov || '-'}</td>
-                                    <td style="font-weight: 600;">${(r.Volume || r.volume || 0).toLocaleString()}</td>
-                                    <td>${(r.delivered_vol || 0).toLocaleString()}</td>
-                                    <td><span class="metric-badge ${gtcClass}">${gtcVal}%</span></td>
-                                    <td>${r.Leadtime || r.leadtime || 0}h</td>
-                                </tr>
-                            `;
-                        }).join('');
-                    } else {
-                        tableBody.innerHTML = '<tr><td colspan="8" style="text-align: center; color: var(--text-muted); padding: 24px;">Chưa có dữ liệu vận hành Bưu cục</td></tr>';
-                    }
-                }
+                // Render Table with Filters and Spike Sorting
+                filterHeavyTable();
 
             } catch (err) {
                 console.error("Error in loadHeavy10kgData:", err);
             }
         }
 
-        function filterHeavyTable() {
-            const input = document.getElementById('heavy-po-search');
-            const filter = input ? input.value.toLowerCase() : '';
-            const table = document.getElementById('table-heavy-po-summary');
-            if (!table) return;
-            const tr = table.getElementsByTagName('tr');
-
-            for (let i = 1; i < tr.length; i++) {
-                const tdPo = tr[i].getElementsByTagName('td')[1];
-                const tdAm = tr[i].getElementsByTagName('td')[2];
-                if (tdPo || tdAm) {
-                    const poText = tdPo ? (tdPo.textContent || tdPo.innerText) : '';
-                    const amText = tdAm ? (tdAm.textContent || tdAm.innerText) : '';
-                    if (poText.toLowerCase().indexOf(filter) > -1 || amText.toLowerCase().indexOf(filter) > -1) {
-                        tr[i].style.display = '';
-                    } else {
-                        tr[i].style.display = 'none';
-                    }
-                }
+        function populateHeavyPoDropdown(poList) {
+            const selectEl = document.getElementById('heavy-filter-po');
+            if (!selectEl) return;
+            const currentVal = selectEl.value;
+            selectEl.innerHTML = '<option value="all">-- Tất cả Bưu Cục / Kho --</option>';
+            poList.forEach(po => {
+                const opt = document.createElement('option');
+                opt.value = po;
+                opt.textContent = po;
+                selectEl.appendChild(opt);
+            });
+            if (currentVal && selectEl.querySelector(`option[value="${currentVal}"]`)) {
+                selectEl.value = currentVal;
             }
+        }
+
+        function filterHeavyTable() {
+            if (!rawHeavyData || !rawHeavyData.po_ops_summary) return;
+
+            const selectedPo = document.getElementById('heavy-filter-po') ? document.getElementById('heavy-filter-po').value : 'all';
+            const sortMode = document.getElementById('heavy-filter-sort') ? document.getElementById('heavy-filter-sort').value : 'volume_desc';
+            const searchKeyword = document.getElementById('heavy-po-search') ? document.getElementById('heavy-po-search').value.toLowerCase().trim() : '';
+
+            let records = [...rawHeavyData.po_ops_summary];
+
+            // 1. Filter by Selected PO
+            if (selectedPo !== 'all') {
+                records = records.filter(r => (r['Chi tiết'] || r['chi tiết']) === selectedPo);
+            }
+
+            // 2. Filter by Search Keyword
+            if (searchKeyword) {
+                records = records.filter(r => {
+                    const poText = (r['Chi tiết'] || r['chi tiết'] || '').toLowerCase();
+                    const amText = (r.mapped_am || '').toLowerCase();
+                    const provText = (r.mapped_prov || '').toLowerCase();
+                    return poText.includes(searchKeyword) || amText.includes(searchKeyword) || provText.includes(searchKeyword);
+                });
+            }
+
+            // 3. Sort Mode
+            if (sortMode === 'created_spike') {
+                records.sort((a, b) => (b.created_vol || b.vol || 0) - (a.created_vol || a.vol || 0));
+            } else if (sortMode === 'incoming_spike') {
+                records.sort((a, b) => (b['Hàng Mới Về Trong Ngày'] || 0) - (a['Hàng Mới Về Trong Ngày'] || 0));
+            } else if (sortMode === 'gtc_asc') {
+                records.sort((a, b) => ((a['% GTC'] !== undefined ? a['% GTC'] : a['% gtc'] || 0) - (b['% GTC'] !== undefined ? b['% GTC'] : b['% gtc'] || 0)));
+            } else if (sortMode === 'gtc_desc') {
+                records.sort((a, b) => ((b['% GTC'] !== undefined ? b['% GTC'] : b['% gtc'] || 0) - (a['% GTC'] !== undefined ? a['% GTC'] : a['% gtc'] || 0)));
+            } else {
+                records.sort((a, b) => (b.Volume || b.volume || 0) - (a.Volume || a.volume || 0));
+            }
+
+            const tableBody = document.getElementById('table-heavy-po-body');
+            if (!tableBody) return;
+
+            if (records.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="11" style="text-align: center; color: var(--text-muted); padding: 24px;">Không tìm thấy Bưu cục phù hợp với bộ lọc</td></tr>';
+                return;
+            }
+
+            // Find thresholds for Spikes (top 15% or > 1500)
+            const allCreated = records.map(r => r.created_vol || r.vol || 0).filter(v => v > 0);
+            const createdThreshold = allCreated.length > 0 ? Math.max(1500, allCreated.sort((a,b) => b-a)[Math.floor(allCreated.length * 0.15)] || 1500) : 1500;
+
+            const allIncoming = records.map(r => r['Hàng Mới Về Trong Ngày'] || 0).filter(v => v > 0);
+            const incomingThreshold = allIncoming.length > 0 ? Math.max(1500, allIncoming.sort((a,b) => b-a)[Math.floor(allIncoming.length * 0.15)] || 1500) : 1500;
+
+            tableBody.innerHTML = records.map((r, idx) => {
+                const poName = r['Chi tiết'] || r['chi tiết'] || '-';
+                const createdVol = r.created_vol || r.vol || 0;
+                const incomingVol = r['Hàng Mới Về Trong Ngày'] || 0;
+                const opsVol = r.Volume || r.volume || 0;
+                const delivVol = r.delivered_vol || 0;
+                const gtcVal = r['% GTC'] !== undefined ? r['% GTC'] : (r['% gtc'] !== undefined ? r['% gtc'] : 0);
+                const leadtimeVal = r.Leadtime || r.leadtime || 0;
+
+                const gtcClass = gtcVal >= 85 ? 'success' : (gtcVal >= 75 ? 'warning' : 'danger');
+
+                // Determine Spike Alert Badges
+                let alertBadges = [];
+                if (createdVol >= createdThreshold && poName !== 'Grand Total') {
+                    alertBadges.push(`<span class="metric-badge warning" style="background:#fff7ed; color:#c2410c; border:1px solid #ffedd5; font-weight:700;"><i class="fa-solid fa-fire"></i> Tạo đột biến</span>`);
+                }
+                if (incomingVol >= incomingThreshold && poName !== 'Grand Total') {
+                    alertBadges.push(`<span class="metric-badge danger" style="background:#fef2f2; color:#dc2626; border:1px solid #fee2e2; font-weight:700;"><i class="fa-solid fa-bolt"></i> Về đột biến</span>`);
+                }
+                if (alertBadges.length === 0) {
+                    alertBadges.push(`<span style="color:var(--text-muted); font-size:11px;">Bình thường</span>`);
+                }
+
+                const isGrandTotal = poName === 'Grand Total';
+                const rowStyle = isGrandTotal ? 'background: rgba(0, 123, 195, 0.05); font-weight: 800;' : '';
+
+                return `
+                    <tr style="${rowStyle}">
+                        <td style="text-align: left;">${idx + 1}</td>
+                        <td style="font-weight: 700; text-align: left; color: var(--text-primary);">${poName}</td>
+                        <td>${r.mapped_am || '-'}</td>
+                        <td>${r.mapped_prov || '-'}</td>
+                        <td style="font-weight: 700; color: #ff5f00;">${createdVol.toLocaleString()}</td>
+                        <td style="font-weight: 700; color: #ef4444;">${incomingVol.toLocaleString()}</td>
+                        <td style="font-weight: 600;">${opsVol.toLocaleString()}</td>
+                        <td>${delivVol.toLocaleString()}</td>
+                        <td><span class="metric-badge ${gtcClass}">${gtcVal}%</span></td>
+                        <td>${leadtimeVal}h</td>
+                        <td>${alertBadges.join(' ')}</td>
+                    </tr>
+                `;
+            }).join('');
         }
 
         /* ==========================================================================

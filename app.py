@@ -2568,6 +2568,9 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None):
             else:
                 df_ops['delivered_vol'] = df_ops['Volume'] * df_ops['% GTC']
 
+            new_in_day_col = next((c for c in df_ops.columns if c.lower() in ['hàng mới về trong ngày', 'hang moi ve trong ngay', 'hàng mới về', 'hang moi ve']), None)
+            df_ops['Hàng Mới Về Trong Ngày'] = safe_to_numeric(df_ops[new_in_day_col]) if new_in_day_col else 0.0
+
             chi_tiet_col = next((c for c in df_ops.columns if c.lower() in ['chi tiết', 'chitiết', 'bưu cục', 'buucuc', 'bc']), None)
             if chi_tiet_col:
                 df_ops['Chi tiết'] = df_ops[chi_tiet_col]
@@ -2617,6 +2620,7 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None):
         # Calculate Ops Aggregates
         total_ops_vol = float(df_ops['Volume'].sum()) if len(df_ops) > 0 else 0.0
         total_delivered = float(df_ops['delivered_vol'].sum()) if len(df_ops) > 0 else 0.0
+        total_new_incoming_vol = float(df_ops['Hàng Mới Về Trong Ngày'].sum()) if len(df_ops) > 0 else 0.0
         overall_gtc = round((total_delivered / total_ops_vol * 100), 2) if total_ops_vol > 0 else 0.0
 
         valid_lt = df_ops[df_ops['Leadtime'] > 0]['Leadtime'] if len(df_ops) > 0 else []
@@ -2656,22 +2660,49 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None):
             po_grp = po_grp.sort_values(by='vol', ascending=False)
             po_creation_summary = po_grp.head(30).to_dict(orient='records')
 
-        # PO Operational Summary Table
+        # PO Operational & Creation Merged Summary Table
         po_ops_summary = []
         top_pos = []
         worst_pos = []
-        if len(df_ops) > 0 and 'Chi tiết' in df_ops.columns:
-            po_ops = df_ops.groupby(['Chi tiết', 'mapped_am', 'mapped_prov']).agg({
+        po_list = []
+
+        if len(df_ops) > 0:
+            po_ops = df_ops.groupby(['Chi tiết', 'clean_bc', 'mapped_am', 'mapped_prov']).agg({
                 'Volume': 'sum',
                 'delivered_vol': 'sum',
-                'Leadtime': 'mean'
+                'Leadtime': 'mean',
+                'Hàng Mới Về Trong Ngày': 'sum'
             }).reset_index()
-            po_ops['% GTC'] = (po_ops['delivered_vol'] / po_ops['Volume'] * 100).round(2)
-            po_ops['Leadtime'] = po_ops['Leadtime'].round(2)
-            po_ops_summary = po_ops.sort_values(by='Volume', ascending=False).to_dict(orient='records')
+
+            if len(df_tao) > 0:
+                po_tao = df_tao.groupby('clean_bc').agg({'vol': 'sum', 'kl_kg': 'sum'}).reset_index()
+                merged_po = pd.merge(po_ops, po_tao, on='clean_bc', how='outer')
+            else:
+                merged_po = po_ops
+                merged_po['vol'] = 0.0
+                merged_po['kl_kg'] = 0.0
+
+            merged_po['Chi tiết'] = merged_po['Chi tiết'].fillna(merged_po['clean_bc'])
+            merged_po['mapped_am'] = merged_po['mapped_am'].fillna('Không xác định')
+            merged_po['mapped_prov'] = merged_po['mapped_prov'].fillna('Không xác định')
+            merged_po['Volume'] = safe_to_numeric(merged_po['Volume']).fillna(0)
+            merged_po['delivered_vol'] = safe_to_numeric(merged_po['delivered_vol']).fillna(0)
+            merged_po['Hàng Mới Về Trong Ngày'] = safe_to_numeric(merged_po['Hàng Mới Về Trong Ngày']).fillna(0)
+            merged_po['created_vol'] = safe_to_numeric(merged_po['vol']).fillna(0)
+            merged_po['created_weight_ton'] = (safe_to_numeric(merged_po['kl_kg']).fillna(0) / 1000.0).round(2)
+
+            merged_po['% GTC'] = np.where(merged_po['Volume'] > 0, (merged_po['delivered_vol'] / merged_po['Volume'] * 100).round(2), 0.0)
+            merged_po['Leadtime'] = safe_to_numeric(merged_po['Leadtime']).round(2).fillna(0.0)
+
+            # Sort default by Volume
+            merged_po = merged_po.sort_values(by='Volume', ascending=False)
+            po_ops_summary = merged_po.to_dict(orient='records')
+
+            # Extract clean list of unique PO names for dropdown
+            po_list = sorted([str(p) for p in merged_po['Chi tiết'].dropna().unique() if str(p) not in ['Grand Total', 'nan', 'none']])
 
             # Filter min 10 volume for top/worst
-            po_filtered = po_ops[po_ops['Volume'] >= 10]
+            po_filtered = merged_po[merged_po['Volume'] >= 10]
             if len(po_filtered) > 0:
                 top_pos = po_filtered.sort_values(by='% GTC', ascending=False).head(5).to_dict(orient='records')
                 worst_pos = po_filtered.sort_values(by='% GTC', ascending=True).head(5).to_dict(orient='records')
@@ -2697,11 +2728,13 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None):
             "total_created_vol": total_created_vol,
             "total_created_weight_kg": total_created_weight_kg,
             "total_created_weight_ton": total_created_weight_ton,
+            "total_new_incoming_vol": total_new_incoming_vol,
             "pct_heavy_30kg": pct_heavy_30kg,
             "weight_bracket_summary": weight_bracket_summary,
             "customer_group_summary": customer_group_summary,
             "po_creation_summary": po_creation_summary,
             "po_ops_summary": po_ops_summary,
+            "po_list": po_list,
             "top_pos": top_pos,
             "worst_pos": worst_pos,
             "creation_trend": creation_trend,
