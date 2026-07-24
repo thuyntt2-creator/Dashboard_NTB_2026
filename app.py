@@ -1451,8 +1451,10 @@ def process_operational_report(df_gtc=None, df_ltc=None, df_tts=None, am=None, p
         for _df in [df_gtc, df_ltc, df_tts]:
             if _df is not None:
                 t_col = next((c for c in _df.columns if c.lower() in ['time', 'date', 'ngayltc', 'ngay']), None)
-                if t_col and t_col != 'Time':
+                if t_col:
                     _df['Time'] = _df[t_col]
+                elif 'Time' not in _df.columns:
+                    _df['Time'] = "Không xác định"
 
         # Apply filters to GTC, LTC, TTS if provided
         if am:
