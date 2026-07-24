@@ -1279,6 +1279,10 @@ def clean_ops_df(df, sheet_type):
             '% gtc': '% GTC',
             '% chuyển trả': '% Chuyển trả',
             'leadtime': 'Leadtime',
+            'lead time': 'Leadtime',
+            'leadtime (h)': 'Leadtime',
+            'leadtime giao': 'Leadtime',
+            'lead time (h)': 'Leadtime',
             'am': 'AM',
             'tỉnh': 'Tỉnh'
         }
@@ -1305,7 +1309,11 @@ def clean_ops_df(df, sheet_type):
             other_cols = {
                 'cấp quản lý': 'Cấp quản lý',
                 'chi tiết': 'Chi tiết',
-                'leadtime': 'Leadtime'
+                'leadtime': 'Leadtime',
+                'lead time': 'Leadtime',
+                'leadtime (h)': 'Leadtime',
+                'leadtime giao': 'Leadtime',
+                'lead time (h)': 'Leadtime'
             }
             for k, standard_name in other_cols.items():
                 if k in cols_lower and cols_lower[k] != standard_name:
@@ -1318,7 +1326,11 @@ def clean_ops_df(df, sheet_type):
                 'ca': 'Ca',
                 'time': 'Time',
                 'volume': 'Volume',
-                'leadtime': 'Leadtime'
+                'leadtime': 'Leadtime',
+                'lead time': 'Leadtime',
+                'leadtime (h)': 'Leadtime',
+                'leadtime giao': 'Leadtime',
+                'lead time (h)': 'Leadtime'
             }
             for k, standard_name in core_ltc_cols.items():
                 if k in cols_lower and cols_lower[k] != standard_name:
@@ -1364,6 +1376,10 @@ def clean_ops_df(df, sheet_type):
             '% gán': '% Gán',
             '%gán': '% Gán',
             'leadtime': 'Leadtime',
+            'lead time': 'Leadtime',
+            'leadtime (h)': 'Leadtime',
+            'leadtime giao': 'Leadtime',
+            'lead time (h)': 'Leadtime',
             'am': 'AM',
             'tỉnh': 'Tỉnh'
         }
@@ -1438,11 +1454,17 @@ def process_operational_report(df_gtc=None, df_ltc=None, df_tts=None, am=None, p
         
         df_gtc = df_gtc.dropna(subset=["Volume"]).copy()
         df_gtc['Volume'] = safe_to_numeric(df_gtc['Volume'])
-        df_gtc['Leadtime'] = pd.to_numeric(df_gtc['Leadtime'], errors='coerce')
+        if 'Leadtime' not in df_gtc.columns:
+            df_gtc['Leadtime'] = np.nan
+        else:
+            df_gtc['Leadtime'] = pd.to_numeric(df_gtc['Leadtime'], errors='coerce')
         
         df_ltc = df_ltc.dropna(subset=["Volume"]).copy()
         df_ltc['Volume'] = safe_to_numeric(df_ltc['Volume'])
-        df_ltc['Leadtime'] = pd.to_numeric(df_ltc['Leadtime'], errors='coerce')
+        if 'Leadtime' not in df_ltc.columns:
+            df_ltc['Leadtime'] = np.nan
+        else:
+            df_ltc['Leadtime'] = pd.to_numeric(df_ltc['Leadtime'], errors='coerce')
         
         # Calculate overall metrics
         df_gtc['% GTC'] = normalize_pct_col(df_gtc['% GTC'])
@@ -1529,7 +1551,7 @@ def process_operational_report(df_gtc=None, df_ltc=None, df_tts=None, am=None, p
         total_ltc_vol = float(df_ltc_latest['Sản Lượng Lấy Thành Công'].sum()) if 'Sản Lượng Lấy Thành Công' in df_ltc_latest.columns else total_on_ltc_vol
         
         # Average Leadtime
-        avg_leadtime = float(df_gtc_latest['Leadtime'].mean())
+        avg_leadtime = float(df_gtc_latest['Leadtime'].mean()) if ('Leadtime' in df_gtc_latest.columns and not df_gtc_latest['Leadtime'].isna().all()) else 0.0
         
         # Shift breakdown (Ca 1, Ca 2, Tồn) in Datagtc
         ca1_vol = float(df_gtc_latest[df_gtc_latest['Loại Hàng'] == 'Hàng Mới Ca 1']['Volume'].sum())
@@ -1538,7 +1560,12 @@ def process_operational_report(df_gtc=None, df_ltc=None, df_tts=None, am=None, p
         new_vol = ca1_vol + ca2_vol
         
         # Top 10 Best and Worst Post Offices by GTC
-        po_gtc = df_gtc_latest.groupby('Chi tiết').agg({'Volume': 'sum', 'delivered_vol': 'sum', 'Leadtime': 'mean'}).reset_index()
+        gtc_agg = {'Volume': 'sum', 'delivered_vol': 'sum'}
+        if 'Leadtime' in df_gtc_latest.columns:
+            gtc_agg['Leadtime'] = 'mean'
+        po_gtc = df_gtc_latest.groupby('Chi tiết').agg(gtc_agg).reset_index()
+        if 'Leadtime' not in po_gtc.columns:
+            po_gtc['Leadtime'] = 0.0
         po_gtc['% GTC'] = (po_gtc['delivered_vol'] / po_gtc['Volume']) * 100
         po_gtc = po_gtc[po_gtc['Volume'] >= 100] # filter out small volumes for ranking
         
@@ -1546,7 +1573,12 @@ def process_operational_report(df_gtc=None, df_ltc=None, df_tts=None, am=None, p
         worst_10_gtc = po_gtc.sort_values(by='% GTC', ascending=True).head(10).to_dict(orient='records')
         
         # Top 10 Best and Worst Post Offices by LTC
-        po_ltc = df_ltc_latest.groupby('Chi tiết').agg({'Volume': 'sum', 'ltc_vol': 'sum', 'Leadtime': 'mean'}).reset_index()
+        ltc_agg = {'Volume': 'sum', 'ltc_vol': 'sum'}
+        if 'Leadtime' in df_ltc_latest.columns:
+            ltc_agg['Leadtime'] = 'mean'
+        po_ltc = df_ltc_latest.groupby('Chi tiết').agg(ltc_agg).reset_index()
+        if 'Leadtime' not in po_ltc.columns:
+            po_ltc['Leadtime'] = 0.0
         po_ltc['% LTC'] = (po_ltc['ltc_vol'] / po_ltc['Volume']) * 100
         po_ltc = po_ltc[po_ltc['Volume'] >= 100]
         
@@ -3283,10 +3315,16 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
             raise FileNotFoundError("Không tìm thấy dữ liệu vận hành CSV (ops_gtc.csv, ops_ltc.csv hoặc ops_co_cau.csv).")
             
         df_gtc = raw_gtc[raw_gtc['Cấp Quản Lý'] != 'Grand Total'].dropna(subset=["Volume"]).copy()
-        df_gtc['Leadtime'] = pd.to_numeric(df_gtc['Leadtime'], errors='coerce')
+        if 'Leadtime' not in df_gtc.columns:
+            df_gtc['Leadtime'] = np.nan
+        else:
+            df_gtc['Leadtime'] = pd.to_numeric(df_gtc['Leadtime'], errors='coerce')
         
         df_ltc = raw_ltc[raw_ltc['Cấp quản lý'] != 'Grand Total'].dropna(subset=["Volume"]).copy()
-        df_ltc['Leadtime'] = pd.to_numeric(df_ltc['Leadtime'], errors='coerce')
+        if 'Leadtime' not in df_ltc.columns:
+            df_ltc['Leadtime'] = np.nan
+        else:
+            df_ltc['Leadtime'] = pd.to_numeric(df_ltc['Leadtime'], errors='coerce')
         
         df_tts = None
         if raw_tts is not None:
