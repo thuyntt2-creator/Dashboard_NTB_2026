@@ -8530,68 +8530,69 @@
                 document.getElementById('heavy-kpi-30kg-pct').innerText = (data.pct_heavy_30kg || 0) + "%";
                 document.getElementById('heavy-kpi-leadtime').innerText = (data.avg_leadtime || 0) + "h";
 
-                if (!data.total_created_vol && !data.total_ops_vol) {
-                    const tableBody = document.getElementById('table-heavy-po-body');
-                    if (tableBody) {
-                        tableBody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: var(--text-muted); padding: 24px;">Chưa có dữ liệu Hàng Nặng (>10kg). Vui lòng nhấn nút <b style="color:var(--color-ghn-orange);">"🔄 Đồng bộ dữ liệu"</b> ở góc trên để khởi tạo dữ liệu.</td></tr>`;
-                    }
+                // 1. Daily Creation & Ops Trend Chart
+                try {
+                    const opsTrend = data.ops_trend || [];
+                    const creationTrend = data.creation_trend || [];
+
+                    const dates = opsTrend.map(r => r.Time ? r.Time.split(" - ")[0] : "");
+                    const gtcVals = opsTrend.map(r => roundNum(r['% GTC'] || r['% gtc'] || 0));
+                    const vols = creationTrend.length > 0 ? creationTrend.map(r => r.vol || r.Volume || 0) : opsTrend.map(r => r.Volume || 0);
+
+                    const dailyTrendOptions = {
+                        chart: { type: 'line', height: 320, toolbar: { show: false }, background: 'transparent' },
+                        series: [
+                            { name: '% GTC Vận Hành', type: 'line', data: gtcVals },
+                            { name: 'Sản lượng Đơn tạo (Đơn)', type: 'column', data: vols }
+                        ],
+                        xaxis: { categories: dates, labels: { style: { colors: '#64748b' } } },
+                        yaxis: [
+                            { title: { text: 'Tỷ lệ % GTC', style: { color: '#007bc3' } }, labels: { style: { colors: '#64748b' } }, min: 0, max: 100 },
+                            { opposite: true, title: { text: 'Sản lượng', style: { color: '#ff5f00' } }, labels: { style: { colors: '#64748b' } } }
+                        ],
+                        colors: ['#007bc3', 'rgba(255, 95, 0, 0.4)'],
+                        stroke: { width: [3, 0], curve: 'smooth' },
+                        dataLabels: { enabled: false },
+                        legend: { position: 'top', labels: { colors: '#64748b' } }
+                    };
+
+                    if (heavyDailyTrendChart) heavyDailyTrendChart.destroy();
+                    heavyDailyTrendChart = new ApexCharts(document.querySelector("#chart-heavy-daily-trend"), dailyTrendOptions);
+                    heavyDailyTrendChart.render();
+                } catch (e) {
+                    console.error("Error rendering heavy daily trend chart:", e);
                 }
 
-                // 1. Daily Creation & Ops Trend Chart
-                const opsTrend = data.ops_trend || [];
-                const creationTrend = data.creation_trend || [];
-
-                const dates = opsTrend.map(r => r.Time ? r.Time.split(" - ")[0] : "");
-                const gtcVals = opsTrend.map(r => roundNum(r['% GTC']));
-                const vols = creationTrend.length > 0 ? creationTrend.map(r => r.vol) : opsTrend.map(r => r.Volume);
-
-                const dailyTrendOptions = {
-                    chart: { type: 'line', height: 320, toolbar: { show: false }, background: 'transparent' },
-                    series: [
-                        { name: '% GTC Vận Hành', type: 'line', data: gtcVals },
-                        { name: 'Sản lượng Đơn tạo (Đơn)', type: 'column', data: vols }
-                    ],
-                    xaxis: { categories: dates, labels: { style: { colors: '#64748b' } } },
-                    yaxis: [
-                        { title: { text: 'Tỷ lệ % GTC', style: { color: '#007bc3' } }, labels: { style: { colors: '#64748b' } }, min: 0, max: 100 },
-                        { opposite: true, title: { text: 'Sản lượng', style: { color: '#ff5f00' } }, labels: { style: { colors: '#64748b' } } }
-                    ],
-                    colors: ['#007bc3', 'rgba(255, 95, 0, 0.4)'],
-                    stroke: { width: [3, 0], curve: 'smooth' },
-                    dataLabels: { enabled: false },
-                    legend: { position: 'top', labels: { colors: '#64748b' } }
-                };
-
-                if (heavyDailyTrendChart) heavyDailyTrendChart.destroy();
-                heavyDailyTrendChart = new ApexCharts(document.querySelector("#chart-heavy-daily-trend"), dailyTrendOptions);
-                heavyDailyTrendChart.render();
-
                 // 2. Weight Bracket Donut Chart
-                const weightSummary = data.weight_bracket_summary || [];
-                const donutLabels = weightSummary.map(r => r.nhom_kg);
-                const donutSeries = weightSummary.map(r => r.vol);
+                try {
+                    const weightSummary = data.weight_bracket_summary || [];
+                    const donutLabels = weightSummary.map(r => r.nhom_kg || r['nhóm kg'] || '-');
+                    const donutSeries = weightSummary.map(r => r.vol || 0);
 
-                const donutOptions = {
-                    chart: { type: 'donut', height: 320, background: 'transparent' },
-                    series: donutSeries,
-                    labels: donutLabels,
-                    colors: ['#ff5f00', '#007bc3', '#10b981', '#8b5cf6'],
-                    legend: { position: 'bottom', labels: { colors: '#64748b' } },
-                    plotOptions: {
-                        pie: {
-                            donut: {
-                                labels: {
-                                    show: true,
-                                    total: { show: true, label: 'Tổng Đơn', formatter: () => (data.total_created_vol || 0).toLocaleString() }
+                    const donutOptions = {
+                        chart: { type: 'donut', height: 320, background: 'transparent' },
+                        series: donutSeries,
+                        labels: donutLabels,
+                        colors: ['#ff5f00', '#007bc3', '#10b981', '#8b5cf6'],
+                        legend: { position: 'bottom', labels: { colors: '#64748b' } },
+                        plotOptions: {
+                            pie: {
+                                donut: {
+                                    labels: {
+                                        show: true,
+                                        total: { show: true, label: 'Tổng Đơn', formatter: () => (data.total_created_vol || 0).toLocaleString() }
+                                    }
                                 }
                             }
                         }
-                    }
-                };
+                    };
 
-                if (heavyWeightDonutChart) heavyWeightDonutChart.destroy();
-                heavyWeightDonutChart = new ApexCharts(document.querySelector("#chart-heavy-weight-donut"), donutOptions);
-                heavyWeightDonutChart.render();
+                    if (heavyWeightDonutChart) heavyWeightDonutChart.destroy();
+                    heavyWeightDonutChart = new ApexCharts(document.querySelector("#chart-heavy-weight-donut"), donutOptions);
+                    heavyWeightDonutChart.render();
+                } catch (e) {
+                    console.error("Error rendering heavy donut chart:", e);
+                }
 
                 // 3. Top & Worst POs Tables
                 const topBody = document.getElementById('heavy-top-pos-body');
@@ -8601,26 +8602,26 @@
                     topBody.innerHTML = (data.top_pos && data.top_pos.length > 0)
                         ? data.top_pos.map(r => `
                             <tr>
-                                <td style="font-weight: 600; text-align: left;">${r['Chi tiết'] || '-'}</td>
+                                <td style="font-weight: 600; text-align: left;">${r['Chi tiết'] || r['chi tiết'] || '-'}</td>
                                 <td>${r.mapped_am || '-'}</td>
-                                <td>${(r.Volume || 0).toLocaleString()}</td>
-                                <td><span class="metric-badge success">${r['% GTC']}%</span></td>
+                                <td>${(r.Volume || r.volume || 0).toLocaleString()}</td>
+                                <td><span class="metric-badge success">${r['% GTC'] || r['% gtc'] || 0}%</span></td>
                             </tr>
                         `).join('')
-                        : '<tr><td colspan="4" style="text-align: center; color: var(--text-muted);">Không có dữ liệu</td></tr>';
+                        : '<tr><td colspan="4" style="text-align: center; color: var(--text-muted); padding: 12px;">Không có dữ liệu phù hợp</td></tr>';
                 }
 
                 if (worstBody) {
                     worstBody.innerHTML = (data.worst_pos && data.worst_pos.length > 0)
                         ? data.worst_pos.map(r => `
                             <tr>
-                                <td style="font-weight: 600; text-align: left;">${r['Chi tiết'] || '-'}</td>
+                                <td style="font-weight: 600; text-align: left;">${r['Chi tiết'] || r['chi tiết'] || '-'}</td>
                                 <td>${r.mapped_am || '-'}</td>
-                                <td>${(r.Volume || 0).toLocaleString()}</td>
-                                <td><span class="metric-badge danger">${r['% GTC']}%</span></td>
+                                <td>${(r.Volume || r.volume || 0).toLocaleString()}</td>
+                                <td><span class="metric-badge danger">${r['% GTC'] || r['% gtc'] || 0}%</span></td>
                             </tr>
                         `).join('')
-                        : '<tr><td colspan="4" style="text-align: center; color: var(--text-muted);">Không có dữ liệu</td></tr>';
+                        : '<tr><td colspan="4" style="text-align: center; color: var(--text-muted); padding: 12px;">Không có dữ liệu phù hợp</td></tr>';
                 }
 
                 // 4. Detailed PO Operational Summary Table
@@ -8629,22 +8630,23 @@
                     const poSummary = data.po_ops_summary || [];
                     if (poSummary.length > 0) {
                         tableBody.innerHTML = poSummary.map((r, idx) => {
-                            const gtcClass = r['% GTC'] >= 85 ? 'success' : (r['% GTC'] >= 75 ? 'warning' : 'danger');
+                            const gtcVal = r['% GTC'] !== undefined ? r['% GTC'] : (r['% gtc'] !== undefined ? r['% gtc'] : 0);
+                            const gtcClass = gtcVal >= 85 ? 'success' : (gtcVal >= 75 ? 'warning' : 'danger');
                             return `
                                 <tr>
                                     <td style="text-align: left;">${idx + 1}</td>
-                                    <td style="font-weight: 700; text-align: left; color: var(--text-primary);">${r['Chi tiết'] || '-'}</td>
+                                    <td style="font-weight: 700; text-align: left; color: var(--text-primary);">${r['Chi tiết'] || r['chi tiết'] || '-'}</td>
                                     <td>${r.mapped_am || '-'}</td>
                                     <td>${r.mapped_prov || '-'}</td>
-                                    <td style="font-weight: 600;">${(r.Volume || 0).toLocaleString()}</td>
+                                    <td style="font-weight: 600;">${(r.Volume || r.volume || 0).toLocaleString()}</td>
                                     <td>${(r.delivered_vol || 0).toLocaleString()}</td>
-                                    <td><span class="metric-badge ${gtcClass}">${r['% GTC']}%</span></td>
-                                    <td>${r.Leadtime || 0}h</td>
+                                    <td><span class="metric-badge ${gtcClass}">${gtcVal}%</span></td>
+                                    <td>${r.Leadtime || r.leadtime || 0}h</td>
                                 </tr>
                             `;
                         }).join('');
                     } else {
-                        tableBody.innerHTML = '<tr><td colspan="8" style="text-align: center; color: var(--text-muted); padding: 24px;">Không có dữ liệu phù hợp</td></tr>';
+                        tableBody.innerHTML = '<tr><td colspan="8" style="text-align: center; color: var(--text-muted); padding: 24px;">Chưa có dữ liệu vận hành Bưu cục</td></tr>';
                     }
                 }
 

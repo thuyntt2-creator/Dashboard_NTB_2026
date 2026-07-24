@@ -2574,7 +2574,7 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None):
             else:
                 df_ops['Chi tiết'] = "Không xác định"
 
-            df_ops['clean_bc'] = df_ops['Chi tiết'].apply(clean_str)
+            df_ops['clean_bc'] = df_ops['Chi tiết'].astype(str).apply(clean_str)
             prov_col = next((df_ops[c] for c in df_ops.columns if c.lower() in ['tỉnh', 'tinh']), pd.Series("Không xác định", index=df_ops.index))
             am_col = next((df_ops[c] for c in df_ops.columns if c.lower() in ['am', 'am_name']), pd.Series("Không xác định", index=df_ops.index))
 
