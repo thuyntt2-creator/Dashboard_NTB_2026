@@ -3311,7 +3311,22 @@
                 <!-- Dedicated Filter Bar for Heavy 10kg -->
                 <div class="card" style="padding: 16px; margin-bottom: 20px; background: rgba(255, 255, 255, 0.9); border: 1px solid var(--border-color); border-radius: 12px;">
                     <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
-                        <div style="display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 200px;">
+                        <!-- Date Range Picker Controls -->
+                        <div style="display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 150px;">
+                            <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+                                <i class="fa-regular fa-calendar" style="color: var(--color-ghn-orange);"></i> Từ Ngày
+                            </label>
+                            <input type="date" id="heavy-date-from" onchange="filterHeavyTable()" class="select-input" style="width: 100%; font-size: 13px; font-weight: 600;">
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 150px;">
+                            <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+                                <i class="fa-regular fa-calendar" style="color: var(--color-ghn-orange);"></i> Đến Ngày
+                            </label>
+                            <input type="date" id="heavy-date-to" onchange="filterHeavyTable()" class="select-input" style="width: 100%; font-size: 13px; font-weight: 600;">
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 180px;">
                             <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
                                 <i class="fa-solid fa-store" style="color: var(--color-ghn-orange);"></i> Bưu Cục / Kho Nhận
                             </label>
@@ -3320,7 +3335,7 @@
                             </select>
                         </div>
 
-                        <div style="display: flex; flex-direction: column; gap: 4px; flex: 1.2; min-width: 240px;">
+                        <div style="display: flex; flex-direction: column; gap: 4px; flex: 1.2; min-width: 220px;">
                             <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
                                 <i class="fa-solid fa-bolt" style="color: #ef4444;"></i> Phân Loại & Cảnh Báo Đột Biến
                             </label>
@@ -3333,7 +3348,7 @@
                             </select>
                         </div>
 
-                        <div style="display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 180px;">
+                        <div style="display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 160px;">
                             <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
                                 <i class="fa-solid fa-magnifying-glass"></i> Tìm Kiếm Nhanh
                             </label>
