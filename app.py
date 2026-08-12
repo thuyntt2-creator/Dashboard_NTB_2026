@@ -1021,18 +1021,19 @@ def download_google_sheet(url, output_path):
     export_url = f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/export?format=xlsx"
     
     try:
-        import urllib.request, time
+        import requests, time
         headers = get_google_auth_headers()
-        req = urllib.request.Request(
-            export_url,
-            headers=headers
-        )
         content = None
         for attempt in range(3):
             try:
-                with urllib.request.urlopen(req, timeout=60) as response:
-                    content = response.read()
+                res = requests.get(export_url, headers=headers, timeout=60)
+                if res.status_code == 200 and len(res.content) > 100:
+                    content = res.content
                     break
+                elif res.status_code == 429:
+                    time.sleep(2.0 * (attempt + 1))
+                else:
+                    print(f"download_google_sheet HTTP {res.status_code}")
             except Exception as e:
                 if attempt < 2:
                     time.sleep(2.0 * (attempt + 1))
@@ -1041,7 +1042,8 @@ def download_google_sheet(url, output_path):
         if content:
             with open(output_path, 'wb') as f:
                 f.write(content)
-        return True, "Tải thành công."
+            return True, "Tải thành công."
+        return False, "Không nhận được dữ liệu từ Google Sheet (HTTP Error)."
     except Exception as e:
         return False, mask_url(f"Lỗi kết nối khi tải: {str(e)}")
 
@@ -3392,11 +3394,12 @@ def process_ca_report():
 
     df = None
     try:
-        req = urllib.request.Request(url, headers=get_google_auth_headers())
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            content = resp.read()
-        df = pd.read_csv(_io.BytesIO(content), header=1, encoding='utf-8')
-        print(f"[CA] Loaded from GSheet GID={CA_GID}, shape={df.shape}")
+        import requests
+        res = requests.get(url, headers=get_google_auth_headers(), timeout=30)
+        if res.status_code == 200:
+            content = res.content
+            df = pd.read_csv(_io.BytesIO(content), header=1, encoding='utf-8')
+            print(f"[CA] Loaded from GSheet GID={CA_GID}, shape={df.shape}")
     except Exception as e:
         print(f"[CA] GSheet fetch failed: {e}, falling back to DB")
         df = load_df_from_db('ops_ca_data.csv')
@@ -5286,10 +5289,12 @@ def sync_sheets_directly_as_csv(url):
     edit_url = f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/edit"
     headers = get_google_auth_headers()
     print(f"Fetching edit HTML to extract GIDs from: {edit_url}")
-    req = urllib.request.Request(edit_url, headers=headers)
     try:
-        with urllib.request.urlopen(req, timeout=20) as r:
-            html = r.read().decode('utf-8')
+        r_edit = requests.get(edit_url, headers=headers, timeout=20)
+        if r_edit.status_code == 200:
+            html = r_edit.text
+        else:
+            return False, f"Lỗi truy cập link Google Sheet (HTTP {r_edit.status_code})"
     except Exception as e:
         return False, f"Lỗi truy cập link Google Sheet: {str(e)}"
         
@@ -5348,13 +5353,16 @@ def sync_sheets_directly_as_csv(url):
     
     def download_gid(gid, filenames):
         csv_url = f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/export?format=csv&gid={gid}"
-        req_csv = urllib.request.Request(csv_url, headers=headers)
         content = None
         for attempt in range(4):
             try:
-                with urllib.request.urlopen(req_csv, timeout=30) as response:
-                    content = response.read()
+                time.sleep(0.15 * (attempt + 1))
+                r = requests.get(csv_url, headers=headers, timeout=30)
+                if r.status_code == 200 and len(r.content) > 10:
+                    content = r.content
                     break
+                elif r.status_code == 429:
+                    time.sleep(1.5 * (attempt + 1))
             except Exception as e:
                 if attempt < 3:
                     time.sleep(1.5 * (attempt + 1))
@@ -5431,19 +5439,19 @@ def async_sync_task(is_admin_flag):
                 # Download CA Report Data
                 SYNC_STATUS["progress"] = "Đang tải báo cáo Sản lượng Ca..."
                 try:
-                    import urllib.request, io
+                    import io, requests
                     url_ca = 'https://docs.google.com/spreadsheets/d/1JZ1eRerRqrpwjZ4HBevQunjd8VquM_cvPFz12TaJfMQ/export?format=csv&gid=260711009'
-                    req_ca = urllib.request.Request(url_ca, headers=get_google_auth_headers())
-                    with urllib.request.urlopen(req_ca, timeout=30) as resp:
-                        content_ca = resp.read()
-                    for enc in ['utf-8-sig', 'utf-8', 'latin-1', 'cp1252']:
-                        try:
-                            df_ca = pd.read_csv(io.BytesIO(content_ca), header=1, encoding=enc)
-                            save_df_to_db(df_ca, 'ops_ca_data.csv')
-                            print("Successfully downloaded ops_ca_data.csv with header=1")
-                            break
-                        except Exception:
-                            continue
+                    r_ca = requests.get(url_ca, headers=get_google_auth_headers(), timeout=30)
+                    if r_ca.status_code == 200:
+                        content_ca = r_ca.content
+                        for enc in ['utf-8-sig', 'utf-8', 'latin-1', 'cp1252']:
+                            try:
+                                df_ca = pd.read_csv(io.BytesIO(content_ca), header=1, encoding=enc)
+                                save_df_to_db(df_ca, 'ops_ca_data.csv')
+                                print("Successfully downloaded ops_ca_data.csv with header=1")
+                                break
+                            except Exception:
+                                continue
                 except Exception as e:
                     print(f"Error downloading CA data: {e}")
 
