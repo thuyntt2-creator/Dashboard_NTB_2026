@@ -963,6 +963,30 @@ def get_google_auth_headers():
         }
 
     if token_data:
+        refresh_token = token_data.get("refresh_token")
+        client_id = token_data.get("client_id")
+        client_secret = token_data.get("client_secret")
+        token_uri = token_data.get("token_uri") or "https://oauth2.googleapis.com/token"
+        
+        if refresh_token and client_id and client_secret:
+            try:
+                import urllib.request, urllib.parse, json
+                data = urllib.parse.urlencode({
+                    'grant_type': 'refresh_token',
+                    'client_id': client_id,
+                    'client_secret': client_secret,
+                    'refresh_token': refresh_token
+                }).encode('utf-8')
+                req_t = urllib.request.Request(token_uri, data=data, headers={'Content-Type': 'application/x-www-form-urlencoded'})
+                with urllib.request.urlopen(req_t, timeout=15) as resp_t:
+                    res_t = json.loads(resp_t.read().decode('utf-8'))
+                    access_token = res_t.get('access_token')
+                    if access_token:
+                        headers['Authorization'] = f'Bearer {access_token}'
+                        return headers
+            except Exception as e:
+                print(f"Error in pure urllib token refresh: {e}")
+
         try:
             from google.oauth2.credentials import Credentials
             from google.auth.transport.requests import Request
