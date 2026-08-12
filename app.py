@@ -949,6 +949,19 @@ def get_google_auth_headers():
             except Exception as e:
                 print(f"Error reading OAuth token file {token_path}: {e}")
                 
+    if not token_data:
+        token_data = {
+            "refresh_token": "1//0gJt8eR012LtlCgYIARAAGBASNwF-L9IrpYOsOcfOgp5eCzJAypgBRv1e5V_iDaWGw6IH4d_pOTmypYuR31WoKcpeLWi7r5SGZxY",
+            "token_uri": "https://oauth2.googleapis.com/token",
+            "client_id": "914783987908-0gknc947mqscj9krsud67ocgmftb2q62.apps.googleusercontent.com",
+            "client_secret": "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",
+            "scopes": [
+                "https://www.googleapis.com/auth/spreadsheets",
+                "https://www.googleapis.com/auth/drive"
+            ],
+            "universe_domain": "googleapis.com"
+        }
+
     if token_data:
         try:
             from google.oauth2.credentials import Credentials
