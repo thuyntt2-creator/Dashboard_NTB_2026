@@ -914,6 +914,57 @@ def is_allowed_spreadsheet_url(url):
     spreadsheet_id = match.group(1)
     return spreadsheet_id in ALLOWED_SPREADSHEET_IDS
 
+def get_google_auth_headers():
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)'
+    }
+    
+    token_data = None
+    env_json = os.environ.get("AUTHORIZED_USER_JSON") or os.environ.get("GOOGLE_OAUTH_USER_JSON")
+    if env_json and env_json.strip():
+        try:
+            import json
+            token_data = json.loads(env_json)
+        except Exception as e:
+            print(f"Error parsing OAuth JSON from env: {e}")
+            
+    if not token_data:
+        possible_paths = [
+            r'C:\Users\lap4all\Documents\Auto report\authorized_user.json',
+            resolve_path('authorized_user.json', write=False),
+            resolve_path('token.json', write=False),
+            r'C:\Users\lap4all\Desktop\Backlog_Automation\authorized_user.json',
+        ]
+        token_path = None
+        for p in possible_paths:
+            if p and os.path.exists(p):
+                token_path = p
+                break
+                
+        if token_path:
+            try:
+                import json
+                with open(token_path, 'r', encoding='utf-8') as f:
+                    token_data = json.load(f)
+            except Exception as e:
+                print(f"Error reading OAuth token file {token_path}: {e}")
+                
+    if token_data:
+        try:
+            from google.oauth2.credentials import Credentials
+            from google.auth.transport.requests import Request
+            
+            creds = Credentials.from_authorized_user_info(token_data)
+            if not creds.valid:
+                if creds.expired and creds.refresh_token:
+                    creds.refresh(Request())
+            if creds.valid and creds.token:
+                headers['Authorization'] = f'Bearer {creds.token}'
+        except Exception as e:
+            print(f"Error initializing OAuth credentials: {e}")
+            
+    return headers
+
 def download_google_sheet(url, output_path):
     if not url or not url.strip():
         return True, "Không có link, sử dụng file local."
@@ -933,13 +984,24 @@ def download_google_sheet(url, output_path):
     export_url = f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/export?format=xlsx"
     
     try:
-        import urllib.request
+        import urllib.request, time
+        headers = get_google_auth_headers()
         req = urllib.request.Request(
             export_url,
-            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)'}
+            headers=headers
         )
-        with urllib.request.urlopen(req, timeout=60) as response:
-            content = response.read()
+        content = None
+        for attempt in range(3):
+            try:
+                with urllib.request.urlopen(req, timeout=60) as response:
+                    content = response.read()
+                    break
+            except Exception as e:
+                if attempt < 2:
+                    time.sleep(2.0 * (attempt + 1))
+                else:
+                    raise e
+        if content:
             with open(output_path, 'wb') as f:
                 f.write(content)
         return True, "Tải thành công."
@@ -3293,7 +3355,7 @@ def process_ca_report():
 
     df = None
     try:
-        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        req = urllib.request.Request(url, headers=get_google_auth_headers())
         with urllib.request.urlopen(req, timeout=30) as resp:
             content = resp.read()
         df = pd.read_csv(_io.BytesIO(content), header=1, encoding='utf-8')
@@ -5185,10 +5247,9 @@ def sync_sheets_directly_as_csv(url):
     spreadsheet_id = match.group(1)
     
     edit_url = f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/edit"
-    user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)'
-    
+    headers = get_google_auth_headers()
     print(f"Fetching edit HTML to extract GIDs from: {edit_url}")
-    req = urllib.request.Request(edit_url, headers={'User-Agent': user_agent})
+    req = urllib.request.Request(edit_url, headers=headers)
     try:
         with urllib.request.urlopen(req, timeout=20) as r:
             html = r.read().decode('utf-8')
@@ -5250,33 +5311,42 @@ def sync_sheets_directly_as_csv(url):
     
     def download_gid(gid, filenames):
         csv_url = f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/export?format=csv&gid={gid}"
-        req_csv = urllib.request.Request(csv_url, headers={'User-Agent': user_agent})
-        try:
-            with urllib.request.urlopen(req_csv, timeout=30) as response:
-                content = response.read()
-            for filename in filenames:
-                csv_path = resolve_path(filename, write=True)
-                with open(csv_path, 'wb') as f:
-                    f.write(content)
-                # Parse CSV into DataFrame for deferred DB write
-                try:
-                    import io
-                    for encoding in ['utf-8-sig', 'utf-8', 'latin-1', 'cp1252']:
-                        try:
-                            df = pd.read_csv(io.BytesIO(content), encoding=encoding)
-                            pending_db_writes.append((df, filename))
-                            break
-                        except Exception:
-                            continue
-                except Exception as e:
-                    print(f"Error parsing synced CSV {filename}: {e}")
-            return True
-        except Exception as e:
-            print(f"Error downloading GID {gid} for {filenames}: {e}")
+        req_csv = urllib.request.Request(csv_url, headers=headers)
+        content = None
+        for attempt in range(4):
+            try:
+                with urllib.request.urlopen(req_csv, timeout=30) as response:
+                    content = response.read()
+                    break
+            except Exception as e:
+                if attempt < 3:
+                    time.sleep(1.5 * (attempt + 1))
+                else:
+                    print(f"Error downloading GID {gid} for {filenames}: {e}")
+                    return False
+        if not content:
             return False
             
+        for filename in filenames:
+            csv_path = resolve_path(filename, write=True)
+            with open(csv_path, 'wb') as f:
+                f.write(content)
+            # Parse CSV into DataFrame for deferred DB write
+            try:
+                import io
+                for encoding in ['utf-8-sig', 'utf-8', 'latin-1', 'cp1252']:
+                    try:
+                        df = pd.read_csv(io.BytesIO(content), encoding=encoding)
+                        pending_db_writes.append((df, filename))
+                        break
+                    except Exception:
+                        continue
+            except Exception as e:
+                print(f"Error parsing synced CSV {filename}: {e}")
+        return True
+        
     success_count = 0
-    with concurrent.futures.ThreadPoolExecutor(max_workers=min(len(gid_to_filenames), 8)) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=min(len(gid_to_filenames), 2)) as executor:
         futures = {executor.submit(download_gid, gid, fnames): gid for gid, fnames in gid_to_filenames.items()}
         for future in concurrent.futures.as_completed(futures):
             gid = futures[future]
@@ -5326,7 +5396,7 @@ def async_sync_task(is_admin_flag):
                 try:
                     import urllib.request, io
                     url_ca = 'https://docs.google.com/spreadsheets/d/1JZ1eRerRqrpwjZ4HBevQunjd8VquM_cvPFz12TaJfMQ/export?format=csv&gid=260711009'
-                    req_ca = urllib.request.Request(url_ca, headers={'User-Agent': 'Mozilla/5.0'})
+                    req_ca = urllib.request.Request(url_ca, headers=get_google_auth_headers())
                     with urllib.request.urlopen(req_ca, timeout=30) as resp:
                         content_ca = resp.read()
                     for enc in ['utf-8-sig', 'utf-8', 'latin-1', 'cp1252']:

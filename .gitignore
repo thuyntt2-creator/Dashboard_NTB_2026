@@ -1,5 +1,8 @@
 # Secrets and Environment Variables
 .env
+authorized_user.json
+token.json
+credentials*.json
 
 # Configurations
 config.json
