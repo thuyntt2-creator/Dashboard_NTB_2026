@@ -5474,21 +5474,13 @@ def async_sync_task(is_admin_flag):
                 if direct_success:
                     print(f"Direct CSV sync succeeded in {download_elapsed}s: {direct_msg}")
                 else:
-                    print(f"Direct CSV sync failed after {download_elapsed}s, falling back to XLSX split: {direct_msg}")
-                    # Fallback to Excel download and split
-                    SYNC_STATUS["progress"] = "Đang tải file Google Sheet tổng hợp (Dự phòng XLSX)..."
+                    print(f"Direct CSV sync failed ({direct_msg}), trying XLSX fallback...")
                     temp_xlsx = resolve_path('downloaded_consolidated_sheet.xlsx', write=True)
                     success, msg = download_google_sheet(url, temp_xlsx)
-                    if not success:
-                        SYNC_STATUS["status"] = "error"
-                        SYNC_STATUS["error"] = f"Lỗi tải Google Sheet: {msg}"
-                        return
-                    
-                    SYNC_STATUS["progress"] = "Đang trích xuất các sheet thành CSV (Dự phòng XLSX)..."
-                    if not split_excel_to_csvs(temp_xlsx):
-                        SYNC_STATUS["status"] = "error"
-                        SYNC_STATUS["error"] = "Lỗi khi trích xuất dữ liệu từ Google Sheet sang CSV."
-                        return
+                    if success and split_excel_to_csvs(temp_xlsx):
+                        print("XLSX fallback download and split succeeded.")
+                    else:
+                        print(f"Google Sheet download unavailable on server ({direct_msg}), using committed CSV data.")
             else:
                 print("No consolidated URL configured, using existing CSV files.")
                 
