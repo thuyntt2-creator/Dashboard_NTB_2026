@@ -16,7 +16,7 @@ warehouse_id,Bưu cục,Tỉnh,AM
 20942000,(LDO) Di Linh,Lâm Đồng,Trầm Hữu Tiến
 22389000,(LDO) Đức Trọng 1,Lâm Đồng,Trầm Hữu Tiến
 21516000,(LDO) Đức Trọng 2,Lâm Đồng,Trầm Hữu Tiến
-22830000,(KHO) Cam Linh,Khánh Hòa,Nguyễn Thanh Long
+22830000,(KHO) Cam Linh,Khánh Hòa,Nguyễn Thanh Long
 22746000,(KHO) Nam Nha Trang 1,Khánh Hòa,Thái Thị Thanh Thư
 22704000,(KHO) Nam Nha Trang 2,Khánh Hòa,Thái Thị Thanh Thư
 22363000,(KHO) Nam Nha Trang 3,Khánh Hòa,Thái Thị Thanh Thư
@@ -24,7 +24,7 @@ warehouse_id,Bưu cục,Tỉnh,AM
 20495000,(KHO) Nha Trang,Khánh Hòa,Phan Đình Duy
 20320000,(KHO) Tây Nha Trang,Khánh Hòa,Phan Đình Duy
 20784000,(KHO) Khánh Sơn,Khánh Hòa,Phan Đình Duy
-21479000,(KHO) Bắc Cam Ranh,Khánh Hòa,Nguyễn Thanh Long
+21479000,(KHO) Bắc Cam Ranh,Khánh Hòa,Nguyễn Thanh Long
 2399,(KHO) Bắc Nha Trang,Khánh Hòa,Thái Thị Thanh Thư
 21569000,(KHO) Đông Ninh Hòa,Khánh Hòa,Phan Đình Duy
 20694000,(KHO) Ninh Hòa 1,Khánh Hòa,Nguyễn Hoàng Phi
@@ -33,7 +33,7 @@ warehouse_id,Bưu cục,Tỉnh,AM
 21046000,(KHO) Vạn Ninh,Khánh Hòa,Phan Đình Duy
 1909,Kho Trung Chuyển Khánh Hòa,Khánh Hòa,Nguyễn Tiến Lực
 22915000,Kho Chuyển Tiếp Bảo Lộc-Lâm Đồng,Lâm Đồng,Nguyễn Tiến Lực
-20588000,(KHO) Cam Lâm 2,Khánh Hòa,Nguyễn Thanh Long
+20588000,(KHO) Cam Lâm 2,Khánh Hòa,Nguyễn Thanh Long
 20745000,Kho Chuyển Tiếp Bình Thuận,Bình Thuận,Nguyễn Ngọc Khánh
 22452000,(BTH) Phú Quý,Bình Thuận,Nguyễn Ngọc Khánh
 21396000,(BTH) Hàm Thắng,Bình Thuận,Nguyễn Ngọc Khánh
@@ -85,10 +85,10 @@ warehouse_id,Bưu cục,Tỉnh,AM
 21456000,(BTH) Đức Linh,Bình Thuận,Lê Thanh Nhựt
 21067000,(BTH) Tân Hải,Bình Thuận,Cao Thị Thanh Thủy
 22329000,(BTH) ĐL Trà Tân,Bình Thuận,Nguyễn Ngọc Khánh
-21688000,(LDO) 1 Bảo Lộc,Lâm Đồng,Hồng Bích Nga
-20785000,(LDO) B'Lao,Lâm Đồng,Hồng Bích Nga
-22222000,(LDO) Bảo Lâm 1,Lâm Đồng,Hồng Bích Nga
-23015000,(LDO) Bảo Lâm 3,Lâm Đồng,Hồng Bích Nga
+21688000,(LDO) 1 Bảo Lộc,Lâm Đồng,Hồng Bích Nga
+20785000,(LDO) B'Lao,Lâm Đồng,Hồng Bích Nga
+22222000,(LDO) Bảo Lâm 1,Lâm Đồng,Hồng Bích Nga
+23015000,(LDO) Bảo Lâm 3,Lâm Đồng,Hồng Bích Nga
 22759000,(LDO) Hòa Ninh,Lâm Đồng,Lê Hồng Minh Tâm
 20269003,(DNO) Nhân Cơ,Đắk Nông,Trần Văn Phước
 22048001,(DNO) ĐL Nam Gia Nghĩa 2,Đắk Nông,Trần Văn Phước
