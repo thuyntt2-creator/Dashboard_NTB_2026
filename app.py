@@ -1024,9 +1024,15 @@ def download_google_sheet(url, output_path):
         import requests, time
         headers = get_google_auth_headers()
         content = None
+        last_status = None
         for attempt in range(3):
             try:
                 res = requests.get(export_url, headers=headers, timeout=60)
+                last_status = res.status_code
+                if res.status_code == 401 and 'Authorization' in headers:
+                    print("download_google_sheet HTTP 401 with Auth header, retrying without Auth...")
+                    res = requests.get(export_url, headers={'User-Agent': headers.get('User-Agent', '')}, timeout=60)
+                    last_status = res.status_code
                 if res.status_code == 200 and len(res.content) > 100:
                     content = res.content
                     break
@@ -1043,7 +1049,9 @@ def download_google_sheet(url, output_path):
             with open(output_path, 'wb') as f:
                 f.write(content)
             return True, "Tải thành công."
-        return False, "Không nhận được dữ liệu từ Google Sheet (HTTP Error)."
+        if last_status == 401:
+            return False, "Google Sheet riêng tư (HTTP 401 Unauthorized). Vui lòng đổi quyền chia sẻ Google Sheet sang 'Bất kỳ ai có liên kết đều có thể xem' (Anyone with link can view)."
+        return False, f"Không nhận được dữ liệu từ Google Sheet (HTTP Error {last_status})."
     except Exception as e:
         return False, mask_url(f"Lỗi kết nối khi tải: {str(e)}")
 
@@ -5291,8 +5299,13 @@ def sync_sheets_directly_as_csv(url):
     print(f"Fetching edit HTML to extract GIDs from: {edit_url}")
     try:
         r_edit = requests.get(edit_url, headers=headers, timeout=20)
+        if r_edit.status_code == 401 and 'Authorization' in headers:
+            print("HTTP 401 with Auth header, retrying without Auth header...")
+            r_edit = requests.get(edit_url, headers={'User-Agent': headers.get('User-Agent', '')}, timeout=20)
         if r_edit.status_code == 200:
             html = r_edit.text
+        elif r_edit.status_code == 401:
+            return False, "Google Sheet riêng tư (HTTP 401 Unauthorized). Vui lòng đổi quyền chia sẻ Google Sheet sang 'Bất kỳ ai có liên kết đều có thể xem' (Anyone with link can view)."
         else:
             return False, f"Lỗi truy cập link Google Sheet (HTTP {r_edit.status_code})"
     except Exception as e:
