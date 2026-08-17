@@ -6368,7 +6368,8 @@
 
             document.getElementById('opr-total-vol').innerText = (opr.total_volume || 0).toLocaleString();
             document.getElementById('opr-total-ot').innerText = (opr.total_ontime || 0).toLocaleString();
-            document.getElementById('opr-total-late').innerText = (opr.total_late || 0).toLocaleString();
+            const totalLateVal = opr.total_late !== undefined && opr.total_late !== null ? opr.total_late : Math.max(0, (opr.total_volume || 0) - (opr.total_ontime || 0));
+            document.getElementById('opr-total-late').innerText = totalLateVal.toLocaleString();
 
             const overallRateEl = document.getElementById('opr-overall-rate');
             if (overallRateEl) {

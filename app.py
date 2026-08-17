@@ -2211,6 +2211,7 @@ def process_opr_report(df_opr=None, df_oe=None, df_rawopr=None, am=None, provinc
         total_vol = float(df_opr['vol_ltc'].sum())
         total_ot = float(df_opr['ot'].sum())
         overall_opr = safe_divide(total_ot, total_vol)
+        total_late = max(0.0, total_vol - total_ot)
         
         # Calculate OPR comparisons (n-1 and cùng kỳ thứ)
         opr_n1 = None
@@ -2265,7 +2266,7 @@ def process_opr_report(df_opr=None, df_oe=None, df_rawopr=None, am=None, provinc
         # Calculate Error Reasons (Sắp xếp theo tỷ trọng lỗi)
         reason_col = 'ly_do_tre_12h'
         errors_list = []
-        total_late = 0.0
+        total_late_reasons = 0.0
         
         if reason_col in df_opr.columns:
             df_late = df_opr[df_opr[reason_col] != '0.Ontime OPR'].copy()
@@ -2277,20 +2278,20 @@ def process_opr_report(df_opr=None, df_oe=None, df_rawopr=None, am=None, provinc
             else:
                 df_late['late_orders'] = df_late['vol_ltc'] - df_late['ot']
                 
-            total_late = float(df_late['late_orders'].sum())
+            total_late_reasons = float(df_late['late_orders'].sum())
             
             errors = df_late.groupby(reason_col).agg({'late_orders': 'sum'}).reset_index()
-            errors['weight'] = (errors['late_orders'] / total_late) * 100 if total_late > 0 else 0
+            errors['weight'] = (errors['late_orders'] / total_late_reasons) * 100 if total_late_reasons > 0 else 0
             errors = errors.sort_values(by='late_orders', ascending=False)
             errors_list = errors.to_dict(orient='records')
         elif df_oe is not None and reason_col in df_oe.columns:
             # Fallback to calculating error reasons from detailed raw n-1 sheet (df_oe)
             df_late = df_oe.dropna(subset=[reason_col]).copy()
             df_late['late_orders'] = 1
-            total_late = float(len(df_late))
+            total_late_reasons = float(len(df_late))
             
             errors = df_late.groupby(reason_col).agg({'late_orders': 'sum'}).reset_index()
-            errors['weight'] = (errors['late_orders'] / total_late) * 100 if total_late > 0 else 0
+            errors['weight'] = (errors['late_orders'] / total_late_reasons) * 100 if total_late_reasons > 0 else 0
             errors = errors.sort_values(by='late_orders', ascending=False)
             errors_list = errors.to_dict(orient='records')
         
