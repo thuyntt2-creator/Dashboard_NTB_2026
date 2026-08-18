@@ -1,7 +1,7 @@
 warehouse_id,Bưu cục,Tỉnh,AM
 20797000,Kho Chuyển Tiếp Đắk Nông,Đắk Nông,Trần Văn Phước
-22242000,(DNO) Bắc Gia Nghĩa,Đắk Nông,Trần Thị Nhung
-22048000,(DNO) Đông Gia Nghĩa,Đắk Nông,Trần Thị Nhung
+22242000,(DNO) Bắc Gia Nghĩa,Đắk Nông,Huỳnh Thúc Duân
+22048000,(DNO) Đông Gia Nghĩa,Đắk Nông,Huỳnh Thúc Duân
 20269000,(DNO) Kiến Đức,Đắk Nông,Trần Văn Phước
 22394000,(DNO) Quảng Tín,Đắk Nông,Trần Văn Phước
 20673000,(DNO) Cư Jút,Đắk Nông,Trần Thị Nhung
@@ -15,7 +15,7 @@ warehouse_id,Bưu cục,Tỉnh,AM
 21659000,(DNO) ĐL Nam Gia Nghĩa,Đắk Nông,Trần Thị Nhung
 20942000,(LDO) Di Linh,Lâm Đồng,Trầm Hữu Tiến
 22389000,(LDO) Đức Trọng 1,Lâm Đồng,Trầm Hữu Tiến
-21516000,(LDO) Đức Trọng 2,Lâm Đồng,Trầm Hữu Tiến
+21516000,(LDO) Đức Trọng 2,Lâm Đồng,Nguyễn Thị Tuyết Thơ
 22830000,(KHO) Cam Linh,Khánh Hòa,Nguyễn Thanh Long
 22746000,(KHO) Nam Nha Trang 1,Khánh Hòa,Thái Thị Thanh Thư
 22704000,(KHO) Nam Nha Trang 2,Khánh Hòa,Thái Thị Thanh Thư
@@ -93,3 +93,4 @@ warehouse_id,Bưu cục,Tỉnh,AM
 20269003,(DNO) Nhân Cơ,Đắk Nông,Trần Văn Phước
 22048001,(DNO) ĐL Nam Gia Nghĩa 2,Đắk Nông,Trần Văn Phước
 22048001,(DNO) ĐL Nam Gia Nghĩa 2,Đắk Nông,Trần Văn Phước
+23098000,(KHO) CK Diên Điền,Khánh Hòa,Phan Đình Duy
