@@ -1,5 +1,5 @@
 warehouse_id,Bưu cục,Tỉnh,AM
-20797000,Kho Chuyển Tiếp Đắk Nông,Đắk Nông,Trần Văn Phước
+20797000,Kho Chuyển Tiếp Đắk Nông,Đắk Nông,Nguyễn Tiến Lực
 22242000,(DNO) Bắc Gia Nghĩa,Đắk Nông,Huỳnh Thúc Duân
 22048000,(DNO) Đông Gia Nghĩa,Đắk Nông,Huỳnh Thúc Duân
 20269000,(DNO) Kiến Đức,Đắk Nông,Trần Văn Phước
@@ -32,7 +32,7 @@ warehouse_id,Bưu cục,Tỉnh,AM
 21722000,(KHO) Tu Bông,Khánh Hòa,Phan Đình Duy
 21046000,(KHO) Vạn Ninh,Khánh Hòa,Phan Đình Duy
 1909,Kho Trung Chuyển Khánh Hòa,Khánh Hòa,Nguyễn Tiến Lực
-22915000,Kho Chuyển Tiếp Bảo Lộc-Lâm Đồng,Lâm Đồng,Nguyễn Tiến Lực
+22915000,Kho Chuyển Tiếp Bảo Lộc-Lâm Đồng,Lâm Đồng,Nguyễn Minh Hoàng
 20588000,(KHO) Cam Lâm 2,Khánh Hòa,Nguyễn Thanh Long
 20745000,Kho Chuyển Tiếp Bình Thuận,Bình Thuận,Nguyễn Ngọc Khánh
 22452000,(BTH) Phú Quý,Bình Thuận,Nguyễn Ngọc Khánh
@@ -47,7 +47,7 @@ warehouse_id,Bưu cục,Tỉnh,AM
 21468000,(LDO) 3 Bảo Lộc,Lâm Đồng,Nguyễn Lê Nguyên Vũ
 20669000,(LDO) Cát Tiên,Lâm Đồng,Nguyễn Lê Nguyên Vũ
 1896,(LDO) Đạ Huoai,Lâm Đồng,Nguyễn Lê Nguyên Vũ
-20663000,(LDO) Đạ Tẻh,Lâm Đồng,Lê Hồng Minh Tâm
+20663000,(LDO) Đạ Tẻh,Lâm Đồng,Nguyễn Lê Nguyên Vũ
 21331000,(KHO) Cam Lâm 1,Khánh Hòa,Nguyễn Hoàng Phi
 22774000,(KHO) Diên Khánh 1,Khánh Hòa,Nguyễn Hoàng Phi
 20143000,(KHO) Diên Khánh 2,Khánh Hòa,Nguyễn Hoàng Phi
@@ -67,15 +67,15 @@ warehouse_id,Bưu cục,Tỉnh,AM
 22312000,(LDO) Lâm Viên - Đà Lạt 1,Lâm Đồng,Phan Thị Ngọc Diễm
 21537000,(LDO) Lâm Viên - Đà Lạt 2,Lâm Đồng,Lê Văn Trường
 22116000,(LDO) Xuân Trường - Đà Lạt,Lâm Đồng,Lê Văn Trường
-22255000,(LDO) Hiệp Thạnh,Lâm Đồng,Lê Văn Trường
-20849000,(LDO) Ninh Gia,Lâm Đồng,Lê Văn Trường
+22255000,(LDO) Hiệp Thạnh,Lâm Đồng,Nguyễn Thị Tuyết Thơ
+20849000,(LDO) Ninh Gia,Lâm Đồng,Nguyễn Thị Tuyết Thơ
 20687000,(BTH) Hàm Tân,Bình Thuận,Cao Thị Thanh Thủy
 21065000,(BTH) Hàm Thuận Nam,Bình Thuận,Cao Thị Thanh Thủy
 21290000,(BTH) Tuyên Quang,Bình Thuận,Lê Thanh Nhựt
-22051000,(LDO) Lang Biang - Đà Lạt 1,Lâm Đồng,Lê Minh Đại
+22051000,(LDO) Lang Biang - Đà Lạt 1,Lâm Đồng,Phan Thị Ngọc Diễm
 21687000,(LDO) Lang Biang - Đà Lạt 2,Lâm Đồng,Lê Văn Trường
 21126000,(LDO) Xuân Hương - Đà Lạt,Lâm Đồng,Phan Thị Ngọc Diễm
-21377000,(LDO) Đơn Dương,Lâm Đồng,Lê Minh Đại
+21377000,(LDO) Đơn Dương,Lâm Đồng,Lê Văn Trường
 20670000,(LDO) Đam Rông 3,Lâm Đồng,Huỳnh Thị Kim Chi
 21294000,(LDO) Đinh Văn Lâm Hà,Lâm Đồng,Huỳnh Thị Kim Chi
 21458000,(LDO) Nam Ban Lâm Hà,Lâm Đồng,Huỳnh Thị Kim Chi
@@ -89,8 +89,9 @@ warehouse_id,Bưu cục,Tỉnh,AM
 20785000,(LDO) B'Lao,Lâm Đồng,Hồng Bích Nga
 22222000,(LDO) Bảo Lâm 1,Lâm Đồng,Hồng Bích Nga
 23015000,(LDO) Bảo Lâm 3,Lâm Đồng,Hồng Bích Nga
-22759000,(LDO) Hòa Ninh,Lâm Đồng,Lê Hồng Minh Tâm
+22759000,(LDO) Hòa Ninh,Lâm Đồng,Hồng Bích Nga
 20269003,(DNO) Nhân Cơ,Đắk Nông,Trần Văn Phước
 22048001,(DNO) ĐL Nam Gia Nghĩa 2,Đắk Nông,Trần Văn Phước
 22048001,(DNO) ĐL Nam Gia Nghĩa 2,Đắk Nông,Trần Văn Phước
 23098000,(KHO) CK Diên Điền,Khánh Hòa,Phan Đình Duy
+23123000,(KHO) CK Bắc Nha Trang,Khánh Hòa,Thái Thị Thanh Thư
