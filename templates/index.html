@@ -3043,16 +3043,20 @@
                                     <th style="text-align: left;">Bưu cục</th>
                                     <th style="text-align: left;">AM phụ trách</th>
                                     <th style="text-align: left;">Tỉnh</th>
-                                    <th style="text-align: center;">Tồn LM</th>
-                                    <th style="text-align: center;">Tồn KTC</th>
-                                    <th style="text-align: center;">Tồn Aging > 5 ngày</th>
-                                    <th style="text-align: center;">Dự kiến thoát nhóm (Clear tồn)</th>
-                                    <th style="text-align: left;">Trạng thái cảnh báo</th>
+                                    <th style="text-align: center;">%GTC_TB 7 ngày (1)</th>
+                                    <th style="text-align: center;">%GTC_tốt nhất (2)</th>
+                                    <th style="text-align: center;">%GTC_N-1</th>
+                                    <th style="text-align: left;">Cảnh báo</th>
+                                    <th style="text-align: center;">Số ngày cảnh báo (3 tháng)</th>
+                                    <th style="text-align: center;">Dự kiến clear hàng</th>
+                                    <th style="text-align: center;">Backlog tồn đọng</th>
+                                    <th style="text-align: center;">%Backlog đã gán</th>
+                                    <th style="text-align: center;">Backlog >5 ngày</th>
                                 </tr>
                             </thead>
                             <tbody id="table-unstable-po-body">
                                 <tr>
-                                    <td colspan="8" style="text-align: center; color: var(--text-muted); padding: 24px;">
+                                    <td colspan="12" style="text-align: center; color: var(--text-muted); padding: 24px;">
                                         Đang tải dữ liệu hoặc chưa có cấu hình Google Sheets...
                                     </td>
                                 </tr>
@@ -6726,7 +6730,7 @@
             }
 
             if (filtered.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: var(--text-muted); padding: 24px;"><i class="fa-solid fa-folder-open"></i> Không tìm thấy bưu cục nào phù hợp.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="12" style="text-align: center; color: var(--text-muted); padding: 24px;"><i class="fa-solid fa-folder-open"></i> Không tìm thấy bưu cục nào phù hợp.</td></tr>`;
                 return;
             }
 
@@ -6744,38 +6748,41 @@
                     statusClass = 'badge-success';
                 }
 
-                let daysBadge = '';
-                if (row.status === 'Bình thường') {
-                    daysBadge = `<span style="color: #10b981; font-weight: 700; font-size: 12.5px; display: inline-flex; align-items: center; gap: 4px;"><i class="fa-solid fa-circle-check"></i> Đã thoát</span>`;
-                } else if (row.status === 'Chuẩn bị nhảy nhóm') {
-                    daysBadge = `<span style="color: var(--text-muted); font-size: 12.5px;">-</span>`;
-                } else if (row.days_unstable === 1 || row.days_unstable === 2) {
-                    daysBadge = `<span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); font-weight: 700; font-size: 12.5px; padding: 4px 8px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 0 8px rgba(16, 185, 129, 0.1);"><i class="fa-solid fa-circle-arrow-down" style="color: #10b981;"></i> ${row.days_unstable} ngày (Sắp thoát)</span>`;
-                } else if (row.days_unstable === 3 || row.days_unstable === 4) {
-                    daysBadge = `<span class="badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); font-weight: 700; font-size: 12.5px; padding: 4px 8px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px;"><i class="fa-solid fa-hourglass-half"></i> ${row.days_unstable} ngày</span>`;
-                } else if (row.days_unstable >= 5) {
-                    daysBadge = `<span class="badge" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); font-weight: 700; font-size: 12.5px; padding: 4px 8px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 0 8px rgba(239, 68, 68, 0.1);"><i class="fa-solid fa-circle-exclamation"></i> ${row.days_unstable} ngày</span>`;
-                } else {
-                    daysBadge = `<span style="color: var(--text-muted); font-size: 12.5px;">-</span>`;
-                }
+                const gtc7d = row.pct_gtc_7d !== undefined ? row.pct_gtc_7d : 0;
+                const gtcBest = row.pct_gtc_best !== undefined ? row.pct_gtc_best : 0;
+                const gtcN1 = row.pct_gtc_n1 !== undefined ? row.pct_gtc_n1 : (row.pct_ktc_cung_tinh !== undefined ? row.pct_ktc_cung_tinh : 0);
+                const days3m = row.days_unstable !== undefined ? row.days_unstable : 0;
+                const clearDays = row.clear_days_estimate !== undefined ? row.clear_days_estimate : 0;
+                const backlogVal = row.backlog !== undefined ? row.backlog : (row.ton_lm || 0);
+                const pctBacklogGan = row.pct_backlog_gan !== undefined ? row.pct_backlog_gan : (row.pct_lm_5n || 0);
+                const backlog5nVal = row.backlog_5n !== undefined ? row.backlog_5n : (row.ton_lm_5n || 0);
 
-                const tonLmHtml = row.ton_lm > 0 ? `<span style="${row.ton_lm_5n > 0 || row.ton_lm > 1000 ? 'color: #ef4444; font-weight: bold;' : ''}">${row.ton_lm.toLocaleString()}</span>` : '0';
-                const tonKtcHtml = row.ton_ktc > 0 ? `<span style="${row.pct_ktc_cung_tinh > 10 ? 'color: #ef4444; font-weight: bold;' : ''}">${row.ton_ktc.toLocaleString()}</span>` : '0';
-                const agingHtml = row.ton_lm_5n > 0 ? `<span style="color: #ef4444; font-weight: bold;">${row.ton_lm_5n.toLocaleString()} <small>(${row.pct_lm_5n}%)</small></span>` : '0';
+                const gtc7dHtml = `<span style="${gtc7d < 45 ? 'color: #ef4444; font-weight: 700;' : 'font-weight: 600;'}">${gtc7d}%</span>`;
+                const gtcBestHtml = `<span style="font-weight: 600;">${gtcBest}%</span>`;
+                const gtcN1Html = `<span style="font-weight: 600;">${gtcN1}%</span>`;
+                const days3mHtml = `<span style="font-weight: 700; color: #ef4444;">${days3m} ngày</span>`;
+                const clearDaysHtml = `<span style="font-weight: 700; color: #3b82f6;">${clearDays} ngày</span>`;
+                const backlogHtml = `<span style="font-weight: 600;">${backlogVal.toLocaleString()}</span>`;
+                const pctBacklogGanHtml = `<span>${pctBacklogGan}%</span>`;
+                const backlog5nHtml = `<span style="${backlog5nVal > 0 ? 'color: #ef4444; font-weight: 700;' : ''}">${backlog5nVal.toLocaleString()}</span>`;
 
                 html += `
                     <tr style="${rowBg}">
                         <td style="font-weight: 600; color: var(--text-primary); text-align: left; vertical-align: middle;">${escapeHTML(row.name)}</td>
                         <td style="text-align: left; vertical-align: middle;">${escapeHTML(row.am)}</td>
                         <td style="text-align: left; vertical-align: middle;">${escapeHTML(row.province)}</td>
-                        <td style="text-align: center; vertical-align: middle;">${tonLmHtml}</td>
-                        <td style="text-align: center; vertical-align: middle;">${tonKtcHtml}</td>
-                        <td style="text-align: center; vertical-align: middle;">${agingHtml}</td>
-                        <td style="text-align: center; vertical-align: middle;">${daysBadge}</td>
+                        <td style="text-align: center; vertical-align: middle;">${gtc7dHtml}</td>
+                        <td style="text-align: center; vertical-align: middle;">${gtcBestHtml}</td>
+                        <td style="text-align: center; vertical-align: middle;">${gtcN1Html}</td>
                         <td style="text-align: left; vertical-align: middle;">
                             <span class="badge ${statusClass}">${escapeHTML(row.status)}</span>
                             ${row.reason ? `<div style="font-size: 11px; color: var(--text-secondary); margin-top: 4px; line-height: 1.2;">${escapeHTML(row.reason)}</div>` : ''}
                         </td>
+                        <td style="text-align: center; vertical-align: middle;">${days3mHtml}</td>
+                        <td style="text-align: center; vertical-align: middle;">${clearDaysHtml}</td>
+                        <td style="text-align: center; vertical-align: middle;">${backlogHtml}</td>
+                        <td style="text-align: center; vertical-align: middle;">${pctBacklogGanHtml}</td>
+                        <td style="text-align: center; vertical-align: middle;">${backlog5nHtml}</td>
                     </tr>
                 `;
             });
