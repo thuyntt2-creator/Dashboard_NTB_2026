@@ -2913,27 +2913,19 @@ def process_unstable_po(am=None, province=None, post_office=None):
         update_time = None
         total_warning = None
         
-        # Search metadata in the first 15 rows
-        for r_idx in range(min(15, len(df_raw))):
+        # Search metadata in the first 10 rows
+        for r_idx in range(min(10, len(df_raw))):
             for c_idx in range(len(df_raw.columns)):
                 cell_val = str(df_raw.iloc[r_idx, c_idx])
                 if "Thời gian cập nhật" in cell_val:
-                    for offset in range(1, 4):
-                        if c_idx + offset < len(df_raw.columns):
-                            val = df_raw.iloc[r_idx, c_idx + offset]
-                            if pd.notna(val) and str(val).strip() != "":
-                                update_time = str(val).strip()
-                                break
-                elif "bưu cục cảnh báo" in cell_val or "bưu cục bất ổn" in cell_val or "lượng bưu cục" in cell_val:
-                    for offset in range(1, 4):
-                        if c_idx + offset < len(df_raw.columns):
-                            val = df_raw.iloc[r_idx, c_idx + offset]
-                            if pd.notna(val) and str(val).strip() != "":
-                                try:
-                                    total_warning = int(float(val))
-                                except:
-                                    total_warning = str(val).strip()
-                                break
+                    update_time = cell_val.split("Thời gian cập nhật")[-1].strip()
+                    if not update_time and c_idx + 1 < len(df_raw.columns):
+                        update_time = str(df_raw.iloc[r_idx, c_idx + 1]).strip()
+                elif "Tổng số lượng BC cảnh báo" in cell_val or "bưu cục cảnh báo" in cell_val:
+                    if r_idx + 1 < len(df_raw):
+                        val = str(df_raw.iloc[r_idx + 1, c_idx]).strip()
+                        if val.isdigit():
+                            total_warning = int(val)
         
         # Find the table headers row
         header_row_idx = None
@@ -2941,27 +2933,26 @@ def process_unstable_po(am=None, province=None, post_office=None):
             row_vals = [str(x).lower().strip() for x in df_raw.iloc[r_idx].values]
             if any("tổng số lượng" in x or "thời gian cập nhật" in x for x in row_vals):
                 continue
-            if any(x == "bưu cục" or x == "chi tiết" or x == "tên bc" or "tên bưu cục" in x or "kho_giao_id" in x or "kho_giao_name" in x or "tinh_giao" in x for x in row_vals):
+            if any(x in ["vùng", "tỉnh", "bưu cục", "chi tiết", "tên bc", "id bưu cục"] or "tên bưu cục" in x or "kho_giao_id" in x for x in row_vals):
                 header_row_idx = r_idx
                 break
                 
         if header_row_idx is None:
             header_row_idx = 4 if len(df_raw) > 4 else 0
             
-        # Load the table skipping rows before the header
+        # Load table with header line
         df_table = safe_read_csv(file_path, skiprows=header_row_idx)
         if df_table is None:
             return {"error": "Lỗi đọc bảng bưu cục bất ổn."}
-        df_table.columns = [str(c).strip() for c in df_table.columns]
+        df_table.columns = [str(c).replace('\n', ' ').strip() for c in df_table.columns]
         
-        # Remove completely empty rows
-        id_col = next((c for c in df_table.columns if "id" in c.lower() or "kho_giao_id" in c.lower()), df_table.columns[0])
-        name_col = next((c for c in df_table.columns if "name" in c.lower() or "bưu cục" in c.lower() or "kho_giao_name" in c.lower()), df_table.columns[1] if len(df_table.columns) > 1 else df_table.columns[0])
+        id_col = next((c for c in df_table.columns if "id bưu cục" in c.lower() or "kho_giao_id" in c.lower() or c.lower() == "id"), df_table.columns[2] if len(df_table.columns)>2 else df_table.columns[0])
+        name_col = next((c for c in df_table.columns if "tên bưu cục" in c.lower() or "kho_giao_name" in c.lower() or ("tên" in c.lower() and "id" not in c.lower())), df_table.columns[3] if len(df_table.columns)>3 else df_table.columns[1])
         
         df_table = df_table.dropna(subset=[id_col, name_col], how='all')
         df_table = df_table[df_table[id_col].astype(str).str.strip() != ""]
         
-        # Ensure we have clean mappings from co_cau_ntb.csv
+        # Ensure clean mappings from co_cau_ntb.csv
         id_to_am = {}
         id_to_prov = {}
         name_to_am = {}
@@ -2975,17 +2966,14 @@ def process_unstable_po(am=None, province=None, post_office=None):
                     bc_name = str(r.get('Bưu cục', '')).strip()
                     am_val = str(r.get('AM', '')).strip()
                     prov_val = str(r.get('Tỉnh', '')).strip()
-                    if prov_val == 'Khánh Hoà':
-                        prov_val = 'Khánh Hòa'
-                    if prov_val == 'Bình Phước':
-                        prov_val = 'Lâm Đồng'
+                    if prov_val == 'Khánh Hoà': prov_val = 'Khánh Hòa'
+                    if prov_val == 'Bình Phước': prov_val = 'Lâm Đồng'
                     
                     if pd.notna(bc_id):
                         try:
                             id_to_am[int(bc_id)] = am_val
                             id_to_prov[int(bc_id)] = prov_val
-                        except:
-                            pass
+                        except: pass
                     if bc_name:
                         name_clean = clean_po_name(bc_name)
                         name_to_am[name_clean] = am_val
@@ -2993,84 +2981,68 @@ def process_unstable_po(am=None, province=None, post_office=None):
             except Exception as e:
                 print(f"Error reading co_cau_ntb.csv in process_unstable_po: {e}")
 
-        # Now map each row in the df_table
+        # Now map each row
         processed_records = []
         for _, r in df_table.iterrows():
             po_id = r.get(id_col)
             po_name = r.get(name_col)
             
-            # Map AM/Prov
-            mapped_am, mapped_prov = map_po_to_am_prov(po_id, po_name, id_to_am, id_to_prov, name_to_am, name_to_prov, r.get('AM', 'Không xác định'), r.get('tinh_giao', 'Không xác định'))
+            mapped_am, mapped_prov = map_po_to_am_prov(po_id, po_name, id_to_am, id_to_prov, name_to_am, name_to_prov, r.get('AM', 'Không xác định'), r.get('Tỉnh', r.get('tinh_giao', 'Không xác định')))
             
-            # Map Column R: du_kien_clear_ton (18th column)
-            days_col = next((c for c in df_table.columns if "du_kien_clear_ton" in c.lower() or "clear_ton" in c.lower() or c == "du_kien_clear_ton"), None)
-            days_val = 0
-            if days_col and days_col in df_table.columns:
-                days_val = r[days_col]
-            elif len(df_table.columns) > 17:
-                days_val = r.iloc[17]
-                
-            try:
-                days_val = int(float(days_val)) if pd.notna(days_val) else 0
-            except:
-                days_val = 0
-                
-            # Map Reason
-            reason_col = next((c for c in df_table.columns if "ly_do" in c.lower() or "reason" in c.lower() or "ly_do_bat_on" in c.lower()), None)
-            reason_val = ""
-            if reason_col:
-                reason_val = str(r[reason_col]).strip() if pd.notna(r[reason_col]) else ""
-            elif len(df_table.columns) > 18:
-                reason_val = str(r.iloc[18]).strip() if pd.notna(r.iloc[18]) else ""
-                
-            # Map Status
-            status_col = next((c for c in df_table.columns if "trạng thái" in c.lower() or "status" in c.lower() or "trang_thai" in c.lower()), None)
-            status_val = "Bình thường"
-            if status_col:
-                status_val = str(r[status_col]).strip() if pd.notna(r[status_col]) else "Bình thường"
-            elif len(df_table.columns) > 19:
-                status_val = str(r.iloc[19]).strip() if pd.notna(r.iloc[19]) else "Bình thường"
-                
             try:
                 po_id_clean = int(float(po_id)) if pd.notna(po_id) else None
             except:
-                # Skip header/footer description rows
                 continue
                 
-            def safe_int(val):
+            def safe_num(val, is_float=False):
+                if pd.isna(val) or str(val).strip() in ["", "nan", "NaN", None]: return 0
+                val_str = str(val).replace('%', '').replace(',', '').strip()
                 try:
-                    return int(float(val)) if pd.notna(val) else 0
+                    return float(val_str) if is_float else int(float(val_str))
                 except:
                     return 0
 
-            def get_col_val(r_row, possible_keys, positional_idx=None):
-                r_keys = {str(k).strip().lower(): k for k in r_row.index}
-                for pk in possible_keys:
-                    pk_clean = pk.strip().lower()
-                    if pk_clean in r_keys:
-                        val = r_row[r_keys[pk_clean]]
-                        if pd.notna(val) and str(val).strip() != "":
-                            return val
-                if positional_idx is not None and positional_idx < len(r_row):
-                    val = r_row.iloc[positional_idx]
-                    if pd.notna(val) and str(val).strip() != "":
-                        return val
-                return 0
+            # Column lookups from NTB 31-col sheet or legacy CSV
+            vol_ton = safe_num(r.get('Vol_Tồn (3)', r.get('Vol_Tồn\n(3)', r.get('tồn lm', 0))))
+            vol_moi = safe_num(r.get('Vol_Mới (4)', r.get('Vol_Mới\n(4)', r.get('tồn ktc', 0))))
+            backlog = safe_num(r.get('Backlog tồn đọng', 0))
+            backlog_5n = safe_num(r.get('Backlog >5 ngày', 0))
+            days_unstable = safe_num(r.get('Số ngày nằm trong danh sách cảnh báo - 3 tháng gần nhất', r.get('Số ngày dự kiến clear hàng', 0)))
+            reason_val = str(r.get('Cảnh báo', r.get('Lý do cảnh báo', r.get('ly_do_bat_on', '')))).strip()
+            if reason_val == 'nan': reason_val = ''
+            
+            status_val = "Bất ổn"
+            if reason_val and "Cảnh báo" in reason_val:
+                status_val = "Bất ổn"
+            elif reason_val:
+                status_val = "Chuẩn bị nhảy nhóm"
+            else:
+                status_val = "Bình thường"
 
             record = {
                 "id": po_id_clean,
                 "name": str(po_name).strip() if pd.notna(po_name) else "",
                 "am": mapped_am,
                 "province": mapped_prov,
-                "ton_lm": safe_int(get_col_val(r, ['bl lm', 'bl_lm', 'tồn lm', 'ton_lm'], 6)),
-                "ton_lm_5n": safe_int(get_col_val(r, ['bl lm >5 ngay', 'bl lm > 5 ngay', 'bl lm >5ngay', 'bl lm > 5 ngày', 'bl lm >5 ngày', 'bl_lm_5n'], 7)),
-                "pct_lm_5n": round(parse_unstable_pct(get_col_val(r, ['%bl lm >5 ngay', '%bl lm > 5 ngay', '%bl lm >5ngay', '%bl lm > 5 ngày', '%bl lm >5 ngày'], 8)), 2),
-                "ton_ktc": safe_int(get_col_val(r, ['bl ktc', 'bl_ktc', 'tồn ktc', 'ton_ktc'], 9)),
-                "ton_ktc_cung_tinh": safe_int(get_col_val(r, ['bl ktc cung tinh', 'bl ktc cung tinh %', 'bl ktc cùng tỉnh'], 10)),
-                "pct_ktc_cung_tinh": round(parse_unstable_pct(get_col_val(r, ['%bl ktc cung tinh', '%bl ktc cùng tỉnh'], 11)), 2),
-                "days_unstable": days_val,
+                "ton_lm": vol_ton if vol_ton > 0 else backlog,
+                "ton_lm_5n": backlog_5n,
+                "pct_lm_5n": round(safe_num(r.get('%Backlog tồn đọng đã gán', 0), True), 2),
+                "ton_ktc": vol_moi,
+                "ton_ktc_cung_tinh": safe_num(r.get('VolGTC_N-1', 0)),
+                "pct_ktc_cung_tinh": round(safe_num(r.get('%GTC_N-1', 0), True), 2),
+                "days_unstable": days_unstable,
                 "reason": reason_val,
-                "status": status_val
+                "status": status_val,
+                "pct_gtc_7d": round(safe_num(r.get('%GTC_TB 7 ngày (1)', 0), True), 2),
+                "pct_gtc_best": round(safe_num(r.get('%GTC_tốt nhất (6 tháng gần nhất. Số tính theo tuần) (2)', 0), True), 2),
+                "pct_ty_trong": round(safe_num(r.get('%Tỷ trọng (1)/(2)', 0), True), 2),
+                "total_need_deliver": safe_num(r.get('Tổng Vol cần giao (3) + (4)', r.get('Tổng Vol cần giao\n(3) + (4)', 0))),
+                "clear_days_estimate": safe_num(r.get('Số ngày dự kiến clear hàng', 0)),
+                "staff_count": safe_num(r.get('Số lượng nhân sự có gán đơn giao N-1', 0)),
+                "pct_fd_n1": round(safe_num(r.get('%FD_N-1 (ALL KH)', 0), True), 2),
+                "pct_ontime_sla_n1": round(safe_num(r.get('%OntimeSLA_N-1 (TTS)', 0), True), 2),
+                "pct_opr_n1": round(safe_num(r.get('%OPR_N-1 (TTS)', 0), True), 2),
+                "vol_create_n1": safe_num(r.get('Volume tạo mới_N-1 (ALL KH)', 0))
             }
             processed_records.append(record)
             
@@ -3081,7 +3053,7 @@ def process_unstable_po(am=None, province=None, post_office=None):
         if post_office:
             processed_records = [r for r in processed_records if clean_str(r.get('name')) == clean_str(post_office)]
             
-        # Group warning/unstable post offices by AM (only Bất ổn)
+        # Group warning/unstable post offices by AM
         unstable_by_am = {}
         for rec in processed_records:
             if rec["status"] == "Bất ổn":
@@ -3090,14 +3062,15 @@ def process_unstable_po(am=None, province=None, post_office=None):
                     unstable_by_am[am_name] = []
                 unstable_by_am[am_name].append(rec["name"])
                 
-        # Sort AMs by the number of warning post offices (descending)
+        # Sort AMs by number of warning post offices
         am_deepdive = []
-        for am, pos in unstable_by_am.items():
+        for am_key, pos in unstable_by_am.items():
             am_deepdive.append({
-                "am": am,
+                "am": am_key,
                 "count": len(pos),
                 "pos": pos
             })
+        am_deepdive.sort(key=lambda x: x["count"], reverse=True)
         am_deepdive = sorted(am_deepdive, key=lambda x: x["count"], reverse=True)
         
         # Calculate actual total warnings (only Bất ổn)
