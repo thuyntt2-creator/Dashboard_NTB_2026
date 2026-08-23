@@ -2994,22 +2994,27 @@ def process_unstable_po(am=None, province=None, post_office=None):
             except:
                 continue
                 
-            def safe_num(val, is_float=False):
-                if pd.isna(val) or str(val).strip() in ["", "nan", "NaN", None]: return 0
-                val_str = str(val).replace('%', '').replace(',', '').strip()
-                try:
-                    return float(val_str) if is_float else int(float(val_str))
-                except:
-                    return 0
+            def get_val(col_name, is_float=False):
+                target = str(col_name).strip().lower().replace('\n', ' ')
+                for c in r.index:
+                    c_clean = str(c).strip().lower().replace('\n', ' ')
+                    if c_clean == target or target in c_clean:
+                        val = r[c]
+                        if pd.notna(val) and str(val).strip() not in ["", "nan", "NaN", "None"]:
+                            val_str = str(val).replace('%', '').replace(',', '').strip()
+                            try:
+                                return float(val_str) if is_float else int(float(val_str))
+                            except:
+                                return str(val).strip()
+                return 0 if not is_float else 0.0
 
-            # Column lookups from NTB 31-col sheet or legacy CSV
-            vol_ton = safe_num(r.get('Vol_Tồn (3)', r.get('Vol_Tồn\n(3)', r.get('tồn lm', 0))))
-            vol_moi = safe_num(r.get('Vol_Mới (4)', r.get('Vol_Mới\n(4)', r.get('tồn ktc', 0))))
-            backlog = safe_num(r.get('Backlog tồn đọng', 0))
-            backlog_5n = safe_num(r.get('Backlog >5 ngày', 0))
-            days_unstable = safe_num(r.get('Số ngày nằm trong danh sách cảnh báo - 3 tháng gần nhất', r.get('Số ngày dự kiến clear hàng', 0)))
-            reason_val = str(r.get('Cảnh báo', r.get('Lý do cảnh báo', r.get('ly_do_bat_on', '')))).strip()
-            if reason_val == 'nan': reason_val = ''
+            vol_ton = get_val('Vol_Tồn (3)') or get_val('Vol_Tồn') or get_val('tồn lm')
+            vol_moi = get_val('Vol_Mới (4)') or get_val('Vol_Mới') or get_val('tồn ktc')
+            backlog = get_val('Backlog tồn đọng')
+            backlog_5n = get_val('Backlog >5 ngày')
+            days_unstable = get_val('Số ngày nằm trong danh sách cảnh báo - 3 tháng gần nhất') or get_val('Số ngày dự kiến clear hàng')
+            reason_val = str(get_val('Cảnh báo') or get_val('Lý do cảnh báo') or get_val('ly_do_bat_on') or '').strip()
+            if reason_val in ['0', '0.0', 'nan', 'NaN']: reason_val = ''
             
             status_val = "Bất ổn"
             if reason_val and "Cảnh báo" in reason_val:
@@ -3019,35 +3024,41 @@ def process_unstable_po(am=None, province=None, post_office=None):
             else:
                 status_val = "Bình thường"
 
+            pct_gtc_7d = round(get_val('%GTC_TB 7 ngày (1)', True), 2)
+            pct_gtc_best = round(get_val('%GTC_tốt nhất', True), 2)
+            pct_gtc_n1 = round(get_val('%GTC_N-1', True), 2)
+            clear_days = get_val('Số ngày dự kiến clear hàng')
+            pct_backlog_gan = round(get_val('%Backlog tồn đọng đã gán', True), 2)
+
             record = {
                 "id": po_id_clean,
                 "name": str(po_name).strip() if pd.notna(po_name) else "",
                 "am": mapped_am,
                 "province": mapped_prov,
-                "pct_gtc_7d": round(safe_num(r.get('%GTC_TB 7 ngày (1)', 0), True), 2),
-                "pct_gtc_best": round(safe_num(r.get('%GTC_tốt nhất (6 tháng gần nhất. Số tính theo tuần) (2)', 0), True), 2),
-                "pct_gtc_n1": round(safe_num(r.get('%GTC_N-1', 0), True), 2),
+                "pct_gtc_7d": pct_gtc_7d,
+                "pct_gtc_best": pct_gtc_best,
+                "pct_gtc_n1": pct_gtc_n1,
                 "reason": reason_val,
                 "days_unstable": days_unstable,
-                "clear_days_estimate": safe_num(r.get('Số ngày dự kiến clear hàng', 0)),
+                "clear_days_estimate": clear_days,
                 "backlog": backlog if backlog > 0 else vol_ton,
-                "pct_backlog_gan": round(safe_num(r.get('%Backlog tồn đọng đã gán', 0), True), 2),
+                "pct_backlog_gan": pct_backlog_gan,
                 "backlog_5n": backlog_5n,
                 "status": status_val,
                 # Compatibility fields
                 "ton_lm": vol_ton if vol_ton > 0 else backlog,
                 "ton_lm_5n": backlog_5n,
-                "pct_lm_5n": round(safe_num(r.get('%Backlog tồn đọng đã gán', 0), True), 2),
+                "pct_lm_5n": pct_backlog_gan,
                 "ton_ktc": vol_moi,
-                "ton_ktc_cung_tinh": safe_num(r.get('VolGTC_N-1', 0)),
-                "pct_ktc_cung_tinh": round(safe_num(r.get('%GTC_N-1', 0), True), 2),
-                "pct_ty_trong": round(safe_num(r.get('%Tỷ trọng (1)/(2)', 0), True), 2),
-                "total_need_deliver": safe_num(r.get('Tổng Vol cần giao (3) + (4)', r.get('Tổng Vol cần giao\n(3) + (4)', 0))),
-                "staff_count": safe_num(r.get('Số lượng nhân sự có gán đơn giao N-1', 0)),
-                "pct_fd_n1": round(safe_num(r.get('%FD_N-1 (ALL KH)', 0), True), 2),
-                "pct_ontime_sla_n1": round(safe_num(r.get('%OntimeSLA_N-1 (TTS)', 0), True), 2),
-                "pct_opr_n1": round(safe_num(r.get('%OPR_N-1 (TTS)', 0), True), 2),
-                "vol_create_n1": safe_num(r.get('Volume tạo mới_N-1 (ALL KH)', 0))
+                "ton_ktc_cung_tinh": get_val('VolGTC_N-1'),
+                "pct_ktc_cung_tinh": pct_gtc_n1,
+                "pct_ty_trong": round(get_val('%Tỷ trọng (1)/(2)', True), 2),
+                "total_need_deliver": get_val('Tổng Vol cần giao'),
+                "staff_count": get_val('Số lượng nhân sự'),
+                "pct_fd_n1": round(get_val('%FD_N-1', True), 2),
+                "pct_ontime_sla_n1": round(get_val('%OntimeSLA_N-1', True), 2),
+                "pct_opr_n1": round(get_val('%OPR_N-1', True), 2),
+                "vol_create_n1": get_val('Volume tạo mới_N-1')
             }
             processed_records.append(record)
             
