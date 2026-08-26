@@ -972,22 +972,20 @@ def get_google_auth_headers():
         
         if refresh_token and client_id and client_secret:
             try:
-                import urllib.request, urllib.parse, json
-                data = urllib.parse.urlencode({
+                import requests
+                r_t = requests.post(token_uri, data={
                     'grant_type': 'refresh_token',
                     'client_id': client_id,
                     'client_secret': client_secret,
                     'refresh_token': refresh_token
-                }).encode('utf-8')
-                req_t = urllib.request.Request(token_uri, data=data, headers={'Content-Type': 'application/x-www-form-urlencoded'})
-                with urllib.request.urlopen(req_t, timeout=15) as resp_t:
-                    res_t = json.loads(resp_t.read().decode('utf-8'))
-                    access_token = res_t.get('access_token')
+                }, timeout=15)
+                if r_t.status_code == 200:
+                    access_token = r_t.json().get('access_token')
                     if access_token:
                         headers['Authorization'] = f'Bearer {access_token}'
                         return headers
             except Exception as e:
-                print(f"Error in pure urllib token refresh: {e}")
+                print(f"Error in requests token refresh: {e}")
 
         try:
             from google.oauth2.credentials import Credentials
@@ -4666,10 +4664,11 @@ def get_off_spe():
 @app.route('/api/ca-report')
 def api_ca_report():
     global CA_REPORT_CACHE
-    if CA_REPORT_CACHE is None:
+    if CA_REPORT_CACHE is None or (isinstance(CA_REPORT_CACHE, dict) and "error" in CA_REPORT_CACHE):
         with CACHE_LOCK:
-            if CA_REPORT_CACHE is None:
-                CA_REPORT_CACHE = process_ca_report()
+            res = process_ca_report()
+            if not ("error" in res and CA_REPORT_CACHE and "error" not in CA_REPORT_CACHE):
+                CA_REPORT_CACHE = res
     return jsonify(clean_nan(CA_REPORT_CACHE))
 
 def process_productivity_realtime():
