@@ -1,40 +1,64 @@
 import pandas as pd
-import os
+import sys
 
-workspace_dir = r"c:\Users\lap4all\Desktop\New folder"
-file_path = os.path.join(workspace_dir, "Copy o NTB - BÁO CÁO VẬN HÀNH.xlsx")
-output_path = os.path.join(workspace_dir, "calculate_wtd_vols_res.txt")
+sys.stdout.reconfigure(encoding='utf-8')
 
-with open(output_path, "w", encoding="utf-8") as f:
-    df = pd.read_excel(file_path, sheet_name="Data")
-    f.write(f"Total rows: {len(df)}\n")
-    f.write(f"Unique times in Data: {list(df['Time'].unique()[:15])}\n")
+file_path = r"c:\Users\lap4all\Desktop\New folder\downloaded_user_sheet.xlsx"
 
-    # Let's parse dates
-    # Time column has values like '2026-06-07 - Chủ Nhật'
-    # Let's extract the date part (yyyy-mm-dd)
-    df['date_str'] = df['Time'].apply(lambda x: str(x).split(' - ')[0])
-    df['date'] = pd.to_datetime(df['date_str'], errors='coerce')
+# Load sheets
+df_gtc_full = pd.read_excel(file_path, sheet_name='dataGTC gốc full hàng')
+df_gtc_tts = pd.read_excel(file_path, sheet_name='dataGTC gốc TTS')
+df_cocau = pd.read_excel(file_path, sheet_name='cocau')
+df_san_luong = pd.read_excel(file_path, sheet_name='sản lượng')
 
-    # Let's filter for WTD: Monday 2026-06-01 to Sunday 2026-06-07
-    df_wtd = df[(df['date'] >= '2026-06-01') & (df['date'] <= '2026-06-07')]
-    f.write(f"WTD rows: {len(df_wtd)}\n")
+# Create BC to AM mapping dictionary
+# Drop duplicates and NaN values to make it clean
+mapping_df = df_cocau[['BC', 'Am']].dropna().drop_duplicates()
+bc_to_am = dict(zip(mapping_df['BC'], mapping_df['Am']))
 
-    # Sum volume by Province (Tỉnh)
-    prov_wtd = df_wtd.groupby('Tỉnh')['Volume'].sum().reset_index()
-    f.write("\nSum of Volume by Province for WTD (2026-06-01 to 2026-06-07):\n")
-    f.write(prov_wtd.to_string() + "\n")
+# Clean dataGTC sheets: remove 'Grand Total' rows if any
+df_gtc_full_clean = df_gtc_full[df_gtc_full['Chi tiết'] != 'Grand Total'].copy()
+df_gtc_tts_clean = df_gtc_tts[df_gtc_tts['Chi tiết'] != 'Grand Total'].copy()
 
-    # Let's check for WTD-1: Monday 2026-05-25 to Sunday 2026-05-31
-    df_wtd_1 = df[(df['date'] >= '2026-05-25') & (df['date'] <= '2026-05-31')]
-    prov_wtd_1 = df_wtd_1.groupby('Tỉnh')['Volume'].sum().reset_index()
-    f.write("\nSum of Volume by Province for WTD-1 (2026-05-25 to 2026-05-31):\n")
-    f.write(prov_wtd_1.to_string() + "\n")
+# Map BC to AM in dataGTC
+df_gtc_full_clean['AM'] = df_gtc_full_clean['Chi tiết'].map(bc_to_am)
+df_gtc_tts_clean['AM'] = df_gtc_tts_clean['Chi tiết'].map(bc_to_am)
 
-    # Let's check for WTD-2: Monday 2026-05-18 to Sunday 2026-05-24
-    df_wtd_2 = df[(df['date'] >= '2026-05-18') & (df['date'] <= '2026-05-24')]
-    prov_wtd_2 = df_wtd_2.groupby('Tỉnh')['Volume'].sum().reset_index()
-    f.write("\nSum of Volume by Province for WTD-2 (2026-05-18 to 2026-05-24):\n")
-    f.write(prov_wtd_2.to_string() + "\n")
+# Filter 'Loại Hàng' in ['Hàng Mới Ca 1', 'Hàng Mới Ca 2']
+df_gtc_full_filtered = df_gtc_full_clean[df_gtc_full_clean['Loại Hàng'].isin(['Hàng Mới Ca 1', 'Hàng Mới Ca 2'])]
+df_gtc_tts_filtered = df_gtc_tts_clean[df_gtc_tts_clean['Loại Hàng'].isin(['Hàng Mới Ca 1', 'Hàng Mới Ca 2'])]
 
-print("Done writing calculate_wtd_vols_res.txt")
+# Calculate Volume sums
+# Pivot table for full
+pivot_full = df_gtc_full_filtered.pivot_table(
+    index='AM', 
+    columns='Time', 
+    values='Volume', 
+    aggfunc='sum'
+).fillna(0)
+
+# Pivot table for tts
+pivot_tts = df_gtc_tts_filtered.pivot_table(
+    index='AM', 
+    columns='Time', 
+    values='Volume', 
+    aggfunc='sum'
+).fillna(0)
+
+# Write results
+output_lines = []
+output_lines.append("=== CALCULATED VOLUMES (EXCLUDING HÀNG TỒN) ===")
+output_lines.append("\n--- VOLUME TỔNG ---")
+output_lines.append(pivot_full.to_string())
+output_lines.append("\n--- VOLUME TTS ---")
+output_lines.append(pivot_tts.to_string())
+
+# Check how they differ from the 'sản lượng' sheet in the workbook
+output_lines.append("\n=== COMPARING WITH 'sản lượng' SHEET ===")
+output_lines.append("First 10 rows of 'sản lượng' sheet:")
+output_lines.append(df_san_luong.head(10).to_string())
+
+with open(r"c:\Users\lap4all\Desktop\New folder\calculate_wtd_vols_res.txt", "w", encoding="utf-8") as f:
+    f.write("\n".join(output_lines))
+
+print("Results written to calculate_wtd_vols_res.txt")

@@ -1,22 +1,15 @@
-with open(r'c:\Users\lap4all\Desktop\New folder\app.py', 'r', encoding='utf-8') as f:
-    content = f.read()
+with open("app.py", "r", encoding="utf-8") as f:
+    lines = f.readlines()
 
-lines = content.splitlines()
-results = []
-found = False
 for i, line in enumerate(lines):
-    if 'def process_unstable_po' in line:
-        results.append((i+1, line))
-        for j in range(1, 100):
-            if i + j < len(lines):
-                results.append((i+j+1, lines[i+j]))
-        found = True
+    if "def process_unstable_po" in line:
+        end_idx = i
+        for k in range(i+1, len(lines)):
+            if lines[k].strip().startswith('def ') and not lines[k].startswith('    '):
+                end_idx = k
+                break
+        print(f"process_unstable_po is from line {i+1} to {end_idx}")
+        # Write to file
+        with open("scratch/unstable_po_code.txt", "w", encoding="utf-8") as out:
+            out.writelines(lines[i:end_idx])
         break
-
-if found:
-    with open(r'c:\Users\lap4all\Desktop\New folder\scratch\unstable_po_def.txt', 'w', encoding='utf-8') as f_out:
-        for idx, line in results:
-            f_out.write(f"L{idx}: {line}\n")
-    print("Extracted process_unstable_po to scratch/unstable_po_def.txt")
-else:
-    print("def process_unstable_po not found")
