@@ -3391,9 +3391,11 @@ def process_ca_report():
     url = f'https://docs.google.com/spreadsheets/d/{CA_SHEET_ID}/export?format=csv&gid={CA_GID}'
 
     df = None
+    err_logs = []
     try:
         import requests
-        res = requests.get(url, headers=get_google_auth_headers(), timeout=30)
+        h = get_google_auth_headers()
+        res = requests.get(url, headers=h, timeout=30)
         if res.status_code == 200:
             content = res.content
             df = pd.read_csv(_io.BytesIO(content), header=1, encoding='utf-8')
@@ -3401,17 +3403,22 @@ def process_ca_report():
                 filepath = resolve_path('ops_ca_data.csv', write=True)
                 df.to_csv(filepath, index=False)
             except Exception as _e:
-                print(f"[CA] Error writing local ops_ca_data.csv: {_e}")
+                err_logs.append(f"Write CSV err: {_e}")
             save_df_to_db(df, 'ops_ca_data.csv')
             print(f"[CA] Loaded from GSheet GID={CA_GID}, shape={df.shape}")
         else:
-            raise Exception(f"GSheet returned HTTP status {res.status_code}")
+            err_logs.append(f"GSheet HTTP {res.status_code}")
+            raise Exception(f"GSheet status {res.status_code}")
     except Exception as e:
-        print(f"[CA] GSheet fetch failed: {e}, falling back to DB/local CSV")
-        df = safe_read_csv(resolve_path('ops_ca_data.csv', write=False))
+        err_logs.append(f"GSheet fetch exception: {e}")
+        try:
+            df = safe_read_csv(resolve_path('ops_ca_data.csv', write=False))
+            err_logs.append(f"Fallback df shape: {df.shape if df is not None else None}")
+        except Exception as fe:
+            err_logs.append(f"Fallback err: {fe}")
 
     if df is None or df.empty:
-        return {"error": "Không tìm thấy dữ liệu báo cáo Ca."}
+        return {"error": f"Không tìm thấy dữ liệu báo cáo Ca. Details: {' | '.join(err_logs)}"}
 
     def clean_num(x):
         try:
