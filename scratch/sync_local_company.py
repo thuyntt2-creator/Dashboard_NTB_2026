@@ -11,32 +11,48 @@ from dotenv import load_dotenv
 
 load_dotenv(override=True)
 
-# 1. Get OAuth token using local authorized_user.json
-token_path = 'authorized_user.json'
-if not os.path.exists(token_path):
-    print("Error: authorized_user.json not found!", flush=True)
-    sys.exit(1)
-
-with open(token_path, 'r', encoding='utf-8') as f:
-    token_data = json.load(f)
-
-data = urllib.parse.urlencode({
-    'grant_type': 'refresh_token',
-    'client_id': token_data['client_id'],
-    'client_secret': token_data['client_secret'],
-    'refresh_token': token_data['refresh_token']
-}).encode('utf-8')
-
-req = urllib.request.Request(token_data['token_uri'], data=data, headers={'Content-Type': 'application/x-www-form-urlencoded'})
+# 1. Get OAuth token using candidate authorized_user.json files
+possible_paths = [
+    r'authorized_user.json',
+    r'C:\Users\lap4all\Documents\Auto report\authorized_user.json',
+    r'C:\Users\lap4all\Desktop\Backlog_Automation\authorized_user.json',
+]
 
 access_token = None
-try:
-    with urllib.request.urlopen(req, timeout=10) as resp:
-        res = json.loads(resp.read().decode('utf-8'))
-        access_token = res.get("access_token")
-        print("Success! Acquired OAuth access_token from authorized_user.json.", flush=True)
-except Exception as e:
-    print(f"Error getting access token: {e}", flush=True)
+working_token_data = None
+
+for token_path in possible_paths:
+    if not os.path.exists(token_path):
+        continue
+    try:
+        with open(token_path, 'r', encoding='utf-8') as f:
+            token_data = json.load(f)
+        data = urllib.parse.urlencode({
+            'grant_type': 'refresh_token',
+            'client_id': token_data['client_id'],
+            'client_secret': token_data['client_secret'],
+            'refresh_token': token_data['refresh_token']
+        }).encode('utf-8')
+        req = urllib.request.Request(token_data['token_uri'], data=data, headers={'Content-Type': 'application/x-www-form-urlencoded'})
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            res = json.loads(resp.read().decode('utf-8'))
+            access_token = res.get("access_token")
+            if access_token:
+                working_token_data = token_data
+                print(f"Success! Acquired OAuth access_token from {token_path}.", flush=True)
+                # Auto heal local authorized_user.json if obtained from another path
+                if token_path != 'authorized_user.json':
+                    try:
+                        with open('authorized_user.json', 'w', encoding='utf-8') as f_out:
+                            json.dump(token_data, f_out)
+                    except Exception:
+                        pass
+                break
+    except Exception as e:
+        print(f"Token attempt failed for {token_path}: {e}", flush=True)
+
+if not access_token:
+    print("Error: Could not acquire access token from any authorized_user.json!", flush=True)
     sys.exit(1)
 
 headers = {
