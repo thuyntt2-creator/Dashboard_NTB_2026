@@ -3300,7 +3300,7 @@
 
             <!-- TAB: HÀNG NẶNG >10KG -->
             <div id="tab-heavy-10kg" class="content-panel">
-                <!-- Section Header with Quick Mode Switcher -->
+                <!-- Section Header -->
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 14px;">
                     <div>
                         <h2 style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 22px; color: var(--color-ghn-orange); margin: 0; display: flex; align-items: center; gap: 10px;">
@@ -3309,22 +3309,6 @@
                         <p style="font-size: 13px; color: var(--text-muted); margin: 4px 0 0 0;">
                             Phân tích song song: <b>Đơn Về Thực Tế</b> (Sheet <code>SL &gt;10kg</code>) vs <b>Đơn Tạo</b> (Sheet <code>treen10kg</code>) • Phát hiện đột biến tải & Giám sát Bưu Cục Cồng Kềnh (BCCK)
                         </p>
-                    </div>
-
-                    <!-- Quick Filter Buttons for Fast Switching -->
-                    <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
-                        <button type="button" class="btn btn-sm" id="btn-heavy-mode-all" onclick="setHeavyMode('all')" style="border-radius: 8px; padding: 7px 14px; font-weight: 700; font-size: 12px; background: var(--color-ghn-blue); color: #fff; border: 1px solid var(--color-ghn-blue); cursor: pointer; transition: all 0.2s;">
-                            <i class="fa-solid fa-list"></i> Tất Cả Bưu Cục
-                        </button>
-                        <button type="button" class="btn btn-sm" id="btn-heavy-mode-ck" onclick="setHeavyMode('ck')" style="border-radius: 8px; padding: 7px 14px; font-weight: 700; font-size: 12px; background: #fff; color: #ff5f00; border: 1.5px solid #ff5f00; cursor: pointer; transition: all 0.2s;">
-                            <i class="fa-solid fa-bolt"></i> ⚡ Chỉ Bưu Cục CK (Cồng Kềnh)
-                        </button>
-                        <button type="button" class="btn btn-sm" id="btn-heavy-mode-actual-surge" onclick="setHeavyMode('actual_surge')" style="border-radius: 8px; padding: 7px 14px; font-weight: 700; font-size: 12px; background: #fff; color: #007bc3; border: 1.5px solid #007bc3; cursor: pointer; transition: all 0.2s;">
-                            <i class="fa-solid fa-truck-fast"></i> ⚡ Cảnh Báo Đơn Về Đột Biến
-                        </button>
-                        <button type="button" class="btn btn-sm" id="btn-heavy-mode-created-surge" onclick="setHeavyMode('created_surge')" style="border-radius: 8px; padding: 7px 14px; font-weight: 700; font-size: 12px; background: #fff; color: #dc2626; border: 1.5px solid #dc2626; cursor: pointer; transition: all 0.2s;">
-                            <i class="fa-solid fa-box-archive"></i> 📦 Cảnh Báo Đơn Tạo Đột Biến
-                        </button>
                     </div>
                 </div>
 
@@ -3699,30 +3683,56 @@
                     </div>
                 </div>
 
-                <!-- Comprehensive Detailed Table Section with View Mode Switcher -->
+                <!-- Comprehensive Detailed Table Section with Quick Filter & View Mode Switcher -->
                 <div class="card" style="margin-bottom: 24px;">
-                    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 16px; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
-                        <div>
-                            <h3 style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 17px; color: var(--color-ghn-blue); text-transform: uppercase; margin: 0; display: flex; align-items: center; gap: 8px;">
-                                <i class="fa-solid fa-table"></i> Báo Cáo Chi Tiết Vận Hành, Tạo Đơn &amp; Cảnh Báo Đột Biến Từng Bưu Cục
-                            </h3>
-                        </div>
-
-                        <!-- Table View Mode Switcher -->
-                        <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap;">
-                            <span style="font-size: 12px; font-weight: 700; color: var(--text-muted); margin-right: 4px;">Chế độ xem:</span>
-                            <button type="button" class="btn btn-sm" id="btn-table-view-combined" onclick="setTableViewMode('combined')" style="border-radius: 6px; padding: 5px 10px; font-weight: 700; font-size: 11px; background: var(--color-ghn-blue); color: #fff; border: 1px solid var(--color-ghn-blue); cursor: pointer;">
-                                🔄 Đối Soát Song Song
-                            </button>
-                            <button type="button" class="btn btn-sm" id="btn-table-view-actual" onclick="setTableViewMode('actual')" style="border-radius: 6px; padding: 5px 10px; font-weight: 700; font-size: 11px; background: #fff; color: #007bc3; border: 1px solid #007bc3; cursor: pointer;">
-                                ⚡ Đơn Về Trong Ngày (SL &gt;10kg)
-                            </button>
-                            <button type="button" class="btn btn-sm" id="btn-table-view-created" onclick="setTableViewMode('created')" style="border-radius: 6px; padding: 5px 10px; font-weight: 700; font-size: 11px; background: #fff; color: #ff5f00; border: 1px solid #ff5f00; cursor: pointer;">
-                                📦 Đơn Tạo Mới (treen10kg)
-                            </button>
-                            <span style="font-size: 12px; font-weight: 700; color: #64748b; margin-left: 8px;" id="heavy-table-record-count">
+                    <div class="card-header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 16px; margin-bottom: 16px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 14px;">
+                            <div>
+                                <h3 style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 17px; color: var(--color-ghn-blue); text-transform: uppercase; margin: 0; display: flex; align-items: center; gap: 8px;">
+                                    <i class="fa-solid fa-table"></i> Báo Cáo Chi Tiết Vận Hành, Tạo Đơn &amp; Cảnh Báo Đột Biến Từng Bưu Cục
+                                </h3>
+                            </div>
+                            <span style="font-size: 12px; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 4px 10px; border-radius: 6px;" id="heavy-table-record-count">
                                 Hiển thị: 0 bưu cục
                             </span>
+                        </div>
+
+                        <!-- Combined Action Bar: Quick Filter Buttons (Left) & View Mode Columns (Right) -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; background: #f8fafc; padding: 10px 14px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                            <!-- Group 1: 4 Quick Filter Buttons -->
+                            <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center;">
+                                <span style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-right: 2px;">
+                                    <i class="fa-solid fa-filter"></i> Lọc Bưu Cục:
+                                </span>
+                                <button type="button" class="btn btn-sm" id="btn-heavy-mode-all" onclick="setHeavyMode('all')" style="border-radius: 6px; padding: 5px 12px; font-weight: 700; font-size: 11px; background: var(--color-ghn-blue); color: #fff; border: 1px solid var(--color-ghn-blue); cursor: pointer; transition: all 0.2s;">
+                                    <i class="fa-solid fa-list"></i> Tất Cả Bưu Cục
+                                </button>
+                                <button type="button" class="btn btn-sm" id="btn-heavy-mode-ck" onclick="setHeavyMode('ck')" style="border-radius: 6px; padding: 5px 12px; font-weight: 700; font-size: 11px; background: #fff; color: #ff5f00; border: 1.5px solid #ff5f00; cursor: pointer; transition: all 0.2s;">
+                                    <i class="fa-solid fa-bolt"></i> ⚡ Chỉ Bưu Cục CK
+                                </button>
+                                <button type="button" class="btn btn-sm" id="btn-heavy-mode-actual-surge" onclick="setHeavyMode('actual_surge')" style="border-radius: 6px; padding: 5px 12px; font-weight: 700; font-size: 11px; background: #fff; color: #007bc3; border: 1.5px solid #007bc3; cursor: pointer; transition: all 0.2s;">
+                                    <i class="fa-solid fa-truck-fast"></i> ⚡ Đột Biến Đơn Về
+                                </button>
+                                <button type="button" class="btn btn-sm" id="btn-heavy-mode-created-surge" onclick="setHeavyMode('created_surge')" style="border-radius: 6px; padding: 5px 12px; font-weight: 700; font-size: 11px; background: #fff; color: #dc2626; border: 1.5px solid #dc2626; cursor: pointer; transition: all 0.2s;">
+                                    <i class="fa-solid fa-box-archive"></i> 📦 Đột Biến Đơn Tạo
+                                </button>
+                            </div>
+
+                            <!-- Group 2: Table Column View Switcher -->
+                            <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center;">
+                                <span style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-right: 2px;">
+                                    <i class="fa-solid fa-columns"></i> Chế Độ Xem Cột:
+                                </span>
+                                <button type="button" class="btn btn-sm" id="btn-table-view-combined" onclick="setTableViewMode('combined')" style="border-radius: 6px; padding: 5px 10px; font-weight: 700; font-size: 11px; background: var(--color-ghn-blue); color: #fff; border: 1px solid var(--color-ghn-blue); cursor: pointer;">
+                                    🔄 Đối Soát Song Song
+                                </button>
+                                <button type="button" class="btn btn-sm" id="btn-table-view-actual" onclick="setTableViewMode('actual')" style="border-radius: 6px; padding: 5px 10px; font-weight: 700; font-size: 11px; background: #fff; color: #007bc3; border: 1px solid #007bc3; cursor: pointer;">
+                                    ⚡ Đơn Về Trong Ngày (SL &gt;10kg)
+                                </button>
+                                <button type="button" class="btn btn-sm" id="btn-table-view-created" onclick="setTableViewMode('created')" style="border-radius: 6px; padding: 5px 10px; font-weight: 700; font-size: 11px; background: #fff; color: #ff5f00; border: 1px solid #ff5f00; cursor: pointer;">
+                                    📦 Đơn Tạo Mới (treen10kg)
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -8806,7 +8816,7 @@
         let currentTableViewMode = 'combined'; // 'combined', 'actual', 'created'
         let currentSurgeChartMetric = 'actual'; // 'actual', 'created'
 
-        async function setHeavyMode(mode) {
+        function setHeavyMode(mode) {
             currentHeavyMode = mode;
             
             // Update button styles
@@ -8844,8 +8854,8 @@
                 }
             }
 
-            // Reload full dashboard data with the selected mode!
-            await loadHeavy10kgData();
+            // Filter the detailed table immediately
+            filterHeavyTable();
         }
 
         function setTableViewMode(mode) {
