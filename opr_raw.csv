@@ -176,7 +176,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-24,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thành phố Nha Trang,22746000,(KHO) Nam Nha Trang 1,DEKEY Vietnam Official,14,14,Thái Thị Thanh Thư,1.Tạo từ 9h-19h
 2026-08-25,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Đà Lạt,22312000,(LDO) Lâm Viên - Đà Lạt 1,Bách Hóa Gia Dụng Lâm Đồng,19,13,Lê Văn Trường,1.Tạo từ 9h-19h
 2026-08-25,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thị xã Ninh Hòa,21569000,(KHO) Đông Ninh Hòa,Như - Ý SeaFood,7,3,Phan Đình Duy,1.Tạo từ 9h-19h
-2026-08-20,1.Tạo trước 9h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,4,0,Trần Văn Phước,2.Tạo từ 19h-9h
+2026-08-20,1.Tạo trước 9h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,4,0,Huỳnh Thúc Duân,2.Tạo từ 19h-9h
 2026-08-20,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thành phố Nha Trang,22746000,(KHO) Nam Nha Trang 1,DEKEY Vietnam Official,7,7,Thái Thị Thanh Thư,1.Tạo từ 9h-19h
 2026-08-22,1.Tạo trước 9h,NTB,Bình Thuận,Huyện Tánh Linh,2357,(BTH) Đồng Kho,phụ tùng Lê Trung.,2,2,Lê Thanh Nhựt,2.Tạo từ 19h-9h
 2026-08-18,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Bảo Lộc,21468000,(LDO) 3 Bảo Lộc,LUNASTORES SHOPss,4,4,Nguyễn Lê Nguyên Vũ,1.Tạo từ 9h-19h
@@ -232,7 +232,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-18,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Đà Lạt,21687000,(LDO) Lang Biang - Đà Lạt 2,Ăn Vặt Nhà Thủy Đà Lạt,1,1,Lê Văn Trường,1.Tạo từ 9h-19h
 2026-08-22,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Bắc Bình,20633000,(BTH) Bắc Bình,Đồ Câu Chợ Lầu,1,1,Nguyễn Ngọc Khánh,1.Tạo từ 9h-19h
 2026-08-18,1.Tạo trước 9h,NTB,Lâm Đồng,Huyện Đức Trọng,21516000,(LDO) Đức Trọng 2,Shop mũ nón Ngọc Hạnh,2,0,Nguyễn Thị Tuyết Thơ,2.Tạo từ 19h-9h
-2026-08-22,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,5,5,Trần Văn Phước,1.Tạo từ 9h-19h
+2026-08-22,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,5,5,Huỳnh Thúc Duân,1.Tạo từ 9h-19h
 2026-08-21,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thành phố Nha Trang,2399,(KHO) Bắc Nha Trang,Mồi Cóc Trương Lê,3,3,Thái Thị Thanh Thư,1.Tạo từ 9h-19h
 2026-08-23,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Hàm Thuận Nam,21290000,(BTH) Tuyên Quang,DINH DƯỠNG CÂY TRỒNG,10,8,Lê Thanh Nhựt,1.Tạo từ 9h-19h
 2026-08-22,1.Tạo trước 9h,NTB,Bình Thuận,Huyện Hàm Thuận Nam,21290000,(BTH) Tuyên Quang,DINH DƯỠNG CÂY TRỒNG,6,5,Lê Thanh Nhựt,2.Tạo từ 19h-9h
@@ -528,7 +528,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-22,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thành phố Nha Trang,2399,(KHO) Bắc Nha Trang,MINFASHION,5,5,Thái Thị Thanh Thư,1.Tạo từ 9h-19h
 2026-08-20,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Huyện Diên Khánh,20143000,(KHO) Diên Khánh 2,Nước mắm 584 Nha Trang,5,4,Nguyễn Hoàng Phi,1.Tạo từ 9h-19h
 2026-08-20,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Đức Linh,21456000,(BTH) Đức Linh,GEL CHẤM NỐT RUỒI-TÀNG NHAN,56,52,Lê Thanh Nhựt,1.Tạo từ 9h-19h
-2026-08-20,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,8,8,Trần Văn Phước,1.Tạo từ 9h-19h
+2026-08-20,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,8,8,Huỳnh Thúc Duân,1.Tạo từ 9h-19h
 2026-08-19,1.Tạo trước 9h,NTB,Lâm Đồng,Huyện Bảo Lâm,21688000,(LDO) 1 Bảo Lộc,VTNN Việt Minh Xanh,2,0,Hồng Bích Nga,2.Tạo từ 19h-9h
 2026-08-20,1.Tạo trước 9h,NTB,Khánh Hòa,Thành phố Nha Trang,2399,(KHO) Bắc Nha Trang,Nook Store,1,1,Thái Thị Thanh Thư,2.Tạo từ 19h-9h
 2026-08-20,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thành phố Nha Trang,22704000,(KHO) Nam Nha Trang 2,Sanest Khanh Hoa Store 79,12,12,Thái Thị Thanh Thư,1.Tạo từ 9h-19h
@@ -590,7 +590,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-21,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thành phố Nha Trang,2399,(KHO) Bắc Nha Trang,Nook Store,1,1,Thái Thị Thanh Thư,1.Tạo từ 9h-19h
 2026-08-19,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk Glong,21150000,(DNO) Quảng Sơn,Linh chery . dak nông,2,0,Trần Thị Nhung,1.Tạo từ 9h-19h
 2026-08-23,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Đà Lạt,22116000,(LDO) Xuân Trường - Đà Lạt,TRANG Ở ĐÀ LẠT,1,1,Lê Văn Trường,1.Tạo từ 9h-19h
-2026-08-20,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Huyện Lạc Dương,22051000,(LDO) Lang Biang - Đà Lạt 1,Tạp hoá của Đốm,2,0,Lê Minh Đại,1.Tạo từ 9h-19h
+2026-08-20,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Huyện Lạc Dương,22051000,(LDO) Lang Biang - Đà Lạt 1,Tạp hoá của Đốm,2,0,Lê Minh Lợi,1.Tạo từ 9h-19h
 2026-08-21,1.Tạo trước 9h,NTB,Bình Thuận,Huyện Hàm Thuận Nam,21290000,(BTH) Tuyên Quang,Đồ Nghề Chuyên Nghiệp,1,0,Lê Thanh Nhựt,2.Tạo từ 19h-9h
 2026-08-16,1.Tạo trước 9h,NTB,Bình Thuận,Huyện Hàm Tân,21594000,(BTH) Phước Hội,Phúc Store's,1,0,Cao Thị Thanh Thủy,2.Tạo từ 19h-9h
 2026-08-17,3.Tạo sau 19h,NTB,Ninh Thuận,Huyện Ninh Phước,20499000,(NTH) Phước Dinh,Nguyễn Thị Hoà 2112,3,0,Nguyễn Duy Long,2.Tạo từ 19h-9h
@@ -685,7 +685,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-17,2.Tạo từ 9h-19h,NTB,Bình Thuận,Thành phố Phan Thiết,21320000,(BTH) Phú Thủy,Lara Ơi,3,3,Nguyễn Ngọc Khánh,1.Tạo từ 9h-19h
 2026-08-19,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thị xã Ninh Hòa,21569000,(KHO) Đông Ninh Hòa,Nguyễn nhân6868,1,0,Phan Đình Duy,1.Tạo từ 9h-19h
 2026-08-21,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Đà Lạt,21126000,(LDO) Xuân Hương - Đà Lạt,SONDA GARDEN - Sen đá Đà Lạt,15,9,Lê Văn Trường,1.Tạo từ 9h-19h
-2026-08-21,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,9,9,Trần Văn Phước,1.Tạo từ 9h-19h
+2026-08-21,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,9,9,Huỳnh Thúc Duân,1.Tạo từ 9h-19h
 2026-08-15,1.Tạo trước 9h,NTB,Bình Thuận,Huyện Bắc Bình,22934000,(BTH) Lương Sơn,Mask Nhà Maiiii,3,3,Nguyễn Ngọc Khánh,2.Tạo từ 19h-9h
 2026-08-18,2.Tạo từ 9h-19h,NTB,Đắk Nông,Thành phố Gia Nghĩa,22048000,(DNO) Đông Gia Nghĩa,Racing 945 Shop,6,6,Huỳnh Thúc Duân,1.Tạo từ 9h-19h
 2026-08-16,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Hàm Tân,20687000,(BTH) Hàm Tân,Bảo vệ cây trồng 86,1,1,Cao Thị Thanh Thủy,1.Tạo từ 9h-19h
@@ -717,7 +717,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-19,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Huyện Cam Lâm,20588000,(KHO) Cam Lâm 2,hoathan74,1,1,Nguyễn Thanh Long,1.Tạo từ 9h-19h
 2026-08-23,1.Tạo trước 9h,NTB,Khánh Hòa,Thành phố Cam Ranh,22830000,(KHO) Cam Linh,Quầy Thuốc Huyền My 1,12,12,Nguyễn Thanh Long,2.Tạo từ 19h-9h
 2026-08-22,1.Tạo trước 9h,NTB,Bình Thuận,Huyện Hàm Tân,20687000,(BTH) Hàm Tân,Ngô Hoài 92,12,12,Cao Thị Thanh Thủy,2.Tạo từ 19h-9h
-2026-08-22,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Béc Tưới Liên Toàn,1,1,Trần Văn Phước,1.Tạo từ 9h-19h
+2026-08-22,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Béc Tưới Liên Toàn,1,1,Huỳnh Thúc Duân,1.Tạo từ 9h-19h
 2026-08-19,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Huyện Vạn Ninh,21722000,(KHO) Tu Bông,Thanh ShopBaby,7,7,Phan Đình Duy,1.Tạo từ 9h-19h
 2026-08-22,1.Tạo trước 9h,NTB,Bình Thuận,Huyện Hàm Thuận Nam,21067000,(BTH) Tân Hải,TUAN LE CLOTHING,4,4,Cao Thị Thanh Thủy,2.Tạo từ 19h-9h
 2026-08-23,1.Tạo trước 9h,NTB,Bình Thuận,Thị xã La Gi,21594000,(BTH) Phước Hội,223 Chợ Vật Tư,8,0,Cao Thị Thanh Thủy,2.Tạo từ 19h-9h
@@ -729,7 +729,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-22,2.Tạo từ 9h-19h,NTB,Ninh Thuận,Huyện Ninh Hải,20648000,(NTH) Ninh Chử,Xưởng gia công các loại,4,4,Nguyễn Duy Long,1.Tạo từ 9h-19h
 2026-08-21,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Đà Lạt,22116000,(LDO) Xuân Trường - Đà Lạt,DALATFARM1994,4,4,Lê Văn Trường,1.Tạo từ 9h-19h
 2026-08-17,1.Tạo trước 9h,NTB,Khánh Hòa,Huyện Cam Lâm,20588000,(KHO) Cam Lâm 2,Gạo racing 79,1,0,Nguyễn Thanh Long,2.Tạo từ 19h-9h
-2026-08-18,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,3,3,Trần Văn Phước,1.Tạo từ 9h-19h
+2026-08-18,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,3,3,Huỳnh Thúc Duân,1.Tạo từ 9h-19h
 2026-08-23,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Huyện Đạ Huoai,1896,(LDO) Đạ Huoai,Tiệm nhà Bắp e,2,1,Nguyễn Lê Nguyên Vũ,1.Tạo từ 9h-19h
 2026-08-19,3.Tạo sau 19h,NTB,Lâm Đồng,Thành phố Đà Lạt,21126000,(LDO) Xuân Hương - Đà Lạt,Quýt Sen Đá,2,0,Lê Văn Trường,2.Tạo từ 19h-9h
 2026-08-18,2.Tạo từ 9h-19h,NTB,Bình Thuận,Thành phố Phan Thiết,21396000,(BTH) Hàm Thắng,Trúc Vy TShirt Shop,2,2,Nguyễn Ngọc Khánh,1.Tạo từ 9h-19h
@@ -763,7 +763,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-24,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Hàm Tân,20687000,(BTH) Hàm Tân,Mật Ong Ngô Hoài Nick Phụ,10,10,Cao Thị Thanh Thủy,1.Tạo từ 9h-19h
 2026-08-20,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Hàm Tân,21594000,(BTH) Phước Hội,SHOP NHÀ MÌNH.TPHCM,5,1,Cao Thị Thanh Thủy,1.Tạo từ 9h-19h
 2026-08-23,1.Tạo trước 9h,NTB,Lâm Đồng,Thành phố Đà Lạt,21537000,(LDO) Lâm Viên - Đà Lạt 2,Ari Koi Store,3,0,Lê Văn Trường,2.Tạo từ 19h-9h
-2026-08-17,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Thuốc Tây Thanh Quyên,1,0,Trần Văn Phước,1.Tạo từ 9h-19h
+2026-08-17,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Thuốc Tây Thanh Quyên,1,0,Huỳnh Thúc Duân,1.Tạo từ 9h-19h
 2026-08-23,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Huyện Đạ Huoai,1896,(LDO) Đạ Huoai,Thế Giới Đ Bẫy - STORE,1,0,Nguyễn Lê Nguyên Vũ,1.Tạo từ 9h-19h
 2026-08-24,1.Tạo trước 9h,NTB,Bình Thuận,Thành phố Phan Thiết,21290000,(BTH) Tuyên Quang,Shop Đồ Thờ Cúng 86,1,1,Lê Thanh Nhựt,2.Tạo từ 19h-9h
 2026-08-25,1.Tạo trước 9h,NTB,Ninh Thuận,Thành phố Phan Rang – Tháp Chàm,22861000,(NTH) Phan Rang,Cúc Dương Food,2,2,Nguyễn Duy Long,2.Tạo từ 19h-9h
@@ -806,7 +806,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-19,2.Tạo từ 9h-19h,NTB,Ninh Thuận,Thành phố Phan Rang – Tháp Chàm,22861000,(NTH) Phan Rang,Cúc Dương Food,8,8,Nguyễn Duy Long,1.Tạo từ 9h-19h
 2026-08-16,1.Tạo trước 9h,NTB,Lâm Đồng,Thành phố Đà Lạt,21687000,(LDO) Lang Biang - Đà Lạt 2,Langfarm - Đặc Sản Chất Lượng,17,17,Lê Văn Trường,2.Tạo từ 19h-9h
 2026-08-16,1.Tạo trước 9h,NTB,Bình Thuận,Huyện Đức Linh,21456000,(BTH) Đức Linh,GEL CHẤM NỐT RUỒI-TÀNG NHAN,43,43,Lê Thanh Nhựt,2.Tạo từ 19h-9h
-2026-08-18,3.Tạo sau 19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,6,0,Trần Văn Phước,2.Tạo từ 19h-9h
+2026-08-18,3.Tạo sau 19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,6,0,Huỳnh Thúc Duân,2.Tạo từ 19h-9h
 2026-08-17,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Đà Lạt,21687000,(LDO) Lang Biang - Đà Lạt 2,Langfarm - Đặc Sản Chất Lượng,12,12,Lê Văn Trường,1.Tạo từ 9h-19h
 2026-08-15,1.Tạo trước 9h,NTB,Khánh Hòa,Huyện Diên Khánh,20143000,(KHO) Diên Khánh 2,Wax Lông Lạnh Nàng Ong,2,0,Nguyễn Hoàng Phi,2.Tạo từ 19h-9h
 2026-08-20,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Đà Lạt,22255000,(LDO) Hiệp Thạnh,SONDA GARDEN - Sen đá Đà Lạt,33,22,Nguyễn Thị Tuyết Thơ,1.Tạo từ 9h-19h
@@ -876,7 +876,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-27,1.Tạo trước 9h,NTB,Khánh Hòa,Thành phố Nha Trang,22363000,(KHO) Nam Nha Trang 3,Lốp xe DPLUS,3,0,Thái Thị Thanh Thư,2.Tạo từ 19h-9h
 2026-08-26,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thành phố Nha Trang,22746000,(KHO) Nam Nha Trang 1,DEKEY Vietnam Official,3,3,Thái Thị Thanh Thư,1.Tạo từ 9h-19h
 2026-08-26,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Hàm Thuận Nam,21065000,(BTH) Hàm Thuận Nam,Happy kids shop.,2,2,Cao Thị Thanh Thủy,1.Tạo từ 9h-19h
-2026-08-25,1.Tạo trước 9h,NTB,Đắk Nông,Huyện Đắk R lấp,20269000,(DNO) Kiến Đức,Nông Nghiệp 4 Mùa,10,0,Trần Văn Phước,2.Tạo từ 19h-9h
+2026-08-25,1.Tạo trước 9h,NTB,Đắk Nông,Huyện Đắk R lấp,20269000,(DNO) Kiến Đức,Nông Nghiệp 4 Mùa,10,0,Hồng Bích Nga,2.Tạo từ 19h-9h
 2026-08-25,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thành phố Nha Trang,22746000,(KHO) Nam Nha Trang 1,DEKEY Vietnam Official,3,3,Thái Thị Thanh Thư,1.Tạo từ 9h-19h
 2026-08-24,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Bảo Lộc,21688000,(LDO) 1 Bảo Lộc,Nội Y Dáng Son,1,1,Hồng Bích Nga,1.Tạo từ 9h-19h
 2026-08-26,1.Tạo trước 9h,NTB,Lâm Đồng,Thành phố Đà Lạt,22116000,(LDO) Xuân Trường - Đà Lạt,TRANG Ở ĐÀ LẠT,2,0,Lê Văn Trường,2.Tạo từ 19h-9h
@@ -977,7 +977,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-25,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Huyện Đức Trọng,21516000,(LDO) Đức Trọng 2,Trâm Quỳnh Japan,2,2,Nguyễn Thị Tuyết Thơ,1.Tạo từ 9h-19h
 2026-08-25,1.Tạo trước 9h,NTB,Khánh Hòa,Thành phố Nha Trang,22704000,(KHO) Nam Nha Trang 2,Sanest Khanh Hoa Store 79,13,13,Thái Thị Thanh Thư,2.Tạo từ 19h-9h
 2026-08-25,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Đà Lạt,21687000,(LDO) Lang Biang - Đà Lạt 2,VTNN Duy Tân.,2,2,Lê Văn Trường,1.Tạo từ 9h-19h
-2026-08-24,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,1,1,Trần Văn Phước,1.Tạo từ 9h-19h
+2026-08-24,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,1,1,Huỳnh Thúc Duân,1.Tạo từ 9h-19h
 2026-08-22,3.Tạo sau 19h,NTB,Đắk Nông,Thành phố Gia Nghĩa,22242000,(DNO) Bắc Gia Nghĩa,Tạp hóa Tứ Thư,2,0,Huỳnh Thúc Duân,2.Tạo từ 19h-9h
 2026-08-26,1.Tạo trước 9h,NTB,Khánh Hòa,Thành phố Nha Trang,22704000,(KHO) Nam Nha Trang 2,Sanest Khanh Hoa Store 79,19,14,Thái Thị Thanh Thư,2.Tạo từ 19h-9h
 2026-08-27,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Hàm Tân,20687000,(BTH) Hàm Tân,Ngô Hoài 92,25,25,Cao Thị Thanh Thủy,1.Tạo từ 9h-19h
@@ -1002,7 +1002,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-29,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Bắc Bình,22934000,(BTH) Lương Sơn,Oanh Thái đồ mặc nhà,2,2,Nguyễn Ngọc Khánh,1.Tạo từ 9h-19h
 2026-08-29,1.Tạo trước 9h,NTB,Bình Thuận,Huyện Hàm Thuận Nam,21290000,(BTH) Tuyên Quang,DINH DƯỠNG CÂY TRỒNG,9,7,Lê Thanh Nhựt,2.Tạo từ 19h-9h
 2026-08-28,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Tánh Linh,2357,(BTH) Đồng Kho,Khánh 96,1,1,Lê Thanh Nhựt,1.Tạo từ 9h-19h
-2026-08-19,3.Tạo sau 19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,5,0,Trần Văn Phước,2.Tạo từ 19h-9h
+2026-08-19,3.Tạo sau 19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,5,0,Huỳnh Thúc Duân,2.Tạo từ 19h-9h
 2026-08-18,2.Tạo từ 9h-19h,NTB,Ninh Thuận,Huyện Ninh Phước,20499000,(NTH) Phước Dinh,Nho giống toàn thịnh,1,1,Nguyễn Duy Long,1.Tạo từ 9h-19h
 2026-08-15,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thành phố Nha Trang,22746000,(KHO) Nam Nha Trang 1,HUYNH THANH COSMETIC,6,6,Thái Thị Thanh Thư,1.Tạo từ 9h-19h
 2026-08-15,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thành phố Cam Ranh,22830000,(KHO) Cam Linh,Quầy Thuốc Huyền My 1,1,1,Nguyễn Thanh Long,1.Tạo từ 9h-19h
@@ -1016,7 +1016,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-27,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Đà Lạt,21687000,(LDO) Lang Biang - Đà Lạt 2,YODY Official,2,1,Lê Văn Trường,1.Tạo từ 9h-19h
 2026-08-27,1.Tạo trước 9h,NTB,Lâm Đồng,Huyện Đức Trọng,21516000,(LDO) Đức Trọng 2,Duongquocloc.,3,0,Nguyễn Thị Tuyết Thơ,2.Tạo từ 19h-9h
 2026-08-26,2.Tạo từ 9h-19h,NTB,Đắk Nông,Thành phố Gia Nghĩa,22242000,(DNO) Bắc Gia Nghĩa,Zozo Shop 1339,2,2,Huỳnh Thúc Duân,1.Tạo từ 9h-19h
-2026-08-27,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,6,6,Trần Văn Phước,1.Tạo từ 9h-19h
+2026-08-27,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,6,6,Huỳnh Thúc Duân,1.Tạo từ 9h-19h
 2026-08-27,1.Tạo trước 9h,NTB,Lâm Đồng,Thành phố Đà Lạt,22116000,(LDO) Xuân Trường - Đà Lạt,TRANG Ở ĐÀ LẠT,4,0,Lê Văn Trường,2.Tạo từ 19h-9h
 2026-08-27,1.Tạo trước 9h,NTB,Lâm Đồng,Huyện Đức Trọng,22255000,(LDO) Hiệp Thạnh,Minipijama001,2,0,Nguyễn Thị Tuyết Thơ,2.Tạo từ 19h-9h
 2026-08-27,1.Tạo trước 9h,NTB,Bình Thuận,Huyện Hàm Thuận Nam,21290000,(BTH) Tuyên Quang,DINH DƯỠNG CÂY TRỒNG,10,10,Lê Thanh Nhựt,2.Tạo từ 19h-9h
@@ -1131,7 +1131,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-27,2.Tạo từ 9h-19h,NTB,Ninh Thuận,Huyện Ninh Phước,20499000,(NTH) Phước Dinh,Xịn gia dụng thông Minh,1,1,Nguyễn Duy Long,1.Tạo từ 9h-19h
 2026-08-29,1.Tạo trước 9h,NTB,Lâm Đồng,Thành phố Bảo Lộc,21688000,(LDO) 1 Bảo Lộc,Gấm phan,2,2,Hồng Bích Nga,2.Tạo từ 19h-9h
 2026-08-29,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Huyện Đức Trọng,21516000,(LDO) Đức Trọng 2,FUNOVietnam,1,1,Nguyễn Thị Tuyết Thơ,1.Tạo từ 9h-19h
-2026-08-29,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,3,3,Trần Văn Phước,1.Tạo từ 9h-19h
+2026-08-29,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,3,3,Huỳnh Thúc Duân,1.Tạo từ 9h-19h
 2026-08-28,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Đà Lạt,21687000,(LDO) Lang Biang - Đà Lạt 2,YODY Official,2,1,Lê Văn Trường,1.Tạo từ 9h-19h
 2026-08-26,3.Tạo sau 19h,NTB,Lâm Đồng,Huyện Bảo Lâm,21688000,(LDO) 1 Bảo Lộc,Trang Em shop đồ rừng,1,0,Hồng Bích Nga,2.Tạo từ 19h-9h
 2026-08-25,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thành phố Nha Trang,2399,(KHO) Bắc Nha Trang,NEW TEES LAB,1,1,Thái Thị Thanh Thư,1.Tạo từ 9h-19h
@@ -1326,7 +1326,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-22,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Huyện Diên Khánh,20143000,(KHO) Diên Khánh 2,Nước mắm 584 Nha Trang,3,3,Nguyễn Hoàng Phi,1.Tạo từ 9h-19h
 2026-08-22,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Huyện Vạn Ninh,21046000,(KHO) Vạn Ninh,MỸ PHẨM NHẬT VY 03,1,1,Phan Đình Duy,1.Tạo từ 9h-19h
 2026-08-23,1.Tạo trước 9h,NTB,Lâm Đồng,Thành phố Đà Lạt,22116000,(LDO) Xuân Trường - Đà Lạt,TRANG Ở ĐÀ LẠT,4,0,Lê Văn Trường,2.Tạo từ 19h-9h
-2026-08-17,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Huyện Đơn Dương,21377000,(LDO) Đơn Dương,Vườn ươm cây giống thuận phát,1,1,Lê Minh Đại,1.Tạo từ 9h-19h
+2026-08-17,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Huyện Đơn Dương,21377000,(LDO) Đơn Dương,Vườn ươm cây giống thuận phát,1,1,Lê Văn Trường,1.Tạo từ 9h-19h
 2026-08-24,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Huyện Diên Khánh,22793000,(KHO) Diên Thọ,Quầy thuốc Y Đức,2,2,Nguyễn Hoàng Phi,1.Tạo từ 9h-19h
 2026-08-24,2.Tạo từ 9h-19h,NTB,Ninh Thuận,Thành phố Phan Rang – Tháp Chàm,22861000,(NTH) Phan Rang,Thích Làm Loa,2,2,Nguyễn Duy Long,1.Tạo từ 9h-19h
 2026-08-22,1.Tạo trước 9h,NTB,Lâm Đồng,Thành phố Đà Lạt,21126000,(LDO) Xuân Hương - Đà Lạt,SONDA GARDEN - Sen đá Đà Lạt,3,0,Lê Văn Trường,2.Tạo từ 19h-9h
@@ -1952,7 +1952,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-20,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thành phố Nha Trang,22774000,(KHO) Diên Khánh 1,Start-up Cafe food 30s,7,7,Nguyễn Hoàng Phi,1.Tạo từ 9h-19h
 2026-08-19,3.Tạo sau 19h,NTB,Lâm Đồng,Thành phố Bảo Lộc,21688000,(LDO) 1 Bảo Lộc,Tiệm Nhà Chinh Chung,1,0,Hồng Bích Nga,2.Tạo từ 19h-9h
 2026-08-22,1.Tạo trước 9h,NTB,Bình Thuận,Huyện Bắc Bình,20633000,(BTH) Bắc Bình,Đồ Câu Chợ Lầu,2,0,Nguyễn Ngọc Khánh,2.Tạo từ 19h-9h
-2026-08-24,1.Tạo trước 9h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,8,0,Trần Văn Phước,2.Tạo từ 19h-9h
+2026-08-24,1.Tạo trước 9h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,8,0,Huỳnh Thúc Duân,2.Tạo từ 19h-9h
 2026-08-24,1.Tạo trước 9h,NTB,Lâm Đồng,Thành phố Đà Lạt,22116000,(LDO) Xuân Trường - Đà Lạt,TRANG Ở ĐÀ LẠT,5,0,Lê Văn Trường,2.Tạo từ 19h-9h
 2026-08-17,1.Tạo trước 9h,NTB,Bình Thuận,Thành phố Phan Thiết,21396000,(BTH) Hàm Thắng,Hải Sản Đầm Sen,2,2,Nguyễn Ngọc Khánh,2.Tạo từ 19h-9h
 2026-08-22,2.Tạo từ 9h-19h,NTB,Ninh Thuận,Huyện Ninh Sơn,20316000,(NTH) Ninh Sơn,ĐỐC TỜ KÊ PETSHOP,1,1,Nguyễn Duy Long,1.Tạo từ 9h-19h
@@ -2003,7 +2003,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-28,1.Tạo trước 9h,NTB,Khánh Hòa,Thành phố Nha Trang,22704000,(KHO) Nam Nha Trang 2,Sanest Khanh Hoa Store 79,19,0,Thái Thị Thanh Thư,2.Tạo từ 19h-9h
 2026-08-28,1.Tạo trước 9h,NTB,Bình Thuận,Huyện Hàm Tân,20687000,(BTH) Hàm Tân,Ngô Hoài 92,13,13,Cao Thị Thanh Thủy,2.Tạo từ 19h-9h
 2026-08-28,1.Tạo trước 9h,NTB,Lâm Đồng,Thành phố Bảo Lộc,20785000,(LDO) B'Lao,YuanNguyen,4,0,Hồng Bích Nga,2.Tạo từ 19h-9h
-2026-08-29,3.Tạo sau 19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,12,0,Trần Văn Phước,2.Tạo từ 19h-9h
+2026-08-29,3.Tạo sau 19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,12,0,Huỳnh Thúc Duân,2.Tạo từ 19h-9h
 2026-08-29,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Đà Lạt,22312000,(LDO) Lâm Viên - Đà Lạt 1,Bách Hóa Gia Dụng Lâm Đồng,22,12,Lê Văn Trường,1.Tạo từ 9h-19h
 2026-08-29,1.Tạo trước 9h,NTB,Đắk Nông,Thành phố Gia Nghĩa,22048000,(DNO) Đông Gia Nghĩa,Racing 945 Shop,1,0,Huỳnh Thúc Duân,2.Tạo từ 19h-9h
 2026-08-28,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Tuy Phong,21298000,(BTH) Liên Hương,Kim's Shopp,3,3,Nguyễn Duy Long,1.Tạo từ 9h-19h
@@ -2042,14 +2042,14 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-27,3.Tạo sau 19h,NTB,Khánh Hòa,Thành phố Nha Trang,22363000,(KHO) Nam Nha Trang 3,Lốp xe DPLUS,3,0,Thái Thị Thanh Thư,2.Tạo từ 19h-9h
 2026-08-26,1.Tạo trước 9h,NTB,Đắk Nông,Thành phố Gia Nghĩa,22048000,(DNO) Đông Gia Nghĩa,Racing 945 Shop,3,0,Huỳnh Thúc Duân,2.Tạo từ 19h-9h
 2026-08-27,2.Tạo từ 9h-19h,NTB,Ninh Thuận,Huyện Ninh Phước,20499000,(NTH) Phước Dinh,Phụ Tùng Nông Ngư Nghiệp,1,1,Nguyễn Duy Long,1.Tạo từ 9h-19h
-2026-08-26,1.Tạo trước 9h,NTB,Đắk Nông,Huyện Đắk R lấp,20269000,(DNO) Kiến Đức,Nông Nghiệp 4 Mùa,3,0,Trần Văn Phước,2.Tạo từ 19h-9h
+2026-08-26,1.Tạo trước 9h,NTB,Đắk Nông,Huyện Đắk R lấp,20269000,(DNO) Kiến Đức,Nông Nghiệp 4 Mùa,3,0,Hồng Bích Nga,2.Tạo từ 19h-9h
 2026-08-26,1.Tạo trước 9h,NTB,Đắk Nông,Thành phố Gia Nghĩa,22242000,(DNO) Bắc Gia Nghĩa,Zozo Shop 1339,3,0,Huỳnh Thúc Duân,2.Tạo từ 19h-9h
 2026-08-21,1.Tạo trước 9h,NTB,Bình Thuận,Thành phố Phan Thiết,20144000,(BTH) Mũi Né,Ngọc Thảo 87,1,1,Nguyễn Ngọc Khánh,2.Tạo từ 19h-9h
 2026-08-24,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thành phố Nha Trang,2399,(KHO) Bắc Nha Trang,TANKOO LABEL,1,1,Thái Thị Thanh Thư,1.Tạo từ 9h-19h
 2026-08-26,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thành phố Nha Trang,2399,(KHO) Bắc Nha Trang,TEEVIBE.CO,1,1,Thái Thị Thanh Thư,1.Tạo từ 9h-19h
 2026-08-25,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Bảo Lộc,21688000,(LDO) 1 Bảo Lộc,Ngọc Chinh Underwe,1,1,Hồng Bích Nga,1.Tạo từ 9h-19h
 2026-08-29,1.Tạo trước 9h,NTB,Bình Thuận,Huyện Tuy Phong,22549000,(BTH) Phan Rí Cửa,Bánh tráng BÀ NĂM,1,1,Nguyễn Duy Long,2.Tạo từ 19h-9h
-2026-08-25,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269000,(DNO) Kiến Đức,Nông Nghiệp 4 Mùa,2,2,Trần Văn Phước,1.Tạo từ 9h-19h
+2026-08-25,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269000,(DNO) Kiến Đức,Nông Nghiệp 4 Mùa,2,2,Hồng Bích Nga,1.Tạo từ 9h-19h
 2026-08-26,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Đức Linh,21456000,(BTH) Đức Linh,QT SHOP 2,1,0,Lê Thanh Nhựt,1.Tạo từ 9h-19h
 2026-08-25,1.Tạo trước 9h,NTB,Khánh Hòa,Thành phố Nha Trang,22774000,(KHO) Diên Khánh 1,Mầm non vit,1,0,Nguyễn Hoàng Phi,2.Tạo từ 19h-9h
 2026-08-27,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Bảo Lộc,20785000,(LDO) B'Lao,Vườn Xanh TT,2,2,Hồng Bích Nga,1.Tạo từ 9h-19h
@@ -2126,7 +2126,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-21,2.Tạo từ 9h-19h,NTB,Ninh Thuận,Thành phố Phan Rang – Tháp Chàm,22861000,(NTH) Phan Rang,TRẠI NHO GIỐNG TRUNG TÍN,1,1,Nguyễn Duy Long,1.Tạo từ 9h-19h
 2026-08-22,3.Tạo sau 19h,NTB,Khánh Hòa,Thành phố Nha Trang,22363000,(KHO) Nam Nha Trang 3,Lốp xe DPLUS,2,0,Thái Thị Thanh Thư,2.Tạo từ 19h-9h
 2026-08-21,2.Tạo từ 9h-19h,NTB,Bình Thuận,Thành phố Phan Thiết,21320000,(BTH) Phú Thủy,Lara Ơi,1,1,Nguyễn Ngọc Khánh,1.Tạo từ 9h-19h
-2026-08-19,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,9,9,Trần Văn Phước,1.Tạo từ 9h-19h
+2026-08-19,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,9,9,Huỳnh Thúc Duân,1.Tạo từ 9h-19h
 2026-08-20,1.Tạo trước 9h,NTB,Ninh Thuận,Huyện Ninh Hải,20648000,(NTH) Ninh Chử,Nhà Thuốc Hoài Mơ,1,1,Nguyễn Duy Long,2.Tạo từ 19h-9h
 2026-08-18,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Huyện Đức Trọng,22255000,(LDO) Hiệp Thạnh,Mộc thiên phú quỳnhh,2,0,Nguyễn Thị Tuyết Thơ,1.Tạo từ 9h-19h
 2026-08-15,3.Tạo sau 19h,NTB,Khánh Hòa,Thành phố Nha Trang,22774000,(KHO) Diên Khánh 1,Mr Nghiệp - Đặc Sản 79 Food,11,0,Nguyễn Hoàng Phi,2.Tạo từ 19h-9h
@@ -2153,7 +2153,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-20,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Bắc Bình,22934000,(BTH) Lương Sơn,Oanh Thái đồ mặc nhà,2,2,Nguyễn Ngọc Khánh,1.Tạo từ 9h-19h
 2026-08-22,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Tuy Phong,21298000,(BTH) Liên Hương,Hoa mười giờ Bình Thuận,9,9,Nguyễn Duy Long,1.Tạo từ 9h-19h
 2026-08-24,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thành phố Nha Trang,22746000,(KHO) Nam Nha Trang 1,HUYNH THANH COSMETIC,7,7,Thái Thị Thanh Thư,1.Tạo từ 9h-19h
-2026-08-15,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,7,7,Trần Văn Phước,1.Tạo từ 9h-19h
+2026-08-15,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,7,7,Huỳnh Thúc Duân,1.Tạo từ 9h-19h
 2026-08-24,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk Glong,21150000,(DNO) Quảng Sơn,Thuận Nhiên ở LaLa Farm,1,1,Trần Thị Nhung,1.Tạo từ 9h-19h
 2026-08-24,1.Tạo trước 9h,NTB,Khánh Hòa,Thành phố Nha Trang,2399,(KHO) Bắc Nha Trang,bySanty.shop,2,2,Thái Thị Thanh Thư,2.Tạo từ 19h-9h
 2026-08-23,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk Song,21477000,(DNO) Đức An,Cô Ba Dak Nong,2,2,Trần Thị Nhung,1.Tạo từ 9h-19h
@@ -2246,7 +2246,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-25,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Cư Jút,20673000,(DNO) Cư Jút,Doanh Loa Hay,1,0,Trần Thị Nhung,1.Tạo từ 9h-19h
 2026-08-26,3.Tạo sau 19h,NTB,Đắk Nông,Huyện Đắk Mil,2309,(DNO) Đức Lập,Đăk Mil Decor,7,0,Trần Thị Nhung,2.Tạo từ 19h-9h
 2026-08-17,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Đà Lạt,21537000,(LDO) Lâm Viên - Đà Lạt 2,Ngọc Phúc Food-Đặc sản Đà Lạt,1,1,Lê Văn Trường,1.Tạo từ 9h-19h
-2026-08-26,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269000,(DNO) Kiến Đức,Nông Nghiệp 4 Mùa,3,3,Trần Văn Phước,1.Tạo từ 9h-19h
+2026-08-26,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269000,(DNO) Kiến Đức,Nông Nghiệp 4 Mùa,3,3,Hồng Bích Nga,1.Tạo từ 9h-19h
 2026-08-28,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Huyện Đức Trọng,21516000,(LDO) Đức Trọng 2,FUNOVietnam,4,4,Nguyễn Thị Tuyết Thơ,1.Tạo từ 9h-19h
 2026-08-28,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Huyện Bảo Lâm,21688000,(LDO) 1 Bảo Lộc,VTNN Việt Minh Xanh,3,1,Hồng Bích Nga,1.Tạo từ 9h-19h
 2026-08-26,3.Tạo sau 19h,NTB,Bình Thuận,Huyện Hàm Tân,20687000,(BTH) Hàm Tân,Biên Thùy HandMade,1,1,Cao Thị Thanh Thủy,2.Tạo từ 19h-9h
@@ -2321,7 +2321,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-21,1.Tạo trước 9h,NTB,Lâm Đồng,Thành phố Đà Lạt,21687000,(LDO) Lang Biang - Đà Lạt 2,Hồng Đà Lạt,1,0,Lê Văn Trường,2.Tạo từ 19h-9h
 2026-08-21,2.Tạo từ 9h-19h,NTB,Ninh Thuận,Thành phố Phan Rang – Tháp Chàm,22861000,(NTH) Phan Rang,Thích Làm Loa,1,1,Nguyễn Duy Long,1.Tạo từ 9h-19h
 2026-08-20,2.Tạo từ 9h-19h,NTB,Ninh Thuận,Huyện Ninh Hải,20648000,(NTH) Ninh Chử,Xe điện 85 shop,10,9,Nguyễn Duy Long,1.Tạo từ 9h-19h
-2026-08-23,1.Tạo trước 9h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,13,0,Trần Văn Phước,2.Tạo từ 19h-9h
+2026-08-23,1.Tạo trước 9h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,13,0,Huỳnh Thúc Duân,2.Tạo từ 19h-9h
 2026-08-23,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Bắc Bình,22934000,(BTH) Lương Sơn,Oanh Thái đồ mặc nhà,5,5,Nguyễn Ngọc Khánh,1.Tạo từ 9h-19h
 2026-08-16,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thành phố Nha Trang,2399,(KHO) Bắc Nha Trang,Mồi Cóc Trương Lê,8,8,Thái Thị Thanh Thư,1.Tạo từ 9h-19h
 2026-08-17,2.Tạo từ 9h-19h,NTB,Bình Thuận,Thành phố Phan Thiết,21320000,(BTH) Phú Thủy,Làng Chài Xưa,3,3,Nguyễn Ngọc Khánh,1.Tạo từ 9h-19h
@@ -2494,7 +2494,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-17,1.Tạo trước 9h,NTB,Lâm Đồng,Thành phố Bảo Lộc,21688000,(LDO) 1 Bảo Lộc,Gấm phan,5,5,Hồng Bích Nga,2.Tạo từ 19h-9h
 2026-08-20,1.Tạo trước 9h,NTB,Bình Thuận,Thị xã La Gi,21594000,(BTH) Phước Hội,223 Chợ Vật Tư,10,0,Cao Thị Thanh Thủy,2.Tạo từ 19h-9h
 2026-08-19,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Cư Jút,20673000,(DNO) Cư Jút,"Phun sương, phun tưới ĐÀO ĐỊNH",3,3,Trần Thị Nhung,1.Tạo từ 9h-19h
-2026-08-17,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,6,6,Trần Văn Phước,1.Tạo từ 9h-19h
+2026-08-17,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,6,6,Huỳnh Thúc Duân,1.Tạo từ 9h-19h
 2026-08-16,1.Tạo trước 9h,NTB,Lâm Đồng,Thành phố Đà Lạt,22116000,(LDO) Xuân Trường - Đà Lạt,DALATFARM1994,3,0,Lê Văn Trường,2.Tạo từ 19h-9h
 2026-08-24,3.Tạo sau 19h,NTB,Ninh Thuận,Huyện Ninh Phước,20499000,(NTH) Phước Dinh,Nguyễn Thị Hoà 2112,2,2,Nguyễn Duy Long,2.Tạo từ 19h-9h
 2026-08-22,1.Tạo trước 9h,NTB,Lâm Đồng,Thành phố Đà Lạt,22116000,(LDO) Xuân Trường - Đà Lạt,DALATFARM1994,2,0,Lê Văn Trường,2.Tạo từ 19h-9h
@@ -2569,7 +2569,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-20,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Huyện Vạn Ninh,21046000,(KHO) Vạn Ninh,Hà Sang Shop,14,14,Phan Đình Duy,1.Tạo từ 9h-19h
 2026-08-18,1.Tạo trước 9h,NTB,Khánh Hòa,Huyện Diên Khánh,22793000,(KHO) Diên Thọ,Quầy thuốc Y Đức,3,3,Nguyễn Hoàng Phi,2.Tạo từ 19h-9h
 2026-08-16,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Huyện Vạn Ninh,21046000,(KHO) Vạn Ninh,Hà Sang Shop,16,16,Phan Đình Duy,1.Tạo từ 9h-19h
-2026-08-16,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,14,14,Trần Văn Phước,1.Tạo từ 9h-19h
+2026-08-16,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,14,14,Huỳnh Thúc Duân,1.Tạo từ 9h-19h
 2026-08-22,1.Tạo trước 9h,NTB,Bình Thuận,Huyện Đức Linh,21456000,(BTH) Đức Linh,GEL CHẤM NỐT RUỒI-TÀNG NHAN,35,35,Lê Thanh Nhựt,2.Tạo từ 19h-9h
 2026-08-22,2.Tạo từ 9h-19h,NTB,Ninh Thuận,Thành phố Phan Rang – Tháp Chàm,22861000,(NTH) Phan Rang,Tiệm Quê Nhà - Since 2018,53,52,Nguyễn Duy Long,1.Tạo từ 9h-19h
 2026-08-22,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Đà Lạt,21126000,(LDO) Xuân Hương - Đà Lạt,SONDA GARDEN - Sen đá Đà Lạt,29,25,Lê Văn Trường,1.Tạo từ 9h-19h
@@ -2603,7 +2603,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-29,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thành phố Nha Trang,22774000,(KHO) Diên Khánh 1,Start-up Cafe food 30s,2,2,Nguyễn Hoàng Phi,1.Tạo từ 9h-19h
 2026-08-29,2.Tạo từ 9h-19h,NTB,Bình Thuận,Thành phố Phan Thiết,21396000,(BTH) Hàm Thắng,Cửa Hàng Phương Linh Bách,3,3,Nguyễn Ngọc Khánh,1.Tạo từ 9h-19h
 2026-08-29,2.Tạo từ 9h-19h,NTB,Ninh Thuận,Thành phố Phan Rang – Tháp Chàm,22861000,(NTH) Phan Rang,Tiệm Quê Nhà - Since 2018,15,14,Nguyễn Duy Long,1.Tạo từ 9h-19h
-2026-08-28,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,5,5,Trần Văn Phước,1.Tạo từ 9h-19h
+2026-08-28,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,5,5,Huỳnh Thúc Duân,1.Tạo từ 9h-19h
 2026-08-28,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Huyện Đức Trọng,21516000,(LDO) Đức Trọng 2,Duongquocloc.,6,6,Nguyễn Thị Tuyết Thơ,1.Tạo từ 9h-19h
 2026-08-16,3.Tạo sau 19h,NTB,Bình Thuận,Thành phố Phan Thiết,20144000,(BTH) Mũi Né,Ngọc Thảo 87,1,1,Nguyễn Ngọc Khánh,2.Tạo từ 19h-9h
 2026-08-18,3.Tạo sau 19h,NTB,Lâm Đồng,Thành phố Bảo Lộc,21468000,(LDO) 3 Bảo Lộc,LUNASTORES SHOPss,1,1,Nguyễn Lê Nguyên Vũ,2.Tạo từ 19h-9h
@@ -2680,11 +2680,11 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-21,1.Tạo trước 9h,NTB,Ninh Thuận,Thành phố Phan Rang – Tháp Chàm,22861000,(NTH) Phan Rang,Cúc Dương Food,2,2,Nguyễn Duy Long,2.Tạo từ 19h-9h
 2026-08-17,3.Tạo sau 19h,NTB,Khánh Hòa,Thành phố Nha Trang,2399,(KHO) Bắc Nha Trang,Mồi Cóc Trương Lê,4,4,Thái Thị Thanh Thư,2.Tạo từ 19h-9h
 2026-08-16,1.Tạo trước 9h,NTB,Khánh Hòa,Thành phố Nha Trang,2399,(KHO) Bắc Nha Trang,Mồi Cóc Trương Lê,5,5,Thái Thị Thanh Thư,2.Tạo từ 19h-9h
-2026-08-18,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Đà Lạt,22051000,(LDO) Lang Biang - Đà Lạt 1,DIỆU HẢO BEAUTY,2,0,Lê Minh Đại,1.Tạo từ 9h-19h
+2026-08-18,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Đà Lạt,22051000,(LDO) Lang Biang - Đà Lạt 1,DIỆU HẢO BEAUTY,2,0,Lê Minh Lợi,1.Tạo từ 9h-19h
 2026-08-20,3.Tạo sau 19h,NTB,Bình Thuận,Huyện Hàm Thuận Nam,21290000,(BTH) Tuyên Quang,Minh Hạnh Shop 3,1,0,Lê Thanh Nhựt,2.Tạo từ 19h-9h
 2026-08-24,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Hàm Thuận Nam,21067000,(BTH) Tân Hải,TẠP HOÁ PHỐ BIỂN,3,3,Cao Thị Thanh Thủy,1.Tạo từ 9h-19h
 2026-08-24,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Bảo Lộc,21468000,(LDO) 3 Bảo Lộc,Trà Tằng Vĩnh An Lâm Đồng,1,1,Nguyễn Lê Nguyên Vũ,1.Tạo từ 9h-19h
-2026-08-23,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,1,1,Trần Văn Phước,1.Tạo từ 9h-19h
+2026-08-23,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,1,1,Huỳnh Thúc Duân,1.Tạo từ 9h-19h
 2026-08-20,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Huyện Đức Trọng,21516000,(LDO) Đức Trọng 2,Vườn Bi Ve,2,2,Nguyễn Thị Tuyết Thơ,1.Tạo từ 9h-19h
 2026-08-23,3.Tạo sau 19h,NTB,Lâm Đồng,Thành phố Đà Lạt,22116000,(LDO) Xuân Trường - Đà Lạt,Funky Farm Đặc Sản Đà Lạt,2,0,Lê Văn Trường,2.Tạo từ 19h-9h
 2026-08-22,1.Tạo trước 9h,NTB,Lâm Đồng,Huyện Đức Trọng,21516000,(LDO) Đức Trọng 2,Duongquocloc.,11,0,Nguyễn Thị Tuyết Thơ,2.Tạo từ 19h-9h
@@ -2699,7 +2699,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-23,2.Tạo từ 9h-19h,NTB,Ninh Thuận,Thành phố Phan Rang – Tháp Chàm,20150000,(NTH) Bảo An,Khang-nhi,1,1,Nguyễn Duy Long,1.Tạo từ 9h-19h
 2026-08-18,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Huyện Diên Khánh,22793000,(KHO) Diên Thọ,ThảoElly,1,0,Nguyễn Hoàng Phi,1.Tạo từ 9h-19h
 2026-08-23,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thị xã Ninh Hòa,20543000,(KHO) Ninh Hòa 2,Cửa Hàng Rong Mẹ Nhím 1996,1,0,Nguyễn Hoàng Phi,1.Tạo từ 9h-19h
-2026-08-21,1.Tạo trước 9h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,2,0,Trần Văn Phước,2.Tạo từ 19h-9h
+2026-08-21,1.Tạo trước 9h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Nông Nghiệp 4 Mùa,2,0,Huỳnh Thúc Duân,2.Tạo từ 19h-9h
 2026-08-21,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Hàm Tân,20687000,(BTH) Hàm Tân,Hoa Nhôm Bonsai,2,0,Cao Thị Thanh Thủy,1.Tạo từ 9h-19h
 2026-08-21,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Tánh Linh,2357,(BTH) Đồng Kho,phụ tùng Lê Trung.,4,4,Lê Thanh Nhựt,1.Tạo từ 9h-19h
 2026-08-15,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Đức Linh,21456000,(BTH) Đức Linh,Tuyetduabuong,2,0,Lê Thanh Nhựt,1.Tạo từ 9h-19h
@@ -2713,7 +2713,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-20,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Đà Lạt,21687000,(LDO) Lang Biang - Đà Lạt 2,Nông Nghiệp Đà Lạt VQ,1,0,Lê Văn Trường,1.Tạo từ 9h-19h
 2026-08-20,1.Tạo trước 9h,NTB,Lâm Đồng,Thành phố Đà Lạt,22312000,(LDO) Lâm Viên - Đà Lạt 1,Bách Hóa Gia Dụng Lâm Đồng,4,0,Lê Văn Trường,2.Tạo từ 19h-9h
 2026-08-20,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Tuy Phong,21298000,(BTH) Liên Hương,Khanh0202,2,2,Nguyễn Duy Long,1.Tạo từ 9h-19h
-2026-08-23,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Thuốc Tây Thanh Quyên,1,1,Trần Văn Phước,1.Tạo từ 9h-19h
+2026-08-23,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Thuốc Tây Thanh Quyên,1,1,Huỳnh Thúc Duân,1.Tạo từ 9h-19h
 2026-08-20,1.Tạo trước 9h,NTB,Bình Thuận,Huyện Tánh Linh,2357,(BTH) Đồng Kho,phụ tùng Lê Trung.,2,2,Lê Thanh Nhựt,2.Tạo từ 19h-9h
 2026-08-25,1.Tạo trước 9h,NTB,Ninh Thuận,Thành phố Phan Rang – Tháp Chàm,22861000,(NTH) Phan Rang,K SPORT,4,0,Nguyễn Duy Long,2.Tạo từ 19h-9h
 2026-08-25,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Huyện Diên Khánh,22793000,(KHO) Diên Thọ,Sản phẩm vật nuôi 79,1,0,Nguyễn Hoàng Phi,1.Tạo từ 9h-19h
@@ -2787,7 +2787,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-28,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Hàm Thuận Nam,21067000,(BTH) Tân Hải,TẠP HOÁ PHỐ BIỂN,2,2,Cao Thị Thanh Thủy,1.Tạo từ 9h-19h
 2026-08-29,1.Tạo trước 9h,NTB,Lâm Đồng,Thành phố Đà Lạt,21687000,(LDO) Lang Biang - Đà Lạt 2,Langfarm - Đặc Sản Chất Lượng,5,0,Lê Văn Trường,2.Tạo từ 19h-9h
 2026-08-29,1.Tạo trước 9h,NTB,Bình Thuận,Thị xã La Gi,21067000,(BTH) Tân Hải,Bách Hóa Online Tuấn Kiệt,8,8,Cao Thị Thanh Thủy,2.Tạo từ 19h-9h
-2026-08-28,1.Tạo trước 9h,NTB,Lâm Đồng,Huyện Đơn Dương,21377000,(LDO) Đơn Dương,Vườn ươm cây giống thuận phát,1,0,Lê Minh Đại,2.Tạo từ 19h-9h
+2026-08-28,1.Tạo trước 9h,NTB,Lâm Đồng,Huyện Đơn Dương,21377000,(LDO) Đơn Dương,Vườn ươm cây giống thuận phát,1,0,Lê Văn Trường,2.Tạo từ 19h-9h
 2026-08-29,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thành phố Nha Trang,22746000,(KHO) Nam Nha Trang 1,Taki Deli Việt Nam,2,2,Thái Thị Thanh Thư,1.Tạo từ 9h-19h
 2026-08-29,2.Tạo từ 9h-19h,NTB,Ninh Thuận,Huyện Ninh Hải,20648000,(NTH) Ninh Chử,Xưởng gia công các loại,1,0,Nguyễn Duy Long,1.Tạo từ 9h-19h
 2026-08-29,3.Tạo sau 19h,NTB,Ninh Thuận,Huyện Thuận Bắc,22861000,(NTH) Phan Rang,Lâm riewiew,2,2,Nguyễn Duy Long,2.Tạo từ 19h-9h
@@ -2845,7 +2845,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-27,3.Tạo sau 19h,NTB,Đắk Nông,Huyện Cư Jút,20673000,(DNO) Cư Jút,"Phun sương, phun tưới ĐÀO ĐỊNH",1,0,Trần Thị Nhung,2.Tạo từ 19h-9h
 2026-08-22,1.Tạo trước 9h,NTB,Ninh Thuận,Huyện Ninh Phước,20499000,(NTH) Phước Dinh,Phụ Tùng Nông Ngư Nghiệp,1,0,Nguyễn Duy Long,2.Tạo từ 19h-9h
 2026-08-22,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Huyện Đức Trọng,21516000,(LDO) Đức Trọng 2,FUNOVietnam,1,1,Nguyễn Thị Tuyết Thơ,1.Tạo từ 9h-19h
-2026-08-24,1.Tạo trước 9h,NTB,Lâm Đồng,Huyện Đơn Dương,21377000,(LDO) Đơn Dương,Vườn ươm cây giống thuận phát,1,0,Lê Minh Đại,2.Tạo từ 19h-9h
+2026-08-24,1.Tạo trước 9h,NTB,Lâm Đồng,Huyện Đơn Dương,21377000,(LDO) Đơn Dương,Vườn ươm cây giống thuận phát,1,0,Lê Văn Trường,2.Tạo từ 19h-9h
 2026-08-23,3.Tạo sau 19h,NTB,Lâm Đồng,Huyện Đức Trọng,22255000,(LDO) Hiệp Thạnh,Mộc thiên phú quỳnhh,1,0,Nguyễn Thị Tuyết Thơ,2.Tạo từ 19h-9h
 2026-08-25,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Thành phố Đà Lạt,21126000,(LDO) Xuân Hương - Đà Lạt,Trái đất Shop,1,1,Lê Văn Trường,1.Tạo từ 9h-19h
 2026-08-26,2.Tạo từ 9h-19h,NTB,Bình Thuận,Thành phố Phan Thiết,21396000,(BTH) Hàm Thắng,Hải Sản Đầm Sen,1,1,Nguyễn Ngọc Khánh,1.Tạo từ 9h-19h
@@ -3000,7 +3000,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-18,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Huyện Đạ Huoai,1896,(LDO) Đạ Huoai,SHOP NGUYỄN THÀNH STR,1,1,Nguyễn Lê Nguyên Vũ,1.Tạo từ 9h-19h
 2026-08-17,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Hàm Thuận Nam,21290000,(BTH) Tuyên Quang,Đồ Nghề Chuyên Nghiệp,1,1,Lê Thanh Nhựt,1.Tạo từ 9h-19h
 2026-08-18,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk Mil,2309,(DNO) Đức Lập,Tiệm In Áo KILIG,1,0,Trần Thị Nhung,1.Tạo từ 9h-19h
-2026-08-16,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Thuốc Tây Thanh Quyên,1,0,Trần Văn Phước,1.Tạo từ 9h-19h
+2026-08-16,2.Tạo từ 9h-19h,NTB,Đắk Nông,Huyện Đắk R lấp,20269003,(DNO) Nhân Cơ,Thuốc Tây Thanh Quyên,1,0,Huỳnh Thúc Duân,1.Tạo từ 9h-19h
 2026-08-19,1.Tạo trước 9h,NTB,Lâm Đồng,Huyện Đức Trọng,21516000,(LDO) Đức Trọng 2,Trâm Quỳnh Japan,1,0,Nguyễn Thị Tuyết Thơ,2.Tạo từ 19h-9h
 2026-08-21,3.Tạo sau 19h,NTB,Khánh Hòa,Huyện Cam Lâm,20588000,(KHO) Cam Lâm 2,Ăn vặt HoàBình,1,0,Nguyễn Thanh Long,2.Tạo từ 19h-9h
 2026-08-25,2.Tạo từ 9h-19h,NTB,Khánh Hòa,Thành phố Cam Ranh,22830000,(KHO) Cam Linh,Quầy Thuốc Huyền My 1,1,1,Nguyễn Thanh Long,1.Tạo từ 9h-19h
@@ -3041,7 +3041,7 @@ NgayLTC,khung_gio_tao,TuVung,TuTinh,TuQuan,IDKhoLay,KhoLay,SellerName,Don_ltc,Do
 2026-08-20,1.Tạo trước 9h,NTB,Khánh Hòa,Thành phố Nha Trang,2399,(KHO) Bắc Nha Trang,bySanty.shop,1,1,Thái Thị Thanh Thư,2.Tạo từ 19h-9h
 2026-08-15,1.Tạo trước 9h,NTB,Khánh Hòa,Thành phố Nha Trang,2399,(KHO) Bắc Nha Trang,Mồi Cóc Trương Lê,2,2,Thái Thị Thanh Thư,2.Tạo từ 19h-9h
 2026-08-18,2.Tạo từ 9h-19h,NTB,Ninh Thuận,Huyện Ninh Phước,20499000,(NTH) Phước Dinh,Pessi Food,1,1,Nguyễn Duy Long,1.Tạo từ 9h-19h
-2026-08-16,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Huyện Đơn Dương,21377000,(LDO) Đơn Dương,Vườn ươm cây giống thuận phát,1,0,Lê Minh Đại,1.Tạo từ 9h-19h
+2026-08-16,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Huyện Đơn Dương,21377000,(LDO) Đơn Dương,Vườn ươm cây giống thuận phát,1,0,Lê Văn Trường,1.Tạo từ 9h-19h
 2026-08-21,3.Tạo sau 19h,NTB,Bình Thuận,Huyện Hàm Thuận Nam,21290000,(BTH) Tuyên Quang,NÔNG NGHIỆP GIANG THỦY,1,1,Lê Thanh Nhựt,2.Tạo từ 19h-9h
 2026-08-15,2.Tạo từ 9h-19h,NTB,Lâm Đồng,Huyện Đức Trọng,21516000,(LDO) Đức Trọng 2,Home's Farm Đà Lạt,1,1,Nguyễn Thị Tuyết Thơ,1.Tạo từ 9h-19h
 2026-08-17,2.Tạo từ 9h-19h,NTB,Bình Thuận,Huyện Hàm Tân,20687000,(BTH) Hàm Tân,Biên Thùy HandMade,1,0,Cao Thị Thanh Thủy,1.Tạo từ 9h-19h
