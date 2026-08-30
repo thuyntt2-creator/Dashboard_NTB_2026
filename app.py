@@ -2616,9 +2616,15 @@ def split_raw_tren10kg():
         print(f"[Heavy 10kg] Error splitting raw_tren10kg: {e}")
 
 # ==========================================
-# 4b. PROCESS HEAVY GOODS > 10KG REPORT
+# 4b. PROCESS HEAVY GOODS > 10KG REPORT & SURGE ANOMALY ENGINE
 # ==========================================
-def process_heavy_10kg_report(am=None, province=None, post_office=None):
+def is_ck_po(name):
+    if not name or pd.isna(name):
+        return False
+    s = str(name).strip().lower()
+    return bool(re.search(r'(^|\s|\(|\/|-)ck(\s|\)|\/|-|$)|bcck|cồng kềnh|cong kenh', s))
+
+def process_heavy_10kg_report(am=None, province=None, post_office=None, date=None, ck_only=False, spike_level=None):
     try:
         heavy_ops_path = resolve_path('ops_heavy_10kg.csv', write=False)
         heavy_tao_path = resolve_path('ops_tao_don_10kg.csv', write=False)
@@ -2638,9 +2644,9 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None):
             if (df_tao is None or len(df_tao) == 0) and fb_tao is not None:
                 df_tao = fb_tao
 
-        if df_ops is None:
+        if df_ops is None or len(df_ops) == 0:
             df_ops = pd.DataFrame()
-        if df_tao is None:
+        if df_tao is None or len(df_tao) == 0:
             df_tao = pd.DataFrame()
 
         df_co_cau = DF_CO_CAU_CACHE if DF_CO_CAU_CACHE is not None else safe_read_csv(resolve_path('ops_co_cau.csv', write=False))
@@ -2657,7 +2663,7 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None):
                 if am_col_cc:
                     bc_to_am = dict(zip(df_co_cau['bc_clean'], df_co_cau[am_col_cc]))
 
-        # Phase 1: Process Operational Data (A:U)
+        # Phase 1: Process Operational Data (SL > 10kg)
         if len(df_ops) > 0:
             df_ops.columns = [str(c).strip() for c in df_ops.columns]
             vol_col = next((c for c in df_ops.columns if c.lower() == 'volume'), None)
@@ -2676,182 +2682,280 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None):
             if deliv_col:
                 df_ops['delivered_vol'] = safe_to_numeric(df_ops[deliv_col])
             else:
-                df_ops['delivered_vol'] = df_ops['Volume'] * df_ops['% GTC']
+                df_ops['delivered_vol'] = df_ops['Volume'] * (df_ops['% GTC'] / 100.0)
 
             new_in_day_col = next((c for c in df_ops.columns if c.lower() in ['hàng mới về trong ngày', 'hang moi ve trong ngay', 'hàng mới về', 'hang moi ve']), None)
             df_ops['Hàng Mới Về Trong Ngày'] = safe_to_numeric(df_ops[new_in_day_col]) if new_in_day_col else 0.0
 
+            ton_col = next((c for c in df_ops.columns if c.lower() in ['sản lượng tồn', 'san luong ton', 'tồn', 'ton']), None)
+            df_ops['Sản Lượng Tồn'] = safe_to_numeric(df_ops[ton_col]) if ton_col else 0.0
+
             chi_tiet_col = next((c for c in df_ops.columns if c.lower() in ['chi tiết', 'chitiết', 'bưu cục', 'buucuc', 'bc']), None)
             if chi_tiet_col:
-                df_ops['Chi tiết'] = df_ops[chi_tiet_col]
+                df_ops['po_name'] = df_ops[chi_tiet_col].fillna('Không xác định').astype(str).str.strip()
             else:
-                df_ops['Chi tiết'] = "Không xác định"
+                df_ops['po_name'] = "Không xác định"
 
-            df_ops['clean_bc'] = df_ops['Chi tiết'].astype(str).apply(clean_str)
+            df_ops['clean_bc'] = df_ops['po_name'].apply(clean_str)
             prov_col = next((df_ops[c] for c in df_ops.columns if c.lower() in ['tỉnh', 'tinh']), pd.Series("Không xác định", index=df_ops.index))
             am_col = next((df_ops[c] for c in df_ops.columns if c.lower() in ['am', 'am_name']), pd.Series("Không xác định", index=df_ops.index))
 
             df_ops['mapped_prov'] = df_ops['clean_bc'].map(bc_to_prov).replace({'': np.nan, 'none': np.nan, 'nan': np.nan}).fillna(prov_col).fillna("Không xác định")
             df_ops['mapped_am'] = df_ops['clean_bc'].map(bc_to_am).replace({'': np.nan, 'none': np.nan, 'nan': np.nan}).fillna(am_col).fillna("Không xác định")
 
-            time_col = next((c for c in df_ops.columns if c.lower() in ['time', 'thời gian']), None)
+            time_col = next((c for c in df_ops.columns if c.lower() in ['time', 'thời gian', 'ngày']), None)
             if time_col:
-                df_ops['Time'] = df_ops[time_col]
+                df_ops['date'] = df_ops[time_col].astype(str).apply(lambda x: x.split(' - ')[0].strip() if ' - ' in str(x) else str(x).strip())
             else:
-                df_ops['Time'] = "Chưa xác định"
+                df_ops['date'] = "Chưa xác định"
 
-            df_ops = apply_filters(df_ops, am=am, province=province, post_office=post_office)
+            df_ops['is_ck'] = df_ops['po_name'].apply(is_ck_po)
 
-        # Phase 2: Process Order Creation Data (W:AD)
+        # Phase 2: Process Order Creation Data (trên10kg / treen10kg)
         if len(df_tao) > 0:
             df_tao.columns = [str(c).strip() for c in df_tao.columns]
-            v_col = next((c for c in df_tao.columns if c.lower() in ['vol', 'volume', 'sản lượng']), None)
+            v_col = next((c for c in df_tao.columns if c.lower() in ['so_don', 'số đơn', 'vol', 'volume', 'sản lượng']), None)
             k_col = next((c for c in df_tao.columns if c.lower() in ['kl_kg', 'khối lượng', 'khoi_luong']), None)
-            w_col = next((c for c in df_tao.columns if c.lower() in ['warehouse_name', 'bưu cục', 'buucuc', 'bc']), None)
+            w_col = next((c for c in df_tao.columns if c.lower() in ['warehouse_name', 'bưu cục', 'buucuc', 'bc', 'chi tiết']), None)
+            d_col = next((c for c in df_tao.columns if c.lower() in ['ngay_tao_don', 'ngày tạo đơn', 'hen_lay', 'time', 'ngày']), None)
 
             df_tao['vol'] = safe_to_numeric(df_tao[v_col]) if v_col else 0.0
             df_tao['kl_kg'] = safe_to_numeric(df_tao[k_col]) if k_col else 0.0
-            
-            if w_col:
-                df_tao['warehouse_name'] = df_tao[w_col]
-            else:
-                df_tao['warehouse_name'] = "Không xác định"
+            df_tao['po_name'] = df_tao[w_col].fillna('Không xác định').astype(str).str.strip() if w_col else "Không xác định"
+            df_tao['date'] = df_tao[d_col].astype(str).str.strip() if d_col else "Chưa xác định"
+            df_tao['clean_bc'] = df_tao['po_name'].apply(clean_str)
 
-            df_tao['clean_bc'] = df_tao['warehouse_name'].apply(clean_str)
-
-            prov_col_t = next((df_tao[c] for c in df_tao.columns if c.lower() in ['tỉnh', 'tinh']), pd.Series("Không xác định", index=df_tao.index))
+            prov_col_t = next((df_tao[c] for c in df_tao.columns if c.lower() in ['province_name', 'tỉnh', 'tinh']), pd.Series("Không xác định", index=df_tao.index))
             am_col_t = next((df_tao[c] for c in df_tao.columns if c.lower() in ['am', 'am_name']), pd.Series("Không xác định", index=df_tao.index))
 
             df_tao['mapped_prov'] = df_tao['clean_bc'].map(bc_to_prov).replace({'': np.nan, 'none': np.nan, 'nan': np.nan}).fillna(prov_col_t).fillna("Không xác định")
             df_tao['mapped_am'] = df_tao['clean_bc'].map(bc_to_am).replace({'': np.nan, 'none': np.nan, 'nan': np.nan}).fillna(am_col_t).fillna("Không xác định")
+            df_tao['is_ck'] = df_tao['po_name'].apply(is_ck_po)
 
-            df_tao = apply_filters(df_tao, am=am, province=province, post_office=post_office)
+        # Build list of available dates
+        all_dates = []
+        if len(df_ops) > 0 and 'date' in df_ops.columns:
+            all_dates = sorted([str(d) for d in df_ops['date'].unique() if re.match(r'^\d{4}-\d{2}-\d{2}$', str(d))])
+        elif len(df_tao) > 0 and 'date' in df_tao.columns:
+            all_dates = sorted([str(d) for d in df_tao['date'].unique() if re.match(r'^\d{4}-\d{2}-\d{2}$', str(d))])
 
-        # Calculate Ops Aggregates
-        total_ops_vol = float(df_ops['Volume'].sum()) if len(df_ops) > 0 else 0.0
-        total_delivered = float(df_ops['delivered_vol'].sum()) if len(df_ops) > 0 else 0.0
-        total_new_incoming_vol = float(df_ops['Hàng Mới Về Trong Ngày'].sum()) if len(df_ops) > 0 else 0.0
+        selected_date = date if (date and date in all_dates) else (all_dates[-1] if all_dates else None)
+        prev_dates = [d for d in all_dates if d < selected_date][-7:] if selected_date else []
+
+        # Unique PO list before user filtering (for dropdown)
+        po_list = []
+        if len(df_ops) > 0:
+            po_list = sorted([str(p) for p in df_ops['po_name'].dropna().unique() if str(p) not in ['Grand Total', 'nan', 'none', 'Không xác định']])
+
+        # Apply Filters (CK only, AM, Province, Post Office)
+        is_ck_bool = str(ck_only).lower() in ['true', '1', 'yes']
+        if is_ck_bool:
+            if len(df_ops) > 0: df_ops = df_ops[df_ops['is_ck'] == True]
+            if len(df_tao) > 0: df_tao = df_tao[df_tao['is_ck'] == True]
+
+        if am and am not in ['all', '']:
+            if len(df_ops) > 0: df_ops = df_ops[df_ops['mapped_am'] == am]
+            if len(df_tao) > 0: df_tao = df_tao[df_tao['mapped_am'] == am]
+
+        if province and province not in ['all', '']:
+            if len(df_ops) > 0: df_ops = df_ops[df_ops['mapped_prov'] == province]
+            if len(df_tao) > 0: df_tao = df_tao[df_tao['mapped_prov'] == province]
+
+        if post_office and post_office not in ['all', '']:
+            if len(df_ops) > 0: df_ops = df_ops[df_ops['po_name'] == post_office]
+            if len(df_tao) > 0: df_tao = df_tao[df_tao['po_name'] == post_office]
+
+        # Slices for selected date
+        ops_sel = df_ops[df_ops['date'] == selected_date] if (len(df_ops) > 0 and selected_date) else df_ops
+        tao_sel = df_tao[df_tao['date'] == selected_date] if (len(df_tao) > 0 and selected_date) else df_tao
+
+        # 1. Overall Aggregates for Selected Date
+        total_ops_vol = float(ops_sel['Volume'].sum()) if len(ops_sel) > 0 else 0.0
+        total_delivered = float(ops_sel['delivered_vol'].sum()) if len(ops_sel) > 0 else 0.0
+        total_incoming = float(ops_sel['Hàng Mới Về Trong Ngày'].sum()) if len(ops_sel) > 0 else 0.0
+        total_ton = float(ops_sel['Sản Lượng Tồn'].sum()) if len(ops_sel) > 0 else 0.0
         overall_gtc = round((total_delivered / total_ops_vol * 100), 2) if total_ops_vol > 0 else 0.0
 
-        valid_lt = df_ops[df_ops['Leadtime'] > 0]['Leadtime'] if len(df_ops) > 0 else []
+        valid_lt = ops_sel[ops_sel['Leadtime'] > 0]['Leadtime'] if len(ops_sel) > 0 else []
         avg_leadtime = round(float(valid_lt.mean()), 2) if len(valid_lt) > 0 else 0.0
 
-        # Calculate Creation Aggregates
-        total_created_vol = float(df_tao['vol'].sum()) if len(df_tao) > 0 else 0.0
-        total_created_weight_kg = float(df_tao['kl_kg'].sum()) if len(df_tao) > 0 else 0.0
+        total_created_vol = float(tao_sel['vol'].sum()) if len(tao_sel) > 0 else 0.0
+        total_created_weight_kg = float(tao_sel['kl_kg'].sum()) if len(tao_sel) > 0 else 0.0
         total_created_weight_ton = round(total_created_weight_kg / 1000.0, 2)
 
-        # Weight Bracket Breakdown
-        kg_col_name = next((c for c in df_tao.columns if c.lower() in ['nhom_kg', 'nhóm kg']), None) if len(df_tao) > 0 else None
-        weight_bracket_summary = []
-        pct_heavy_30kg = 0.0
+        # Baseline volume comparison for total volume
+        ops_prev = df_ops[df_ops['date'].isin(prev_dates)] if len(df_ops) > 0 else pd.DataFrame()
+        baseline_daily_vol = float(ops_prev['Volume'].sum() / max(len(prev_dates), 1)) if len(ops_prev) > 0 else total_ops_vol
+        vol_growth_pct = round(((total_ops_vol - baseline_daily_vol) / max(baseline_daily_vol, 1)) * 100, 1)
 
-        if kg_col_name and len(df_tao) > 0:
-            kg_grp = df_tao.groupby(kg_col_name).agg({'vol': 'sum', 'kl_kg': 'sum'}).reset_index()
-            kg_grp['pct_vol'] = (kg_grp['vol'] / total_created_vol * 100).round(2) if total_created_vol > 0 else 0.0
-            weight_bracket_summary = kg_grp.to_dict(orient='records')
-            
-            over_30_vol = float(kg_grp[kg_grp[kg_col_name].astype(str).str.contains('>30|30', case=False)]['vol'].sum())
-            pct_heavy_30kg = round((over_30_vol / total_created_vol * 100), 2) if total_created_vol > 0 else 0.0
+        # 2. BCCK Spotlight (Các Bưu Cục Cồng Kềnh CK)
+        ck_ops_sel = ops_sel[ops_sel['is_ck'] == True] if len(ops_sel) > 0 else pd.DataFrame()
+        ck_tao_sel = tao_sel[tao_sel['is_ck'] == True] if len(tao_sel) > 0 else pd.DataFrame()
+        ck_total_ops_vol = float(ck_ops_sel['Volume'].sum()) if len(ck_ops_sel) > 0 else 0.0
+        ck_total_delivered = float(ck_ops_sel['delivered_vol'].sum()) if len(ck_ops_sel) > 0 else 0.0
+        ck_total_created = float(ck_tao_sel['vol'].sum()) if len(ck_tao_sel) > 0 else 0.0
+        ck_gtc = round((ck_total_delivered / ck_total_ops_vol * 100), 2) if ck_total_ops_vol > 0 else 0.0
+        ck_share_pct = round((ck_total_ops_vol / total_ops_vol * 100), 1) if total_ops_vol > 0 else 0.0
 
-        # Customer Group Breakdown
-        kh_col_name = next((c for c in df_tao.columns if c.lower() in ['nhom_kh', 'nhóm kh']), None) if len(df_tao) > 0 else None
-        customer_group_summary = []
-        if kh_col_name and len(df_tao) > 0:
-            kh_grp = df_tao.groupby(kh_col_name).agg({'vol': 'sum', 'kl_kg': 'sum'}).reset_index()
-            kh_grp['pct_vol'] = (kh_grp['vol'] / total_created_vol * 100).round(2) if total_created_vol > 0 else 0.0
-            customer_group_summary = kh_grp.to_dict(orient='records')
-
-        # Warehouse / PO Breakdown (Tạo đơn)
-        wh_col_name = next((c for c in df_tao.columns if c.lower() in ['warehouse_name', 'bưu cục', 'buucuc']), 'warehouse_name') if len(df_tao) > 0 else None
-        po_creation_summary = []
-        if wh_col_name and len(df_tao) > 0:
-            po_grp = df_tao.groupby([wh_col_name, 'mapped_am', 'mapped_prov']).agg({'vol': 'sum', 'kl_kg': 'sum'}).reset_index()
-            po_grp = po_grp.sort_values(by='vol', ascending=False)
-            po_creation_summary = po_grp.head(30).to_dict(orient='records')
-
-        # PO Operational & Creation Merged Summary Table
+        # 3. PO Summary & Surge Anomaly Analysis
         po_ops_summary = []
-        top_pos = []
-        worst_pos = []
-        po_list = []
+        critical_count = 0
+        high_count = 0
+        warning_count = 0
 
-        if len(df_ops) > 0:
-            po_ops = df_ops.groupby(['Chi tiết', 'clean_bc', 'mapped_am', 'mapped_prov']).agg({
+        if len(ops_sel) > 0:
+            po_ops = ops_sel.groupby(['po_name', 'mapped_prov', 'mapped_am', 'is_ck']).agg({
                 'Volume': 'sum',
                 'delivered_vol': 'sum',
-                'Leadtime': 'mean',
-                'Hàng Mới Về Trong Ngày': 'sum'
-            }).reset_index()
+                'Hàng Mới Về Trong Ngày': 'sum',
+                'Sản Lượng Tồn': 'sum',
+                'Leadtime': 'mean'
+            }).reset_index().rename(columns={'Volume': 'vol_actual', 'delivered_vol': 'delivered_actual'})
 
-            if len(df_tao) > 0:
-                po_tao = df_tao.groupby('clean_bc').agg({'vol': 'sum', 'kl_kg': 'sum'}).reset_index()
-                merged_po = pd.merge(po_ops, po_tao, on='clean_bc', how='outer')
-            else:
-                merged_po = po_ops
-                merged_po['vol'] = 0.0
-                merged_po['kl_kg'] = 0.0
+            # Baseline 7 days average per PO in df_ops
+            po_ops_prev = ops_prev.groupby('po_name')['Volume'].mean().reset_index().rename(columns={'Volume': 'vol_avg_prev'}) if len(ops_prev) > 0 else pd.DataFrame(columns=['po_name', 'vol_avg_prev'])
+            
+            # Created orders for selected date and baseline
+            po_tao_cur = tao_sel.groupby('po_name')['vol'].sum().reset_index().rename(columns={'vol': 'vol_created'}) if len(tao_sel) > 0 else pd.DataFrame(columns=['po_name', 'vol_created'])
+            tao_prev = df_tao[df_tao['date'].isin(prev_dates)] if len(df_tao) > 0 else pd.DataFrame()
+            po_tao_prev = tao_prev.groupby('po_name')['vol'].mean().reset_index().rename(columns={'vol': 'vol_created_avg_prev'}) if len(tao_prev) > 0 else pd.DataFrame(columns=['po_name', 'vol_created_avg_prev'])
 
-            merged_po['Chi tiết'] = merged_po['Chi tiết'].fillna(merged_po['clean_bc'])
-            merged_po['mapped_am'] = merged_po['mapped_am'].fillna('Không xác định')
-            merged_po['mapped_prov'] = merged_po['mapped_prov'].fillna('Không xác định')
-            merged_po['Volume'] = safe_to_numeric(merged_po['Volume']).fillna(0)
-            merged_po['delivered_vol'] = safe_to_numeric(merged_po['delivered_vol']).fillna(0)
-            merged_po['Hàng Mới Về Trong Ngày'] = safe_to_numeric(merged_po['Hàng Mới Về Trong Ngày']).fillna(0)
-            merged_po['created_vol'] = safe_to_numeric(merged_po['vol']).fillna(0)
-            merged_po['created_weight_ton'] = (safe_to_numeric(merged_po['kl_kg']).fillna(0) / 1000.0).round(2)
+            po_merged = pd.merge(po_ops, po_ops_prev, on='po_name', how='left')
+            po_merged = pd.merge(po_merged, po_tao_cur, on='po_name', how='left')
+            po_merged = pd.merge(po_merged, po_tao_prev, on='po_name', how='left')
+            po_merged = po_merged.fillna({'vol_avg_prev': 0.0, 'vol_created': 0.0, 'vol_created_avg_prev': 0.0})
 
-            merged_po['% GTC'] = np.where(merged_po['Volume'] > 0, (merged_po['delivered_vol'] / merged_po['Volume'] * 100).round(2), 0.0)
-            merged_po['Leadtime'] = safe_to_numeric(merged_po['Leadtime']).round(2).fillna(0.0)
+            po_merged['vol_diff'] = (po_merged['vol_actual'] - po_merged['vol_avg_prev']).round(1)
+            po_merged['growth_pct'] = np.where(
+                po_merged['vol_avg_prev'] > 0,
+                ((po_merged['vol_actual'] - po_merged['vol_avg_prev']) / po_merged['vol_avg_prev'] * 100).round(1),
+                np.where(po_merged['vol_actual'] > 0, 100.0, 0.0)
+            )
 
-            # Sort default by Volume
-            merged_po = merged_po.sort_values(by='Volume', ascending=False)
-            po_ops_summary = merged_po.to_dict(orient='records')
+            po_merged['gtc_pct'] = np.where(
+                po_merged['vol_actual'] > 0,
+                (po_merged['delivered_actual'] / po_merged['vol_actual'] * 100).round(1),
+                0.0
+            )
+            po_merged['Leadtime'] = po_merged['Leadtime'].round(1).fillna(0.0)
 
-            # Extract clean list of unique PO names for dropdown
-            po_list = sorted([str(p) for p in merged_po['Chi tiết'].dropna().unique() if str(p) not in ['Grand Total', 'nan', 'none']])
+            def classify_spike(r):
+                g = r['growth_pct']
+                d = r['vol_diff']
+                if g >= 100 and d >= 15:
+                    return 'CRITICAL', '🔴 Đột biến cực đại (+{:.0f}%)'.format(g)
+                elif (g >= 50 and d >= 10) or g >= 80:
+                    return 'HIGH', '🟠 Đột biến cao (+{:.0f}%)'.format(g)
+                elif g >= 25 and d >= 5:
+                    return 'WARNING', '🟡 Tăng nhanh (+{:.0f}%)'.format(g)
+                elif g <= -30:
+                    return 'DOWN', '📉 Giảm mạnh ({:.0f}%)'.format(g)
+                else:
+                    return 'NORMAL', '🟢 Bình thường'
 
-            # Filter min 10 volume for top/worst
-            po_filtered = merged_po[merged_po['Volume'] >= 10]
-            if len(po_filtered) > 0:
-                top_pos = po_filtered.sort_values(by='% GTC', ascending=False).head(5).to_dict(orient='records')
-                worst_pos = po_filtered.sort_values(by='% GTC', ascending=True).head(5).to_dict(orient='records')
+            po_merged['spike_level'], po_merged['spike_label'] = zip(*po_merged.apply(classify_spike, axis=1))
 
-        # Creation Trend by Date
-        creation_trend = []
-        date_col_t = next((c for c in df_tao.columns if c.lower() in ['hen_lay', 'time', 'ngày']), None) if len(df_tao) > 0 else None
-        if date_col_t and len(df_tao) > 0:
-            c_trend = df_tao.groupby(date_col_t).agg({'vol': 'sum', 'kl_kg': 'sum'}).reset_index()
-            creation_trend = c_trend.to_dict(orient='records')
+            critical_count = int((po_merged['spike_level'] == 'CRITICAL').sum())
+            high_count = int((po_merged['spike_level'] == 'HIGH').sum())
+            warning_count = int((po_merged['spike_level'] == 'WARNING').sum())
 
-        # Operational Trend by Date
-        ops_trend = []
-        if len(df_ops) > 0 and 'Time' in df_ops.columns:
-            o_trend = df_ops.groupby('Time').agg({'Volume': 'sum', 'delivered_vol': 'sum'}).reset_index()
-            o_trend['% GTC'] = (o_trend['delivered_vol'] / o_trend['Volume'] * 100).round(2)
-            ops_trend = o_trend.to_dict(orient='records')
+            # Filter spike_level if specified
+            if spike_level and spike_level != 'all':
+                if spike_level == 'surge':
+                    po_merged = po_merged[po_merged['spike_level'].isin(['CRITICAL', 'HIGH'])]
+                else:
+                    po_merged = po_merged[po_merged['spike_level'] == spike_level.upper()]
+
+            po_merged = po_merged.sort_values(by='vol_actual', ascending=False)
+            po_ops_summary = po_merged.to_dict(orient='records')
+
+        total_surge_pos = critical_count + high_count
+
+        # 4. Dual-Track Daily Trends (Created vs Actual Delivery)
+        daily_trend = []
+        if len(df_ops) > 0 or len(df_tao) > 0:
+            daily_ops = df_ops.groupby('date').agg({'Volume': 'sum', 'delivered_vol': 'sum'}).reset_index() if len(df_ops) > 0 else pd.DataFrame(columns=['date', 'Volume', 'delivered_vol'])
+            if len(daily_ops) > 0:
+                daily_ops['gtc_pct'] = np.where(daily_ops['Volume'] > 0, (daily_ops['delivered_vol'] / daily_ops['Volume'] * 100).round(1), 0.0)
+
+            daily_tao = df_tao.groupby('date')['vol'].sum().reset_index().rename(columns={'vol': 'vol_created'}) if len(df_tao) > 0 else pd.DataFrame(columns=['date', 'vol_created'])
+
+            daily_m = pd.merge(daily_ops, daily_tao, on='date', how='outer').sort_values(by='date').fillna(0)
+            daily_trend = daily_m.to_dict(orient='records')
+
+        # 5. Weight Brackets Breakdown (from df_tao)
+        weight_bracket_summary = []
+        pct_heavy_30kg = 0.0
+        kg_col_name = next((c for c in tao_sel.columns if c.lower() in ['nhom_kl', 'nhom_kg', 'nhóm kg']), None) if len(tao_sel) > 0 else None
+        if kg_col_name and len(tao_sel) > 0:
+            w_grp = tao_sel.groupby(kg_col_name)['vol'].sum().reset_index()
+            w_grp['pct'] = np.where(total_created_vol > 0, (w_grp['vol'] / total_created_vol * 100).round(1), 0.0)
+            weight_bracket_summary = w_grp.to_dict(orient='records')
+            
+            over_30 = float(w_grp[w_grp[kg_col_name].astype(str).str.contains('>30|30|50|>50', case=False)]['vol'].sum())
+            pct_heavy_30kg = round((over_30 / total_created_vol * 100), 1) if total_created_vol > 0 else 0.0
+
+        # 6. Customer Groups Breakdown (from df_tao)
+        customer_group_summary = []
+        kh_col_name = next((c for c in tao_sel.columns if c.lower() in ['nhom_kh', 'nhóm kh']), None) if len(tao_sel) > 0 else None
+        if kh_col_name and len(tao_sel) > 0:
+            c_grp = tao_sel.groupby(kh_col_name)['vol'].sum().reset_index()
+            c_grp['pct'] = np.where(total_created_vol > 0, (c_grp['vol'] / total_created_vol * 100).round(1), 0.0)
+            customer_group_summary = c_grp.to_dict(orient='records')
+
+        # 7. Top Spike POs
+        top_spikes = []
+        if po_ops_summary:
+            valid_spikes = [r for r in po_ops_summary if r.get('vol_actual', 0) >= 10]
+            top_spikes = sorted(valid_spikes, key=lambda x: x.get('growth_pct', 0), reverse=True)[:5]
+
+        # 8. Top & Worst % GTC POs
+        top_pos = []
+        worst_pos = []
+        if po_ops_summary:
+            valid_gtc = [r for r in po_ops_summary if r.get('vol_actual', 0) >= 10]
+            top_pos = sorted(valid_gtc, key=lambda x: x.get('gtc_pct', 0), reverse=True)[:5]
+            worst_pos = sorted(valid_gtc, key=lambda x: x.get('gtc_pct', 0))[:5]
+
+        # CK PO list for spotlight table
+        ck_pos_records = [r for r in po_ops_summary if r.get('is_ck')]
 
         return {
+            "selected_date": selected_date,
+            "available_dates": all_dates,
             "total_ops_vol": total_ops_vol,
+            "total_created_vol": total_created_vol,
+            "total_incoming_vol": total_incoming,
+            "total_ton_vol": total_ton,
             "overall_gtc": overall_gtc,
             "avg_leadtime": avg_leadtime,
-            "total_created_vol": total_created_vol,
-            "total_created_weight_kg": total_created_weight_kg,
-            "total_created_weight_ton": total_created_weight_ton,
-            "total_new_incoming_vol": total_new_incoming_vol,
+            "vol_growth_pct": vol_growth_pct,
+            "baseline_daily_vol": round(baseline_daily_vol, 1),
             "pct_heavy_30kg": pct_heavy_30kg,
+            "critical_count": critical_count,
+            "high_count": high_count,
+            "warning_count": warning_count,
+            "total_surge_pos": total_surge_pos,
+            "bcck_spotlight": {
+                "ck_total_ops_vol": ck_total_ops_vol,
+                "ck_total_created": ck_total_created,
+                "ck_gtc": ck_gtc,
+                "ck_share_pct": ck_share_pct,
+                "ck_pos_count": len(ck_pos_records),
+                "ck_pos": ck_pos_records
+            },
             "weight_bracket_summary": weight_bracket_summary,
             "customer_group_summary": customer_group_summary,
-            "po_creation_summary": po_creation_summary,
             "po_ops_summary": po_ops_summary,
-            "po_list": po_list,
+            "daily_trend": daily_trend,
+            "top_spikes": top_spikes,
             "top_pos": top_pos,
             "worst_pos": worst_pos,
-            "creation_trend": creation_trend,
-            "ops_trend": ops_trend
+            "po_list": po_list
         }
     except Exception as e:
         return {"error": f"Lỗi xử lý báo cáo hàng nặng >10kg: {str(e)}"}
+
 
 # ==========================================
 # 4c. PROCESS UNSTABLE POST OFFICES
@@ -5345,6 +5449,8 @@ def sync_sheets_directly_as_csv(url):
         (["fd"], "ops_fd.csv"),
         (["baocao", "báo cáo"], "ops_productivity_realtime.csv"),
         (["nhân sự", "nhan su"], "ops_nhan_su.csv"),
+        (["sl > 10kg", "sl >10kg", "sl>10kg", "sl 10kg", "hàng nặng > 10kg", "hang nang > 10kg"], "ops_heavy_10kg.csv"),
+        (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "treen10kg", "treen 10kg", "tạo đơn 10kg", "tao don 10kg"], "ops_tao_don_10kg.csv"),
         (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "10kg", "hàng 10kg"], "raw_tren10kg.csv")
     ]
     
@@ -6136,9 +6242,19 @@ def api_heavy_10kg():
         am = request.args.get('am')
         province = request.args.get('province')
         post_office = request.args.get('post_office')
+        date = request.args.get('date')
+        ck_only = request.args.get('ck_only', 'false').lower() in ['true', '1', 'yes']
+        spike_level = request.args.get('spike_level')
 
-        if am or province or post_office:
-            data = process_heavy_10kg_report(am=am, province=province, post_office=post_office)
+        if am or province or post_office or date or ck_only or spike_level:
+            data = process_heavy_10kg_report(
+                am=am, 
+                province=province, 
+                post_office=post_office, 
+                date=date, 
+                ck_only=ck_only, 
+                spike_level=spike_level
+            )
         else:
             global HEAVY_10KG_CACHE
             if (HEAVY_10KG_CACHE is None or 
