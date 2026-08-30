@@ -9281,6 +9281,8 @@
                 const actualVols = trendData.map(r => r.Volume || 0);
                 const gtcVals = trendData.map(r => roundNum(r.gtc_pct || 0));
 
+                const maxVol = Math.max(...createdVols, ...actualVols, 10);
+
                 const dailyTrendOptions = {
                     chart: { type: 'line', height: 330, toolbar: { show: false }, background: 'transparent' },
                     series: [
@@ -9290,8 +9292,33 @@
                     ],
                     xaxis: { categories: dates, labels: { style: { colors: '#64748b', fontSize: '11px' } } },
                     yaxis: [
-                        { title: { text: 'Sản Lượng (Đơn)', style: { color: '#007bc3' } }, labels: { style: { colors: '#64748b' } } },
-                        { opposite: true, title: { text: 'Tỷ lệ % GTC', style: { color: '#10b981' } }, labels: { style: { colors: '#64748b' } }, min: 0, max: 100 }
+                        { 
+                            seriesName: 'Đơn Tạo (Sheet treen10kg)',
+                            title: { text: 'Sản Lượng (Đơn)', style: { color: '#007bc3', fontWeight: 600 } }, 
+                            labels: { 
+                                formatter: (val) => Math.round(val).toLocaleString(),
+                                style: { colors: '#64748b' } 
+                            },
+                            min: 0,
+                            max: Math.ceil(maxVol * 1.15)
+                        },
+                        { 
+                            seriesName: 'Đơn Tạo (Sheet treen10kg)',
+                            show: false,
+                            min: 0,
+                            max: Math.ceil(maxVol * 1.15)
+                        },
+                        { 
+                            opposite: true, 
+                            seriesName: 'Tỷ Lệ % GTC Vận Hành',
+                            title: { text: 'Tỷ Lệ % GTC', style: { color: '#10b981', fontWeight: 600 } }, 
+                            labels: { 
+                                formatter: (val) => (val !== undefined && val !== null) ? `${Number(val).toFixed(0)}%` : '0%',
+                                style: { colors: '#10b981' } 
+                            }, 
+                            min: 0, 
+                            max: 100 
+                        }
                     ],
                     colors: ['#ff5f00', '#007bc3', '#10b981'],
                     stroke: { width: [0, 0, 3], curve: 'smooth' },
@@ -9300,9 +9327,19 @@
                         enabled: true,
                         enabledOnSeries: [0, 1],
                         formatter: function(val) {
-                            return val > 0 ? val.toLocaleString() : '';
+                            return val > 0 ? Math.round(val).toLocaleString() : '';
                         },
                         style: { fontSize: '10px', fontWeight: 'bold' }
+                    },
+                    tooltip: {
+                        shared: true,
+                        intersect: false,
+                        y: {
+                            formatter: function(val, { seriesIndex }) {
+                                if (seriesIndex === 2) return `${val}%`;
+                                return `${Number(val).toLocaleString()} đơn`;
+                            }
+                        }
                     },
                     legend: { position: 'top', labels: { colors: '#64748b' } }
                 };
