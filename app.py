@@ -2832,6 +2832,13 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None, date=Non
                 np.where(po_merged['vol_actual'] > 0, 100.0, 0.0)
             )
 
+            po_merged['created_diff'] = (po_merged['vol_created'] - po_merged['vol_created_avg_prev']).round(1)
+            po_merged['created_growth_pct'] = np.where(
+                po_merged['vol_created_avg_prev'] > 0,
+                ((po_merged['vol_created'] - po_merged['vol_created_avg_prev']) / po_merged['vol_created_avg_prev'] * 100).round(1),
+                np.where(po_merged['vol_created'] > 0, 100.0, 0.0)
+            )
+
             po_merged['gtc_pct'] = np.where(
                 po_merged['vol_actual'] > 0,
                 (po_merged['delivered_actual'] / po_merged['vol_actual'] * 100).round(1),
@@ -2839,7 +2846,7 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None, date=Non
             )
             po_merged['Leadtime'] = po_merged['Leadtime'].round(1).fillna(0.0)
 
-            def classify_spike(r):
+            def classify_actual_spike(r):
                 g = r['growth_pct']
                 d = r['vol_diff']
                 if g >= 100 and d >= 15:
@@ -2853,23 +2860,46 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None, date=Non
                 else:
                     return 'NORMAL', '🟢 Bình thường'
 
-            po_merged['spike_level'], po_merged['spike_label'] = zip(*po_merged.apply(classify_spike, axis=1))
+            def classify_created_spike(r):
+                g = r['created_growth_pct']
+                d = r['created_diff']
+                if g >= 100 and d >= 15:
+                    return 'CRITICAL', '🔴 Tạo cực đại (+{:.0f}%)'.format(g)
+                elif (g >= 50 and d >= 10) or g >= 80:
+                    return 'HIGH', '🟠 Tạo tăng cao (+{:.0f}%)'.format(g)
+                elif g >= 25 and d >= 5:
+                    return 'WARNING', '🟡 Tạo tăng (+{:.0f}%)'.format(g)
+                elif g <= -30:
+                    return 'DOWN', '📉 Giảm tạo ({:.0f}%)'.format(g)
+                else:
+                    return 'NORMAL', '🟢 Bình thường'
+
+            po_merged['spike_level'], po_merged['spike_label'] = zip(*po_merged.apply(classify_actual_spike, axis=1))
+            po_merged['spike_created_level'], po_merged['spike_created_label'] = zip(*po_merged.apply(classify_created_spike, axis=1))
 
             critical_count = int((po_merged['spike_level'] == 'CRITICAL').sum())
             high_count = int((po_merged['spike_level'] == 'HIGH').sum())
             warning_count = int((po_merged['spike_level'] == 'WARNING').sum())
 
+            created_critical_count = int((po_merged['spike_created_level'] == 'CRITICAL').sum())
+            created_high_count = int((po_merged['spike_created_level'] == 'HIGH').sum())
+
             # Filter spike_level if specified
             if spike_level and spike_level != 'all':
                 if spike_level == 'surge':
+                    po_merged = po_merged[po_merged['spike_level'].isin(['CRITICAL', 'HIGH']) | po_merged['spike_created_level'].isin(['CRITICAL', 'HIGH'])]
+                elif spike_level == 'actual_surge':
                     po_merged = po_merged[po_merged['spike_level'].isin(['CRITICAL', 'HIGH'])]
+                elif spike_level == 'created_surge':
+                    po_merged = po_merged[po_merged['spike_created_level'].isin(['CRITICAL', 'HIGH'])]
                 else:
-                    po_merged = po_merged[po_merged['spike_level'] == spike_level.upper()]
+                    po_merged = po_merged[(po_merged['spike_level'] == spike_level.upper()) | (po_merged['spike_created_level'] == spike_level.upper())]
 
             po_merged = po_merged.sort_values(by='vol_actual', ascending=False)
             po_ops_summary = po_merged.to_dict(orient='records')
 
         total_surge_pos = critical_count + high_count
+        total_created_surge_pos = created_critical_count + created_high_count
 
         # 4. Dual-Track Daily Trends (Created vs Actual Delivery)
         daily_trend = []
@@ -2903,11 +2933,15 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None, date=Non
             c_grp['pct'] = np.where(total_created_vol > 0, (c_grp['vol'] / total_created_vol * 100).round(1), 0.0)
             customer_group_summary = c_grp.to_dict(orient='records')
 
-        # 7. Top Spike POs
+        # 7. Top Spike POs for Actual vs Created
         top_spikes = []
+        top_spikes_created = []
         if po_ops_summary:
-            valid_spikes = [r for r in po_ops_summary if r.get('vol_actual', 0) >= 10]
-            top_spikes = sorted(valid_spikes, key=lambda x: x.get('growth_pct', 0), reverse=True)[:5]
+            valid_spikes_act = [r for r in po_ops_summary if r.get('vol_actual', 0) >= 10]
+            top_spikes = sorted(valid_spikes_act, key=lambda x: x.get('growth_pct', 0), reverse=True)[:10]
+
+            valid_spikes_cre = [r for r in po_ops_summary if r.get('vol_created', 0) >= 10]
+            top_spikes_created = sorted(valid_spikes_cre, key=lambda x: x.get('created_growth_pct', 0), reverse=True)[:10]
 
         # 8. Top & Worst % GTC POs
         top_pos = []
@@ -2936,6 +2970,7 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None, date=Non
             "high_count": high_count,
             "warning_count": warning_count,
             "total_surge_pos": total_surge_pos,
+            "total_created_surge_pos": total_created_surge_pos,
             "bcck_spotlight": {
                 "ck_total_ops_vol": ck_total_ops_vol,
                 "ck_total_created": ck_total_created,
@@ -2949,6 +2984,7 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None, date=Non
             "po_ops_summary": po_ops_summary,
             "daily_trend": daily_trend,
             "top_spikes": top_spikes,
+            "top_spikes_created": top_spikes_created,
             "top_pos": top_pos,
             "worst_pos": worst_pos,
             "po_list": po_list
