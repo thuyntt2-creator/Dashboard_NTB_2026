@@ -3346,7 +3346,7 @@
                             <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
                                 <i class="fa-solid fa-store" style="color: var(--color-ghn-orange);"></i> Bưu Cục / Kho Nhận
                             </label>
-                            <select id="heavy-filter-po" onchange="filterHeavyTable()" class="select-input" style="width: 100%; font-size: 13px; font-weight: 600; padding: 7px 10px;">
+                            <select id="heavy-filter-po" onchange="onHeavyFilterChange()" class="select-input" style="width: 100%; font-size: 13px; font-weight: 600; padding: 7px 10px;">
                                 <option value="all">-- Tất cả Bưu Cục / Kho --</option>
                             </select>
                         </div>
@@ -8801,11 +8801,12 @@
         let heavyWeightDonutChart = null;
         let heavySurgeRankingChart = null;
         let rawHeavyData = null;
-        let currentHeavyMode = 'all'; // 'all', 'ck', 'surge'
+        let allHeavyPoList = [];
+        let currentHeavyMode = 'all'; // 'all', 'ck', 'actual_surge', 'created_surge'
         let currentTableViewMode = 'combined'; // 'combined', 'actual', 'created'
         let currentSurgeChartMetric = 'actual'; // 'actual', 'created'
 
-        function setHeavyMode(mode) {
+        async function setHeavyMode(mode) {
             currentHeavyMode = mode;
             
             // Update button styles
@@ -8843,7 +8844,8 @@
                 }
             }
 
-            filterHeavyTable();
+            // Reload full dashboard data with the selected mode!
+            await loadHeavy10kgData();
         }
 
         function setTableViewMode(mode) {
@@ -8900,6 +8902,20 @@
                     if (dateEl && dateEl.value) {
                         params.set('date', dateEl.value);
                     }
+                }
+
+                // If user selected CK mode, apply ck_only=true so entire backend data (KPIs, Charts, Tables) filters to CK
+                if (currentHeavyMode === 'ck') {
+                    params.set('ck_only', 'true');
+                } else if (currentHeavyMode === 'actual_surge') {
+                    params.set('spike_level', 'actual_surge');
+                } else if (currentHeavyMode === 'created_surge') {
+                    params.set('spike_level', 'created_surge');
+                }
+
+                const poFilterEl = document.getElementById('heavy-filter-po');
+                if (poFilterEl && poFilterEl.value && poFilterEl.value !== 'all') {
+                    params.set('post_office', poFilterEl.value);
                 }
 
                 const res = await fetch(getApiUrl(`/api/heavy-10kg?${params.toString()}`), getFetchOptions());
@@ -9124,9 +9140,15 @@
         function populateHeavyPoDropdown(poList) {
             const selectEl = document.getElementById('heavy-filter-po');
             if (!selectEl) return;
+            if (poList && poList.length > 0) {
+                if (allHeavyPoList.length === 0 || poList.length > allHeavyPoList.length) {
+                    allHeavyPoList = poList;
+                }
+            }
             const currentVal = selectEl.value;
             selectEl.innerHTML = '<option value="all">-- Tất cả Bưu Cục / Kho --</option>';
-            poList.forEach(po => {
+            const listToUse = (allHeavyPoList && allHeavyPoList.length > 0) ? allHeavyPoList : (poList || []);
+            listToUse.forEach(po => {
                 const opt = document.createElement('option');
                 opt.value = po;
                 const isCk = /(^|\s|\(|\/|-)ck(\s|\)|\/|-|$)|bcck/i.test(po);
