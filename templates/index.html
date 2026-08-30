@@ -3538,10 +3538,28 @@
                 <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin-bottom: 24px;">
                     <!-- Chart 1: Dual-Track Daily Creation vs Actual Incoming & % GTC Trend -->
                     <div class="card" style="margin-bottom: 0;">
-                        <div class="card-header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 16px;">
-                            <h3 style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 0;">
-                                <i class="fa-solid fa-chart-line" style="color: #ff5f00; margin-right: 6px;"></i> Xu Hướng Đối Sánh: Đơn Tạo (treen10kg) vs Volume Về Trong Ngày (SL &gt;10kg) &amp; % GTC
-                            </h3>
+                        <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                            <div>
+                                <h3 style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 0;">
+                                    <i class="fa-solid fa-chart-line" style="color: #ff5f00; margin-right: 6px;"></i> Xu Hướng Đối Sánh: Đơn Tạo (treen10kg) vs Volume Về Trong Ngày (SL &gt;10kg) &amp; % GTC
+                                </h3>
+                                <p style="font-size: 11px; color: var(--text-muted); margin: 2px 0 0 0;" id="heavy-daily-trend-scope-label">
+                                    Đang xem: <b>Toàn vùng (Tất cả bưu cục)</b>
+                                </p>
+                            </div>
+
+                            <!-- Scope Switcher: Toàn vùng vs Tổng Kho CK vs Từng Bưu cục CK -->
+                            <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap;">
+                                <button type="button" class="btn btn-sm" id="btn-trend-scope-all" onclick="setTrendChartScope('all')" style="border-radius: 6px; padding: 4px 10px; font-weight: 700; font-size: 11px; background: var(--color-ghn-blue); color: #fff; border: 1px solid var(--color-ghn-blue); cursor: pointer;">
+                                    Toàn Vùng
+                                </button>
+                                <button type="button" class="btn btn-sm" id="btn-trend-scope-ck" onclick="setTrendChartScope('ck')" style="border-radius: 6px; padding: 4px 10px; font-weight: 700; font-size: 11px; background: #fff; color: #ff5f00; border: 1.5px solid #ff5f00; cursor: pointer;">
+                                    ⚡ Tất Cả Bưu Cục CK
+                                </button>
+                                <select id="select-trend-scope-po" onchange="setTrendChartScope(this.value)" class="select-input" style="font-size: 11px; font-weight: 600; padding: 4px 8px; border-radius: 6px; max-width: 200px; color: #ff5f00;">
+                                    <option value="">-- Chọn Bưu Cục CK / Kho --</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="card-body" style="padding: 12px;">
                             <div id="chart-heavy-daily-trend" style="min-height: 330px;"></div>
@@ -9038,8 +9056,9 @@
                 // 4. Populate PO Dropdown Filter
                 populateHeavyPoDropdown(data.po_list || []);
 
-                // 5. Dual-Track Daily Creation vs Actual Incoming Trend Chart
-                renderHeavyDailyTrendChart(data.daily_trend || []);
+                // 5. Populate Trend Chart Scope Dropdown & Render Trend Chart
+                populateTrendScopeDropdown(data.bcck_spotlight ? data.bcck_spotlight.ck_pos : [], data.po_list || []);
+                setTrendChartScope(currentTrendScope || 'all');
 
                 // 6. Weight Bracket Donut Chart
                 renderHeavyWeightDonutChart(data.weight_bracket_summary || [], data.total_created_vol || 0);
@@ -9171,6 +9190,88 @@
             }
         }
 
+        let currentTrendScope = 'all'; // 'all', 'ck', or 'po_name'
+
+        function setTrendChartScope(scope) {
+            if (!scope) scope = 'all';
+            currentTrendScope = scope;
+
+            const btnAll = document.getElementById('btn-trend-scope-all');
+            const btnCk = document.getElementById('btn-trend-scope-ck');
+            const selectPo = document.getElementById('select-trend-scope-po');
+            const labelEl = document.getElementById('heavy-daily-trend-scope-label');
+
+            if (btnAll && btnCk) {
+                btnAll.style.background = scope === 'all' ? 'var(--color-ghn-blue)' : '#fff';
+                btnAll.style.color = scope === 'all' ? '#fff' : 'var(--color-ghn-blue)';
+
+                btnCk.style.background = scope === 'ck' ? '#ff5f00' : '#fff';
+                btnCk.style.color = scope === 'ck' ? '#fff' : '#ff5f00';
+            }
+
+            if (selectPo) {
+                if (scope === 'all' || scope === 'ck') {
+                    selectPo.value = '';
+                } else {
+                    selectPo.value = scope;
+                }
+            }
+
+            if (!rawHeavyData) return;
+
+            let trendData = [];
+            if (scope === 'all') {
+                trendData = rawHeavyData.daily_trend || [];
+                if (labelEl) labelEl.innerHTML = `Đang xem: <b>Toàn vùng (Tất cả bưu cục)</b>`;
+            } else if (scope === 'ck') {
+                trendData = rawHeavyData.daily_trend_ck || [];
+                if (labelEl) labelEl.innerHTML = `Đang xem: ⚡ <b>Tổng các Bưu Cục Cồng Kềnh (CK)</b>`;
+            } else {
+                trendData = (rawHeavyData.daily_trend_by_po && rawHeavyData.daily_trend_by_po[scope]) ? rawHeavyData.daily_trend_by_po[scope] : [];
+                if (labelEl) labelEl.innerHTML = `Đang xem bưu cục: ⚡ <b style="color:#ff5f00;">${scope}</b>`;
+            }
+
+            renderHeavyDailyTrendChart(trendData);
+        }
+
+        function populateTrendScopeDropdown(bcckPos, allPos) {
+            const selectEl = document.getElementById('select-trend-scope-po');
+            if (!selectEl) return;
+
+            const currentVal = selectEl.value;
+            selectEl.innerHTML = '<option value="">-- Chọn Bưu Cục CK / Kho cụ thể --</option>';
+
+            if (bcckPos && bcckPos.length > 0) {
+                const optGroupCk = document.createElement('optgroup');
+                optGroupCk.label = '⚡ BƯU CỤC CỒNG KỀNH (CK)';
+                bcckPos.forEach(p => {
+                    const opt = document.createElement('option');
+                    opt.value = p.po_name;
+                    opt.textContent = `⚡ ${p.po_name}`;
+                    optGroupCk.appendChild(opt);
+                });
+                selectEl.appendChild(optGroupCk);
+            }
+
+            if (allPos && allPos.length > 0) {
+                const optGroupAll = document.createElement('optgroup');
+                optGroupAll.label = 'CÁC BƯU CỤC KHÁC';
+                allPos.forEach(p => {
+                    if (!/(^|\s|\(|\/|-)ck(\s|\)|\/|-|$)|bcck/i.test(p)) {
+                        const opt = document.createElement('option');
+                        opt.value = p;
+                        opt.textContent = p;
+                        optGroupAll.appendChild(opt);
+                    }
+                });
+                selectEl.appendChild(optGroupAll);
+            }
+
+            if (currentVal && selectEl.querySelector(`option[value="${currentVal}"]`)) {
+                selectEl.value = currentVal;
+            }
+        }
+
         function renderHeavyDailyTrendChart(trendData) {
             try {
                 if (!trendData || trendData.length === 0) return;
@@ -9195,7 +9296,14 @@
                     colors: ['#ff5f00', '#007bc3', '#10b981'],
                     stroke: { width: [0, 0, 3], curve: 'smooth' },
                     plotOptions: { bar: { columnWidth: '50%', borderRadius: 4 } },
-                    dataLabels: { enabled: false },
+                    dataLabels: {
+                        enabled: true,
+                        enabledOnSeries: [0, 1],
+                        formatter: function(val) {
+                            return val > 0 ? val.toLocaleString() : '';
+                        },
+                        style: { fontSize: '10px', fontWeight: 'bold' }
+                    },
                     legend: { position: 'top', labels: { colors: '#64748b' } }
                 };
 

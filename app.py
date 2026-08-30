@@ -2912,6 +2912,8 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None, date=Non
 
         # 4. Dual-Track Daily Trends (Created vs Actual Delivery)
         daily_trend = []
+        daily_trend_ck = []
+        daily_trend_by_po = {}
         if len(df_ops) > 0 or len(df_tao) > 0:
             daily_ops = df_ops.groupby('date').agg({'Volume': 'sum', 'delivered_vol': 'sum'}).reset_index() if len(df_ops) > 0 else pd.DataFrame(columns=['date', 'Volume', 'delivered_vol'])
             if len(daily_ops) > 0:
@@ -2921,6 +2923,30 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None, date=Non
 
             daily_m = pd.merge(daily_ops, daily_tao, on='date', how='outer').sort_values(by='date').fillna(0)
             daily_trend = daily_m.to_dict(orient='records')
+
+            # Daily trend specifically for all CK post offices
+            ops_ck = df_ops[df_ops['is_ck'] == True] if len(df_ops) > 0 else pd.DataFrame()
+            tao_ck = df_tao[df_tao['is_ck'] == True] if len(df_tao) > 0 else pd.DataFrame()
+            if len(ops_ck) > 0 or len(tao_ck) > 0:
+                d_ops_ck = ops_ck.groupby('date').agg({'Volume': 'sum', 'delivered_vol': 'sum'}).reset_index() if len(ops_ck) > 0 else pd.DataFrame(columns=['date', 'Volume', 'delivered_vol'])
+                if len(d_ops_ck) > 0:
+                    d_ops_ck['gtc_pct'] = np.where(d_ops_ck['Volume'] > 0, (d_ops_ck['delivered_vol'] / d_ops_ck['Volume'] * 100).round(1), 0.0)
+                d_tao_ck = tao_ck.groupby('date')['vol'].sum().reset_index().rename(columns={'vol': 'vol_created'}) if len(tao_ck) > 0 else pd.DataFrame(columns=['date', 'vol_created'])
+                d_m_ck = pd.merge(d_ops_ck, d_tao_ck, on='date', how='outer').sort_values(by='date').fillna(0)
+                daily_trend_ck = d_m_ck.to_dict(orient='records')
+
+            # Daily trend grouped by PO
+            all_po_names = set(df_ops['po_name'].dropna().unique()) | set(df_tao['po_name'].dropna().unique())
+            for po_item in all_po_names:
+                p_ops = df_ops[df_ops['po_name'] == po_item] if len(df_ops) > 0 else pd.DataFrame()
+                p_tao = df_tao[df_tao['po_name'] == po_item] if len(df_tao) > 0 else pd.DataFrame()
+                if len(p_ops) > 0 or len(p_tao) > 0:
+                    dp_ops = p_ops.groupby('date').agg({'Volume': 'sum', 'delivered_vol': 'sum'}).reset_index() if len(p_ops) > 0 else pd.DataFrame(columns=['date', 'Volume', 'delivered_vol'])
+                    if len(dp_ops) > 0:
+                        dp_ops['gtc_pct'] = np.where(dp_ops['Volume'] > 0, (dp_ops['delivered_vol'] / dp_ops['Volume'] * 100).round(1), 0.0)
+                    dp_tao = p_tao.groupby('date')['vol'].sum().reset_index().rename(columns={'vol': 'vol_created'}) if len(p_tao) > 0 else pd.DataFrame(columns=['date', 'vol_created'])
+                    dp_m = pd.merge(dp_ops, dp_tao, on='date', how='outer').sort_values(by='date').fillna(0)
+                    daily_trend_by_po[str(po_item)] = dp_m.to_dict(orient='records')
 
         # 5. Weight Brackets Breakdown (from df_tao)
         weight_bracket_summary = []
@@ -2997,6 +3023,8 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None, date=Non
             "customer_group_summary": customer_group_summary,
             "po_ops_summary": po_ops_summary,
             "daily_trend": daily_trend,
+            "daily_trend_ck": daily_trend_ck,
+            "daily_trend_by_po": daily_trend_by_po,
             "top_spikes": top_spikes,
             "top_spikes_created": top_spikes_created,
             "top_pos": top_pos,
