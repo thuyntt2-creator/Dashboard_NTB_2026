@@ -2788,6 +2788,11 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None, date=Non
         baseline_daily_vol = float(ops_prev['Volume'].sum() / max(len(prev_dates), 1)) if len(ops_prev) > 0 else total_ops_vol
         vol_growth_pct = round(((total_ops_vol - baseline_daily_vol) / max(baseline_daily_vol, 1)) * 100, 1)
 
+        # Baseline created volume comparison for total created volume
+        tao_prev_all = df_tao[df_tao['date'].isin(prev_dates)] if len(df_tao) > 0 else pd.DataFrame()
+        baseline_created_vol = float(tao_prev_all['vol'].sum() / max(len(prev_dates), 1)) if len(tao_prev_all) > 0 else total_created_vol
+        created_growth_total_pct = round(((total_created_vol - baseline_created_vol) / max(baseline_created_vol, 1)) * 100, 1)
+
         # 2. BCCK Spotlight (Các Bưu Cục Cồng Kềnh CK)
         ck_ops_sel = ops_sel[ops_sel['is_ck'] == True] if len(ops_sel) > 0 else pd.DataFrame()
         ck_tao_sel = tao_sel[tao_sel['is_ck'] == True] if len(tao_sel) > 0 else pd.DataFrame()
@@ -2802,6 +2807,9 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None, date=Non
         critical_count = 0
         high_count = 0
         warning_count = 0
+        created_critical_count = 0
+        created_high_count = 0
+        created_warning_count = 0
 
         if len(ops_sel) > 0:
             po_ops = ops_sel.groupby(['po_name', 'mapped_prov', 'mapped_am', 'is_ck']).agg({
@@ -2883,6 +2891,7 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None, date=Non
 
             created_critical_count = int((po_merged['spike_created_level'] == 'CRITICAL').sum())
             created_high_count = int((po_merged['spike_created_level'] == 'HIGH').sum())
+            created_warning_count = int((po_merged['spike_created_level'] == 'WARNING').sum())
 
             # Filter spike_level if specified
             if spike_level and spike_level != 'all':
@@ -2965,10 +2974,15 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None, date=Non
             "avg_leadtime": avg_leadtime,
             "vol_growth_pct": vol_growth_pct,
             "baseline_daily_vol": round(baseline_daily_vol, 1),
+            "baseline_created_vol": round(baseline_created_vol, 1),
+            "created_growth_total_pct": created_growth_total_pct,
             "pct_heavy_30kg": pct_heavy_30kg,
             "critical_count": critical_count,
             "high_count": high_count,
             "warning_count": warning_count,
+            "created_critical_count": created_critical_count,
+            "created_high_count": created_high_count,
+            "created_warning_count": created_warning_count,
             "total_surge_pos": total_surge_pos,
             "total_created_surge_pos": total_created_surge_pos,
             "bcck_spotlight": {
