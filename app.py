@@ -4885,17 +4885,34 @@ def api_ca_report():
     return jsonify(clean_nan(CA_REPORT_CACHE))
 
 def process_productivity_realtime():
-    # Load from DB or CSV file
-    df = load_df_from_db('ops_productivity_realtime.csv')
+    # Load from DB or CSV file via safe_read_csv (which checks /tmp, DB, and local file)
+    df = None
+    try:
+        csv_path = resolve_path('ops_productivity_realtime.csv', write=False)
+        df = safe_read_csv(csv_path, header=None)
+    except Exception as e:
+        print(f"safe_read_csv error for ops_productivity_realtime: {e}")
+        
+    if df is None or df.empty:
+        df = load_df_from_db('ops_productivity_realtime.csv')
+        
     if df is None or df.empty:
         csv_path = resolve_path('ops_productivity_realtime.csv', write=False)
         if os.path.exists(csv_path):
             try:
-                df = pd.read_csv(csv_path, header=None)
+                for enc in ['utf-8-sig', 'utf-8', 'latin-1', 'cp1252']:
+                    try:
+                        df = pd.read_csv(csv_path, header=None, encoding=enc)
+                        break
+                    except Exception:
+                        continue
             except Exception as e:
                 return {"error": f"Lỗi đọc file: {str(e)}"}
         else:
             return {"error": "Không tìm thấy dữ liệu năng suất. Vui lòng đồng bộ lại."}
+            
+    if df is None or df.empty:
+        return {"error": "Không tìm thấy dữ liệu năng suất. Vui lòng đồng bộ lại."}
             
     # Check if headers are in the column names of df
     col_names = [str(c).strip().lower() for c in df.columns]
@@ -4976,10 +4993,11 @@ def process_productivity_realtime():
 @requires_permission('tab-productivity-realtime')
 def api_productivity_realtime():
     global PRODUCTIVITY_REALTIME_CACHE
-    if PRODUCTIVITY_REALTIME_CACHE is None:
+    if PRODUCTIVITY_REALTIME_CACHE is None or (isinstance(PRODUCTIVITY_REALTIME_CACHE, dict) and "error" in PRODUCTIVITY_REALTIME_CACHE):
         with CACHE_LOCK:
-            if PRODUCTIVITY_REALTIME_CACHE is None:
-                PRODUCTIVITY_REALTIME_CACHE = process_productivity_realtime()
+            res = process_productivity_realtime()
+            if not ("error" in res and PRODUCTIVITY_REALTIME_CACHE and "error" not in PRODUCTIVITY_REALTIME_CACHE):
+                PRODUCTIVITY_REALTIME_CACHE = res
     return jsonify(clean_nan(PRODUCTIVITY_REALTIME_CACHE))
 
 @app.route('/api/fd')

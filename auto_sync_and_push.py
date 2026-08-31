@@ -29,7 +29,7 @@ log("=== Starting Auto Sync Pipeline ===")
 step1_success = False
 try:
     log("Step 1: Downloading latest company Google Sheets...")
-    p1 = subprocess.run([sys.executable, r"scratch\sync_local_company.py"], cwd=cwd, capture_output=True, text=True, timeout=120)
+    p1 = subprocess.run([sys.executable, r"scratch\sync_local_company.py"], cwd=cwd, capture_output=True, text=True, timeout=360)
     log(f"Step 1 Return Code: {p1.returncode}")
     if p1.stdout:
         log(f"Output: {p1.stdout.strip()}")
@@ -52,7 +52,7 @@ if not step1_success:
 # Step 2: Bootstrap/Update Neon DB
 try:
     log("Step 2: Updating Neon PostgreSQL Database...")
-    p2 = subprocess.run([sys.executable, r"scratch\bootstrap_new_db.py"], cwd=cwd, capture_output=True, text=True, timeout=180)
+    p2 = subprocess.run([sys.executable, r"scratch\bootstrap_new_db.py"], cwd=cwd, capture_output=True, text=True, timeout=300)
     log(f"Step 2 Return Code: {p2.returncode}")
     if p2.stdout:
         log(f"Output: {p2.stdout.strip()}")
@@ -62,10 +62,10 @@ except Exception as e:
 # Step 3: Git add, commit, and push
 try:
     log("Step 3: Git add and commit...")
-    subprocess.run(["git", "add", "*.csv", "app.py"], cwd=cwd, capture_output=True)
+    subprocess.run(["git", "add", "*.csv", "app.py", "scratch/"], cwd=cwd, capture_output=True)
     subprocess.run(["git", "commit", "-m", "Auto update data and DB"], cwd=cwd, capture_output=True)
     log("Step 3: Git push to GitHub...")
-    p3 = subprocess.run(["git", "push", "origin", "main"], cwd=cwd, capture_output=True, text=True, timeout=120)
+    p3 = subprocess.run(["git", "push", "origin", "main"], cwd=cwd, capture_output=True, text=True, timeout=180)
     log(f"Step 3 Return Code: {p3.returncode}")
     if p3.stdout:
         log(f"Output: {p3.stdout.strip()}")
