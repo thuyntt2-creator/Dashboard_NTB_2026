@@ -1,0 +1,53 @@
+=== FD ANALYSIS ===
+Columns: ['SNAPSHOT %FD – TONG', 'N = 13/06/2026', 'N-1 = 12/06', 'N-7 = 06/06 (cùng thứ)', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9']
+
+--- Header rows (first 15) ---
+Row 0: ['🏪 TẤT CẢ BƯU CỤC  (sort %FD ↓)  |  🔴 = FD>4.5% & Tỷ trọng>3%', nan, nan, nan, nan, nan, nan, nan, nan, nan]
+Row 1: ['Bưu Cục', 'AM', nan, nan, nan, nan, nan, nan, nan, nan]
+Row 2: ['BC 56 Phan Đình Phùng-Cam Linh-Khánh Hòa', 'Thái Thị Thanh Thư', '31.5%', '32.1%', '▼0.6%', '32.9%', '▼1.4%', '698', 219.9, '6.8%']
+Row 3: ['BC Thôn Phúc Hưng-Xã Tân Hà Lâm Hà-Lâm Đồng', 'Huỳnh Thị Kim Chi', '16.0%', '5.2%', '▲10.8%', '19.6%', '▼3.6%', '427', 68.3, '2.1%']
+Row 4: ['BC 1322 Hùng Vương-Di Linh-Lâm Đồng', 'Trầm Hữu Tiến', '13.1%', '10.2%', '▲2.9%', '9.0%', '▲4.1%', '766', 100.3, '3.1%']
+Row 5: ['BC TDP Nghĩa Đức-Thạnh Mỹ-Đơn Dương-Lâm Đồng', 'Lê Minh Đại', '11.6%', '10.7%', '▲0.9%', '10.6%', '▲1.0%', '970', 112.5, '3.5%']
+Row 6: ['BC Thôn 2-Tuy Đức-Đắk Nông', 'Trần Thị Nhung', '10.9%', '8.3%', '▲2.6%', '8.2%', '▲2.7%', '339', 37.0, '1.1%']
+Row 7: ['BC Langbiang-Lạc Dương-Lâm Đồng', 'Lê Minh Đại', '10.8%', '12.1%', '▼1.3%', '8.5%', '▲2.3%', '500', 54.0, '1.7%']
+Row 8: ['BC Quảng Sơn-Đắk Glong-Đắk Nông', 'Trần Thị Nhung', '10.4%', '8.6%', '▲1.8%', '9.0%', '▲1.4%', '345', 35.9, '1.1%']
+Row 9: ['BC Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông', 'Trần Công Hậu', '8.9%', '9.6%', '▼0.7%', '9.8%', '▼0.9%', '329', 29.3, '0.9%']
+Row 10: ["BC Nâm N'Jang-Đắk Song-Đắk Nông", 'Trần Thị Nhung', '8.9%', '6.4%', '▲2.5%', '6.5%', '▲2.4%', '336', 29.9, '0.9%']
+Row 11: ['BC Quảng Khê-Đắk Glong-Đắk Nông', 'Trần Thị Nhung', '8.8%', '7.3%', '▲1.5%', '7.8%', '▲1.0%', '245', 21.6, '0.7%']
+Row 12: ['BC 571 Hùng Vương-Cam Nghĩa-TP.Cam Ranh-Khánh Hoà', 'Phạm Bá Thành Công', '8.7%', '7.8%', '▲0.9%', '6.9%', '▲1.8%', '653', 56.8, '1.8%']
+Row 13: ['BC Số 6 Trương Văn Hoàn-Phường 9-Đà Lạt-Lâm Đồng', 'Lê Văn Trường', '8.7%', '6.2%', '▲2.5%', '6.4%', '▲2.3%', '264', 23.0, '0.7%']
+Row 14: ['BC Đường 35 Hà Quang 1-Xã Nam Nha Trang-Khánh Hòa', 'Thái Thị Thanh Thư', '8.7%', '7.8%', '▲0.9%', '6.5%', '▲2.2%', '538', 46.8, '1.4%']
+
+--- High %FD post offices ---
+Cleaned Columns: ['Bưu Cục', 'AM', 'nan', 'nan', 'nan', 'nan', 'nan', 'nan', 'nan', 'nan']
+                                                   Bưu Cục                  AM    nan    nan     nan    nan    nan    nan    nan   nan
+0                 BC 56 Phan Đình Phùng-Cam Linh-Khánh Hòa  Thái Thị Thanh Thư  31.5%  32.1%   ▼0.6%  32.9%  ▼1.4%    698  219.9  6.8%
+1              BC Thôn Phúc Hưng-Xã Tân Hà Lâm Hà-Lâm Đồng   Huỳnh Thị Kim Chi  16.0%   5.2%  ▲10.8%  19.6%  ▼3.6%    427   68.3  2.1%
+2                      BC 1322 Hùng Vương-Di Linh-Lâm Đồng       Trầm Hữu Tiến  13.1%  10.2%   ▲2.9%   9.0%  ▲4.1%    766  100.3  3.1%
+3             BC TDP Nghĩa Đức-Thạnh Mỹ-Đơn Dương-Lâm Đồng         Lê Minh Đại  11.6%  10.7%   ▲0.9%  10.6%  ▲1.0%    970  112.5  3.5%
+4                               BC Thôn 2-Tuy Đức-Đắk Nông      Trần Thị Nhung  10.9%   8.3%   ▲2.6%   8.2%  ▲2.7%    339   37.0  1.1%
+5                          BC Langbiang-Lạc Dương-Lâm Đồng         Lê Minh Đại  10.8%  12.1%   ▼1.3%   8.5%  ▲2.3%    500   54.0  1.7%
+6                          BC Quảng Sơn-Đắk Glong-Đắk Nông      Trần Thị Nhung  10.4%   8.6%   ▲1.8%   9.0%  ▲1.4%    345   35.9  1.1%
+7             BC Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông       Trần Công Hậu   8.9%   9.6%   ▼0.7%   9.8%  ▼0.9%    329   29.3  0.9%
+8                          BC Nâm N'Jang-Đắk Song-Đắk Nông      Trần Thị Nhung   8.9%   6.4%   ▲2.5%   6.5%  ▲2.4%    336   29.9  0.9%
+9                          BC Quảng Khê-Đắk Glong-Đắk Nông      Trần Thị Nhung   8.8%   7.3%   ▲1.5%   7.8%  ▲1.0%    245   21.6  0.7%
+10       BC 571 Hùng Vương-Cam Nghĩa-TP.Cam Ranh-Khánh Hoà  Phạm Bá Thành Công   8.7%   7.8%   ▲0.9%   6.9%  ▲1.8%    653   56.8  1.8%
+11        BC Số 6 Trương Văn Hoàn-Phường 9-Đà Lạt-Lâm Đồng       Lê Văn Trường   8.7%   6.2%   ▲2.5%   6.4%  ▲2.3%    264   23.0  0.7%
+12       BC Đường 35 Hà Quang 1-Xã Nam Nha Trang-Khánh Hòa  Thái Thị Thanh Thư   8.7%   7.8%   ▲0.9%   6.5%  ▲2.2%    538   46.8  1.4%
+13                     BC Quốc Lộ 1A-Ninh Phước-Ninh Thuận     Nguyễn Duy Long   8.5%   7.1%   ▲1.4%   8.9%  ▼0.4%  1,120   95.2  2.9%
+14                              BC QL55-Bảo Lâm 3-Lâm Đồng     Hồng Bích Nga   8.4%   9.1%   ▼0.7%    NaN    NaN    328   27.6  0.9%
+15           BC Tổ 5 Đường Ngô Gia Tự-Khánh Vĩnh-Khánh Hòa    Nguyễn Hoàng Phi   8.4%   9.7%   ▼1.3%  13.6%  ▼5.2%    333   28.0  0.9%
+16                  BC 466 Đường 23/10-Nha Trang-Khánh Hòa       Phan Đình Duy   8.0%   6.9%   ▲1.1%   6.0%  ▲2.0%    823   65.8  2.0%
+17                      BC 231 Thôn 1-Xã Hòa Ninh-Lâm Đồng     Hồng Bích Nga   7.7%   6.3%   ▲1.4%   6.6%  ▲1.1%    338   26.0  0.8%
+18                      BC 26A Lê Duẩn-Ninh Sơn-Ninh Thuận     Nguyễn Duy Long   7.4%   5.4%   ▲2.0%   6.0%  ▲1.4%    494   36.6  1.1%
+19                     BC 40A Yết Kiêu-Nha Trang-Khánh Hòa       Phan Đình Duy   7.3%   6.6%   ▲0.7%   7.2%  ▲0.1%    593   43.3  1.3%
+20                  BC Quốc Lộ 14-Đức An-Đắk Song-Đăk Nông      Trần Thị Nhung   7.3%   6.3%   ▲1.0%   7.0%  ▲0.3%    507   37.0  1.1%
+21              BC 06 Lê Hồng Phong-TP.Nha Trang-Khánh Hòa  Thái Thị Thanh Thư   7.2%   5.2%   ▲2.0%  10.4%  ▼3.2%    768   55.3  1.7%
+22               BC Đường Tỉnh Lộ 10-Xã Diên Thọ-Khánh Hòa    Nguyễn Hoàng Phi   7.2%  11.0%   ▼3.8%   6.9%  ▲0.3%    546   39.3  1.2%
+23            BC 47 Trần Hưng Đạo-Hàm Thuận Nam-Bình Thuận       Lê Thanh Nhựt   7.1%   3.2%   ▲3.9%   2.9%  ▲4.2%    204   14.5  0.5%
+24         BC 468 Quốc Lộ 20-Liên Nghĩa-Đức Trọng-Lâm Đồng       Trầm Hữu Tiến   7.0%   3.6%   ▲3.4%   5.4%  ▲1.6%    743   52.0  1.6%
+25      BC 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông      Trần Văn Phước   7.0%   8.6%   ▼1.6%   3.9%  ▲3.1%    252   17.6  0.5%
+26               BC 01 Nguyễn Tất Thành-Đắk R lấp-Đắk Nông      Trần Văn Phước   6.9%   6.8%   ▲0.1%   7.1%  ▼0.2%    388   26.8  0.8%
+27                  BC Thôn R'Chai 2-Xã Đức Trọng-Lâm Đồng       Trầm Hữu Tiến   6.9%   9.4%   ▼2.5%   5.1%  ▲1.8%    363   25.0  0.8%
+28  BC 430 Tôn Đức Thắng-Tân Phước-Thị xã La Gi-Bình Thuận      Huỳnh Tấn Hiền   6.7%   5.1%   ▲1.6%   6.1%  ▲0.6%    756   50.7  1.6%
+29            BC Thôn Long Hoà-Vạn Long-Vạn Ninh-Khánh Hoà  Phạm Bá Thành Công   6.7%   6.5%   ▲0.2%   4.0%  ▲2.7%    546   36.6  1.1%

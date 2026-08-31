@@ -1,0 +1,18 @@
+def get_opr():
+    am = request.args.get('am')
+    province = request.args.get('province')
+    post_office = request.args.get('post_office')
+    
+    if am or province or post_office:
+        # Dynamically compute OPR report with filters applied
+        filtered_report = process_opr_report(am=am, province=province, post_office=post_office)
+        return jsonify(clean_nan(filtered_report))
+        
+    global OPR_CACHE
+    with CACHE_LOCK:
+        if OPR_CACHE is None:
+            OPR_CACHE = process_opr_report()
+    return jsonify(clean_nan(OPR_CACHE))
+
+@app.route('/api/backlog')
+@requires_permission('tab-backlog')

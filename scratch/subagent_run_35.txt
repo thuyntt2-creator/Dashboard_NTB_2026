@@ -1,0 +1,124 @@
+Created At: 2026-06-16T13:16:46Z
+Completed At: 2026-06-16T13:29:49Z
+Browser subagent result:
+I have successfully documented all the calculated fields from the copy of the DCL report. Here are the definitions of the fields:
+
+### 1. `D`
+Returns `1` if the date (`Ngay`) is yesterday, and `0` otherwise.
+```sql
+CASE
+  WHEN Ngay = CURRENT_DATE() - 1 THEN 1
+  ELSE 0
+END
+```
+
+---
+
+### 2. `D-1`
+Returns `1` if the date (`Ngay`) is two days ago, and `0` otherwise.
+```sql
+CASE
+  WHEN Ngay = CURRENT_DATE() - 2 THEN 1
+  ELSE 0
+END
+```
+
+---
+
+### 3. `D-7`
+Returns `1` if the date (`Ngay`) is eight days ago, and `0` otherwise.
+```sql
+CASE
+  WHEN Ngay = CURRENT_DATE() - 8 THEN 1
+  ELSE 0
+END
+```
+
+---
+
+### 4. `MTD` (Month-to-Date)
+- **If today is the 1st of the month**: Returns `1` for all days of the previous month.
+- **Otherwise**: Returns `1` for all days of the current month up to yesterday.
+```sql
+CASE
+  WHEN EXTRACT(DAY FROM CURRENT_DATE()) = 1 THEN
+    CASE
+      WHEN EXTRACT(MONTH FROM CURRENT_DATE()) > 1
+        AND EXTRACT(YEAR FROM Ngay) = EXTRACT(YEAR FROM CURRENT_DATE())
+        AND EXTRACT(MONTH FROM Ngay) = EXTRACT(MONTH FROM CURRENT_DATE()) - 1
+      OR EXTRACT(MONTH FROM CURRENT_DATE()) = 1
+        AND EXTRACT(YEAR FROM Ngay) = EXTRACT(YEAR FROM CURRENT_DATE()) - 1
+        AND EXTRACT(MONTH FROM Ngay) = 12
+      THEN 1
+      ELSE 0
+    END
+  ELSE
+    CASE
+      WHEN EXTRACT(MONTH FROM CURRENT_DATE()) > 1
+        AND EXTRACT(YEAR FROM Ngay) = EXTRACT(YEAR FROM CURRENT_DATE())
+        AND EXTRACT(MONTH FROM Ngay) = EXTRACT(MONTH FROM CURRENT_DATE())
+        AND EXTRACT(DAY FROM Ngay) < EXTRACT(DAY FROM CURRENT_DATE())
+      OR EXTRACT(MONTH FROM CURRENT_DATE()) = 1
+        AND EXTRACT(YEAR FROM Ngay) = EXTRACT(YEAR FROM CURRENT_DATE())
+        AND EXTRACT(MONTH FROM Ngay) = 1
+        AND EXTRACT(DAY FROM Ngay) < EXTRACT(DAY FROM CURRENT_DATE())
+      THEN 1
+      ELSE 0
+    END
+END
+```
+
+---
+
+### 5. `MTD-1` (Month-to-Date of Previous Month)
+- **If today is the 1st of the month**: Returns `1` for all days of the month b
+<truncated 45282 bytes>
+F576FBCAE6A5AC7BCEAC8F225EB","X":750,"Y":675,"explanation":"Scroll down inside CodeMirror to read the rest of the formula for MTD-1.","toolAction":"Scrolling page","toolSummary":"Scroll page"}
+```
+Status: CORTEX_STEP_STATUS_DONE
+
+### Step 264: wait
+Arguments:
+```json
+{"duration_ms":1500,"explanation":"Wait 1.5 seconds.","toolAction":"Waiting for scroll to complete","toolSummary":"Wait for page load"}
+```
+Status: CORTEX_STEP_STATUS_DONE
+
+### Step 266: browser_get_dom
+Arguments:
+```json
+{"PageId":"202C5F576FBCAE6A5AC7BCEAC8F225EB","explanation":"Get DOM of the scrolled MTD-1 formula editor.","toolAction":"Getting DOM tree","toolSummary":"Get DOM tree"}
+```
+Status: CORTEX_STEP_STATUS_DONE
+
+### Step 268: click_browser_pixel
+Arguments:
+```json
+{"ClickType":"left","PageID":"202C5F576FBCAE6A5AC7BCEAC8F225EB","X":872,"Y":949,"explanation":"Close formula editor for MTD-1.","toolAction":"Closing formula editor","toolSummary":"Close formula editor"}
+```
+Status: CORTEX_STEP_STATUS_DONE
+Saved click feedback screenshot to: C:\Users\lap4all\.gemini\antigravity-ide\brain\a570b50e-300a-41ca-96a3-6b94e5e53638\.system_generated\click_feedback\click_feedback_1781616453642.png
+
+### Step 270: wait
+Arguments:
+```json
+{"duration_ms":1500,"explanation":"Wait 1.5 seconds.","toolAction":"Waiting for editor to close","toolSummary":"Wait for page load"}
+```
+Status: CORTEX_STEP_STATUS_DONE
+
+### Step 272: browser_get_dom
+Arguments:
+```json
+{"PageId":"202C5F576FBCAE6A5AC7BCEAC8F225EB","explanation":"Get DOM of fields list.","toolAction":"Getting DOM tree","toolSummary":"Get DOM tree"}
+```
+Status: CORTEX_STEP_STATUS_DONE
+
+### Step 274: click_browser_pixel
+Arguments:
+```json
+{"ClickType":"left","PageID":"202C5F576FBCAE6A5AC7BCEAC8F225EB","X":145,"Y":883,"explanation":"Click fx button for calculated field WTD.","toolAction":"Clicking fx button","toolSummary":"Click fx button"}
+```
+Status: COR
+<truncated 9163 bytes>
+
+NOTE: The output was truncated because it was too long. Use a more targeted query or a smaller range to get the information you need.

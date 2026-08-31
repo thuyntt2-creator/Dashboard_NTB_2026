@@ -1,0 +1,177 @@
+=== ANALYSIS OF CSV FILES ===
+
+--- File: aging_raw.csv ---
+Shape: (1437, 11)
+Columns: ['Vùng', 'Tỉnh', 'BC', 'Mã đơn', 'Tệp khách', 'Ngày nhập BC Giao', 'Số ngày đã nhập BC', 'Giờ câp nhật', 'Số lần giao', 'Nhóm BL', 'COD']
+Head:
+  Vùng      Tỉnh                                                       BC    Mã đơn Tệp khách                 Ngày nhập BC Giao  Số ngày đã nhập BC                      Giờ câp nhật  Số lần giao        Nhóm BL              COD
+0  NTB  Đắk Nông  Bưu Cục 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông  GYW8REL3       SME  2026-05-10 05:02:12.676000+00:00                35.1  2026-06-14 07:45:35.118000+00:00            0  (k) > 15 ngày              cod
+1  NTB  Lâm Đồng                        Bưu Cục Đạ Rsal-Đam Rông-Lâm Đồng  GYTLUC9G       SME  2026-05-12 09:01:38.353000+00:00                32.9  2026-06-14 07:45:35.118000+00:00            0  (k) > 15 ngày              cod
+2  NTB  Lâm Đồng         Bưu Cục Thôn Phúc Hưng-Xã Tân Hà Lâm Hà-Lâm Đồng  GYTCV7VH       SME  2026-05-17 14:00:53.869000+00:00                27.7  2026-06-14 07:45:35.118000+00:00            4  (k) > 15 ngày              cod
+3  NTB  Lâm Đồng                        Bưu Cục Đạ Rsal-Đam Rông-Lâm Đồng  GYTUYNRL       SME  2026-05-18 10:53:37.470000+00:00                26.9  2026-06-14 07:45:35.118000+00:00            0  (k) > 15 ngày  non - không phí
+4  NTB  Lâm Đồng       Bưu Cục 337 Hùng Vương-Lộc Thắng-Bảo Lâm-Lâm Đồng   GYT6VTNQ       SME  2026-05-18 12:29:48.454000+00:00                26.8  2026-06-14 07:45:35.118000+00:00            1  (k) > 15 ngày              cod
+
+--- File: buu_cuc_bat_on.csv ---
+Shape: (98, 21)
+Columns: ['Thời gian cập nhật', 'Unnamed: 1', '14/06/2026', 'Unnamed: 3', 'Logic thuộc 1 trong 4 trường hợp sau:\n\nTồn LM: Lượng đơn Backlogs LastMile trên tổng đơn GTC trung bình 7 ngày gần nhất (L7D) lớn hơn 2 (ngày).\nTồn KTC: Lượng đơn Backlogs KTC cùng tỉnh trên tổng đơn GTC trung bình 7 ngày gần nhất (L7D) lớn hơn 2 (ngày).\nTồn LM + Tồn KTC: Các bưu cục đồng thời thuộc cả 2 nhóm: Tồn LM và Tồn KTC\nTồn Aging >5 ngày: tỷ lệ đơn tồn trên 5 ngày chiếm từ 10% trở lên trên tổng lượng Backlogs LastMile.', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9', 'Unnamed: 10', 'Unnamed: 11', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15', 'Unnamed: 16', 'Unnamed: 17', 'Unnamed: 18', 'Unnamed: 19', 'Unnamed: 20']
+Head:
+                Thời gian cập nhật Unnamed: 1 14/06/2026   Unnamed: 3 Logic thuộc 1 trong 4 trường hợp sau:\n\nTồn LM: Lượng đơn Backlogs LastMile trên tổng đơn GTC trung bình 7 ngày gần nhất (L7D) lớn hơn 2 (ngày).\nTồn KTC: Lượng đơn Backlogs KTC cùng tỉnh trên tổng đơn GTC trung bình 7 ngày gần nhất (L7D) lớn hơn 2 (ngày).\nTồn LM + Tồn KTC: Các bưu cục đồng thời thuộc cả 2 nhóm: Tồn LM và Tồn KTC\nTồn Aging >5 ngày: tỷ lệ đơn tồn trên 5 ngày chiếm từ 10% trở lên trên tổng lượng Backlogs LastMile.      Unnamed: 5 Unnamed: 6     Unnamed: 7      Unnamed: 8 Unnamed: 9       Unnamed: 10        Unnamed: 11 Unnamed: 12    Unnamed: 13 Unnamed: 14    Unnamed: 15    Unnamed: 16        Unnamed: 17 Unnamed: 18                       Unnamed: 19 Unnamed: 20
+0  Tổng số lượng bưu cục cảnh báo:        NaN          8          NaN                                                                                                                                                                                                                                                                                                                                                                                                                                                 NaN             NaN        NaN            NaN             NaN        NaN               NaN                NaN         NaN            NaN         NaN            NaN            NaN                NaN         NaN                               NaN         NaN
+1                              NaN        NaN        NaN          NaN                                                                                                                                                                                                                                                                                                                                                                                                                                                 NaN             NaN        NaN            NaN             NaN        NaN               NaN                NaN         NaN            NaN         NaN            NaN            NaN                NaN         NaN                               NaN         NaN
+2                             ngay  vung_giao  tinh_giao  kho_giao_id                                                                                                                                                                                                                                                                                                                                                                                                                                       kho_giao_name  warehouse_type      BL LM  BL LM >5 ngay  %BL LM >5 ngay     BL KTC  BL KTC cung tinh  %BL KTC cung tinh      tao_n1  tao_avg_7ngay      gtc_n1  gtc_avg_7ngay  gtc_max_7ngay  du_kien_clear_ton   tinh_hinh                      ly_do_bat_on  Trạng thái
+3               2026-06-14 7:45:10        NTB   Lâm Đồng     20942000                                                                                                                                                                                                                                                                                                                                                                                                            Bưu Cục 1322 Hùng Vương-Di Linh-Lâm Đồng              BC       2442            111           4.50%       1823               614              0.337         867            864         473            596            697                  4      Bất ổn                         2. Tồn LM      Bất ổn
+4               2026-06-14 7:45:10        NTB   Lâm Đồng     22425000                                                                                                                                                                                                                                                                                                                                                                                                    Bưu Cục Thôn Phúc Hưng-Xã Tân Hà Lâm Hà-Lâm Đồng              BC       1578            359          22.80%        698                79              0.113         357            400         363            392            487                  4      Bất ổn  2. Tồn LM | 4. Tồn Aging >5 ngày      Bất ổn
+
+--- File: co_cau_ntb.csv ---
+Shape: (93, 4)
+Columns: ['warehouse_id', 'Bưu cục', 'Tỉnh', 'AM']
+Head:
+   warehouse_id                             Bưu cục        Tỉnh                 AM
+0          1909          Kho Trung Chuyển Khánh Hòa   Khánh Hòa    Nguyễn Tiến Lực
+1      20336000  Kho Chuyển Tiếp Đức Trọng-Lâm Đồng    Lâm Đồng         Võ Tấn Lợi
+2      20797000            Kho Chuyển Tiếp Đắk Nông    Đắk Nông      Trần Công Hậu
+3      20745000          Kho Chuyển Tiếp Bình Thuận  Bình Thuận  Nguyễn Ngọc Khánh
+4      22915000    Kho Chuyển Tiếp Bảo Lộc-Lâm Đồng    Lâm Đồng    Nguyễn Tiến Lực
+
+--- File: ODR TTS.csv ---
+Shape: (2279, 5)
+Columns: ['Quản lý', 'Chi tiết', 'Time', 'GTC', '%Ontime']
+Head:
+          Quản lý                                                  Chi tiết                   Time  GTC  %Ontime
+0  NTB - Đắk Nông  Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng  2026-05-24 - Chủ Nhật    2    0.00%
+1  NTB - Đắk Nông  Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng     2026-05-29 - Thứ 6    5  100.00%
+2  NTB - Đắk Nông  Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng     2026-05-22 - Thứ 6    8   62.50%
+3  NTB - Đắk Nông  Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng     2026-05-23 - Thứ 7   11   81.80%
+4  NTB - Đắk Nông        BC 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông  2026-06-07 - Chủ Nhật   32   96.90%
+
+--- File: off_tuyen_spe.csv ---
+Shape: (88, 9)
+Columns: ['Tỉnh', 'Quận/ huyện', 'Phường/xã cần tắt', 'ID phường/xã\n(MÀU ĐỎ LÀ ĐANG OFF)', 'Bưu Cục\nVùng để trống cột bất kỳ từ cột B-> S\nNhập sai format\n=> KHÔNG REVIEW', 'Kết quả (KA) update', '% Cap Down (KA)', 'Thời gian tắt (KA)', 'Thời gian mở (KA)']
+Head:
+        Tỉnh          Quận/ huyện  Phường/xã cần tắt  ID phường/xã\n(MÀU ĐỎ LÀ ĐANG OFF) Bưu Cục\nVùng để trống cột bất kỳ từ cột B-> S\nNhập sai format\n=> KHÔNG REVIEW Kết quả (KA) update % Cap Down (KA) Thời gian tắt (KA) Thời gian mở (KA)
+0   Đắk Nông      Huyện Đắk R lấp  Thị trấn Kiến Đức                              630201                                   Bưu Cục 01 Nguyễn Tất Thành-Đắk R lấp-Đắk Nông               DUYỆT            100%         01-06-2026        15-06-2026
+1   Đắk Nông      Huyện Đắk R lấp       Xã Đạo Nghĩa                              630205                                   Bưu Cục 01 Nguyễn Tất Thành-Đắk R lấp-Đắk Nông               DUYỆT            100%         01-06-2026        15-06-2026
+2   Đắk Nông      Huyện Đắk R lấp      Xã Kiến Thành                              630207                                   Bưu Cục 01 Nguyễn Tất Thành-Đắk R lấp-Đắk Nông               DUYỆT            100%         01-06-2026        15-06-2026
+3   Đắk Nông      Huyện Đắk R lấp     Xã Nghĩa Thắng                              630208                                   Bưu Cục 01 Nguyễn Tất Thành-Đắk R lấp-Đắk Nông               DUYỆT            100%         01-06-2026        15-06-2026
+4  Khánh Hòa  Thành phố Nha Trang   Phường Phước Tân                              410106                                  Bưu Cục 06 Lê Hồng Phong-TP.Nha Trang-Khánh Hòa               DUYỆT            100%         09-06-2026        20-06-2026
+
+--- File: opr_oe.csv ---
+Shape: (51133, 8)
+Columns: ['vung', 'madh', 'BC lấy', 'Thời gian tạo', 'Thời gian LTC', 'sellername', 'ly_do_tre_12h', 'AM']
+Head:
+      vung             madh                                                   BC lấy             Thời gian tạo             Thời gian LTC                            sellername ly_do_tre_12h  AM
+0  HCM-HCM  VNGH80429696305  Bưu Cục Số 17 Đường Hoàng Văn Hợp-An Lạc A-Bình Tân-HCM  May 25, 2026, 8:51:09 PM  May 26, 2026, 4:11:46 PM  đồ chơi trẻ em thời đại mới        4.Khác NaN
+1  HCM-HCM  VNGH80510746306  Bưu Cục Số 17 Đường Hoàng Văn Hợp-An Lạc A-Bình Tân-HCM  May 25, 2026, 8:51:08 PM  May 26, 2026, 4:11:46 PM  đồ chơi trẻ em thời đại mới        4.Khác NaN
+2      TNT  VNGH80167106307             Bưu Cục 38 Lê Quý Đôn-Phường Duy Tiên-Hà Nam  May 26, 2026, 8:09:51 AM  May 26, 2026, 3:39:13 PM           đồ chơi thông minh 2025        4.Khác NaN
+3      XBG  VNGH80777456306            Bưu Cục Thôn Bất Lự-Hoàn Sơn-Tiên Du-Bắc Ninh  May 26, 2026, 8:05:24 AM  May 26, 2026, 6:09:12 PM               điện máy đức anh 2        4.Khác NaN
+4      TNT  VNGH80931226306            Bưu Cục Đường Lạc Long Quân-Xã Hạ Hòa-Phú Thọ  May 26, 2026, 6:46:34 AM  May 26, 2026, 5:41:59 PM                     Đũa Tách Nhật        4.Khác NaN
+
+--- File: opr_opr.csv ---
+Shape: (344, 14)
+Columns: ['tutinh', 'kholay', 'NgayLTC', 'khung_gio_tao_don', 'ly_do_tre_12h', 'sellername', 'vol_ltc', 'tuan', 'vung', 'ot', 'Tuần', 'AM', 'Khung giờ tạo', 'Đơn trễ']
+Head:
+       tutinh                                              kholay     NgayLTC khung_gio_tao_don ly_do_tre_12h                     sellername  vol_ltc  tuan vung  ot Tuần                   AM    Khung giờ tạo  Đơn trễ
+0   Khánh Hòa           Bưu Cục 195 Đường 2/4-Nha Trang-Khánh Hòa  2026-06-13   2.Tạo từ 9h-19h  0.Ontime OPR             Áo Thun Oh Là La        3    24  NTB   3  W24   Phạm Bá Thành Công  1.Tạo từ 9h-19h        0
+1    Lâm Đồng  Bưu Cục Lê Hồng Phong-Liên Hiệp-Đức Trọng-Lâm Đồng  2026-06-13    1.Tạo trước 9h        4.Khác                  Minipijama001       25    24  NTB   0  W24           Võ Tấn Lợi  2.Tạo từ 19h-9h       25
+2    Lâm Đồng     Bưu cục 1479 Trần Phú-Lộc Châu-Bảo Lộc-Lâm Đồng  2026-06-13   2.Tạo từ 9h-19h  0.Ontime OPR  Bông Store-Chuyên Hàng Nga       14    24  NTB  14  W24  Nguyễn Lê Nguyên Vũ  1.Tạo từ 9h-19h        0
+3    Lâm Đồng            Bưu Cục QL20 Ninh Hòa-Đức Trọng-Lâm Đồng  2026-06-13    1.Tạo trước 9h        4.Khác                    DEGO.TOYS 2        1    24  NTB   0  W24           Võ Tấn Lợi  2.Tạo từ 19h-9h        1
+4  Ninh Thuận            Bưu Cục Quốc Lộ 1A-Ninh Phước-Ninh Thuận  2026-06-13     3.Tạo sau 19h     1.Gan_tre               SALA Gốm Chăm        1    24  NTB   0  W24      Nguyễn Duy Long  2.Tạo từ 19h-9h        1
+
+--- File: opr_raw.csv ---
+Shape: (67013, 12)
+Columns: ['tutinh', 'kholay', 'NgayLTC', 'khung_gio_tao_don', 'ly_do_tre_12h', 'sellername', 'vol_ltc', 'tuan', 'vung', 'ot', 'Tuần', 'AM']
+Head:
+       tutinh                                       kholay     NgayLTC khung_gio_tao_don ly_do_tre_12h                    sellername  vol_ltc  tuan vung  ot Tuần                  AM
+0   Khánh Hòa      Bưu Cục Tổ Dân Phố 2-Ninh Hoà-Khánh Hoà  2026-05-15     3.Tạo sau 19h        4.Khác                 gas tý nhân        6    20  NTB   0  W20  Phạm Bá Thành Công
+1  Bình Thuận       Bưu Cục Phú Thủy-Phan Thiết-Bình Thuận  2026-05-15   2.Tạo từ 9h-19h  0.Ontime OPR        Phụ Kiện Girls Xinh       20    20  NTB  20  W20   Nguyễn Ngọc Khánh
+2  Bình Thuận        Bưu Cục Phú Tài-Phan Thiết-Bình Thuận  2026-05-15     3.Tạo sau 19h        4.Khác            Kho Sỉ Giá Gốc        1    20  NTB   0  W20   Nguyễn Ngọc Khánh
+3    Lâm Đồng                    Bưu Cục Đạ Huoai-Lâm Đồng  2026-05-15    1.Tạo trước 9h        4.Khác  Thế Giới Đ Bẫy - STORE        5    20  NTB   0  W20      Huỳnh Tấn Hiền
+4  Bình Thuận  Bưu Cục 158 Quốc lộ 55-Tánh Linh-Bình Thuận  2026-05-15    1.Tạo trước 9h        4.Khác     Mộc Linh - Nhang Trầm        1    20  NTB   0  W20      Huỳnh Tấn Hiền
+
+--- File: ops_co_cau.csv ---
+Shape: (93, 4)
+Columns: ['warehouse_id', 'Bưu cục', 'Tỉnh', 'AM']
+Head:
+   warehouse_id                             Bưu cục        Tỉnh                 AM
+0          1909          Kho Trung Chuyển Khánh Hòa   Khánh Hòa    Nguyễn Tiến Lực
+1      20336000  Kho Chuyển Tiếp Đức Trọng-Lâm Đồng    Lâm Đồng         Võ Tấn Lợi
+2      20797000            Kho Chuyển Tiếp Đắk Nông    Đắk Nông      Trần Công Hậu
+3      20745000          Kho Chuyển Tiếp Bình Thuận  Bình Thuận  Nguyễn Ngọc Khánh
+4      22915000    Kho Chuyển Tiếp Bảo Lộc-Lâm Đồng    Lâm Đồng    Nguyễn Tiến Lực
+
+--- File: ops_fd.csv ---
+Shape: (114, 10)
+Columns: ['SNAPSHOT %FD – TONG', 'N = 13/06/2026', 'N-1 = 12/06', 'N-7 = 06/06 (cùng thứ)', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9']
+Head:
+                                            SNAPSHOT %FD – TONG      N = 13/06/2026 N-1 = 12/06 N-7 = 06/06 (cùng thứ) Unnamed: 4 Unnamed: 5 Unnamed: 6  Unnamed: 7  Unnamed: 8 Unnamed: 9
+0  🏪 TẤT CẢ BƯU CỤC  (sort %FD ↓)  |  🔴 = FD>4.5% & Tỷ trọng>3%                 NaN         NaN                    NaN        NaN        NaN        NaN         NaN         NaN        NaN
+1                                                       Bưu Cục                  AM         NaN                    NaN        NaN        NaN        NaN         NaN         NaN        NaN
+2                      BC 56 Phan Đình Phùng-Cam Linh-Khánh Hòa  Thái Thị Thanh Thư       31.5%                  32.1%      ▼0.6%      32.9%      ▼1.4%       698.0       219.9       6.8%
+3                   BC Thôn Phúc Hưng-Xã Tân Hà Lâm Hà-Lâm Đồng   Huỳnh Thị Kim Chi       16.0%                   5.2%     ▲10.8%      19.6%      ▼3.6%       427.0        68.3       2.1%
+4                           BC 1322 Hùng Vương-Di Linh-Lâm Đồng       Trầm Hữu Tiến       13.1%                  10.2%      ▲2.9%       9.0%      ▲4.1%       766.0       100.3       3.1%
+
+--- File: ops_gtc.csv ---
+Shape: (6334, 21)
+Columns: ['Cấp Quản Lý', 'Chi tiết', 'Loại Hàng', 'Time', 'Volume', '% Gán', '% GTC', '% Chuyển trả', 'Leadtime', 'Sản Lượng Giao Thành Công', 'Sản Lượng Chuyển Trả', 'Sản Lượng Gán', 'Sản Lượng Trả', 'Sản Lượng Tồn', 'Sản Lượng Chưa Gán', '% Chưa Gán', '%Tồn', 'Hàng Mới Về Trong Ngày', 'Tỉnh', 'Vùng', 'AM']
+Head:
+      Cấp Quản Lý                                    Chi tiết      Loại Hàng                   Time  Volume    % Gán   % GTC % Chuyển trả  Leadtime  Sản Lượng Giao Thành Công  Sản Lượng Chuyển Trả  Sản Lượng Gán  Sản Lượng Trả  Sản Lượng Tồn  Sản Lượng Chưa Gán % Chưa Gán    %Tồn  Hàng Mới Về Trong Ngày      Tỉnh Vùng              AM
+0  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-05-21 - Thứ 5     156   86.54%  74.36%        0.64%      6.50                        116                     1            135              1             39                  21     13.46%  25.00%                     156  Đắk Nông  NTB  Trần Văn Phước
+1  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026-05-17 - Chủ Nhật     179   87.15%  70.95%        1.12%      7.54                        127                     2            156              2             50                  23     12.85%  27.93%                     179  Đắk Nông  NTB  Trần Văn Phước
+2  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-06-09 - Thứ 3     218  100.00%  75.69%        0.00%      9.75                        165                     0            218              0             53                   0      0.00%  24.31%                     218  Đắk Nông  NTB  Trần Văn Phước
+3  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-06-08 - Thứ 2     137   97.08%  79.56%        3.65%      8.22                        109                     5            133              5             23                   4      2.92%  16.79%                     137  Đắk Nông  NTB  Trần Văn Phước
+4  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-06-13 - Thứ 7     228   86.40%  70.61%        0.00%     12.36                        161                     0            197              0             67                  31     13.60%  29.39%                     228  Đắk Nông  NTB  Trần Văn Phước
+
+--- File: ops_ltc.csv ---
+Shape: (4622, 18)
+Columns: ['Cấp quản lý', 'Chi tiết', 'Ca', 'Time', 'Volume', '%Gán', '%LTC', '%Đóng kiện', '%LC', 'Leadtime', 'Sản Lượng Lấy Thành Công', 'Sản Lượng Gán', 'Sản Lượng Chưa Gán', '% Chưa Gán', 'Hàng Mới Về Trong Ngày', 'Tỉnh', 'Vùng', 'AM']
+Head:
+        Cấp quản lý                                Chi tiết        Ca                   Time  Volume  %Gán     %LTC %Đóng kiện     %LC  Leadtime  Sản Lượng Lấy Thành Công  Sản Lượng Gán  Sản Lượng Chưa Gán % Chưa Gán  Hàng Mới Về Trong Ngày        Tỉnh Vùng              AM
+0  NTB - Bình Thuận  BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận  Hàng Tồn     2026-06-06 - Thứ 7       7  100%   71.43%     71.43%  42.86%     41.00                         3              7                   0      0.00%                       0  Bình Thuận  NTB  Huỳnh Tấn Hiền
+1  NTB - Bình Thuận  BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận  Hàng Tồn     2026-06-13 - Thứ 7      13  100%   69.23%     69.23%  69.23%     29.33                         9             13                   0      0.00%                       0  Bình Thuận  NTB  Huỳnh Tấn Hiền
+2  NTB - Bình Thuận  BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận  Hàng Tồn     2026-05-19 - Thứ 3      13  100%   38.46%     38.46%  38.46%     38.00                         5             13                   0      0.00%                       0  Bình Thuận  NTB  Huỳnh Tấn Hiền
+3  NTB - Bình Thuận  BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận  Hàng Tồn     2026-05-21 - Thứ 5      13  100%  100.00%    100.00%  92.31%     28.69                        12             13                   0      0.00%                       0  Bình Thuận  NTB  Huỳnh Tấn Hiền
+4  NTB - Bình Thuận  BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận  Hàng Tồn  2026-06-07 - Chủ Nhật      13  100%   53.85%     53.85%  38.46%     35.86                         5             13                   0      0.00%                       0  Bình Thuận  NTB  Huỳnh Tấn Hiền
+
+--- File: ops_nhan_su.csv ---
+Shape: (887, 14)
+Columns: ['ID', 'Tên nhân viên', 'Chức vụ', 'Ngày vào làm', 'Ngày nghỉ việc', 'Trạng thái', 'Bưu cục', 'Zone', 'AM', 'Loại HĐ', 'Tỉnh', 'Vùng', 'Thâm niên', 'SP Team?']
+Head:
+        ID          Tên nhân viên                               Chức vụ    Ngày vào làm  Ngày nghỉ việc     Trạng thái                                                      Bưu cục            Zone                  AM Loại HĐ        Tỉnh Vùng          Thâm niên  SP Team?
+0  3173887  Nguyễn Tuấn Duy Khanh  Business Development Field Executive  10 thg 6, 2026             NaN  Đang làm việc    22746000 - Bưu Cục 229 Phước Long-Nam Nha Trang-Khánh Hòa  Zone Khanh Hoa  Thái Thị Thanh Thư    HĐDV   Khánh Hòa  NTB  G01: Dưới 1 tháng     False
+1  3173884         Võ Minh Phương  Business Development Field Executive  10 thg 6, 2026             NaN  Đang làm việc    22746000 - Bưu Cục 229 Phước Long-Nam Nha Trang-Khánh Hòa  Zone Khanh Hoa  Thái Thị Thanh Thư    HĐDV   Khánh Hòa  NTB  G01: Dưới 1 tháng     False
+2  3173815        Phạm Văn Thương  Business Development Field Executive  10 thg 6, 2026             NaN  Đang làm việc          21456000 - Bưu Cục Xã Nam Chính-Đức Linh-Bình Thuận   Zone Lam Dong      Huỳnh Tấn Hiền    HĐDV  Bình Thuận  NTB  G01: Dưới 1 tháng     False
+3  3173666        Bùi Thị Hồng Hà  Business Development Field Executive   9 thg 6, 2026             NaN  Đang làm việc  22425000 - Bưu Cục Thôn Phúc Hưng-Xã Tân Hà Lâm Hà-Lâm Đồng   Zone Lam Dong   Huỳnh Thị Kim Chi    HĐDV    Lâm Đồng  NTB  G01: Dưới 1 tháng     False
+4  3173616           Nguyễn Thắng  Business Development Field Executive   8 thg 6, 2026             NaN  Đang làm việc       20320000 - Bưu Cục 466 Đường 23/10-Nha Trang-Khánh Hòa  Zone Khanh Hoa       Phan Đình Duy    HĐDV   Khánh Hòa  NTB  G01: Dưới 1 tháng     False
+
+--- File: ops_tts.csv ---
+Shape: (6183, 21)
+Columns: ['Cấp Quản Lý', 'Chi tiết', 'Loại Hàng', 'Time', 'Volume', '% Gán', '% GTC', '% Chuyển trả', 'Leadtime', 'Sản Lượng Giao Thành Công', 'Sản Lượng Chuyển Trả', 'Sản Lượng Gán', 'Sản Lượng Trả', 'Sản Lượng Tồn', 'Sản Lượng Chưa Gán', '% Chưa Gán', '%Tồn', 'Hàng Mới Về Trong Ngày', 'Tỉnh', 'Vùng', 'AM']
+Head:
+      Cấp Quản Lý                                    Chi tiết      Loại Hàng                   Time  Volume    % Gán   % GTC % Chuyển trả  Leadtime  Sản Lượng Giao Thành Công  Sản Lượng Chuyển Trả  Sản Lượng Gán  Sản Lượng Trả  Sản Lượng Tồn  Sản Lượng Chưa Gán % Chưa Gán    %Tồn  Hàng Mới Về Trong Ngày      Tỉnh Vùng              AM
+0  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026-06-07 - Chủ Nhật      20   60.00%  55.00%        0.00%      7.55                         11                     0             12              0              9                   8     40.00%  45.00%                      20  Đắk Nông  NTB  Trần Văn Phước
+1  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-05-27 - Thứ 4      24   91.67%  91.67%        0.00%      5.32                         22                     0             22              0              2                   2      8.33%   8.33%                      24  Đắk Nông  NTB  Trần Văn Phước
+2  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-05-25 - Thứ 2      27  100.00%  81.48%        0.00%      6.77                         22                     0             27              0              5                   0      0.00%  18.52%                      27  Đắk Nông  NTB  Trần Văn Phước
+3  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026-05-31 - Chủ Nhật      30  100.00%  76.67%        0.00%      7.83                         23                     0             30              0              7                   0      0.00%  23.33%                      30  Đắk Nông  NTB  Trần Văn Phước
+4  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-06-01 - Thứ 2      28  100.00%  82.14%        0.00%      6.17                         23                     0             28              0              5                   0      0.00%  17.86%                      28  Đắk Nông  NTB  Trần Văn Phước
+
+--- File: treo_stuck.csv ---
+Shape: (5009, 7)
+Columns: ['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name']
+Head:
+   Mã bưu cục Mã đơn hàng          Loại đơn Khách hàng      Trạng thái Thời gian tồn đọng                            warehouse_name
+0    20495000    GYHDQYWM   Luân chuyển trả      OTHER  Chưa đóng kiện                0_6  Bưu Cục 40A Yết Kiêu-Nha Trang-Khánh Hòa
+1    20495000    GYHDA664  Luân chuyển giao      OTHER  Chưa đóng kiện                0_6  Bưu Cục 40A Yết Kiêu-Nha Trang-Khánh Hòa
+2    20495000    GYHVVQGQ   Luân chuyển trả      OTHER  Chưa đóng kiện                0_6  Bưu Cục 40A Yết Kiêu-Nha Trang-Khánh Hòa
+3    20495000    GYHN7E6W   Luân chuyển trả      OTHER  Chưa đóng kiện                0_6  Bưu Cục 40A Yết Kiêu-Nha Trang-Khánh Hòa
+4    20495000    GYHNGAAG   Luân chuyển trả      OTHER  Chưa đóng kiện                0_6  Bưu Cục 40A Yết Kiêu-Nha Trang-Khánh Hòa
+
+--- File: vols_tao_don.csv ---
+Shape: (49999, 12)
+Columns: ['Date', 'Vùng', 'Tỉnh', 'Quận/Huyện', 'Phường/Xã', 'Bưu cục', 'Khách hàng', 'Volume', 'Khối lượng', 'warehouse_id', 'bat_on', 'province_name']
+Head:
+         Date Vùng       Tỉnh       Quận/Huyện      Phường/Xã                                            Bưu cục    Khách hàng  Volume  Khối lượng  warehouse_id          bat_on province_name
+0  2026-06-13  NTB   Lâm Đồng  Huyện Lạc Dương      Xã Đạ Sar               Bưu Cục Langbiang-Lạc Dương-Lâm Đồng           SME      30      76.220      22051000  Nằm TOP Bất ổn      Lâm Đồng
+1  2026-06-13  NTB   Lâm Đồng  Huyện Đơn Dương     Xã Lạc Lâm  Bưu Cục TDP Nghĩa Đức-Thạnh Mỹ-Đơn Dương-Lâm Đồng           SME      40     213.103      21377000  Nằm TOP Bất ổn      Lâm Đồng
+2  2026-06-13  NTB  Khánh Hòa  Thị xã Ninh Hòa   Xã Ninh Bình            Bưu Cục Tổ Dân Phố 2-Ninh Hoà-Khánh Hoà           SME      30      69.700      20543000     Bình thường     Khánh Hòa
+3  2026-06-13  NTB  Khánh Hòa  Huyện Khánh Sơn  Xã Ba Cụm Bắc            Bưu Cục 111 Lê Duẫn-Khánh Sơn-Khánh Hoà           SME      21      33.940      20784000     Bình thường     Khánh Hòa
+4  2026-06-13  NTB   Đắk Nông    Huyện Đắk Mil     Xã Đắk Lao                           Bưu Cục Đắk Mil-Đắk Nông  Shopee-Bulky       6      68.415          2309     Bình thường      Đắk Nông

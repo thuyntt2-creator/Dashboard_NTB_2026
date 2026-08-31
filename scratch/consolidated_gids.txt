@@ -1,0 +1,17 @@
+GID: 352488066 -> Name: OPR
+GID: 870632257 -> Name: rawopr
+GID: 218211549 -> Name: CoCauVung
+GID: 1451699200 -> Name: Data
+GID: 1729348548 -> Name: TTS
+GID: 1469954076 -> Name: DataLTC
+GID: 353039205 -> Name: ODR TTS
+GID: 1301452336 -> Name: NTB
+GID: 849609343 -> Name: shopee_tiktok
+GID: 652503222 -> Name: Aging trên 5 ngày
+GID: 468403898 -> Name: PIVOT aging 
+GID: 213061164 -> Name: Treo LC
+GID: 1889389964 -> Name: PV treo LC
+GID: 2074193568 -> Name: Nhân Sự
+GID: 887739629 -> Name: Đang off
+GID: 626823626 -> Name: Sheet47
+GID: 514735279 -> Name: RAW n-1

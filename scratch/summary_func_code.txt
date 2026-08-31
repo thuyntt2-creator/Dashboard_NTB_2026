@@ -1,0 +1,99 @@
+def get_overall_metrics_summary():
+    try:
+        df_gtc, df_ltc, df_aging, df_treo = get_dataframes(force=True)
+        if df_gtc is None or df_ltc is None:
+            return None
+            
+        all_times = set(df_gtc['Time'].dropna().unique()).union(set(df_ltc['Time'].dropna().unique()))
+        dates_sorted = sorted(list(all_times), key=lambda x: pd.to_datetime(x.split(' - ')[0]))
+        if not dates_sorted:
+            return None
+            
+        latest_date = dates_sorted[-1]
+        latest_idx = dates_sorted.index(latest_date)
+        n3_date = dates_sorted[latest_idx - 3] if latest_idx >= 3 else None
+        
+        latest_dt = pd.to_datetime(latest_date.split(' - ')[0])
+        lw_date = None
+        for d in dates_sorted:
+            dt = pd.to_datetime(d.split(' - ')[0])
+            if (latest_dt - dt).days == 7:
+                lw_date = d
+                break
+        
+        def get_kpi_for_day(date_str):
+            if not date_str:
+                return None
+            gtc_d = df_gtc[df_gtc['Time'] == date_str]
+            ltc_d = df_ltc[df_ltc['Time'] == date_str] if date_str in df_ltc['Time'].values else df_ltc[df_ltc['Time'] == df_ltc['Time'].max()]
+            
+            gtc_vol = gtc_d['Volume'].sum()
+            gtc_del = gtc_d['delivered_vol'].sum()
+            ltc_vol = ltc_d['Volume'].sum()
+            ltc_ltc = ltc_d['ltc_vol'].sum()
+            
+            return {
+                'gtc_pct': round((gtc_del / gtc_vol * 100), 2) if gtc_vol > 0 else 0.0,
+                'ltc_pct': round((ltc_ltc / ltc_vol * 100), 2) if ltc_vol > 0 else 0.0,
+                'gtc_vol': int(gtc_vol),
+                'ltc_vol': int(ltc_vol)
+            }
+            
+        today_kpi = get_kpi_for_day(latest_date)
+        n3_kpi = get_kpi_for_day(n3_date) if n3_date else None
+        lw_kpi = get_kpi_for_day(lw_date) if lw_date else None
+        
+        chua_giao = len(df_aging)
+        chua_lay = len(df_treo[df_treo['Loại đơn'] == 'Luân chuyển giao'])
+        chua_tra = len(df_treo[df_treo['Loại đơn'] == 'Luân chuyển trả'])
+        backlog_total = chua_giao + chua_lay + chua_tra
+        
+        today_gtc_po = df_gtc[df_gtc['Time'] == latest_date].copy()
+        today_gtc_po['% GTC'] = (today_gtc_po['delivered_vol'] / today_gtc_po['Volume'] * 100).fillna(0)
+        worst_gtc_po = today_gtc_po[today_gtc_po['Volume'] >= 10].sort_values(by='% GTC').head(3)
+        
+        today_ltc_po = df_ltc[df_ltc['Time'] == latest_date].copy()
+        today_ltc_po['% LTC'] = (today_ltc_po['ltc_vol'] / today_ltc_po['Volume'] * 100).fillna(0)
+        worst_ltc_po = today_ltc_po[today_ltc_po['Volume'] >= 10].sort_values(by='% LTC').head(3)
+        
+        worst_gtc_list = []
+        for _, r in worst_gtc_po.iterrows():
+            worst_gtc_list.append({
+                'name': r.get('Chi tiết', 'N/A'),
+                'province': r.get('mapped_prov', 'N/A'),
+                'vol': int(r.get('Volume', 0)),
+                'pct': float(r.get('% GTC', 0.0))
+            })
+            
+        worst_ltc_list = []
+        for _, r in worst_ltc_po.iterrows():
+            worst_ltc_list.append({
+                'name': r.get('Chi tiết', 'N/A'),
+                'province': r.get('mapped_prov', 'N/A'),
+                'vol': int(r.get('Volume', 0)),
+                'pct': float(r.get('% LTC', 0.0))
+            })
+            
+        spikes = get_spiking_post_offices()
+        
+        return {
+            'date': latest_date,
+            'today': today_kpi,
+            'n3': n3_kpi,
+            'lw': lw_kpi,
+            'backlog': {
+                'total': backlog_total,
+                'chua_giao': chua_giao,
+                'chua_lay': chua_lay,
+                'chua_tra': chua_tra
+            },
+            'worst_gtc': worst_gtc_list,
+            'worst_ltc': worst_ltc_list,
+            'spikes': spikes[:5]
+        }
+    except Exception as e:
+        print(f"Error in get_overall_metrics_summary: {e}")
+        return None
+
+@app.route('/api/send-telegram-ai-briefing', methods=['POST'])
+@requires_permission('tab-volume-creation')

@@ -1,0 +1,34 @@
+Available columns: ['Date', 'Vùng', 'Tỉnh', 'Quận/Huyện', 'Phường/Xã', 'Bưu cục', 'Khách hàng', 'Volume', 'Khối lượng', 'warehouse_id', 'bat_on', 'province_name']
+
+Unique post offices matching 'Phú Thủy':
+['(BTH) Phú Thủy']
+
+Daily volumes for Phú Thủy post offices:
+Bưu cục     (BTH) Phú Thủy
+Date                      
+2026-06-25             949
+2026-06-26            1284
+2026-06-27            1303
+2026-06-28             847
+2026-06-29            1521
+2026-06-30            1247
+2026-07-01            1296
+2026-07-02            1303
+2026-07-03            1262
+2026-07-04            1224
+2026-07-05             809
+2026-07-06            1471
+2026-07-07            1584
+2026-07-08            1759
+2026-07-09             681
+2026-07-10            1223
+2026-07-11            1404
+2026-07-12             778
+2026-07-13            1457
+2026-07-14            1220
+
+Latest date in dataset: 2026-07-14
+
+Computed growth (D vs D-7) for Phú Thủy:
+           Bưu cục  Volume_d  Volume_d7  growth_abs
+11  (BTH) Phú Thủy      1220     1584.0      -364.0

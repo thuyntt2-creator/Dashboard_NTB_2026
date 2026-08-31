@@ -1,0 +1,49 @@
+--- OPR TTS sheet in downloaded_user_sheet.xlsx ---
+Shape: (5010, 13)
+Columns: ['tutinh', 'kholay', 'NgayLTC', 'khung_gio_tao_don', 'ly_do_tre_12h', 'sellername', 'vol_ltc', 'tuan', 'vung', 'ot', 'Tuần', 'AM', 'Khung giờ']
+Describe:
+          tutinh                                     kholay                        NgayLTC khung_gio_tao_don ly_do_tre_12h     sellername      vol_ltc         tuan  vung           ot  Tuần   AM        Khung giờ
+count       5010                                       5010                           5010              5010          5010           5010  5010.000000  5010.000000  5010  5010.000000  5010  0.0             5010
+unique         5                                         72                            NaN                 3             5            508          NaN          NaN     1          NaN     2  NaN                2
+top     Lâm Đồng  Bưu Cục 195 Đường 2/4-Nha Trang-Khánh Hòa                            NaN   2.Tạo từ 9h-19h  0.Ontime OPR  YODY Official          NaN          NaN   NTB          NaN   W24  NaN  1.Tạo từ 9h-19h
+freq        1621                                        362                            NaN              2918          3491             72          NaN          NaN  5010          NaN  2509  NaN             2918
+mean         NaN                                        NaN  2026-06-07 08:25:34.850299392               NaN           NaN            NaN    10.124750    23.616966   NaN     8.753892   NaN  NaN              NaN
+min          NaN                                        NaN            2026-06-01 00:00:00               NaN           NaN            NaN     1.000000    23.000000   NaN     0.000000   NaN  NaN              NaN
+25%          NaN                                        NaN            2026-06-04 00:00:00               NaN           NaN            NaN     1.000000    23.000000   NaN     0.000000   NaN  NaN              NaN
+50%          NaN                                        NaN            2026-06-08 00:00:00               NaN           NaN            NaN     2.000000    24.000000   NaN     1.000000   NaN  NaN              NaN
+75%          NaN                                        NaN            2026-06-11 00:00:00               NaN           NaN            NaN     7.000000    24.000000   NaN     5.000000   NaN  NaN              NaN
+max          NaN                                        NaN            2026-06-14 00:00:00               NaN           NaN            NaN   923.000000    25.000000   NaN   923.000000   NaN  NaN              NaN
+std          NaN                                        NaN                            NaN               NaN           NaN            NaN    34.741986     0.590731   NaN    34.009263   NaN  NaN              NaN
+Sample data:
+       tutinh                                             kholay    NgayLTC khung_gio_tao_don          ly_do_tre_12h                        sellername  vol_ltc  tuan vung  ot Tuần  AM        Khung giờ
+0  Ninh Thuận         Bưu Cục 95 Thống Nhất-Phan Rang-Ninh Thuận 2026-06-01   2.Tạo từ 9h-19h           0.Ontime OPR                          FRM NUTS       14    23  NTB  14  W23 NaN  1.Tạo từ 9h-19h
+1  Bình Thuận          Bưu Cục Số 7 Lê Thánh Tôn-LaGi-Bình Thuận 2026-06-01   2.Tạo từ 9h-19h           0.Ontime OPR                  TUAN LE CLOTHING       12    23  NTB  12  W23 NaN  1.Tạo từ 9h-19h
+2  Bình Thuận        Bưu Cục 158 Quốc lộ 55-Tánh Linh-Bình Thuận 2026-06-01    1.Tạo trước 9h           0.Ontime OPR             phụ tùng Lê Trung.        1    23  NTB   1  W23 NaN  2.Tạo từ 19h-9h
+3    Lâm Đồng             Bưu cục Ngô Thỳ Sỹ - Đà Lạt - Lâm Đồng 2026-06-01     3.Tạo sau 19h                 4.Khác          ĐẶC SẢN XỨ ĐÀ LẠT        1    23  NTB   0  W23 NaN  2.Tạo từ 19h-9h
+4    Lâm Đồng       Bưu Cục Cao Bá Quát-Phường 7-Đà Lạt-Lâm Đồng 2026-06-01     3.Tạo sau 19h                 4.Khác                     YODY Official        2    23  NTB   0  W23 NaN  2.Tạo từ 19h-9h
+5   Khánh Hòa  Bưu Cục Thôn Long Hoà-Vạn Long-Vạn Ninh-Khánh Hoà 2026-06-01   2.Tạo từ 9h-19h        2.Khách hẹn lại  Tạp Hóa Nhà Nông Anh Nguyên        3    23  NTB   0  W23 NaN  1.Tạo từ 9h-19h
+6    Lâm Đồng                          Bưu Cục Đạ Huoai-Lâm Đồng 2026-06-01   2.Tạo từ 9h-19h           0.Ontime OPR                 ĐỒ ĐI RỪNG 49        3    23  NTB   3  W23 NaN  1.Tạo từ 9h-19h
+7    Lâm Đồng                          Bưu Cục Đạ Huoai-Lâm Đồng 2026-06-01     3.Tạo sau 19h           0.Ontime OPR                      Hongthu.shop        2    23  NTB   2  W23 NaN  2.Tạo từ 19h-9h
+8   Khánh Hòa     Bưu Cục Đường Tỉnh Lộ 10-Xã Diên Thọ-Khánh Hòa 2026-06-01   2.Tạo từ 9h-19h        2.Khách hẹn lại     Riu Lab - Xưởng Gỗ Decor        1    23  NTB   0  W23 NaN  1.Tạo từ 9h-19h
+9    Lâm Đồng                          Bưu Cục Đạ Huoai-Lâm Đồng 2026-06-01   2.Tạo từ 9h-19h  3.Không liên lạc được               Văn Thức Shop 49        2    23  NTB   0  W23 NaN  1.Tạo từ 9h-19h
+
+--- data rớt LC details ---
+Unique values of Tuần: ['Tuần 24', 'Tuần 21', 'Tuần 23', 'Tuần 22', 'Tuần 20']
+Unique values of AM: []
+Number of rows where Vol rớt LC > 0: 0
+Unique values of %_rot_lc (sample of 20): ['0.0%', '0.2%', '0.3%', '79.1%', '1.8%', '33.3%', '47.1%', '5.9%', '7.7%', '8.3%', '20.0%', '30.0%', '11.1%', '100.0%', '28.6%', '16.7%', '50.0%', '1.9%', '1.2%', '36.4%']
+Sum of Vol cần LC: 95575
+Sum of Vol rớt LC (original): 0
+Sum of calculated_vol_rot: 2201.678
+Sample calculated differences:
+                                                   Chi tiết  Vol cần LC %_rot_lc  Vol rớt LC  calculated_vol_rot
+2         Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông         416     0.2%           0               0.832
+3         Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông         377     0.3%           0               1.131
+6         Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông         287    79.1%           0             227.017
+25                     Bưu Cục Quảng Sơn-Đắk Glong-Đắk Nông          57     1.8%           0               1.026
+40  Bưu Cục 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông          21    33.3%           0               6.993
+50  Bưu Cục 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông          17    47.1%           0               8.007
+52               Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông          17     5.9%           0               1.003
+68                                 Bưu Cục Đắk Mil-Đắk Nông          13     7.7%           0               1.001
+71  Bưu Cục 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông          12     8.3%           0               0.996
+86                                 Bưu Cục Đắk Mil-Đắk Nông          10    20.0%           0               2.000

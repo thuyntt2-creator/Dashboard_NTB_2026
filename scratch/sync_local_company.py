@@ -110,7 +110,8 @@ sheet_mappings = [
 
 import time
 
-downloaded_count = 0
+# Resolve target CSVs to GIDs
+gid_to_targets = {}
 for candidates, target_csv in sheet_mappings:
     matched_gid = None
     for cand in candidates:
@@ -119,25 +120,37 @@ for candidates, target_csv in sheet_mappings:
             matched_gid = gid_map[cand_clean]
             break
     if matched_gid:
-        csv_url = f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/export?format=csv&gid={matched_gid}"
-        for retry in range(4):
-            try:
-                time.sleep(1.5)
-                r_csv = requests.get(csv_url, headers=headers, timeout=90)
-                if r_csv.status_code == 200 and len(r_csv.content) > 10:
-                    with open(target_csv, 'wb') as f_out:
-                        f_out.write(r_csv.content)
-                    downloaded_count += 1
-                    print(f"Downloaded {target_csv} ({len(r_csv.content)} bytes)", flush=True)
-                    break
-                elif r_csv.status_code == 429:
-                    print(f"Rate limited (429) for {target_csv}, waiting {5 * (retry + 1)}s...", flush=True)
-                    time.sleep(5 * (retry + 1))
-                else:
-                    print(f"Failed {target_csv}: HTTP {r_csv.status_code}", flush=True)
-                    break
-            except Exception as e:
-                print(f"Error downloading {target_csv} (retry {retry+1}): {e}", flush=True)
-                time.sleep(3)
+        if matched_gid not in gid_to_targets:
+            gid_to_targets[matched_gid] = []
+        gid_to_targets[matched_gid].append(target_csv)
+
+downloaded_count = 0
+for matched_gid, target_csvs in gid_to_targets.items():
+    csv_url = f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/export?format=csv&gid={matched_gid}"
+    content = None
+    for retry in range(4):
+        try:
+            time.sleep(1.5)
+            r_csv = requests.get(csv_url, headers=headers, timeout=90)
+            if r_csv.status_code == 200 and len(r_csv.content) > 10:
+                content = r_csv.content
+                break
+            elif r_csv.status_code == 429:
+                print(f"Rate limited (429) for GID {matched_gid} ({target_csvs[0]}), waiting {5 * (retry + 1)}s...", flush=True)
+                time.sleep(5 * (retry + 1))
+            else:
+                print(f"Failed GID {matched_gid} ({target_csvs[0]}): HTTP {r_csv.status_code}", flush=True)
+                break
+        except Exception as e:
+            print(f"Error downloading GID {matched_gid} (retry {retry+1}): {e}", flush=True)
+            time.sleep(3)
+
+    if content:
+        for target_csv in target_csvs:
+            with open(target_csv, 'wb') as f_out:
+                f_out.write(content)
+            downloaded_count += 1
+            print(f"Downloaded {target_csv} ({len(content)} bytes)", flush=True)
 
 print(f"\nCOMPLETED LOCAL SYNC! Downloaded {downloaded_count} CSV files.", flush=True)
+

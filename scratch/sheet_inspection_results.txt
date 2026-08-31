@@ -1,0 +1,55 @@
+DataFrame Shape: (963, 9)
+Columns: ['Cấp Quản Lý', 'Chi tiết', 'Loại Hàng', 'Time', 'Volume', '% Gán', '% GTC', '% Chuyển trả', 'Leadtime']
+
+First 50 rows:
+       Cấp Quản Lý                                    Chi tiết      Loại Hàng     Time   Volume    % Gán    % GTC % Chuyển trả Leadtime
+0   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026/23    1.008   97,92%   78,08%        0,89%     6,38
+1   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026/21    1.026   94,64%   78,27%        1,27%     6,61
+2   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026/22  969.000   96,49%   79,46%        1,14%     5,97
+3   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026/24    1.202   87,60%   70,38%        0,58%     8,50
+4   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 2  2026/23  927.000   16,07%   13,70%        0,11%     4,03
+5   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 2  2026/21  888.000    8,90%    7,55%        0,11%     3,34
+6   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 2  2026/22  936.000   15,92%   12,39%        0,00%     2,71
+7   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 2  2026/24  985.000   14,31%   11,37%        0,10%     4,70
+8   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông       Hàng Tồn  2026/22    1.455   92,85%   59,66%        4,33%    33,14
+9   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông       Hàng Tồn  2026/24    1.959   86,47%   57,99%        3,11%    35,30
+10  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông       Hàng Tồn  2026/23    1.326   95,93%   66,52%        3,70%    30,54
+11  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông       Hàng Tồn  2026/21    1.618   90,17%   61,00%        3,21%    35,74
+12  NTB - Đắk Nông                         BC Đắk Mil-Đắk Nông  Hàng Mới Ca 1  2026/22    6.998   99,63%   79,85%        1,07%    13,34
+13  NTB - Đắk Nông                         BC Đắk Mil-Đắk Nông  Hàng Mới Ca 1  2026/23    7.144   99,83%   80,42%        1,19%    13,60
+14  NTB - Đắk Nông                         BC Đắk Mil-Đắk Nông  Hàng Mới Ca 1  2026/21    6.875   99,74%   82,33%        1,40%    13,90
+15  NTB - Đắk Nông                         BC Đắk Mil-Đắk Nông  Hàng Mới Ca 1  2026/24    7.124   99,62%   82,20%        1,04%    12,42
+16  NTB - Đắk Nông                         BC Đắk Mil-Đắk Nông  Hàng Mới Ca 2  2026/24  330.000   10,91%    9,09%        0,91%     3,80
+17  NTB - Đắk Nông                         BC Đắk Mil-Đắk Nông  Hàng Mới Ca 2  2026/21  255.000   99,22%   80,78%        1,96%     4,83
+18  NTB - Đắk Nông                         BC Đắk Mil-Đắk Nông  Hàng Mới Ca 2  2026/23    1.000    0,00%    0,00%        0,00%        -
+19  NTB - Đắk Nông                         BC Đắk Mil-Đắk Nông  Hàng Mới Ca 2  2026/22    3.000    0,00%    0,00%        0,00%        -
+20  NTB - Đắk Nông                         BC Đắk Mil-Đắk Nông       Hàng Tồn  2026/23    2.188   98,13%   44,06%        6,86%    48,92
+21  NTB - Đắk Nông                         BC Đắk Mil-Đắk Nông       Hàng Tồn  2026/24    2.405   99,25%   51,60%        6,86%    41,16
+22  NTB - Đắk Nông                         BC Đắk Mil-Đắk Nông       Hàng Tồn  2026/22    2.225   98,79%   41,08%        7,19%    47,14
+23  NTB - Đắk Nông                         BC Đắk Mil-Đắk Nông       Hàng Tồn  2026/21    1.913   98,33%   44,85%        7,06%    48,09
+24  NTB - Đắk Nông             BC Thôn 2-Xã Quảng Tín-Đắk Nông  Hàng Mới Ca 1  2026/22    2.224   70,41%   53,91%        0,58%    15,41
+25  NTB - Đắk Nông             BC Thôn 2-Xã Quảng Tín-Đắk Nông  Hàng Mới Ca 1  2026/24    2.231   77,45%   58,81%        0,18%    16,68
+26  NTB - Đắk Nông             BC Thôn 2-Xã Quảng Tín-Đắk Nông  Hàng Mới Ca 1  2026/23    2.164   61,69%   47,55%        0,18%    17,06
+27  NTB - Đắk Nông             BC Thôn 2-Xã Quảng Tín-Đắk Nông  Hàng Mới Ca 1  2026/21    2.085   89,40%   67,53%        0,19%    15,67
+28  NTB - Đắk Nông             BC Thôn 2-Xã Quảng Tín-Đắk Nông  Hàng Mới Ca 2  2026/23    1.000  100,00%    0,00%      100,00%        -
+29  NTB - Đắk Nông             BC Thôn 2-Xã Quảng Tín-Đắk Nông  Hàng Mới Ca 2  2026/22    1.000    0,00%    0,00%        0,00%        -
+30  NTB - Đắk Nông             BC Thôn 2-Xã Quảng Tín-Đắk Nông  Hàng Mới Ca 2  2026/21    2.000   50,00%   50,00%        0,00%     9,00
+31  NTB - Đắk Nông             BC Thôn 2-Xã Quảng Tín-Đắk Nông  Hàng Mới Ca 2  2026/24    1.000  100,00%  100,00%        0,00%     2,00
+32  NTB - Đắk Nông             BC Thôn 2-Xã Quảng Tín-Đắk Nông       Hàng Tồn  2026/23    3.255   60,77%   35,48%        1,54%    72,38
+33  NTB - Đắk Nông             BC Thôn 2-Xã Quảng Tín-Đắk Nông       Hàng Tồn  2026/22    2.075   54,02%   25,20%        2,17%    59,54
+34  NTB - Đắk Nông             BC Thôn 2-Xã Quảng Tín-Đắk Nông       Hàng Tồn  2026/21    1.393   89,52%   48,38%        3,37%    49,71
+35  NTB - Đắk Nông             BC Thôn 2-Xã Quảng Tín-Đắk Nông       Hàng Tồn  2026/24    2.358   76,84%   35,07%        3,35%    69,22
+36  NTB - Đắk Nông                  BC Thôn 2-Tuy Đức-Đắk Nông  Hàng Mới Ca 1  2026/22    2.155   81,48%   53,69%        1,53%    14,01
+37  NTB - Đắk Nông                  BC Thôn 2-Tuy Đức-Đắk Nông  Hàng Mới Ca 1  2026/24    2.367   92,61%   66,33%        1,01%    14,76
+38  NTB - Đắk Nông                  BC Thôn 2-Tuy Đức-Đắk Nông  Hàng Mới Ca 1  2026/23    2.123   88,46%   68,11%        1,22%    13,92
+39  NTB - Đắk Nông                  BC Thôn 2-Tuy Đức-Đắk Nông  Hàng Mới Ca 1  2026/21    2.193   93,62%   69,63%        1,09%    13,89
+40  NTB - Đắk Nông                  BC Thôn 2-Tuy Đức-Đắk Nông  Hàng Mới Ca 2  2026/23  228.000    6,58%    4,39%        0,00%     2,90
+41  NTB - Đắk Nông                  BC Thôn 2-Tuy Đức-Đắk Nông  Hàng Mới Ca 2  2026/22  159.000    1,26%    1,26%        0,00%     2,50
+42  NTB - Đắk Nông                  BC Thôn 2-Tuy Đức-Đắk Nông       Hàng Tồn  2026/22    1.941   88,97%   44,26%        5,62%    48,84
+43  NTB - Đắk Nông                  BC Thôn 2-Tuy Đức-Đắk Nông       Hàng Tồn  2026/24    1.489   88,99%   44,39%        6,72%    52,88
+44  NTB - Đắk Nông                  BC Thôn 2-Tuy Đức-Đắk Nông       Hàng Tồn  2026/23    1.566   87,42%   43,49%        6,58%    47,33
+45  NTB - Đắk Nông                  BC Thôn 2-Tuy Đức-Đắk Nông       Hàng Tồn  2026/21    1.232   89,29%   40,10%        8,52%    53,41
+46  NTB - Đắk Nông      BC Quốc Lộ 14-Đức An-Đắk Song-Đăk Nông  Hàng Mới Ca 1  2026/24    3.537   96,10%   72,97%        1,70%    13,16
+47  NTB - Đắk Nông      BC Quốc Lộ 14-Đức An-Đắk Song-Đăk Nông  Hàng Mới Ca 1  2026/22    3.117   99,65%   79,11%        2,02%    13,80
+48  NTB - Đắk Nông      BC Quốc Lộ 14-Đức An-Đắk Song-Đăk Nông  Hàng Mới Ca 1  2026/21    3.123   99,74%   79,51%        1,99%    14,22
+49  NTB - Đắk Nông      BC Quốc Lộ 14-Đức An-Đắk Song-Đăk Nông  Hàng Mới Ca 1  2026/23    3.282   94,24%   72,03%        1,52%    13,63

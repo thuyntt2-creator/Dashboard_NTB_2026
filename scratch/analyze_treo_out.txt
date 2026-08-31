@@ -1,0 +1,188 @@
+=== ANALYSIS OF TREO STUCK ===
+Shape: (5009, 7)
+Columns: ['Mã bưu cục', 'Mã đơn hàng', 'Loại đơn', 'Khách hàng', 'Trạng thái', 'Thời gian tồn đọng', 'warehouse_name']
+
+--- Backlog by Warehouse Name ---
+Loại đơn                                                warehouse_name  Luân chuyển giao  Luân chuyển trả  Total
+29                       Bưu Cục 56 Phan Đình Phùng-Cam Linh-Khánh Hòa                36              257    293
+79            Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng               216                1    217
+37                        Bưu Cục Cao Bá Quát-Phường 7-Đà Lạt-Lâm Đồng               134               66    200
+55                   Bưu Cục TDP Nghĩa Đức-Thạnh Mỹ-Đơn Dương-Lâm Đồng                67              100    167
+2                             Bưu Cục 1322 Hùng Vương-Di Linh-Lâm Đồng                66               85    151
+36                                Bưu Cục 95A Đội Cấn-Bảo Lộc-Lâm Đồng               105               31    136
+61                    Bưu Cục Thôn Phúc Hưng-Xã Tân Hà Lâm Hà-Lâm Đồng                32              100    132
+6                            Bưu Cục 195 Đường 2/4-Nha Trang-Khánh Hòa                16              101    117
+51                            Bưu Cục Quốc Lộ 1A-Ninh Phước-Ninh Thuận                23               94    117
+35                          Bưu Cục 95 Thống Nhất-Phan Rang-Ninh Thuận                38               78    116
+1                      Bưu Cục 06 Lê Hồng Phong-TP.Nha Trang-Khánh Hòa                40               75    115
+0                       Bưu Cục 01 Nguyễn Tất Thành-Đắk R lấp-Đắk Nông                80               32    112
+40                                Bưu Cục Langbiang-Lạc Dương-Lâm Đồng                51               54    105
+25                         Bưu Cục 466 Đường 23/10-Nha Trang-Khánh Hòa                18               78     96
+26                Bưu Cục 468 Quốc Lộ 20-Liên Nghĩa-Đức Trọng-Lâm Đồng                28               63     91
+78                                    Bưu cục Đinh Văn-Lâm Hà-Lâm Đồng                35               51     86
+75                              Bưu cục DT707-Hàm Thuận Nam-Bình Thuận                44               41     85
+3                          Bưu Cục 158 Quốc lộ 55-Tánh Linh-Bình Thuận                40               40     80
+52               Bưu Cục Số 6 Trương Văn Hoàn-Phường 9-Đà Lạt-Lâm Đồng                15               63     78
+20                              Bưu Cục 42 Nguyễn Du-Cam Lâm-Khánh Hoà                39               39     78
+72                                            Bưu Cục Đắk Mil-Đắk Nông                 5               68     73
+16                          Bưu Cục 39 Hùng Vương-Diên Khánh-Khánh Hòa                16               56     72
+62                         Bưu Cục Thôn R'Chai 2-Xã Đức Trọng-Lâm Đồng                20               50     70
+70                                           Bưu Cục Đạ Huoai-Lâm Đồng                56               11     67
+77                    Bưu cục Thị Trấn Liên Hương-Tuy Phong-Bình Thuận                28               38     66
+9                              Bưu Cục 231 Thôn 1-Xã Hòa Ninh-Lâm Đồng                15               51     66
+39                   Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông                12               53     65
+76                                  Bưu cục Ngô Thỳ Sỹ-Đà Lạt-Lâm Đồng                18               47     65
+44                               Bưu Cục Phú Tài-Phan Thiết-Bình Thuận                29               36     65
+71                                   Bưu Cục Đạ Rsal-Đam Rông-Lâm Đồng                22               40     62
+19                 Bưu Cục 412 Nguyễn Văn Cừ-Lộc Phát-Bảo Lộc-Lâm Đồng                46               13     59
+8                       Bưu Cục 229 Phước Long-Nam Nha Trang-Khánh Hòa                 9               48     57
+11        Bưu Cục 254A Đường 21 tháng 8-Phan Rang-Tháp Chàm-Ninh Thuận                14               39     53
+45                             Bưu Cục Phước Minh-Thuận Nam-Ninh Thuận                29               24     53
+43                              Bưu Cục Phú Thủy-Phan Thiết-Bình Thuận                17               36     53
+59                   Bưu Cục Thôn Long Hoà-Vạn Long-Vạn Ninh-Khánh Hoà                 3               50     53
+38                           Bưu Cục Hàm Liêm-Hàm Thuận Bắc-Bình Thuận                18               33     51
+65                             Bưu Cục Tổ Dân Phố 2-Ninh Hoà-Khánh Hoà                 6               43     49
+12                             Bưu Cục 26A Lê Duẩn-Ninh Sơn-Ninh Thuận                15               34     49
+24                            Bưu Cục 46 Hùng Vương-Hàm Tân-Bình Thuận                11               37     48
+57                                Bưu Cục Thôn 2-Xã Quảng Tín-Đắk Nông                 9               38     47
+60                   Bưu Cục Thôn Phú An Nam 2-Xã Diên Khánh-Khánh Hòa                19               27     46
+48                                Bưu Cục Quảng Khê-Đắk Glong-Đắk Nông                10               36     46
+22                       Bưu Cục 44B Nguyễn Đình Chiểu-Đạ Teh-Lâm Đồng                46                0     46
+30              Bưu Cục 571 Hùng Vương-Cam Nghĩa-TP.Cam Ranh-Khánh Hoà                10               35     45
+10                    Bưu Cục 237 Nguyễn Tất Thành-Bắc Bình-Bình Thuận                26               19     45
+33               Bưu Cục 70 Lê Hồng Phong-Ninh Diêm-Ninh Hoà-Khánh Hoà                 4               41     45
+69                      Bưu Cục Đường Tỉnh Lộ 10-Xã Diên Thọ-Khánh Hòa                 5               39     44
+42                                Bưu Cục Nâm N'Jang-Đắk Song-Đắk Nông                 8               35     43
+64                  Bưu Cục Tổ 5 Đường Ngô Gia Tự-Khánh Vĩnh-Khánh Hòa                 8               33     41
+73                     Bưu cục 1479 Trần Phú-Lộc Châu-Bảo Lộc-Lâm Đồng                17               23     40
+54                                 Bưu Cục TDP Ba Đình-Lâm Hà-Lâm Đồng                15               24     39
+67              Bưu Cục Đường 35 Hà Quang 1-Xã Nam Nha Trang-Khánh Hòa                 6               33     39
+47                            Bưu Cục QL20 Ninh Hòa-Đức Trọng-Lâm Đồng                12               27     39
+4                    Bưu Cục 16 Huỳnh Thúc Kháng-Phan Thiết-Bình Thuận                 5               33     38
+18                            Bưu Cục 40A Yết Kiêu-Nha Trang-Khánh Hòa                 2               36     38
+21         Bưu Cục 430 Tôn Đức Thắng-Tân Phước-Thị xã La Gi-Bình Thuận                 9               28     37
+58                              Bưu Cục Thôn Dầu Sơn-Cam Lâm-Khánh Hoà                 8               28     36
+56                                     Bưu Cục Thôn 2-Tuy Đức-Đắk Nông                 1               35     36
+15                              Bưu Cục 36 Bà Triệu-Vạn Ninh-Khánh Hoà                 5               30     35
+5         Bưu Cục 190/11 Phù Đổng Thiên Vương-Phường 8-Đà Lạt-Lâm Đồng                10               24     34
+17                          Bưu Cục 40 Nguyễn Văn Linh-Cư Jút-Đắk Nông                 5               29     34
+14                   Bưu Cục 337 Hùng Vương-Lộc Thắng-Bảo Lâm-Lâm Đồng                 5               28     33
+53                           Bưu Cục Số 7 Lê Thánh Tôn-LaGi-Bình Thuận                17               12     29
+34                       Bưu Cục 73 Nguyễn Tất Thành-Krông Nô-Đắk Nông                 4               24     28
+32                Bưu Cục 585 Nguyễn Tất Thành-Xã Lương Sơn-Bình Thuận                 5               21     26
+46                              Bưu Cục Phước Đồng-Nha Trang-Khánh Hoà                 4               22     26
+63                          Bưu Cục Thôn Xuân Hoà 1-Ninh Hoà-Khánh Hoà                 3               21     24
+80                          Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông                 4               20     24
+27                      Bưu Cục 51 Phạm Ngọc Thạch-Ninh Hải-Ninh Thuận                 1               22     23
+28             Bưu Cục 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông                 1               21     22
+13                                Bưu Cục 300 Tự Phước-Đà Lạt-Lâm Đồng                10               11     21
+7                   Bưu Cục 21 Trần Hưng Đạo-Xã Phan Rí Cửa-Bình Thuận                 4               15     19
+41                  Bưu Cục Lê Hồng Phong-Liên Hiệp-Đức Trọng-Lâm Đồng                 4               12     16
+68                             Bưu Cục Đường Trần Lê-Cát Tiên-Lâm Đồng                 5                8     13
+74                   Bưu cục 47 Trần Hưng Đạo-Hàm Thuận Nam-Bình Thuận                 2                9     11
+50                         Bưu Cục Quốc Lộ 14-Đức An-Đắk Song-Đăk Nông                 2                7      9
+23              Bưu Cục 454 Võ Văn Kiệt-Đặc Khu Đảo Phú Quý-Bình Thuận                 2                5      7
+31                      Bưu Cục 575 Quốc Lộ 28-Xã Hàm Thuận-Bình Thuận                 3                4      7
+49                                Bưu Cục Quảng Sơn-Đắk Glong-Đắk Nông                 0                6      6
+66                            Bưu Cục Xã Nam Chính-Đức Linh-Bình Thuận                 3                1      4
+
+--- Backlog by Warehouse Name (KTCs/Sort Centers) ---
+
+Warehouse matching 'Khánh Hòa' has 958 treo orders:
+Loại đơn          Thời gian tồn đọng
+Luân chuyển giao  0_6                    78
+                  12_24                  84
+                  24_36                   5
+                  36_48                   4
+                  48_72                   2
+                  6_12                    1
+                  96_120                  1
+Luân chuyển trả   0_6                    19
+                  12_24                 275
+                  192                     3
+                  24_36                  21
+                  36_48                  39
+                  48_72                  31
+                  6_12                  388
+                  72_96                   6
+                  96_120                  1
+Status breakdown:
+Trạng thái
+Chưa đóng kiện         808
+Không cần đóng kiện    107
+Đã đóng kiện            43
+
+Warehouse matching 'Đức Trọng' has 216 treo orders:
+Loại đơn          Thời gian tồn đọng
+Luân chuyển giao  0_6                   16
+                  12_24                 45
+                  36_48                  3
+Luân chuyển trả   0_6                    3
+                  12_24                 53
+                  24_36                  8
+                  36_48                 19
+                  48_72                  4
+                  6_12                  65
+Status breakdown:
+Trạng thái
+Chưa đóng kiện         193
+Không cần đóng kiện     22
+Đã đóng kiện             1
+
+Warehouse matching 'Đắk Nông' has 536 treo orders:
+Loại đơn          Thời gian tồn đọng
+Luân chuyển giao  0_6                    30
+                  120_192                 1
+                  12_24                  55
+                  24_36                   2
+                  36_48                   1
+                  48_72                   3
+                  6_12                   46
+                  96_120                  1
+Luân chuyển trả   0_6                    29
+                  12_24                 134
+                  192                     3
+                  24_36                  13
+                  36_48                  12
+                  48_72                   7
+                  6_12                  197
+                  72_96                   2
+Status breakdown:
+Trạng thái
+Chưa đóng kiện         478
+Không cần đóng kiện     58
+
+Warehouse matching 'Bình Thuận' has 671 treo orders:
+Loại đơn          Thời gian tồn đọng
+Luân chuyển giao  0_6                   233
+                  12_24                  22
+                  24_36                   2
+                  36_48                   2
+                  48_72                   2
+                  6_12                    1
+                  72_96                   1
+Luân chuyển trả   0_6                    21
+                  120_192                 1
+                  12_24                 158
+                  24_36                   1
+                  36_48                   4
+                  6_12                  223
+Status breakdown:
+Trạng thái
+Chưa đóng kiện         538
+Không cần đóng kiện     82
+Đã đóng kiện            51
+
+Warehouse matching 'Bảo Lộc' has 235 treo orders:
+Loại đơn          Thời gian tồn đọng
+Luân chuyển giao  0_6                   154
+                  12_24                  12
+                  24_36                   2
+Luân chuyển trả   0_6                     5
+                  12_24                  13
+                  6_12                   49
+Status breakdown:
+Trạng thái
+Chưa đóng kiện         169
+Không cần đóng kiện     49
+Đã đóng kiện            17

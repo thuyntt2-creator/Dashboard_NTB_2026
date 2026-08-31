@@ -1,0 +1,4106 @@
+{
+    "summary_dashboard": {
+        "all_dates": [
+            "2026-06-13 - Thứ 7",
+            "2026-06-12 - Thứ 6",
+            "2026-06-11 - Thứ 5",
+            "2026-06-10 - Thứ 4",
+            "2026-06-09 - Thứ 3",
+            "2026-06-08 - Thứ 2",
+            "2026-06-07 - Chủ Nhật",
+            "2026-06-06 - Thứ 7",
+            "2026-06-05 - Thứ 6",
+            "2026-06-04 - Thứ 5",
+            "2026-06-03 - Thứ 4",
+            "2026-06-02 - Thứ 3",
+            "2026-06-01 - Thứ 2",
+            "2026-05-31 - Chủ Nhật",
+            "2026-05-30 - Thứ 7",
+            "2026-05-29 - Thứ 6",
+            "2026-05-28 - Thứ 5",
+            "2026-05-27 - Thứ 4",
+            "2026-05-26 - Thứ 3",
+            "2026-05-25 - Thứ 2",
+            "2026-05-24 - Chủ Nhật",
+            "2026-05-23 - Thứ 7",
+            "2026-05-22 - Thứ 6",
+            "2026-05-21 - Thứ 5",
+            "2026-05-20 - Thứ 4",
+            "2026-05-19 - Thứ 3",
+            "2026-05-18 - Thứ 2",
+            "2026-05-17 - Chủ Nhật"
+        ],
+        "backlog_by_am": [
+            {
+                "am": "Huỳnh Thị Kim Chi",
+                "chua_giao": 422,
+                "chua_lay": 11,
+                "chua_tra": 35
+            },
+            {
+                "am": "Huỳnh Tấn Hiển",
+                "chua_giao": 6,
+                "chua_lay": 1,
+                "chua_tra": 2
+            },
+            {
+                "am": "Hồng Bích Nga",
+                "chua_giao": 108,
+                "chua_lay": 3,
+                "chua_tra": 8
+            },
+            {
+                "am": "Không xác định",
+                "chua_giao": 4,
+                "chua_lay": 0,
+                "chua_tra": 0
+            },
+            {
+                "am": "Lê Minh Đại",
+                "chua_giao": 153,
+                "chua_lay": 16,
+                "chua_tra": 27
+            },
+            {
+                "am": "Lê Thanh Nhựt",
+                "chua_giao": 5,
+                "chua_lay": 0,
+                "chua_tra": 0
+            },
+            {
+                "am": "Lê Văn Trường",
+                "chua_giao": 10,
+                "chua_lay": 5,
+                "chua_tra": 5
+            },
+            {
+                "am": "Nguyễn Thanh Long",
+                "chua_giao": 15,
+                "chua_lay": 6,
+                "chua_tra": 3
+            },
+            {
+                "am": "Nguyễn Duy Long",
+                "chua_giao": 44,
+                "chua_lay": 5,
+                "chua_tra": 9
+            },
+            {
+                "am": "Nguyễn Hoàng Phi",
+                "chua_giao": 12,
+                "chua_lay": 1,
+                "chua_tra": 2
+            },
+            {
+                "am": "Nguyễn Lê Nguyên Vũ",
+                "chua_giao": 1,
+                "chua_lay": 0,
+                "chua_tra": 0
+            },
+            {
+                "am": "Nguyễn Ngọc Khánh",
+                "chua_giao": 15,
+                "chua_lay": 2,
+                "chua_tra": 4
+            },
+            {
+                "am": "Phan Đình Duy",
+                "chua_giao": 7,
+                "chua_lay": 0,
+                "chua_tra": 6
+            },
+            {
+                "am": "Phạm Bá Thành Công",
+                "chua_giao": 15,
+                "chua_lay": 1,
+                "chua_tra": 13
+            },
+            {
+                "am": "Thái Thị Thanh Thư",
+                "chua_giao": 352,
+                "chua_lay": 5,
+                "chua_tra": 62
+            },
+            {
+                "am": "Trầm Hữu Tiến",
+                "chua_giao": 159,
+                "chua_lay": 4,
+                "chua_tra": 33
+            },
+            {
+                "am": "Trần Công Hậu",
+                "chua_giao": 7,
+                "chua_lay": 2,
+                "chua_tra": 7
+            },
+            {
+                "am": "Trần Thị Nhung",
+                "chua_giao": 34,
+                "chua_lay": 1,
+                "chua_tra": 13
+            },
+            {
+                "am": "Trần Văn Phước",
+                "chua_giao": 64,
+                "chua_lay": 4,
+                "chua_tra": 7
+            },
+            {
+                "am": "Võ Tấn Lợi",
+                "chua_giao": 4,
+                "chua_lay": 2,
+                "chua_tra": 1
+            }
+        ],
+        "completed_vols": [
+            {
+                "GTC": 12331,
+                "GTC_pct": 72.61,
+                "LTC": 1983,
+                "LTC_pct": 88.06,
+                "TTC": 12676,
+                "TTC_pct": 74.63,
+                "Volume_gtc": 16985,
+                "Volume_ltc": 1983,
+                "province": "Bình Thuận"
+            },
+            {
+                "GTC": 12782,
+                "GTC_pct": 59.12,
+                "LTC": 3284,
+                "LTC_pct": 86.9,
+                "TTC": 13318,
+                "TTC_pct": 61.6,
+                "Volume_gtc": 21622,
+                "Volume_ltc": 3284,
+                "province": "Khánh Hòa"
+            },
+            {
+                "GTC": 14047,
+                "GTC_pct": 54.9,
+                "LTC": 3698,
+                "LTC_pct": 83.89,
+                "TTC": 14543,
+                "TTC_pct": 56.84,
+                "Volume_gtc": 25588,
+                "Volume_ltc": 3698,
+                "province": "Lâm Đồng"
+            },
+            {
+                "GTC": 4884,
+                "GTC_pct": 65.31,
+                "LTC": 1610,
+                "LTC_pct": 93.82,
+                "TTC": 5087,
+                "TTC_pct": 68.02,
+                "Volume_gtc": 7480,
+                "Volume_ltc": 1610,
+                "province": "Ninh Thuận"
+            },
+            {
+                "GTC": 5659,
+                "GTC_pct": 59.38,
+                "LTC": 2462,
+                "LTC_pct": 79.37,
+                "TTC": 5872,
+                "TTC_pct": 61.61,
+                "Volume_gtc": 9532,
+                "Volume_ltc": 2462,
+                "province": "Đắk Nông"
+            }
+        ],
+        "kpis": {
+            "binh_thuan": {
+                "dod": {
+                    "gtc": 2.65,
+                    "ltc": -3.62,
+                    "ttc": 3.03
+                },
+                "gtc": 72.61,
+                "ltc": 88.06,
+                "n3": {
+                    "gtc": 1.1,
+                    "ltc": -4.73,
+                    "ttc": 1.21
+                },
+                "name": "Bình Thuận",
+                "ttc": 74.63,
+                "vol_gtc": 16985,
+                "vol_ltc": 1983,
+                "wow": {
+                    "gtc": 2.46,
+                    "ltc": -4.23,
+                    "ttc": 2.65
+                }
+            },
+            "dak_nong": {
+                "dod": {
+                    "gtc": 1.17,
+                    "ltc": -8.27,
+                    "ttc": 1.3
+                },
+                "gtc": 59.38,
+                "ltc": 79.37,
+                "n3": {
+                    "gtc": -0.14,
+                    "ltc": -8.32,
+                    "ttc": -0.63
+                },
+                "name": "Đắk Nông",
+                "ttc": 61.61,
+                "vol_gtc": 9532,
+                "vol_ltc": 2462,
+                "wow": {
+                    "gtc": -1.1,
+                    "ltc": -4.54,
+                    "ttc": -1.16
+                }
+            },
+            "khanh_hoa": {
+                "dod": {
+                    "gtc": -1.24,
+                    "ltc": -1.43,
+                    "ttc": -1.6
+                },
+                "gtc": 59.12,
+                "ltc": 86.9,
+                "n3": {
+                    "gtc": -2.3,
+                    "ltc": -1.78,
+                    "ttc": -2.83
+                },
+                "name": "Khánh Hòa",
+                "ttc": 61.6,
+                "vol_gtc": 21622,
+                "vol_ltc": 3284,
+                "wow": {
+                    "gtc": -0.3,
+                    "ltc": 4.01,
+                    "ttc": -0.33
+                }
+            },
+            "lam_dong": {
+                "dod": {
+                    "gtc": 0.86,
+                    "ltc": -4.73,
+                    "ttc": 1.01
+                },
+                "gtc": 54.9,
+                "ltc": 83.89,
+                "n3": {
+                    "gtc": -2.99,
+                    "ltc": -4.38,
+                    "ttc": -3.05
+                },
+                "name": "Lâm Đồng",
+                "ttc": 56.84,
+                "vol_gtc": 25588,
+                "vol_ltc": 3698,
+                "wow": {
+                    "gtc": 4.33,
+                    "ltc": -1.47,
+                    "ttc": 4.5
+                }
+            },
+            "ninh_thuan": {
+                "dod": {
+                    "gtc": -4.83,
+                    "ltc": 1.67,
+                    "ttc": -4.86
+                },
+                "gtc": 65.31,
+                "ltc": 93.82,
+                "n3": {
+                    "gtc": -4.38,
+                    "ltc": -1.62,
+                    "ttc": -4.35
+                },
+                "name": "Ninh Thuận",
+                "ttc": 68.02,
+                "vol_gtc": 7480,
+                "vol_ltc": 1610,
+                "wow": {
+                    "gtc": -0.12,
+                    "ltc": -2.09,
+                    "ttc": -0.15
+                }
+            },
+            "overall": {
+                "dod": {
+                    "gtc": -0.23,
+                    "ltc": -3.63,
+                    "ttc": -0.14
+                },
+                "gtc": 61.21,
+                "ltc": 85.45,
+                "n3": {
+                    "gtc": -1.99,
+                    "ltc": -4.59,
+                    "ttc": -2.19
+                },
+                "ttc": 63.42,
+                "vol_gtc": 81207,
+                "vol_ltc": 13037,
+                "wow": {
+                    "gtc": 1.52,
+                    "ltc": -1.29,
+                    "ttc": 1.61
+                }
+            }
+        },
+        "latest_date": "2026-06-13 - Thứ 7"
+    },
+    "fd": {
+        "am": [
+            {
+                "am": "Thái Thị Thanh Thư",
+                "fd_n": 12.9,
+                "fd_n1": 12.6,
+                "fd_n7": 12.5,
+                "ty_trong_tra": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": 0.4,
+                "vs_n7": 0.5
+            },
+            {
+                "am": "Trầm Hữu Tiến",
+                "fd_n": 9.0,
+                "fd_n1": 7.0,
+                "fd_n7": 6.9,
+                "ty_trong_tra": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": 1.9,
+                "vs_n7": 2.1
+            },
+            {
+                "am": "Trần Công Hậu",
+                "fd_n": 8.9,
+                "fd_n1": 9.6,
+                "fd_n7": 9.8,
+                "ty_trong_tra": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": -0.7,
+                "vs_n7": -0.9
+            },
+            {
+                "am": "Huỳnh Thị Kim Chi",
+                "fd_n": 8.0,
+                "fd_n1": 6.2,
+                "fd_n7": 8.7,
+                "ty_trong_tra": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": 1.8,
+                "vs_n7": -0.7
+            },
+            {
+                "am": "Lê Minh Đại",
+                "fd_n": 7.9,
+                "fd_n1": 6.7,
+                "fd_n7": 7.5,
+                "ty_trong_tra": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": 1.2,
+                "vs_n7": 0.4
+            },
+            {
+                "am": "Phan Đình Duy",
+                "fd_n": 7.7,
+                "fd_n1": 6.8,
+                "fd_n7": 6.5,
+                "ty_trong_tra": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": 0.9,
+                "vs_n7": 1.2
+            },
+            {
+                "am": "Trần Thị Nhung",
+                "fd_n": 6.7,
+                "fd_n1": 5.9,
+                "fd_n7": 6.5,
+                "ty_trong_tra": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": 0.8,
+                "vs_n7": 0.1
+            },
+            {
+                "am": "Nguyễn Hoàng Phi",
+                "fd_n": 6.5,
+                "fd_n1": 8.2,
+                "fd_n7": 7.5,
+                "ty_trong_tra": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": -1.8,
+                "vs_n7": -1.0
+            },
+            {
+                "am": "Trần Văn Phước",
+                "fd_n": 6.5,
+                "fd_n1": 7.6,
+                "fd_n7": 6.3,
+                "ty_trong_tra": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": -1.1,
+                "vs_n7": 0.2
+            },
+            {
+                "am": "Lê Văn Trường",
+                "fd_n": 6.4,
+                "fd_n1": 5.0,
+                "fd_n7": 5.5,
+                "ty_trong_tra": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": 1.4,
+                "vs_n7": 0.9
+            },
+            {
+                "am": "Phạm Bá Thành Công",
+                "fd_n": 6.1,
+                "fd_n1": 6.8,
+                "fd_n7": 5.7,
+                "ty_trong_tra": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": -0.7,
+                "vs_n7": 0.4
+            },
+            {
+                "am": "Nguyễn Thanh Long",
+                "fd_n": 6.0,
+                "fd_n1": 5.9,
+                "fd_n7": 7.6,
+                "ty_trong_tra": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": 0.1,
+                "vs_n7": -1.6
+            },
+            {
+                "am": "Nguyễn Duy Long",
+                "fd_n": 5.9,
+                "fd_n1": 5.8,
+                "fd_n7": 5.7,
+                "ty_trong_tra": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": 0.1,
+                "vs_n7": 0.2
+            },
+            {
+                "am": "Lê Thanh Nhựt",
+                "fd_n": 5.9,
+                "fd_n1": 4.6,
+                "fd_n7": 4.1,
+                "ty_trong_tra": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": 1.3,
+                "vs_n7": 1.8
+            },
+            {
+                "am": "Nguyễn Tống Hùng Phong",
+                "fd_n": 5.1,
+                "fd_n1": 4.1,
+                "fd_n7": 5.0,
+                "ty_trong_tra": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": 1.0,
+                "vs_n7": 0.1
+            },
+            {
+                "am": "Huỳnh Tấn Hiền",
+                "fd_n": 4.6,
+                "fd_n1": 4.3,
+                "fd_n7": 4.5,
+                "ty_trong_tra": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": 0.3,
+                "vs_n7": 0.1
+            },
+            {
+                "am": "Võ Tấn Lợi",
+                "fd_n": 4.6,
+                "fd_n1": 4.7,
+                "fd_n7": 3.8,
+                "ty_trong_tra": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": -0.1,
+                "vs_n7": 0.8
+            },
+            {
+                "am": "Nguyễn Ngọc Khánh",
+                "fd_n": 4.4,
+                "fd_n1": 3.5,
+                "fd_n7": 4.3,
+                "ty_trong_tra": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": 1.0,
+                "vs_n7": 0.2
+            },
+            {
+                "am": "Hồng Bích Nga",
+                "fd_n": 4.4,
+                "fd_n1": 5.3,
+                "fd_n7": 6.1,
+                "ty_trong_tra": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": -0.9,
+                "vs_n7": -1.7
+            },
+            {
+                "am": "Nguyễn Lê Nguyên Vũ",
+                "fd_n": 4.1,
+                "fd_n1": 3.3,
+                "fd_n7": 4.9,
+                "ty_trong_tra": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": 0.8,
+                "vs_n7": -0.8
+            }
+        ],
+        "date": "13/06/2026",
+        "kpi": {
+            "fd_n": 6.4,
+            "fd_n1": 6.0,
+            "fd_n7": 6.3,
+            "vs_n1": 0.5,
+            "vs_n7": 0.2
+        },
+        "po": [
+            {
+                "am": "Thái Thị Thanh Thư",
+                "fd_n": 31.5,
+                "fd_n1": 32.1,
+                "fd_n7": 32.9,
+                "post_office": "BC 56 Phan Đình Phùng-Cam Linh-Khánh Hòa",
+                "ty_trong_tra": 6.8,
+                "vol_giao": 698.0,
+                "vol_tra": 219.9,
+                "vs_n1": -0.6,
+                "vs_n7": -1.4
+            },
+            {
+                "am": "Huỳnh Thị Kim Chi",
+                "fd_n": 16.0,
+                "fd_n1": 5.2,
+                "fd_n7": 19.6,
+                "post_office": "BC Thôn Phúc Hưng-Xã Tân Hà Lâm Hà-Lâm Đồng",
+                "ty_trong_tra": 2.1,
+                "vol_giao": 427.0,
+                "vol_tra": 68.3,
+                "vs_n1": 10.8,
+                "vs_n7": -3.6
+            },
+            {
+                "am": "Trầm Hữu Tiến",
+                "fd_n": 13.1,
+                "fd_n1": 10.2,
+                "fd_n7": 9.0,
+                "post_office": "BC 1322 Hùng Vương-Di Linh-Lâm Đồng",
+                "ty_trong_tra": 3.1,
+                "vol_giao": 766.0,
+                "vol_tra": 100.3,
+                "vs_n1": 2.9,
+                "vs_n7": 4.1
+            },
+            {
+                "am": "Lê Minh Đại",
+                "fd_n": 11.6,
+                "fd_n1": 10.7,
+                "fd_n7": 10.6,
+                "post_office": "BC TDP Nghĩa Đức-Thạnh Mỹ-Đơn Dương-Lâm Đồng",
+                "ty_trong_tra": 3.5,
+                "vol_giao": 970.0,
+                "vol_tra": 112.5,
+                "vs_n1": 0.9,
+                "vs_n7": 1.0
+            },
+            {
+                "am": "Trần Thị Nhung",
+                "fd_n": 10.9,
+                "fd_n1": 8.3,
+                "fd_n7": 8.2,
+                "post_office": "BC Thôn 2-Tuy Đức-Đắk Nông",
+                "ty_trong_tra": 1.1,
+                "vol_giao": 339.0,
+                "vol_tra": 37.0,
+                "vs_n1": 2.6,
+                "vs_n7": 2.7
+            },
+            {
+                "am": "Lê Minh Đại",
+                "fd_n": 10.8,
+                "fd_n1": 12.1,
+                "fd_n7": 8.5,
+                "post_office": "BC Langbiang-Lạc Dương-Lâm Đồng",
+                "ty_trong_tra": 1.7,
+                "vol_giao": 500.0,
+                "vol_tra": 54.0,
+                "vs_n1": -1.3,
+                "vs_n7": 2.3
+            },
+            {
+                "am": "Trần Thị Nhung",
+                "fd_n": 10.4,
+                "fd_n1": 8.6,
+                "fd_n7": 9.0,
+                "post_office": "BC Quảng Sơn-Đắk Glong-Đắk Nông",
+                "ty_trong_tra": 1.1,
+                "vol_giao": 345.0,
+                "vol_tra": 35.9,
+                "vs_n1": 1.8,
+                "vs_n7": 1.4
+            },
+            {
+                "am": "Trần Công Hậu",
+                "fd_n": 8.9,
+                "fd_n1": 9.6,
+                "fd_n7": 9.8,
+                "post_office": "BC Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông",
+                "ty_trong_tra": 0.9,
+                "vol_giao": 329.0,
+                "vol_tra": 29.3,
+                "vs_n1": -0.7,
+                "vs_n7": -0.9
+            },
+            {
+                "am": "Trần Thị Nhung",
+                "fd_n": 8.9,
+                "fd_n1": 6.4,
+                "fd_n7": 6.5,
+                "post_office": "BC Nâm N'Jang-Đắk Song-Đắk Nông",
+                "ty_trong_tra": 0.9,
+                "vol_giao": 336.0,
+                "vol_tra": 29.9,
+                "vs_n1": 2.5,
+                "vs_n7": 2.4
+            },
+            {
+                "am": "Trần Thị Nhung",
+                "fd_n": 8.8,
+                "fd_n1": 7.3,
+                "fd_n7": 7.8,
+                "post_office": "BC Quảng Khê-Đắk Glong-Đắk Nông",
+                "ty_trong_tra": 0.7,
+                "vol_giao": 245.0,
+                "vol_tra": 21.6,
+                "vs_n1": 1.5,
+                "vs_n7": 1.0
+            },
+            {
+                "am": "Phạm Bá Thành Công",
+                "fd_n": 8.7,
+                "fd_n1": 7.8,
+                "fd_n7": 6.9,
+                "post_office": "BC 571 Hùng Vương-Cam Nghĩa-TP.Cam Ranh-Khánh Hoà",
+                "ty_trong_tra": 1.8,
+                "vol_giao": 653.0,
+                "vol_tra": 56.8,
+                "vs_n1": 0.9,
+                "vs_n7": 1.8
+            },
+            {
+                "am": "Lê Văn Trường",
+                "fd_n": 8.7,
+                "fd_n1": 6.2,
+                "fd_n7": 6.4,
+                "post_office": "BC Số 6 Trương Văn Hoàn-Phường 9-Đà Lạt-Lâm Đồng",
+                "ty_trong_tra": 0.7,
+                "vol_giao": 264.0,
+                "vol_tra": 23.0,
+                "vs_n1": 2.5,
+                "vs_n7": 2.3
+            },
+            {
+                "am": "Thái Thị Thanh Thư",
+                "fd_n": 8.7,
+                "fd_n1": 7.8,
+                "fd_n7": 6.5,
+                "post_office": "BC Đường 35 Hà Quang 1-Xã Nam Nha Trang-Khánh Hòa",
+                "ty_trong_tra": 1.4,
+                "vol_giao": 538.0,
+                "vol_tra": 46.8,
+                "vs_n1": 0.9,
+                "vs_n7": 2.2
+            },
+            {
+                "am": "Nguyễn Duy Long",
+                "fd_n": 8.5,
+                "fd_n1": 7.1,
+                "fd_n7": 8.9,
+                "post_office": "BC Quốc Lộ 1A-Ninh Phước-Ninh Thuận",
+                "ty_trong_tra": 2.9,
+                "vol_giao": 1120.0,
+                "vol_tra": 95.2,
+                "vs_n1": 1.4,
+                "vs_n7": -0.4
+            },
+            {
+                "am": "Hồng Bích Nga",
+                "fd_n": 8.4,
+                "fd_n1": 9.1,
+                "fd_n7": 0.0,
+                "post_office": "BC QL55-Bảo Lâm 3-Lâm Đồng",
+                "ty_trong_tra": 0.9,
+                "vol_giao": 328.0,
+                "vol_tra": 27.6,
+                "vs_n1": -0.7,
+                "vs_n7": 0.0
+            },
+            {
+                "am": "Nguyễn Hoàng Phi",
+                "fd_n": 8.4,
+                "fd_n1": 9.7,
+                "fd_n7": 13.6,
+                "post_office": "BC Tổ 5 Đường Ngô Gia Tự-Khánh Vĩnh-Khánh Hòa",
+                "ty_trong_tra": 0.9,
+                "vol_giao": 333.0,
+                "vol_tra": 28.0,
+                "vs_n1": -1.3,
+                "vs_n7": -5.2
+            },
+            {
+                "am": "Phan Đình Duy",
+                "fd_n": 8.0,
+                "fd_n1": 6.9,
+                "fd_n7": 6.0,
+                "post_office": "BC 466 Đường 23/10-Nha Trang-Khánh Hòa",
+                "ty_trong_tra": 2.0,
+                "vol_giao": 823.0,
+                "vol_tra": 65.8,
+                "vs_n1": 1.1,
+                "vs_n7": 2.0
+            },
+            {
+                "am": "Hồng Bích Nga",
+                "fd_n": 7.7,
+                "fd_n1": 6.3,
+                "fd_n7": 6.6,
+                "post_office": "BC 231 Thôn 1-Xã Hòa Ninh-Lâm Đồng",
+                "ty_trong_tra": 0.8,
+                "vol_giao": 338.0,
+                "vol_tra": 26.0,
+                "vs_n1": 1.4,
+                "vs_n7": 1.1
+            },
+            {
+                "am": "Nguyễn Duy Long",
+                "fd_n": 7.4,
+                "fd_n1": 5.4,
+                "fd_n7": 6.0,
+                "post_office": "BC 26A Lê Duẩn-Ninh Sơn-Ninh Thuận",
+                "ty_trong_tra": 1.1,
+                "vol_giao": 494.0,
+                "vol_tra": 36.6,
+                "vs_n1": 2.0,
+                "vs_n7": 1.4
+            },
+            {
+                "am": "Phan Đình Duy",
+                "fd_n": 7.3,
+                "fd_n1": 6.6,
+                "fd_n7": 7.2,
+                "post_office": "BC 40A Yết Kiêu-Nha Trang-Khánh Hòa",
+                "ty_trong_tra": 1.3,
+                "vol_giao": 593.0,
+                "vol_tra": 43.3,
+                "vs_n1": 0.7,
+                "vs_n7": 0.1
+            },
+            {
+                "am": "Trần Thị Nhung",
+                "fd_n": 7.3,
+                "fd_n1": 6.3,
+                "fd_n7": 7.0,
+                "post_office": "BC Quốc Lộ 14-Đức An-Đắk Song-Đăk Nông",
+                "ty_trong_tra": 1.1,
+                "vol_giao": 507.0,
+                "vol_tra": 37.0,
+                "vs_n1": 1.0,
+                "vs_n7": 0.3
+            },
+            {
+                "am": "Thái Thị Thanh Thư",
+                "fd_n": 7.2,
+                "fd_n1": 5.2,
+                "fd_n7": 10.4,
+                "post_office": "BC 06 Lê Hồng Phong-TP.Nha Trang-Khánh Hòa",
+                "ty_trong_tra": 1.7,
+                "vol_giao": 768.0,
+                "vol_tra": 55.3,
+                "vs_n1": 2.0,
+                "vs_n7": -3.2
+            },
+            {
+                "am": "Nguyễn Hoàng Phi",
+                "fd_n": 7.2,
+                "fd_n1": 11.0,
+                "fd_n7": 6.9,
+                "post_office": "BC Đường Tỉnh Lộ 10-Xã Diên Thọ-Khánh Hòa",
+                "ty_trong_tra": 1.2,
+                "vol_giao": 546.0,
+                "vol_tra": 39.3,
+                "vs_n1": -3.8,
+                "vs_n7": 0.3
+            },
+            {
+                "am": "Lê Thanh Nhựt",
+                "fd_n": 7.1,
+                "fd_n1": 3.2,
+                "fd_n7": 2.9,
+                "post_office": "BC 47 Trần Hưng Đạo-Hàm Thuận Nam-Bình Thuận",
+                "ty_trong_tra": 0.5,
+                "vol_giao": 204.0,
+                "vol_tra": 14.5,
+                "vs_n1": 3.9,
+                "vs_n7": 4.2
+            },
+            {
+                "am": "Trầm Hữu Tiến",
+                "fd_n": 7.0,
+                "fd_n1": 3.6,
+                "fd_n7": 5.4,
+                "post_office": "BC 468 Quốc Lộ 20-Liên Nghĩa-Đức Trọng-Lâm Đồng",
+                "ty_trong_tra": 1.6,
+                "vol_giao": 743.0,
+                "vol_tra": 52.0,
+                "vs_n1": 3.4,
+                "vs_n7": 1.6
+            },
+            {
+                "am": "Trần Văn Phước",
+                "fd_n": 7.0,
+                "fd_n1": 8.6,
+                "fd_n7": 3.9,
+                "post_office": "BC 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông",
+                "ty_trong_tra": 0.5,
+                "vol_giao": 252.0,
+                "vol_tra": 17.6,
+                "vs_n1": -1.6,
+                "vs_n7": 3.1
+            },
+            {
+                "am": "Trần Văn Phước",
+                "fd_n": 6.9,
+                "fd_n1": 6.8,
+                "fd_n7": 7.1,
+                "post_office": "BC 01 Nguyễn Tất Thành-Đắk R lấp-Đắk Nông",
+                "ty_trong_tra": 0.8,
+                "vol_giao": 388.0,
+                "vol_tra": 26.8,
+                "vs_n1": 0.1,
+                "vs_n7": -0.2
+            },
+            {
+                "am": "Trầm Hữu Tiến",
+                "fd_n": 6.9,
+                "fd_n1": 9.4,
+                "fd_n7": 5.1,
+                "post_office": "BC Thôn R'Chai 2-Xã Đức Trọng-Lâm Đồng",
+                "ty_trong_tra": 0.8,
+                "vol_giao": 363.0,
+                "vol_tra": 25.0,
+                "vs_n1": -2.5,
+                "vs_n7": 1.8
+            },
+            {
+                "am": "Huỳnh Tấn Hiền",
+                "fd_n": 6.7,
+                "fd_n1": 5.1,
+                "fd_n7": 6.1,
+                "post_office": "BC 430 Tôn Đức Thắng-Tân Phước-Thị xã La Gi-Bình Thuận",
+                "ty_trong_tra": 1.6,
+                "vol_giao": 756.0,
+                "vol_tra": 50.7,
+                "vs_n1": 1.6,
+                "vs_n7": 0.6
+            },
+            {
+                "am": "Phạm Bá Thành Công",
+                "fd_n": 6.7,
+                "fd_n1": 6.5,
+                "fd_n7": 4.0,
+                "post_office": "BC Thôn Long Hoà-Vạn Long-Vạn Ninh-Khánh Hoà",
+                "ty_trong_tra": 1.1,
+                "vol_giao": 546.0,
+                "vol_tra": 36.6,
+                "vs_n1": 0.2,
+                "vs_n7": 2.7
+            },
+            {
+                "am": "Nguyễn Hoàng Phi",
+                "fd_n": 6.6,
+                "fd_n1": 8.7,
+                "fd_n7": 7.6,
+                "post_office": "BC Thôn Phú An Nam 2-Xã Diên Khánh-Khánh Hòa",
+                "ty_trong_tra": 0.9,
+                "vol_giao": 430.0,
+                "vol_tra": 28.4,
+                "vs_n1": -2.1,
+                "vs_n7": -1.0
+            },
+            {
+                "am": "Huỳnh Thị Kim Chi",
+                "fd_n": 6.5,
+                "fd_n1": 5.3,
+                "fd_n7": 5.3,
+                "post_office": "BC Đinh Văn-Lâm Hà-Lâm Đồng",
+                "ty_trong_tra": 1.3,
+                "vol_giao": 659.0,
+                "vol_tra": 42.8,
+                "vs_n1": 1.2,
+                "vs_n7": 1.2
+            },
+            {
+                "am": "Phạm Bá Thành Công",
+                "fd_n": 6.5,
+                "fd_n1": 4.9,
+                "fd_n7": 5.8,
+                "post_office": "BC Thôn Xuân Hoà 1-Ninh Hoà-Khánh Hoà",
+                "ty_trong_tra": 1.0,
+                "vol_giao": 476.0,
+                "vol_tra": 30.9,
+                "vs_n1": 1.6,
+                "vs_n7": 0.7
+            },
+            {
+                "am": "Nguyễn Duy Long",
+                "fd_n": 6.5,
+                "fd_n1": 4.8,
+                "fd_n7": 5.1,
+                "post_office": "BC Thị Trấn Liên Hương-Tuy Phong-Bình Thuận",
+                "ty_trong_tra": 1.6,
+                "vol_giao": 787.0,
+                "vol_tra": 51.2,
+                "vs_n1": 1.7,
+                "vs_n7": 1.4
+            },
+            {
+                "am": "Thái Thị Thanh Thư",
+                "fd_n": 6.4,
+                "fd_n1": 8.4,
+                "fd_n7": 4.9,
+                "post_office": "BC 229 Phước Long-Nam Nha Trang-Khánh Hòa",
+                "ty_trong_tra": 1.8,
+                "vol_giao": 911.0,
+                "vol_tra": 58.3,
+                "vs_n1": -2.0,
+                "vs_n7": 1.5
+            },
+            {
+                "am": "Huỳnh Thị Kim Chi",
+                "fd_n": 6.3,
+                "fd_n1": 7.8,
+                "fd_n7": 6.7,
+                "post_office": "BC TDP Ba Đình-Lâm Hà-Lâm Đồng",
+                "ty_trong_tra": 0.8,
+                "vol_giao": 387.0,
+                "vol_tra": 24.4,
+                "vs_n1": -1.5,
+                "vs_n7": -0.4
+            },
+            {
+                "am": "Trần Văn Phước",
+                "fd_n": 6.3,
+                "fd_n1": 12.3,
+                "fd_n7": 7.1,
+                "post_office": "BC Thôn 2-Xã Quảng Tín-Đắk Nông",
+                "ty_trong_tra": 0.7,
+                "vol_giao": 336.0,
+                "vol_tra": 21.2,
+                "vs_n1": -6.0,
+                "vs_n7": -0.8
+            },
+            {
+                "am": "Lê Thanh Nhựt",
+                "fd_n": 6.2,
+                "fd_n1": 6.7,
+                "fd_n7": 5.5,
+                "post_office": "BC 46 Hùng Vương-Hàm Tân-Bình Thuận",
+                "ty_trong_tra": 1.3,
+                "vol_giao": 685.0,
+                "vol_tra": 42.5,
+                "vs_n1": -0.5,
+                "vs_n7": 0.7
+            },
+            {
+                "am": "Lê Minh Đại",
+                "fd_n": 6.2,
+                "fd_n1": 3.9,
+                "fd_n7": 6.4,
+                "post_office": "BC Cao Bá Quát-Phường 7-Đà Lạt-Lâm Đồng",
+                "ty_trong_tra": 2.2,
+                "vol_giao": 1156.0,
+                "vol_tra": 71.7,
+                "vs_n1": 2.3,
+                "vs_n7": -0.2
+            },
+            {
+                "am": "Phạm Bá Thành Công",
+                "fd_n": 6.1,
+                "fd_n1": 6.1,
+                "fd_n7": 6.4,
+                "post_office": "BC 36 Bà Triệu-Vạn Ninh-Khánh Hoà",
+                "ty_trong_tra": 1.4,
+                "vol_giao": 720.0,
+                "vol_tra": 43.9,
+                "vs_n1": 0.0,
+                "vs_n7": -0.3
+            },
+            {
+                "am": "Nguyễn Ngọc Khánh",
+                "fd_n": 6.0,
+                "fd_n1": 3.3,
+                "fd_n7": 4.4,
+                "post_office": "BC 16 Huỳnh Thúc Kháng-Phan Thiết-Bình Thuận",
+                "ty_trong_tra": 1.0,
+                "vol_giao": 521.0,
+                "vol_tra": 31.3,
+                "vs_n1": 2.7,
+                "vs_n7": 1.6
+            },
+            {
+                "am": "Nguyễn Thanh Long",
+                "fd_n": 6.0,
+                "fd_n1": 5.9,
+                "fd_n7": 7.6,
+                "post_office": "BC 42 Nguyễn Du-Cam Lâm-Khánh Hoà",
+                "ty_trong_tra": 1.6,
+                "vol_giao": 846.0,
+                "vol_tra": 50.8,
+                "vs_n1": 0.1,
+                "vs_n7": -1.6
+            },
+            {
+                "am": "Phạm Bá Thành Công",
+                "fd_n": 6.0,
+                "fd_n1": 6.1,
+                "fd_n7": 4.8,
+                "post_office": "BC Tổ Dân Phố 2-Ninh Hoà-Khánh Hoà",
+                "ty_trong_tra": 2.1,
+                "vol_giao": 1154.0,
+                "vol_tra": 69.2,
+                "vs_n1": -0.1,
+                "vs_n7": 1.2
+            },
+            {
+                "am": "Nguyễn Hoàng Phi",
+                "fd_n": 5.9,
+                "fd_n1": 5.8,
+                "fd_n7": 5.3,
+                "post_office": "BC Thôn Dầu Sơn-Cam Lâm-Khánh Hoà",
+                "ty_trong_tra": 0.9,
+                "vol_giao": 496.0,
+                "vol_tra": 29.3,
+                "vs_n1": 0.1,
+                "vs_n7": 0.6
+            },
+            {
+                "am": "Trần Văn Phước",
+                "fd_n": 5.9,
+                "fd_n1": 4.0,
+                "fd_n7": 6.7,
+                "post_office": "Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông",
+                "ty_trong_tra": 0.7,
+                "vol_giao": 368.0,
+                "vol_tra": 21.7,
+                "vs_n1": 1.9,
+                "vs_n7": -0.8
+            },
+            {
+                "am": "Trần Thị Nhung",
+                "fd_n": 5.8,
+                "fd_n1": 5.7,
+                "fd_n7": 7.6,
+                "post_office": "BC 73 Nguyễn Tất Thành-Krông Nô-Đắk Nông",
+                "ty_trong_tra": 1.3,
+                "vol_giao": 720.0,
+                "vol_tra": 41.8,
+                "vs_n1": 0.1,
+                "vs_n7": -1.8
+            },
+            {
+                "am": "Nguyễn Duy Long",
+                "fd_n": 5.8,
+                "fd_n1": 5.9,
+                "fd_n7": 4.8,
+                "post_office": "BC 95 Thống Nhất-Phan Rang-Ninh Thuận",
+                "ty_trong_tra": 2.7,
+                "vol_giao": 1502.0,
+                "vol_tra": 87.1,
+                "vs_n1": -0.1,
+                "vs_n7": 1.0
+            },
+            {
+                "am": "Hồng Bích Nga",
+                "fd_n": 5.6,
+                "fd_n1": 8.2,
+                "fd_n7": 10.0,
+                "post_office": "BC 337 Hùng Vương-Lộc Thắng-Bảo Lâm-Lâm Đồng",
+                "ty_trong_tra": 0.6,
+                "vol_giao": 340.0,
+                "vol_tra": 19.0,
+                "vs_n1": -2.6,
+                "vs_n7": -4.4
+            },
+            {
+                "am": "Nguyễn Hoàng Phi",
+                "fd_n": 5.6,
+                "fd_n1": 6.8,
+                "fd_n7": 7.1,
+                "post_office": "BC 39 Hùng Vương-Diên Khánh-Khánh Hòa",
+                "ty_trong_tra": 1.6,
+                "vol_giao": 905.0,
+                "vol_tra": 50.7,
+                "vs_n1": -1.2,
+                "vs_n7": -1.5
+            },
+            {
+                "am": "Huỳnh Tấn Hiền",
+                "fd_n": 5.5,
+                "fd_n1": 5.5,
+                "fd_n7": 4.0,
+                "post_office": "BC Đường Trần Lê-Cát Tiên-Lâm Đồng",
+                "ty_trong_tra": 0.7,
+                "vol_giao": 435.0,
+                "vol_tra": 23.9,
+                "vs_n1": 0.0,
+                "vs_n7": 1.5
+            },
+            {
+                "am": "Phạm Bá Thành Công",
+                "fd_n": 5.5,
+                "fd_n1": 7.2,
+                "fd_n7": 6.4,
+                "post_office": "BC 195 Đường 2/4-Nha Trang-Khánh Hòa",
+                "ty_trong_tra": 1.2,
+                "vol_giao": 678.0,
+                "vol_tra": 37.3,
+                "vs_n1": -1.7,
+                "vs_n7": -0.9
+            },
+            {
+                "am": "Phạm Bá Thành Công",
+                "fd_n": 5.4,
+                "fd_n1": 7.9,
+                "fd_n7": 5.5,
+                "post_office": "BC 70 Lê Hồng Phong-Ninh Diêm-Ninh Hoà-Khánh Hoà",
+                "ty_trong_tra": 1.3,
+                "vol_giao": 779.0,
+                "vol_tra": 42.1,
+                "vs_n1": -2.5,
+                "vs_n7": -0.1
+            },
+            {
+                "am": "Lê Minh Đại",
+                "fd_n": 5.4,
+                "fd_n1": 5.1,
+                "fd_n7": 5.4,
+                "post_office": "BC Ngô Thỳ Sỹ-Đà Lạt-Lâm Đồng",
+                "ty_trong_tra": 1.3,
+                "vol_giao": 766.0,
+                "vol_tra": 41.4,
+                "vs_n1": 0.3,
+                "vs_n7": 0.0
+            },
+            {
+                "am": "Nguyễn Duy Long",
+                "fd_n": 5.4,
+                "fd_n1": 7.6,
+                "fd_n7": 7.5,
+                "post_office": "BC Phước Minh-Thuận Nam-Ninh Thuận",
+                "ty_trong_tra": 0.5,
+                "vol_giao": 327.0,
+                "vol_tra": 17.7,
+                "vs_n1": -2.2,
+                "vs_n7": -2.1
+            },
+            {
+                "am": "Nguyễn Duy Long",
+                "fd_n": 5.2,
+                "fd_n1": 5.4,
+                "fd_n7": 5.2,
+                "post_office": "BC 254A Đường 21 tháng 8-Phan Rang-Tháp Chàm-Ninh Thuận",
+                "ty_trong_tra": 2.0,
+                "vol_giao": 1221.0,
+                "vol_tra": 63.5,
+                "vs_n1": -0.2,
+                "vs_n7": 0.0
+            },
+            {
+                "am": "Lê Thanh Nhựt",
+                "fd_n": 5.2,
+                "fd_n1": 3.8,
+                "fd_n7": 3.6,
+                "post_office": "BC DT707-Hàm Thuận Nam-Bình Thuận",
+                "ty_trong_tra": 1.2,
+                "vol_giao": 758.0,
+                "vol_tra": 39.4,
+                "vs_n1": 1.4,
+                "vs_n7": 1.6
+            },
+            {
+                "am": "Nguyễn Tống Hùng Phong",
+                "fd_n": 5.1,
+                "fd_n1": 4.1,
+                "fd_n7": 5.0,
+                "post_office": "BC 111 Lê Duẫn-Khánh Sơn-Khánh Hoà",
+                "ty_trong_tra": 0.3,
+                "vol_giao": 170.0,
+                "vol_tra": 8.7,
+                "vs_n1": 1.0,
+                "vs_n7": 0.1
+            },
+            {
+                "am": "Trần Thị Nhung",
+                "fd_n": 5.1,
+                "fd_n1": 4.9,
+                "fd_n7": 5.4,
+                "post_office": "BC 40 Nguyễn Văn Linh-Cư Jút-Đắk Nông",
+                "ty_trong_tra": 1.0,
+                "vol_giao": 604.0,
+                "vol_tra": 30.8,
+                "vs_n1": 0.2,
+                "vs_n7": -0.3
+            },
+            {
+                "am": "Lê Văn Trường",
+                "fd_n": 5.0,
+                "fd_n1": 6.1,
+                "fd_n7": 5.8,
+                "post_office": "BC 190/11 Phù Đổng Thiên Vương-Phường 8-Đà Lạt-Lâm Đồng",
+                "ty_trong_tra": 1.0,
+                "vol_giao": 621.0,
+                "vol_tra": 31.0,
+                "vs_n1": -1.1,
+                "vs_n7": -0.8
+            },
+            {
+                "am": "Nguyễn Ngọc Khánh",
+                "fd_n": 4.9,
+                "fd_n1": 3.6,
+                "fd_n7": 5.3,
+                "post_office": "BC Phú Tài-Phan Thiết-Bình Thuận",
+                "ty_trong_tra": 1.2,
+                "vol_giao": 818.0,
+                "vol_tra": 40.1,
+                "vs_n1": 1.3,
+                "vs_n7": -0.4
+            },
+            {
+                "am": "Nguyễn Ngọc Khánh",
+                "fd_n": 4.7,
+                "fd_n1": 3.4,
+                "fd_n7": 4.9,
+                "post_office": "BC 575 Quốc Lộ 28-Xã Hàm Thuận-Bình Thuận",
+                "ty_trong_tra": 1.0,
+                "vol_giao": 690.0,
+                "vol_tra": 32.4,
+                "vs_n1": 1.3,
+                "vs_n7": -0.2
+            },
+            {
+                "am": "Võ Tấn Lợi",
+                "fd_n": 4.7,
+                "fd_n1": 5.0,
+                "fd_n7": 3.2,
+                "post_office": "BC QL20 Ninh Hòa-Đức Trọng-Lâm Đồng",
+                "ty_trong_tra": 0.7,
+                "vol_giao": 463.0,
+                "vol_tra": 21.8,
+                "vs_n1": -0.3,
+                "vs_n7": 1.5
+            },
+            {
+                "am": "Huỳnh Tấn Hiền",
+                "fd_n": 4.7,
+                "fd_n1": 6.0,
+                "fd_n7": 3.6,
+                "post_office": "BC Đạ Huoai-Lâm Đồng",
+                "ty_trong_tra": 0.9,
+                "vol_giao": 651.0,
+                "vol_tra": 30.6,
+                "vs_n1": -1.3,
+                "vs_n7": 1.1
+            },
+            {
+                "am": "Huỳnh Tấn Hiền",
+                "fd_n": 4.5,
+                "fd_n1": 4.0,
+                "fd_n7": 5.4,
+                "post_office": "BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận",
+                "ty_trong_tra": 0.9,
+                "vol_giao": 637.0,
+                "vol_tra": 28.7,
+                "vs_n1": 0.5,
+                "vs_n7": -0.9
+            },
+            {
+                "am": "Nguyễn Ngọc Khánh",
+                "fd_n": 4.5,
+                "fd_n1": 3.8,
+                "fd_n7": 4.2,
+                "post_office": "BC Hàm Liêm-Hàm Thuận Bắc-Bình Thuận",
+                "ty_trong_tra": 0.9,
+                "vol_giao": 635.0,
+                "vol_tra": 28.6,
+                "vs_n1": 0.7,
+                "vs_n7": 0.3
+            },
+            {
+                "am": "Võ Tấn Lợi",
+                "fd_n": 4.5,
+                "fd_n1": 4.4,
+                "fd_n7": 4.3,
+                "post_office": "BC Lê Hồng Phong-Liên Hiệp-Đức Trọng-Lâm Đồng",
+                "ty_trong_tra": 0.6,
+                "vol_giao": 405.0,
+                "vol_tra": 18.2,
+                "vs_n1": 0.1,
+                "vs_n7": 0.2
+            },
+            {
+                "am": "Nguyễn Ngọc Khánh",
+                "fd_n": 4.5,
+                "fd_n1": 3.7,
+                "fd_n7": 4.5,
+                "post_office": "BC Phú Thủy-Phan Thiết-Bình Thuận",
+                "ty_trong_tra": 1.5,
+                "vol_giao": 1080.0,
+                "vol_tra": 48.6,
+                "vs_n1": 0.8,
+                "vs_n7": 0.0
+            },
+            {
+                "am": "Nguyễn Ngọc Khánh",
+                "fd_n": 4.4,
+                "fd_n1": 3.5,
+                "fd_n7": 3.7,
+                "post_office": "BC 585 Nguyễn Tất Thành-Xã Lương Sơn-Bình Thuận",
+                "ty_trong_tra": 0.6,
+                "vol_giao": 415.0,
+                "vol_tra": 18.3,
+                "vs_n1": 0.9,
+                "vs_n7": 0.7
+            },
+            {
+                "am": "Trần Thị Nhung",
+                "fd_n": 4.2,
+                "fd_n1": 4.2,
+                "fd_n7": 5.0,
+                "post_office": "BC Đắk Mil-Đắk Nông",
+                "ty_trong_tra": 0.0,
+                "vol_giao": 0.0,
+                "vol_tra": 0.0,
+                "vs_n1": 0.0,
+                "vs_n7": -0.8
+            },
+            {
+                "am": "Nguyễn Lê Nguyên Vũ",
+                "fd_n": 4.1,
+                "fd_n1": 3.3,
+                "fd_n7": 4.9,
+                "post_office": "BC 1479 Trần Phú-Lộc Châu-Bảo Lộc-Lâm Đồng",
+                "ty_trong_tra": 1.1,
+                "vol_giao": 836.0,
+                "vol_tra": 34.3,
+                "vs_n1": 0.8,
+                "vs_n7": -0.8
+            },
+            {
+                "am": "Nguyễn Duy Long",
+                "fd_n": 4.1,
+                "fd_n1": 5.2,
+                "fd_n7": 3.3,
+                "post_office": "BC 21 Trần Hưng Đạo-Xã Phan Rí Cửa-Bình Thuận",
+                "ty_trong_tra": 0.9,
+                "vol_giao": 746.0,
+                "vol_tra": 30.6,
+                "vs_n1": -1.1,
+                "vs_n7": 0.8
+            },
+            {
+                "am": "Huỳnh Tấn Hiền",
+                "fd_n": 4.1,
+                "fd_n1": 2.7,
+                "fd_n7": 4.2,
+                "post_office": "BC Số 7 Lê Thánh Tôn-LaGi-Bình Thuận",
+                "ty_trong_tra": 0.6,
+                "vol_giao": 455.0,
+                "vol_tra": 18.7,
+                "vs_n1": 1.4,
+                "vs_n7": -0.1
+            },
+            {
+                "am": "Huỳnh Thị Kim Chi",
+                "fd_n": 4.1,
+                "fd_n1": 6.6,
+                "fd_n7": 7.0,
+                "post_office": "BC Đạ Rsal-Đam Rông-Lâm Đồng",
+                "ty_trong_tra": 0.5,
+                "vol_giao": 431.0,
+                "vol_tra": 17.7,
+                "vs_n1": -2.5,
+                "vs_n7": -2.9
+            },
+            {
+                "am": "Huỳnh Tấn Hiền",
+                "fd_n": 3.9,
+                "fd_n1": 3.7,
+                "fd_n7": 3.4,
+                "post_office": "BC Xã Nam Chính-Đức Linh-Bình Thuận",
+                "ty_trong_tra": 1.1,
+                "vol_giao": 900.0,
+                "vol_tra": 35.1,
+                "vs_n1": 0.2,
+                "vs_n7": 0.5
+            },
+            {
+                "am": "Thái Thị Thanh Thư",
+                "fd_n": 3.9,
+                "fd_n1": 6.1,
+                "fd_n7": 3.5,
+                "post_office": "BC Phước Đồng-Nha Trang-Khánh Hoà",
+                "ty_trong_tra": 0.5,
+                "vol_giao": 439.0,
+                "vol_tra": 17.1,
+                "vs_n1": -2.2,
+                "vs_n7": 0.4
+            },
+            {
+                "am": "Lê Văn Trường",
+                "fd_n": 3.8,
+                "fd_n1": 2.5,
+                "fd_n7": 3.3,
+                "post_office": "BC 300 Tự Phước-Đà Lạt-Lâm Đồng",
+                "ty_trong_tra": 0.6,
+                "vol_giao": 478.0,
+                "vol_tra": 18.2,
+                "vs_n1": 1.3,
+                "vs_n7": 0.5
+            },
+            {
+                "am": "Nguyễn Ngọc Khánh",
+                "fd_n": 3.7,
+                "fd_n1": 3.0,
+                "fd_n7": 3.3,
+                "post_office": "BC 237 Nguyễn Tất Thành-Bắc Bình-Bình Thuận",
+                "ty_trong_tra": 0.7,
+                "vol_giao": 632.0,
+                "vol_tra": 23.4,
+                "vs_n1": 0.7,
+                "vs_n7": 0.4
+            },
+            {
+                "am": "Nguyễn Duy Long",
+                "fd_n": 3.6,
+                "fd_n1": 5.2,
+                "fd_n7": 5.2,
+                "post_office": "BC 51 Phạm Ngọc Thạch-Ninh Hải-Ninh Thuận",
+                "ty_trong_tra": 1.2,
+                "vol_giao": 1064.0,
+                "vol_tra": 38.3,
+                "vs_n1": -1.6,
+                "vs_n7": -1.6
+            },
+            {
+                "am": "Hồng Bích Nga",
+                "fd_n": 2.8,
+                "fd_n1": 3.8,
+                "fd_n7": 5.1,
+                "post_office": "BC 95A Đội Cấn-Bảo Lộc-Lâm Đồng",
+                "ty_trong_tra": 0.9,
+                "vol_giao": 1069.0,
+                "vol_tra": 29.9,
+                "vs_n1": -1.0,
+                "vs_n7": -2.3
+            },
+            {
+                "am": "Hồng Bích Nga",
+                "fd_n": 2.8,
+                "fd_n1": 3.6,
+                "fd_n7": 5.3,
+                "post_office": "BC 412 Nguyễn Văn Cừ-Lộc Phát-Bảo Lộc-Lâm Đồng",
+                "ty_trong_tra": 0.6,
+                "vol_giao": 694.0,
+                "vol_tra": 19.4,
+                "vs_n1": -0.8,
+                "vs_n7": -2.5
+            },
+            {
+                "am": "Huỳnh Tấn Hiền",
+                "fd_n": 2.7,
+                "fd_n1": 5.0,
+                "fd_n7": 3.4,
+                "post_office": "BC 44B Nguyễn Đình Chiểu-Đạ Teh-Lâm Đồng",
+                "ty_trong_tra": 0.7,
+                "vol_giao": 814.0,
+                "vol_tra": 22.0,
+                "vs_n1": -2.3,
+                "vs_n7": -0.7
+            },
+            {
+                "am": "Nguyễn Ngọc Khánh",
+                "fd_n": 2.4,
+                "fd_n1": 3.2,
+                "fd_n7": 2.7,
+                "post_office": "BC 454 Võ Văn Kiệt-Đặc Khu Đảo Phú Quý-Bình Thuận",
+                "ty_trong_tra": 0.4,
+                "vol_giao": 595.0,
+                "vol_tra": 14.3,
+                "vs_n1": -0.8,
+                "vs_n7": -0.3
+            }
+        ],
+        "province": [
+            {
+                "fd_n": 8.0,
+                "fd_n1": 8.4,
+                "fd_n7": 8.0,
+                "province": "Khánh Hòa",
+                "vs_n1": -0.4,
+                "vs_n7": 0.0
+            },
+            {
+                "fd_n": 6.4,
+                "fd_n1": 5.8,
+                "fd_n7": 6.3,
+                "province": "Lâm Đồng",
+                "vs_n1": 0.6,
+                "vs_n7": 0.1
+            },
+            {
+                "fd_n": 4.9,
+                "fd_n1": 4.0,
+                "fd_n7": 4.4,
+                "province": "Bình Thuận",
+                "vs_n1": 0.9,
+                "vs_n7": 0.5
+            },
+            {
+                "fd_n": 6.0,
+                "fd_n1": 6.1,
+                "fd_n7": 6.1,
+                "province": "Ninh Thuận",
+                "vs_n1": 0.0,
+                "vs_n7": -0.1
+            },
+            {
+                "fd_n": 6.8,
+                "fd_n1": 6.4,
+                "fd_n7": 6.6,
+                "province": "Đắk Nông",
+                "vs_n1": 0.4,
+                "vs_n7": 0.1
+            }
+        ]
+    },
+    "unstable_po": {
+        "am_deepdive": [
+            {
+                "am": "Trầm Hữu Tiến",
+                "count": 2,
+                "pos": [
+                    "Bưu Cục 1322 Hùng Vương-Di Linh-Lâm Đồng",
+                    "Bưu Cục Thôn R'Chai 2-Xã Đức Trọng-Lâm Đồng"
+                ]
+            },
+            {
+                "am": "Thái Thị Thanh Thư",
+                "count": 2,
+                "pos": [
+                    "Bưu Cục 56 Phan Đình Phùng-Cam Linh-Khánh Hòa",
+                    "Bưu Cục 06 Lê Hồng Phong-TP.Nha Trang-Khánh Hòa"
+                ]
+            },
+            {
+                "am": "Lê Minh Đại",
+                "count": 2,
+                "pos": [
+                    "Bưu Cục Langbiang-Lạc Dương-Lâm Đồng",
+                    "Bưu Cục TDP Nghĩa Đức-Thạnh Mỹ-Đơn Dương-Lâm Đồng"
+                ]
+            },
+            {
+                "am": "Huỳnh Thị Kim Chi",
+                "count": 1,
+                "pos": [
+                    "Bưu Cục Thôn Phúc Hưng-Xã Tân Hà Lâm Hà-Lâm Đồng"
+                ]
+            },
+            {
+                "am": "Hồng Bích Nga",
+                "count": 1,
+                "pos": [
+                    "Bưu Cục 337 Hùng Vương-Lộc Thắng-Bảo Lâm-Lâm Đồng"
+                ]
+            }
+        ],
+        "records": [
+            {
+                "am": "Trầm Hữu Tiến",
+                "days_unstable": 4,
+                "id": 20942000,
+                "name": "Bưu Cục 1322 Hùng Vương-Di Linh-Lâm Đồng",
+                "pct_ktc_cung_tinh": 33.7,
+                "pct_lm_5n": 4.5,
+                "province": "Lâm Đồng",
+                "reason": "2. Tồn LM",
+                "status": "Bất ổn",
+                "ton_ktc": 1823,
+                "ton_ktc_cung_tinh": 614,
+                "ton_lm": 2442,
+                "ton_lm_5n": 111
+            },
+            {
+                "am": "Huỳnh Thị Kim Chi",
+                "days_unstable": 4,
+                "id": 22425000,
+                "name": "Bưu Cục Thôn Phúc Hưng-Xã Tân Hà Lâm Hà-Lâm Đồng",
+                "pct_ktc_cung_tinh": 11.3,
+                "pct_lm_5n": 22.8,
+                "province": "Lâm Đồng",
+                "reason": "2. Tồn LM | 4. Tồn Aging >5 ngày",
+                "status": "Bất ổn",
+                "ton_ktc": 698,
+                "ton_ktc_cung_tinh": 79,
+                "ton_lm": 1578,
+                "ton_lm_5n": 359
+            },
+            {
+                "am": "Thái Thị Thanh Thư",
+                "days_unstable": 4,
+                "id": 22830000,
+                "name": "Bưu Cục 56 Phan Đình Phùng-Cam Linh-Khánh Hòa",
+                "pct_ktc_cung_tinh": 30.9,
+                "pct_lm_5n": 5.0,
+                "province": "Khánh Hòa",
+                "reason": "2. Tồn LM",
+                "status": "Bất ổn",
+                "ton_ktc": 957,
+                "ton_ktc_cung_tinh": 296,
+                "ton_lm": 2117,
+                "ton_lm_5n": 105
+            },
+            {
+                "am": "Lê Minh Đại",
+                "days_unstable": 3,
+                "id": 22051000,
+                "name": "Bưu Cục Langbiang-Lạc Dương-Lâm Đồng",
+                "pct_ktc_cung_tinh": 30.9,
+                "pct_lm_5n": 8.2,
+                "province": "Lâm Đồng",
+                "reason": "2. Tồn LM",
+                "status": "Bất ổn",
+                "ton_ktc": 907,
+                "ton_ktc_cung_tinh": 280,
+                "ton_lm": 1105,
+                "ton_lm_5n": 91
+            },
+            {
+                "am": "Trầm Hữu Tiến",
+                "days_unstable": 3,
+                "id": 22389000,
+                "name": "Bưu Cục Thôn R'Chai 2-Xã Đức Trọng-Lâm Đồng",
+                "pct_ktc_cung_tinh": 18.2,
+                "pct_lm_5n": 4.4,
+                "province": "Lâm Đồng",
+                "reason": "2. Tồn LM",
+                "status": "Bất ổn",
+                "ton_ktc": 633,
+                "ton_ktc_cung_tinh": 115,
+                "ton_lm": 956,
+                "ton_lm_5n": 42
+            },
+            {
+                "am": "Lê Minh Đại",
+                "days_unstable": 2,
+                "id": 21377000,
+                "name": "Bưu Cục TDP Nghĩa Đức-Thạnh Mỹ-Đơn Dương-Lâm Đồng",
+                "pct_ktc_cung_tinh": 12.4,
+                "pct_lm_5n": 3.1,
+                "province": "Lâm Đồng",
+                "reason": "2. Tồn LM",
+                "status": "Bất ổn",
+                "ton_ktc": 1190,
+                "ton_ktc_cung_tinh": 147,
+                "ton_lm": 1753,
+                "ton_lm_5n": 54
+            },
+            {
+                "am": "Nguyễn Thanh Long",
+                "days_unstable": 2,
+                "id": 20588000,
+                "name": "Bưu Cục 42 Nguyễn Du-Cam Lâm-Khánh Hoà",
+                "pct_ktc_cung_tinh": 24.4,
+                "pct_lm_5n": 1.2,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Chuẩn bị nhảy nhóm",
+                "ton_ktc": 874,
+                "ton_ktc_cung_tinh": 213,
+                "ton_lm": 1304,
+                "ton_lm_5n": 15
+            },
+            {
+                "am": "Thái Thị Thanh Thư",
+                "days_unstable": 2,
+                "id": 22704000,
+                "name": "Bưu Cục 06 Lê Hồng Phong-TP.Nha Trang-Khánh Hòa",
+                "pct_ktc_cung_tinh": 23.0,
+                "pct_lm_5n": 14.4,
+                "province": "Khánh Hòa",
+                "reason": "4. Tồn Aging >5 ngày",
+                "status": "Bất ổn",
+                "ton_ktc": 664,
+                "ton_ktc_cung_tinh": 153,
+                "ton_lm": 1665,
+                "ton_lm_5n": 240
+            },
+            {
+                "am": "Hồng Bích Nga",
+                "days_unstable": 2,
+                "id": 22759000,
+                "name": "Bưu Cục 231 Thôn 1-Xã Hòa Ninh-Lâm Đồng",
+                "pct_ktc_cung_tinh": 32.7,
+                "pct_lm_5n": 7.1,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Chuẩn bị nhảy nhóm",
+                "ton_ktc": 617,
+                "ton_ktc_cung_tinh": 202,
+                "ton_lm": 606,
+                "ton_lm_5n": 43
+            },
+            {
+                "am": "Trần Văn Phước",
+                "days_unstable": 2,
+                "id": 20269000,
+                "name": "Bưu Cục 01 Nguyễn Tất Thành-Đắk R lấp-Đắk Nông",
+                "pct_ktc_cung_tinh": 21.3,
+                "pct_lm_5n": 3.8,
+                "province": "Đắk Nông",
+                "reason": "",
+                "status": "Chuẩn bị nhảy nhóm",
+                "ton_ktc": 668,
+                "ton_ktc_cung_tinh": 142,
+                "ton_lm": 583,
+                "ton_lm_5n": 22
+            },
+            {
+                "am": "Huỳnh Thị Kim Chi",
+                "days_unstable": 2,
+                "id": 20670000,
+                "name": "Bưu Cục Đạ Rsal-Đam Rông-Lâm Đồng",
+                "pct_ktc_cung_tinh": 7.9,
+                "pct_lm_5n": 8.4,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Cấp cảnh báo",
+                "ton_ktc": 916,
+                "ton_ktc_cung_tinh": 72,
+                "ton_lm": 678,
+                "ton_lm_5n": 57
+            },
+            {
+                "am": "Trần Văn Phước",
+                "days_unstable": 2,
+                "id": 22394000,
+                "name": "Bưu Cục Thôn 2-Xã Quảng Tín-Đắk Nông",
+                "pct_ktc_cung_tinh": 23.9,
+                "pct_lm_5n": 6.7,
+                "province": "Đắk Nông",
+                "reason": "",
+                "status": "Cấp cảnh báo",
+                "ton_ktc": 593,
+                "ton_ktc_cung_tinh": 142,
+                "ton_lm": 509,
+                "ton_lm_5n": 34
+            },
+            {
+                "am": "Trần Thị Nhung",
+                "days_unstable": 2,
+                "id": 21364000,
+                "name": "Bưu Cục Quảng Khê-Đắk Glong-Đắk Nông",
+                "pct_ktc_cung_tinh": 28.3,
+                "pct_lm_5n": 3.7,
+                "province": "Đắk Nông",
+                "reason": "",
+                "status": "Cấp cảnh báo",
+                "ton_ktc": 494,
+                "ton_ktc_cung_tinh": 140,
+                "ton_lm": 376,
+                "ton_lm_5n": 14
+            },
+            {
+                "am": "Võ Tấn Lợi",
+                "days_unstable": 2,
+                "id": 22255000,
+                "name": "Bưu Cục Lê Hồng Phong-Liên Hiệp-Đức Trọng-Lâm Đồng",
+                "pct_ktc_cung_tinh": 7.1,
+                "pct_lm_5n": 0.3,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 785,
+                "ton_ktc_cung_tinh": 56,
+                "ton_lm": 666,
+                "ton_lm_5n": 2
+            },
+            {
+                "am": "Võ Tấn Lợi",
+                "days_unstable": 2,
+                "id": 20849000,
+                "name": "Bưu Cục QL20 Ninh Hòa-Đức Trọng-Lâm Đồng",
+                "pct_ktc_cung_tinh": 9.5,
+                "pct_lm_5n": 0.5,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 640,
+                "ton_ktc_cung_tinh": 61,
+                "ton_lm": 610,
+                "ton_lm_5n": 3
+            },
+            {
+                "am": "Lê Văn Trường",
+                "days_unstable": 2,
+                "id": 22312000,
+                "name": "Bưu Cục Số 6 Trương Văn Hoàn-Phường 9-Đà Lạt-Lâm Đồng",
+                "pct_ktc_cung_tinh": 10.0,
+                "pct_lm_5n": 0.8,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1195,
+                "ton_ktc_cung_tinh": 120,
+                "ton_lm": 1251,
+                "ton_lm_5n": 10
+            },
+            {
+                "am": "Không xác định",
+                "days_unstable": 2,
+                "id": 21094000,
+                "name": "Kho Giao Hàng Nặng - Nha Trang - Khánh Hoà",
+                "pct_ktc_cung_tinh": 20.9,
+                "pct_lm_5n": 0.6,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 373,
+                "ton_ktc_cung_tinh": 78,
+                "ton_lm": 651,
+                "ton_lm_5n": 4
+            },
+            {
+                "am": "Hồng Bích Nga",
+                "days_unstable": 2,
+                "id": 22222000,
+                "name": "Bưu Cục 337 Hùng Vương-Lộc Thắng-Bảo Lâm-Lâm Đồng",
+                "pct_ktc_cung_tinh": 31.5,
+                "pct_lm_5n": 12.0,
+                "province": "Lâm Đồng",
+                "reason": "4. Tồn Aging >5 ngày",
+                "status": "Bất ổn",
+                "ton_ktc": 610,
+                "ton_ktc_cung_tinh": 192,
+                "ton_lm": 542,
+                "ton_lm_5n": 65
+            },
+            {
+                "am": "Lê Thanh Nhựt",
+                "days_unstable": 1,
+                "id": 20687000,
+                "name": "Bưu Cục 46 Hùng Vương-Hàm Tân-Bình Thuận",
+                "pct_ktc_cung_tinh": 33.9,
+                "pct_lm_5n": 0.3,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 849,
+                "ton_ktc_cung_tinh": 288,
+                "ton_lm": 910,
+                "ton_lm_5n": 3
+            },
+            {
+                "am": "Nguyễn Ngọc Khánh",
+                "days_unstable": 1,
+                "id": 22483000,
+                "name": "Bưu Cục 575 Quốc Lộ 28-Xã Hàm Thuận-Bình Thuận",
+                "pct_ktc_cung_tinh": 35.1,
+                "pct_lm_5n": 0.2,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1027,
+                "ton_ktc_cung_tinh": 360,
+                "ton_lm": 1276,
+                "ton_lm_5n": 2
+            },
+            {
+                "am": "Nguyễn Ngọc Khánh",
+                "days_unstable": 1,
+                "id": 22934000,
+                "name": "Bưu Cục 585 Nguyễn Tất Thành-Xã Lương Sơn-Bình Thuận",
+                "pct_ktc_cung_tinh": 42.1,
+                "pct_lm_5n": 0.3,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 546,
+                "ton_ktc_cung_tinh": 230,
+                "ton_lm": 581,
+                "ton_lm_5n": 2
+            },
+            {
+                "am": "Trần Văn Phước",
+                "days_unstable": 1,
+                "id": 20269003,
+                "name": "Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông",
+                "pct_ktc_cung_tinh": 17.2,
+                "pct_lm_5n": 1.1,
+                "province": "Đắk Nông",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 535,
+                "ton_ktc_cung_tinh": 92,
+                "ton_lm": 375,
+                "ton_lm_5n": 4
+            },
+            {
+                "am": "Trần Công Hậu",
+                "days_unstable": 1,
+                "id": 22048000,
+                "name": "Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông",
+                "pct_ktc_cung_tinh": 19.1,
+                "pct_lm_5n": 1.9,
+                "province": "Đắk Nông",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 632,
+                "ton_ktc_cung_tinh": 121,
+                "ton_lm": 369,
+                "ton_lm_5n": 7
+            },
+            {
+                "am": "Trần Thị Nhung",
+                "days_unstable": 1,
+                "id": 20673000,
+                "name": "Bưu Cục 40 Nguyễn Văn Linh-Cư Jút-Đắk Nông",
+                "pct_ktc_cung_tinh": 24.2,
+                "pct_lm_5n": 0.8,
+                "province": "Đắk Nông",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 748,
+                "ton_ktc_cung_tinh": 181,
+                "ton_lm": 851,
+                "ton_lm_5n": 7
+            },
+            {
+                "am": "Nguyễn Hoàng Phi",
+                "days_unstable": 1,
+                "id": 22793000,
+                "name": "Bưu Cục Đường Tỉnh Lộ 10-Xã Diên Thọ-Khánh Hòa",
+                "pct_ktc_cung_tinh": 26.5,
+                "pct_lm_5n": 0.5,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 525,
+                "ton_ktc_cung_tinh": 139,
+                "ton_lm": 565,
+                "ton_lm_5n": 3
+            },
+            {
+                "am": "Phạm Bá Thành Công",
+                "days_unstable": 1,
+                "id": 21479000,
+                "name": "Bưu Cục 571 Hùng Vương-Cam Nghĩa-TP.Cam Ranh-Khánh Hoà",
+                "pct_ktc_cung_tinh": 28.0,
+                "pct_lm_5n": 0.2,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 536,
+                "ton_ktc_cung_tinh": 150,
+                "ton_lm": 595,
+                "ton_lm_5n": 1
+            },
+            {
+                "am": "Trần Thị Nhung",
+                "days_unstable": 1,
+                "id": 20591000,
+                "name": "Bưu Cục 73 Nguyễn Tất Thành-Krông Nô-Đắk Nông",
+                "pct_ktc_cung_tinh": 33.6,
+                "pct_lm_5n": 0.2,
+                "province": "Đắk Nông",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 877,
+                "ton_ktc_cung_tinh": 295,
+                "ton_lm": 867,
+                "ton_lm_5n": 2
+            },
+            {
+                "am": "Lê Minh Đại",
+                "days_unstable": 1,
+                "id": 21687000,
+                "name": "Bưu Cục Cao Bá Quát-Phường 7-Đà Lạt-Lâm Đồng",
+                "pct_ktc_cung_tinh": 11.0,
+                "pct_lm_5n": 0.2,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1831,
+                "ton_ktc_cung_tinh": 202,
+                "ton_lm": 1513,
+                "ton_lm_5n": 3
+            },
+            {
+                "am": "Trần Thị Nhung",
+                "days_unstable": 1,
+                "id": 21477000,
+                "name": "Bưu Cục Quốc Lộ 14-Đức An-Đắk Song-Đăk Nông",
+                "pct_ktc_cung_tinh": 24.1,
+                "pct_lm_5n": 0.4,
+                "province": "Đắk Nông",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 717,
+                "ton_ktc_cung_tinh": 173,
+                "ton_lm": 551,
+                "ton_lm_5n": 2
+            },
+            {
+                "am": "Trần Văn Phước",
+                "days_unstable": 1,
+                "id": 22242000,
+                "name": "Bưu Cục 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông",
+                "pct_ktc_cung_tinh": 24.5,
+                "pct_lm_5n": 1.7,
+                "province": "Đắk Nông",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 364,
+                "ton_ktc_cung_tinh": 89,
+                "ton_lm": 286,
+                "ton_lm_5n": 5
+            },
+            {
+                "am": "Trần Thị Nhung",
+                "days_unstable": 1,
+                "id": 20590000,
+                "name": "Bưu Cục Thôn 2-Tuy Đức-Đắk Nông",
+                "pct_ktc_cung_tinh": 24.8,
+                "pct_lm_5n": 1.5,
+                "province": "Đắk Nông",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 632,
+                "ton_ktc_cung_tinh": 157,
+                "ton_lm": 394,
+                "ton_lm_5n": 6
+            },
+            {
+                "am": "Trần Thị Nhung",
+                "days_unstable": 1,
+                "id": 22086000,
+                "name": "Bưu Cục Nâm N'Jang-Đắk Song-Đắk Nông",
+                "pct_ktc_cung_tinh": 24.9,
+                "pct_lm_5n": 0.3,
+                "province": "Đắk Nông",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 470,
+                "ton_ktc_cung_tinh": 117,
+                "ton_lm": 346,
+                "ton_lm_5n": 1
+            },
+            {
+                "am": "Nguyễn Hoàng Phi",
+                "days_unstable": 1,
+                "id": 20558000,
+                "name": "Bưu Cục Tổ 5 Đường Ngô Gia Tự-Khánh Vĩnh-Khánh Hòa",
+                "pct_ktc_cung_tinh": 26.6,
+                "pct_lm_5n": 0.0,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 334,
+                "ton_ktc_cung_tinh": 89,
+                "ton_lm": 313,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Phạm Bá Thành Công",
+                "days_unstable": 1,
+                "id": 21569000,
+                "name": "Bưu Cục 70 Lê Hồng Phong-Ninh Diêm-Ninh Hoà-Khánh Hoà",
+                "pct_ktc_cung_tinh": 27.7,
+                "pct_lm_5n": 0.4,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 657,
+                "ton_ktc_cung_tinh": 182,
+                "ton_lm": 688,
+                "ton_lm_5n": 3
+            },
+            {
+                "am": "Lê Thanh Nhựt",
+                "days_unstable": 1,
+                "id": 21065000,
+                "name": "Bưu cục 47 Trần Hưng Đạo-Hàm Thuận Nam-Bình Thuận",
+                "pct_ktc_cung_tinh": 31.7,
+                "pct_lm_5n": 0.2,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 496,
+                "ton_ktc_cung_tinh": 157,
+                "ton_lm": 464,
+                "ton_lm_5n": 1
+            },
+            {
+                "am": "Lê Thanh Nhựt",
+                "days_unstable": 1,
+                "id": 21290000,
+                "name": "Bưu cục DT707-Hàm Thuận Nam-Bình Thuận",
+                "pct_ktc_cung_tinh": 38.6,
+                "pct_lm_5n": 0.1,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1172,
+                "ton_ktc_cung_tinh": 452,
+                "ton_lm": 1183,
+                "ton_lm_5n": 1
+            },
+            {
+                "am": "Trầm Hữu Tiến",
+                "days_unstable": 1,
+                "id": 21516000,
+                "name": "Bưu Cục 468 Quốc Lộ 20-Liên Nghĩa-Đức Trọng-Lâm Đồng",
+                "pct_ktc_cung_tinh": 12.5,
+                "pct_lm_5n": 0.9,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1194,
+                "ton_ktc_cung_tinh": 149,
+                "ton_lm": 821,
+                "ton_lm_5n": 7
+            },
+            {
+                "am": "Nguyễn Duy Long",
+                "days_unstable": 1,
+                "id": 20316000,
+                "name": "Bưu Cục 26A Lê Duẩn-Ninh Sơn-Ninh Thuận",
+                "pct_ktc_cung_tinh": 13.5,
+                "pct_lm_5n": 1.0,
+                "province": "Ninh Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1134,
+                "ton_ktc_cung_tinh": 153,
+                "ton_lm": 627,
+                "ton_lm_5n": 6
+            },
+            {
+                "am": "Nguyễn Duy Long",
+                "days_unstable": 1,
+                "id": 22357000,
+                "name": "Bưu Cục Phước Minh-Thuận Nam-Ninh Thuận",
+                "pct_ktc_cung_tinh": 19.6,
+                "pct_lm_5n": 0.7,
+                "province": "Ninh Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 781,
+                "ton_ktc_cung_tinh": 153,
+                "ton_lm": 416,
+                "ton_lm_5n": 3
+            },
+            {
+                "am": "Nguyễn Hoàng Phi",
+                "days_unstable": 1,
+                "id": 20143000,
+                "name": "Bưu Cục 39 Hùng Vương-Diên Khánh-Khánh Hòa",
+                "pct_ktc_cung_tinh": 26.8,
+                "pct_lm_5n": 0.8,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 933,
+                "ton_ktc_cung_tinh": 250,
+                "ton_lm": 826,
+                "ton_lm_5n": 7
+            },
+            {
+                "am": "Phạm Bá Thành Công",
+                "days_unstable": 1,
+                "id": 20694000,
+                "name": "Bưu Cục Thôn Xuân Hoà 1-Ninh Hoà-Khánh Hoà",
+                "pct_ktc_cung_tinh": 28.7,
+                "pct_lm_5n": 0.5,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 435,
+                "ton_ktc_cung_tinh": 125,
+                "ton_lm": 414,
+                "ton_lm_5n": 2
+            },
+            {
+                "am": "Nguyễn Duy Long",
+                "days_unstable": 1,
+                "id": 22861000,
+                "name": "Bưu Cục 95 Thống Nhất-Phan Rang-Ninh Thuận",
+                "pct_ktc_cung_tinh": 29.1,
+                "pct_lm_5n": 0.2,
+                "province": "Ninh Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1401,
+                "ton_ktc_cung_tinh": 407,
+                "ton_lm": 1252,
+                "ton_lm_5n": 3
+            },
+            {
+                "am": "Nguyễn Duy Long",
+                "days_unstable": 1,
+                "id": 20648000,
+                "name": "Bưu Cục 51 Phạm Ngọc Thạch-Ninh Hải-Ninh Thuận",
+                "pct_ktc_cung_tinh": 31.9,
+                "pct_lm_5n": 0.2,
+                "province": "Ninh Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 953,
+                "ton_ktc_cung_tinh": 304,
+                "ton_lm": 979,
+                "ton_lm_5n": 2
+            },
+            {
+                "am": "Huỳnh Tấn Hiển",
+                "days_unstable": 1,
+                "id": 1896,
+                "name": "Bưu Cục Đạ Huoai-Lâm Đồng",
+                "pct_ktc_cung_tinh": 36.0,
+                "pct_lm_5n": 0.2,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 688,
+                "ton_ktc_cung_tinh": 248,
+                "ton_lm": 478,
+                "ton_lm_5n": 1
+            },
+            {
+                "am": "Nguyễn Ngọc Khánh",
+                "days_unstable": 1,
+                "id": 20633000,
+                "name": "Bưu Cục 237 Nguyễn Tất Thành-Bắc Bình-Bình Thuận",
+                "pct_ktc_cung_tinh": 39.6,
+                "pct_lm_5n": 0.2,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 728,
+                "ton_ktc_cung_tinh": 288,
+                "ton_lm": 651,
+                "ton_lm_5n": 1
+            },
+            {
+                "am": "Huỳnh Thị Kim Chi",
+                "days_unstable": 1,
+                "id": 21458000,
+                "name": "Bưu Cục TDP Ba Đình-Lâm Hà-Lâm Đồng",
+                "pct_ktc_cung_tinh": 7.1,
+                "pct_lm_5n": 0.0,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 649,
+                "ton_ktc_cung_tinh": 46,
+                "ton_lm": 391,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Không xác định",
+                "days_unstable": 1,
+                "id": 21130000,
+                "name": "Kho Giao Hàng Nặng - TP Đà Lạt - Lâm Đồng",
+                "pct_ktc_cung_tinh": 10.3,
+                "pct_lm_5n": 0.0,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 319,
+                "ton_ktc_cung_tinh": 33,
+                "ton_lm": 322,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Huỳnh Thị Kim Chi",
+                "days_unstable": 1,
+                "id": 21294000,
+                "name": "Bưu cục Đinh Văn-Lâm Hà-Lâm Đồng",
+                "pct_ktc_cung_tinh": 12.9,
+                "pct_lm_5n": 1.6,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1186,
+                "ton_ktc_cung_tinh": 153,
+                "ton_lm": 673,
+                "ton_lm_5n": 11
+            },
+            {
+                "am": "Huỳnh Tấn Hiển",
+                "days_unstable": 1,
+                "id": 20669000,
+                "name": "Bưu Cục Đường Trần Lê-Cát Tiên-Lâm Đồng",
+                "pct_ktc_cung_tinh": 13.9,
+                "pct_lm_5n": 0.3,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 794,
+                "ton_ktc_cung_tinh": 110,
+                "ton_lm": 336,
+                "ton_lm_5n": 1
+            },
+            {
+                "am": "Nguyễn Duy Long",
+                "days_unstable": 1,
+                "id": 20499000,
+                "name": "Bưu Cục Quốc Lộ 1A-Ninh Phước-Ninh Thuận",
+                "pct_ktc_cung_tinh": 19.2,
+                "pct_lm_5n": 2.2,
+                "province": "Ninh Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1649,
+                "ton_ktc_cung_tinh": 316,
+                "ton_lm": 1026,
+                "ton_lm_5n": 23
+            },
+            {
+                "am": "Nguyễn Hoàng Phi",
+                "days_unstable": 1,
+                "id": 21331000,
+                "name": "Bưu Cục Thôn Dầu Sơn-Cam Lâm-Khánh Hoà",
+                "pct_ktc_cung_tinh": 24.6,
+                "pct_lm_5n": 1.0,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 532,
+                "ton_ktc_cung_tinh": 131,
+                "ton_lm": 390,
+                "ton_lm_5n": 4
+            },
+            {
+                "am": "Nguyễn Hoàng Phi",
+                "days_unstable": 1,
+                "id": 22774000,
+                "name": "Bưu Cục Thôn Phú An Nam 2-Xã Diên Khánh-Khánh Hòa",
+                "pct_ktc_cung_tinh": 32.9,
+                "pct_lm_5n": 0.5,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 383,
+                "ton_ktc_cung_tinh": 126,
+                "ton_lm": 418,
+                "ton_lm_5n": 2
+            },
+            {
+                "am": "Nguyễn Ngọc Khánh",
+                "days_unstable": 1,
+                "id": 20144000,
+                "name": "Bưu Cục 16 Huỳnh Thúc Kháng-Phan Thiết-Bình Thuận",
+                "pct_ktc_cung_tinh": 48.0,
+                "pct_lm_5n": 0.0,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 805,
+                "ton_ktc_cung_tinh": 386,
+                "ton_lm": 672,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Trần Thị Nhung",
+                "days_unstable": 1,
+                "id": 21150000,
+                "name": "Bưu Cục Quảng Sơn-Đắk Glong-Đắk Nông",
+                "pct_ktc_cung_tinh": 22.1,
+                "pct_lm_5n": 0.4,
+                "province": "Đắk Nông",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 716,
+                "ton_ktc_cung_tinh": 158,
+                "ton_lm": 273,
+                "ton_lm_5n": 1
+            },
+            {
+                "am": "Thái Thị Thanh Thư",
+                "days_unstable": 1,
+                "id": 22363000,
+                "name": "Bưu Cục Đường 35 Hà Quang 1-Xã Nam Nha Trang-Khánh Hòa",
+                "pct_ktc_cung_tinh": 25.9,
+                "pct_lm_5n": 1.7,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 603,
+                "ton_ktc_cung_tinh": 156,
+                "ton_lm": 651,
+                "ton_lm_5n": 11
+            },
+            {
+                "am": "Nguyễn Ngọc Khánh",
+                "days_unstable": 1,
+                "id": 21320000,
+                "name": "Bưu Cục Phú Thủy-Phan Thiết-Bình Thuận",
+                "pct_ktc_cung_tinh": 26.0,
+                "pct_lm_5n": 0.2,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1101,
+                "ton_ktc_cung_tinh": 286,
+                "ton_lm": 1067,
+                "ton_lm_5n": 2
+            },
+            {
+                "am": "Nguyễn Lê Nguyên Vũ",
+                "days_unstable": 1,
+                "id": 21468000,
+                "name": "Bưu cục 1479 Trần Phú-Lộc Châu-Bảo Lộc-Lâm Đồng",
+                "pct_ktc_cung_tinh": 27.6,
+                "pct_lm_5n": 0.2,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1361,
+                "ton_ktc_cung_tinh": 376,
+                "ton_lm": 662,
+                "ton_lm_5n": 1
+            },
+            {
+                "am": "Không xác định",
+                "days_unstable": 1,
+                "id": 21498000,
+                "name": "Kho Giao Hàng Nặng - Cam Ranh - Khánh Hoà",
+                "pct_ktc_cung_tinh": 36.8,
+                "pct_lm_5n": 0.0,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 117,
+                "ton_ktc_cung_tinh": 43,
+                "ton_lm": 117,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Nguyễn Ngọc Khánh",
+                "days_unstable": 1,
+                "id": 21403000,
+                "name": "Bưu Cục Hàm Liêm-Hàm Thuận Bắc-Bình Thuận",
+                "pct_ktc_cung_tinh": 38.8,
+                "pct_lm_5n": 0.3,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 931,
+                "ton_ktc_cung_tinh": 361,
+                "ton_lm": 758,
+                "ton_lm_5n": 2
+            },
+            {
+                "am": "Huỳnh Tấn Hiển",
+                "days_unstable": 1,
+                "id": 21067000,
+                "name": "Bưu Cục Số 7 Lê Thánh Tôn-LaGi-Bình Thuận",
+                "pct_ktc_cung_tinh": 40.2,
+                "pct_lm_5n": 0.2,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 694,
+                "ton_ktc_cung_tinh": 279,
+                "ton_lm": 446,
+                "ton_lm_5n": 1
+            },
+            {
+                "am": "Nguyễn Ngọc Khánh",
+                "days_unstable": 1,
+                "id": 21396000,
+                "name": "Bưu Cục Phú Tài-Phan Thiết-Bình Thuận",
+                "pct_ktc_cung_tinh": 43.4,
+                "pct_lm_5n": 0.6,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1203,
+                "ton_ktc_cung_tinh": 522,
+                "ton_lm": 978,
+                "ton_lm_5n": 6
+            },
+            {
+                "am": "Huỳnh Tấn Hiển",
+                "days_unstable": 1,
+                "id": 2357,
+                "name": "Bưu Cục 158 Quốc lộ 55-Tánh Linh-Bình Thuận",
+                "pct_ktc_cung_tinh": 43.6,
+                "pct_lm_5n": 0.4,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1135,
+                "ton_ktc_cung_tinh": 495,
+                "ton_lm": 784,
+                "ton_lm_5n": 3
+            },
+            {
+                "am": "Lê Văn Trường",
+                "days_unstable": 1,
+                "id": 21537000,
+                "name": "Bưu Cục 190/11 Phù Đổng Thiên Vương-Phường 8-Đà Lạt-Lâm Đồng",
+                "pct_ktc_cung_tinh": 7.2,
+                "pct_lm_5n": 0.4,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 804,
+                "ton_ktc_cung_tinh": 58,
+                "ton_lm": 486,
+                "ton_lm_5n": 2
+            },
+            {
+                "am": "Lê Văn Trường",
+                "days_unstable": 1,
+                "id": 22116000,
+                "name": "Bưu Cục 300 Tự Phước-Đà Lạt-Lâm Đồng",
+                "pct_ktc_cung_tinh": 15.0,
+                "pct_lm_5n": 0.0,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 944,
+                "ton_ktc_cung_tinh": 142,
+                "ton_lm": 361,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Huỳnh Tấn Hiển",
+                "days_unstable": 1,
+                "id": 20663000,
+                "name": "Bưu Cục 44B Nguyễn Đình Chiểu-Đạ Teh-Lâm Đồng",
+                "pct_ktc_cung_tinh": 20.2,
+                "pct_lm_5n": 0.0,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 893,
+                "ton_ktc_cung_tinh": 180,
+                "ton_lm": 357,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Thái Thị Thanh Thư",
+                "days_unstable": 1,
+                "id": 22746000,
+                "name": "Bưu Cục 229 Phước Long-Nam Nha Trang-Khánh Hòa",
+                "pct_ktc_cung_tinh": 23.0,
+                "pct_lm_5n": 0.3,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 849,
+                "ton_ktc_cung_tinh": 195,
+                "ton_lm": 757,
+                "ton_lm_5n": 2
+            },
+            {
+                "am": "Phan Đình Duy",
+                "days_unstable": 1,
+                "id": 20320000,
+                "name": "Bưu Cục 466 Đường 23/10-Nha Trang-Khánh Hòa",
+                "pct_ktc_cung_tinh": 24.4,
+                "pct_lm_5n": 0.5,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 713,
+                "ton_ktc_cung_tinh": 174,
+                "ton_lm": 750,
+                "ton_lm_5n": 4
+            },
+            {
+                "am": "Phạm Bá Thành Công",
+                "days_unstable": 1,
+                "id": 2399,
+                "name": "Bưu Cục 195 Đường 2/4-Nha Trang-Khánh Hòa",
+                "pct_ktc_cung_tinh": 25.0,
+                "pct_lm_5n": 0.3,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1742,
+                "ton_ktc_cung_tinh": 435,
+                "ton_lm": 1431,
+                "ton_lm_5n": 4
+            },
+            {
+                "am": "Hồng Bích Nga",
+                "days_unstable": 1,
+                "id": 23015000,
+                "name": "Bưu Cục QL55-Bảo Lâm 3-Lâm Đồng",
+                "pct_ktc_cung_tinh": 26.5,
+                "pct_lm_5n": 1.1,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 877,
+                "ton_ktc_cung_tinh": 232,
+                "ton_lm": 269,
+                "ton_lm_5n": 3
+            },
+            {
+                "am": "Không xác định",
+                "days_unstable": 1,
+                "id": 21131000,
+                "name": "Kho Giao Hàng Nặng - TP Bảo Lộc - Lâm Đồng",
+                "pct_ktc_cung_tinh": 15.2,
+                "pct_lm_5n": 0.0,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 138,
+                "ton_ktc_cung_tinh": 21,
+                "ton_lm": 152,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Trần Thị Nhung",
+                "days_unstable": 1,
+                "id": 2309,
+                "name": "Bưu Cục Đắk Mil-Đắk Nông",
+                "pct_ktc_cung_tinh": 23.7,
+                "pct_lm_5n": 0.4,
+                "province": "Đắk Nông",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1917,
+                "ton_ktc_cung_tinh": 455,
+                "ton_lm": 757,
+                "ton_lm_5n": 3
+            },
+            {
+                "am": "Thái Thị Thanh Thư",
+                "days_unstable": 1,
+                "id": 2502,
+                "name": "Bưu Cục Phước Đồng-Nha Trang-Khánh Hoà",
+                "pct_ktc_cung_tinh": 28.4,
+                "pct_lm_5n": 0.0,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 306,
+                "ton_ktc_cung_tinh": 87,
+                "ton_lm": 229,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Không xác định",
+                "days_unstable": 1,
+                "id": 21163000,
+                "name": "Kho Giao Hàng Nặng - Phan Rang - Ninh Thuận",
+                "pct_ktc_cung_tinh": 28.3,
+                "pct_lm_5n": 0.0,
+                "province": "Ninh Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 180,
+                "ton_ktc_cung_tinh": 51,
+                "ton_lm": 102,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Hồng Bích Nga",
+                "days_unstable": 1,
+                "id": 20785000,
+                "name": "Bưu Cục 95A Đội Cấn-Bảo Lộc-Lâm Đồng",
+                "pct_ktc_cung_tinh": 31.1,
+                "pct_lm_5n": 0.8,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1570,
+                "ton_ktc_cung_tinh": 489,
+                "ton_lm": 479,
+                "ton_lm_5n": 4
+            },
+            {
+                "am": "Không xác định",
+                "days_unstable": 1,
+                "id": 21285000,
+                "name": "Kho Giao Hàng Nặng - Phan Thiết - Bình Thuận",
+                "pct_ktc_cung_tinh": 38.8,
+                "pct_lm_5n": 0.8,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 152,
+                "ton_ktc_cung_tinh": 59,
+                "ton_lm": 121,
+                "ton_lm_5n": 1
+            },
+            {
+                "am": "Lê Minh Đại",
+                "days_unstable": 1,
+                "id": 21126000,
+                "name": "Bưu cục Ngô Thỳ Sỹ-Đà Lạt-Lâm Đồng",
+                "pct_ktc_cung_tinh": 10.7,
+                "pct_lm_5n": 3.1,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1163,
+                "ton_ktc_cung_tinh": 125,
+                "ton_lm": 445,
+                "ton_lm_5n": 14
+            },
+            {
+                "am": "Không xác định",
+                "days_unstable": 1,
+                "id": 21605000,
+                "name": "Kho Giao Hàng Nặng - Đức Trọng - Lâm Đồng",
+                "pct_ktc_cung_tinh": 11.6,
+                "pct_lm_5n": 0.0,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 146,
+                "ton_ktc_cung_tinh": 17,
+                "ton_lm": 65,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Phạm Bá Thành Công",
+                "days_unstable": 1,
+                "id": 21046000,
+                "name": "Bưu Cục 36 Bà Triệu-Vạn Ninh-Khánh Hoà",
+                "pct_ktc_cung_tinh": 12.9,
+                "pct_lm_5n": 0.3,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1145,
+                "ton_ktc_cung_tinh": 148,
+                "ton_lm": 286,
+                "ton_lm_5n": 1
+            },
+            {
+                "am": "Nguyễn Duy Long",
+                "days_unstable": 1,
+                "id": 20150000,
+                "name": "Bưu Cục 254A Đường 21 tháng 8-Phan Rang-Tháp Chàm-Ninh Thuận",
+                "pct_ktc_cung_tinh": 15.8,
+                "pct_lm_5n": 1.4,
+                "province": "Ninh Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1560,
+                "ton_ktc_cung_tinh": 246,
+                "ton_lm": 498,
+                "ton_lm_5n": 7
+            },
+            {
+                "am": "Nguyễn Duy Long",
+                "days_unstable": 1,
+                "id": 21298000,
+                "name": "Bưu cục Thị Trấn Liên Hương-Tuy Phong-Bình Thuận",
+                "pct_ktc_cung_tinh": 23.3,
+                "pct_lm_5n": 0.0,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1542,
+                "ton_ktc_cung_tinh": 360,
+                "ton_lm": 410,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Phan Đình Duy",
+                "days_unstable": 1,
+                "id": 20495000,
+                "name": "Bưu Cục 40A Yết Kiêu-Nha Trang-Khánh Hòa",
+                "pct_ktc_cung_tinh": 26.6,
+                "pct_lm_5n": 1.2,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 612,
+                "ton_ktc_cung_tinh": 163,
+                "ton_lm": 341,
+                "ton_lm_5n": 4
+            },
+            {
+                "am": "Hồng Bích Nga",
+                "days_unstable": 1,
+                "id": 21688000,
+                "name": "Bưu Cục 412 Nguyễn Văn Cừ-Lộc Phát-Bảo Lộc-Lâm Đồng",
+                "pct_ktc_cung_tinh": 30.1,
+                "pct_lm_5n": 0.0,
+                "province": "Lâm Đồng",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1467,
+                "ton_ktc_cung_tinh": 442,
+                "ton_lm": 339,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Không xác định",
+                "days_unstable": 1,
+                "id": 22057000,
+                "name": "Kho Giao Hàng Nặng - Tuy Phong - Bình Thuận",
+                "pct_ktc_cung_tinh": 59.7,
+                "pct_lm_5n": 0.0,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 67,
+                "ton_ktc_cung_tinh": 40,
+                "ton_lm": 37,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Phạm Bá Thành Công",
+                "days_unstable": 0,
+                "id": 20543000,
+                "name": "Bưu Cục Tổ Dân Phố 2-Ninh Hoà-Khánh Hoà",
+                "pct_ktc_cung_tinh": 16.9,
+                "pct_lm_5n": 0.9,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1774,
+                "ton_ktc_cung_tinh": 299,
+                "ton_lm": 429,
+                "ton_lm_5n": 4
+            },
+            {
+                "am": "Phạm Bá Thành Công",
+                "days_unstable": 0,
+                "id": 21722000,
+                "name": "Bưu Cục Thôn Long Hoà-Vạn Long-Vạn Ninh-Khánh Hoà",
+                "pct_ktc_cung_tinh": 22.0,
+                "pct_lm_5n": 0.0,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 833,
+                "ton_ktc_cung_tinh": 183,
+                "ton_lm": 181,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Không xác định",
+                "days_unstable": 0,
+                "id": 21525000,
+                "name": "Kho Giao Hàng Nặng - Gia Nghĩa - Đắk Nông",
+                "pct_ktc_cung_tinh": 30.1,
+                "pct_lm_5n": 0.0,
+                "province": "Đắk Nông",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 93,
+                "ton_ktc_cung_tinh": 28,
+                "ton_lm": 21,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Huỳnh Tấn Hiển",
+                "days_unstable": 0,
+                "id": 21456000,
+                "name": "Bưu Cục Xã Nam Chính-Đức Linh-Bình Thuận",
+                "pct_ktc_cung_tinh": 39.4,
+                "pct_lm_5n": 0.2,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1416,
+                "ton_ktc_cung_tinh": 558,
+                "ton_lm": 448,
+                "ton_lm_5n": 1
+            },
+            {
+                "am": "Không xác định",
+                "days_unstable": 0,
+                "id": 22028000,
+                "name": "Kho Giao Hàng Nặng - La Gi - Bình Thuận",
+                "pct_ktc_cung_tinh": 49.1,
+                "pct_lm_5n": 0.0,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 106,
+                "ton_ktc_cung_tinh": 52,
+                "ton_lm": 46,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Nguyễn Duy Long",
+                "days_unstable": 0,
+                "id": 22549000,
+                "name": "Bưu Cục 21 Trần Hưng Đạo-Xã Phan Rí Cửa-Bình Thuận",
+                "pct_ktc_cung_tinh": 48.1,
+                "pct_lm_5n": 0.0,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 657,
+                "ton_ktc_cung_tinh": 316,
+                "ton_lm": 161,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Nguyễn Tống Hùng Phong",
+                "days_unstable": 0,
+                "id": 20784000,
+                "name": "Bưu Cục 111 Lê Duẫn-Khánh Sơn-Khánh Hoà",
+                "pct_ktc_cung_tinh": 14.1,
+                "pct_lm_5n": 0.0,
+                "province": "Khánh Hòa",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 495,
+                "ton_ktc_cung_tinh": 70,
+                "ton_lm": 39,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Huỳnh Tấn Hiển",
+                "days_unstable": 0,
+                "id": 21594000,
+                "name": "Bưu Cục 430 Tôn Đức Thắng-Tân Phước-Thị xã La Gi-Bình Thuận",
+                "pct_ktc_cung_tinh": 22.9,
+                "pct_lm_5n": 0.4,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 2123,
+                "ton_ktc_cung_tinh": 487,
+                "ton_lm": 232,
+                "ton_lm_5n": 1
+            },
+            {
+                "am": "Nguyễn Ngọc Khánh",
+                "days_unstable": 0,
+                "id": 22452000,
+                "name": "Bưu Cục 454 Võ Văn Kiệt-Đặc Khu Đảo Phú Quý-Bình Thuận",
+                "pct_ktc_cung_tinh": 23.3,
+                "pct_lm_5n": 0.0,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 974,
+                "ton_ktc_cung_tinh": 227,
+                "ton_lm": 39,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Trần Thị Nhung",
+                "days_unstable": 0,
+                "id": 21659000,
+                "name": "Điểm lấy hàng Nguyễn Đình Chiểu-Nghĩa Tân-Gia Nghĩa-Đăk Nông",
+                "pct_ktc_cung_tinh": 0.0,
+                "pct_lm_5n": 0.0,
+                "province": "Đắk Nông",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 5,
+                "ton_ktc_cung_tinh": 0,
+                "ton_lm": 1,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Trần Công Hậu",
+                "days_unstable": 0,
+                "id": 22048001,
+                "name": "Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng",
+                "pct_ktc_cung_tinh": 16.7,
+                "pct_lm_5n": 0.0,
+                "province": "Đắk Nông",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 6,
+                "ton_ktc_cung_tinh": 1,
+                "ton_lm": 0,
+                "ton_lm_5n": 0
+            },
+            {
+                "am": "Không xác định",
+                "days_unstable": 0,
+                "id": 20691000,
+                "name": "Bưu Cục 371 Nguyễn Tất Thành-Bắc Bình-Bình Thuận",
+                "pct_ktc_cung_tinh": 0.0,
+                "pct_lm_5n": 0.0,
+                "province": "Bình Thuận",
+                "reason": "",
+                "status": "Bình thường",
+                "ton_ktc": 1,
+                "ton_ktc_cung_tinh": 0,
+                "ton_lm": 0,
+                "ton_lm_5n": 0
+            }
+        ],
+        "total_warning": 8,
+        "update_time": "14/06/2026"
+    },
+    "operational": {
+        "avg_leadtime": 20.93,
+        "ca1_vol": 37394,
+        "ca2_vol": 15277,
+        "fd_n1": 6.0,
+        "fd_n7": 6.3,
+        "fd_vs_n1": 0.5,
+        "fd_vs_n7": 0.2,
+        "new_vol": 52671,
+        "overall_fd": 6.4,
+        "overall_gan": 87.71,
+        "overall_gan_tts": 88.3,
+        "overall_gtc": 61.21,
+        "overall_ltc": 85.45,
+        "overall_odr_tts": 92.89,
+        "ton_vol": 28536,
+        "top_10_gtc": [
+            {
+                "% GTC": 91.1457004830918,
+                "Chi tiết": "BC 454 Võ Văn Kiệt-Đặc Khu Đảo Phú Quý-Bình Thuận",
+                "Leadtime": 15.65,
+                "Volume": 621,
+                "delivered_vol": 566.0148
+            },
+            {
+                "% GTC": 83.92284112149532,
+                "Chi tiết": "BC Số 7 Lê Thánh Tôn-LaGi-Bình Thuận",
+                "Leadtime": 11.933333333333332,
+                "Volume": 535,
+                "delivered_vol": 448.9872
+            },
+            {
+                "% GTC": 81.31774127310064,
+                "Chi tiết": "BC Đường Trần Lê-Cát Tiên-Lâm Đồng ",
+                "Leadtime": 29.61,
+                "Volume": 487,
+                "delivered_vol": 396.01740000000007
+            },
+            {
+                "% GTC": 79.29306418219463,
+                "Chi tiết": "BC Phước Đồng-Nha Trang-Khánh Hoà",
+                "Leadtime": 20.956666666666667,
+                "Volume": 483,
+                "delivered_vol": 382.98550000000006
+            },
+            {
+                "% GTC": 78.8031790499391,
+                "Chi tiết": "BC 237 Nguyễn Tất Thành-Bắc Bình-Bình Thuận",
+                "Leadtime": 14.94,
+                "Volume": 821,
+                "delivered_vol": 646.9741
+            },
+            {
+                "% GTC": 77.83862702702703,
+                "Chi tiết": "BC 412 Nguyễn Văn Cừ-Lộc Phát-Bảo Lộc-Lâm Đồng",
+                "Leadtime": 14.176666666666668,
+                "Volume": 925,
+                "delivered_vol": 720.0073
+            },
+            {
+                "% GTC": 77.06881294964029,
+                "Chi tiết": "BC Phú Tài-Phan Thiết-Bình Thuận",
+                "Leadtime": 14.949999999999998,
+                "Volume": 1112,
+                "delivered_vol": 857.0052
+            },
+            {
+                "% GTC": 76.07466091245377,
+                "Chi tiết": "BC 21 Trần Hưng Đạo-Xã Phan Rí Cửa-Bình Thuận",
+                "Leadtime": 18.386666666666667,
+                "Volume": 811,
+                "delivered_vol": 616.9655
+            },
+            {
+                "% GTC": 75.79808219178082,
+                "Chi tiết": "BC 111 Lê Duẫn-Khánh Sơn-Khánh Hoà",
+                "Leadtime": 20.015,
+                "Volume": 219,
+                "delivered_vol": 165.9978
+            },
+            {
+                "% GTC": 75.6748024948025,
+                "Chi tiết": "BC Thị Trấn Liên Hương-Tuy Phong-Bình Thuận",
+                "Leadtime": 19.156666666666666,
+                "Volume": 962,
+                "delivered_vol": 727.9916000000001
+            }
+        ],
+        "top_10_ltc": [
+            {
+                "% LTC": 99.06191369606003,
+                "Chi tiết": "BC 40 Nguyễn Văn Linh-Cư Jút-Đắk Nông",
+                "Leadtime": 17.715,
+                "Volume": 533,
+                "ltc_vol": 528
+            },
+            {
+                "% LTC": 97.5609756097561,
+                "Chi tiết": "BC 44B Nguyễn Đình Chiểu-Đạ Teh-Lâm Đồng ",
+                "Leadtime": 9.57,
+                "Volume": 287,
+                "ltc_vol": 280
+            },
+            {
+                "% LTC": 97.23502304147466,
+                "Chi tiết": "BC 95 Thống Nhất-Phan Rang-Ninh Thuận",
+                "Leadtime": 21.51,
+                "Volume": 434,
+                "ltc_vol": 422
+            },
+            {
+                "% LTC": 96.92307692307692,
+                "Chi tiết": "BC Số 7 Lê Thánh Tôn-LaGi-Bình Thuận",
+                "Leadtime": 10.78,
+                "Volume": 130,
+                "ltc_vol": 126
+            },
+            {
+                "% LTC": 96.5034965034965,
+                "Chi tiết": "BC 254A Đường 21 tháng 8-Phan Rang-Tháp Chàm-Ninh Thuận",
+                "Leadtime": 19.235,
+                "Volume": 143,
+                "ltc_vol": 138
+            },
+            {
+                "% LTC": 96.2800875273523,
+                "Chi tiết": "BC 1479 Trần Phú-Lộc Châu-Bảo Lộc-Lâm Đồng",
+                "Leadtime": 19.87,
+                "Volume": 457,
+                "ltc_vol": 440
+            },
+            {
+                "% LTC": 95.92760180995475,
+                "Chi tiết": "BC Đạ Huoai-Lâm Đồng",
+                "Leadtime": 19.52,
+                "Volume": 221,
+                "ltc_vol": 212
+            },
+            {
+                "% LTC": 95.49180327868852,
+                "Chi tiết": "BC 412 Nguyễn Văn Cừ-Lộc Phát-Bảo Lộc-Lâm Đồng",
+                "Leadtime": 16.225,
+                "Volume": 244,
+                "ltc_vol": 233
+            },
+            {
+                "% LTC": 95.40816326530613,
+                "Chi tiết": "BC 26A Lê Duẩn-Ninh Sơn-Ninh Thuận",
+                "Leadtime": 21.185000000000002,
+                "Volume": 392,
+                "ltc_vol": 374
+            },
+            {
+                "% LTC": 95.36423841059603,
+                "Chi tiết": "Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông",
+                "Leadtime": 21.335,
+                "Volume": 151,
+                "ltc_vol": 144
+            }
+        ],
+        "total_volume": 81207,
+        "trend_gtc": [
+            {
+                "% GTC": 55.979634171907755,
+                "% Gán": 80.11643361285815,
+                "Time": "2026-05-17 - Chủ Nhật",
+                "Volume": 85860,
+                "assigned_vol": 68787.9699,
+                "delivered_vol": 48064.1139
+            },
+            {
+                "% GTC": 58.99498251196383,
+                "% Gán": 81.40722186446456,
+                "Time": "2026-05-18 - Thứ 2",
+                "Volume": 79197,
+                "assigned_vol": 64472.0775,
+                "delivered_vol": 46722.2563
+            },
+            {
+                "% GTC": 59.80834543175868,
+                "% Gán": 82.4516597798707,
+                "Time": "2026-05-19 - Thứ 3",
+                "Volume": 80589,
+                "assigned_vol": 66446.9681,
+                "delivered_vol": 48198.9475
+            },
+            {
+                "% GTC": 58.89687373351048,
+                "% Gán": 81.24593851067542,
+                "Time": "2026-05-20 - Thứ 4",
+                "Volume": 74517,
+                "assigned_vol": 60542.036,
+                "delivered_vol": 43888.1834
+            },
+            {
+                "% GTC": 58.534984182433334,
+                "% Gán": 80.49231779262497,
+                "Time": "2026-05-21 - Thứ 5",
+                "Volume": 81871,
+                "assigned_vol": 65899.8655,
+                "delivered_vol": 47923.1769
+            },
+            {
+                "% GTC": 59.655751083653044,
+                "% Gán": 83.4834243435803,
+                "Time": "2026-05-22 - Thứ 6",
+                "Volume": 80284,
+                "assigned_vol": 67023.8324,
+                "delivered_vol": 47894.0232
+            },
+            {
+                "% GTC": 57.153477244653274,
+                "% Gán": 82.00146305132365,
+                "Time": "2026-05-23 - Thứ 7",
+                "Volume": 82574,
+                "assigned_vol": 67711.8881,
+                "delivered_vol": 47193.912299999996
+            },
+            {
+                "% GTC": 54.2460040905992,
+                "% Gán": 81.41451607201475,
+                "Time": "2026-05-24 - Chủ Nhật",
+                "Volume": 79206,
+                "assigned_vol": 64485.1816,
+                "delivered_vol": 42966.09
+            },
+            {
+                "% GTC": 57.84377820804756,
+                "% Gán": 86.57477113132167,
+                "Time": "2026-05-25 - Thứ 2",
+                "Volume": 73339,
+                "assigned_vol": 63493.0714,
+                "delivered_vol": 42422.0485
+            },
+            {
+                "% GTC": 57.229591179136044,
+                "% Gán": 84.58376526605004,
+                "Time": "2026-05-26 - Thứ 3",
+                "Volume": 69517,
+                "assigned_vol": 58800.0961,
+                "delivered_vol": 39784.2949
+            },
+            {
+                "% GTC": 59.43741899195738,
+                "% Gán": 85.26201220615997,
+                "Time": "2026-05-27 - Thứ 4",
+                "Volume": 77338,
+                "assigned_vol": 65939.935,
+                "delivered_vol": 45967.7111
+            },
+            {
+                "% GTC": 60.75694926931864,
+                "% Gán": 85.41653165077179,
+                "Time": "2026-05-28 - Thứ 5",
+                "Volume": 82731,
+                "assigned_vol": 70665.9508,
+                "delivered_vol": 50264.8317
+            },
+            {
+                "% GTC": 60.203681328001935,
+                "% Gán": 85.50931503695627,
+                "Time": "2026-05-29 - Thứ 6",
+                "Volume": 82530,
+                "assigned_vol": 70570.8377,
+                "delivered_vol": 49686.0982
+            },
+            {
+                "% GTC": 57.05533753269909,
+                "% Gán": 85.1866128297565,
+                "Time": "2026-05-30 - Thứ 7",
+                "Volume": 76837,
+                "assigned_vol": 65454.837700000004,
+                "delivered_vol": 43839.6097
+            },
+            {
+                "% GTC": 51.911898134277536,
+                "% Gán": 81.72114272095872,
+                "Time": "2026-05-31 - Chủ Nhật",
+                "Volume": 73430,
+                "assigned_vol": 60007.8351,
+                "delivered_vol": 38118.9068
+            },
+            {
+                "% GTC": 58.15453081053439,
+                "% Gán": 84.20228707155258,
+                "Time": "2026-06-01 - Thứ 2",
+                "Volume": 74309,
+                "assigned_vol": 62569.8775,
+                "delivered_vol": 43214.0503
+            },
+            {
+                "% GTC": 60.55008538605541,
+                "% Gán": 85.7712115661742,
+                "Time": "2026-06-02 - Thứ 3",
+                "Volume": 74251,
+                "assigned_vol": 63685.9823,
+                "delivered_vol": 44959.0439
+            },
+            {
+                "% GTC": 61.83856522378286,
+                "% Gán": 86.20142755957075,
+                "Time": "2026-06-03 - Thứ 4",
+                "Volume": 74827,
+                "assigned_vol": 64501.9422,
+                "delivered_vol": 46271.9432
+            },
+            {
+                "% GTC": 62.5926953560294,
+                "% Gán": 86.37338162194649,
+                "Time": "2026-06-04 - Thứ 5",
+                "Volume": 79867,
+                "assigned_vol": 68983.8287,
+                "delivered_vol": 49990.908
+            },
+            {
+                "% GTC": 62.533900053640714,
+                "% Gán": 86.25044409515611,
+                "Time": "2026-06-05 - Thứ 6",
+                "Volume": 80163,
+                "assigned_vol": 69140.9435,
+                "delivered_vol": 50129.0503
+            },
+            {
+                "% GTC": 59.68798931550897,
+                "% Gán": 84.94830959705291,
+                "Time": "2026-06-06 - Thứ 7",
+                "Volume": 78993,
+                "assigned_vol": 67103.2182,
+                "delivered_vol": 47149.3334
+            },
+            {
+                "% GTC": 58.69160981554593,
+                "% Gán": 84.77119647594988,
+                "Time": "2026-06-07 - Chủ Nhật",
+                "Volume": 78773,
+                "assigned_vol": 66776.8146,
+                "delivered_vol": 46233.1418
+            },
+            {
+                "% GTC": 64.05940692908605,
+                "% Gán": 88.28361575917515,
+                "Time": "2026-06-08 - Thứ 2",
+                "Volume": 85639,
+                "assigned_vol": 75605.2057,
+                "delivered_vol": 54859.8355
+            },
+            {
+                "% GTC": 63.35372399606707,
+                "% Gán": 87.60119838025253,
+                "Time": "2026-06-09 - Thứ 3",
+                "Volume": 77296,
+                "assigned_vol": 67712.2223,
+                "delivered_vol": 48969.8945
+            },
+            {
+                "% GTC": 63.2035360904187,
+                "% Gán": 87.8190188800411,
+                "Time": "2026-06-10 - Thứ 4",
+                "Volume": 77860,
+                "assigned_vol": 68375.8881,
+                "delivered_vol": 49210.2732
+            },
+            {
+                "% GTC": 61.67267592284874,
+                "% Gán": 86.86283938308532,
+                "Time": "2026-06-11 - Thứ 5",
+                "Volume": 81243,
+                "assigned_vol": 70569.9766,
+                "delivered_vol": 50104.7321
+            },
+            {
+                "% GTC": 61.439093108197106,
+                "% Gán": 86.53023890784984,
+                "Time": "2026-06-12 - Thứ 6",
+                "Volume": 83505,
+                "assigned_vol": 72257.076,
+                "delivered_vol": 51304.7147
+            },
+            {
+                "% GTC": 61.21015811444826,
+                "% Gán": 87.71151070720504,
+                "Time": "2026-06-13 - Thứ 7",
+                "Volume": 81207,
+                "assigned_vol": 71227.8865,
+                "delivered_vol": 49706.9331
+            }
+        ],
+        "trend_ltc": [
+            {
+                "% LTC": 80.91259640102828,
+                "Time": "2026-05-17 - Chủ Nhật",
+                "Volume": 14004,
+                "ltc_vol": 11331
+            },
+            {
+                "% LTC": 85.63709255708558,
+                "Time": "2026-05-18 - Thứ 2",
+                "Volume": 17211,
+                "ltc_vol": 14739
+            },
+            {
+                "% LTC": 83.91628774629824,
+                "Time": "2026-05-19 - Thứ 3",
+                "Volume": 17154,
+                "ltc_vol": 14395
+            },
+            {
+                "% LTC": 86.97139652271453,
+                "Time": "2026-05-20 - Thứ 4",
+                "Volume": 17830,
+                "ltc_vol": 15507
+            },
+            {
+                "% LTC": 87.1203216826477,
+                "Time": "2026-05-21 - Thứ 5",
+                "Volume": 16165,
+                "ltc_vol": 14083
+            },
+            {
+                "% LTC": 87.61009635278123,
+                "Time": "2026-05-22 - Thứ 6",
+                "Volume": 16917,
+                "ltc_vol": 14821
+            },
+            {
+                "% LTC": 87.19705621114072,
+                "Time": "2026-05-23 - Thứ 7",
+                "Volume": 15762,
+                "ltc_vol": 13744
+            },
+            {
+                "% LTC": 84.95548050353085,
+                "Time": "2026-05-24 - Chủ Nhật",
+                "Volume": 13028,
+                "ltc_vol": 11068
+            },
+            {
+                "% LTC": 86.18589353148984,
+                "Time": "2026-05-25 - Thứ 2",
+                "Volume": 16418,
+                "ltc_vol": 14150
+            },
+            {
+                "% LTC": 87.88143999066456,
+                "Time": "2026-05-26 - Thứ 3",
+                "Volume": 17139,
+                "ltc_vol": 15062
+            },
+            {
+                "% LTC": 85.89398023360287,
+                "Time": "2026-05-27 - Thứ 4",
+                "Volume": 16695,
+                "ltc_vol": 14340
+            },
+            {
+                "% LTC": 88.4891616610081,
+                "Time": "2026-05-28 - Thứ 5",
+                "Volume": 15316,
+                "ltc_vol": 13553
+            },
+            {
+                "% LTC": 86.18833512760433,
+                "Time": "2026-05-29 - Thứ 6",
+                "Volume": 15791,
+                "ltc_vol": 13610
+            },
+            {
+                "% LTC": 86.14779975517041,
+                "Time": "2026-05-30 - Thứ 7",
+                "Volume": 15521,
+                "ltc_vol": 13371
+            },
+            {
+                "% LTC": 84.45366132723112,
+                "Time": "2026-05-31 - Chủ Nhật",
+                "Volume": 13984,
+                "ltc_vol": 11810
+            },
+            {
+                "% LTC": 89.07109900494746,
+                "Time": "2026-06-01 - Thứ 2",
+                "Volume": 17989,
+                "ltc_vol": 16023
+            },
+            {
+                "% LTC": 89.16338465210646,
+                "Time": "2026-06-02 - Thứ 3",
+                "Volume": 16758,
+                "ltc_vol": 14942
+            },
+            {
+                "% LTC": 88.89227766255947,
+                "Time": "2026-06-03 - Thứ 4",
+                "Volume": 16394,
+                "ltc_vol": 14573
+            },
+            {
+                "% LTC": 89.54389760230755,
+                "Time": "2026-06-04 - Thứ 5",
+                "Volume": 16641,
+                "ltc_vol": 14901
+            },
+            {
+                "% LTC": 88.97652582159624,
+                "Time": "2026-06-05 - Thứ 6",
+                "Volume": 15975,
+                "ltc_vol": 14214
+            },
+            {
+                "% LTC": 86.74289595833805,
+                "Time": "2026-06-06 - Thứ 7",
+                "Volume": 17666,
+                "ltc_vol": 15324
+            },
+            {
+                "% LTC": 84.24877110493695,
+                "Time": "2026-06-07 - Chủ Nhật",
+                "Volume": 14037,
+                "ltc_vol": 11826
+            },
+            {
+                "% LTC": 88.32356871209785,
+                "Time": "2026-06-08 - Thứ 2",
+                "Volume": 19458,
+                "ltc_vol": 17186
+            },
+            {
+                "% LTC": 87.56979136056421,
+                "Time": "2026-06-09 - Thứ 3",
+                "Volume": 17015,
+                "ltc_vol": 14900
+            },
+            {
+                "% LTC": 90.03944773175543,
+                "Time": "2026-06-10 - Thứ 4",
+                "Volume": 17238,
+                "ltc_vol": 15521
+            },
+            {
+                "% LTC": 87.59159450130201,
+                "Time": "2026-06-11 - Thứ 5",
+                "Volume": 16513,
+                "ltc_vol": 14464
+            },
+            {
+                "% LTC": 89.0809932699002,
+                "Time": "2026-06-12 - Thứ 6",
+                "Volume": 17236,
+                "ltc_vol": 15354
+            },
+            {
+                "% LTC": 85.44930195975617,
+                "Time": "2026-06-13 - Thứ 7",
+                "Volume": 15257,
+                "ltc_vol": 13037
+            }
+        ],
+        "trend_odr": [
+            {
+                "% ODR": 91.64394238358328,
+                "GTC": 10136,
+                "Time": "2026-05-17 - Chủ Nhật",
+                "ontime_vol": 9289.03
+            },
+            {
+                "% ODR": 89.08287759025849,
+                "GTC": 9362,
+                "Time": "2026-05-18 - Thứ 2",
+                "ontime_vol": 8339.939
+            },
+            {
+                "% ODR": 89.03950772200773,
+                "GTC": 10360,
+                "Time": "2026-05-19 - Thứ 3",
+                "ontime_vol": 9224.493
+            },
+            {
+                "% ODR": 88.68321867834062,
+                "GTC": 9594,
+                "Time": "2026-05-20 - Thứ 4",
+                "ontime_vol": 8508.268
+            },
+            {
+                "% ODR": 93.06453509739066,
+                "GTC": 10884,
+                "Time": "2026-05-21 - Thứ 5",
+                "ontime_vol": 10129.144
+            },
+            {
+                "% ODR": 92.32655446470314,
+                "GTC": 10695,
+                "Time": "2026-05-22 - Thứ 6",
+                "ontime_vol": 9874.325
+            },
+            {
+                "% ODR": 90.30998506905561,
+                "GTC": 10716,
+                "Time": "2026-05-23 - Thứ 7",
+                "ontime_vol": 9677.618
+            },
+            {
+                "% ODR": 90.2854819155385,
+                "GTC": 9898,
+                "Time": "2026-05-24 - Chủ Nhật",
+                "ontime_vol": 8936.457
+            },
+            {
+                "% ODR": 89.90018421860609,
+                "GTC": 9771,
+                "Time": "2026-05-25 - Thứ 2",
+                "ontime_vol": 8784.147
+            },
+            {
+                "% ODR": 90.36679628429467,
+                "GTC": 9258,
+                "Time": "2026-05-26 - Thứ 3",
+                "ontime_vol": 8366.158
+            },
+            {
+                "% ODR": 92.93265081901717,
+                "GTC": 10012,
+                "Time": "2026-05-27 - Thứ 4",
+                "ontime_vol": 9304.417
+            },
+            {
+                "% ODR": 93.77522560238161,
+                "GTC": 10749,
+                "Time": "2026-05-28 - Thứ 5",
+                "ontime_vol": 10079.899
+            },
+            {
+                "% ODR": 94.14384151593454,
+                "GTC": 10449,
+                "Time": "2026-05-29 - Thứ 6",
+                "ontime_vol": 9837.09
+            },
+            {
+                "% ODR": 93.33457237836204,
+                "GTC": 9927,
+                "Time": "2026-05-30 - Thứ 7",
+                "ontime_vol": 9265.323
+            },
+            {
+                "% ODR": 94.2026223366893,
+                "GTC": 8542,
+                "Time": "2026-05-31 - Chủ Nhật",
+                "ontime_vol": 8046.7880000000005
+            },
+            {
+                "% ODR": 91.83940931695929,
+                "GTC": 9853,
+                "Time": "2026-06-01 - Thứ 2",
+                "ontime_vol": 9048.937
+            },
+            {
+                "% ODR": 91.91451167222486,
+                "GTC": 10495,
+                "Time": "2026-06-02 - Thứ 3",
+                "ontime_vol": 9646.428
+            },
+            {
+                "% ODR": 93.98826487845767,
+                "GTC": 10737,
+                "Time": "2026-06-03 - Thứ 4",
+                "ontime_vol": 10091.52
+            },
+            {
+                "% ODR": 94.37313446451378,
+                "GTC": 10962,
+                "Time": "2026-06-04 - Thứ 5",
+                "ontime_vol": 10345.183
+            },
+            {
+                "% ODR": 94.01093439363817,
+                "GTC": 11066,
+                "Time": "2026-06-05 - Thứ 6",
+                "ontime_vol": 10403.25
+            },
+            {
+                "% ODR": 94.58334849863513,
+                "GTC": 10990,
+                "Time": "2026-06-06 - Thứ 7",
+                "ontime_vol": 10394.710000000001
+            },
+            {
+                "% ODR": 94.42443622587047,
+                "GTC": 11086,
+                "Time": "2026-06-07 - Chủ Nhật",
+                "ontime_vol": 10467.893
+            },
+            {
+                "% ODR": 93.49927840773927,
+                "GTC": 12611,
+                "Time": "2026-06-08 - Thứ 2",
+                "ontime_vol": 11791.194
+            },
+            {
+                "% ODR": 93.85729593170137,
+                "GTC": 11479,
+                "Time": "2026-06-09 - Thứ 3",
+                "ontime_vol": 10773.879
+            },
+            {
+                "% ODR": 93.76632727865113,
+                "GTC": 12277,
+                "Time": "2026-06-10 - Thứ 4",
+                "ontime_vol": 11511.692
+            },
+            {
+                "% ODR": 94.45968866547754,
+                "GTC": 12334,
+                "Time": "2026-06-11 - Thứ 5",
+                "ontime_vol": 11650.658
+            },
+            {
+                "% ODR": 94.83508757768989,
+                "GTC": 12389,
+                "Time": "2026-06-12 - Thứ 6",
+                "ontime_vol": 11749.119
+            },
+            {
+                "% ODR": 92.8897618286445,
+                "GTC": 12512,
+                "Time": "2026-06-13 - Thứ 7",
+                "ontime_vol": 11622.367
+            }
+        ],
+        "trend_tts": [
+            {
+                "% Gán": 80.48390818161386,
+                "Time": "2026-05-17 - Chủ Nhật",
+                "Volume": 17796.0,
+                "assigned_vol": 14322.9163
+            },
+            {
+                "% Gán": 80.56978254173598,
+                "Time": "2026-05-18 - Thứ 2",
+                "Volume": 16233.0,
+                "assigned_vol": 13078.8928
+            },
+            {
+                "% Gán": 82.3772141458494,
+                "Time": "2026-05-19 - Thứ 3",
+                "Volume": 16853.0,
+                "assigned_vol": 13883.0319
+            },
+            {
+                "% Gán": 80.44317197452229,
+                "Time": "2026-05-20 - Thứ 4",
+                "Volume": 16485.0,
+                "assigned_vol": 13261.0569
+            },
+            {
+                "% Gán": 85.14140506178707,
+                "Time": "2026-05-21 - Thứ 5",
+                "Volume": 16832.0,
+                "assigned_vol": 14331.0013
+            },
+            {
+                "% Gán": 85.98477077875685,
+                "Time": "2026-05-22 - Thứ 6",
+                "Volume": 16796.0,
+                "assigned_vol": 14442.0021
+            },
+            {
+                "% Gán": 84.02911597068746,
+                "Time": "2026-05-23 - Thứ 7",
+                "Volume": 17194.0,
+                "assigned_vol": 14447.9662
+            },
+            {
+                "% Gán": 82.84969996981587,
+                "Time": "2026-05-24 - Chủ Nhật",
+                "Volume": 16565.0,
+                "assigned_vol": 13724.0528
+            },
+            {
+                "% Gán": 86.69161913637777,
+                "Time": "2026-05-25 - Thứ 2",
+                "Volume": 16095.0,
+                "assigned_vol": 13953.0161
+            },
+            {
+                "% Gán": 84.66106983275884,
+                "Time": "2026-05-26 - Thứ 3",
+                "Volume": 15666.0,
+                "assigned_vol": 13263.0032
+            },
+            {
+                "% Gán": 85.18136822384722,
+                "Time": "2026-05-27 - Thứ 4",
+                "Volume": 16547.0,
+                "assigned_vol": 14094.961
+            },
+            {
+                "% Gán": 86.34674318181817,
+                "Time": "2026-05-28 - Thứ 5",
+                "Volume": 17600.0,
+                "assigned_vol": 15197.0268
+            },
+            {
+                "% Gán": 85.43634001613088,
+                "Time": "2026-05-29 - Thứ 6",
+                "Volume": 17358.0,
+                "assigned_vol": 14830.0399
+            },
+            {
+                "% Gán": 85.12068131483855,
+                "Time": "2026-05-30 - Thứ 7",
+                "Volume": 17158.0,
+                "assigned_vol": 14605.0065
+            },
+            {
+                "% Gán": 81.88214099848715,
+                "Time": "2026-05-31 - Chủ Nhật",
+                "Volume": 16525.0,
+                "assigned_vol": 13531.0238
+            },
+            {
+                "% Gán": 84.15958133475455,
+                "Time": "2026-06-01 - Thứ 2",
+                "Volume": 16887.0,
+                "assigned_vol": 14212.0285
+            },
+            {
+                "% Gán": 85.27473224301825,
+                "Time": "2026-06-02 - Thứ 3",
+                "Volume": 16937.0,
+                "assigned_vol": 14442.9814
+            },
+            {
+                "% Gán": 85.64539728738576,
+                "Time": "2026-06-03 - Thứ 4",
+                "Volume": 17179.0,
+                "assigned_vol": 14713.0228
+            },
+            {
+                "% Gán": 86.07401756500775,
+                "Time": "2026-06-04 - Thứ 5",
+                "Volume": 17421.0,
+                "assigned_vol": 14994.954600000001
+            },
+            {
+                "% Gán": 86.21365548607163,
+                "Time": "2026-06-05 - Thứ 6",
+                "Volume": 17590.0,
+                "assigned_vol": 15164.982
+            },
+            {
+                "% Gán": 84.6803914197258,
+                "Time": "2026-06-06 - Thứ 7",
+                "Volume": 18088.0,
+                "assigned_vol": 15316.9892
+            },
+            {
+                "% Gán": 85.51194448988494,
+                "Time": "2026-06-07 - Chủ Nhật",
+                "Volume": 18339.0,
+                "assigned_vol": 15682.0355
+            },
+            {
+                "% Gán": 87.75554118725181,
+                "Time": "2026-06-08 - Thứ 2",
+                "Volume": 19642.0,
+                "assigned_vol": 17236.9434
+            },
+            {
+                "% Gán": 87.40734176519109,
+                "Time": "2026-06-09 - Thứ 3",
+                "Volume": 18185.0,
+                "assigned_vol": 15895.0251
+            },
+            {
+                "% Gán": 87.83204926264602,
+                "Time": "2026-06-10 - Thứ 4",
+                "Volume": 18919.0,
+                "assigned_vol": 16616.9454
+            },
+            {
+                "% Gán": 87.03594107188215,
+                "Time": "2026-06-11 - Thứ 5",
+                "Volume": 19685.0,
+                "assigned_vol": 17133.025
+            },
+            {
+                "% Gán": 86.69998246053622,
+                "Time": "2026-06-12 - Thứ 6",
+                "Volume": 19955.0,
+                "assigned_vol": 17300.9815
+            },
+            {
+                "% Gán": 88.29663007302172,
+                "Time": "2026-06-13 - Thứ 7",
+                "Volume": 20131.0,
+                "assigned_vol": 17774.9946
+            }
+        ],
+        "worst_10_gtc": [
+            {
+                "% GTC": 22.525022082018932,
+                "Chi tiết": "BC Thôn Phúc Hưng-Xã Tân Hà Lâm Hà-Lâm Đồng",
+                "Leadtime": 66.53999999999999,
+                "Volume": 1585,
+                "delivered_vol": 357.02160000000003
+            },
+            {
+                "% GTC": 26.79388606880993,
+                "Chi tiết": "BC 1322 Hùng Vương-Di Linh-Lâm Đồng",
+                "Leadtime": 34.61333333333334,
+                "Volume": 1773,
+                "delivered_vol": 475.0556
+            },
+            {
+                "% GTC": 34.09288728484176,
+                "Chi tiết": "BC 56 Phan Đình Phùng-Cam Linh-Khánh Hòa",
+                "Leadtime": 31.340000000000003,
+                "Volume": 1801,
+                "delivered_vol": 614.0129000000001
+            },
+            {
+                "% GTC": 34.43946685878963,
+                "Chi tiết": "BC 231 Thôn 1-Xã Hòa Ninh-Lâm Đồng",
+                "Leadtime": 37.57,
+                "Volume": 694,
+                "delivered_vol": 239.00990000000002
+            },
+            {
+                "% GTC": 35.86174535050072,
+                "Chi tiết": "BC TDP Nghĩa Đức-Thạnh Mỹ-Đơn Dương-Lâm Đồng",
+                "Leadtime": 19.846666666666668,
+                "Volume": 2097,
+                "delivered_vol": 752.0208
+            },
+            {
+                "% GTC": 36.590367860600196,
+                "Chi tiết": "BC Langbiang-Lạc Dương-Lâm Đồng",
+                "Leadtime": 41.7,
+                "Volume": 1033,
+                "delivered_vol": 377.9785
+            },
+            {
+                "% GTC": 36.69346077457796,
+                "Chi tiết": "BC 06 Lê Hồng Phong-TP.Nha Trang-Khánh Hòa",
+                "Leadtime": 27.233333333333334,
+                "Volume": 2014,
+                "delivered_vol": 739.0063
+            },
+            {
+                "% GTC": 47.02732394366197,
+                "Chi tiết": "BC 42 Nguyễn Du-Cam Lâm-Khánh Hoà",
+                "Leadtime": 35.355,
+                "Volume": 1278,
+                "delivered_vol": 601.0092
+            },
+            {
+                "% GTC": 47.230728862973756,
+                "Chi tiết": "BC 01 Nguyễn Tất Thành-Đắk R lấp-Đắk Nông",
+                "Leadtime": 35.15,
+                "Volume": 686,
+                "delivered_vol": 324.0028
+            },
+            {
+                "% GTC": 48.783785425101215,
+                "Chi tiết": "BC Đường 35 Hà Quang 1-Xã Nam Nha Trang-Khánh Hòa",
+                "Leadtime": 19.146666666666665,
+                "Volume": 988,
+                "delivered_vol": 481.9838
+            }
+        ],
+        "worst_10_ltc": [
+            {
+                "% LTC": 47.78761061946903,
+                "Chi tiết": "BC Langbiang-Lạc Dương-Lâm Đồng",
+                "Leadtime": 24.71,
+                "Volume": 113,
+                "ltc_vol": 54
+            },
+            {
+                "% LTC": 49.23076923076923,
+                "Chi tiết": "BC TDP Nghĩa Đức-Thạnh Mỹ-Đơn Dương-Lâm Đồng",
+                "Leadtime": 15.135000000000002,
+                "Volume": 130,
+                "ltc_vol": 64
+            },
+            {
+                "% LTC": 62.2093023255814,
+                "Chi tiết": "BC 1322 Hùng Vương-Di Linh-Lâm Đồng",
+                "Leadtime": 21.915,
+                "Volume": 172,
+                "ltc_vol": 107
+            },
+            {
+                "% LTC": 62.38390092879257,
+                "Chi tiết": "Điểm lấy hàng Nguyễn Đình Chiểu-Nghĩa Tân-Gia Nghĩa-Đăk Nông",
+                "Leadtime": 55.855000000000004,
+                "Volume": 646,
+                "ltc_vol": 403
+            },
+            {
+                "% LTC": 63.671875,
+                "Chi tiết": "BC 06 Lê Hồng Phong-TP.Nha Trang-Khánh Hòa",
+                "Leadtime": 24.35,
+                "Volume": 256,
+                "ltc_vol": 163
+            },
+            {
+                "% LTC": 67.45454545454545,
+                "Chi tiết": "BC 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông",
+                "Leadtime": 23.235,
+                "Volume": 550,
+                "ltc_vol": 371
+            },
+            {
+                "% LTC": 69.03225806451613,
+                "Chi tiết": "BC 56 Phan Đình Phùng-Cam Linh-Khánh Hòa",
+                "Leadtime": 18.365000000000002,
+                "Volume": 155,
+                "ltc_vol": 107
+            },
+            {
+                "% LTC": 69.76744186046511,
+                "Chi tiết": "BC DT707-Hàm Thuận Nam-Bình Thuận",
+                "Leadtime": 21.115000000000002,
+                "Volume": 129,
+                "ltc_vol": 90
+            },
+            {
+                "% LTC": 77.77777777777779,
+                "Chi tiết": "BC Đắk Mil-Đắk Nông",
+                "Leadtime": 22.65,
+                "Volume": 108,
+                "ltc_vol": 84
+            },
+            {
+                "% LTC": 79.1907514450867,
+                "Chi tiết": "BC 468 Quốc Lộ 20-Liên Nghĩa-Đức Trọng-Lâm Đồng",
+                "Leadtime": 16.46,
+                "Volume": 173,
+                "ltc_vol": 137
+            }
+        ]
+    }
+}

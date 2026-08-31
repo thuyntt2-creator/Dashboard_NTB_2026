@@ -1,0 +1,144 @@
+=== ROUTES IN APP.PY ===
+@app.route('/')
+@app.route('/api/login', methods=['POST'])
+@app.route('/api/logout', methods=['POST'])
+@app.route('/api/users', methods=['GET', 'POST'])
+@app.route('/api/users/<username>', methods=['DELETE'])
+@app.route('/api/unstable-po')
+@app.route('/api/off-spe')
+@app.route('/api/fd')
+@app.route('/api/operational')
+@app.route('/api/opr')
+@app.route('/api/backlog')
+@app.route('/api/history')
+@app.route('/api/user-role')
+@app.route('/api/config', methods=['GET', 'POST'])
+@app.route('/api/download-template', methods=['GET'])
+@app.route('/api/upload', methods=['POST'])
+@app.route('/api/sync', methods=['POST'])
+@app.route('/api/sync/status', methods=['GET'])
+@app.route('/api/nhan-su', methods=['GET'])
+@app.route('/api/summary-dashboard')
+@app.route('/api/trends-dashboard')
+@app.route('/api/matrix-tables')
+@app.route('/api/chat', methods=['POST'])
+@app.route('/api/ntb-structure')
+@app.route('/api/files-status')
+@app.route('/api/volume-creation')
+@app.route('/api/send-telegram-warning', methods=['POST'])
+@app.route('/api/send-telegram-ai-briefing', methods=['POST'])
+
+=== FUNCTIONS IN APP.PY ===
+def _patched_ExcelFile(*args, **kwargs):
+def _patched_read_excel(*args, **kwargs):
+def load_users():
+def save_users(users):
+def check_auth(username, password):
+def is_admin():
+def requires_auth(f):
+    def decorated(*args, **kwargs):
+def requires_permission(permission):
+    def decorator(f):
+        def decorated(*args, **kwargs):
+def with_lock(lock):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+def check_rate_limit(key, limit=5, period=60):
+def csrf_referer_check():
+def add_security_headers(response):
+def resolve_path(filename, write=False):
+def get_db_engine():
+def save_df_to_db(df, filename):
+def load_df_from_db(filename):
+def save_json_to_db(data, filename):
+def load_json_from_db(filename):
+def load_config():
+def save_config(new_config):
+def is_allowed_spreadsheet_url(url):
+def download_google_sheet(url, output_path):
+def standardize_am_names(df):
+def safe_read_csv(filepath, **kwargs):
+    def apply_kwargs_to_df(db_df, filename):
+def safe_to_numeric(series, fillna_val=0.0):
+def normalize_pct_col(series):
+    def convert_val(val):
+def parse_unstable_pct(val):
+def clean_str(val):
+def safe_divide(a, b):
+def clean_nan(obj):
+def clean_ops_df(df, sheet_type):
+def process_operational_report(df_gtc=None, df_ltc=None, df_tts=None, am=None, province=None, po=None, date=None):
+def process_opr_report(df_opr=None, df_oe=None, df_rawopr=None, am=None, province=None, post_office=None):
+                    def get_opr_for_date(df, date_str):
+def process_aging_backlog(df_raw=None, df_co_cau=None):
+        def get_aging_bracket(days):
+def process_treo_backlog(df_raw=None, df_co_cau=None):
+        def get_treo_bracket(t):
+        def get_summary_data(df_sub):
+def clean_po_name(name):
+def map_po_to_am_prov(po_id, po_name, id_to_am, id_to_prov, name_to_am, name_to_prov, default_am="Không xác định", default_prov="Không xác định"):
+    def clean_val(val, default):
+def process_unstable_po():
+            def safe_int(val):
+def process_off_spe():
+        def clean_date_str(val):
+def load_history():
+def save_history(history):
+def add_to_history(aging_data, treo_data):
+def calculate_trend(current_data, baseline_entry):
+def process_fd_report():
+    def clean_pct(val):
+    def clean_num(val):
+def load_buu_cuc_type_map():
+def load_vols_tao_don_df():
+def clean_str_key(val):
+def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw_aging=None, raw_co_cau_aging=None, raw_treo=None, raw_co_cau_treo=None, raw_tts=None):
+        def get_treo_bracket_local(t):
+def apply_filters(df, am=None, province=None, post_office=None):
+def update_all_caches():
+def home():
+def api_login():
+def api_logout():
+def api_users():
+def api_delete_user(username):
+def get_unstable_po():
+def get_off_spe():
+def get_fd():
+def get_operational():
+def get_opr():
+def get_backlog():
+def get_history():
+def get_user_role():
+def mask_url(url):
+def mask_token(token):
+def manage_config():
+def download_template():
+def upload_file():
+def split_excel_to_csvs(xlsx_path):
+def sync_sheets_directly_as_csv(url):
+    def download_gid(gid, filenames):
+def async_sync_task(is_admin_flag):
+def trigger_sync():
+def get_sync_status():
+def api_nhan_su():
+        def check_sp_team(x):
+        def parse_warehouse_id(bc_str):
+        def clean_id(x):
+def api_summary_dashboard():
+        def compute_kpi_for_date(date_str, filter_am=None, filter_prov=None, filter_po=None):
+        def format_kpi_dict(latest_kpi, prev_kpi, lw_kpi, n3_kpi=None):
+def api_trends_dashboard():
+def api_matrix_tables():
+        def build_matrix_data(df, vol_col, target_val_col):
+def api_chat():
+def get_ntb_structure():
+def get_files_status():
+def get_volume_creation():
+        def sum_range(df_sub, start, end):
+        def sum_day(df_sub, dt):
+def startup_cache_init():
+def get_spiking_post_offices():
+def send_telegram_warning():
+def get_overall_metrics_summary():
+        def get_kpi_for_day(date_str):
+def send_telegram_ai_briefing():

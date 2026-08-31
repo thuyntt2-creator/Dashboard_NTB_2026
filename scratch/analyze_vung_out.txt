@@ -1,0 +1,83 @@
+=== FAST ANALYSIS OF REGION DATA ===
+File exists!
+Sheets: ['Tổng quan', 'Trang tính12', 'Bưu cục', 'Thứ cùng kỳ', 'Ca1 - Ca2 - Tồn', 'Trang tính6', 'Data', 'Cơ cấu', 'raw', 'TTS', 'DataLTC', 'ODR TTS', 'rawltc', 'Sheet13']
+
+--- Data Sheet (shape: (6239, 21)) ---
+Unique Times: ['2026-06-08 - Thứ 2', '2026-06-01 - Thứ 2', '2026-05-21 - Thứ 5', '2026-05-29 - Thứ 6', '2026-06-09 - Thứ 3', '2026-05-17 - Chủ Nhật', '2026-05-25 - Thứ 2', '2026-06-02 - Thứ 3', '2026-05-23 - Thứ 7', '2026-06-04 - Thứ 5', '2026-06-05 - Thứ 6', '2026-05-15 - Thứ 6', '2026-05-27 - Thứ 4', '2026-05-31 - Chủ Nhật', '2026-06-03 - Thứ 4', '2026-05-16 - Thứ 7', '2026-06-10 - Thứ 4', '2026-05-26 - Thứ 3', '2026-06-06 - Thứ 7', '2026-05-30 - Thứ 7', '2026-05-19 - Thứ 3', '2026-05-28 - Thứ 5', '2026-05-14 - Thứ 5', '2026-06-07 - Chủ Nhật', '2026-05-24 - Chủ Nhật', '2026-05-22 - Thứ 6', '2026-05-18 - Thứ 2', '2026-05-20 - Thứ 4']
+Unique Provinces: ['Đắk Nông', 'Ninh Thuận', 'Lâm Đồng', 'Khánh Hòa', 'Bình Thuận']
+Unique Vùng: ['NTB']
+Unique AMs: ['Trần Văn Phước', 'Trần Thị Nhung', 'Trần Công Hậu', 'Nguyễn Duy Long', 'Huỳnh Thị Kim Chi', 'Huỳnh Tấn Hiền', 'Trầm Hữu Tiến', 'Lê Minh Đại', 'Lê Văn Trường', 'Hồng Bích Nga', 'Võ Tấn Lợi', 'Nguyễn Lê Nguyên Vũ', 'Nguyễn Hoàng Phi', 'Thái Thị Thanh Thư', 'Phạm Bá Thành Công', 'Phan Đình Duy', 'Nguyễn Thanh Long', 'Nguyễn Tống Hùng Phong', 'Cao Thị Thanh Thủy', 'Nguyễn Ngọc Khánh', 'Lê Thanh Nhựt']
+Unique Cấp Quản Lý: ['NTB - Đắk Nông', 'NTB - Ninh Thuận', 'NTB - Lâm Đồng', 'NTB - Khánh Hòa', 'NTB - Bình Thuận']
+Unique Loại Hàng: ['Hàng Mới Ca 1', 'Hàng Mới Ca 2', 'Hàng Tồn']
+
+--- Data Sheet Summary for W24 (rows: 0) ---
+Empty DataFrame
+Columns: [AM, Tỉnh, Loại Hàng, Vol, GTC_rate, Gan_rate]
+Index: []
+
+--- DataLTC Sheet (shape: (4594, 18)) ---
+Columns: ['Cấp quản lý', 'Chi tiết', 'Ca', 'Time', 'Volume', '%Gán', '%LTC', '%Đóng kiện', '%LC', 'Leadtime', 'Sản Lượng Lấy Thành Công', 'Sản Lượng Gán', 'Sản Lượng Chưa Gán', '% Chưa Gán', 'Hàng Mới Về Trong Ngày', 'Tỉnh', 'Vùng', 'AM']
+Unique Times: ['2026-06-06 - Thứ 7', '2026-05-19 - Thứ 3', '2026-05-21 - Thứ 5', '2026-06-09 - Thứ 3', '2026-06-07 - Chủ Nhật', '2026-06-08 - Thứ 2', '2026-06-01 - Thứ 2', '2026-05-25 - Thứ 2', '2026-05-24 - Chủ Nhật', '2026-05-29 - Thứ 6', '2026-05-22 - Thứ 6', '2026-06-03 - Thứ 4', '2026-06-02 - Thứ 3', '2026-05-18 - Thứ 2', '2026-06-05 - Thứ 6', '2026-05-27 - Thứ 4', '2026-05-28 - Thứ 5', '2026-05-13 - Thứ 4', '2026-06-04 - Thứ 5', '2026-05-15 - Thứ 6', '2026-05-16 - Thứ 7', '2026-05-17 - Chủ Nhật', '2026-05-23 - Thứ 7', '2026-05-30 - Thứ 7', '2026-05-31 - Chủ Nhật', '2026-05-26 - Thứ 3', '2026-05-20 - Thứ 4', '2026-05-14 - Thứ 5']
+LTC for W24 head:
+Empty DataFrame
+Columns: [Cấp quản lý, Chi tiết, Ca, Time, Volume, %Gán, %LTC, %Đóng kiện, %LC, Leadtime, Sản Lượng Lấy Thành Công, Sản Lượng Gán, Sản Lượng Chưa Gán, % Chưa Gán, Hàng Mới Về Trong Ngày, Tỉnh, Vùng, AM]
+Index: []
+
+--- ODR TTS Sheet (shape: (2323, 5)) ---
+Columns: ['Quản lý', 'Chi tiết', 'Time', 'GTC', '%Ontime']
+Head:
+          Quản lý                                                      Chi tiết                   Time  GTC  %Ontime
+0  NTB - Đắk Nông      Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng  2026-05-31 - Chủ Nhật    1      1.0
+1  NTB - Đắk Nông      Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng     2026-05-30 - Thứ 7    1      1.0
+2  NTB - Đắk Nông      Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng     2026-06-08 - Thứ 2    1      0.0
+3  NTB - Đắk Nông      Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng     2026-06-05 - Thứ 6    2      1.0
+4  NTB - Đắk Nông      Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng     2026-06-02 - Thứ 3    2      1.0
+5  NTB - Đắk Nông      Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng     2026-06-10 - Thứ 4    3      1.0
+6  NTB - Đắk Nông      Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng     2026-05-25 - Thứ 2    3      1.0
+7  NTB - Đắk Nông  Điểm lấy hàng Nguyễn Đình Chiểu-Nghĩa Tân-Gia Nghĩa-Đăk Nông     2026-06-08 - Thứ 2    3      1.0
+8  NTB - Đắk Nông      Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng     2026-06-04 - Thứ 5    3      1.0
+9  NTB - Đắk Nông      Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng     2026-05-15 - Thứ 6    3      1.0
+
+--- Sheet Bưu cục (shape: (651, 33)) ---
+       Unnamed: 0                              Unnamed: 1             Unnamed: 2 Unnamed: 3              Unnamed: 4 Unnamed: 5 Unnamed: 6 Unnamed: 7  Unnamed: 8 Unnamed: 9 Unnamed: 10 Unnamed: 11 Unnamed: 12  Unnamed: 13 Unnamed: 14  Unnamed: 15  TOP BƯU CỤC %GTC TỆ NHẤT  Unnamed: 17  Unnamed: 18  Unnamed: 19  Unnamed: 20  Unnamed: 21  Unnamed: 22  Unnamed: 23  Unnamed: 24  Unnamed: 25  Unnamed: 26  Unnamed: 27  Unnamed: 28  Unnamed: 29  Unnamed: 30  Unnamed: 31  TOP  20 BƯU CỤC %GTC TỐT NHẤT
+0              AM                                Chi tiết                   Time     Volume  Hàng Mới Về Trong Ngày        Gán   Chưa Gán        GTC  Chuyển Trả        Tồn        %Gán   %Chưa Gán        %GTC  %Chuyển trả        %Tồn          NaN                       NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN                            NaN
+1  Huỳnh Tấn Hiền  BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận     2026-06-09 - Thứ 3       1349                     881  1040.0244   308.9756   834.0005     14.0337   500.9658     0.77096     0.22904    0.618236     0.010403    0.371361          NaN                       NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN                            NaN
+2             NaN                                     NaN     2026-06-08 - Thứ 2       1405                     845  1134.9712   270.0288   887.9864     26.0009   491.0127    0.807809    0.192191    0.632019     0.018506    0.349475          NaN                       NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN                            NaN
+3             NaN                                     NaN  2026-06-07 - Chủ Nhật       1445                     859  1103.0144   341.9856   834.0019     25.9933   585.0048    0.763332    0.236668    0.577164     0.017988    0.404848          NaN                       NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN                            NaN
+4             NaN                                     NaN     2026-06-06 - Thứ 7       1426                     869  1094.0508   331.9492    805.016     25.0028   595.9812    0.767217    0.232783    0.564527     0.017534    0.417939          NaN                       NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN                            NaN
+5             NaN                                     NaN     2026-06-05 - Thứ 6       1447                     806  1093.9951   353.0049   851.0178     13.9986   581.9836    0.756044    0.243956    0.588126     0.009674      0.4022          NaN                       NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN                            NaN
+6             NaN                                     NaN     2026-06-04 - Thứ 5       1586                    1085  1195.9469   390.0531   926.9673     12.9918   646.0409    0.754065    0.245935    0.584469     0.008192     0.40734          NaN                       NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN                            NaN
+7             NaN                                     NaN     2026-06-03 - Thứ 4       1263                     725   958.9846   304.0154   706.0079     16.9961    539.996    0.759291    0.240709    0.558993     0.013457     0.42755          NaN                       NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN                            NaN
+8             NaN                                     NaN     2026-06-02 - Thứ 3       1374                    1000  1055.0364   318.9636   805.9974     21.9808   546.0218    0.767858    0.232142    0.586607     0.015998    0.397396          NaN                       NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN                            NaN
+9             NaN                                     NaN     2026-06-01 - Thứ 2       1119                     582   913.9832   205.0168    693.029     12.0235   413.9475    0.816786    0.183214    0.619329     0.010745    0.369926          NaN                       NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN          NaN                            NaN
+
+--- Sheet Ca1 - Ca2 - Tồn (shape: (0, 49)) ---
+Empty DataFrame
+Columns: [Ca1 + Tồn, Unnamed: 1, Unnamed: 2, Unnamed: 3, Unnamed: 4, Unnamed: 5, Unnamed: 6, Unnamed: 7, Unnamed: 8, Unnamed: 9, Unnamed: 10, Unnamed: 11, Unnamed: 12, Unnamed: 13, Unnamed: 14, Unnamed: 15, Tồn, Unnamed: 17, Unnamed: 18, Unnamed: 19, Unnamed: 20, Unnamed: 21, Unnamed: 22, Unnamed: 23, Unnamed: 24, Unnamed: 25, Unnamed: 26, Unnamed: 27, Unnamed: 28, Unnamed: 29, Unnamed: 30, Unnamed: 31, Ca1, Unnamed: 33, Unnamed: 34, Unnamed: 35, Unnamed: 36, Unnamed: 37, Unnamed: 38, Unnamed: 39, Unnamed: 40, Unnamed: 41, Unnamed: 42, Unnamed: 43, Unnamed: 44, Unnamed: 45, Unnamed: 46, Unnamed: 47, Ca2]
+Index: []
+
+--- Sheet raw (shape: (6174, 9)) ---
+      Cấp Quản Lý                                    Chi tiết      Loại Hàng                   Time  Volume   % Gán   % GTC  % Chuyển trả Leadtime
+0  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026-06-07 - Chủ Nhật      20  0.6000  0.5500           0.0     7.55
+1  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-05-15 - Thứ 6      25  0.7600  0.6400           0.0     6.69
+2  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-05-25 - Thứ 2      27  1.0000  0.8148           0.0     6.77
+3  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-05-27 - Thứ 4      24  0.9167  0.9167           0.0     5.32
+4  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-06-01 - Thứ 2      28  1.0000  0.8214           0.0     6.17
+5  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026-05-31 - Chủ Nhật      30  1.0000  0.7667           0.0     7.83
+6  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-05-29 - Thứ 6      25  1.0000  0.9200           0.0      5.3
+7  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026-05-24 - Chủ Nhật      31  0.8710  0.8065           0.0     6.76
+8  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-05-28 - Thứ 5      45  0.8889  0.6444           0.0     4.41
+9  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-05-20 - Thứ 4      33  1.0000  0.9091           0.0     6.03
+
+--- Sheet TTS (shape: (6174, 21)) ---
+      Cấp Quản Lý                                    Chi tiết      Loại Hàng                   Time  Volume   % Gán   % GTC  % Chuyển trả Leadtime  Sản Lượng Giao Thành Công  Sản Lượng Chuyển Trả  Sản Lượng Gán  Sản Lượng Trả  Sản Lượng Tồn  Sản Lượng Chưa Gán  % Chưa Gán    %Tồn  Hàng Mới Về Trong Ngày      Tỉnh Vùng              AM
+0  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026-06-07 - Chủ Nhật      20  0.6000  0.5500           0.0     7.55                    11.0000                   0.0        12.0000            0.0         9.0000              8.0000      0.4000  0.4500                      20  Đắk Nông  NTB  Trần Văn Phước
+1  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-05-15 - Thứ 6      25  0.7600  0.6400           0.0     6.69                    16.0000                   0.0        19.0000            0.0         9.0000              6.0000      0.2400  0.3600                      25  Đắk Nông  NTB  Trần Văn Phước
+2  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-05-25 - Thứ 2      27  1.0000  0.8148           0.0     6.77                    21.9996                   0.0        27.0000            0.0         5.0004              0.0000      0.0000  0.1852                      27  Đắk Nông  NTB  Trần Văn Phước
+3  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-05-27 - Thứ 4      24  0.9167  0.9167           0.0     5.32                    22.0008                   0.0        22.0008            0.0         1.9992              1.9992      0.0833  0.0833                      24  Đắk Nông  NTB  Trần Văn Phước
+4  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-06-01 - Thứ 2      28  1.0000  0.8214           0.0     6.17                    22.9992                   0.0        28.0000            0.0         5.0008              0.0000      0.0000  0.1786                      28  Đắk Nông  NTB  Trần Văn Phước
+5  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026-05-31 - Chủ Nhật      30  1.0000  0.7667           0.0     7.83                    23.0010                   0.0        30.0000            0.0         6.9990              0.0000      0.0000  0.2333                      30  Đắk Nông  NTB  Trần Văn Phước
+6  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-05-29 - Thứ 6      25  1.0000  0.9200           0.0      5.3                    23.0000                   0.0        25.0000            0.0         2.0000              0.0000      0.0000  0.0800                      25  Đắk Nông  NTB  Trần Văn Phước
+7  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026-05-24 - Chủ Nhật      31  0.8710  0.8065           0.0     6.76                    25.0015                   0.0        27.0010            0.0         5.9985              3.9990      0.1290  0.1935                      31  Đắk Nông  NTB  Trần Văn Phước
+8  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-05-28 - Thứ 5      45  0.8889  0.6444           0.0     4.41                    28.9980                   0.0        40.0005            0.0        16.0020              4.9995      0.1111  0.3556                      45  Đắk Nông  NTB  Trần Văn Phước
+9  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1     2026-05-20 - Thứ 4      33  1.0000  0.9091           0.0     6.03                    30.0003                   0.0        33.0000            0.0         2.9997              0.0000      0.0000  0.0909                      33  Đắk Nông  NTB  Trần Văn Phước

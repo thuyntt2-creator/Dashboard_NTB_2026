@@ -1,0 +1,234 @@
+def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw_aging=None, raw_co_cau_aging=None, raw_treo=None, raw_co_cau_treo=None, raw_tts=None):
+    global DF_GTC_CACHE, DF_LTC_CACHE, DF_CO_CAU_CACHE, DF_AGING_CACHE, DF_TREO_CACHE, DF_TTS_CACHE
+    import gc
+    if force or DF_GTC_CACHE is None or DF_LTC_CACHE is None or DF_CO_CAU_CACHE is None or DF_AGING_CACHE is None or DF_TREO_CACHE is None or DF_TTS_CACHE is None:
+        if not force:
+            print("Cache is empty. Initializing cache synchronously...")
+            try:
+                update_all_caches()
+            except Exception as e:
+                print(f"Error loading cache synchronously: {e}")
+                raise RuntimeError("Dữ liệu đang được tải vào bộ nhớ đệm hoặc chưa được đồng bộ. Vui lòng đợi vài giây hoặc nhấn nút Đồng bộ dữ liệu.")
+            if DF_GTC_CACHE is None or DF_LTC_CACHE is None or DF_CO_CAU_CACHE is None or DF_AGING_CACHE is None or DF_TREO_CACHE is None or DF_TTS_CACHE is None:
+                raise RuntimeError("Dữ liệu đang được tải vào bộ nhớ đệm hoặc chưa được đồng bộ. Vui lòng đợi vài giây hoặc nhấn nút Đồng bộ dữ liệu.")
+        bc_to_am = {}
+        bc_to_prov = {}
+        
+        # 1. Load and process Báo cáo Vận hành
+        if raw_gtc is None:
+            raw_gtc = safe_read_csv(resolve_path('ops_gtc.csv', write=False))
+        raw_gtc = clean_ops_df(raw_gtc, "gtc")
+        
+        if raw_ltc is None:
+            raw_ltc = safe_read_csv(resolve_path('ops_ltc.csv', write=False))
+        raw_ltc = clean_ops_df(raw_ltc, "ltc")
+        
+        if raw_co_cau is None:
+            raw_co_cau = safe_read_csv(resolve_path('ops_co_cau.csv', write=False))
+
+        if raw_tts is None:
+            raw_tts = safe_read_csv(resolve_path('ops_tts.csv', write=False))
+        raw_tts = clean_ops_df(raw_tts, "tts")
+            
+        if raw_gtc is None or raw_ltc is None or raw_co_cau is None:
+            raise FileNotFoundError("Không tìm thấy dữ liệu vận hành CSV (ops_gtc.csv, ops_ltc.csv hoặc ops_co_cau.csv).")
+            
+        df_gtc = raw_gtc[raw_gtc['Cấp Quản Lý'] != 'Grand Total'].dropna(subset=["Volume"]).copy()
+        df_gtc['Leadtime'] = pd.to_numeric(df_gtc['Leadtime'], errors='coerce')
+        
+        df_ltc = raw_ltc[raw_ltc['Cấp quản lý'] != 'Grand Total'].dropna(subset=["Volume"]).copy()
+        df_ltc['Leadtime'] = pd.to_numeric(df_ltc['Leadtime'], errors='coerce')
+        
+        df_tts = None
+        if raw_tts is not None:
+            df_tts = raw_tts.dropna(subset=["Volume"]).copy()
+            if 'Cấp Quản Lý' in df_tts.columns:
+                df_tts = df_tts[df_tts['Cấp Quản Lý'] != 'Grand Total'].copy()
+            leadtime_col = next((c for c in df_tts.columns if c.lower() == 'leadtime'), 'Leadtime')
+            df_tts['Leadtime'] = pd.to_numeric(df_tts.get(leadtime_col, 0), errors='coerce')
+            
+        df_co_cau = raw_co_cau.copy()
+        
+        # Map co_cau
+        for _, r in df_co_cau.iterrows():
+            bc = str(r.get('BC', '')).strip().lower()
+            buucuc = str(r.get('Bưu cục', '')).strip().lower()
+            am = str(r.get('AM', r.get('Am', r.get('ID - Họ Tên Am', '')))).strip()
+            prov = str(r.get('Tỉnh', '')).strip()
+            if prov == 'Bình Phước':
+                prov = 'Lâm Đồng'
+            if bc and bc != 'nan':
+                bc_to_am[bc] = am
+                bc_to_prov[bc] = prov
+            if buucuc and buucuc != 'nan':
+                bc_to_am[buucuc] = am
+                bc_to_prov[buucuc] = prov
+                
+        # Delete raw and clean memory
+        del raw_gtc, raw_ltc, raw_co_cau
+        if raw_tts is not None:
+            del raw_tts
+        gc.collect()
+        
+        # 2. Load and process Aging
+        if raw_aging is None:
+            raw_aging = safe_read_csv(resolve_path('aging_raw.csv', write=False))
+        if raw_co_cau_aging is None:
+            raw_co_cau_aging = safe_read_csv(resolve_path('ops_co_cau.csv', write=False))
+            
+        if raw_aging is None or raw_co_cau_aging is None:
+            raise FileNotFoundError("Không tìm thấy dữ liệu aging CSV (aging_raw.csv hoặc ops_co_cau.csv).")
+            
+        df_aging = raw_aging.copy()
+        if 'am_name' not in df_aging.columns:
+            df_aging['am_name'] = np.nan
+        if 'Trạng thái' not in df_aging.columns:
+            df_aging['Trạng thái'] = np.nan
+        df_co_cau_aging = raw_co_cau_aging.copy()
+        
+        for _, r in df_co_cau_aging.iterrows():
+            bc = str(r.get('BC', '')).strip().lower()
+            buucuc = str(r.get('Bưu cục', '')).strip().lower()
+            am = str(r.get('AM', r.get('Am', r.get('ID - Họ Tên Am', '')))).strip()
+            prov = str(r.get('Tỉnh', '')).strip()
+            if prov == 'Bình Phước':
+                prov = 'Lâm Đồng'
+            if bc and bc != 'nan':
+                bc_to_am[bc] = am
+                bc_to_prov[bc] = prov
+            if buucuc and buucuc != 'nan':
+                bc_to_am[buucuc] = am
+                bc_to_prov[buucuc] = prov
+                
+        del raw_aging, raw_co_cau_aging
+        gc.collect()
+        
+        # 3. Load and process Treo
+        if raw_treo is None:
+            raw_treo = safe_read_csv(resolve_path('treo_stuck.csv', write=False))
+        if raw_co_cau_treo is None:
+            raw_co_cau_treo = safe_read_csv(resolve_path('ops_co_cau.csv', write=False))
+            
+        if raw_treo is None or raw_co_cau_treo is None:
+            raise FileNotFoundError("Không tìm thấy dữ liệu treo luân chuyển CSV (treo_stuck.csv hoặc ops_co_cau.csv).")
+            
+        df_treo = raw_treo.copy()
+        if 'am_name' not in df_treo.columns:
+            df_treo['am_name'] = np.nan
+        if 'province_name' not in df_treo.columns:
+            df_treo['province_name'] = np.nan
+        df_co_cau_treo = raw_co_cau_treo.copy()
+        
+        for _, r in df_co_cau_treo.iterrows():
+            bc = str(r.get('BC', '')).strip().lower()
+            buucuc = str(r.get('Bưu cục', '')).strip().lower()
+            am = str(r.get('AM', r.get('Am', r.get('ID - Họ Tên Am', '')))).strip()
+            prov = str(r.get('Tỉnh', '')).strip()
+            if prov == 'Bình Phước':
+                prov = 'Lâm Đồng'
+            if bc and bc != 'nan':
+                bc_to_am[bc] = am
+                bc_to_prov[bc] = prov
+            if buucuc and buucuc != 'nan':
+                bc_to_am[buucuc] = am
+                bc_to_prov[buucuc] = prov
+                
+        del raw_treo, raw_co_cau_treo
+        gc.collect()
+        
+        # 4. Final Processing & Mapping
+        df_gtc['clean_bc'] = df_gtc['Chi tiết'].apply(clean_str)
+        df_gtc['mapped_prov'] = df_gtc['clean_bc'].map(bc_to_prov).fillna(df_gtc['Tỉnh']).fillna("Không xác định")
+        df_gtc['mapped_am'] = df_gtc['clean_bc'].map(bc_to_am).fillna(df_gtc['AM']).fillna("Không xác định")
+        
+        df_gtc['Volume'] = safe_to_numeric(df_gtc['Volume'])
+        df_gtc['% GTC'] = normalize_pct_col(df_gtc['% GTC'])
+        df_gtc['% Chuyển trả'] = normalize_pct_col(df_gtc['% Chuyển trả'])
+        
+        df_gtc['delivered_vol'] = df_gtc['Volume'] * df_gtc['% GTC']
+        df_gtc['return_vol'] = df_gtc['Volume'] * df_gtc['% Chuyển trả']
+        df_gtc['ttc_vol'] = df_gtc['delivered_vol'] + df_gtc['return_vol']
+        
+        df_ltc['clean_bc'] = df_ltc['Chi tiết'].apply(clean_str)
+        prov_col = next((c for c in df_ltc.columns if c.lower() == 'tỉnh'), None)
+        am_col = next((c for c in df_ltc.columns if c.lower() == 'am'), None)
+        
+        df_ltc['mapped_prov'] = df_ltc['clean_bc'].map(bc_to_prov)
+        if prov_col:
+            df_ltc['mapped_prov'] = df_ltc['mapped_prov'].fillna(df_ltc[prov_col])
+        df_ltc['mapped_prov'] = df_ltc['mapped_prov'].fillna("Không xác định")
+        
+        df_ltc['mapped_am'] = df_ltc['clean_bc'].map(bc_to_am)
+        if am_col:
+            df_ltc['mapped_am'] = df_ltc['mapped_am'].fillna(df_ltc[am_col])
+        df_ltc['mapped_am'] = df_ltc['mapped_am'].fillna("Không xác định")
+        
+        # Normalize columns and map ltc_vol to Column K (Sản Lượng Lấy Thành Công)
+        df_ltc['Volume'] = safe_to_numeric(df_ltc['Volume'])
+        df_ltc['%LTC'] = normalize_pct_col(df_ltc['%LTC'])
+        df_ltc.columns = [c.strip() for c in df_ltc.columns]
+        if 'Sản Lượng Lấy Thành Công' in df_ltc.columns:
+            df_ltc['ltc_vol'] = safe_to_numeric(df_ltc['Sản Lượng Lấy Thành Công'])
+        else:
+            df_ltc['ltc_vol'] = df_ltc['Volume'] * df_ltc['%LTC']
+            
+        # Align dates: ensure df_ltc contains rows for any dates present in df_gtc to avoid null/zero reporting
+        if len(df_gtc) > 0 and len(df_ltc) > 0:
+            gtc_dates = df_gtc['Time'].dropna().unique()
+            ltc_dates = df_ltc['Time'].dropna().unique()
+            missing_ltc_dates = [d for d in gtc_dates if d not in ltc_dates]
+            if missing_ltc_dates and len(ltc_dates) > 0:
+                try:
+                    ltc_dates_sorted = sorted(ltc_dates, key=lambda x: pd.to_datetime(str(x).split(' - ')[0]))
+                    latest_ltc_date = ltc_dates_sorted[-1]
+                except Exception as e:
+                    latest_ltc_date = ltc_dates[-1]
+                
+                latest_ltc_rows = df_ltc[df_ltc['Time'] == latest_ltc_date].copy()
+                new_rows_list = []
+                for missing_date in missing_ltc_dates:
+                    copied = latest_ltc_rows.copy()
+                    copied['Time'] = missing_date
+                    new_rows_list.append(copied)
+                if new_rows_list:
+                    df_ltc = pd.concat([df_ltc] + new_rows_list, ignore_index=True)
+        
+        df_aging['clean_bc'] = df_aging['BC'].apply(clean_str)
+        df_aging['mapped_prov'] = df_aging['clean_bc'].map(bc_to_prov).fillna(df_aging['Tỉnh']).fillna("Không xác định")
+        df_aging['mapped_am'] = df_aging['clean_bc'].map(bc_to_am).fillna(df_aging['am_name']).fillna("Không xác định")
+        
+        df_treo['clean_bc'] = df_treo['warehouse_name'].apply(clean_str)
+        df_treo['mapped_prov'] = df_treo['clean_bc'].map(bc_to_prov).fillna(df_treo['province_name']).fillna("Không xác định")
+        df_treo['mapped_am'] = df_treo['clean_bc'].map(bc_to_am).fillna(df_treo['am_name']).fillna("Không xác định")
+        
+        allowed_statuses = ['Chưa đóng kiện', 'Không cần đóng kiện']
+        df_treo_filtered = df_treo[df_treo['Trạng thái'].isin(allowed_statuses)].copy()
+        
+        def get_treo_bracket_local(t):
+            if not isinstance(t, str):
+                return None
+            t = t.strip()
+            if t in ["36_48", "48_72"]:
+                return "36 - 72h"
+            elif t in ["72_96", "96_120"]:
+                return "72 - 120h"
+            elif t in ["120_192"]:
+                return "120 - 192h"
+            elif t in ["192", "192h+"]:
+                return "192h+"
+            return None
+
+        df_treo_filtered['treo_bracket'] = df_treo_filtered['Thời gian tồn đọng'].apply(get_treo_bracket_local)
+        df_treo_filtered = df_treo_filtered.dropna(subset=["treo_bracket"])
+        
+        DF_GTC_CACHE = df_gtc
+        DF_LTC_CACHE = df_ltc
+        DF_CO_CAU_CACHE = df_co_cau
+        DF_AGING_CACHE = df_aging
+        DF_TREO_CACHE = df_treo_filtered
+        DF_TTS_CACHE = df_tts
+        
+        gc.collect()
+        
+    return DF_GTC_CACHE, DF_LTC_CACHE, DF_AGING_CACHE, DF_TREO_CACHE
+

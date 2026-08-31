@@ -1,0 +1,19 @@
+=== LARGE POS IN NTB ===
+
+--- Largest 10 Post Offices by Volume on 13/06 ---
+                                                   Chi tiết                  AM        Tỉnh     Vol     GTC    Ton  ChuaGan  % GTC  % Tồn
+40                  BC Cao Bá Quát-Phường 7-Đà Lạt-Lâm Đồng         Lê Minh Đại    Lâm Đồng  2090.0  1135.0  927.0    668.0  54.31  44.35
+38                    BC 95 Thống Nhất-Phan Rang-Ninh Thuận     Nguyễn Duy Long  Ninh Thuận  1844.0  1355.0  424.0     42.0  73.48  22.99
+57                      BC Quốc Lộ 1A-Ninh Phước-Ninh Thuận     Nguyễn Duy Long  Ninh Thuận  1742.0   964.0  719.0    383.0  55.34  41.27
+73                      BC Xã Nam Chính-Đức Linh-Bình Thuận      Huỳnh Tấn Hiền  Bình Thuận  1633.0  1127.0  478.0    198.0  69.01  29.27
+48                        BC Phú Thủy-Phan Thiết-Bình Thuận   Nguyễn Ngọc Khánh  Bình Thuận  1504.0  1133.0  341.0     83.0  75.33  22.67
+13  BC 254A Đường 21 tháng 8-Phan Rang-Tháp Chàm-Ninh Thuận     Nguyễn Duy Long  Ninh Thuận  1481.0   982.0  473.0    142.0  66.31  31.94
+72                       BC Tổ Dân Phố 2-Ninh Hoà-Khánh Hoà  Phạm Bá Thành Công   Khánh Hòa  1453.0   944.0  468.0     51.0  64.97  32.21
+34                BC 575 Quốc Lộ 28-Xã Hàm Thuận-Bình Thuận   Nguyễn Ngọc Khánh  Bình Thuận  1366.0   943.0  395.0     93.0  69.03  28.92
+41                        BC DT707-Hàm Thuận Nam-Bình Thuận       Lê Thanh Nhựt  Bình Thuận  1341.0   836.0  478.0    191.0  62.34  35.65
+39                          BC 95A Đội Cấn-Bảo Lộc-Lâm Đồng     Hồng Bích Nga    Lâm Đồng  1328.0   980.0  333.0    155.0  73.80  25.08
+30                BC 51 Phạm Ngọc Thạch-Ninh Hải-Ninh Thuận     Nguyễn Duy Long  Ninh Thuận  1286.0   788.0  480.0    298.0  61.28  37.33
+5                    BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận      Huỳnh Tấn Hiền  Bình Thuận  1280.0   836.0  424.0    143.0  65.31  33.12
+22                        BC 42 Nguyễn Du-Cam Lâm-Khánh Hoà  Nguyễn Thanh Long   Khánh Hòa  1278.0   601.0  655.0    277.0  47.03  51.25
+46                            BC Ngô Thỳ Sỹ-Đà Lạt-Lâm Đồng         Lê Minh Đại    Lâm Đồng  1275.0   784.0  458.0    232.0  61.49  35.92
+18                    BC 39 Hùng Vương-Diên Khánh-Khánh Hòa    Nguyễn Hoàng Phi   Khánh Hòa  1264.0   853.0  385.0    127.0  67.48  30.46

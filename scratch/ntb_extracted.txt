@@ -1,0 +1,15 @@
+df_raw shape: (88, 21)
+header_row_idx: 3
+df_table columns: ['ngay', 'vung_giao', 'tinh_giao', 'kho_giao_id', 'kho_giao_name', 'warehouse_type', 'bl lm', 'bl lm >5 ngay', '%bl lm >5 ngay', 'bl ktc', 'bl ktc cung tinh', '%bl ktc cung tinh', 'tao_n1', 'tao_avg_7ngay', 'gtc_n1', 'gtc_avg_7ngay', 'gtc_max_7ngay', 'du_kien_clear_ton', 'tinh_hinh', 'ly_do_bat_on', 'Trạng thái']
+
+Extracted Records:
+{'id': 20269000, 'name': '(DNO) Kiến Đức', 'ton_lm': 1833, 'ton_lm_5n': 447, 'pct_lm_5n': 24.4, 'ton_ktc': 634, 'days_unstable': 5, 'reason': '2. Tồn LM | 4. Tồn Aging >5 ngày', 'status': 'Bất ổn'}
+{'id': 22389000, 'name': '(LDO) Đức Trọng 1', 'ton_lm': 1883, 'ton_lm_5n': 333, 'pct_lm_5n': 17.7, 'ton_ktc': 663, 'days_unstable': 5, 'reason': '2. Tồn LM | 4. Tồn Aging >5 ngày', 'status': 'Bất ổn'}
+{'id': 22394000, 'name': '(DNO) Quảng Tín', 'ton_lm': 1270, 'ton_lm_5n': 281, 'pct_lm_5n': 22.1, 'ton_ktc': 449, 'days_unstable': 4, 'reason': '2. Tồn LM | 4. Tồn Aging >5 ngày', 'status': 'Bất ổn'}
+{'id': 22425000, 'name': '(LDO) Tân Hà Lâm Hà', 'ton_lm': 1271, 'ton_lm_5n': 190, 'pct_lm_5n': 14.9, 'ton_ktc': 551, 'days_unstable': 3, 'reason': '2. Tồn LM | 4. Tồn Aging >5 ngày', 'status': 'Bất ổn'}
+{'id': 22830000, 'name': '(KHO) Cam Linh', 'ton_lm': 3023, 'ton_lm_5n': 137, 'pct_lm_5n': 4.5, 'ton_ktc': 919, 'days_unstable': 3, 'reason': '2. Tồn LM', 'status': 'Bất ổn'}
+{'id': 22051000, 'name': '(LDO) Lang Biang - Đà Lạt 1', 'ton_lm': 1546, 'ton_lm_5n': 201, 'pct_lm_5n': 13.0, 'ton_ktc': 845, 'days_unstable': 2, 'reason': '2. Tồn LM | 4. Tồn Aging >5 ngày', 'status': 'Bất ổn'}
+{'id': 22312000, 'name': '(LDO) Lâm Viên - Đà Lạt 1', 'ton_lm': 1637, 'ton_lm_5n': 72, 'pct_lm_5n': 4.4, 'ton_ktc': 732, 'days_unstable': 2, 'reason': '2. Tồn LM', 'status': 'Bất ổn'}
+{'id': 21331000, 'name': '(KHO) Cam Lâm 1', 'ton_lm': 650, 'ton_lm_5n': 4, 'pct_lm_5n': 60.0, 'ton_ktc': 406, 'days_unstable': 2, 'reason': nan, 'status': 'Cấp cảnh báo'}
+{'id': 21377000, 'name': '(LDO) Đơn Dương', 'ton_lm': 1546, 'ton_lm_5n': 36, 'pct_lm_5n': 2.3, 'ton_ktc': 1092, 'days_unstable': 2, 'reason': nan, 'status': 'Cấp cảnh báo'}
+{'id': 22086000, 'name': '(DNO) Trường Xuân', 'ton_lm': 437, 'ton_lm_5n': 10, 'pct_lm_5n': 2.3, 'ton_ktc': 237, 'days_unstable': 2, 'reason': nan, 'status': 'Cấp cảnh báo'}

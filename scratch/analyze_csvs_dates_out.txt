@@ -1,0 +1,94 @@
+=== ANALYSIS OF CSV DATES AND LATEST METRICS ===
+
+--- File: ops_gtc.csv ---
+Shape: (6334, 21)
+Latest 5 times: ['2026-06-09 - Thứ 3', '2026-06-10 - Thứ 4', '2026-06-11 - Thứ 5', '2026-06-12 - Thứ 6', '2026-06-13 - Thứ 7']
+Latest time data summary (2026-06-13 - Thứ 7):
+Number of rows: 230
+                        AM        Tỉnh     Vol  GTC_vol  Ton_vol  ChuaGan_vol  % GTC  % Tồn  % Chưa Gán
+7       Nguyễn Thanh Long   Khánh Hòa  1278.0    601.0    655.0        277.0  47.03  51.25       21.67
+20          Trần Văn Phước    Đắk Nông  2576.0   1317.0   1224.0        568.0  51.13  47.52       22.05
+18           Trần Công Hậu    Đắk Nông   591.0    313.0    269.0          8.0  52.96  45.52        1.35
+4              Lê Minh Đại    Lâm Đồng  5368.0   3049.0   3303.0       1866.0  56.80  61.53       34.76
+17           Trầm Hữu Tiến    Lâm Đồng  2664.0   1542.0   2053.0       1163.0  57.88  77.06       43.66
+14           Phan Đình Duy   Khánh Hòa  1952.0   1198.0    699.0         42.0  61.37  35.81        2.15
+6            Lê Văn Trường    Lâm Đồng  2794.0   1776.0    953.0        272.0  63.56  34.11        9.74
+0        Huỳnh Thị Kim Chi    Lâm Đồng  2906.0   1858.0   2108.0       1035.0  63.94  72.54       35.62
+10        Nguyễn Hoàng Phi   Khánh Hòa  3747.0   2415.0   1250.0        414.0  64.45  33.36       11.05
+3          Hồng Bích Nga    Lâm Đồng  4020.0   2619.0   1355.0        660.0  65.15  33.71       16.42
+9          Nguyễn Duy Long  Ninh Thuận  7480.0   4885.0   2392.0        892.0  65.31  31.98       11.93
+5            Lê Thanh Nhựt  Bình Thuận  2629.0   1754.0    825.0        223.0  66.72  31.38        8.48
+11     Nguyễn Lê Nguyên Vũ    Lâm Đồng  1230.0    850.0    364.0        190.0  69.11  29.59       15.45
+21              Võ Tấn Lợi    Lâm Đồng  1210.0    853.0    335.0         60.0  70.50  27.69        4.96
+1           Huỳnh Tấn Hiền  Bình Thuận  4697.0   3344.0   1260.0        385.0  71.19  26.83        8.20
+2           Huỳnh Tấn Hiền    Lâm Đồng  2104.0   1500.0    574.0        232.0  71.29  27.28       11.03
+16      Thái Thị Thanh Thư   Khánh Hòa  4117.0   3013.0   3284.0        391.0  73.18  79.77        9.50
+12       Nguyễn Ngọc Khánh  Bình Thuận  7886.0   5889.0   1843.0        389.0  74.68  23.37        4.93
+13  Nguyễn Tống Hùng Phong   Khánh Hòa   219.0    166.0     47.0          2.0  75.80  21.46        0.91
+8          Nguyễn Duy Long  Bình Thuận  1773.0   1345.0    381.0         88.0  75.86  21.49        4.96
+19          Trần Thị Nhung    Đắk Nông  5234.0   4030.0   2166.0        535.0  77.00  41.38       10.22
+15      Phạm Bá Thành Công   Khánh Hòa  6637.0   5390.0   2368.0        287.0  81.21  35.68        4.32
+
+--- File: ops_ltc.csv ---
+Shape: (4622, 18)
+Latest 5 times: ['2026-06-09 - Thứ 3', '2026-06-10 - Thứ 4', '2026-06-11 - Thứ 5', '2026-06-12 - Thứ 6', '2026-06-13 - Thứ 7']
+Latest time data summary (2026-06-13 - Thứ 7):
+                        AM        Tỉnh   Vol  LTC_vol  % LTC
+13  Nguyễn Tống Hùng Phong   Khánh Hòa     8        3  37.50
+7       Nguyễn Thanh Long   Khánh Hòa    69       42  60.87
+0        Huỳnh Thị Kim Chi    Lâm Đồng   290      193  66.55
+20          Trần Văn Phước    Đắk Nông   788      546  69.29
+17           Trầm Hữu Tiến    Lâm Đồng   406      282  69.46
+5            Lê Thanh Nhựt  Bình Thuận   185      134  72.43
+19          Trần Thị Nhung    Đắk Nông  1571     1243  79.12
+4              Lê Minh Đại    Lâm Đồng  1016      823  81.00
+3          Hồng Bích Nga    Lâm Đồng  1026      837  81.58
+10        Nguyễn Hoàng Phi   Khánh Hòa   340      291  85.59
+21              Võ Tấn Lợi    Lâm Đồng    93       80  86.02
+12       Nguyễn Ngọc Khánh  Bình Thuận   912      793  86.95
+16      Thái Thị Thanh Thư   Khánh Hòa  1744     1521  87.21
+14           Phan Đình Duy   Khánh Hòa   606      529  87.29
+15      Phạm Bá Thành Công   Khánh Hòa  1012      898  88.74
+6            Lê Văn Trường    Lâm Đồng   567      509  89.77
+18           Trần Công Hậu    Đắk Nông   743      673  90.58
+1           Huỳnh Tấn Hiền  Bình Thuận  1047      954  91.12
+9          Nguyễn Duy Long  Ninh Thuận  1716     1610  93.82
+8          Nguyễn Duy Long  Bình Thuận   108      102  94.44
+11     Nguyễn Lê Nguyên Vũ    Lâm Đồng   457      440  96.28
+2           Huỳnh Tấn Hiền    Lâm Đồng   553      534  96.56
+
+--- File: ODR TTS.csv ---
+Shape: (2279, 5)
+Latest 5 times: ['2026-06-09 - Thứ 3', '2026-06-10 - Thứ 4', '2026-06-11 - Thứ 5', '2026-06-12 - Thứ 6', '2026-06-13 - Thứ 7']
+Latest time data summary (2026-06-13 - Thứ 7):
+            Quản lý  GTC_tot  Ontime_tot  % ODR
+0  NTB - Bình Thuận     3222    3091.271  95.94
+1   NTB - Khánh Hòa     3371    3176.213  94.22
+2    NTB - Lâm Đồng     2948    2543.889  86.29
+3  NTB - Ninh Thuận     1171    1140.089  97.36
+4    NTB - Đắk Nông     1800    1670.905  92.83
+
+--- File: buu_cuc_bat_on.csv ---
+Columns: ['Thời gian cập nhật', 'Unnamed: 1', '14/06/2026', 'Unnamed: 3', 'Logic thuộc 1 trong 4 trường hợp sau:\n\nTồn LM: Lượng đơn Backlogs LastMile trên tổng đơn GTC trung bình 7 ngày gần nhất (L7D) lớn hơn 2 (ngày).\nTồn KTC: Lượng đơn Backlogs KTC cùng tỉnh trên tổng đơn GTC trung bình 7 ngày gần nhất (L7D) lớn hơn 2 (ngày).\nTồn LM + Tồn KTC: Các bưu cục đồng thời thuộc cả 2 nhóm: Tồn LM và Tồn KTC\nTồn Aging >5 ngày: tỷ lệ đơn tồn trên 5 ngày chiếm từ 10% trở lên trên tổng lượng Backlogs LastMile.', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9', 'Unnamed: 10', 'Unnamed: 11', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15', 'Unnamed: 16', 'Unnamed: 17', 'Unnamed: 18', 'Unnamed: 19', 'Unnamed: 20']
+Rows of warning: 95
+2  vung_giao   tinh_giao                                          kho_giao_name BL LM %BL LM >5 ngay    tinh_hinh                      ly_do_bat_on
+3        NTB    Lâm Đồng               Bưu Cục 1322 Hùng Vương-Di Linh-Lâm Đồng  2442          4.50%       Bất ổn                         2. Tồn LM
+4        NTB    Lâm Đồng       Bưu Cục Thôn Phúc Hưng-Xã Tân Hà Lâm Hà-Lâm Đồng  1578         22.80%       Bất ổn  2. Tồn LM | 4. Tồn Aging >5 ngày
+5        NTB   Khánh Hòa          Bưu Cục 56 Phan Đình Phùng-Cam Linh-Khánh Hòa  2117          5.00%       Bất ổn                         2. Tồn LM
+6        NTB    Lâm Đồng                   Bưu Cục Langbiang-Lạc Dương-Lâm Đồng  1105          8.20%       Bất ổn                         2. Tồn LM
+7        NTB    Lâm Đồng            Bưu Cục Thôn R'Chai 2-Xã Đức Trọng-Lâm Đồng   956          4.40%       Bất ổn                         2. Tồn LM
+8        NTB    Lâm Đồng      Bưu Cục TDP Nghĩa Đức-Thạnh Mỹ-Đơn Dương-Lâm Đồng  1753          3.10%       Bất ổn                         2. Tồn LM
+9        NTB   Khánh Hòa                 Bưu Cục 42 Nguyễn Du-Cam Lâm-Khánh Hoà  1304          1.20%  Bình thường                               NaN
+10       NTB   Khánh Hòa        Bưu Cục 06 Lê Hồng Phong-TP.Nha Trang-Khánh Hòa  1665         14.40%       Bất ổn              4. Tồn Aging >5 ngày
+11       NTB    Lâm Đồng                Bưu Cục 231 Thôn 1-Xã Hòa Ninh-Lâm Đồng   606          7.10%  Bình thường                               NaN
+12       NTB    Đắk Nông         Bưu Cục 01 Nguyễn Tất Thành-Đắk R lấp-Đắk Nông   583          3.80%  Bình thường                               NaN
+13       NTB    Lâm Đồng                      Bưu Cục Đạ Rsal-Đam Rông-Lâm Đồng   678          8.40%  Bình thường                               NaN
+14       NTB    Đắk Nông                   Bưu Cục Thôn 2-Xã Quảng Tín-Đắk Nông   509          6.70%  Bình thường                               NaN
+15       NTB    Đắk Nông                   Bưu Cục Quảng Khê-Đắk Glong-Đắk Nông   376          3.70%  Bình thường                               NaN
+16       NTB    Lâm Đồng     Bưu Cục Lê Hồng Phong-Liên Hiệp-Đức Trọng-Lâm Đồng   666          0.30%  Bình thường                               NaN
+17       NTB    Lâm Đồng               Bưu Cục QL20 Ninh Hòa-Đức Trọng-Lâm Đồng   610          0.50%  Bình thường                               NaN
+18       NTB    Lâm Đồng  Bưu Cục Số 6 Trương Văn Hoàn-Phường 9-Đà Lạt-Lâm Đồng  1251          0.80%  Bình thường                               NaN
+19       NTB   Khánh Hòa             Kho Giao Hàng Nặng - Nha Trang - Khánh Hoà   651          0.60%  Bình thường                               NaN
+20       NTB    Lâm Đồng      Bưu Cục 337 Hùng Vương-Lộc Thắng-Bảo Lâm-Lâm Đồng   542         12.00%       Bất ổn              4. Tồn Aging >5 ngày
+21       NTB  Bình Thuận               Bưu Cục 46 Hùng Vương-Hàm Tân-Bình Thuận   910          0.30%  Bình thường                               NaN
+22       NTB  Bình Thuận         Bưu Cục 575 Quốc Lộ 28-Xã Hàm Thuận-Bình Thuận  1276          0.20%  Bình thường                               NaN

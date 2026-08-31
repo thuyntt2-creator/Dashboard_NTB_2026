@@ -1,0 +1,23 @@
+=== ANALYSIS OF BUU CUC BAT ON ===
+Total rows: 95
+Columns: ['ngay', 'vung_giao', 'tinh_giao', 'kho_giao_id', 'kho_giao_name', 'warehouse_type', 'BL LM', 'BL LM >5 ngay', '%BL LM >5 ngay', 'BL KTC', 'BL KTC cung tinh', '%BL KTC cung tinh', 'tao_n1', 'tao_avg_7ngay', 'gtc_n1', 'gtc_avg_7ngay', 'gtc_max_7ngay', 'du_kien_clear_ton', 'tinh_hinh', 'ly_do_bat_on', 'Trạng thái']
+Number of unstable (Bất ổn) post offices: 8
+
+--- Top 15 Unstable Post Offices by BL LM (Backlog Last Mile) ---
+    tinh_giao                                      kho_giao_name  BL LM  BL LM >5 ngay %BL LM >5 ngay  BL KTC  tao_n1  gtc_n1  du_kien_clear_ton                      ly_do_bat_on
+0    Lâm Đồng           Bưu Cục 1322 Hùng Vương-Di Linh-Lâm Đồng   2442            111          4.50%    1823     867     473                  4                         2. Tồn LM
+2   Khánh Hòa      Bưu Cục 56 Phan Đình Phùng-Cam Linh-Khánh Hòa   2117            105          5.00%     957     714     584                  4                         2. Tồn LM
+5    Lâm Đồng  Bưu Cục TDP Nghĩa Đức-Thạnh Mỹ-Đơn Dương-Lâm Đồng   1753             54          3.10%    1190     735     710                  2                         2. Tồn LM
+7   Khánh Hòa    Bưu Cục 06 Lê Hồng Phong-TP.Nha Trang-Khánh Hòa   1665            240         14.40%     664     549     740                  2              4. Tồn Aging >5 ngày
+1    Lâm Đồng   Bưu Cục Thôn Phúc Hưng-Xã Tân Hà Lâm Hà-Lâm Đồng   1578            359         22.80%     698     357     363                  4  2. Tồn LM | 4. Tồn Aging >5 ngày
+3    Lâm Đồng               Bưu Cục Langbiang-Lạc Dương-Lâm Đồng   1105             91          8.20%     907     426     380                  3                         2. Tồn LM
+4    Lâm Đồng        Bưu Cục Thôn R'Chai 2-Xã Đức Trọng-Lâm Đồng    956             42          4.40%     633     437     376                  3                         2. Tồn LM
+17   Lâm Đồng  Bưu Cục 337 Hùng Vương-Lộc Thắng-Bảo Lâm-Lâm Đồng    542             65         12.00%     610     277     353                  2              4. Tồn Aging >5 ngày
+
+--- Backlog Summary by Province ---
+    tinh_giao  total_lm_backlog  total_ktc_backlog  unstable_count
+0  Bình Thuận           11264.0              17725               0
+1   Khánh Hòa           15157.0              16392               2
+2    Lâm Đồng           20336.0              26038               6
+3  Ninh Thuận            4900.0               7658               0
+4    Đắk Nông            6559.0               9467               0

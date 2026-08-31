@@ -1,0 +1,86 @@
+=== REGION OVERALL METRICS ===
+ODR Unique dates count: 28
+
+--- ODR by Date ---
+Date: 2026-06-13 - Thứ 7 | Total GTC: 12,512 | Overall ODR: 92.89%
+            Quản lý   GTC    Ontime    ODR
+0  NTB - Bình Thuận  3222  3091.271  95.94
+1   NTB - Khánh Hòa  3371  3176.213  94.22
+2    NTB - Lâm Đồng  2948  2543.889  86.29
+3  NTB - Ninh Thuận  1171  1140.089  97.36
+4    NTB - Đắk Nông  1800  1670.905  92.83
+
+Date: 2026-06-12 - Thứ 6 | Total GTC: 12,389 | Overall ODR: 94.84%
+            Quản lý   GTC    Ontime    ODR
+0  NTB - Bình Thuận  3774  3668.118  97.19
+1   NTB - Khánh Hòa  2839  2702.112  95.18
+2    NTB - Lâm Đồng  2948  2697.883  91.52
+3  NTB - Ninh Thuận  1128  1075.953  95.39
+4    NTB - Đắk Nông  1700  1605.053  94.41
+
+Date: 2026-06-06 - Thứ 7 | Total GTC: 10,990 | Overall ODR: 94.58%
+            Quản lý   GTC    Ontime    ODR
+0  NTB - Bình Thuận  2827  2755.783  97.48
+1   NTB - Khánh Hòa  2797  2697.037  96.43
+2    NTB - Lâm Đồng  2570  2265.110  88.14
+3  NTB - Ninh Thuận  1034  1007.159  97.40
+4    NTB - Đắk Nông  1762  1669.621  94.76
+
+
+--- GTC (Delivery) Metrics by Date ---
+Date: 2026-06-13 - Thứ 7 | Total Vol: 73,112 | GTC: 67.99% | CT: 2.45% | Tồn: 40.63% | Chưa Gán: 13.65%
+Worst 5 AMs by %GTC:
+                    AM     Vol   GTC_v   Ton_v  % GTC  % Tồn
+6   Nguyễn Thanh Long  1278.0   601.0   655.0  47.03  51.25
+18      Trần Văn Phước  2576.0  1317.0  1224.0  51.13  47.52
+16       Trần Công Hậu   591.0   313.0   269.0  52.96  45.52
+3          Lê Minh Đại  5368.0  3049.0  3303.0  56.80  61.53
+15       Trầm Hữu Tiến  2664.0  1542.0  2053.0  57.88  77.06
+
+Date: 2026-06-12 - Thứ 6 | Total Vol: 75,525 | GTC: 67.93% | CT: 2.34% | Tồn: 40.29% | Chưa Gán: 14.89%
+Worst 5 AMs by %GTC:
+                    AM     Vol   GTC_v   Ton_v  % GTC  % Tồn
+18      Trần Văn Phước  2343.0  1016.0  1291.0  43.36  55.10
+3          Lê Minh Đại  6362.0  2989.0  3263.0  46.98  51.29
+16       Trần Công Hậu   608.0   311.0   287.0  51.15  47.20
+6   Nguyễn Thanh Long  1254.0   764.0   468.0  60.93  37.32
+0    Huỳnh Thị Kim Chi  3104.0  1902.0  2205.0  61.28  71.04
+
+Date: 2026-06-06 - Thứ 7 | Total Vol: 72,819 | GTC: 64.75% | CT: 2.30% | Tồn: 41.43% | Chưa Gán: 16.33%
+Worst 5 AMs by %GTC:
+                    AM     Vol   GTC_v   Ton_v  % GTC  % Tồn
+16       Trần Công Hậu   577.0   255.0   312.0  44.19  54.07
+14  Thái Thị Thanh Thư  6578.0  2950.0  3435.0  44.85  52.22
+18      Trần Văn Phước  2295.0  1198.0  1063.0  52.20  46.32
+2      Hồng Bích Nga  3846.0  2041.0  1744.0  53.07  45.35
+3          Lê Minh Đại  4989.0  2768.0  3227.0  55.48  64.68
+
+
+--- LTC (Pick-up) Metrics by Date ---
+Date: 2026-06-13 - Thứ 7 | Total Vol: 15,257 | LTC: 85.45% | Gán: 97.29%
+Worst 5 AMs by %LTC:
+                        AM    Vol  LTC_v  % LTC
+11  Nguyễn Tống Hùng Phong    8.0      3  37.50
+6       Nguyễn Thanh Long   69.0     42  60.87
+0        Huỳnh Thị Kim Chi  290.0    193  66.55
+18          Trần Văn Phước  788.0    546  69.29
+15           Trầm Hữu Tiến  406.0    282  69.46
+
+Date: 2026-06-12 - Thứ 6 | Total Vol: 17,236 | LTC: 89.08% | Gán: 97.77%
+Worst 5 AMs by %LTC:
+                        AM     Vol  LTC_v  % LTC
+11  Nguyễn Tống Hùng Phong     3.0      0   0.00
+6       Nguyễn Thanh Long    88.0     60  68.18
+15           Trầm Hữu Tiến   507.0    363  71.60
+17          Trần Thị Nhung  1700.0   1361  80.06
+3              Lê Minh Đại  1010.0    840  83.17
+
+Date: 2026-06-06 - Thứ 7 | Total Vol: 15,060 | LTC: 101.75% | Gán: 113.28%
+Worst 5 AMs by %LTC:
+                        AM     Vol  LTC_v  % LTC
+11  Nguyễn Tống Hùng Phong     4.0      1  25.00
+15           Trầm Hữu Tiến   528.0    359  67.99
+12           Phan Đình Duy   642.0    455  70.87
+0        Huỳnh Thị Kim Chi   269.0    194  72.12
+3              Lê Minh Đại  1185.0    941  79.41
+

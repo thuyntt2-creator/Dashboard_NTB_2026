@@ -1,0 +1,12 @@
+
+--- ops_gtc.csv columns ---
+['Cấp Quản Lý', 'Chi tiết', 'Loại Hàng', 'Time', 'Volume', '% Gán', '% GTC', '% Chuyển trả', 'Leadtime', 'Sản Lượng Giao Thành Công', 'Sản Lượng Chuyển Trả', 'Sản Lượng Gán', 'Sản Lượng Trả', 'Sản Lượng Tồn', 'Sản Lượng Chưa Gán', '% Chưa Gán', '%Tồn', 'Hàng Mới Về Trong Ngày', 'Tỉnh', 'Vùng', 'AM']
+Week columns: []
+
+--- ops_ltc.csv columns ---
+['Cấp quản lý', 'Chi tiết', 'Ca', 'Time', 'Volume', '%Gán', '%LTC', '%Đóng kiện', '%LC', 'Leadtime', 'Sản Lượng Lấy Thành Công', 'Sản Lượng Gán', 'Sản Lượng Chưa Gán', '% Chưa Gán', 'Hàng Mới Về Trong Ngày', 'Tỉnh', 'Vùng', 'AM']
+Week columns: []
+
+--- ODR TTS.csv columns ---
+['Quản lý', 'Chi tiết', 'Time', 'GTC', '%Ontime']
+Week columns: []

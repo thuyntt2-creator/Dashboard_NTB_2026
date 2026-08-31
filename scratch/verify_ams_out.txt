@@ -1,0 +1,9 @@
+=== AM MAPPINGS FOR CRITICAL POS ===
+PO: Bưu Cục 1322 Hùng Vương-Di Linh-Lâm Đồng -> AM: Trầm Hữu Tiến (Province: Lâm Đồng)
+PO: Bưu Cục 56 Phan Đình Phùng-Cam Linh-Khánh Hòa -> AM: Thái Thị Thanh Thư (Province: Khánh Hòa)
+PO: Bưu Cục TDP Nghĩa Đức-Thạnh Mỹ-Đơn Dương-Lâm Đồng -> AM: Lê Minh Đại (Province: Lâm Đồng)
+PO: Bưu Cục 06 Lê Hồng Phong-TP.Nha Trang-Khánh Hòa -> AM: Thái Thị Thanh Thư (Province: Khánh Hòa)
+PO: Bưu Cục Thôn Phúc Hưng-Xã Tân Hà Lâm Hà-Lâm Đồng -> AM: Huỳnh Thị Kim Chi (Province: Lâm Đồng)
+PO: Bưu Cục Langbiang-Lạc Dương-Lâm Đồng -> AM: Lê Minh Đại (Province: Lâm Đồng)
+PO: Bưu Cục Thôn R'Chai 2-Xã Đức Trọng-Lâm Đồng -> AM: Trầm Hữu Tiến (Province: Lâm Đồng)
+PO: Bưu Cục 337 Hùng Vương-Lộc Thắng-Bảo Lâm-Lâm Đồng -> AM: Hồng Bích Nga (Province: Lâm Đồng)

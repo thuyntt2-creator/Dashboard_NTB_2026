@@ -1,0 +1,48 @@
+Starting inspection...
+File exists!
+Sheets: ['Tổng quan', 'Trang tính12', 'Bưu cục', 'Thứ cùng kỳ', 'Ca1 - Ca2 - Tồn', 'Trang tính6', 'Data', 'Cơ cấu', 'raw', 'TTS', 'DataLTC', 'ODR TTS', 'rawltc', 'Sheet13']
+
+--- Sheet Bưu cục columns ---
+['Unnamed: 0', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9', 'Unnamed: 10', 'Unnamed: 11', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15', 'TOP BƯU CỤC %GTC TỆ NHẤT', 'Unnamed: 17', 'Unnamed: 18', 'Unnamed: 19', 'Unnamed: 20', 'Unnamed: 21', 'Unnamed: 22', 'Unnamed: 23', 'Unnamed: 24', 'Unnamed: 25', 'Unnamed: 26', 'Unnamed: 27', 'Unnamed: 28', 'Unnamed: 29', 'Unnamed: 30', 'Unnamed: 31', 'TOP  20 BƯU CỤC %GTC TỐT NHẤT']
+       Unnamed: 0  ... TOP  20 BƯU CỤC %GTC TỐT NHẤT
+0              AM  ...                           NaN
+1  Huỳnh Tấn Hiền  ...                           NaN
+2             NaN  ...                           NaN
+3             NaN  ...                           NaN
+4             NaN  ...                           NaN
+
+[5 rows x 33 columns]
+
+--- Sheet Ca1 - Ca2 - Tồn columns ---
+['Ca1 + Tồn', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9', 'Unnamed: 10', 'Unnamed: 11', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15', 'Tồn', 'Unnamed: 17', 'Unnamed: 18', 'Unnamed: 19', 'Unnamed: 20', 'Unnamed: 21', 'Unnamed: 22', 'Unnamed: 23', 'Unnamed: 24', 'Unnamed: 25', 'Unnamed: 26', 'Unnamed: 27', 'Unnamed: 28', 'Unnamed: 29', 'Unnamed: 30', 'Unnamed: 31', 'Ca1', 'Unnamed: 33', 'Unnamed: 34', 'Unnamed: 35', 'Unnamed: 36', 'Unnamed: 37', 'Unnamed: 38', 'Unnamed: 39', 'Unnamed: 40', 'Unnamed: 41', 'Unnamed: 42', 'Unnamed: 43', 'Unnamed: 44', 'Unnamed: 45', 'Unnamed: 46', 'Unnamed: 47', 'Ca2']
+Empty DataFrame
+Columns: [Ca1 + Tồn, Unnamed: 1, Unnamed: 2, Unnamed: 3, Unnamed: 4, Unnamed: 5, Unnamed: 6, Unnamed: 7, Unnamed: 8, Unnamed: 9, Unnamed: 10, Unnamed: 11, Unnamed: 12, Unnamed: 13, Unnamed: 14, Unnamed: 15, Tồn, Unnamed: 17, Unnamed: 18, Unnamed: 19, Unnamed: 20, Unnamed: 21, Unnamed: 22, Unnamed: 23, Unnamed: 24, Unnamed: 25, Unnamed: 26, Unnamed: 27, Unnamed: 28, Unnamed: 29, Unnamed: 30, Unnamed: 31, Ca1, Unnamed: 33, Unnamed: 34, Unnamed: 35, Unnamed: 36, Unnamed: 37, Unnamed: 38, Unnamed: 39, Unnamed: 40, Unnamed: 41, Unnamed: 42, Unnamed: 43, Unnamed: 44, Unnamed: 45, Unnamed: 46, Unnamed: 47, Ca2]
+Index: []
+
+--- Sheet Thứ cùng kỳ columns ---
+[]
+Empty DataFrame
+Columns: []
+Index: []
+
+--- Sheet Cơ cấu columns ---
+['Mã bưu cục', 'Bưu cục', 'BC', 'Tỉnh', 'Am', 'ID - Họ Tên Am']
+   Mã bưu cục  ...     ID - Họ Tên Am
+0        1909  ...    Nguyễn Tiến Lực
+1    20336000  ...         Võ Tấn Lợi
+2    20797000  ...      Trần Công Hậu
+3    20745000  ...  Nguyễn Ngọc Khánh
+4    22915000  ...    Nguyễn Tiến Lực
+
+[5 rows x 6 columns]
+
+--- Sheet Data columns ---
+['Cấp Quản Lý', 'Chi tiết', 'Loại Hàng', 'Time', 'Volume', '% Gán', '% GTC', '% Chuyển trả', 'Leadtime', 'Sản Lượng Giao Thành Công', 'Sản Lượng Chuyển Trả', 'Sản Lượng Gán', 'Sản Lượng Trả', 'Sản Lượng Tồn', 'Sản Lượng Chưa Gán', '% Chưa Gán', '%Tồn', 'Hàng Mới Về Trong Ngày', 'Tỉnh', 'Vùng', 'AM']
+      Cấp Quản Lý  ...              AM
+0  NTB - Đắk Nông  ...  Trần Văn Phước
+1  NTB - Đắk Nông  ...  Trần Văn Phước
+2  NTB - Đắk Nông  ...  Trần Văn Phước
+3  NTB - Đắk Nông  ...  Trần Văn Phước
+4  NTB - Đắk Nông  ...  Trần Văn Phước
+
+[5 rows x 21 columns]
