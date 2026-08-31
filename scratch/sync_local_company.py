@@ -108,6 +108,8 @@ sheet_mappings = [
     (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "10kg", "hàng 10kg", "raw_tren10kg"], "raw_tren10kg.csv")
 ]
 
+import time
+
 downloaded_count = 0
 for candidates, target_csv in sheet_mappings:
     matched_gid = None
@@ -118,11 +120,24 @@ for candidates, target_csv in sheet_mappings:
             break
     if matched_gid:
         csv_url = f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/export?format=csv&gid={matched_gid}"
-        r_csv = requests.get(csv_url, headers=headers, timeout=30)
-        if r_csv.status_code == 200 and len(r_csv.content) > 10:
-            with open(target_csv, 'wb') as f_out:
-                f_out.write(r_csv.content)
-            downloaded_count += 1
-            print(f"Downloaded {target_csv} ({len(r_csv.content)} bytes)", flush=True)
+        for retry in range(4):
+            try:
+                time.sleep(1.5)
+                r_csv = requests.get(csv_url, headers=headers, timeout=90)
+                if r_csv.status_code == 200 and len(r_csv.content) > 10:
+                    with open(target_csv, 'wb') as f_out:
+                        f_out.write(r_csv.content)
+                    downloaded_count += 1
+                    print(f"Downloaded {target_csv} ({len(r_csv.content)} bytes)", flush=True)
+                    break
+                elif r_csv.status_code == 429:
+                    print(f"Rate limited (429) for {target_csv}, waiting {5 * (retry + 1)}s...", flush=True)
+                    time.sleep(5 * (retry + 1))
+                else:
+                    print(f"Failed {target_csv}: HTTP {r_csv.status_code}", flush=True)
+                    break
+            except Exception as e:
+                print(f"Error downloading {target_csv} (retry {retry+1}): {e}", flush=True)
+                time.sleep(3)
 
 print(f"\nCOMPLETED LOCAL SYNC! Downloaded {downloaded_count} CSV files.", flush=True)

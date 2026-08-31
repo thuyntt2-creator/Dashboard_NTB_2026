@@ -693,7 +693,11 @@ def load_df_from_db(filename):
             'nhom_kh': 'nhom_kh',
             'nhom_kg': 'nhom_kg',
             'vol': 'vol',
-            'kl_kg': 'kl_kg'
+            'kl_kg': 'kl_kg',
+            'date': 'Date',
+            'quận/huyện': 'Quận/Huyện',
+            'phường/xã': 'Phường/Xã',
+            'khối lượng': 'Khối lượng'
         }
         rename_dict = {}
         for c in df.columns:
@@ -4015,9 +4019,29 @@ def load_vols_tao_don_df():
         df = safe_read_csv(file_path)
         if df is None or df.empty:
             return None
-        df.columns = [str(c).strip() for c in df.columns]
+        
+        # Standardize column names for vols_tao_don
+        col_rename = {}
+        for c in df.columns:
+            cl = str(c).strip().lower()
+            if cl == 'date': col_rename[c] = 'Date'
+            elif cl in ['vùng', 'vung']: col_rename[c] = 'Vùng'
+            elif cl in ['tỉnh', 'tinh']: col_rename[c] = 'Tỉnh'
+            elif cl in ['quận/huyện', 'quan/huyen', 'quận_huyện', 'district']: col_rename[c] = 'Quận/Huyện'
+            elif cl in ['phường/xã', 'phuong/xa', 'phường_xã', 'ward']: col_rename[c] = 'Phường/Xã'
+            elif cl in ['bưu cục', 'buu cuc', 'bưu_cục', 'buu_cuc', 'bc', 'post_office']: col_rename[c] = 'Bưu cục'
+            elif cl in ['khách hàng', 'khach hang', 'customer']: col_rename[c] = 'Khách hàng'
+            elif cl in ['volume', 'vol', 'sản lượng']: col_rename[c] = 'Volume'
+            elif cl in ['khối lượng', 'khoi luong', 'weight']: col_rename[c] = 'Khối lượng'
+            elif cl in ['warehouse_id', 'idbuucuc', 'mã bưu cục']: col_rename[c] = 'warehouse_id'
+            elif cl in ['bat_on', 'bất ổn']: col_rename[c] = 'bat_on'
+        
+        if col_rename:
+            df.rename(columns=col_rename, inplace=True)
+            
         df['Date'] = pd.to_datetime(df['Date'])
-        df = df[df['bat_on'].fillna('').str.strip() != 'BC Cũ/Không thuộc ĐCL'].copy()
+        if 'bat_on' in df.columns:
+            df = df[df['bat_on'].fillna('').str.strip() != 'BC Cũ/Không thuộc ĐCL'].copy()
         return df
     except Exception as e:
         print(f"Error loading vols_tao_don.csv: {e}")
