@@ -52,8 +52,9 @@ def _patched_read_excel(*args, **kwargs):
 pd.read_excel = _patched_read_excel
 
 import numpy as np
-from flask import Flask, jsonify, render_template, request, Response, session, g
+from flask import Flask, jsonify, render_template, request, Response, session, g, send_from_directory
 import secrets
+
 import threading
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
@@ -4532,6 +4533,29 @@ def home():
         session['csrf_token'] = secrets.token_hex(32)
     return render_template('index.html')
 
+@app.route('/hop')
+@app.route('/meeting')
+@app.route('/bao-cao-hop')
+@app.route('/bao-cao-tuan')
+def meeting_dashboard():
+    root_dir = os.path.dirname(os.path.abspath(__file__))
+    return send_from_directory(root_dir, 'index.html')
+
+@app.route('/slide')
+@app.route('/showcase')
+def showcase_slide():
+    root_dir = os.path.dirname(os.path.abspath(__file__))
+    return send_from_directory(root_dir, 'showcase_presentation.html')
+
+@app.route('/styles.css')
+@app.route('/app.js')
+@app.route('/data.js')
+@app.route('/data.json')
+def serve_meeting_assets():
+    root_dir = os.path.dirname(os.path.abspath(__file__))
+    req_file = request.path.lstrip('/')
+    return send_from_directory(root_dir, req_file)
+
 @app.route('/api/login', methods=['POST'])
 def api_login():
     try:
@@ -7560,7 +7584,8 @@ def send_telegram_ai_briefing():
         return jsonify({"error": f"Lỗi gửi bản tin AI: {str(e)}"}), 500
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5001))
+    port = int(os.environ.get('PORT', 3000))
     print(f"Dashboard server starts on http://0.0.0.0:{port}/")
     app.run(debug=True, host='0.0.0.0', port=port)
+
 
