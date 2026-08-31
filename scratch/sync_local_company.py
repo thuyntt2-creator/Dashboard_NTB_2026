@@ -103,7 +103,9 @@ sheet_mappings = [
     (["fd"], "ops_fd.csv"),
     (["baocao", "báo cáo"], "ops_productivity_realtime.csv"),
     (["nhân sự", "nhan su"], "ops_nhan_su.csv"),
-    (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "10kg", "hàng 10kg"], "raw_tren10kg.csv")
+    (["sl", "sl ", "sanluong", "sản lượng", "ops_heavy_10kg", "hàng nặng", "hang nang"], "ops_heavy_10kg.csv"),
+    (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "10kg", "hàng 10kg", "ops_tao_don_10kg"], "ops_tao_don_10kg.csv"),
+    (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "10kg", "hàng 10kg", "raw_tren10kg"], "raw_tren10kg.csv")
 ]
 
 downloaded_count = 0
