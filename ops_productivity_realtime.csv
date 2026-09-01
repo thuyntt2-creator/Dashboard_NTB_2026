@@ -1,5 +1,13 @@
 BÁO CÁO NĂNG SUẤT BƯU CỤC - REAL TIME,,,,,,,,,,,DanhSachBC
 Chọn Bưu Cục:,TẤT CẢ,,,Thấp (<80%),Đạt (80-84.9%),OK (>=85%),,,,,TẤT CẢ
-,,,,,,,,,,,#N/A
-Bưu Cục,AM,Mã NV,Nhân Viên,Gán Giao,Giao TC,%GTC,LTC,Đánh Giá,,,
-#N/A,,,,,,0.00%,,#N/A,,,
+,,,,,,,,,,,(BTH) Phước Hội
+Bưu Cục,AM,Mã NV,Nhân Viên,Gán Giao,Giao TC,%GTC,LTC,Đánh Giá,,,(DNO) Đông Gia Nghĩa
+(BTH) Phước Hội,Cao Thị Thanh Thủy,3168167,Nguyễn Nhật Tảo,5,0,0.00%,0,Thấp,,,(DNO) Krông Nô
+(BTH) Phước Hội,Cao Thị Thanh Thủy,3091485,Lê Bảo Thái Huy,7,0,0.00%,0,Thấp,,,(DNO) Quảng Sơn
+(DNO) Krông Nô,Trần Thị Nhung,3163311,Đàm Văn Bình,1,0,0.00%,0,Thấp,,,(KHO) Cam Lâm 1
+(DNO) Quảng Sơn,Trần Thị Nhung,3088263,Nguyễn Thị Dung,11,11,100.00%,0,OK,,,(KHO) Nam Nha Trang 3
+(DNO) Đông Gia Nghĩa,Huỳnh Thúc Duân,3117746,Huỳnh Tấn Tài,7,0,0.00%,0,Thấp,,,(LDO) Đức Trọng 1
+(KHO) Cam Lâm 1,Nguyễn Hoàng Phi,3139960,Nguyễn Văn Thế,1,0,0.00%,0,Thấp,,,(NTH) Ninh Sơn
+(KHO) Nam Nha Trang 3,Thái Thị Thanh Thư,2045369,Nguyễn Lê Vinh,3,3,100.00%,0,OK,,,
+(LDO) Đức Trọng 1,Trầm Hữu Tiến,3183865,Nguyễn Văn Dũng,1,0,0.00%,0,Thấp,,,
+(NTH) Ninh Sơn,Nguyễn Duy Long,3174032,Phan Hồng Quân,92,0,0.00%,0,Thấp,,,
