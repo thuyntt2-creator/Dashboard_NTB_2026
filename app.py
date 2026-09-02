@@ -416,7 +416,7 @@ def inject_nonce():
 @app.before_request
 def csrf_referer_check():
     if request.method in ['POST', 'PUT', 'PATCH', 'DELETE']:
-        if request.path == '/api/login':
+        if request.path == '/api/login' or request.path.startswith('/api/sync') or request.path in ['/api/sync-sheets-oauth', '/api/sync-google-sheets']:
             return
             
         # Programmatic requests (basic auth, tokens, etc.) are safe from CSRF
@@ -452,7 +452,7 @@ def csrf_referer_check():
             return jsonify({"error": "Yêu cầu bị từ chối do vi phạm quy tắc bảo mật CSRF (Origin/Referer không hợp lệ)."}), 403
 
         # CSRF Token Check
-        if 'username' in session:
+        if 'username' in session and is_vercel:
             csrf_token = request.headers.get('X-CSRF-Token')
             session_token = session.get('csrf_token')
             if not session_token or csrf_token != session_token:
@@ -4579,6 +4579,11 @@ def api_sync_sheets_oauth():
         aging_script = r"C:\Users\lap4all\.gemini\antigravity-ide\brain\1048c0be-798c-47f0-9d90-dfb903985b99\scratch\calc_aging_buckets.py"
         if os.path.exists(aging_script):
             subprocess.run([sys.executable, aging_script], cwd=root_dir, capture_output=True, text=True, timeout=60)
+
+        # 4. Run process_truy_thu_report.py
+        tt_script = r"C:\Users\lap4all\.gemini\antigravity-ide\brain\1048c0be-798c-47f0-9d90-dfb903985b99\scratch\process_truy_thu_report.py"
+        if os.path.exists(tt_script):
+            subprocess.run([sys.executable, tt_script], cwd=root_dir, capture_output=True, text=True, timeout=60)
         
         return jsonify({
             "success": True,
@@ -7618,6 +7623,6 @@ def send_telegram_ai_briefing():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 3000))
     print(f"Dashboard server starts on http://0.0.0.0:{port}/")
-    app.run(debug=True, host='0.0.0.0', port=port)
+    app.run(debug=False, use_reloader=False, host='0.0.0.0', port=port)
 
 
