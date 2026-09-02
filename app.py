@@ -3794,6 +3794,53 @@ def process_ca_report():
 
 
 
+def load_fd_history():
+    db_history = load_json_from_db('fd_history.json')
+    if db_history is not None:
+        return db_history
+    history_file = resolve_path('fd_history.json', write=False)
+    if not os.path.exists(history_file):
+        return []
+    try:
+        with open(history_file, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except:
+        return []
+
+def save_fd_history(history):
+    save_json_to_db(history, 'fd_history.json')
+    try:
+        history_file = resolve_path('fd_history.json', write=True)
+        with open(history_file, 'w', encoding='utf-8') as f:
+            json.dump(history, f, indent=4, ensure_ascii=False)
+    except Exception as e:
+        print(f"Error saving fd_history: {e}")
+
+def add_fd_to_history(summary_metrics, channel_breakdown, am_rankings, all_pos, date_str):
+    history = load_fd_history()
+    now_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    clean_date = str(date_str).strip() if date_str else now_str[:10]
+    
+    new_entry = {
+        "timestamp": now_str,
+        "date": clean_date,
+        "summary": summary_metrics,
+        "channels": {c.get("channel", ""): c for c in channel_breakdown},
+        "am_map": {a.get("am", ""): a for a in am_rankings},
+        "po_map": {p.get("post_office", ""): p for p in all_pos}
+    }
+    
+    existing_idx = next((i for i, h in enumerate(history) if h.get("date") == clean_date), None)
+    if existing_idx is not None:
+        history[existing_idx] = new_entry
+    else:
+        history.append(new_entry)
+        
+    if len(history) > 60:
+        history = history[-60:]
+    save_fd_history(history)
+    return history
+
 def process_fd_report(am=None, province=None, post_office=None):
     import csv
     import re
@@ -3826,7 +3873,6 @@ def process_fd_report(am=None, province=None, post_office=None):
 
     try:
         lines = []
-        # Try reading with utf-8-sig or utf-8
         for enc in ['utf-8-sig', 'utf-8', 'latin-1', 'cp1252']:
             try:
                 with open(file_path, mode='r', encoding=enc) as f:
@@ -3963,6 +4009,48 @@ def process_fd_report(am=None, province=None, post_office=None):
             summary_metrics["fd_rate"] = round(ret / tot * 100, 2) if tot > 0 else 0.0
             summary_metrics["po_count"] = len(all_pos)
 
+        # Automatically save snapshot to DB & calculate trend / comparison
+        comparison_info = {"has_baseline": False}
+        try:
+            history = add_fd_to_history(summary_metrics, channel_breakdown, am_rankings, all_pos, date_str)
+            # Find baseline entry (different from current date)
+            clean_date = str(date_str).strip() if date_str else ""
+            prev_entries = [h for h in history if h.get("date") != clean_date]
+            if prev_entries:
+                baseline = prev_entries[-1]
+                prev_sum = baseline.get("summary", {})
+                prev_rate = prev_sum.get("fd_rate", 0.0)
+                diff_rate = round(summary_metrics.get("fd_rate", 0.0) - prev_rate, 2)
+                diff_total = summary_metrics.get("total_orders", 0) - prev_sum.get("total_orders", 0)
+                diff_return = summary_metrics.get("return_orders", 0) - prev_sum.get("return_orders", 0)
+                
+                comparison_info = {
+                    "has_baseline": True,
+                    "baseline_date": baseline.get("date", ""),
+                    "prev_fd_rate": prev_rate,
+                    "vs_d1_rate": diff_rate,
+                    "vs_d1_total": diff_total,
+                    "vs_d1_return": diff_return
+                }
+                
+                # Attach diff to AM rankings
+                prev_am_map = baseline.get("am_map", {})
+                for a in am_rankings:
+                    prev_a = prev_am_map.get(a.get("am", ""), {})
+                    if prev_a and "fd_rate" in prev_a:
+                        a["diff_fd"] = round(a.get("fd_rate", 0.0) - prev_a.get("fd_rate", 0.0), 2)
+                        a["prev_fd"] = prev_a.get("fd_rate", 0.0)
+                        
+                # Attach diff to POs
+                prev_po_map = baseline.get("po_map", {})
+                for p in all_pos:
+                    prev_p = prev_po_map.get(p.get("post_office", ""), {})
+                    if prev_p and "fd_rate" in prev_p:
+                        p["diff_fd"] = round(p.get("fd_rate", 0.0) - prev_p.get("fd_rate", 0.0), 2)
+                        p["prev_fd"] = prev_p.get("fd_rate", 0.0)
+        except Exception as hist_err:
+            print(f"Error updating FD history comparison: {hist_err}")
+
         # Filters
         filtered_pos = all_pos
         filtered_am_rankings = am_rankings
@@ -3985,6 +4073,7 @@ def process_fd_report(am=None, province=None, post_office=None):
             "date": date_str,
             "summary": summary_metrics,
             "channels": channel_breakdown,
+            "comparison": comparison_info,
             "top10": filtered_top10,
             "am_rankings": filtered_am_rankings,
             "all_pos": filtered_pos,
@@ -3992,8 +4081,8 @@ def process_fd_report(am=None, province=None, post_office=None):
             # Backward compatibility keys
             "kpi": {
                 "fd_n": summary_metrics.get("fd_rate", 0.0),
-                "fd_n1": summary_metrics.get("fd_rate", 0.0),
-                "vs_n1": 0.0,
+                "fd_n1": comparison_info.get("prev_fd_rate", summary_metrics.get("fd_rate", 0.0)),
+                "vs_n1": comparison_info.get("vs_d1_rate", 0.0),
                 "fd_n7": 0.0,
                 "vs_n7": 0.0
             },
@@ -4002,8 +4091,8 @@ def process_fd_report(am=None, province=None, post_office=None):
                     "post_office": p["post_office"],
                     "am": p["am"],
                     "fd_n": p["fd_rate"],
-                    "fd_n1": p["fd_rate"],
-                    "vs_n1": 0.0,
+                    "fd_n1": p.get("prev_fd", p["fd_rate"]),
+                    "vs_n1": p.get("diff_fd", 0.0),
                     "fd_n7": 0.0,
                     "vs_n7": 0.0,
                     "vol_giao": p["total_orders"],
@@ -4016,8 +4105,8 @@ def process_fd_report(am=None, province=None, post_office=None):
                 {
                     "am": a["am"],
                     "fd_n": a["fd_rate"],
-                    "fd_n1": a["fd_rate"],
-                    "vs_n1": 0.0,
+                    "fd_n1": a.get("prev_fd", a["fd_rate"]),
+                    "vs_n1": a.get("diff_fd", 0.0),
                     "fd_n7": 0.0,
                     "vs_n7": 0.0,
                     "vol_tra": a["return_orders"],
