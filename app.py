@@ -7620,6 +7620,10 @@ def send_telegram_ai_briefing():
         traceback.print_exc()
         return jsonify({"error": f"Lỗi gửi bản tin AI: {str(e)}"}), 500
 
+@app.route('/kichban')
+def serve_kichban():
+    return send_from_directory(os.getcwd(), 'KICH_BAN_THUYET_TRINH_CHIEU_SAU_W35.html')
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 3000))
     print(f"Dashboard server starts on http://0.0.0.0:{port}/")
