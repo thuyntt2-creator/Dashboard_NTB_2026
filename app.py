@@ -3804,7 +3804,7 @@ def process_fd_report(am=None, province=None, post_office=None):
         return {"error": "Không tìm thấy file ops_fd.csv"}
         
     def clean_pct(val):
-        if not val:
+        if val is None or val == '':
             return 0.0
         val_str = str(val).strip()
         val_str = val_str.replace('%', '').replace(',', '.')
@@ -3815,138 +3815,223 @@ def process_fd_report(am=None, province=None, post_office=None):
             return 0.0
 
     def clean_num(val):
-        if not val:
-            return 0.0
+        if val is None or val == '':
+            return 0
         val_str = str(val).strip().replace(',', '')
         try:
-            return float(val_str)
+            f = float(val_str)
+            return int(f) if f.is_integer() else f
         except:
-            return 0.0
+            return 0
 
     try:
-        with open(file_path, mode='r', encoding='utf-8') as f:
-            reader = csv.reader(f)
-            lines = list(reader)
+        lines = []
+        # Try reading with utf-8-sig or utf-8
+        for enc in ['utf-8-sig', 'utf-8', 'latin-1', 'cp1252']:
+            try:
+                with open(file_path, mode='r', encoding=enc) as f:
+                    reader = csv.reader(f)
+                    lines = list(reader)
+                if lines:
+                    break
+            except Exception:
+                continue
             
-        if len(lines) == 0:
+        if not lines:
             return {"error": "File ops_fd.csv trống"}
             
-        date_str = ""
-        line0 = lines[0]
-        if len(line0) > 1 and "N =" in line0[1]:
-            match = re.search(r'N\s*=\s*(\d{2}/\d{2}/\d{4})', line0[1])
-            if match:
-                date_str = match.group(1)
-                
-        sec_po_rows = []
-        sec_am_rows = []
-        sec_prov_rows = []
-        
+        # 1. Parse Title & Date / Period
+        title = "BÁO CÁO %FD HUB (N-1) – VÙNG NTB"
+        date_str = "N-1"
+        if len(lines) > 0 and len(lines[0]) > 0 and lines[0][0].strip():
+            title = lines[0][0].strip()
+            m = re.search(r'\(N-1\)|N-1|\d{2}/\d{2}/\d{4}', title)
+            if m:
+                date_str = m.group(0)
+
+        # 2. Parse Channel Breakdown from Header (Rows 1-3)
+        channel_breakdown = []
+        if len(lines) >= 3:
+            r1 = lines[0]
+            r2 = lines[1]
+            r3 = lines[2]
+            c = 0
+            while c < max(len(r1), len(r3)):
+                ch_name = r1[c].strip() if c < len(r1) else ""
+                if ch_name and ch_name not in ['BÁO CÁO %FD HUB (N-1) – VÙNG NTB', '1. BẢNG TỔNG QUAN VÙNG NTB (N-1)']:
+                    total_orders = clean_num(r3[c]) if c < len(r3) else 0
+                    ret_rate = clean_pct(r3[c+1]) if (c+1) < len(r3) else 0.0
+                    channel_breakdown.append({
+                        "channel": ch_name,
+                        "total_orders": total_orders,
+                        "return_rate": ret_rate
+                    })
+                    c += 2
+                else:
+                    c += 1
+
+        # 3. Parse Sections
+        summary_metrics = {}
+        top_10_pos = []
+        am_rankings = []
+        all_pos = []
+
         current_section = None
-        
-        for idx, line in enumerate(lines):
-            if len(line) == 0 or not line[0].strip():
+
+        for line in lines:
+            if not line or not any(str(cell).strip() for cell in line):
                 continue
-                
-            first_cell = line[0].strip()
-            
-            if '🏪 TẤT CẢ BƯU CỤC' in first_cell:
-                current_section = 'po'
+
+            first_cell = line[0].strip() if len(line) > 0 else ""
+
+            if "1. BẢNG TỔNG QUAN" in first_cell:
+                current_section = "summary"
                 continue
-            elif '👤 THEO AM' in first_cell:
-                current_section = 'am'
+            elif "2. TOP 10 BƯU CỤC" in first_cell:
+                current_section = "top10"
                 continue
-            elif '🗺️ THEO TỈNH' in first_cell:
-                current_section = 'prov'
+            elif "3. XẾP HẠNG %FD THEO CÁC AM" in first_cell:
+                current_section = "am_ranking"
                 continue
-                
-            if first_cell in ['Bưu Cục', 'AM', 'Tỉnh'] and line[1].strip() in ['AM', '%FD (N)', '']:
+            elif "4. DANH SÁCH TẤT CẢ BƯU CỤC" in first_cell:
+                current_section = "all_pos"
                 continue
-                
-            if current_section == 'po':
-                if len(line) >= 10:
-                    sec_po_rows.append({
-                        'post_office': line[0].strip(),
-                        'am': line[1].strip(),
-                        'fd_n': clean_pct(line[2]),
-                        'fd_n1': clean_pct(line[3]),
-                        'vs_n1': clean_pct(line[4]) * (-1 if '▼' in line[4] else 1),
-                        'fd_n7': clean_pct(line[5]),
-                        'vs_n7': clean_pct(line[6]) * (-1 if '▼' in line[6] else 1),
-                        'vol_giao': clean_num(line[7]),
-                        'vol_tra': clean_num(line[8]),
-                        'ty_trong_tra': clean_pct(line[9])
+
+            # Skip table headers
+            if first_cell in ['Chỉ Số Tổng Quan', 'STT'] or 'Tên Bưu Cục' in line or 'AM Phụ Trách' in line:
+                continue
+
+            if current_section == "summary":
+                metric_name = first_cell
+                val_str = line[1].strip() if len(line) > 1 else ""
+                note = line[2].strip() if len(line) > 2 else ""
+                if "Tổng Đơn Có Gán Giao" in metric_name:
+                    summary_metrics["total_orders"] = clean_num(val_str)
+                    summary_metrics["total_orders_note"] = note
+                elif "Tổng Đơn Return" in metric_name:
+                    summary_metrics["return_orders"] = clean_num(val_str)
+                    summary_metrics["return_orders_note"] = note
+                elif "%FD Tổng Vùng" in metric_name:
+                    summary_metrics["fd_rate"] = clean_pct(val_str)
+                    summary_metrics["fd_rate_note"] = note
+                elif "Số Bưu Cục Quản Lý" in metric_name:
+                    summary_metrics["po_count"] = clean_num(val_str)
+                    summary_metrics["po_count_note"] = note
+
+            elif current_section == "top10":
+                if len(line) >= 7 and first_cell.isdigit():
+                    top_10_pos.append({
+                        "stt": int(first_cell),
+                        "post_office": line[1].strip(),
+                        "am": line[2].strip(),
+                        "total_orders": clean_num(line[3]),
+                        "return_orders": clean_num(line[4]),
+                        "fd_rate": clean_pct(line[5]),
+                        "return_share": clean_pct(line[6])
                     })
-            elif current_section == 'am':
-                if len(line) >= 8:
-                    sec_am_rows.append({
-                        'am': line[0].strip(),
-                        'fd_n': clean_pct(line[1]),
-                        'fd_n1': clean_pct(line[2]),
-                        'vs_n1': clean_pct(line[3]) * (-1 if '▼' in line[3] else 1),
-                        'fd_n7': clean_pct(line[4]),
-                        'vs_n7': clean_pct(line[5]) * (-1 if '▼' in line[5] else 1),
-                        'vol_tra': clean_num(line[6]),
-                        'ty_trong_tra': clean_pct(line[7])
+
+            elif current_section == "am_ranking":
+                if len(line) >= 7 and first_cell.isdigit():
+                    am_rankings.append({
+                        "stt": int(first_cell),
+                        "am": line[1].strip(),
+                        "total_orders": clean_num(line[2]),
+                        "return_orders": clean_num(line[3]),
+                        "fd_rate": clean_pct(line[4]),
+                        "return_share": clean_pct(line[5]),
+                        "volume_share": clean_pct(line[6]) if len(line) > 6 else 0.0
                     })
-            elif current_section == 'prov':
-                if len(line) >= 6:
-                    sec_prov_rows.append({
-                        'province': line[0].strip(),
-                        'fd_n': clean_pct(line[1]),
-                        'fd_n1': clean_pct(line[2]),
-                        'vs_n1': clean_pct(line[3]) * (-1 if '▼' in line[3] else 1),
-                        'fd_n7': clean_pct(line[4]),
-                        'vs_n7': clean_pct(line[5]) * (-1 if '▼' in line[5] else 1)
+
+            elif current_section == "all_pos":
+                if len(line) >= 7 and first_cell.isdigit():
+                    all_pos.append({
+                        "stt": int(first_cell),
+                        "post_office": line[1].strip(),
+                        "am": line[2].strip(),
+                        "total_orders": clean_num(line[3]),
+                        "return_orders": clean_num(line[4]),
+                        "fd_rate": clean_pct(line[5]),
+                        "return_share": clean_pct(line[6])
                     })
-                    
-        kpi_fd = {
-            'fd_n': 0.0,
-            'fd_n1': 0.0,
-            'vs_n1': 0.0,
-            'fd_n7': 0.0,
-            'vs_n7': 0.0
-        }
-        
-        provinces_clean = []
-        for r in sec_prov_rows:
-            if r['province'] == 'Tổng NTB':
-                kpi_fd = {
-                    'fd_n': r['fd_n'],
-                    'fd_n1': r['fd_n1'],
-                    'vs_n1': r['vs_n1'],
-                    'fd_n7': r['fd_n7'],
-                    'vs_n7': r['vs_n7']
-                }
-            else:
-                provinces_clean.append(r)
-                
+
+        # Summary fallback calculation if not explicitly in table
+        if "total_orders" not in summary_metrics and all_pos:
+            tot = sum(p["total_orders"] for p in all_pos)
+            ret = sum(p["return_orders"] for p in all_pos)
+            summary_metrics["total_orders"] = tot
+            summary_metrics["return_orders"] = ret
+            summary_metrics["fd_rate"] = round(ret / tot * 100, 2) if tot > 0 else 0.0
+            summary_metrics["po_count"] = len(all_pos)
+
+        # Filters
+        filtered_pos = all_pos
+        filtered_am_rankings = am_rankings
+        filtered_top10 = top_10_pos
+
         if am:
-            am_provs = get_am_provinces(am)
-            provinces_clean = [r for r in provinces_clean if clean_str(r['province']) in [clean_str(p) for p in am_provs]]
-            sec_am_rows = [r for r in sec_am_rows if clean_str(r['am']) == clean_str(am)]
-            
-        if sec_po_rows:
-            df_pos = pd.DataFrame(sec_po_rows)
-            df_pos.rename(columns={'post_office': 'Bưu cục'}, inplace=True)
-            df_pos = apply_filters(df_pos, am=am, province=province, post_office=post_office)
-            df_pos.rename(columns={'Bưu cục': 'post_office'}, inplace=True)
-            sec_po_rows = df_pos.to_dict('records')
-                
-        if province:
-            provinces_clean = [r for r in provinces_clean if clean_str(r['province']) == clean_str(province)]
-                
+            am_clean = am.lower().strip()
+            filtered_pos = [p for p in filtered_pos if am_clean in p["am"].lower()]
+            filtered_am_rankings = [a for a in filtered_am_rankings if am_clean in a["am"].lower()]
+            filtered_top10 = [p for p in filtered_pos[:10]]
+
+        if post_office:
+            po_clean = post_office.lower().strip()
+            filtered_pos = [p for p in filtered_pos if po_clean in p["post_office"].lower()]
+
+        unique_ams = sorted(list(set(p["am"] for p in all_pos if p["am"])))
+
         return {
-            'date': date_str,
-            'kpi': kpi_fd,
-            'po': sec_po_rows,
-            'am': sec_am_rows,
-            'province': provinces_clean
+            "title": title,
+            "date": date_str,
+            "summary": summary_metrics,
+            "channels": channel_breakdown,
+            "top10": filtered_top10,
+            "am_rankings": filtered_am_rankings,
+            "all_pos": filtered_pos,
+            "unique_ams": unique_ams,
+            # Backward compatibility keys
+            "kpi": {
+                "fd_n": summary_metrics.get("fd_rate", 0.0),
+                "fd_n1": summary_metrics.get("fd_rate", 0.0),
+                "vs_n1": 0.0,
+                "fd_n7": 0.0,
+                "vs_n7": 0.0
+            },
+            "po": [
+                {
+                    "post_office": p["post_office"],
+                    "am": p["am"],
+                    "fd_n": p["fd_rate"],
+                    "fd_n1": p["fd_rate"],
+                    "vs_n1": 0.0,
+                    "fd_n7": 0.0,
+                    "vs_n7": 0.0,
+                    "vol_giao": p["total_orders"],
+                    "vol_tra": p["return_orders"],
+                    "ty_trong_tra": p["return_share"]
+                }
+                for p in filtered_pos
+            ],
+            "am": [
+                {
+                    "am": a["am"],
+                    "fd_n": a["fd_rate"],
+                    "fd_n1": a["fd_rate"],
+                    "vs_n1": 0.0,
+                    "fd_n7": 0.0,
+                    "vs_n7": 0.0,
+                    "vol_tra": a["return_orders"],
+                    "ty_trong_tra": a["return_share"]
+                }
+                for a in filtered_am_rankings
+            ],
+            "province": []
         }
     except Exception as e:
         import traceback
         traceback.print_exc()
         return {"error": f"Lỗi xử lý FD report: {str(e)}"}
+
 
 # ==========================================
 # 6. IN-MEMORY CACHE DECLARATION & INITIALIZATION
