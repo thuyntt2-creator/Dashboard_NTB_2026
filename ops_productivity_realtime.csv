@@ -1,5 +1,11 @@
 BÁO CÁO NĂNG SUẤT BƯU CỤC - REAL TIME,,,,,,,,,,,DanhSachBC
 Chọn Bưu Cục:,TẤT CẢ,,,Thấp (<80%),Đạt (80-84.9%),OK (>=85%),,,,,TẤT CẢ
-,,,,,,,,,,,#N/A
-Bưu Cục,AM,Mã NV,Nhân Viên,Gán Giao,Giao TC,%GTC,LTC,Đánh Giá,,,
-#N/A,,,,,,0.00%,,#N/A,,,
+,,,,,,,,,,,(BTH) Đồng Kho
+Bưu Cục,AM,Mã NV,Nhân Viên,Gán Giao,Giao TC,%GTC,LTC,Đánh Giá,,,(BTH) Hàm Liêm
+(BTH) Hàm Liêm,Lê Thanh Nhựt,3142304,Huỳnh Tấn Hiệp,1,0,0.00%,0,Thấp,,,(BTH) Phước Hội
+(BTH) Phước Hội,Cao Thị Thanh Thủy,3091485,Lê Bảo Thái Huy,9,0,0.00%,0,Thấp,,,(DNO) Đông Gia Nghĩa
+(BTH) Đồng Kho,Lê Thanh Nhựt,1881968,Nguyễn Viết Hùng,4,0,0.00%,0,Thấp,,,(LDO) 1 Bảo Lộc
+(DNO) Đông Gia Nghĩa,Huỳnh Thúc Duân,3117746,Huỳnh Tấn Tài,2,0,0.00%,0,Thấp,,,(LDO) Lang Biang - Đà Lạt 2
+(LDO) 1 Bảo Lộc,Hồng Bích Nga,3131140,Nguyễn Ngọc Thạch,1,1,100.00%,0,OK,,,(LDO) Xuân Trường - Đà Lạt
+(LDO) Lang Biang - Đà Lạt 2,Lê Văn Trường,3099776,Nguyễn Văn Quyết,5,0,0.00%,0,Thấp,,,
+(LDO) Xuân Trường - Đà Lạt,Lê Văn Trường,3102493,Lương Quốc Thống,2,2,100.00%,0,OK,,,
