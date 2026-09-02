@@ -4570,10 +4570,15 @@ def api_sync_sheets_oauth():
         sync_script = os.path.join(root_dir, 'sync_google_sheets_oauth.py')
         res1 = subprocess.run([sys.executable, sync_script], cwd=root_dir, capture_output=True, text=True, timeout=120)
         
-        # 2. Run apply_live_aging_data.py
-        apply_script = os.path.join(root_dir, 'scratch', 'apply_live_aging_data.py')
-        if os.path.exists(apply_script):
-            res2 = subprocess.run([sys.executable, apply_script], cwd=root_dir, capture_output=True, text=True, timeout=60)
+        # 2. Run parse_4_cod_tabs.py
+        cod_script = r"C:\Users\lap4all\.gemini\antigravity-ide\brain\1048c0be-798c-47f0-9d90-dfb903985b99\scratch\parse_4_cod_tabs.py"
+        if os.path.exists(cod_script):
+            subprocess.run([sys.executable, cod_script], cwd=root_dir, capture_output=True, text=True, timeout=60)
+
+        # 3. Run calc_aging_buckets.py
+        aging_script = r"C:\Users\lap4all\.gemini\antigravity-ide\brain\1048c0be-798c-47f0-9d90-dfb903985b99\scratch\calc_aging_buckets.py"
+        if os.path.exists(aging_script):
+            subprocess.run([sys.executable, aging_script], cwd=root_dir, capture_output=True, text=True, timeout=60)
         
         return jsonify({
             "success": True,
