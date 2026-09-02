@@ -3006,13 +3006,23 @@
                     
                     <div style="background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; padding: 16px; border-radius: 0 8px 8px 0; margin-bottom: 24px; font-size: 13.5px; line-height: 1.6;">
                         <p style="font-weight: 700; color: #ef4444; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; margin-top: 0;">
-                            <i class="fa-solid fa-circle-exclamation"></i> Tiêu chí xác định bưu cục bất ổn (Logic thuộc 1 trong 4 trường hợp):
+                            <i class="fa-solid fa-circle-exclamation"></i> Tiêu chí xác định bưu cục bất ổn (Logic mới):
                         </p>
-                        <ul style="margin-left: 20px; color: var(--text-primary); display: flex; flex-direction: column; gap: 4px; margin-bottom: 0; padding-left: 0;">
-                            <li><strong>Tồn LM (Last Mile):</strong> Lượng đơn Backlogs LastMile trên tổng đơn GTC trung bình 7 ngày gần nhất (L7D) lớn hơn 2 ngày.</li>
-                            <li><strong>Tồn KTC (Kho trung chuyển):</strong> Lượng đơn Backlogs KTC cùng tỉnh trên tổng đơn GTC trung bình 7 ngày gần nhất (L7D) lớn hơn 2 ngày.</li>
-                            <li><strong>Tồn LM + Tồn KTC:</strong> Các bưu cục đồng thời thuộc cả 2 nhóm: Tồn LM và Tồn KTC.</li>
-                            <li><strong>Tồn Aging > 5 ngày:</strong> Tỷ lệ đơn tồn trên 5 ngày chiếm từ 10% trở lên trên tổng lượng Backlogs LastMile.</li>
+                        <ul style="margin-left: 20px; color: var(--text-primary); display: flex; flex-direction: column; gap: 6px; margin-bottom: 0; padding-left: 0;">
+                            <li><strong>Chỉ số đánh giá:</strong> %GTC trung bình của 7 ngày gần nhất (L7D).</li>
+                            <li><strong>Phạm vi dữ liệu:</strong>
+                                <span style="display: block; margin-left: 12px; margin-top: 2px; color: var(--text-secondary);">
+                                    • <strong>Hà Nội &amp; TP.HCM:</strong> Lấy full hàng mới và hàng tồn.<br>
+                                    • <strong>Các tỉnh khác:</strong> Lấy hàng mới ca 1 + hàng tồn.
+                                </span>
+                            </li>
+                            <li><strong>Điều kiện Cảnh báo bất ổn (Thuộc 1 trong 3 trường hợp):</strong>
+                                <div style="display: flex; flex-direction: column; gap: 4px; margin-left: 12px; margin-top: 4px;">
+                                    <span>1. Nếu <strong>TP.HCM &amp; Hà Nội có %GTC &lt; 50%</strong> &rarr; <span class="badge" style="background: rgba(239, 68, 68, 0.15); color: #dc2626; font-weight: 700; padding: 2px 6px; border-radius: 4px;">Cảnh báo</span></span>
+                                    <span>2. Nếu <strong>các tỉnh khác có %GTC &lt; 45%</strong> &rarr; <span class="badge" style="background: rgba(239, 68, 68, 0.15); color: #dc2626; font-weight: 700; padding: 2px 6px; border-radius: 4px;">Cảnh báo</span></span>
+                                    <span>3. Nếu <strong>%GTC &lt; 70% Mốc %GTC tốt nhất trong lịch sử</strong> (6 tháng gần nhất) &rarr; <span class="badge" style="background: rgba(249, 115, 22, 0.15); color: #ea580c; font-weight: 700; padding: 2px 6px; border-radius: 4px;">Cảnh báo</span></span>
+                                </div>
+                            </li>
                         </ul>
                     </div>
 

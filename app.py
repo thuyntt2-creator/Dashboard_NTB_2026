@@ -3202,20 +3202,38 @@ def process_unstable_po(am=None, province=None, post_office=None):
             days_unstable = get_val('Số ngày nằm trong danh sách cảnh báo - 3 tháng gần nhất') or get_val('Số ngày dự kiến clear hàng')
             reason_val = str(get_val('Cảnh báo') or get_val('Lý do cảnh báo') or get_val('ly_do_bat_on') or '').strip()
             if reason_val in ['0', '0.0', 'nan', 'NaN']: reason_val = ''
-            
-            status_val = "Bất ổn"
-            if reason_val and "Cảnh báo" in reason_val:
-                status_val = "Bất ổn"
-            elif reason_val:
-                status_val = "Chuẩn bị nhảy nhóm"
-            else:
-                status_val = "Bình thường"
 
             pct_gtc_7d = round(get_val('%GTC_TB 7 ngày (1)', True), 2)
             pct_gtc_best = round(get_val('%GTC_tốt nhất', True), 2)
             pct_gtc_n1 = round(get_val('%GTC_N-1', True), 2)
             clear_days = get_val('Số ngày dự kiến clear hàng')
             pct_backlog_gan = round(get_val('%Backlog tồn đọng đã gán', True), 2)
+
+            # Detect warning condition based on new business logic:
+            # 1. HN / HCM %GTC < 50%
+            # 2. Other provinces %GTC < 45%
+            # 3. %GTC < 70% of historical best %GTC
+            prov_lower = str(mapped_prov or '').lower()
+            is_hn_hcm = any(k in prov_lower for k in ['hà nội', 'ha noi', 'hồ chí minh', 'ho chi minh', 'hcm', 'hn'])
+            
+            auto_reasons = []
+            if is_hn_hcm and pct_gtc_7d > 0 and pct_gtc_7d < 50.0:
+                auto_reasons.append("Cảnh báo GTC < 50% (HN/HCM)")
+            elif not is_hn_hcm and pct_gtc_7d > 0 and pct_gtc_7d < 45.0:
+                auto_reasons.append("Cảnh báo GTC < 45%")
+                
+            if pct_gtc_best > 0 and pct_gtc_7d > 0:
+                if pct_gtc_7d < round(0.70 * pct_gtc_best, 2):
+                    auto_reasons.append("Cảnh báo GTC < 70% lịch sử tốt nhất")
+
+            if not reason_val and auto_reasons:
+                reason_val = " | ".join(auto_reasons)
+
+            status_val = "Bình thường"
+            if (reason_val and ("Cảnh báo" in reason_val or "Bất ổn" in reason_val)) or auto_reasons:
+                status_val = "Bất ổn"
+            elif reason_val:
+                status_val = "Chuẩn bị nhảy nhóm"
 
             record = {
                 "id": po_id_clean,
