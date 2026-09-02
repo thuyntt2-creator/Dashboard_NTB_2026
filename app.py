@@ -4554,7 +4554,34 @@ def showcase_slide():
 def serve_meeting_assets():
     root_dir = os.path.dirname(os.path.abspath(__file__))
     req_file = request.path.lstrip('/')
-    return send_from_directory(root_dir, req_file)
+    response = send_from_directory(root_dir, req_file)
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response
+
+@app.route('/api/sync-sheets-oauth', methods=['GET', 'POST'])
+def api_sync_sheets_oauth():
+    try:
+        import subprocess
+        root_dir = os.path.dirname(os.path.abspath(__file__))
+        
+        # 1. Run sync_google_sheets_oauth.py
+        sync_script = os.path.join(root_dir, 'sync_google_sheets_oauth.py')
+        res1 = subprocess.run([sys.executable, sync_script], cwd=root_dir, capture_output=True, text=True, timeout=120)
+        
+        # 2. Run apply_live_aging_data.py
+        apply_script = os.path.join(root_dir, 'scratch', 'apply_live_aging_data.py')
+        if os.path.exists(apply_script):
+            res2 = subprocess.run([sys.executable, apply_script], cwd=root_dir, capture_output=True, text=True, timeout=60)
+        
+        return jsonify({
+            "success": True,
+            "message": "Đã đồng bộ thành công toàn bộ số liệu từ Google Sheets qua OAuth 2.0!",
+            "log": res1.stdout[-500:] if res1.stdout else ""
+        })
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
 
 @app.route('/api/login', methods=['POST'])
 def api_login():
