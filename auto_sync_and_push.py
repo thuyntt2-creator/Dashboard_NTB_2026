@@ -64,13 +64,29 @@ try:
     log("Step 3: Git add and commit...")
     subprocess.run(["git", "add", "*.csv", "ops_ca_data.csv", "app.py", "scratch/", ".gitignore"], cwd=cwd, capture_output=True)
     subprocess.run(["git", "commit", "-m", "Auto update data and DB"], cwd=cwd, capture_output=True)
-    log("Step 3: Git push to GitHub...")
-    p3 = subprocess.run(["git", "push", "origin", "main"], cwd=cwd, capture_output=True, text=True, timeout=180)
-    log(f"Step 3 Return Code: {p3.returncode}")
-    if p3.stdout:
-        log(f"Output: {p3.stdout.strip()}")
-    if p3.stderr:
-        log(f"Stderr: {p3.stderr.strip()}")
+    # Push đồng thời tới cả 3 remote để dashboard sếp và dashboard mới luôn cập nhật song song
+    remotes = ["origin", "db_2026", "boss"]
+    for rem in remotes:
+        log(f"Step 3: Git push to GitHub ({rem})...")
+        try:
+            p = subprocess.run(["git", "push", rem, "main"], cwd=cwd, capture_output=True, text=True, timeout=180)
+            log(f"Push to {rem} Return Code: {p.returncode}")
+            if p.stdout:
+                log(f"[{rem}] Output: {p.stdout.strip()}")
+            if p.stderr and "Everything up-to-date" not in p.stderr:
+                log(f"[{rem}] Stderr: {p.stderr.strip()}")
+        except Exception as push_err:
+            log(f"Push to {rem} Exception: {push_err}")
+
+    # Ping làm ấm (Warm up) cả 2 trang Vercel để người dùng truy cập không bị chậm/chờ cold-start
+    try:
+        import urllib.request
+        for site in ["https://dashboard-ntb-2026.vercel.app/", "https://namtrungbo.vercel.app/"]:
+            req = urllib.request.Request(site, headers={"User-Agent": "Mozilla/5.0 (WarmUpBot)"})
+            urllib.request.urlopen(req, timeout=15)
+        log("Step 3: Đã ping làm ấm cả 2 link Vercel thành công.")
+    except Exception as warm_err:
+        log(f"Warm up exception (bỏ qua): {warm_err}")
 except Exception as e:
     log(f"Step 3 Exception: {e}")
 
