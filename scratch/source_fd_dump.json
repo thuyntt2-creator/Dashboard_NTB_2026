@@ -1,0 +1,1493 @@
+{
+  "title": "NTB - FD",
+  "sheets": [
+    {
+      "sheetId": 294890431,
+      "title": "Raw FD_Tổng",
+      "index": 0,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 50500,
+        "columnCount": 26
+      },
+      "hidden": true,
+      "tabColor": {
+        "red": 0.7529412
+      },
+      "tabColorStyle": {
+        "rgbColor": {
+          "red": 0.7529412
+        }
+      }
+    },
+    {
+      "sheetId": 1255534328,
+      "title": "RAW FD_COD",
+      "index": 1,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 2301,
+        "columnCount": 26
+      },
+      "hidden": true,
+      "tabColor": {
+        "red": 1
+      },
+      "tabColorStyle": {
+        "rgbColor": {
+          "red": 1
+        }
+      }
+    },
+    {
+      "sheetId": 1560119516,
+      "title": "RAW FD_TTS",
+      "index": 2,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 4708,
+        "columnCount": 26
+      },
+      "hidden": true,
+      "tabColor": {
+        "red": 0.7529412
+      },
+      "tabColorStyle": {
+        "rgbColor": {
+          "red": 0.7529412
+        }
+      }
+    },
+    {
+      "sheetId": 704022680,
+      "title": "Snapshot – FD N-1 (HUB)",
+      "index": 3,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 200,
+        "columnCount": 35
+      }
+    },
+    {
+      "sheetId": 202787468,
+      "title": "RAW FD N-1 (HUB)",
+      "index": 4,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 100500,
+        "columnCount": 27
+      }
+    },
+    {
+      "sheetId": 656114211,
+      "title": "CoCauVung",
+      "index": 5,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 27
+      }
+    },
+    {
+      "sheetId": 1014135461,
+      "title": "MVĐ",
+      "index": 6,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 5965,
+        "columnCount": 53
+      }
+    },
+    {
+      "sheetId": 563595340,
+      "title": "MVD_AM Lợi",
+      "index": 7,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 26
+      }
+    },
+    {
+      "sheetId": 444977357,
+      "title": "MVD_AM Linh",
+      "index": 8,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 26
+      }
+    },
+    {
+      "sheetId": 1621499114,
+      "title": "MVD_AM Nhựt",
+      "index": 9,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 26
+      }
+    },
+    {
+      "sheetId": 1703894308,
+      "title": "MVD_AM Vũ",
+      "index": 10,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 26
+      }
+    },
+    {
+      "sheetId": 273084274,
+      "title": "MVD_AM Tiến",
+      "index": 11,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 26
+      }
+    },
+    {
+      "sheetId": 509338898,
+      "title": "MVD_AM Long",
+      "index": 12,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 26
+      }
+    },
+    {
+      "sheetId": 922826688,
+      "title": "MVD_AM D.Long",
+      "index": 13,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 26
+      }
+    },
+    {
+      "sheetId": 28939730,
+      "title": "MVD_AM Khánh",
+      "index": 14,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 26
+      }
+    },
+    {
+      "sheetId": 107545253,
+      "title": "MVD_AM Nhung",
+      "index": 15,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 26
+      }
+    },
+    {
+      "sheetId": 433933947,
+      "title": "MVD_AM Phi",
+      "index": 16,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 26
+      }
+    },
+    {
+      "sheetId": 1748986976,
+      "title": "MVD_AM Nga",
+      "index": 17,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 26
+      }
+    },
+    {
+      "sheetId": 967333813,
+      "title": "MVD_AM Chi",
+      "index": 18,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 26
+      }
+    },
+    {
+      "sheetId": 396430519,
+      "title": "MVD_AM Duy",
+      "index": 19,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 26
+      }
+    },
+    {
+      "sheetId": 1549839692,
+      "title": "MVD_AM Trường",
+      "index": 20,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 26
+      }
+    },
+    {
+      "sheetId": 1760702836,
+      "title": "MVD_AM Thư",
+      "index": 21,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 26
+      }
+    },
+    {
+      "sheetId": 762908210,
+      "title": "MVD_AM Thủy",
+      "index": 22,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 26
+      }
+    },
+    {
+      "sheetId": 1086948464,
+      "title": "MVD_AM Diễm",
+      "index": 23,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 26
+      }
+    },
+    {
+      "sheetId": 1120744973,
+      "title": "MVD_AM Thơ",
+      "index": 24,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 26
+      }
+    },
+    {
+      "sheetId": 668681292,
+      "title": "MVD_AM Duân",
+      "index": 25,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 26
+      }
+    },
+    {
+      "sheetId": 287095279,
+      "title": "MVD_AM Phước",
+      "index": 26,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 1000,
+        "columnCount": 26
+      }
+    },
+    {
+      "sheetId": 1709402536,
+      "title": "data",
+      "index": 27,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 16328,
+        "columnCount": 26
+      },
+      "hidden": true
+    },
+    {
+      "sheetId": 478614351,
+      "title": "Snapshot – FD Tổng",
+      "index": 28,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 199,
+        "columnCount": 50
+      },
+      "hidden": true
+    },
+    {
+      "sheetId": 14461360,
+      "title": "Snapshot – FD COD",
+      "index": 29,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 197,
+        "columnCount": 50
+      },
+      "hidden": true
+    },
+    {
+      "sheetId": 809002045,
+      "title": "Snapshot – FD TTS",
+      "index": 30,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 197,
+        "columnCount": 50
+      },
+      "hidden": true
+    },
+    {
+      "sheetId": 2111293830,
+      "title": "Trend – FD Tổng",
+      "index": 31,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 198,
+        "columnCount": 50
+      },
+      "hidden": true
+    },
+    {
+      "sheetId": 1565161950,
+      "title": "Trend – FD COD",
+      "index": 32,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 197,
+        "columnCount": 50
+      },
+      "hidden": true
+    },
+    {
+      "sheetId": 1743106267,
+      "title": "Trend – FD TTS",
+      "index": 33,
+      "sheetType": "GRID",
+      "gridProperties": {
+        "rowCount": 197,
+        "columnCount": 50
+      },
+      "hidden": true
+    }
+  ],
+  "values": [
+    [
+      "BÁO CÁO %FD HUB (N-1) – VÙNG NTB"
+    ],
+    [],
+    [
+      "1. BẢNG TỔNG QUAN VÙNG NTB (N-1)"
+    ],
+    [
+      "Chỉ Số Tổng Quan",
+      "Giá Trị",
+      "Ghi Chú"
+    ],
+    [
+      "Tổng Đơn Có Gán Giao (Total)",
+      "39,616",
+      "Tổng đơn từ các bưu cục có quản lý AM"
+    ],
+    [
+      "Tổng Đơn Return (Chuyển Trả)",
+      "39,616",
+      "Tổng đơn bị trả về"
+    ],
+    [
+      "%FD Tổng Vùng NTB",
+      "100.00%",
+      "Tỷ lệ đơn trả = Đơn return / Total đơn"
+    ],
+    [
+      "Số Bưu Cục Quản Lý",
+      "84",
+      "Tổng số 18 AM phụ trách"
+    ],
+    [],
+    [
+      "2. TOP 10 BƯU CỤC CÓ %FD CAO NHẤT (N-1)"
+    ],
+    [
+      "STT",
+      "Tên Bưu Cục",
+      "AM Phụ Trách",
+      "Total Đơn",
+      "Đơn Return",
+      "%FD (Return)",
+      "Tỷ Trọng Return"
+    ],
+    [
+      "1",
+      "(LDO) Đạ Huoai",
+      "AM Vũ",
+      "399",
+      "399",
+      "100.0%",
+      "1.01%"
+    ],
+    [
+      "2",
+      "(KHO) Diên Khánh 2",
+      "AM Phi",
+      "586",
+      "586",
+      "100.0%",
+      "1.48%"
+    ],
+    [
+      "3",
+      "(BTH) Mũi Né",
+      "AM Khánh",
+      "266",
+      "266",
+      "100.0%",
+      "0.67%"
+    ],
+    [
+      "4",
+      "(NTH) Bảo An",
+      "AM D.Long",
+      "450",
+      "450",
+      "100.0%",
+      "1.14%"
+    ],
+    [
+      "5",
+      "(DNO) Kiến Đức",
+      "AM Nga",
+      "558",
+      "558",
+      "100.0%",
+      "1.41%"
+    ],
+    [
+      "6",
+      "(DNO) Nhân Cơ",
+      "AM Duân",
+      "244",
+      "244",
+      "100.0%",
+      "0.62%"
+    ],
+    [
+      "7",
+      "(NTH) Ninh Sơn",
+      "AM D.Long",
+      "397",
+      "397",
+      "100.0%",
+      "1.00%"
+    ],
+    [
+      "8",
+      "(KHO) Tây Nha Trang",
+      "AM Duy",
+      "450",
+      "450",
+      "100.0%",
+      "1.14%"
+    ],
+    [
+      "9",
+      "(KHO) Nha Trang",
+      "AM Duy",
+      "484",
+      "484",
+      "100.0%",
+      "1.22%"
+    ],
+    [
+      "10",
+      "(NTH) Phước Dinh",
+      "AM D.Long",
+      "895",
+      "895",
+      "100.0%",
+      "2.26%"
+    ],
+    [],
+    [
+      "3. XẾP HẠNG %FD THEO CÁC AM (SORT %FD ↓)"
+    ],
+    [
+      "STT",
+      "AM Phụ Trách",
+      "Total Đơn",
+      "Đơn Return",
+      "%FD (Return)",
+      "Tỷ Trọng Return",
+      "Tỷ Trọng Sản Lượng"
+    ],
+    [
+      "1",
+      "AM Chi",
+      "1,538",
+      "1,538",
+      "100.0%",
+      "3.88%",
+      "3.88%"
+    ],
+    [
+      "2",
+      "AM D.Long",
+      "5,079",
+      "5,079",
+      "100.0%",
+      "12.82%",
+      "12.82%"
+    ],
+    [
+      "3",
+      "AM Duy",
+      "2,275",
+      "2,275",
+      "100.0%",
+      "5.74%",
+      "5.74%"
+    ],
+    [
+      "4",
+      "AM Duân",
+      "839",
+      "839",
+      "100.0%",
+      "2.12%",
+      "2.12%"
+    ],
+    [
+      "5",
+      "AM Khánh",
+      "2,994",
+      "2,994",
+      "100.0%",
+      "7.56%",
+      "7.56%"
+    ],
+    [
+      "6",
+      "AM Linh",
+      "331",
+      "331",
+      "100.0%",
+      "0.84%",
+      "0.84%"
+    ],
+    [
+      "7",
+      "AM Long",
+      "1,612",
+      "1,612",
+      "100.0%",
+      "4.07%",
+      "4.07%"
+    ],
+    [
+      "8",
+      "AM Lợi",
+      "451",
+      "451",
+      "100.0%",
+      "1.14%",
+      "1.14%"
+    ],
+    [
+      "9",
+      "AM Nga",
+      "2,678",
+      "2,678",
+      "100.0%",
+      "6.76%",
+      "6.76%"
+    ],
+    [
+      "10",
+      "AM Nhung",
+      "2,867",
+      "2,867",
+      "100.0%",
+      "7.24%",
+      "7.24%"
+    ],
+    [
+      "11",
+      "AM Nhựt",
+      "3,782",
+      "3,782",
+      "100.0%",
+      "9.55%",
+      "9.55%"
+    ],
+    [
+      "12",
+      "AM Phi",
+      "2,417",
+      "2,417",
+      "100.0%",
+      "6.10%",
+      "6.10%"
+    ],
+    [
+      "13",
+      "AM Thơ",
+      "1,112",
+      "1,112",
+      "100.0%",
+      "2.81%",
+      "2.81%"
+    ],
+    [
+      "14",
+      "AM Thư",
+      "2,642",
+      "2,642",
+      "100.0%",
+      "6.67%",
+      "6.67%"
+    ],
+    [
+      "15",
+      "AM Thủy",
+      "1,870",
+      "1,870",
+      "100.0%",
+      "4.72%",
+      "4.72%"
+    ],
+    [
+      "16",
+      "AM Tiến",
+      "1,217",
+      "1,217",
+      "100.0%",
+      "3.07%",
+      "3.07%"
+    ],
+    [
+      "17",
+      "AM Trường",
+      "4,077",
+      "4,077",
+      "100.0%",
+      "10.29%",
+      "10.29%"
+    ],
+    [
+      "18",
+      "AM Vũ",
+      "1,835",
+      "1,835",
+      "100.0%",
+      "4.63%",
+      "4.63%"
+    ],
+    [],
+    [
+      "4. DANH SÁCH TẤT CẢ BƯU CỤC (SORT %FD ↓)"
+    ],
+    [
+      "STT",
+      "Tên Bưu Cục",
+      "AM Phụ Trách",
+      "Total Đơn",
+      "Đơn Return",
+      "%FD (Return)",
+      "Tỷ Trọng Return"
+    ],
+    [
+      "1",
+      "(LDO) Đạ Huoai",
+      "AM Vũ",
+      "399",
+      "399",
+      "100.0%",
+      "1.01%"
+    ],
+    [
+      "2",
+      "(KHO) Diên Khánh 2",
+      "AM Phi",
+      "586",
+      "586",
+      "100.0%",
+      "1.48%"
+    ],
+    [
+      "3",
+      "(BTH) Mũi Né",
+      "AM Khánh",
+      "266",
+      "266",
+      "100.0%",
+      "0.67%"
+    ],
+    [
+      "4",
+      "(NTH) Bảo An",
+      "AM D.Long",
+      "450",
+      "450",
+      "100.0%",
+      "1.14%"
+    ],
+    [
+      "5",
+      "(DNO) Kiến Đức",
+      "AM Nga",
+      "558",
+      "558",
+      "100.0%",
+      "1.41%"
+    ],
+    [
+      "6",
+      "(DNO) Nhân Cơ",
+      "AM Duân",
+      "244",
+      "244",
+      "100.0%",
+      "0.62%"
+    ],
+    [
+      "7",
+      "(NTH) Ninh Sơn",
+      "AM D.Long",
+      "397",
+      "397",
+      "100.0%",
+      "1.00%"
+    ],
+    [
+      "8",
+      "(KHO) Tây Nha Trang",
+      "AM Duy",
+      "450",
+      "450",
+      "100.0%",
+      "1.14%"
+    ],
+    [
+      "9",
+      "(KHO) Nha Trang",
+      "AM Duy",
+      "484",
+      "484",
+      "100.0%",
+      "1.22%"
+    ],
+    [
+      "10",
+      "(NTH) Phước Dinh",
+      "AM D.Long",
+      "895",
+      "895",
+      "100.0%",
+      "2.26%"
+    ],
+    [
+      "11",
+      "(KHO) Ninh Hòa 2",
+      "AM Phi",
+      "612",
+      "612",
+      "100.0%",
+      "1.54%"
+    ],
+    [
+      "12",
+      "(KHO) Khánh Vĩnh",
+      "AM Phi",
+      "155",
+      "155",
+      "100.0%",
+      "0.39%"
+    ],
+    [
+      "13",
+      "(KHO) Cam Lâm 2",
+      "AM Long",
+      "575",
+      "575",
+      "100.0%",
+      "1.45%"
+    ],
+    [
+      "14",
+      "(DNO) Tuy Đức",
+      "AM Nhung",
+      "266",
+      "266",
+      "100.0%",
+      "0.67%"
+    ],
+    [
+      "15",
+      "(DNO) Krông Nô",
+      "AM Nhung",
+      "435",
+      "435",
+      "100.0%",
+      "1.10%"
+    ],
+    [
+      "16",
+      "(BTH) Bắc Bình",
+      "AM Khánh",
+      "419",
+      "419",
+      "100.0%",
+      "1.06%"
+    ],
+    [
+      "17",
+      "(NTH) Ninh Chử",
+      "AM D.Long",
+      "492",
+      "492",
+      "100.0%",
+      "1.24%"
+    ],
+    [
+      "18",
+      "(LDO) Đạ Tẻh",
+      "AM Vũ",
+      "401",
+      "401",
+      "100.0%",
+      "1.01%"
+    ],
+    [
+      "19",
+      "(LDO) Cát Tiên",
+      "AM Vũ",
+      "364",
+      "364",
+      "100.0%",
+      "0.92%"
+    ],
+    [
+      "20",
+      "(LDO) Đam Rông 3",
+      "AM Chi",
+      "472",
+      "472",
+      "100.0%",
+      "1.19%"
+    ],
+    [
+      "21",
+      "(DNO) Cư Jút",
+      "AM Nhung",
+      "470",
+      "470",
+      "100.0%",
+      "1.19%"
+    ],
+    [
+      "22",
+      "(BTH) Hàm Tân",
+      "AM Thủy",
+      "494",
+      "494",
+      "100.0%",
+      "1.25%"
+    ],
+    [
+      "23",
+      "(KHO) Ninh Hòa 1",
+      "AM Phi",
+      "264",
+      "264",
+      "100.0%",
+      "0.67%"
+    ],
+    [
+      "24",
+      "(KHO) Khánh Sơn",
+      "AM Duy",
+      "173",
+      "173",
+      "100.0%",
+      "0.44%"
+    ],
+    [
+      "25",
+      "(LDO) B'Lao",
+      "AM Nga",
+      "683",
+      "683",
+      "100.0%",
+      "1.72%"
+    ],
+    [
+      "26",
+      "(LDO) Ninh Gia",
+      "AM Thơ",
+      "330",
+      "330",
+      "100.0%",
+      "0.83%"
+    ],
+    [
+      "27",
+      "(LDO) Di Linh",
+      "AM Tiến",
+      "884",
+      "884",
+      "100.0%",
+      "2.23%"
+    ],
+    [
+      "28",
+      "(KHO) Vạn Ninh",
+      "AM Duy",
+      "392",
+      "392",
+      "100.0%",
+      "0.99%"
+    ],
+    [
+      "29",
+      "(BTH) Hàm Thuận Nam",
+      "AM Thủy",
+      "220",
+      "220",
+      "100.0%",
+      "0.56%"
+    ],
+    [
+      "30",
+      "(BTH) Tân Hải",
+      "AM Thủy",
+      "336",
+      "336",
+      "100.0%",
+      "0.85%"
+    ],
+    [
+      "31",
+      "(LDO) Xuân Hương - Đà Lạt",
+      "AM Trường",
+      "797",
+      "797",
+      "100.0%",
+      "2.01%"
+    ],
+    [
+      "32",
+      "(DNO) Quảng Sơn",
+      "AM Nhung",
+      "267",
+      "267",
+      "100.0%",
+      "0.67%"
+    ],
+    [
+      "33",
+      "(BTH) Tuyên Quang",
+      "AM Nhựt",
+      "821",
+      "821",
+      "100.0%",
+      "2.07%"
+    ],
+    [
+      "34",
+      "(LDO) Đinh Văn Lâm Hà",
+      "AM Chi",
+      "501",
+      "501",
+      "100.0%",
+      "1.26%"
+    ],
+    [
+      "35",
+      "(BTH) Liên Hương",
+      "AM D.Long",
+      "686",
+      "686",
+      "100.0%",
+      "1.73%"
+    ],
+    [
+      "36",
+      "(BTH) Phú Thủy",
+      "AM Khánh",
+      "904",
+      "904",
+      "100.0%",
+      "2.28%"
+    ],
+    [
+      "37",
+      "(KHO) Cam Lâm 1",
+      "AM Phi",
+      "200",
+      "200",
+      "100.0%",
+      "0.50%"
+    ],
+    [
+      "38",
+      "(DNO) Quảng Khê",
+      "AM Nhung",
+      "137",
+      "137",
+      "100.0%",
+      "0.35%"
+    ],
+    [
+      "39",
+      "(LDO) Đơn Dương",
+      "AM Trường",
+      "990",
+      "990",
+      "100.0%",
+      "2.50%"
+    ],
+    [
+      "40",
+      "(BTH) Hàm Thắng",
+      "AM Khánh",
+      "640",
+      "640",
+      "100.0%",
+      "1.62%"
+    ],
+    [
+      "41",
+      "(BTH) Hàm Liêm",
+      "AM Nhựt",
+      "679",
+      "679",
+      "100.0%",
+      "1.71%"
+    ],
+    [
+      "42",
+      "(BTH) Đức Linh",
+      "AM Nhựt",
+      "857",
+      "857",
+      "100.0%",
+      "2.16%"
+    ],
+    [
+      "43",
+      "(LDO) Nam Ban Lâm Hà",
+      "AM Chi",
+      "256",
+      "256",
+      "100.0%",
+      "0.65%"
+    ],
+    [
+      "44",
+      "(LDO) 3 Bảo Lộc",
+      "AM Vũ",
+      "671",
+      "671",
+      "100.0%",
+      "1.69%"
+    ],
+    [
+      "45",
+      "(DNO) Đức An",
+      "AM Nhung",
+      "351",
+      "351",
+      "100.0%",
+      "0.89%"
+    ],
+    [
+      "46",
+      "(KHO) Bắc Cam Ranh",
+      "AM Long",
+      "263",
+      "263",
+      "100.0%",
+      "0.66%"
+    ],
+    [
+      "47",
+      "(LDO) Đức Trọng 2",
+      "AM Thơ",
+      "360",
+      "360",
+      "100.0%",
+      "0.91%"
+    ],
+    [
+      "48",
+      "(LDO) Lâm Viên - Đà Lạt 2",
+      "AM Trường",
+      "245",
+      "245",
+      "100.0%",
+      "0.62%"
+    ],
+    [
+      "49",
+      "(KHO) Đông Ninh Hòa",
+      "AM Duy",
+      "333",
+      "333",
+      "100.0%",
+      "0.84%"
+    ],
+    [
+      "50",
+      "(BTH) Phước Hội",
+      "AM Thủy",
+      "820",
+      "820",
+      "100.0%",
+      "2.07%"
+    ],
+    [
+      "51",
+      "(LDO) Lang Biang - Đà Lạt 2",
+      "AM Trường",
+      "1,075",
+      "1,075",
+      "100.0%",
+      "2.71%"
+    ],
+    [
+      "52",
+      "(LDO) 1 Bảo Lộc",
+      "AM Nga",
+      "559",
+      "559",
+      "100.0%",
+      "1.41%"
+    ],
+    [
+      "53",
+      "(KHO) Tu Bông",
+      "AM Duy",
+      "358",
+      "358",
+      "100.0%",
+      "0.90%"
+    ],
+    [
+      "54",
+      "(DNO) Đông Gia Nghĩa",
+      "AM Duân",
+      "401",
+      "401",
+      "100.0%",
+      "1.01%"
+    ],
+    [
+      "55",
+      "(LDO) Lang Biang - Đà Lạt 1",
+      "AM Lợi",
+      "451",
+      "451",
+      "100.0%",
+      "1.14%"
+    ]
+  ],
+  "formulas": [
+    [
+      "BÁO CÁO %FD HUB (N-1) – VÙNG NTB"
+    ],
+    [],
+    [
+      "1. BẢNG TỔNG QUAN VÙNG NTB (N-1)"
+    ],
+    [
+      "Chỉ Số Tổng Quan",
+      "Giá Trị",
+      "Ghi Chú"
+    ],
+    [
+      "Tổng Đơn Có Gán Giao (Total)",
+      39616,
+      "Tổng đơn từ các bưu cục có quản lý AM"
+    ],
+    [
+      "Tổng Đơn Return (Chuyển Trả)",
+      39616,
+      "Tổng đơn bị trả về"
+    ],
+    [
+      "%FD Tổng Vùng NTB",
+      1,
+      "Tỷ lệ đơn trả = Đơn return / Total đơn"
+    ],
+    [
+      "Số Bưu Cục Quản Lý",
+      84,
+      "Tổng số 18 AM phụ trách"
+    ],
+    [],
+    [
+      "2. TOP 10 BƯU CỤC CÓ %FD CAO NHẤT (N-1)"
+    ],
+    [
+      "STT",
+      "Tên Bưu Cục",
+      "AM Phụ Trách",
+      "Total Đơn",
+      "Đơn Return",
+      "%FD (Return)",
+      "Tỷ Trọng Return"
+    ],
+    [
+      1,
+      "(LDO) Đạ Huoai",
+      "AM Vũ",
+      399,
+      399,
+      1,
+      0.0101
+    ],
+    [
+      2,
+      "(KHO) Diên Khánh 2",
+      "AM Phi",
+      586,
+      586,
+      1,
+      0.0148
+    ],
+    [
+      3,
+      "(BTH) Mũi Né",
+      "AM Khánh",
+      266,
+      266,
+      1,
+      0.0067
+    ],
+    [
+      4,
+      "(NTH) Bảo An",
+      "AM D.Long",
+      450,
+      450,
+      1,
+      0.0114
+    ],
+    [
+      5,
+      "(DNO) Kiến Đức",
+      "AM Nga",
+      558,
+      558,
+      1,
+      0.0141
+    ],
+    [
+      6,
+      "(DNO) Nhân Cơ",
+      "AM Duân",
+      244,
+      244,
+      1,
+      0.0062
+    ],
+    [
+      7,
+      "(NTH) Ninh Sơn",
+      "AM D.Long",
+      397,
+      397,
+      1,
+      0.01
+    ],
+    [
+      8,
+      "(KHO) Tây Nha Trang",
+      "AM Duy",
+      450,
+      450,
+      1,
+      0.0114
+    ],
+    [
+      9,
+      "(KHO) Nha Trang",
+      "AM Duy",
+      484,
+      484,
+      1,
+      0.0122
+    ],
+    [
+      10,
+      "(NTH) Phước Dinh",
+      "AM D.Long",
+      895,
+      895,
+      1,
+      0.0226
+    ],
+    [],
+    [
+      "3. XẾP HẠNG %FD THEO CÁC AM (SORT %FD ↓)"
+    ],
+    [
+      "STT",
+      "AM Phụ Trách",
+      "Total Đơn",
+      "Đơn Return",
+      "%FD (Return)",
+      "Tỷ Trọng Return",
+      "Tỷ Trọng Sản Lượng"
+    ],
+    [
+      1,
+      "AM Chi",
+      1538,
+      1538,
+      1,
+      0.0388,
+      0.0388
+    ],
+    [
+      2,
+      "AM D.Long",
+      5079,
+      5079,
+      1,
+      0.1282,
+      0.1282
+    ],
+    [
+      3,
+      "AM Duy",
+      2275,
+      2275,
+      1,
+      0.0574,
+      0.0574
+    ],
+    [
+      4,
+      "AM Duân",
+      839,
+      839,
+      1,
+      0.0212,
+      0.0212
+    ],
+    [
+      5,
+      "AM Khánh",
+      2994,
+      2994,
+      1,
+      0.0756,
+      0.0756
+    ],
+    [
+      6,
+      "AM Linh",
+      331,
+      331,
+      1,
+      0.0084,
+      0.0084
+    ],
+    [
+      7,
+      "AM Long",
+      1612,
+      1612,
+      1,
+      0.0407,
+      0.0407
+    ],
+    [
+      8,
+      "AM Lợi",
+      451,
+      451,
+      1,
+      0.0114,
+      0.0114
+    ],
+    [
+      9,
+      "AM Nga",
+      2678,
+      2678,
+      1,
+      0.0676,
+      0.0676
+    ],
+    [
+      10,
+      "AM Nhung",
+      2867,
+      2867,
+      1,
+      0.0724,
+      0.0724
+    ],
+    [
+      11,
+      "AM Nhựt",
+      3782,
+      3782,
+      1,
+      0.0955,
+      0.0955
+    ],
+    [
+      12,
+      "AM Phi",
+      2417,
+      2417,
+      1,
+      0.061,
+      0.061
+    ],
+    [
+      13,
+      "AM Thơ",
+      1112,
+      1112,
+      1,
+      0.0281,
+      0.0281
+    ],
+    [
+      14,
+      "AM Thư",
+      2642,
+      2642,
+      1,
+      0.0667,
+      0.0667
+    ],
+    [
+      15,
+      "AM Thủy",
+      1870,
+      1870,
+      1,
+      0.0472,
+      0.0472
+    ],
+    [
+      16,
+      "AM Tiến",
+      1217,
+      1217,
+      1,
+      0.0307,
+      0.0307
+    ]
+  ]
+}
