@@ -103,12 +103,14 @@ sheet_mappings = [
     (["fd"], "ops_fd.csv"),
     (["baocao", "báo cáo"], "ops_productivity_realtime.csv"),
     (["nhân sự", "nhan su"], "ops_nhan_su.csv"),
-    (["sl", "sl ", "sanluong", "sản lượng", "ops_heavy_10kg", "hàng nặng", "hang nang"], "ops_heavy_10kg.csv"),
+    (["sl", "sl ", "sản lượng", "ops_heavy_10kg", "hàng nặng", "hang nang"], "ops_heavy_10kg.csv"),
+    (["sanluong", "sản lượng ca", "san luong ca", "ops_ca_data", "ca_data"], "ops_ca_data.csv"),
     (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "10kg", "hàng 10kg", "ops_tao_don_10kg"], "ops_tao_don_10kg.csv"),
     (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "10kg", "hàng 10kg", "raw_tren10kg"], "raw_tren10kg.csv")
 ]
 
 import time
+import io
 
 # Resolve target CSVs to GIDs
 gid_to_targets = {}
@@ -147,10 +149,22 @@ for matched_gid, target_csvs in gid_to_targets.items():
 
     if content:
         for target_csv in target_csvs:
-            with open(target_csv, 'wb') as f_out:
-                f_out.write(content)
-            downloaded_count += 1
-            print(f"Downloaded {target_csv} ({len(content)} bytes)", flush=True)
+            if target_csv == 'ops_ca_data.csv':
+                try:
+                    df_ca = pd.read_csv(io.BytesIO(content), header=1)
+                    df_ca.to_csv(target_csv, index=False, encoding='utf-8')
+                    downloaded_count += 1
+                    print(f"Downloaded and formatted {target_csv} ({len(df_ca)} rows)", flush=True)
+                except Exception as e:
+                    print(f"Error parsing {target_csv}: {e}, saving raw", flush=True)
+                    with open(target_csv, 'wb') as f_out:
+                        f_out.write(content)
+                    downloaded_count += 1
+            else:
+                with open(target_csv, 'wb') as f_out:
+                    f_out.write(content)
+                downloaded_count += 1
+                print(f"Downloaded {target_csv} ({len(content)} bytes)", flush=True)
 
 print(f"\nCOMPLETED LOCAL SYNC! Downloaded {downloaded_count} CSV files.", flush=True)
 

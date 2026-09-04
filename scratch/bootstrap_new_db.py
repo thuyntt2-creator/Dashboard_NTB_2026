@@ -42,7 +42,8 @@ try:
         "ops_nhan_su.csv",
         "ops_heavy_10kg.csv",
         "ops_tao_don_10kg.csv",
-        "raw_tren10kg.csv"
+        "raw_tren10kg.csv",
+        "ops_ca_data.csv"
     ]
     
     imported_count = 0

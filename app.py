@@ -955,8 +955,8 @@ def get_google_auth_headers():
                 print(f"Error reading OAuth token file {token_path}: {e}")
                 
     if not token_data:
-        p1 = "1//0g1WRxYCFSIKz"
-        p2 = "CgYIARAAGBASNwF-L9IrKQ2Dg3lABToscF47D59A0L6t9usPVnKz33TKmtZdqRmoC5m2gHk3VqlY2fuozZ1eQM8"
+        p1 = "1//0ggM3qLDFMdJJCgYIARAAGBASNwF-L9Ir"
+        p2 = "zkV8dzttnC1hjVFB50Od_grydJIdnYiJ6GNrCa1YIgzETZMINWztXzJ0GJxCAykV0kY"
         token_data = {
             "refresh_token": p1 + p2,
             "token_uri": "https://oauth2.googleapis.com/token",
@@ -3618,6 +3618,8 @@ def process_ca_report():
         err_logs.append(f"GSheet fetch exception: {e}")
         try:
             df = safe_read_csv(resolve_path('ops_ca_data.csv', write=False))
+            if df is None or df.empty:
+                df = load_df_from_db('ops_ca_data.csv')
             err_logs.append(f"Fallback df shape: {df.shape if df is not None else None}")
         except Exception as fe:
             err_logs.append(f"Fallback err: {fe}")
@@ -5823,6 +5825,7 @@ def sync_sheets_directly_as_csv(url):
         (["baocao", "báo cáo"], "ops_productivity_realtime.csv"),
         (["nhân sự", "nhan su"], "ops_nhan_su.csv"),
         (["sl > 10kg", "sl >10kg", "sl>10kg", "sl 10kg", "hàng nặng > 10kg", "hang nang > 10kg"], "ops_heavy_10kg.csv"),
+        (["sanluong", "sản lượng ca", "san luong ca", "ops_ca_data", "ca_data"], "ops_ca_data.csv"),
         (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "treen10kg", "treen 10kg", "tạo đơn 10kg", "tao don 10kg"], "ops_tao_don_10kg.csv"),
         (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "10kg", "hàng 10kg"], "raw_tren10kg.csv")
     ]
@@ -5872,6 +5875,15 @@ def sync_sheets_directly_as_csv(url):
             
         for filename in filenames:
             csv_path = resolve_path(filename, write=True)
+            if filename == 'ops_ca_data.csv':
+                import io
+                try:
+                    df_ca = pd.read_csv(io.BytesIO(content), header=1)
+                    df_ca.to_csv(csv_path, index=False, encoding='utf-8')
+                    pending_db_writes.append((df_ca, filename))
+                    continue
+                except Exception as e:
+                    print(f"Error parsing synced CSV {filename}: {e}")
             with open(csv_path, 'wb') as f:
                 f.write(content)
             # Parse CSV into DataFrame for deferred DB write
@@ -5945,6 +5957,8 @@ def async_sync_task(is_admin_flag):
                         for enc in ['utf-8-sig', 'utf-8', 'latin-1', 'cp1252']:
                             try:
                                 df_ca = pd.read_csv(io.BytesIO(content_ca), header=1, encoding=enc)
+                                filepath = resolve_path('ops_ca_data.csv', write=True)
+                                df_ca.to_csv(filepath, index=False)
                                 save_df_to_db(df_ca, 'ops_ca_data.csv')
                                 print("Successfully downloaded ops_ca_data.csv with header=1")
                                 break
