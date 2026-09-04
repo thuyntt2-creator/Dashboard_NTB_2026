@@ -317,10 +317,22 @@ def load_and_process_hub_n1(gc, spreadsheet):
         region_col = next((col_map[k] for k in col_map if 'region' in k), df_fd.columns[1])
         id_col     = next((col_map[k] for k in col_map if 'id' in k), df_fd.columns[2])
         bc_col     = next((col_map[k] for k in col_map if 'tên bưu cục' in k or 'bưu cục' in k), df_fd.columns[3])
+        date_col   = next((col_map[k] for k in col_map if 'date' in k or 'ngày' in k), df_fd.columns[0])
         tot_col    = next((col_map[k] for k in col_map if 'total' in k), df_fd.columns[5])
         ret_col    = next((col_map[k] for k in col_map if 'return' in k or 'trả' in k), df_fd.columns[6])
 
         df_ntb = df_fd[df_fd[region_col] == 'NTB'].copy()
+        df_ntb = df_ntb[~df_ntb[bc_col].astype(str).str.lower().str.contains('kho giao hàng', na=False)]
+        
+        if date_col in df_ntb.columns and not df_ntb.empty:
+            dates = df_ntb[date_col].dropna().unique()
+            if len(dates) > 1:
+                try:
+                    df_ntb['dt_parsed'] = pd.to_datetime(df_ntb[date_col], errors='coerce')
+                    latest_dt = df_ntb['dt_parsed'].max()
+                    df_ntb = df_ntb[df_ntb['dt_parsed'] == latest_dt].copy()
+                except Exception:
+                    df_ntb = df_ntb[df_ntb[date_col] == dates[-1]].copy()
 
         for _, row in df_ntb.iterrows():
             bc_name = str(row[bc_col]).strip()
