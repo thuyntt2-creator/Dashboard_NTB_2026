@@ -62,7 +62,7 @@ except Exception as e:
 # Step 3: Git add, commit, and push
 try:
     log("Step 3: Git add and commit...")
-    subprocess.run(["git", "add", "*.csv", "app.py", "scratch/"], cwd=cwd, capture_output=True)
+    subprocess.run(["git", "add", "*.csv", "ops_ca_data.csv", "app.py", "scratch/", ".gitignore"], cwd=cwd, capture_output=True)
     subprocess.run(["git", "commit", "-m", "Auto update data and DB"], cwd=cwd, capture_output=True)
     log("Step 3: Git push to GitHub...")
     p3 = subprocess.run(["git", "push", "origin", "main"], cwd=cwd, capture_output=True, text=True, timeout=180)

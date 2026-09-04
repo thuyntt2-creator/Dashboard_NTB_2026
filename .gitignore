@@ -36,6 +36,7 @@ backlog_history.json
 !raw_tren10kg.csv
 !ops_heavy_10kg.csv
 !ops_tao_don_10kg.csv
+!ops_ca_data.csv
 
 
 # Intermediate inspection and log files
