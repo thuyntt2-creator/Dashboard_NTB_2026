@@ -160,6 +160,26 @@ for matched_gid, target_csvs in gid_to_targets.items():
                     with open(target_csv, 'wb') as f_out:
                         f_out.write(content)
                     downloaded_count += 1
+            elif target_csv == 'treo_stuck.csv':
+                try:
+                    df_treo = pd.read_csv(io.BytesIO(content))
+                    treo_map = {
+                        'Ma buu cuc': 'Mã bưu cục',
+                        'Ma don hang': 'Mã đơn hàng',
+                        'Loai don': 'Loại đơn',
+                        'Khach hang': 'Khách hàng',
+                        'Trang thai': 'Trạng thái',
+                        'Thoi gian ton dong': 'Thời gian tồn đọng'
+                    }
+                    df_treo.rename(columns=treo_map, inplace=True)
+                    df_treo.to_csv(target_csv, index=False, encoding='utf-8-sig')
+                    downloaded_count += 1
+                    print(f"Downloaded and normalized {target_csv} ({len(df_treo)} rows)", flush=True)
+                except Exception as e:
+                    print(f"Error parsing {target_csv}: {e}, saving raw", flush=True)
+                    with open(target_csv, 'wb') as f_out:
+                        f_out.write(content)
+                    downloaded_count += 1
             else:
                 with open(target_csv, 'wb') as f_out:
                     f_out.write(content)

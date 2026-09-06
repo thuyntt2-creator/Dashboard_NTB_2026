@@ -651,12 +651,24 @@ def load_df_from_db(filename):
             'số lần giao': 'Số lần giao',
             'nhóm bl': 'Nhóm BL',
             'trạng thái': 'Trạng thái',
+            'trang thai': 'Trạng thái',
+            'trang_thai': 'Trạng thái',
             'mã bưu cục': 'Mã bưu cục',
+            'ma buu cuc': 'Mã bưu cục',
+            'ma_buu_cuc': 'Mã bưu cục',
             'mã đơn hàng': 'Mã đơn hàng',
+            'ma don hang': 'Mã đơn hàng',
+            'ma_don_hang': 'Mã đơn hàng',
             'loại đơn': 'Loại đơn',
+            'loai don': 'Loại đơn',
+            'loai_don': 'Loại đơn',
             'loại hàng': 'Loại Hàng',
             'khách hàng': 'Khách hàng',
+            'khach hang': 'Khách hàng',
+            'khach_hang': 'Khách hàng',
             'thời gian tồn đọng': 'Thời gian tồn đọng',
+            'thoi gian ton dong': 'Thời gian tồn đọng',
+            'thoi_gian_ton_dong': 'Thời gian tồn đọng',
             'warehouse_name': 'warehouse_name',
             'warehouse_id': 'warehouse_id',
             'tên nhân viên': 'Tên nhân viên',
@@ -1301,6 +1313,35 @@ def safe_read_csv(filepath, filter_by_am=False, **kwargs):
                 col_lower = str(col).strip().lower()
                 if col_lower in column_mapping:
                     rename_dict[col] = column_mapping[col_lower]
+            if rename_dict:
+                df.rename(columns=rename_dict, inplace=True)
+        elif filename == 'treo_stuck.csv':
+            treo_mapping = {
+                'ma buu cuc': 'Mã bưu cục',
+                'mã bưu cục': 'Mã bưu cục',
+                'ma don hang': 'Mã đơn hàng',
+                'mã đơn hàng': 'Mã đơn hàng',
+                'madh': 'Mã đơn hàng',
+                'ma don': 'Mã đơn hàng',
+                'mã đơn': 'Mã đơn hàng',
+                'loai don': 'Loại đơn',
+                'loại đơn': 'Loại đơn',
+                'khach hang': 'Khách hàng',
+                'khách hàng': 'Khách hàng',
+                'trang thai': 'Trạng thái',
+                'trạng thái': 'Trạng thái',
+                'status': 'Trạng thái',
+                'thoi gian ton dong': 'Thời gian tồn đọng',
+                'thời gian tồn đọng': 'Thời gian tồn đọng',
+                'warehouse_name': 'warehouse_name',
+                'province_name': 'province_name',
+                'am_name': 'am_name'
+            }
+            rename_dict = {}
+            for col in df.columns:
+                col_lower = str(col).strip().lower()
+                if col_lower in treo_mapping:
+                    rename_dict[col] = treo_mapping[col_lower]
             if rename_dict:
                 df.rename(columns=rename_dict, inplace=True)
 
@@ -2482,6 +2523,16 @@ def process_treo_backlog(df_raw=None, df_co_cau=None, am=None, province=None, po
         df_raw['final_province'] = df_raw['mapped_province'].fillna(fallback_prov).fillna("Không xác định")
         
         df_raw = apply_filters(df_raw, am=am, province=province, post_office=post_office)
+        
+        if 'Thời gian tồn đọng' not in df_raw.columns:
+            ton_col = next((c for c in df_raw.columns if str(c).strip().lower() in ['thời gian tồn đọng', 'thoi gian ton dong', 'ton_dong']), None)
+            df_raw['Thời gian tồn đọng'] = df_raw[ton_col] if ton_col else ""
+        if 'Loại đơn' not in df_raw.columns:
+            loai_col = next((c for c in df_raw.columns if str(c).strip().lower() in ['loại đơn', 'loai don']), None)
+            df_raw['Loại đơn'] = df_raw[loai_col] if loai_col else "Luân chuyển giao"
+        if 'Trạng thái' not in df_raw.columns:
+            status_col = next((c for c in df_raw.columns if str(c).strip().lower() in ['trạng thái', 'trang thai', 'status']), None)
+            df_raw['Trạng thái'] = df_raw[status_col] if status_col else "Chưa đóng kiện"
         
         # Define delay brackets based on 'Thời gian tồn đọng'
         def get_treo_bracket(t):
@@ -4518,8 +4569,29 @@ def get_dataframes(force=False, raw_gtc=None, raw_ltc=None, raw_co_cau=None, raw
         df_treo['mapped_prov'] = df_treo['clean_bc'].map(bc_to_prov).fillna(treo_prov_fallback).fillna("Không xác định")
         df_treo['mapped_am'] = df_treo['clean_bc'].map(bc_to_am).fillna(treo_am_fallback).fillna("Không xác định")
         
-        allowed_statuses = ['Chưa đóng kiện', 'Không cần đóng kiện']
-        df_treo_filtered = df_treo[df_treo['Trạng thái'].isin(allowed_statuses)].copy()
+        if 'Trạng thái' not in df_treo.columns:
+            status_col = next((c for c in df_treo.columns if str(c).strip().lower() in ['trạng thái', 'trang thai', 'status']), None)
+            if status_col:
+                df_treo['Trạng thái'] = df_treo[status_col]
+            else:
+                df_treo['Trạng thái'] = "Chưa đóng kiện"
+                
+        if 'Thời gian tồn đọng' not in df_treo.columns:
+            ton_col = next((c for c in df_treo.columns if str(c).strip().lower() in ['thời gian tồn đọng', 'thoi gian ton dong', 'ton_dong']), None)
+            if ton_col:
+                df_treo['Thời gian tồn đọng'] = df_treo[ton_col]
+            else:
+                df_treo['Thời gian tồn đọng'] = ""
+
+        if 'Loại đơn' not in df_treo.columns:
+            loai_col = next((c for c in df_treo.columns if str(c).strip().lower() in ['loại đơn', 'loai don']), None)
+            if loai_col:
+                df_treo['Loại đơn'] = df_treo[loai_col]
+            else:
+                df_treo['Loại đơn'] = "Luân chuyển giao"
+
+        allowed_statuses = ['Chưa đóng kiện', 'Không cần đóng kiện', 'chua dong kien', 'khong can dong kien']
+        df_treo_filtered = df_treo[df_treo['Trạng thái'].astype(str).str.strip().isin(allowed_statuses) | df_treo['Trạng thái'].isna()].copy()
         
         def get_treo_bracket_local(t):
             if not isinstance(t, str):
@@ -4994,7 +5066,8 @@ def api_get_staff_list():
             
         df_ns.columns = [c.strip() for c in df_ns.columns]
         
-        active_mask = (df_ns['Trạng thái'].astype(str).str.strip() == "Đang làm việc")
+        status_col = next((c for c in df_ns.columns if str(c).strip().lower() in ['trạng thái', 'trang thai', 'status']), None)
+        active_mask = (df_ns[status_col].astype(str).str.strip().isin(["Đang làm việc", "dang lam viec"])) if status_col else pd.Series(True, index=df_ns.index)
         if 'Vùng' in df_ns.columns:
             active_mask &= (df_ns['Vùng'].astype(str).str.strip() == "NTB")
             
@@ -6111,8 +6184,11 @@ def api_nhan_su():
             val_str = str(x).strip().lower()
             return val_str in ['true', '1', 'yes', 't']
             
+        ns_status_col = next((c for c in df_ns.columns if str(c).strip().lower() in ['trạng thái', 'trang thai', 'status']), None)
+        ns_status_series = df_ns[ns_status_col].astype(str).str.strip() if ns_status_col else pd.Series("Đang làm việc", index=df_ns.index)
+
         active_mask = (
-            (df_ns['Trạng thái'].astype(str).str.strip() == "Đang làm việc") &
+            (ns_status_series.isin(["Đang làm việc", "dang lam viec"])) &
             (df_ns['Vùng'].astype(str).str.strip() == "NTB") &
             (df_ns['Chức vụ'].astype(str).str.strip() == "Business Development Field Executive") &
             (~df_ns['SP Team?'].apply(check_sp_team))
@@ -6120,7 +6196,7 @@ def api_nhan_su():
         active_df = df_ns[active_mask].copy()
         
         resigned_mask = (
-            (df_ns['Trạng thái'].astype(str).str.strip() == "Đã nghỉ") &
+            (ns_status_series.isin(["Đã nghỉ", "da nghi"])) &
             (df_ns['Vùng'].astype(str).str.strip() == "NTB")
         )
         resigned_count = len(df_ns[resigned_mask])
