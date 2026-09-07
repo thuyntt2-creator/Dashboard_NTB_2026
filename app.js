@@ -738,11 +738,12 @@
       // 1. Sản lượng Full & TTS
       const volCard = cardMap['vol_full'] || {};
       const volTtsCard = cardMap['vol_tts'] || {};
-      const volVal = volCard.val || 63122;
-      const volDiff = volCard.diff !== undefined ? volCard.diff : -9759;
+      const volVal = volCard.val || 307837;
+      const volDiff = volCard.diff !== undefined ? volCard.diff : -11149;
       const volTtsVal = volTtsCard.val || 63122;
       const volTtsDiff = volTtsCard.diff !== undefined ? volTtsCard.diff : -9759;
-      const volDiffPct = volCard.diff_pct !== undefined ? volCard.diff_pct : (volVal ? volDiff / volVal : -0.134);
+      const volDiffPct = volCard.diff_pct !== undefined ? volCard.diff_pct : -0.035;
+      const volTtsDiffPct = volTtsCard.diff_pct !== undefined ? volTtsCard.diff_pct : -0.134;
 
       // 2. GTC Tổng
       const gtcCard = cardMap['gtc_full'] || {};
@@ -807,7 +808,7 @@
           title: `Sản Lượng Giao (${latestWeek})`,
           mainVal: fNum(volVal),
           mainUnit: `đơn Full (${volDiff >= 0 ? '▲ +' : '▼ '}${fNum(volDiff)} đ)`,
-          subVal: `TTS: ${fNum(volTtsVal)} đ (${volTtsDiff >= 0 ? '▲ +' : '▼ '}${fNum(volTtsDiff)} đ / ${fPct(volDiffPct)})`,
+          subVal: `TTS: ${fNum(volTtsVal)} đ (${volTtsDiff >= 0 ? '▲ +' : '▼ '}${fNum(volTtsDiff)} đ / ${fPct(volTtsDiffPct)})`,
           diff: volDiffPct,
           isHigherBetter: true,
           colorCls: 'kpi-blue',
