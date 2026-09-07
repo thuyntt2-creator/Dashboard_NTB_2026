@@ -1,0 +1,45 @@
+---P0---
+GHN EXPRESS — VÙNG NAM TRUNG BỘ
+---P1---
+BÁO CÁO VẬN HÀNH & KINH DOANH TUẦN W35
+(24/08/2026 – 30/08/2026)
+---P2---
+Kịch bản thuyết trình chi tiết từng AM & Phân tích tương quan thuần số liệu thực tế
+---P4---
+📊 [I. TỔNG QUAN VẬN HÀNH]
+---P7---
+Về khu vực có sự cải thiện GTC mạnh nhất là Khu vực của anh AM Lợi mới gia nhập (+12,1%); AM giảm GTC mạnh nhất là anh Trầm Hữu Tiến (-5,6%) — và cần anh Tiến đưa ra giải pháp để cải thiện tình hình khu vựci."
+---P8---
+📍 [SẢN LƯỢNG THEO TỈNH]
+---P10---
+👤 [SẢN LƯỢNG THEO AM]
+---P12---
+[GTC TỔNG & PHÂN THEO AM]
+---P16---
+⭐ [GTC CA 1 TTS — CHỈ SỐ CÔNG TY QUAN TÂM]
+---P18---
+📋 [TỶ LỆ GÁN VẬN HÀNH]
+---P20---
+⏱️ [ODR — TỶ LỆ GIAO ĐÚNG HẸN SLA]
+---P21---
+🗣️ LỜI THUYẾT TRÌNH BÁO CÁO:
+"ODR full hàng đạt 92,2%, giảm mạnh -1,5% — đây là mức giảm đáng lo nhất tuần này và là mức thấp nhất trong nhiều tuần.
+• Tất cả các tỉnh đều giảm ngoại trừ Khánh Hòa tăng nhẹ +0,4% (đạt 94,8%). Đắk Nông thấp nhất vùng, 86,2%, giảm mạnh -4,4% — cần được ưu tiên can thiệp. Lâm Đồng giảm -2,6%.
+• Theo AM: Anh Trương Quang Linh giảm sốc nhất, -21,9% xuống 40,1%i, cần chu ý. Anh Lê Văn Trường giảm -7,0% xuống 83,5%. Anh Trầm Hữu Tiến giảm -3,2% xuống 79,5% — thấp nhất vùng sau anh Linh.
+• Điểm tích cực: Anh Lê Minh Lợi cải thiện +6,5% lên 58,5%."
+---P23---
+📦 [CHỈ SỐ %LTC — LẤY THÀNH CÔNG]
+---P25---
+⏰ [OPR TTS THEO KHUNG GIỜ]
+---P28---
+🚛 [RỚT LUÂN CHUYỂN]
+---P30---
+⚠️ [AGING TỒN KHO & HÀNG TREO LUÂN CHUYỂN]
+---P32---
+💳 [III. KIỂM SOÁT — TỶ LỆ TIỀN MẶT QR (TAB 11)]
+---P35---
+🛡️ [TRUY THU VÀ PHẠT TICKET OE-IA]
+---P37---
+📈 [V. KINH DOANH & KHÁCH HÀNG MỚI F30]
+---P39---
+🎯 [VI. TỔNG HỢP GÓP Ý & ACTION PLAN TUẦN W36]
