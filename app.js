@@ -1197,10 +1197,16 @@
     // 1. BẢNG 1: SẢN LƯỢNG FULL HÀNG
     const tblBodyFull = document.querySelector('#table-vol-full-detailed tbody');
     if (tblBodyFull && D.san_luong.am_full) {
-      let list = [...D.san_luong.am_full].map(r => ({
-        ...r,
-        diff_val: r.diff !== undefined ? r.diff : ((r.w35 || 0) - (r.w34 || 0))
-      }));
+      let list = [...D.san_luong.am_full].map(r => {
+        const curr = r.w36 !== undefined ? r.w36 : (r.w35 || 0);
+        const prev = r.w36 !== undefined ? (r.w35 || 0) : (r.w34 || 0);
+        return {
+          ...r,
+          curr_val: curr,
+          prev_val: prev,
+          diff_val: r.diff !== undefined ? r.diff : (curr - prev)
+        };
+      });
 
       if (state.searchVolFull) {
         list = list.filter(r => r.am.toLowerCase().includes(state.searchVolFull));
@@ -1220,8 +1226,8 @@
           <tr data-entity="${row.am}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightAM('${row.am}')">
             <td class="center">${renderRankPill(i)}</td>
             <td class="bold" style="font-size:13px; font-weight:800; color:${isSelected ? '#ef4444' : 'inherit'};">${row.am}</td>
-            <td class="num">${fNum(row.w34)}</td>
-            <td class="num bold" style="background: var(--color-blue-bg); font-weight:800;">${fNum(row.w35)}</td>
+            <td class="num">${fNum(row.prev_val)}</td>
+            <td class="num bold" style="background: var(--color-blue-bg); font-weight:800;">${fNum(row.curr_val)}</td>
             <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
@@ -1233,15 +1239,19 @@
     const tblBodyTTS = document.querySelector('#table-vol-tts-detailed tbody');
     if (tblBodyTTS && D.san_luong.am_tts) {
       const fullMap = {};
-      (D.san_luong.am_full || []).forEach(f => fullMap[f.am] = (f.w35 || 0));
+      (D.san_luong.am_full || []).forEach(f => fullMap[f.am] = (f.w36 !== undefined ? f.w36 : (f.w35 || 0)));
 
       let listTTS = [...D.san_luong.am_tts].map(r => {
         const fullVol = fullMap[r.am] || 0;
-        const rate = fullVol > 0 ? ((r.w35 || 0) / fullVol) : 0;
+        const curTTS = r.w36 !== undefined ? r.w36 : (r.w35 || 0);
+        const prevTTS = r.w36 !== undefined ? (r.w35 || 0) : (r.w34 || 0);
+        const rate = fullVol > 0 ? (curTTS / fullVol) : 0;
         return {
           ...r,
+          curr_val: curTTS,
+          prev_val: prevTTS,
           rate_tts: rate,
-          diff_val: r.diff !== undefined ? r.diff : ((r.w35 || 0) - (r.w34 || 0))
+          diff_val: r.diff !== undefined ? r.diff : (curTTS - prevTTS)
         };
       });
 
@@ -1263,8 +1273,8 @@
           <tr data-entity="${row.am}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightAM('${row.am}')">
             <td class="center">${renderRankPill(i)}</td>
             <td class="bold" style="font-size:13px; font-weight:800; color:${isSelected ? '#ef4444' : 'inherit'};">${row.am}</td>
-            <td class="num">${fNum(row.w34)}</td>
-            <td class="num bold" style="background: var(--color-amber-bg); color:#ea580c; font-weight:800;">${fNum(row.w35)}</td>
+            <td class="num">${fNum(row.prev_val)}</td>
+            <td class="num bold" style="background: var(--color-amber-bg); color:#ea580c; font-weight:800;">${fNum(row.curr_val)}</td>
             <td class="num bold">${diffBadge}</td>
             <td class="num" style="font-weight:700;">${fPct(row.rate_tts)}</td>
             <td class="center">${evalBadge}</td>
@@ -1696,10 +1706,16 @@
     const tblBodyFull = document.querySelector('#table-gtc-full-detailed tbody');
     if (tblBodyFull) {
       const rawFull = D.gtc_tong.am_full || D.gtc_tong.am || [];
-      let listFull = [...rawFull].map(r => ({
-        ...r,
-        diff_val: r.diff !== undefined ? r.diff : ((r.w35 || 0) - (r.w34 || 0))
-      }));
+      let listFull = [...rawFull].map(r => {
+        const curr = r.w36 !== undefined ? r.w36 : (r.w35 || 0);
+        const prev = r.w36 !== undefined ? (r.w35 || 0) : (r.w34 || 0);
+        return {
+          ...r,
+          curr_val: curr,
+          prev_val: prev,
+          diff_val: r.diff !== undefined ? r.diff : (curr - prev)
+        };
+      });
 
       if (state.searchGtcTongFull) {
         listFull = listFull.filter(r => r.am.toLowerCase().includes(state.searchGtcTongFull));
@@ -1710,17 +1726,17 @@
       tblBodyFull.innerHTML = sortedFull.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
         const rowClass = isSelected ? 'presenter-laser-box' : '';
-        const heatW35 = getHeatmapClass(row.w35, 'gtc');
+        const heatCurr = getHeatmapClass(row.curr_val, 'gtc');
         const diffBadge = renderDeltaBadge(row.diff_val, true, true);
-        const evalBadge = getGtcEvalBadge(row.w35);
+        const evalBadge = getGtcEvalBadge(row.curr_val);
 
         return `
           <tr data-entity="${row.am}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightAM('${row.am}')">
             <td class="center">${renderRankPill(i)}</td>
             <td class="bold" style="font-size:13px; font-weight:800; color:${isSelected ? '#ef4444' : 'inherit'};">${row.am}</td>
             <td class="num">${fNum(row.vol)}</td>
-            <td class="num">${fPct(row.w34)}</td>
-            <td class="num bold ${heatW35}">${fPct(row.w35)}</td>
+            <td class="num">${fPct(row.prev_val)}</td>
+            <td class="num bold ${heatCurr}">${fPct(row.curr_val)}</td>
             <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
@@ -1732,10 +1748,16 @@
     const tblBodyTTS = document.querySelector('#table-gtc-tts-detailed tbody');
     if (tblBodyTTS) {
       const rawTTS = D.gtc_tong.am_tts || [];
-      let listTTS = [...rawTTS].map(r => ({
-        ...r,
-        diff_val: r.diff !== undefined ? r.diff : ((r.w35 || 0) - (r.w34 || 0))
-      }));
+      let listTTS = [...rawTTS].map(r => {
+        const curr = r.w36 !== undefined ? r.w36 : (r.w35 || 0);
+        const prev = r.w36 !== undefined ? (r.w35 || 0) : (r.w34 || 0);
+        return {
+          ...r,
+          curr_val: curr,
+          prev_val: prev,
+          diff_val: r.diff !== undefined ? r.diff : (curr - prev)
+        };
+      });
 
       if (state.searchGtcTongTTS) {
         listTTS = listTTS.filter(r => r.am.toLowerCase().includes(state.searchGtcTongTTS));
@@ -1746,17 +1768,17 @@
       tblBodyTTS.innerHTML = sortedTTS.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
         const rowClass = isSelected ? 'presenter-laser-box' : '';
-        const heatW35 = getHeatmapClass(row.w35, 'gtc');
+        const heatCurr = getHeatmapClass(row.curr_val, 'gtc');
         const diffBadge = renderDeltaBadge(row.diff_val, true, true);
-        const evalBadge = getGtcEvalBadge(row.w35);
+        const evalBadge = getGtcEvalBadge(row.curr_val);
 
         return `
           <tr data-entity="${row.am}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightAM('${row.am}')">
             <td class="center">${renderRankPill(i)}</td>
             <td class="bold" style="font-size:13px; font-weight:800; color:${isSelected ? '#ef4444' : 'inherit'};">${row.am}</td>
             <td class="num">${fNum(row.vol)}</td>
-            <td class="num">${fPct(row.w34)}</td>
-            <td class="num bold ${heatW35}">${fPct(row.w35)}</td>
+            <td class="num">${fPct(row.prev_val)}</td>
+            <td class="num bold ${heatCurr}">${fPct(row.curr_val)}</td>
             <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
@@ -2543,8 +2565,8 @@
             <td class="center">${renderRankPill(i)}</td>
             <td class="bold" style="font-size:13px; font-weight:800; color:${isSelected ? '#ef4444' : 'inherit'};">${row.am}</td>
             <td class="num">${fNum(row.vol)}</td>
-            <td class="num">${fPct(row.tong_w34)}</td>
-            <td class="num bold ${heatTong}" style="font-weight:800;">${fPct(row.tong_w35)}</td>
+            <td class="num">${fPct(row.prev_val)}</td>
+            <td class="num bold ${heatTong}" style="font-weight:800;">${fPct(row.curr_val)}</td>
             <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
@@ -2853,10 +2875,16 @@
     const tblBodyFull = document.querySelector('#table-odr-full-detailed tbody');
     if (tblBodyFull) {
       const rawFull = D.odr.am_full || D.odr.am || [];
-      let listFull = [...rawFull].map(r => ({
-        ...r,
-        diff_val: r.diff !== undefined ? r.diff : ((r.w35 || 0) - (r.w34 || 0))
-      }));
+      let listFull = [...rawFull].map(r => {
+        const curr = r.w36 !== undefined ? r.w36 : (r.w35 || 0);
+        const prev = r.w36 !== undefined ? (r.w35 || 0) : (r.w34 || 0);
+        return {
+          ...r,
+          curr_val: curr,
+          prev_val: prev,
+          diff_val: r.diff !== undefined ? r.diff : (curr - prev)
+        };
+      });
 
       if (state.searchOdrFull) {
         listFull = listFull.filter(r => r.am.toLowerCase().includes(state.searchOdrFull));
@@ -2867,17 +2895,17 @@
       tblBodyFull.innerHTML = sortedFull.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
         const rowClass = isSelected ? 'presenter-laser-box' : '';
-        const heatW35 = getHeatmapClass(row.w35, 'odr');
+        const heatCurr = getHeatmapClass(row.curr_val, 'odr');
         const diffBadge = renderDeltaBadge(row.diff_val, true, true);
-        const evalBadge = getOdrEvalBadge(row.w35);
+        const evalBadge = getOdrEvalBadge(row.curr_val);
 
         return `
           <tr data-entity="${row.am}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightAM('${row.am}')">
             <td class="center">${renderRankPill(i)}</td>
             <td class="bold" style="font-size:13px; font-weight:800; color:${isSelected ? '#ef4444' : 'inherit'};">${row.am}</td>
             <td class="num">${fNum(row.vol)}</td>
-            <td class="num">${fPct(row.w34)}</td>
-            <td class="num bold ${heatW35}">${fPct(row.w35)}</td>
+            <td class="num">${fPct(row.prev_val)}</td>
+            <td class="num bold ${heatCurr}">${fPct(row.curr_val)}</td>
             <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
@@ -2889,10 +2917,16 @@
     const tblBodyTTS = document.querySelector('#table-odr-tts-detailed tbody');
     if (tblBodyTTS) {
       const rawTTS = D.odr.am_tts || [];
-      let listTTS = [...rawTTS].map(r => ({
-        ...r,
-        diff_val: r.diff !== undefined ? r.diff : ((r.w35 || 0) - (r.w34 || 0))
-      }));
+      let listTTS = [...rawTTS].map(r => {
+        const curr = r.w36 !== undefined ? r.w36 : (r.w35 || 0);
+        const prev = r.w36 !== undefined ? (r.w35 || 0) : (r.w34 || 0);
+        return {
+          ...r,
+          curr_val: curr,
+          prev_val: prev,
+          diff_val: r.diff !== undefined ? r.diff : (curr - prev)
+        };
+      });
 
       if (state.searchOdrTTS) {
         listTTS = listTTS.filter(r => r.am.toLowerCase().includes(state.searchOdrTTS));
@@ -2903,17 +2937,17 @@
       tblBodyTTS.innerHTML = sortedTTS.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
         const rowClass = isSelected ? 'presenter-laser-box' : '';
-        const heatW35 = getHeatmapClass(row.w35, 'odr');
+        const heatCurr = getHeatmapClass(row.curr_val, 'odr');
         const diffBadge = renderDeltaBadge(row.diff_val, true, true);
-        const evalBadge = getOdrEvalBadge(row.w35);
+        const evalBadge = getOdrEvalBadge(row.curr_val);
 
         return `
           <tr data-entity="${row.am}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightAM('${row.am}')">
             <td class="center">${renderRankPill(i)}</td>
             <td class="bold" style="font-size:13px; font-weight:800; color:${isSelected ? '#ef4444' : 'inherit'};">${row.am}</td>
             <td class="num">${fNum(row.vol)}</td>
-            <td class="num">${fPct(row.w34)}</td>
-            <td class="num bold ${heatW35}">${fPct(row.w35)}</td>
+            <td class="num">${fPct(row.prev_val)}</td>
+            <td class="num bold ${heatCurr}">${fPct(row.curr_val)}</td>
             <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
@@ -5279,7 +5313,37 @@
   // --------------------------------------------------------------------------
   // TAB 13: KINH DOANH & KHÁCH HÀNG MỚI (F30)
   // --------------------------------------------------------------------------
+    function renderKdChurnTable() {
+    const tbody = document.querySelector('#table-kd-churn-top10 tbody');
+    if (!tbody || !D.kinh_doanh || !D.kinh_doanh.churn_top10) return;
+
+    tbody.innerHTML = D.kinh_doanh.churn_top10.map((row, i) => {
+      const isSelected = state.selectedAM === row.am;
+      const rowClass = isSelected ? 'presenter-laser-box' : '';
+      const isZero = row.vol_curr === 0;
+      const statusBadge = isZero
+        ? '<span class="badge-tag badge-tag-red" style="font-weight:800;">🔴 Rời Bỏ (0 đơn)</span>'
+        : `<span class="badge-tag badge-tag-amber">🟡 Giảm Mạnh (${row.pct_diff}%)</span>`;
+
+      return `
+        <tr data-entity="${row.am}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightAM('${row.am}')">
+          <td class="center bold">${row.stt || (i + 1)}</td>
+          <td class="bold" style="color: var(--ghn-orange); font-size: 12.5px;">${row.makh}</td>
+          <td class="bold" style="font-size: 13px;">${row.tenkh}</td>
+          <td class="bold" style="color:${isSelected ? '#ef4444' : 'inherit'}; font-size: 13px;">${row.am}</td>
+          <td style="font-size: 12px; color: var(--text-muted);">${row.bc}</td>
+          <td class="num bold">${fNum(row.vol_prev)}</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.1); color: #dc2626;">${fNum(row.vol_curr)}</td>
+          <td class="num bold" style="color: #ef4444;">${fNum(row.diff)}</td>
+          <td class="num bold" style="color: #ef4444;">${row.pct_diff}%</td>
+          <td class="center">${statusBadge}</td>
+        </tr>
+      `;
+    }).join('');
+  }
+
   function renderCommercialTab() {
+    renderKdChurnTable();
     // 1. Doanh Thu Theo AM Table
     const tblKd = document.querySelector('#table-kd-doanh-thu-data tbody');
     if (tblKd && D.kinh_doanh && D.kinh_doanh.am) {

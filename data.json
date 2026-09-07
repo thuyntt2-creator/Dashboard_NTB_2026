@@ -7396,6 +7396,190 @@
         "pct_diff": -0.2640647357776734
       }
     ],
+    "churn_top10": [
+      {
+        "stt": 1,
+        "makh": 4726274,
+        "tenkh": "Bách Phát Gia Kim",
+        "am": "Hồng Bích Nga",
+        "bc": "23015000 - (LDO) Bảo Lâm 3",
+        "vol_prev": 91,
+        "vol_curr": 39,
+        "diff": -52,
+        "pct_diff": -57.1,
+        "status": "Giảm Mạnh (-57.1%)"
+      },
+      {
+        "stt": 2,
+        "makh": 4312410,
+        "tenkh": "Bích chi Đồ Bộ",
+        "am": "Cao Thị Thanh Thủy",
+        "bc": "21067000 - (BTH) Tân Hải",
+        "vol_prev": 86,
+        "vol_curr": 39,
+        "diff": -47,
+        "pct_diff": -54.7,
+        "status": "Giảm Mạnh (-54.7%)"
+      },
+      {
+        "stt": 3,
+        "makh": 5388184,
+        "tenkh": "Vivi shop",
+        "am": "Cao Thị Thanh Thủy",
+        "bc": "21594000 - (BTH) Phước Hội",
+        "vol_prev": 91,
+        "vol_curr": 59,
+        "diff": -32,
+        "pct_diff": -35.2,
+        "status": "Giảm Mạnh (-35.2%)"
+      },
+      {
+        "stt": 4,
+        "makh": 4551968,
+        "tenkh": "In áo hồ chí minh",
+        "am": "Phan Đình Duy",
+        "bc": "20495000 - (KHO) Nha Trang",
+        "vol_prev": 38,
+        "vol_curr": 10,
+        "diff": -28,
+        "pct_diff": -73.7,
+        "status": "Giảm Mạnh (-73.7%)"
+      },
+      {
+        "stt": 5,
+        "makh": 5258112,
+        "tenkh": "DS2 - ĐỒNG PHỤC TRỌNG LÊ",
+        "am": "Phan Đình Duy",
+        "bc": "20495000 - (KHO) Nha Trang",
+        "vol_prev": 40,
+        "vol_curr": 13,
+        "diff": -27,
+        "pct_diff": -67.5,
+        "status": "Giảm Mạnh (-67.5%)"
+      },
+      {
+        "stt": 6,
+        "makh": 5353840,
+        "tenkh": "Nguyễn Tây Nguyên",
+        "am": "Huỳnh Thúc Duân",
+        "bc": "22242000 - (DNO) Bắc Gia Nghĩa",
+        "vol_prev": 31,
+        "vol_curr": 5,
+        "diff": -26,
+        "pct_diff": -83.9,
+        "status": "Giảm Mạnh (-83.9%)"
+      },
+      {
+        "stt": 7,
+        "makh": 3904572,
+        "tenkh": "Nhung 210 Lê Hồng Phong",
+        "am": "Phan Đình Duy",
+        "bc": "20495000 - (KHO) Nha Trang",
+        "vol_prev": 34,
+        "vol_curr": 10,
+        "diff": -24,
+        "pct_diff": -70.6,
+        "status": "Giảm Mạnh (-70.6%)"
+      },
+      {
+        "stt": 8,
+        "makh": 3673684,
+        "tenkh": "Mỹ Hiếu",
+        "am": "Phan Đình Duy",
+        "bc": "20495000 - (KHO) Nha Trang",
+        "vol_prev": 27,
+        "vol_curr": 3,
+        "diff": -24,
+        "pct_diff": -88.9,
+        "status": "Giảm Mạnh (-88.9%)"
+      },
+      {
+        "stt": 9,
+        "makh": 4091736,
+        "tenkh": "Nguyễn thị lai",
+        "am": "Phan Đình Duy",
+        "bc": "20320000 - (KHO) Tây Nha Trang",
+        "vol_prev": 46,
+        "vol_curr": 24,
+        "diff": -22,
+        "pct_diff": -47.8,
+        "status": "Giảm Mạnh (-47.8%)"
+      },
+      {
+        "stt": 10,
+        "makh": 3413881,
+        "tenkh": "Nguyễn ngọc dương",
+        "am": "Thái Thị Thanh Thư",
+        "bc": "2399 - (KHO) Bắc Nha Trang",
+        "vol_prev": 51,
+        "vol_curr": 30,
+        "diff": -21,
+        "pct_diff": -41.2,
+        "status": "Giảm Mạnh (-41.2%)"
+      }
+    ],
+    "churn_zero": [
+      {
+        "stt": 1,
+        "makh": 4485434,
+        "tenkh": "Cửa Hàng Minh Anh",
+        "am": "Nguyễn Duy Long",
+        "bc": "20648000 - (NTH) Ninh Chử",
+        "vol_prev": 16,
+        "vol_curr": 0,
+        "diff": -16,
+        "pct_diff": -100.0,
+        "status": "🔴 Rời Bỏ (Về 0 đơn)"
+      },
+      {
+        "stt": 2,
+        "makh": 4119824,
+        "tenkh": "Nguyễn thị thu lành",
+        "am": "Lê Thanh Nhựt",
+        "bc": "21456000 - (BTH) Đức Linh",
+        "vol_prev": 15,
+        "vol_curr": 0,
+        "diff": -15,
+        "pct_diff": -100.0,
+        "status": "🔴 Rời Bỏ (Về 0 đơn)"
+      },
+      {
+        "stt": 3,
+        "makh": 4064750,
+        "tenkh": "Anh Trần",
+        "am": "Hồng Bích Nga",
+        "bc": "21688000 - (LDO) 1 Bảo Lộc",
+        "vol_prev": 9,
+        "vol_curr": 0,
+        "diff": -9,
+        "pct_diff": -100.0,
+        "status": "🔴 Rời Bỏ (Về 0 đơn)"
+      },
+      {
+        "stt": 4,
+        "makh": 4699334,
+        "tenkh": "giày Thái Lan",
+        "am": "Trầm Hữu Tiến",
+        "bc": "20942000 - (LDO) Di Linh",
+        "vol_prev": 7,
+        "vol_curr": 0,
+        "diff": -7,
+        "pct_diff": -100.0,
+        "status": "🔴 Rời Bỏ (Về 0 đơn)"
+      },
+      {
+        "stt": 5,
+        "makh": 445922,
+        "tenkh": "Lê kiều oanh",
+        "am": "Phan Đình Duy",
+        "bc": "20495000 - (KHO) Nha Trang",
+        "vol_prev": 5,
+        "vol_curr": 0,
+        "diff": -5,
+        "pct_diff": -100.0,
+        "status": "🔴 Rời Bỏ (Về 0 đơn)"
+      }
+    ],
     "total": {
       "vol_prev": 32739,
       "vol_curr": 30132,

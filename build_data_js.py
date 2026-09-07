@@ -591,9 +591,21 @@ for r in range(28, 33):
             'pct_diff': ws_kd.cell(r, 5).value or 0
         })
 
+churn_top10 = []
+churn_zero = []
+try:
+    with open('scratch/top10_churn.json', 'r', encoding='utf-8') as f_churn:
+        c_payload = json.load(f_churn)
+        churn_top10 = c_payload.get('top10_drop', [])
+        churn_zero = c_payload.get('top_zero', [])
+except Exception as e:
+    pass
+
 data['kinh_doanh'] = {
     'am': kd_am,
     'top_drop': top_drop_kd,
+    'churn_top10': churn_top10,
+    'churn_zero': churn_zero,
     'total': {
         'vol_prev': 32739,
         'vol_curr': 30132,
