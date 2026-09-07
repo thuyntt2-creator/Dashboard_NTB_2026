@@ -758,9 +758,12 @@
       const gtcCa1Diff = gtcCa1Trend.diff !== undefined ? gtcCa1Trend.diff : (latestWeek === 'W36' ? -0.0104 : 0.0181);
 
       // 4. Gán vận hành
-      const isW36 = latestWeek === 'W36';
-      const ganVal = isW36 ? 0.834 : 0.813;
-      const ganDiff = isW36 ? 0.009 : 0.021;
+      const ganOverview = D.gan?.overview || [];
+      const ganFullRow = ganOverview.find(r => r.indicator && r.indicator.includes('Full hàng – Tổng')) || {};
+      const ganTtsRow = ganOverview.find(r => r.indicator && r.indicator.includes('TTS – Tổng')) || {};
+      const ganVal = ganFullRow.w36 !== undefined ? ganFullRow.w36 : 0.8355;
+      const ganDiff = ganFullRow.diff !== undefined ? ganFullRow.diff : 0.0144;
+      const ganTtsVal = ganTtsRow.w36 !== undefined ? ganTtsRow.w36 : 0.8343;
 
       // 5. ODR
       const odrCard = cardMap['odr_full'] || {};
