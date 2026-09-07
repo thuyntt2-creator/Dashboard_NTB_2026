@@ -1,0 +1,240 @@
+
+=========================================
+SHEET: dataGTC gốc full hàng
+=========================================
+       Cấp Quản Lý                                    Chi tiết      Loại Hàng     Time  Volume   % Gán   % GTC  % Chuyển trả  Leadtime
+0   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026/21    1026  0.9464  0.7827        0.0127      6.61
+1   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026/23    1008  0.9792  0.7808        0.0089      6.38
+2   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026/22     969  0.9649  0.7946        0.0114      5.97
+3   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026/24    1202  0.8760  0.7038        0.0058      8.50
+4   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 2  2026/21     888  0.0890  0.0755        0.0011      3.34
+5   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 2  2026/23     927  0.1607  0.1370        0.0011      4.03
+6   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 2  2026/22     936  0.1592  0.1239        0.0000      2.71
+7   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 2  2026/24     985  0.1431  0.1137        0.0010      4.70
+8   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông       Hàng Tồn  2026/22    1455  0.9285  0.5966        0.0433     33.14
+9   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông       Hàng Tồn  2026/21    1618  0.9017  0.6100        0.0321     35.74
+10  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông       Hàng Tồn  2026/24    1959  0.8647  0.5799        0.0311     35.30
+11  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông       Hàng Tồn  2026/23    1326  0.9593  0.6652        0.0370     30.54
+12  NTB - Đắk Nông                         BC Đắk Mil-Đắk Nông  Hàng Mới Ca 1  2026/21    6875  0.9974  0.8233        0.0140     13.90
+13  NTB - Đắk Nông                         BC Đắk Mil-Đắk Nông  Hàng Mới Ca 1  2026/22    6998  0.9963  0.7985        0.0107     13.34
+14  NTB - Đắk Nông                         BC Đắk Mil-Đắk Nông  Hàng Mới Ca 1  2026/23    7144  0.9983  0.8042        0.0119     13.60
+
+=========================================
+SHEET: dataGTC gốc TTS
+=========================================
+       Cấp Quản Lý                                    Chi tiết      Loại Hàng     Time  Volume   % Gán   % GTC  % Chuyển trả  Leadtime
+0   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026/23     250  0.9680  0.8360        0.0000      6.01
+1   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026/22     246  0.9675  0.8211        0.0000      5.58
+2   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026/21     296  0.9595  0.8311        0.0000      6.50
+3   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 1  2026/24     395  0.9038  0.7519        0.0000      9.33
+4   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 2  2026/23     281  0.1139  0.0961        0.0000      4.11
+5   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 2  2026/24     273  0.1136  0.0916        0.0000      4.88
+6   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 2  2026/22     270  0.1815  0.1370        0.0000      2.68
+7   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  Hàng Mới Ca 2  2026/21     242  0.0785  0.0785        0.0000      3.47
+8   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông       Hàng Tồn  2026/23     372  0.9731  0.7070        0.0027     29.42
+9   NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông       Hàng Tồn  2026/24     539  0.8646  0.6178        0.0260     34.93
+10  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông       Hàng Tồn  2026/22     411  0.9367  0.6083        0.0389     32.84
+11  NTB - Đắk Nông  Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông       Hàng Tồn  2026/21     463  0.9071  0.5594        0.0302     36.64
+12  NTB - Đắk Nông                         BC Đắk Mil-Đắk Nông  Hàng Mới Ca 1  2026/23    1937  0.9995  0.8436        0.0000     13.16
+13  NTB - Đắk Nông                         BC Đắk Mil-Đắk Nông  Hàng Mới Ca 1  2026/24    1861  0.9962  0.8565        0.0000     11.99
+14  NTB - Đắk Nông                         BC Đắk Mil-Đắk Nông  Hàng Mới Ca 1  2026/22    1777  0.9949  0.8272        0.0000     13.33
+
+=========================================
+SHEET: dataODRfull hàng 
+=========================================
+           Quản lý                                                      Chi tiết     Time   GTC  %Ontime
+0   NTB - Đắk Nông      Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng  2026/24    15    0.933
+1   NTB - Đắk Nông      Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng  2026/23    19    0.947
+2   NTB - Đắk Nông      Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng  2026/22    40    1.000
+3   NTB - Đắk Nông  Điểm lấy hàng Nguyễn Đình Chiểu-Nghĩa Tân-Gia Nghĩa-Đăk Nông  2026/24    41    0.976
+4   NTB - Đắk Nông  Điểm lấy hàng Nguyễn Đình Chiểu-Nghĩa Tân-Gia Nghĩa-Đăk Nông  2026/22    57    0.895
+5   NTB - Đắk Nông  Điểm lấy hàng Nguyễn Đình Chiểu-Nghĩa Tân-Gia Nghĩa-Đăk Nông  2026/21    57    0.912
+6   NTB - Đắk Nông  Điểm lấy hàng Nguyễn Đình Chiểu-Nghĩa Tân-Gia Nghĩa-Đăk Nông  2026/23    75    0.920
+7   NTB - Đắk Nông      Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng  2026/21    89    0.876
+8   NTB - Đắk Nông            BC 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông  2026/22  1321    0.902
+9   NTB - Đắk Nông            BC 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông  2026/23  1426    0.900
+10  NTB - Đắk Nông            BC 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông  2026/21  1536    0.832
+11  NTB - Đắk Nông                               BC Quảng Khê-Đắk Glong-Đắk Nông  2026/21  1595    0.873
+12  NTB - Đắk Nông                               BC Quảng Khê-Đắk Glong-Đắk Nông  2026/24  1626    0.898
+13  NTB - Đắk Nông            BC 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông  2026/24  1646    0.914
+14  NTB - Đắk Nông                  BC Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông  2026/22  1662    0.877
+
+=========================================
+SHEET: dataODR TTS
+=========================================
+           Quản lý                                                  Chi tiết     Time  GTC  %Ontime
+0   NTB - Đắk Nông  Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng  2026/22    5    1.000
+1   NTB - Đắk Nông  Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng  2026/21   21    0.667
+2   NTB - Đắk Nông        BC 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông  2026/22  447    0.911
+3   NTB - Đắk Nông                Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  2026/22  489    0.955
+4   NTB - Đắk Nông        BC 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông  2026/23  490    0.929
+5   NTB - Đắk Nông                Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  2026/23  499    0.976
+6   NTB - Đắk Nông                           BC Nâm N'Jang-Đắk Song-Đắk Nông  2026/22  519    0.969
+7   NTB - Đắk Nông                Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông  2026/21  524    0.935
+8   NTB - Đắk Nông        BC 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông  2026/21  528    0.873
+9   NTB - Đắk Nông                           BC Nâm N'Jang-Đắk Song-Đắk Nông  2026/21  535    0.957
+10  NTB - Đắk Nông                           BC Quảng Khê-Đắk Glong-Đắk Nông  2026/21  544    0.912
+11  NTB - Đắk Nông                           BC Nâm N'Jang-Đắk Song-Đắk Nông  2026/23  552    0.967
+12  NTB - Đắk Nông                           BC Quảng Khê-Đắk Glong-Đắk Nông  2026/23  554    0.933
+13  NTB - Đắk Nông                           BC Quảng Khê-Đắk Glong-Đắk Nông  2026/24  556    0.901
+14  NTB - Đắk Nông                                BC Thôn 2-Tuy Đức-Đắk Nông  2026/21  563    0.913
+
+=========================================
+SHEET: dataLTC full hàng
+=========================================
+         Cấp quản lý                                       Chi tiết     Time  Volume    %Gán    %LTC  %Đóng kiện     %LC  Leadtime
+0        Grand Total                                                 2026/21  114067  0.9663  0.8968      0.8317  0.8623      9.59
+1        Grand Total                                                 2026/24  116879  0.9764  0.9119      0.8398  0.8768      9.18
+2        Grand Total                                                 2026/22  110864  0.9592  0.8982      0.8442  0.8650      8.93
+3        Grand Total                                                 2026/23  115460  0.9699  0.9145      0.8470  0.8817      8.75
+4   NTB - Bình Thuận         BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận  2026/21    2653  0.9985  0.8285      0.8236  0.8202     10.12
+5   NTB - Bình Thuận         BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận  2026/24    2616  0.9992  0.9472      0.9434  0.9423      6.99
+6   NTB - Bình Thuận         BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận  2026/22    2694  0.9989  0.9024      0.8883  0.8886      8.24
+7   NTB - Bình Thuận         BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận  2026/23    2472  0.9988  0.9426      0.9377  0.9345      6.34
+8   NTB - Bình Thuận   BC 16 Huỳnh Thúc Kháng-Phan Thiết-Bình Thuận  2026/21     393  0.9949  0.8957      0.8448  0.8219     13.28
+9   NTB - Bình Thuận   BC 16 Huỳnh Thúc Kháng-Phan Thiết-Bình Thuận  2026/24     585  0.9949  0.9624      0.9487  0.9419      7.90
+10  NTB - Bình Thuận   BC 16 Huỳnh Thúc Kháng-Phan Thiết-Bình Thuận  2026/22     353  0.9943  0.9575      0.9490  0.9292      8.98
+11  NTB - Bình Thuận   BC 16 Huỳnh Thúc Kháng-Phan Thiết-Bình Thuận  2026/23     418  0.9880  0.9426      0.9402  0.9282      9.66
+12  NTB - Bình Thuận  BC 21 Trần Hưng Đạo-Xã Phan Rí Cửa-Bình Thuận  2026/21     179  1.0000  0.9385      0.8324  0.9385      6.32
+13  NTB - Bình Thuận  BC 21 Trần Hưng Đạo-Xã Phan Rí Cửa-Bình Thuận  2026/24     249  1.0000  0.9237      0.7912  0.8956      7.77
+14  NTB - Bình Thuận  BC 21 Trần Hưng Đạo-Xã Phan Rí Cửa-Bình Thuận  2026/22     183  1.0000  0.9180      0.8197  0.8962      6.63
+
+=========================================
+SHEET: dataLTC TTS
+=========================================
+         Cấp quản lý                                       Chi tiết     Time  Volume    %Gán    %LTC  %Đóng kiện     %LC  Leadtime
+0        Grand Total                                                 2026/23   27195  0.9992  0.9777      0.9435  0.9556      8.36
+1        Grand Total                                                 2026/24   27176  0.9993  0.9689      0.9232  0.9492      8.63
+2        Grand Total                                                 2026/21   22240  0.9989  0.9711      0.9455  0.9535      8.67
+3        Grand Total                                                 2026/22   24578  0.9990  0.9578      0.9290  0.9340      8.83
+4   NTB - Bình Thuận         BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận  2026/23      57  1.0000  0.9649      0.9649  0.9474      9.36
+5   NTB - Bình Thuận         BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận  2026/24      56  1.0000  0.9643      0.9464  0.9643     11.17
+6   NTB - Bình Thuận         BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận  2026/21      66  1.0000  0.8939      0.8788  0.8788     10.95
+7   NTB - Bình Thuận         BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận  2026/22      56  1.0000  0.8036      0.7857  0.7321     16.05
+8   NTB - Bình Thuận   BC 16 Huỳnh Thúc Kháng-Phan Thiết-Bình Thuận  2026/23      38  1.0000  1.0000      1.0000  1.0000     15.37
+9   NTB - Bình Thuận   BC 16 Huỳnh Thúc Kháng-Phan Thiết-Bình Thuận  2026/22      11  1.0000  1.0000      1.0000  1.0000     12.36
+10  NTB - Bình Thuận   BC 16 Huỳnh Thúc Kháng-Phan Thiết-Bình Thuận  2026/21      23  1.0000  0.9130      0.8696  0.8696     21.30
+11  NTB - Bình Thuận   BC 16 Huỳnh Thúc Kháng-Phan Thiết-Bình Thuận  2026/24     158  1.0000  0.9873      0.9873  0.9873      4.63
+12  NTB - Bình Thuận  BC 21 Trần Hưng Đạo-Xã Phan Rí Cửa-Bình Thuận  2026/22       6  1.0000  0.8333      0.8333  0.8333      4.60
+13  NTB - Bình Thuận  BC 21 Trần Hưng Đạo-Xã Phan Rí Cửa-Bình Thuận  2026/21       3  1.0000  1.0000      1.0000  1.0000      2.67
+14  NTB - Bình Thuận  BC 21 Trần Hưng Đạo-Xã Phan Rí Cửa-Bình Thuận  2026/24       8  1.0000  1.0000      1.0000  1.0000     14.38
+
+=========================================
+SHEET: data rớt LC
+=========================================
+     Quản lý                                           Chi tiết  Loại ngày  Vol cần LC %_rot_lc     Tuần             AM  Vol rớt LC
+0   Đắk Nông  Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông 2026-06-14         442     0.0%  Tuần 24  Trần Công Hậu       0.000
+1   Đắk Nông  Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông 2026-05-21         431     0.0%  Tuần 21  Trần Công Hậu       0.000
+2   Đắk Nông  Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông 2026-06-05         416     0.2%  Tuần 23  Trần Công Hậu       0.832
+3   Đắk Nông  Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông 2026-06-04         377     0.3%  Tuần 23  Trần Công Hậu       1.131
+4   Đắk Nông  Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông 2026-06-03         353     0.0%  Tuần 23  Trần Công Hậu       0.000
+5   Đắk Nông  Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông 2026-06-02         322     0.0%  Tuần 23  Trần Công Hậu       0.000
+6   Đắk Nông  Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông 2026-05-29         287    79.1%  Tuần 22  Trần Công Hậu     227.017
+7   Đắk Nông  Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông 2026-05-27         282     0.0%  Tuần 22  Trần Công Hậu       0.000
+8   Đắk Nông  Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông 2026-05-30         277     0.0%  Tuần 22  Trần Công Hậu       0.000
+9   Đắk Nông  Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông 2026-06-09         273     0.0%  Tuần 24  Trần Công Hậu       0.000
+10  Đắk Nông  Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông 2026-06-01         256     0.0%  Tuần 23  Trần Công Hậu       0.000
+11  Đắk Nông  Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông 2026-05-28         226     0.0%  Tuần 22  Trần Công Hậu       0.000
+12  Đắk Nông  Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông 2026-05-20         225     0.0%  Tuần 21  Trần Công Hậu       0.000
+13  Đắk Nông  Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông 2026-05-22         221     0.0%  Tuần 21  Trần Công Hậu       0.000
+14  Đắk Nông  Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông 2026-05-19         214     0.0%  Tuần 21  Trần Công Hậu       0.000
+
+=========================================
+SHEET: sản lượng
+=========================================
+                Unnamed: 0 Sản Lương ( Volume Tổng)           Unnamed: 2 Unnamed: 3 Unnamed: 4       Unnamed: 5       Unnamed: 6  Unnamed: 7              Unnamed: 8 Sản Lương ( Volume TTS ) Unnamed: 10 Unnamed: 11 Unnamed: 12       Unnamed: 13  Unnamed: 14
+0                       AM                  2026/21              2026/22    2026/23    2026/24  So với W 232026  So với W 232026         NaN                      AM                  2026/21     2026/22     2026/23     2026/24  So với W 23/2026          NaN
+1          Hồng Bích Nga                    18566                17361      28570      18290           -10280        -0.359818         NaN         Hồng Bích Nga                     3473        3304        3458        3934               476     0.137652
+2           Huỳnh Tấn Hiền                    30.02                29225      31085      34913             3828         0.123146         NaN          Huỳnh Tấn Hiền                     6456        6213        6860        8711              1851     0.269825
+3        Huỳnh Thị Kim Chi                    13993                12937      12881      14314             1433         0.111249         NaN       Huỳnh Thị Kim Chi                     2539        2551        2614        3157               543     0.207728
+4              Lê Minh Đại                    23424                23168      21857      24576             2719           0.1244         NaN             Lê Minh Đại                     3887        4105        4247        4865               618     0.145514
+5            Lê Thanh Nhựt                    12747                12752      12957      15433             2476         0.191094         NaN           Lê Thanh Nhựt                     2930        2864        2906        4290              1384     0.476256
+6            Lê Văn Trường                    12923                12.79      12711      14288             1577         0.124066         NaN           Lê Văn Trường                     2017        2057        2181        2527               346     0.158643
+7          Nguyễn Duy Long                    42259                41158      44482      47486             3004         0.067533         NaN         Nguyễn Duy Long                     9571        9168       10197       11495              1298     0.127292
+8         Nguyễn Hoàng Phi                    14887                14365      15576      16952             1376         0.088341         NaN        Nguyễn Hoàng Phi                     3675        3470        3813        4350               537     0.140834
+9      Nguyễn Lê Nguyên Vũ                     4853                 4948       5304       5569              265         0.049962         NaN     Nguyễn Lê Nguyên Vũ                      896         917         955        1070               115     0.120419
+10       Nguyễn Ngọc Khánh                    39364                37867      41423      45962             4539         0.109577         NaN       Nguyễn Ngọc Khánh                     7992        7369        8501       11139              2638     0.310316
+11      Nguyễn Thanh Long                     4.26                 3389       3665       5322             1657         0.452115         NaN      Nguyễn Thanh Long                     1278         995        1027        1198               171     0.166504
+12  Nguyễn Tống Hùng Phong                     1401  2026-04-01 00:00:00       1304       1497              193         0.148006         NaN  Nguyễn Tống Hùng Phong                      427         387         400         460                60     0.150000
+13      Phạm Bá Thành Công                    34863                32104      35603      38131             2528         0.071005         NaN      Phạm Bá Thành Công                     7677        6870        8004        8589               585     0.073088
+14           Phan Đình Duy                    12.26                11214      12095      11437             -658        -0.054403         NaN           Phan Đình Duy                     2159        2063        2268        2520               252     0.111111
+
+=========================================
+SHEET: gtcnew
+=========================================
+            Unnamed: 0 GTC Tổng Unnamed: 2 Unnamed: 3 Unnamed: 4 Unnamed: 5 Unnamed: 6 Unnamed: 7 Unnamed: 8       Unnamed: 9  Unnamed: 10  Unnamed: 11         Unnamed: 12 Unnamed: 13 GTC - TTS Unnamed: 15 Unnamed: 16 Unnamed: 17 Unnamed: 18 Unnamed: 19 Unnamed: 20      Unnamed: 21
+0                  NaN  2026/21        NaN    2026/22        NaN    2026/23        NaN    2026/24        NaN              NaN          NaN          NaN                 NaN     2026/21       NaN     2026/22         NaN     2026/23         NaN     2026/24         NaN              NaN
+1                   AM     %Gán       %GTC       %Gán       %GTC       %Gán       %GTC       %Gán       %GTC  So với W23/2026          NaN          NaN                  AM        %Gán      %GTC        %Gán        %GTC        %Gán        %GTC        %Gán        %GTC  So với W23/2026
+2        Trầm Hữu Tiến   0.6615     0.3957     0.6473     0.3778     0.6961     0.4364     0.7366      0.459              NaN          NaN          NaN       Trầm Hữu Tiến      0.6646    0.4002      0.6457      0.3721      0.6984       0.424      0.7275      0.4547              NaN
+3    Huỳnh Thị Kim Chi     0.71     0.4699      0.642       0.41     0.6331     0.4122     0.7119     0.4551              NaN          NaN          NaN  Thái Thị Thanh Thư      0.5049    0.3324      0.8772      0.4354      0.9104      0.4783      0.9216      0.4574              NaN
+4   Thái Thị Thanh Thư   0.6014     0.3777     0.8874     0.4522     0.8924      0.487     0.9112     0.4676              NaN          NaN          NaN   Huỳnh Thị Kim Chi      0.7105    0.4625      0.6233       0.408      0.5928      0.3832      0.7001      0.4601              NaN
+5          Lê Minh Đại   0.6579     0.4365     0.7066     0.4339     0.7177     0.4803     0.7423     0.5011              NaN          NaN          NaN         Lê Minh Đại      0.6264    0.4035      0.7011      0.4141       0.709      0.4669      0.7413      0.4846              NaN
+6        Trần Công Hậu   0.9352     0.4992     0.8899     0.4528     0.8561     0.4956     0.9408     0.5029              NaN          NaN          NaN      Trần Văn Phước      0.8248     0.605      0.7728      0.5437       0.695       0.505      0.7564       0.529              NaN
+7       Trần Văn Phước   0.8091     0.5564     0.7733     0.5082     0.7055      0.481      0.746       0.49              NaN          NaN          NaN       Trần Công Hậu      0.9353    0.5741      0.8896      0.5432      0.8633      0.5778      0.9471      0.5434              NaN
+8   Nguyễn Thanh Long   0.6975     0.4233     0.8809     0.5351     0.9666     0.6446     0.8555     0.5806              NaN          NaN          NaN  Nguyễn Thanh Long      0.7354    0.4908      0.9074      0.6033      0.9699      0.6913      0.8721      0.6112              NaN
+9      Hồng Bích Nga   0.8616     0.6299     0.8524     0.6011     0.8049     0.5836     0.8489     0.6481              NaN          NaN          NaN     Hồng Bích Nga      0.8574    0.6333      0.8407      0.5968         0.8      0.5932      0.8369      0.6413              NaN
+10      Trần Thị Nhung   0.8909     0.6162     0.8915     0.6062     0.8998     0.6262     0.8933     0.6267              NaN          NaN          NaN       Lê Văn Trường      0.8383    0.6076      0.8942      0.6451      0.9002      0.6522      0.8858      0.6173              NaN
+11    Nguyễn Hoàng Phi    0.873     0.6215     0.8951     0.6064     0.9048     0.6449     0.8845     0.6462              NaN          NaN          NaN      Trần Thị Nhung      0.8908    0.6274      0.8901      0.6167      0.8995       0.647      0.8872       0.638              NaN
+12       Lê Thanh Nhựt    0.887     0.6673     0.8235     0.5977     0.8478      0.633     0.8796     0.6621              NaN          NaN          NaN    Nguyễn Hoàng Phi      0.8792    0.6372      0.9034      0.6307      0.9141      0.6738      0.8928      0.6833              NaN
+13       Lê Văn Trường   0.8335     0.6064     0.9022      0.648     0.9071     0.6681       0.89     0.6424              NaN          NaN          NaN       Lê Thanh Nhựt       0.924     0.696      0.8627      0.6262      0.8633      0.6468      0.8766       0.665              NaN
+14  Phạm Bá Thành Công   0.8913     0.6201       0.95     0.6592     0.9646     0.6972      0.964     0.6898              NaN          NaN          NaN      Huỳnh Tấn Hiền      0.8709    0.6931      0.8391      0.6498      0.8472      0.6753      0.8732      0.7032              NaN
+
+=========================================
+SHEET: ca2
+=========================================
+                Unnamed: 0 GTC Tổng (Ca 2) Unnamed: 2 Unnamed: 3 Unnamed: 4 Unnamed: 5 Unnamed: 6 Unnamed: 7 Unnamed: 8       Unnamed: 9          Unnamed: 10 GTC TTS (Ca 2) Unnamed: 12 Unnamed: 13 Unnamed: 14 Unnamed: 15 Unnamed: 16 Unnamed: 17 Unnamed: 18      Unnamed: 19
+0                      NaN         2026/21        NaN    2026/22        NaN    2026/23        NaN    2026/24        NaN              NaN                  NaN        2026/21         NaN     2026/22         NaN     2026/23         NaN     2026/24         NaN              NaN
+1                       AM            %Gán       %GTC       %Gán       %GTC       %Gán       %GTC       %Gán       %GTC  So với W23/2026                   AM           %Gán        %GTC        %Gán        %GTC        %Gán        %GTC        %Gán        %GTC  So với W23/2026
+2            Hồng Bích Nga          71.20%     59.76%     63.51%     54.67%     68.26%     58.57%     62.67%     54.64%              NaN      Hồng Bích Nga         0.5982       0.517      0.6002       0.519      0.6082       0.544      0.6465      0.5667              NaN
+3           Huỳnh Tấn Hiền          61.42%     50.61%     58.53%     49.07%     55.33%     44.71%     60.81%     49.70%              NaN       Huỳnh Tấn Hiền         0.5991      0.5036      0.5673      0.4562      0.6056      0.5004      0.6046      0.4873              NaN
+4        Huỳnh Thị Kim Chi          56.21%     45.75%     54.60%     44.99%     51.26%     42.91%     43.69%     37.42%              NaN    Huỳnh Thị Kim Chi         0.4784      0.3988      0.4936       0.442      0.3338      0.2891      0.4251      0.3663              NaN
+5              Lê Minh Đại          21.81%     19.35%     24.96%     21.18%     34.27%     28.97%     38.90%     33.57%              NaN          Lê Minh Đại         0.2254      0.1913      0.2753      0.2292      0.2913      0.2455      0.2402      0.2041              NaN
+6            Lê Thanh Nhựt          65.93%     50.55%     67.46%     53.55%     59.78%     46.14%     59.09%     46.69%              NaN        Lê Thanh Nhựt         0.7737      0.5727      0.6996      0.5243       0.651      0.4978      0.5804      0.4712              NaN
+7            Lê Văn Trường          36.27%     26.14%     30.46%     22.97%     17.48%     13.87%     15.15%     13.29%              NaN        Lê Văn Trường          0.201      0.1667      0.0991      0.0702      0.0811      0.0676      0.4456      0.3095              NaN
+8        Nguyễn Thanh Long          27.47%     18.32%        NaN        NaN     26.89%     21.01%     22.73%     18.18%              NaN      Nguyễn Duy Long         0.6654      0.5609      0.6498      0.5443       0.673      0.5643      0.6536      0.5476              NaN
+9      Nguyễn Lê Nguyên Vũ          53.17%     47.71%     60.80%     53.49%     57.82%     49.14%     61.93%     52.96%              NaN     Nguyễn Hoàng Phi         0.7935      0.6506      0.6371      0.5162      0.7469       0.639         0.8      0.6845              NaN
+10         Nguyễn Duy Long          70.31%     57.08%     68.76%     57.00%     65.90%     53.51%     70.38%     58.43%              NaN  Nguyễn Lê Nguyên Vũ         0.6216      0.5616      0.5499      0.4786      0.6698      0.5825      0.6674      0.5832              NaN
+11        Nguyễn Hoàng Phi          71.33%     57.56%     76.90%     63.14%     69.94%     57.40%     68.39%     55.83%              NaN    Nguyễn Ngọc Khánh         0.7378      0.6599      0.7264      0.6348      0.7198      0.6253      0.7087      0.6355              NaN
+12       Nguyễn Ngọc Khánh          74.36%     64.32%     77.94%     67.74%     74.63%     63.62%     75.09%     64.68%              NaN   Nguyễn Thanh Long              0           0      0.3571      0.3571         0.1         0.1         NaN         NaN              NaN
+13  Nguyễn Tống Hùng Phong             NaN        NaN        NaN        NaN        NaN        NaN    100.00%    100.00%              NaN   Phạm Bá Thành Công         0.8147      0.6286      0.8645      0.6658      0.9079      0.6937      0.9158      0.7041              NaN
+14      Phạm Bá Thành Công          92.63%     69.38%     74.13%     56.16%     84.26%     64.51%     90.01%     69.10%              NaN        Phan Đình Duy         0.9657      0.7577      0.9919      0.7625       0.962      0.7253      0.7449      0.5402              NaN
+
+=========================================
+SHEET: gtc + tồn
+=========================================
+                Unnamed: 0 GTC Tổng (Ca 1 + Tồn) Unnamed: 2 Unnamed: 3 Unnamed: 4 Unnamed: 5 Unnamed: 6 Unnamed: 7 Unnamed: 8       Unnamed: 9             Unnamed: 10 GTC TTS (Ca 1 + Tồn) Unnamed: 12 Unnamed: 13 Unnamed: 14 Unnamed: 15 Unnamed: 16 Unnamed: 17 Unnamed: 18      Unnamed: 19
+0                      NaN               2026/21        NaN    2026/22        NaN    2026/23        NaN    2026/24        NaN  So với W23/2026                     NaN              2026/21         NaN     2026/22         NaN     2026/23         NaN     2026/24         NaN  So với W23/2026
+1                       AM                  %Gán       %GTC       %Gán       %GTC       %Gán       %GTC       %Gán       %GTC              NaN                      AM                 %Gán        %GTC        %Gán        %GTC        %Gán        %GTC        %Gán        %GTC              NaN
+2          Hồng Bích Nga                0.9099     0.6479     0.9067     0.6103     0.8621     0.5928     0.8921     0.6555              NaN         Hồng Bích Nga               0.9117      0.6578      0.9004      0.6161      0.8583      0.6082      0.8955      0.6643              NaN
+3           Huỳnh Tấn Hiền                0.9894     0.7641     0.9893     0.7417     0.9868     0.7567     0.9894      0.778              NaN          Huỳnh Tấn Hiền               0.9926      0.7781      0.9932      0.7595      0.9921      0.7803       0.992      0.7988              NaN
+4        Huỳnh Thị Kim Chi                 0.746     0.4745     0.6651     0.4055     0.6636     0.4181     0.7522     0.4636              NaN       Huỳnh Thị Kim Chi               0.7582      0.4755      0.6444      0.4025      0.6285      0.3961      0.7446      0.4754              NaN
+5              Lê Minh Đại                0.7708     0.4969     0.8184     0.4774     0.8216     0.5264     0.8775     0.5753              NaN             Lê Minh Đại               0.7372      0.4621       0.813      0.4626      0.8193      0.5254      0.8774      0.5608              NaN
+6            Lê Thanh Nhựt                0.9901     0.7349     0.9524     0.6759     0.9731     0.7092     0.9898     0.7349              NaN           Lê Thanh Nhựt               0.9989      0.7574      0.9571      0.6852       0.981      0.7294      0.9935      0.7415              NaN
+7            Lê Văn Trường                0.9145     0.6631     0.9554     0.6855     0.9591     0.7048     0.9646     0.6967              NaN           Lê Văn Trường               0.9255      0.6679       0.964      0.6956      0.9613      0.6958      0.9671      0.6741              NaN
+8          Nguyễn Duy Long                0.9804     0.7268     0.9826     0.7073     0.9807     0.7179     0.9841     0.7301              NaN         Nguyễn Duy Long               0.9752      0.7114      0.9779       0.695      0.9807      0.7099      0.9816      0.7265              NaN
+9         Nguyễn Hoàng Phi                0.8878      0.618     0.9345     0.6194     0.9312     0.6505     0.8996     0.6452              NaN        Nguyễn Hoàng Phi                0.892      0.6352      0.9389       0.646       0.939       0.679      0.9083       0.683              NaN
+10     Nguyễn Lê Nguyên Vũ                0.9745     0.7495     0.9632      0.698     0.9765     0.7203     0.9826     0.7567              NaN     Nguyễn Lê Nguyên Vũ               0.9819      0.7735      0.9717      0.7303      0.9936      0.7309           1      0.7621              NaN
+11       Nguyễn Ngọc Khánh                0.9886     0.7456     0.9906     0.7437     0.9887     0.7488     0.9887     0.7623              NaN       Nguyễn Ngọc Khánh                0.985      0.7492      0.9873      0.7569      0.9874      0.7456      0.9885       0.771              NaN
+12      Nguyễn Thanh Long                0.6991     0.4242       0.89     0.5397     0.9726     0.6484     0.8555     0.5805              NaN      Nguyễn Thanh Long               0.7366      0.4916      0.9123      0.6055      0.9759      0.6953      0.8721      0.6112              NaN
+13  Nguyễn Tống Hùng Phong                0.9924     0.7828     0.9882     0.7862     0.9956     0.7781     0.9955      0.816              NaN  Nguyễn Tống Hùng Phong               0.9871      0.7679      0.9849      0.8017           1      0.7943      0.9981      0.8352              NaN
+14      Phạm Bá Thành Công                0.9305     0.6341     0.9887     0.6633     0.9892     0.6989     0.9889       0.69              NaN      Phạm Bá Thành Công                0.931       0.649      0.9922      0.6659      0.9936      0.7256      0.9923      0.7021              NaN
+
+=========================================
+SHEET: cocau
+=========================================
+    Mã bưu cục                                                       Bưu cục                                                            BC        Tỉnh                 Am     ID - Họ Tên Am
+0     20669000                       Bưu Cục Đường Trần Lê-Cát Tiên-Lâm Đồng                           BC Đường Trần Lê-Cát Tiên-Lâm Đồng     Lâm Đồng     Huỳnh Tấn Hiền     Huỳnh Tấn Hiền
+1     20663000                 Bưu Cục 44B Nguyễn Đình Chiểu-Đạ Teh-Lâm Đồng                     BC 44B Nguyễn Đình Chiểu-Đạ Teh-Lâm Đồng     Lâm Đồng     Huỳnh Tấn Hiền     Huỳnh Tấn Hiền
+2     22222000             Bưu Cục 337 Hùng Vương-Lộc Thắng-Bảo Lâm-Lâm Đồng                 BC 337 Hùng Vương-Lộc Thắng-Bảo Lâm-Lâm Đồng     Lâm Đồng    Hồng Bích Nga    Hồng Bích Nga
+3         1909                                    Kho Trung Chuyển Khánh Hòa                                    Kho Trung Chuyển Khánh Hòa   Khánh Hòa    Nguyễn Tiến Lực    Nguyễn Tiến Lực
+4     20336000                            Kho Chuyển Tiếp Đức Trọng-Lâm Đồng                            Kho Chuyển Tiếp Đức Trọng-Lâm Đồng    Lâm Đồng         Võ Tấn Lợi         Võ Tấn Lợi
+5     20797000                                      Kho Chuyển Tiếp Đắk Nông                                      Kho Chuyển Tiếp Đắk Nông    Đắk Nông      Trần Công Hậu      Trần Công Hậu
+6     20745000                                    Kho Chuyển Tiếp Bình Thuận                                    Kho Chuyển Tiếp Bình Thuận  Bình Thuận  Nguyễn Ngọc Khánh  Nguyễn Ngọc Khánh
+7     22915000                              Kho Chuyển Tiếp Bảo Lộc-Lâm Đồng                              Kho Chuyển Tiếp Bảo Lộc-Lâm Đồng    Lâm Đồng    Nguyễn Tiến Lực    Nguyễn Tiến Lực
+8     20269003                    Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông                    Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông    Đắk Nông     Trần Văn Phước     Trần Văn Phước
+9     22048001      Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng      Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng    Đắk Nông      Trần Công Hậu      Trần Công Hậu
+10    22263000              Điểm Lấy Hàng Shop Thuốc Nam-Ninh Hải-Ninh Thuận              Điểm Lấy Hàng Shop Thuốc Nam-Ninh Hải-Ninh Thuận  Ninh Thuận    Nguyễn Duy Long    Nguyễn Duy Long
+11    22329000                         Điểm Lấy Hàng Shop Đại Lý Bang Phương                         Điểm Lấy Hàng Shop Đại Lý Bang Phương  Bình Thuận     Huỳnh Tấn Hiền     Huỳnh Tấn Hiền
+12    22356000                  Điểm lấy hàng Shop 4872154-Gốm Chăm Bầu Trúc                  Điểm lấy hàng Shop 4872154-Gốm Chăm Bầu Trúc  Ninh Thuận    Nguyễn Duy Long    Nguyễn Duy Long
+13    22357001                  Điểm Lấy Hàng Quốc Lộ 1A-Xã Cà Ná-Ninh Thuận                  Điểm Lấy Hàng Quốc Lộ 1A-Xã Cà Ná-Ninh Thuận  Ninh Thuận    Nguyễn Duy Long    Nguyễn Duy Long
+14    21659000  Điểm lấy hàng Nguyễn Đình Chiểu-Nghĩa Tân-Gia Nghĩa-Đăk Nông  Điểm lấy hàng Nguyễn Đình Chiểu-Nghĩa Tân-Gia Nghĩa-Đăk Nông    Đắk Nông     Trần Thị Nhung     Trần Thị Nhung

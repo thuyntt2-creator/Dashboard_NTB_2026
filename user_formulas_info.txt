@@ -1,0 +1,283 @@
+
+=========================================
+SHEET: dataGTC gốc full hàng
+=========================================
+Row 1: Col 1: Cấp Quản Lý | Col 2: Chi tiết | Col 3: Loại Hàng | Col 4: Time | Col 5: Volume | Col 6: % Gán | Col 7: % GTC | Col 8: % Chuyển trả | Col 9: Leadtime
+Row 2: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Mới Ca 1 | Col 4: 2026/21 | Col 5: 1026.0 | Col 6: 0.9464 | Col 7: 0.7827 | Col 8: 0.0127 | Col 9: 6.61
+Row 3: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Mới Ca 1 | Col 4: 2026/23 | Col 5: 1008.0 | Col 6: 0.9792 | Col 7: 0.7808 | Col 8: 0.0089 | Col 9: 6.38
+Row 4: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Mới Ca 1 | Col 4: 2026/22 | Col 5: 969.0 | Col 6: 0.9649 | Col 7: 0.7946 | Col 8: 0.0114 | Col 9: 5.97
+Row 5: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Mới Ca 1 | Col 4: 2026/24 | Col 5: 1202.0 | Col 6: 0.876 | Col 7: 0.7038 | Col 8: 0.0058 | Col 9: 8.5
+Row 6: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Mới Ca 2 | Col 4: 2026/21 | Col 5: 888.0 | Col 6: 0.089 | Col 7: 0.0755 | Col 8: 0.0011 | Col 9: 3.34
+Row 7: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Mới Ca 2 | Col 4: 2026/23 | Col 5: 927.0 | Col 6: 0.1607 | Col 7: 0.137 | Col 8: 0.0011 | Col 9: 4.03
+Row 8: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Mới Ca 2 | Col 4: 2026/22 | Col 5: 936.0 | Col 6: 0.1592 | Col 7: 0.1239 | Col 8: 0.0 | Col 9: 2.71
+Row 9: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Mới Ca 2 | Col 4: 2026/24 | Col 5: 985.0 | Col 6: 0.1431 | Col 7: 0.1137 | Col 8: 0.001 | Col 9: 4.7
+Row 10: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Tồn | Col 4: 2026/22 | Col 5: 1455.0 | Col 6: 0.9285 | Col 7: 0.5966 | Col 8: 0.0433 | Col 9: 33.14
+Row 11: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Tồn | Col 4: 2026/21 | Col 5: 1618.0 | Col 6: 0.9017 | Col 7: 0.61 | Col 8: 0.0321 | Col 9: 35.74
+Row 12: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Tồn | Col 4: 2026/24 | Col 5: 1959.0 | Col 6: 0.8647 | Col 7: 0.5799 | Col 8: 0.0311 | Col 9: 35.3
+Row 13: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Tồn | Col 4: 2026/23 | Col 5: 1326.0 | Col 6: 0.9593 | Col 7: 0.6652 | Col 8: 0.037 | Col 9: 30.54
+Row 14: Col 1: NTB - Đắk Nông | Col 2: BC Đắk Mil-Đắk Nông | Col 3: Hàng Mới Ca 1 | Col 4: 2026/21 | Col 5: 6875.0 | Col 6: 0.9974 | Col 7: 0.8233 | Col 8: 0.014 | Col 9: 13.9
+
+=========================================
+SHEET: dataGTC gốc TTS
+=========================================
+Row 1: Col 1: Cấp Quản Lý | Col 2: Chi tiết | Col 3: Loại Hàng | Col 4: Time | Col 5: Volume | Col 6: % Gán | Col 7: % GTC | Col 8: % Chuyển trả | Col 9: Leadtime
+Row 2: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Mới Ca 1 | Col 4: 2026/23 | Col 5: 250.0 | Col 6: 0.968 | Col 7: 0.836 | Col 8: 0.0 | Col 9: 6.01
+Row 3: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Mới Ca 1 | Col 4: 2026/22 | Col 5: 246.0 | Col 6: 0.9675 | Col 7: 0.8211 | Col 8: 0.0 | Col 9: 5.58
+Row 4: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Mới Ca 1 | Col 4: 2026/21 | Col 5: 296.0 | Col 6: 0.9595 | Col 7: 0.8311 | Col 8: 0.0 | Col 9: 6.5
+Row 5: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Mới Ca 1 | Col 4: 2026/24 | Col 5: 395.0 | Col 6: 0.9038 | Col 7: 0.7519 | Col 8: 0.0 | Col 9: 9.33
+Row 6: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Mới Ca 2 | Col 4: 2026/23 | Col 5: 281.0 | Col 6: 0.1139 | Col 7: 0.0961 | Col 8: 0.0 | Col 9: 4.11
+Row 7: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Mới Ca 2 | Col 4: 2026/24 | Col 5: 273.0 | Col 6: 0.1136 | Col 7: 0.0916 | Col 8: 0.0 | Col 9: 4.88
+Row 8: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Mới Ca 2 | Col 4: 2026/22 | Col 5: 270.0 | Col 6: 0.1815 | Col 7: 0.137 | Col 8: 0.0 | Col 9: 2.68
+Row 9: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Mới Ca 2 | Col 4: 2026/21 | Col 5: 242.0 | Col 6: 0.0785 | Col 7: 0.0785 | Col 8: 0.0 | Col 9: 3.47
+Row 10: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Tồn | Col 4: 2026/23 | Col 5: 372.0 | Col 6: 0.9731 | Col 7: 0.707 | Col 8: 0.0027 | Col 9: 29.42
+Row 11: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Tồn | Col 4: 2026/24 | Col 5: 539.0 | Col 6: 0.8646 | Col 7: 0.6178 | Col 8: 0.026 | Col 9: 34.93
+Row 12: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Tồn | Col 4: 2026/22 | Col 5: 411.0 | Col 6: 0.9367 | Col 7: 0.6083 | Col 8: 0.0389 | Col 9: 32.84
+Row 13: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Hàng Tồn | Col 4: 2026/21 | Col 5: 463.0 | Col 6: 0.9071 | Col 7: 0.5594 | Col 8: 0.0302 | Col 9: 36.64
+Row 14: Col 1: NTB - Đắk Nông | Col 2: BC Đắk Mil-Đắk Nông | Col 3: Hàng Mới Ca 1 | Col 4: 2026/23 | Col 5: 1937.0 | Col 6: 0.9995 | Col 7: 0.8436 | Col 8: 0.0 | Col 9: 13.16
+
+=========================================
+SHEET: dataODRfull hàng 
+=========================================
+Row 1: Col 1: Quản lý | Col 2: Chi tiết | Col 3: Time | Col 4: GTC | Col 5: %Ontime
+Row 2: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng | Col 3: 2026/24 | Col 4: 15.0 | Col 5: 0.933
+Row 3: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng | Col 3: 2026/23 | Col 4: 19.0 | Col 5: 0.947
+Row 4: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng | Col 3: 2026/22 | Col 4: 40.0 | Col 5: 1.0
+Row 5: Col 1: NTB - Đắk Nông | Col 2: Điểm lấy hàng Nguyễn Đình Chiểu-Nghĩa Tân-Gia Nghĩa-Đăk Nông | Col 3: 2026/24 | Col 4: 41.0 | Col 5: 0.976
+Row 6: Col 1: NTB - Đắk Nông | Col 2: Điểm lấy hàng Nguyễn Đình Chiểu-Nghĩa Tân-Gia Nghĩa-Đăk Nông | Col 3: 2026/22 | Col 4: 57.0 | Col 5: 0.895
+Row 7: Col 1: NTB - Đắk Nông | Col 2: Điểm lấy hàng Nguyễn Đình Chiểu-Nghĩa Tân-Gia Nghĩa-Đăk Nông | Col 3: 2026/21 | Col 4: 57.0 | Col 5: 0.912
+Row 8: Col 1: NTB - Đắk Nông | Col 2: Điểm lấy hàng Nguyễn Đình Chiểu-Nghĩa Tân-Gia Nghĩa-Đăk Nông | Col 3: 2026/23 | Col 4: 75.0 | Col 5: 0.92
+Row 9: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng | Col 3: 2026/21 | Col 4: 89.0 | Col 5: 0.876
+Row 10: Col 1: NTB - Đắk Nông | Col 2: BC 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông | Col 3: 2026/22 | Col 4: 1321.0 | Col 5: 0.902
+Row 11: Col 1: NTB - Đắk Nông | Col 2: BC 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông | Col 3: 2026/23 | Col 4: 1426.0 | Col 5: 0.9
+Row 12: Col 1: NTB - Đắk Nông | Col 2: BC 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông | Col 3: 2026/21 | Col 4: 1536.0 | Col 5: 0.832
+Row 13: Col 1: NTB - Đắk Nông | Col 2: BC Quảng Khê-Đắk Glong-Đắk Nông | Col 3: 2026/21 | Col 4: 1595.0 | Col 5: 0.873
+Row 14: Col 1: NTB - Đắk Nông | Col 2: BC Quảng Khê-Đắk Glong-Đắk Nông | Col 3: 2026/24 | Col 4: 1626.0 | Col 5: 0.898
+
+=========================================
+SHEET: dataODR TTS
+=========================================
+Row 1: Col 1: Quản lý | Col 2: Chi tiết | Col 3: Time | Col 4: GTC | Col 5: %Ontime
+Row 2: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng | Col 3: 2026/22 | Col 4: 5.0 | Col 5: 1.0
+Row 3: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng | Col 3: 2026/21 | Col 4: 21.0 | Col 5: 0.667
+Row 4: Col 1: NTB - Đắk Nông | Col 2: BC 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông | Col 3: 2026/22 | Col 4: 447.0 | Col 5: 0.911
+Row 5: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: 2026/22 | Col 4: 489.0 | Col 5: 0.955
+Row 6: Col 1: NTB - Đắk Nông | Col 2: BC 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông | Col 3: 2026/23 | Col 4: 490.0 | Col 5: 0.929
+Row 7: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: 2026/23 | Col 4: 499.0 | Col 5: 0.976
+Row 8: Col 1: NTB - Đắk Nông | Col 2: BC Nâm N'Jang-Đắk Song-Đắk Nông | Col 3: 2026/22 | Col 4: 519.0 | Col 5: 0.969
+Row 9: Col 1: NTB - Đắk Nông | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: 2026/21 | Col 4: 524.0 | Col 5: 0.935
+Row 10: Col 1: NTB - Đắk Nông | Col 2: BC 53 Tôn Đức Thắng-Nghĩa Thành-Gia Nghĩa-Đắk Nông | Col 3: 2026/21 | Col 4: 528.0 | Col 5: 0.873
+Row 11: Col 1: NTB - Đắk Nông | Col 2: BC Nâm N'Jang-Đắk Song-Đắk Nông | Col 3: 2026/21 | Col 4: 535.0 | Col 5: 0.957
+Row 12: Col 1: NTB - Đắk Nông | Col 2: BC Quảng Khê-Đắk Glong-Đắk Nông | Col 3: 2026/21 | Col 4: 544.0 | Col 5: 0.912
+Row 13: Col 1: NTB - Đắk Nông | Col 2: BC Nâm N'Jang-Đắk Song-Đắk Nông | Col 3: 2026/23 | Col 4: 552.0 | Col 5: 0.967
+Row 14: Col 1: NTB - Đắk Nông | Col 2: BC Quảng Khê-Đắk Glong-Đắk Nông | Col 3: 2026/23 | Col 4: 554.0 | Col 5: 0.933
+
+=========================================
+SHEET: dataLTC full hàng
+=========================================
+Row 1: Col 1: Cấp quản lý | Col 2: Chi tiết | Col 3: Time | Col 4: Volume | Col 5: %Gán | Col 6: %LTC | Col 7: %Đóng kiện | Col 8: %LC | Col 9: Leadtime
+Row 2: Col 1: Grand Total | Col 2:   | Col 3: 2026/21 | Col 4: 114067.0 | Col 5: 0.9663 | Col 6: 0.8968 | Col 7: 0.8317 | Col 8: 0.8623 | Col 9: 9.59
+Row 3: Col 1: Grand Total | Col 2:   | Col 3: 2026/24 | Col 4: 116879.0 | Col 5: 0.9764 | Col 6: 0.9119 | Col 7: 0.8398 | Col 8: 0.8768 | Col 9: 9.18
+Row 4: Col 1: Grand Total | Col 2:   | Col 3: 2026/22 | Col 4: 110864.0 | Col 5: 0.9592 | Col 6: 0.8982 | Col 7: 0.8442 | Col 8: 0.865 | Col 9: 8.93
+Row 5: Col 1: Grand Total | Col 2:   | Col 3: 2026/23 | Col 4: 115460.0 | Col 5: 0.9699 | Col 6: 0.9145 | Col 7: 0.847 | Col 8: 0.8817 | Col 9: 8.75
+Row 6: Col 1: NTB - Bình Thuận | Col 2: BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận | Col 3: 2026/21 | Col 4: 2653.0 | Col 5: 0.9985 | Col 6: 0.8285 | Col 7: 0.8236 | Col 8: 0.8202 | Col 9: 10.12
+Row 7: Col 1: NTB - Bình Thuận | Col 2: BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận | Col 3: 2026/24 | Col 4: 2616.0 | Col 5: 0.9992 | Col 6: 0.9472 | Col 7: 0.9434 | Col 8: 0.9423 | Col 9: 6.99
+Row 8: Col 1: NTB - Bình Thuận | Col 2: BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận | Col 3: 2026/22 | Col 4: 2694.0 | Col 5: 0.9989 | Col 6: 0.9024 | Col 7: 0.8883 | Col 8: 0.8886 | Col 9: 8.24
+Row 9: Col 1: NTB - Bình Thuận | Col 2: BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận | Col 3: 2026/23 | Col 4: 2472.0 | Col 5: 0.9988 | Col 6: 0.9426 | Col 7: 0.9377 | Col 8: 0.9345 | Col 9: 6.34
+Row 10: Col 1: NTB - Bình Thuận | Col 2: BC 16 Huỳnh Thúc Kháng-Phan Thiết-Bình Thuận | Col 3: 2026/21 | Col 4: 393.0 | Col 5: 0.9949 | Col 6: 0.8957 | Col 7: 0.8448 | Col 8: 0.8219 | Col 9: 13.28
+Row 11: Col 1: NTB - Bình Thuận | Col 2: BC 16 Huỳnh Thúc Kháng-Phan Thiết-Bình Thuận | Col 3: 2026/24 | Col 4: 585.0 | Col 5: 0.9949 | Col 6: 0.9624 | Col 7: 0.9487 | Col 8: 0.9419 | Col 9: 7.9
+Row 12: Col 1: NTB - Bình Thuận | Col 2: BC 16 Huỳnh Thúc Kháng-Phan Thiết-Bình Thuận | Col 3: 2026/22 | Col 4: 353.0 | Col 5: 0.9943 | Col 6: 0.9575 | Col 7: 0.949 | Col 8: 0.9292 | Col 9: 8.98
+Row 13: Col 1: NTB - Bình Thuận | Col 2: BC 16 Huỳnh Thúc Kháng-Phan Thiết-Bình Thuận | Col 3: 2026/23 | Col 4: 418.0 | Col 5: 0.988 | Col 6: 0.9426 | Col 7: 0.9402 | Col 8: 0.9282 | Col 9: 9.66
+Row 14: Col 1: NTB - Bình Thuận | Col 2: BC 21 Trần Hưng Đạo-Xã Phan Rí Cửa-Bình Thuận | Col 3: 2026/21 | Col 4: 179.0 | Col 5: 1.0 | Col 6: 0.9385 | Col 7: 0.8324 | Col 8: 0.9385 | Col 9: 6.32
+
+=========================================
+SHEET: dataLTC TTS
+=========================================
+Row 1: Col 1: Cấp quản lý | Col 2: Chi tiết | Col 3: Time | Col 4: Volume | Col 5: %Gán | Col 6: %LTC | Col 7: %Đóng kiện | Col 8: %LC | Col 9: Leadtime
+Row 2: Col 1: Grand Total | Col 2:   | Col 3: 2026/23 | Col 4: 27195.0 | Col 5: 0.9992 | Col 6: 0.9777 | Col 7: 0.9435 | Col 8: 0.9556 | Col 9: 8.36
+Row 3: Col 1: Grand Total | Col 2:   | Col 3: 2026/24 | Col 4: 27176.0 | Col 5: 0.9993 | Col 6: 0.9689 | Col 7: 0.9232 | Col 8: 0.9492 | Col 9: 8.63
+Row 4: Col 1: Grand Total | Col 2:   | Col 3: 2026/21 | Col 4: 22240.0 | Col 5: 0.9989 | Col 6: 0.9711 | Col 7: 0.9455 | Col 8: 0.9535 | Col 9: 8.67
+Row 5: Col 1: Grand Total | Col 2:   | Col 3: 2026/22 | Col 4: 24578.0 | Col 5: 0.999 | Col 6: 0.9578 | Col 7: 0.929 | Col 8: 0.934 | Col 9: 8.83
+Row 6: Col 1: NTB - Bình Thuận | Col 2: BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận | Col 3: 2026/23 | Col 4: 57.0 | Col 5: 1.0 | Col 6: 0.9649 | Col 7: 0.9649 | Col 8: 0.9474 | Col 9: 9.36
+Row 7: Col 1: NTB - Bình Thuận | Col 2: BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận | Col 3: 2026/24 | Col 4: 56.0 | Col 5: 1.0 | Col 6: 0.9643 | Col 7: 0.9464 | Col 8: 0.9643 | Col 9: 11.17
+Row 8: Col 1: NTB - Bình Thuận | Col 2: BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận | Col 3: 2026/21 | Col 4: 66.0 | Col 5: 1.0 | Col 6: 0.8939 | Col 7: 0.8788 | Col 8: 0.8788 | Col 9: 10.95
+Row 9: Col 1: NTB - Bình Thuận | Col 2: BC 158 Quốc lộ 55-Tánh Linh-Bình Thuận | Col 3: 2026/22 | Col 4: 56.0 | Col 5: 1.0 | Col 6: 0.8036 | Col 7: 0.7857 | Col 8: 0.7321 | Col 9: 16.05
+Row 10: Col 1: NTB - Bình Thuận | Col 2: BC 16 Huỳnh Thúc Kháng-Phan Thiết-Bình Thuận | Col 3: 2026/23 | Col 4: 38.0 | Col 5: 1.0 | Col 6: 1.0 | Col 7: 1.0 | Col 8: 1.0 | Col 9: 15.37
+Row 11: Col 1: NTB - Bình Thuận | Col 2: BC 16 Huỳnh Thúc Kháng-Phan Thiết-Bình Thuận | Col 3: 2026/22 | Col 4: 11.0 | Col 5: 1.0 | Col 6: 1.0 | Col 7: 1.0 | Col 8: 1.0 | Col 9: 12.36
+Row 12: Col 1: NTB - Bình Thuận | Col 2: BC 16 Huỳnh Thúc Kháng-Phan Thiết-Bình Thuận | Col 3: 2026/21 | Col 4: 23.0 | Col 5: 1.0 | Col 6: 0.913 | Col 7: 0.8696 | Col 8: 0.8696 | Col 9: 21.3
+Row 13: Col 1: NTB - Bình Thuận | Col 2: BC 16 Huỳnh Thúc Kháng-Phan Thiết-Bình Thuận | Col 3: 2026/24 | Col 4: 158.0 | Col 5: 1.0 | Col 6: 0.9873 | Col 7: 0.9873 | Col 8: 0.9873 | Col 9: 4.63
+Row 14: Col 1: NTB - Bình Thuận | Col 2: BC 21 Trần Hưng Đạo-Xã Phan Rí Cửa-Bình Thuận | Col 3: 2026/22 | Col 4: 6.0 | Col 5: 1.0 | Col 6: 0.8333 | Col 7: 0.8333 | Col 8: 0.8333 | Col 9: 4.6
+
+=========================================
+SHEET: sản lượng
+=========================================
+Row 1: Col 2: Sản Lương ( Volume Tổng) | Col 10: Sản Lương ( Volume TTS )
+Row 2: Col 1: AM | Col 2: 2026/21 | Col 3: 2026/22 | Col 4: 2026/23 | Col 5: 2026/24 | Col 6: So với W 232026 | Col 7: So với W 232026 | Col 9: AM | Col 10: 2026/21 | Col 11: 2026/22 | Col 12: 2026/23 | Col 13: 2026/24 | Col 14: So với W 23/2026
+Row 3: Col 1: Hồng Bích Nga | Col 2: 18566.0 | Col 3: 17361.0 | Col 4: 28570.0 | Col 5: 18290.0 | Col 6: =E3-D3 | Col 7: =IF(D3=0, 0, (E3-D3)/D3) | Col 9: Hồng Bích Nga | Col 10: 3473.0 | Col 11: 3304.0 | Col 12: 3458.0 | Col 13: 3934.0 | Col 14: =M3-L3
+Row 4: Col 1: Huỳnh Tấn Hiền | Col 2: 30.02 | Col 3: 29225.0 | Col 4: 31085.0 | Col 5: 34913.0 | Col 6: =E4-D4 | Col 7: =IF(D4=0, 0, (E4-D4)/D4) | Col 9: Huỳnh Tấn Hiền | Col 10: 6456.0 | Col 11: 6213.0 | Col 12: 6860.0 | Col 13: 8711.0 | Col 14: =M4-L4
+Row 5: Col 1: Huỳnh Thị Kim Chi | Col 2: 13993.0 | Col 3: 12937.0 | Col 4: 12881.0 | Col 5: 14314.0 | Col 6: =E5-D5 | Col 7: =IF(D5=0, 0, (E5-D5)/D5) | Col 9: Huỳnh Thị Kim Chi | Col 10: 2539.0 | Col 11: 2551.0 | Col 12: 2614.0 | Col 13: 3157.0 | Col 14: =M5-L5
+Row 6: Col 1: Lê Minh Đại | Col 2: 23424.0 | Col 3: 23168.0 | Col 4: 21857.0 | Col 5: 24576.0 | Col 6: =E6-D6 | Col 7: =IF(D6=0, 0, (E6-D6)/D6) | Col 9: Lê Minh Đại | Col 10: 3887.0 | Col 11: 4105.0 | Col 12: 4247.0 | Col 13: 4865.0 | Col 14: =M6-L6
+Row 7: Col 1: Lê Thanh Nhựt | Col 2: 12747.0 | Col 3: 12752.0 | Col 4: 12957.0 | Col 5: 15433.0 | Col 6: =E7-D7 | Col 7: =IF(D7=0, 0, (E7-D7)/D7) | Col 9: Lê Thanh Nhựt | Col 10: 2930.0 | Col 11: 2864.0 | Col 12: 2906.0 | Col 13: 4290.0 | Col 14: =M7-L7
+Row 8: Col 1: Lê Văn Trường | Col 2: 12923.0 | Col 3: 12.79 | Col 4: 12711.0 | Col 5: 14288.0 | Col 6: =E8-D8 | Col 7: =IF(D8=0, 0, (E8-D8)/D8) | Col 9: Lê Văn Trường | Col 10: 2017.0 | Col 11: 2057.0 | Col 12: 2181.0 | Col 13: 2527.0 | Col 14: =M8-L8
+Row 9: Col 1: Nguyễn Duy Long | Col 2: 42259.0 | Col 3: 41158.0 | Col 4: 44482.0 | Col 5: 47486.0 | Col 6: =E9-D9 | Col 7: =IF(D9=0, 0, (E9-D9)/D9) | Col 9: Nguyễn Duy Long | Col 10: 9571.0 | Col 11: 9168.0 | Col 12: 10197.0 | Col 13: 11495.0 | Col 14: =M9-L9
+Row 10: Col 1: Nguyễn Hoàng Phi | Col 2: 14887.0 | Col 3: 14365.0 | Col 4: 15576.0 | Col 5: 16952.0 | Col 6: =E10-D10 | Col 7: =IF(D10=0, 0, (E10-D10)/D10) | Col 9: Nguyễn Hoàng Phi | Col 10: 3675.0 | Col 11: 3470.0 | Col 12: 3813.0 | Col 13: 4350.0 | Col 14: =M10-L10
+Row 11: Col 1: Nguyễn Lê Nguyên Vũ | Col 2: 4853.0 | Col 3: 4948.0 | Col 4: 5304.0 | Col 5: 5569.0 | Col 6: =E11-D11 | Col 7: =IF(D11=0, 0, (E11-D11)/D11) | Col 9: Nguyễn Lê Nguyên Vũ | Col 10: 896.0 | Col 11: 917.0 | Col 12: 955.0 | Col 13: 1070.0 | Col 14: =M11-L11
+Row 12: Col 1: Nguyễn Ngọc Khánh | Col 2: 39364.0 | Col 3: 37867.0 | Col 4: 41423.0 | Col 5: 45962.0 | Col 6: =E12-D12 | Col 7: =IF(D12=0, 0, (E12-D12)/D12) | Col 9: Nguyễn Ngọc Khánh | Col 10: 7992.0 | Col 11: 7369.0 | Col 12: 8501.0 | Col 13: 11139.0 | Col 14: =M12-L12
+Row 13: Col 1: Nguyễn Thanh Long | Col 2: 4.26 | Col 3: 3389.0 | Col 4: 3665.0 | Col 5: 5322.0 | Col 6: =E13-D13 | Col 7: =IF(D13=0, 0, (E13-D13)/D13) | Col 9: Nguyễn Thanh Long | Col 10: 1278.0 | Col 11: 995.0 | Col 12: 1027.0 | Col 13: 1198.0 | Col 14: =M13-L13
+Row 14: Col 1: Nguyễn Tống Hùng Phong | Col 2: 1401.0 | Col 3: 2026-04-01 00:00:00 | Col 4: 1304.0 | Col 5: 1497.0 | Col 6: =E14-D14 | Col 7: =IF(D14=0, 0, (E14-D14)/D14) | Col 9: Nguyễn Tống Hùng Phong | Col 10: 427.0 | Col 11: 387.0 | Col 12: 400.0 | Col 13: 460.0 | Col 14: =M14-L14
+
+=========================================
+SHEET: gtcnew
+=========================================
+Row 1: Col 2: GTC Tổng
+Row 2: Col 2: 2026/21 | Col 4: 2026/22 | Col 6: 2026/23 | Col 8: 2026/24 | Col 14: 2026/21
+Row 3: Col 1: AM | Col 2: %Gán | Col 3: %GTC | Col 4: %Gán | Col 5: %GTC | Col 6: %Gán | Col 7: %GTC | Col 8: %Gán | Col 9: %GTC | Col 10: So với W23/2026 | Col 13: AM | Col 14: %Gán
+Row 4: Col 1: Trầm Hữu Tiến | Col 2: 0.6615 | Col 3: 0.3957 | Col 4: 0.6473 | Col 5: 0.3778 | Col 6: 0.6961 | Col 7: 0.4364 | Col 8: 0.7366 | Col 9: 0.459 | Col 13: Trầm Hữu Tiến | Col 14: 0.6646
+Row 5: Col 1: Huỳnh Thị Kim Chi | Col 2: 0.71 | Col 3: 0.4699 | Col 4: 0.642 | Col 5: 0.41 | Col 6: 0.6331 | Col 7: 0.4122 | Col 8: 0.7119 | Col 9: 0.4551 | Col 13: Thái Thị Thanh Thư | Col 14: 0.5049
+Row 6: Col 1: Thái Thị Thanh Thư | Col 2: 0.6014 | Col 3: 0.3777 | Col 4: 0.8874 | Col 5: 0.4522 | Col 6: 0.8924 | Col 7: 0.487 | Col 8: 0.9112 | Col 9: 0.4676 | Col 13: Huỳnh Thị Kim Chi | Col 14: 0.7105
+Row 7: Col 1: Lê Minh Đại | Col 2: 0.6579 | Col 3: 0.4365 | Col 4: 0.7066 | Col 5: 0.4339 | Col 6: 0.7177 | Col 7: 0.4803 | Col 8: 0.7423 | Col 9: 0.5011 | Col 13: Lê Minh Đại | Col 14: 0.6264
+Row 8: Col 1: Trần Công Hậu | Col 2: 0.9352 | Col 3: 0.4992 | Col 4: 0.8899 | Col 5: 0.4528 | Col 6: 0.8561 | Col 7: 0.4956 | Col 8: 0.9408 | Col 9: 0.5029 | Col 13: Trần Văn Phước | Col 14: 0.8248
+Row 9: Col 1: Trần Văn Phước | Col 2: 0.8091 | Col 3: 0.5564 | Col 4: 0.7733 | Col 5: 0.5082 | Col 6: 0.7055 | Col 7: 0.481 | Col 8: 0.746 | Col 9: 0.49 | Col 13: Trần Công Hậu | Col 14: 0.9353
+Row 10: Col 1: Nguyễn Thanh Long | Col 2: 0.6975 | Col 3: 0.4233 | Col 4: 0.8809 | Col 5: 0.5351 | Col 6: 0.9666 | Col 7: 0.6446 | Col 8: 0.8555 | Col 9: 0.5806 | Col 13: Nguyễn Thanh Long | Col 14: 0.7354
+Row 11: Col 1: Hồng Bích Nga | Col 2: 0.8616 | Col 3: 0.6299 | Col 4: 0.8524 | Col 5: 0.6011 | Col 6: 0.8049 | Col 7: 0.5836 | Col 8: 0.8489 | Col 9: 0.6481 | Col 13: Hồng Bích Nga | Col 14: 0.8574
+Row 12: Col 1: Trần Thị Nhung | Col 2: 0.8909 | Col 3: 0.6162 | Col 4: 0.8915 | Col 5: 0.6062 | Col 6: 0.8998 | Col 7: 0.6262 | Col 8: 0.8933 | Col 9: 0.6267 | Col 13: Lê Văn Trường | Col 14: 0.8383
+Row 13: Col 1: Nguyễn Hoàng Phi | Col 2: 0.873 | Col 3: 0.6215 | Col 4: 0.8951 | Col 5: 0.6064 | Col 6: 0.9048 | Col 7: 0.6449 | Col 8: 0.8845 | Col 9: 0.6462 | Col 13: Trần Thị Nhung | Col 14: 0.8908
+Row 14: Col 1: Lê Thanh Nhựt | Col 2: 0.887 | Col 3: 0.6673 | Col 4: 0.8235 | Col 5: 0.5977 | Col 6: 0.8478 | Col 7: 0.633 | Col 8: 0.8796 | Col 9: 0.6621 | Col 13: Nguyễn Hoàng Phi | Col 14: 0.8792
+
+=========================================
+SHEET: gtc + tồn
+=========================================
+Row 1: Col 2: GTC Tổng (Ca 1 + Tồn) | Col 12: GTC TTS (Ca 1 + Tồn)
+Row 2: Col 2: 2026/21 | Col 4: 2026/22 | Col 6: 2026/23 | Col 8: 2026/24 | Col 10: So với W23/2026 | Col 12: 2026/21 | Col 14: 2026/22
+Row 3: Col 1: AM | Col 2: %Gán | Col 3: %GTC | Col 4: %Gán | Col 5: %GTC | Col 6: %Gán | Col 7: %GTC | Col 8: %Gán | Col 9: %GTC | Col 11: AM | Col 12: %Gán | Col 13: %GTC | Col 14: %Gán
+Row 4: Col 1: Hồng Bích Nga | Col 2: 0.9099 | Col 3: 0.6479 | Col 4: 0.9067 | Col 5: 0.6103 | Col 6: 0.8621 | Col 7: 0.5928 | Col 8: 0.8921 | Col 9: 0.6555 | Col 11: Hồng Bích Nga | Col 12: 0.9117 | Col 13: 0.6578 | Col 14: 0.9004
+Row 5: Col 1: Huỳnh Tấn Hiền | Col 2: 0.9894 | Col 3: 0.7641 | Col 4: 0.9893 | Col 5: 0.7417 | Col 6: 0.9868 | Col 7: 0.7567 | Col 8: 0.9894 | Col 9: 0.778 | Col 11: Huỳnh Tấn Hiền | Col 12: 0.9926 | Col 13: 0.7781 | Col 14: 0.9932
+Row 6: Col 1: Huỳnh Thị Kim Chi | Col 2: 0.746 | Col 3: 0.4745 | Col 4: 0.6651 | Col 5: 0.4055 | Col 6: 0.6636 | Col 7: 0.4181 | Col 8: 0.7522 | Col 9: 0.4636 | Col 11: Huỳnh Thị Kim Chi | Col 12: 0.7582 | Col 13: 0.4755 | Col 14: 0.6444
+Row 7: Col 1: Lê Minh Đại | Col 2: 0.7708 | Col 3: 0.4969 | Col 4: 0.8184 | Col 5: 0.4774 | Col 6: 0.8216 | Col 7: 0.5264 | Col 8: 0.8775 | Col 9: 0.5753 | Col 11: Lê Minh Đại | Col 12: 0.7372 | Col 13: 0.4621 | Col 14: 0.813
+Row 8: Col 1: Lê Thanh Nhựt | Col 2: 0.9901 | Col 3: 0.7349 | Col 4: 0.9524 | Col 5: 0.6759 | Col 6: 0.9731 | Col 7: 0.7092 | Col 8: 0.9898 | Col 9: 0.7349 | Col 11: Lê Thanh Nhựt | Col 12: 0.9989 | Col 13: 0.7574 | Col 14: 0.9571
+Row 9: Col 1: Lê Văn Trường | Col 2: 0.9145 | Col 3: 0.6631 | Col 4: 0.9554 | Col 5: 0.6855 | Col 6: 0.9591 | Col 7: 0.7048 | Col 8: 0.9646 | Col 9: 0.6967 | Col 11: Lê Văn Trường | Col 12: 0.9255 | Col 13: 0.6679 | Col 14: 0.964
+Row 10: Col 1: Nguyễn Duy Long | Col 2: 0.9804 | Col 3: 0.7268 | Col 4: 0.9826 | Col 5: 0.7073 | Col 6: 0.9807 | Col 7: 0.7179 | Col 8: 0.9841 | Col 9: 0.7301 | Col 11: Nguyễn Duy Long | Col 12: 0.9752 | Col 13: 0.7114 | Col 14: 0.9779
+Row 11: Col 1: Nguyễn Hoàng Phi | Col 2: 0.8878 | Col 3: 0.618 | Col 4: 0.9345 | Col 5: 0.6194 | Col 6: 0.9312 | Col 7: 0.6505 | Col 8: 0.8996 | Col 9: 0.6452 | Col 11: Nguyễn Hoàng Phi | Col 12: 0.892 | Col 13: 0.6352 | Col 14: 0.9389
+Row 12: Col 1: Nguyễn Lê Nguyên Vũ | Col 2: 0.9745 | Col 3: 0.7495 | Col 4: 0.9632 | Col 5: 0.698 | Col 6: 0.9765 | Col 7: 0.7203 | Col 8: 0.9826 | Col 9: 0.7567 | Col 11: Nguyễn Lê Nguyên Vũ | Col 12: 0.9819 | Col 13: 0.7735 | Col 14: 0.9717
+Row 13: Col 1: Nguyễn Ngọc Khánh | Col 2: 0.9886 | Col 3: 0.7456 | Col 4: 0.9906 | Col 5: 0.7437 | Col 6: 0.9887 | Col 7: 0.7488 | Col 8: 0.9887 | Col 9: 0.7623 | Col 11: Nguyễn Ngọc Khánh | Col 12: 0.985 | Col 13: 0.7492 | Col 14: 0.9873
+Row 14: Col 1: Nguyễn Thanh Long | Col 2: 0.6991 | Col 3: 0.4242 | Col 4: 0.89 | Col 5: 0.5397 | Col 6: 0.9726 | Col 7: 0.6484 | Col 8: 0.8555 | Col 9: 0.5805 | Col 11: Nguyễn Thanh Long | Col 12: 0.7366 | Col 13: 0.4916 | Col 14: 0.9123
+
+=========================================
+SHEET: LTC
+=========================================
+Row 1: Col 2: LTC Tổng | Col 13: LTC TTS
+Row 2: Col 2: 2026/21 | Col 4: 2026/22 | Col 6: 2026/23 | Col 8: 2026/24 | Col 13: 2026/21
+Row 3: Col 1: AM | Col 2: %Gán | Col 3: %LTC | Col 4: %Gán | Col 5: %LTC | Col 6: %Gán | Col 7: %LTC | Col 8: %Gán | Col 9: %LTC | Col 10: So với W23/2026 | Col 12: AM | Col 13: %Gán | Col 14: %LTC
+Row 4: Col 1: Hồng Bích Nga | Col 2: 0.99 | Col 3: 0.8925 | Col 4: 0.9384 | Col 5: 0.82 | Col 6: 0.8815 | Col 7: 0.7749 | Col 8: 0.9756 | Col 9: 0.8692 | Col 12: Hồng Bích Nga | Col 13: 0.9968 | Col 14: 0.9621
+Row 5: Col 1: Huỳnh Tấn Hiền | Col 2: 0.9979 | Col 3: 0.9396 | Col 4: 0.999 | Col 5: 0.9545 | Col 6: 0.9987 | Col 7: 0.9588 | Col 8: 0.9978 | Col 9: 0.9535 | Col 12: Huỳnh Tấn Hiền | Col 13: 1.0 | Col 14: 0.9736
+Row 6: Col 1: Huỳnh Thị Kim Chi | Col 2: 0.9664 | Col 3: 0.847 | Col 4: 0.9633 | Col 5: 0.8425 | Col 6: 0.9729 | Col 7: 0.8608 | Col 8: 0.9856 | Col 9: 0.8648 | Col 12: Huỳnh Thị Kim Chi | Col 13: 0.9697 | Col 14: 0.7691
+Row 7: Col 1: Lê Minh Đại | Col 2: 0.9687 | Col 3: 0.8617 | Col 4: 0.9659 | Col 5: 0.8713 | Col 6: 0.9663 | Col 7: 0.8777 | Col 8: 0.9766 | Col 9: 0.8718 | Col 12: Lê Minh Đại | Col 13: 0.9975 | Col 14: 0.9625
+Row 8: Col 1: Lê Thanh Nhựt | Col 2: 0.9977 | Col 3: 0.9387 | Col 4: 0.9913 | Col 5: 0.9198 | Col 6: 0.9984 | Col 7: 0.9355 | Col 8: 0.9954 | Col 9: 0.888 | Col 12: Lê Thanh Nhựt | Col 13: 0.999 | Col 14: 0.9784
+Row 9: Col 1: Lê Văn Trường | Col 2: 0.9964 | Col 3: 0.9091 | Col 4: 0.9927 | Col 5: 0.9245 | Col 6: 0.9901 | Col 7: 0.9205 | Col 8: 0.9954 | Col 9: 0.9234 | Col 12: Lê Văn Trường | Col 13: 1.0 | Col 14: 0.9379
+Row 10: Col 1: Nguyễn Duy Long | Col 2: 0.99 | Col 3: 0.9295 | Col 4: 1.0 | Col 5: 0.9379 | Col 6: 1.0 | Col 7: 0.9492 | Col 8: 1.0 | Col 9: 0.9452 | Col 12: Nguyễn Duy Long | Col 13: 1.0 | Col 14: 0.9643
+Row 11: Col 1: Nguyễn Hoàng Phi | Col 2: 0.9751 | Col 3: 0.8761 | Col 4: 0.965 | Col 5: 0.8693 | Col 6: 0.9942 | Col 7: 0.9341 | Col 8: 0.9975 | Col 9: 0.9181 | Col 12: Nguyễn Hoàng Phi | Col 13: 1.0 | Col 14: 0.8863
+Row 12: Col 1: Nguyễn Lê Nguyên Vũ | Col 2: 0.9974 | Col 3: 0.9492 | Col 4: 0.9945 | Col 5: 0.9599 | Col 6: 0.9985 | Col 7: 0.973 | Col 8: 0.9984 | Col 9: 0.9613 | Col 12: Nguyễn Lê Nguyên Vũ | Col 13: 1.0 | Col 14: 0.9942
+Row 13: Col 1: Nguyễn Ngọc Khánh | Col 2: 0.9976 | Col 3: 0.9224 | Col 4: 0.9945 | Col 5: 0.9213 | Col 6: 0.9974 | Col 7: 0.9412 | Col 8: 0.9967 | Col 9: 0.9416 | Col 12: Nguyễn Ngọc Khánh | Col 13: 1.0 | Col 14: 0.9435
+Row 14: Col 1: Nguyễn Thanh Long | Col 2: 0.9172 | Col 3: 0.8643 | Col 4: 0.9796 | Col 5: 0.9327 | Col 6: 0.9849 | Col 7: 0.9309 | Col 8: 0.9944 | Col 9: 0.9174 | Col 12: Nguyễn Thanh Long | Col 13: 1.0 | Col 14: 0.9974
+
+=========================================
+SHEET: cocau
+=========================================
+Row 1: Col 1: Mã bưu cục | Col 2: Bưu cục | Col 3: BC | Col 4: Tỉnh | Col 5: Am | Col 6: ID - Họ Tên Am
+Row 2: Col 1: 20669000.0 | Col 2: Bưu Cục Đường Trần Lê-Cát Tiên-Lâm Đồng | Col 3: BC Đường Trần Lê-Cát Tiên-Lâm Đồng  | Col 4: Lâm Đồng | Col 5: Huỳnh Tấn Hiền | Col 6: Huỳnh Tấn Hiền
+Row 3: Col 1: 20663000.0 | Col 2: Bưu Cục 44B Nguyễn Đình Chiểu-Đạ Teh-Lâm Đồng | Col 3: BC 44B Nguyễn Đình Chiểu-Đạ Teh-Lâm Đồng  | Col 4: Lâm Đồng | Col 5: Huỳnh Tấn Hiền | Col 6: Huỳnh Tấn Hiền
+Row 4: Col 1: 22222000.0 | Col 2: Bưu Cục 337 Hùng Vương-Lộc Thắng-Bảo Lâm-Lâm Đồng | Col 3: BC 337 Hùng Vương-Lộc Thắng-Bảo Lâm-Lâm Đồng  | Col 4: Lâm Đồng | Col 5: Hồng Bích Nga | Col 6: Hồng Bích Nga
+Row 5: Col 1: 1909.0 | Col 2: Kho Trung Chuyển Khánh Hòa | Col 3: Kho Trung Chuyển Khánh Hòa | Col 4: Khánh Hòa | Col 5: Nguyễn Tiến Lực | Col 6: Nguyễn Tiến Lực
+Row 6: Col 1: 20336000.0 | Col 2: Kho Chuyển Tiếp Đức Trọng-Lâm Đồng | Col 3: Kho Chuyển Tiếp Đức Trọng-Lâm Đồng | Col 4: Lâm Đồng | Col 5: Võ Tấn Lợi | Col 6: Võ Tấn Lợi
+Row 7: Col 1: 20797000.0 | Col 2: Kho Chuyển Tiếp Đắk Nông | Col 3: Kho Chuyển Tiếp Đắk Nông | Col 4: Đắk Nông | Col 5: Trần Công Hậu | Col 6: Trần Công Hậu
+Row 8: Col 1: 20745000.0 | Col 2: Kho Chuyển Tiếp Bình Thuận | Col 3: Kho Chuyển Tiếp Bình Thuận | Col 4: Bình Thuận | Col 5: Nguyễn Ngọc Khánh | Col 6: Nguyễn Ngọc Khánh
+Row 9: Col 1: 22915000.0 | Col 2: Kho Chuyển Tiếp Bảo Lộc-Lâm Đồng | Col 3: Kho Chuyển Tiếp Bảo Lộc-Lâm Đồng | Col 4: Lâm Đồng | Col 5: Nguyễn Tiến Lực | Col 6: Nguyễn Tiến Lực
+Row 10: Col 1: 20269003.0 | Col 2: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 3: Điểm Xử Lý Hàng Thôn 2-Xã Nhân Cơ-Đắk Nông | Col 4: Đắk Nông | Col 5: Trần Văn Phước | Col 6: Trần Văn Phước
+Row 11: Col 1: 22048001.0 | Col 2: Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng | Col 3: Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng | Col 4: Đắk Nông | Col 5: Trần Công Hậu | Col 6: Trần Công Hậu
+Row 12: Col 1: 22263000.0 | Col 2: Điểm Lấy Hàng Shop Thuốc Nam-Ninh Hải-Ninh Thuận | Col 3: Điểm Lấy Hàng Shop Thuốc Nam-Ninh Hải-Ninh Thuận | Col 4: Ninh Thuận | Col 5: Nguyễn Duy Long | Col 6: Nguyễn Duy Long
+Row 13: Col 1: 22329000.0 | Col 2: Điểm Lấy Hàng Shop Đại Lý Bang Phương | Col 3: Điểm Lấy Hàng Shop Đại Lý Bang Phương | Col 4: Bình Thuận | Col 5: Huỳnh Tấn Hiền | Col 6: Huỳnh Tấn Hiền
+Row 14: Col 1: 22356000.0 | Col 2: Điểm lấy hàng Shop 4872154-Gốm Chăm Bầu Trúc | Col 3: Điểm lấy hàng Shop 4872154-Gốm Chăm Bầu Trúc | Col 4: Ninh Thuận | Col 5: Nguyễn Duy Long | Col 6: Nguyễn Duy Long
+
+=========================================
+SHEET: ca2
+=========================================
+Row 1: Col 2: GTC Tổng (Ca 2) | Col 12: GTC TTS (Ca 2)
+Row 2: Col 2: 2026/21 | Col 4: 2026/22 | Col 6: 2026/23 | Col 8: 2026/24 | Col 12: 2026/21 | Col 14: 2026/22
+Row 3: Col 1: AM | Col 2: %Gán | Col 3: %GTC | Col 4: %Gán | Col 5: %GTC | Col 6: %Gán | Col 7: %GTC | Col 8: %Gán | Col 9: %GTC | Col 10: So với W23/2026 | Col 11: AM | Col 12: %Gán | Col 13: %GTC | Col 14: %Gán
+Row 4: Col 1: Hồng Bích Nga | Col 2: 71.20% | Col 3: 59.76% | Col 4: 63.51% | Col 5: 54.67% | Col 6: 68.26% | Col 7: 58.57% | Col 8: 62.67% | Col 9: 54.64% | Col 11: Hồng Bích Nga | Col 12: 0.5982 | Col 13: 0.517 | Col 14: 0.6002
+Row 5: Col 1: Huỳnh Tấn Hiền | Col 2: 61.42% | Col 3: 50.61% | Col 4: 58.53% | Col 5: 49.07% | Col 6: 55.33% | Col 7: 44.71% | Col 8: 60.81% | Col 9: 49.70% | Col 11: Huỳnh Tấn Hiền | Col 12: 0.5991 | Col 13: 0.5036 | Col 14: 0.5673
+Row 6: Col 1: Huỳnh Thị Kim Chi | Col 2: 56.21% | Col 3: 45.75% | Col 4: 54.60% | Col 5: 44.99% | Col 6: 51.26% | Col 7: 42.91% | Col 8: 43.69% | Col 9: 37.42% | Col 11: Huỳnh Thị Kim Chi | Col 12: 0.4784 | Col 13: 0.3988 | Col 14: 0.4936
+Row 7: Col 1: Lê Minh Đại | Col 2: 21.81% | Col 3: 19.35% | Col 4: 24.96% | Col 5: 21.18% | Col 6: 34.27% | Col 7: 28.97% | Col 8: 38.90% | Col 9: 33.57% | Col 11: Lê Minh Đại | Col 12: 0.2254 | Col 13: 0.1913 | Col 14: 0.2753
+Row 8: Col 1: Lê Thanh Nhựt | Col 2: 65.93% | Col 3: 50.55% | Col 4: 67.46% | Col 5: 53.55% | Col 6: 59.78% | Col 7: 46.14% | Col 8: 59.09% | Col 9: 46.69% | Col 11: Lê Thanh Nhựt | Col 12: 0.7737 | Col 13: 0.5727 | Col 14: 0.6996
+Row 9: Col 1: Lê Văn Trường | Col 2: 36.27% | Col 3: 26.14% | Col 4: 30.46% | Col 5: 22.97% | Col 6: 17.48% | Col 7: 13.87% | Col 8: 15.15% | Col 9: 13.29% | Col 11: Lê Văn Trường | Col 12: 0.201 | Col 13: 0.1667 | Col 14: 0.0991
+Row 10: Col 1: Nguyễn Thanh Long | Col 2: 27.47% | Col 3: 18.32% | Col 4: #DIV/0! | Col 5: #DIV/0! | Col 6: 26.89% | Col 7: 21.01% | Col 8: 22.73% | Col 9: 18.18% | Col 11: Nguyễn Duy Long | Col 12: 0.6654 | Col 13: 0.5609 | Col 14: 0.6498
+Row 11: Col 1: Nguyễn Lê Nguyên Vũ | Col 2: 53.17% | Col 3: 47.71% | Col 4: 60.80% | Col 5: 53.49% | Col 6: 57.82% | Col 7: 49.14% | Col 8: 61.93% | Col 9: 52.96% | Col 11: Nguyễn Hoàng Phi | Col 12: 0.7935 | Col 13: 0.6506 | Col 14: 0.6371
+Row 12: Col 1: Nguyễn Duy Long | Col 2: 70.31% | Col 3: 57.08% | Col 4: 68.76% | Col 5: 57.00% | Col 6: 65.90% | Col 7: 53.51% | Col 8: 70.38% | Col 9: 58.43% | Col 11: Nguyễn Lê Nguyên Vũ | Col 12: 0.6216 | Col 13: 0.5616 | Col 14: 0.5499
+Row 13: Col 1: Nguyễn Hoàng Phi | Col 2: 71.33% | Col 3: 57.56% | Col 4: 76.90% | Col 5: 63.14% | Col 6: 69.94% | Col 7: 57.40% | Col 8: 68.39% | Col 9: 55.83% | Col 11: Nguyễn Ngọc Khánh | Col 12: 0.7378 | Col 13: 0.6599 | Col 14: 0.7264
+Row 14: Col 1: Nguyễn Ngọc Khánh | Col 2: 74.36% | Col 3: 64.32% | Col 4: 77.94% | Col 5: 67.74% | Col 6: 74.63% | Col 7: 63.62% | Col 8: 75.09% | Col 9: 64.68% | Col 11: Nguyễn Thanh Long | Col 12: 0.0 | Col 13: 0.0 | Col 14: 0.3571
+
+=========================================
+SHEET: ODR
+=========================================
+Row 1: Col 2: Ontime ODR  Tổng - Tỉnh | Col 9: Ontime ODR  Tổng - Tỉnh
+Row 2: Col 1: Tỉnh | Col 2: 2026/21 | Col 3: 2026/22 | Col 4: 2026/23 | Col 5: 2026/24 | Col 8: Tỉnh | Col 9: 2026/21 | Col 10: 2026/22 | Col 11: 2026/23 | Col 12: 2026/24
+Row 3: Col 1: Ninh Thuận | Col 2: 96.47% | Col 3: 95.75% | Col 4: 96.83% | Col 5: 96.51% | Col 6: =VALUE(SUBSTITUTE(SUBSTITUTE(E3,"%",""),".","," ))-VALUE(SUBSTITUTE(SUBSTITUTE(D3,"%",""),".","," )) | Col 8: Bình Thuận | Col 9: 0.9702941176470589 | Col 10: 0.9688823529411763 | Col 11: 0.9710588235294118 | Col 12: 0.9648823529411764
+Row 4: Col 1: Đắk Nông | Col 2: 94.27% | Col 3: 94.62% | Col 4: 94.03% | Col 5: 93.86% | Col 6: =VALUE(SUBSTITUTE(SUBSTITUTE(E4,"%",""),".","," ))-VALUE(SUBSTITUTE(SUBSTITUTE(D4,"%",""),".","," )) | Col 8: Đắk Nông | Col 9: 0.9124666666666668 | Col 10: 0.9253333333333333 | Col 11: 0.9179999999999998 | Col 12: 0.9200666666666665
+Row 5: Col 1: Bình Thuận | Col 2: 97.37% | Col 3: 97.25% | Col 4: 97.35% | Col 5: 97.10% | Col 6: =VALUE(SUBSTITUTE(SUBSTITUTE(E5,"%",""),".","," ))-VALUE(SUBSTITUTE(SUBSTITUTE(D5,"%",""),".","," )) | Col 8: Khánh Hòa | Col 9: 0.8592857142857142 | Col 10: 0.9314761904761905 | Col 11: 0.9521428571428571 | Col 12: 0.9452380952380953
+Row 6: Col 1: Khánh Hòa | Col 2: 83.42% | Col 3: 90.49% | Col 4: 95.16% | Col 5: 95.36% | Col 6: =VALUE(SUBSTITUTE(SUBSTITUTE(E6,"%",""),".","," ))-VALUE(SUBSTITUTE(SUBSTITUTE(D6,"%",""),".","," )) | Col 8: Lâm Đồng | Col 9: 0.8649999999999999 | Col 10: 0.8565416666666666 | Col 11: 0.8568000000000001 | Col 12: 0.8819999999999999
+Row 7: Col 1: Lâm Đồng | Col 2: 87.24% | Col 3: 86.04% | Col 4: 86.72% | Col 5: 88.05% | Col 6: =VALUE(SUBSTITUTE(SUBSTITUTE(E7,"%",""),".","," ))-VALUE(SUBSTITUTE(SUBSTITUTE(D7,"%",""),".","," )) | Col 8: Ninh Thuận | Col 9: 0.9615 | Col 10: 0.9595000000000001 | Col 11: 0.9698333333333333 | Col 12: 0.9651666666666666
+Row 8: Col 1: Grand Total | Col 2: 90.65% | Col 3: 92.16% | Col 4: 93.58% | Col 5: 93.95% | Col 6: =VALUE(SUBSTITUTE(SUBSTITUTE(E8,"%",""),".","," ))-VALUE(SUBSTITUTE(SUBSTITUTE(D8,"%",""),".","," )) | Col 8: Tổng cộng | Col 9: 0.9006746987951806 | Col 10: 0.9183855421686745 | Col 11: 0.9227619047619042 | Col 12: 0.9273214285714285
+Row 10: Col 1: ="Ontime ODR: " & IF(VALUE(SUBSTITUTE(SUBSTITUTE(E8,"%",""),".","," ))-VALUE(SUBSTITUTE(SUBSTITUTE(D8,"%",""),".","," ))>=0,"tăng","giảm") & " " & TEXT(ABS(VALUE(SUBSTITUTE(SUBSTITUTE(E8,"%",""),".","," ))-VALUE(SUBSTITUTE(SUBSTITUTE(D8,"%",""),".","," )))/100,"0.00%") & " so với tuần " & (ISOWEEKNUM(TODAY())-2)
+
+=========================================
+SHEET: data rớt LC
+=========================================
+Row 1: Col 1: Quản lý | Col 2: Chi tiết | Col 3: Loại ngày | Col 4: Vol cần LC | Col 5: %_rot_lc | Col 6: Tuần | Col 7: AM | Col 8: Vol rớt LC
+Row 2: Col 1: Đắk Nông | Col 2: Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông | Col 3: 2026-06-14 00:00:00 | Col 4: 442.0 | Col 5: 0.0% | Col 6: ="Tuần " & ISOWEEKNUM(C2) | Col 7: <openpyxl.worksheet.formula.ArrayFormula object at 0x00000238237E52B0> | Col 8: =IFERROR(D2 * VALUE(SUBSTITUTE(E2, ".", ",")), 0)
+Row 3: Col 1: Đắk Nông | Col 2: Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông | Col 3: 2026-05-21 00:00:00 | Col 4: 431.0 | Col 5: 0.0% | Col 6: ="Tuần " & ISOWEEKNUM(C3) | Col 7: <openpyxl.worksheet.formula.ArrayFormula object at 0x00000238236E3610> | Col 8: =IFERROR(D3 * VALUE(SUBSTITUTE(E3, ".", ",")), 0)
+Row 4: Col 1: Đắk Nông | Col 2: Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông | Col 3: 2026-06-05 00:00:00 | Col 4: 416.0 | Col 5: 0.2% | Col 6: ="Tuần " & ISOWEEKNUM(C4) | Col 7: <openpyxl.worksheet.formula.ArrayFormula object at 0x0000023823706E90> | Col 8: =IFERROR(D4 * VALUE(SUBSTITUTE(E4, ".", ",")), 0)
+Row 5: Col 1: Đắk Nông | Col 2: Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông | Col 3: 2026-06-04 00:00:00 | Col 4: 377.0 | Col 5: 0.3% | Col 6: ="Tuần " & ISOWEEKNUM(C5) | Col 7: <openpyxl.worksheet.formula.ArrayFormula object at 0x000002382370FA80> | Col 8: =IFERROR(D5 * VALUE(SUBSTITUTE(E5, ".", ",")), 0)
+Row 6: Col 1: Đắk Nông | Col 2: Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông | Col 3: 2026-06-03 00:00:00 | Col 4: 353.0 | Col 5: 0.0% | Col 6: ="Tuần " & ISOWEEKNUM(C6) | Col 7: <openpyxl.worksheet.formula.ArrayFormula object at 0x000002382378C3E0> | Col 8: =IFERROR(D6 * VALUE(SUBSTITUTE(E6, ".", ",")), 0)
+Row 7: Col 1: Đắk Nông | Col 2: Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông | Col 3: 2026-06-02 00:00:00 | Col 4: 322.0 | Col 5: 0.0% | Col 6: ="Tuần " & ISOWEEKNUM(C7) | Col 7: <openpyxl.worksheet.formula.ArrayFormula object at 0x0000023822FFAE70> | Col 8: =IFERROR(D7 * VALUE(SUBSTITUTE(E7, ".", ",")), 0)
+Row 8: Col 1: Đắk Nông | Col 2: Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông | Col 3: 2026-05-29 00:00:00 | Col 4: 287.0 | Col 5: 79.1% | Col 6: ="Tuần " & ISOWEEKNUM(C8) | Col 7: <openpyxl.worksheet.formula.ArrayFormula object at 0x00000238237906B0> | Col 8: =IFERROR(D8 * VALUE(SUBSTITUTE(E8, ".", ",")), 0)
+Row 9: Col 1: Đắk Nông | Col 2: Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông | Col 3: 2026-05-27 00:00:00 | Col 4: 282.0 | Col 5: 0.0% | Col 6: ="Tuần " & ISOWEEKNUM(C9) | Col 7: <openpyxl.worksheet.formula.ArrayFormula object at 0x00000238237907C0> | Col 8: =IFERROR(D9 * VALUE(SUBSTITUTE(E9, ".", ",")), 0)
+Row 10: Col 1: Đắk Nông | Col 2: Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông | Col 3: 2026-05-30 00:00:00 | Col 4: 277.0 | Col 5: 0.0% | Col 6: ="Tuần " & ISOWEEKNUM(C10) | Col 7: <openpyxl.worksheet.formula.ArrayFormula object at 0x0000023823663050> | Col 8: =IFERROR(D10 * VALUE(SUBSTITUTE(E10, ".", ",")), 0)
+Row 11: Col 1: Đắk Nông | Col 2: Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông | Col 3: 2026-06-09 00:00:00 | Col 4: 273.0 | Col 5: 0.0% | Col 6: ="Tuần " & ISOWEEKNUM(C11) | Col 7: <openpyxl.worksheet.formula.ArrayFormula object at 0x0000023823663150> | Col 8: =IFERROR(D11 * VALUE(SUBSTITUTE(E11, ".", ",")), 0)
+Row 12: Col 1: Đắk Nông | Col 2: Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông | Col 3: 2026-06-01 00:00:00 | Col 4: 256.0 | Col 5: 0.0% | Col 6: ="Tuần " & ISOWEEKNUM(C12) | Col 7: <openpyxl.worksheet.formula.ArrayFormula object at 0x00000238237499A0> | Col 8: =IFERROR(D12 * VALUE(SUBSTITUTE(E12, ".", ",")), 0)
+Row 13: Col 1: Đắk Nông | Col 2: Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông | Col 3: 2026-05-28 00:00:00 | Col 4: 226.0 | Col 5: 0.0% | Col 6: ="Tuần " & ISOWEEKNUM(C13) | Col 7: <openpyxl.worksheet.formula.ArrayFormula object at 0x0000023823749C70> | Col 8: =IFERROR(D13 * VALUE(SUBSTITUTE(E13, ".", ",")), 0)
+Row 14: Col 1: Đắk Nông | Col 2: Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông | Col 3: 2026-05-20 00:00:00 | Col 4: 225.0 | Col 5: 0.0% | Col 6: ="Tuần " & ISOWEEKNUM(C14) | Col 7: <openpyxl.worksheet.formula.ArrayFormula object at 0x000002382370AC10> | Col 8: =IFERROR(D14 * VALUE(SUBSTITUTE(E14, ".", ",")), 0)
+
+=========================================
+SHEET: draft
+=========================================
+Row 1: Col 2: LTC Tổng | Col 11: LTC TTS
+Row 2: Col 2: 2026/23 | Col 4: 2026/24 | Col 11: 2026/20 | Col 13: 2026/21
+Row 3: Col 1: AM | Col 2: %Gán | Col 3: %LTC | Col 4: %Gán | Col 5: %LTC | Col 6: So với W20/2026 | Col 10: AM | Col 11: %Gán | Col 12: %LTC | Col 13: %Gán | Col 14: %LTC
+Row 4: Col 1: Trầm Hữu Tiến | Col 2: 0.9891 | Col 3: 0.84 | Col 4: 0.9914 | Col 5: 0.7285 | Col 6: =E4-C4 | Col 10: Trầm Hữu Tiến | Col 11: 1.0 | Col 12: 0.9339 | Col 13: 0.976 | Col 14: 0.796
+Row 5: Col 1: Phan Đình Duy | Col 2: 0.9989 | Col 3: 0.8617 | Col 4: 0.9967 | Col 5: 0.7639 | Col 6: =E5-C5 | Col 10: Trần Thị Nhung | Col 11: 0.9972 | Col 12: 0.8864 | Col 13: 0.9808 | Col 14: 0.7837
+Row 6: Col 1: Võ Tấn Lợi | Col 2: 0.9976 | Col 3: 0.8496 | Col 4: 0.9987 | Col 5: 0.7779 | Col 6: =E6-C6 | Col 10: Phan Đình Duy | Col 11: 1.0 | Col 12: 0.8543 | Col 13: 1.0 | Col 14: 0.766
+Row 7: Col 1: Lê Thanh Nhựt | Col 2: 0.9993 | Col 3: 0.8905 | Col 4: 0.9979 | Col 5: 0.838 | Col 6: =E7-C7 | Col 10: Võ Tấn Lợi | Col 11: 1.0 | Col 12: 0.973 | Col 13: 1.0 | Col 14: 0.9063
+Row 8: Col 1: Huỳnh Thị Kim Chi | Col 2: 0.9871 | Col 3: 0.7755 | Col 4: 0.9697 | Col 5: 0.7378 | Col 6: =E8-C8 | Col 10: Nguyễn Ngọc Khánh | Col 11: 0.9979 | Col 12: 0.9357 | Col 13: 0.9989 | Col 14: 0.9118
+Row 9: Col 1: Lê Văn Trường | Col 2: 0.9953 | Col 3: 0.8989 | Col 4: 0.9973 | Col 5: 0.8737 | Col 6: =E9-C9 | Col 10: Nguyễn Duy Long | Col 11: 0.9957 | Col 12: 0.8654 | Col 13: 0.9993 | Col 14: 0.847
+Row 10: Col 1: Nguyễn Duy Long | Col 2: 0.9968 | Col 3: 0.9312 | Col 4: 0.9986 | Col 5: 0.9083 | Col 6: =E10-C10 | Col 10: Phạm Bá Thành Công | Col 11: 0.9991 | Col 12: 0.9479 | Col 13: 0.9961 | Col 14: 0.9297
+Row 11: Col 1: Phạm Bá Thành Công | Col 2: 0.9918 | Col 3: 0.8844 | Col 4: 0.9788 | Col 5: 0.8683 | Col 6: =E11-C11 | Col 10: Lê Thanh Nhựt | Col 11: 1.0 | Col 12: 0.9246 | Col 13: 0.993 | Col 14: 0.9093
+Row 12: Col 1: Nguyễn Ngọc Khánh | Col 2: 0.9971 | Col 3: 0.8905 | Col 4: 0.9978 | Col 5: 0.8796 | Col 6: =E12-C12 | Col 10: Huỳnh Thị Kim Chi | Col 11: 0.9921 | Col 12: 0.6627 | Col 13: 0.9769 | Col 14: 0.662
+Row 13: Col 1: Trần Văn Phước | Col 2: 0.9768 | Col 3: 0.7914 | Col 4: 0.9593 | Col 5: 0.7949 | Col 6: =E13-C13 | Col 10: Thái Thị Thanh Thư | Col 11: 0.9989 | Col 12: 0.8986 | Col 13: 0.9986 | Col 14: 0.9144
+Row 14: Col 1: Thái Thị Thanh Thư | Col 2: 0.9963 | Col 3: 0.887 | Col 4: 0.9955 | Col 5: 0.8933 | Col 6: =E14-C14 | Col 10: Huỳnh Tấn Hiền | Col 11: 0.9996 | Col 12: 0.961 | Col 13: 0.9996 | Col 14: 0.9793
+
+=========================================
+SHEET: OPR TTS
+=========================================
+Row 1: Col 1: tutinh | Col 2: kholay | Col 3: NgayLTC | Col 4: khung_gio_tao_don | Col 5: ly_do_tre_12h | Col 6: sellername | Col 7: vol_ltc | Col 8: tuan | Col 9: vung | Col 10: ot | Col 11: Tuần | Col 12: AM | Col 13: Khung giờ
+Row 2: Col 1: Ninh Thuận | Col 2: Bưu Cục 95 Thống Nhất-Phan Rang-Ninh Thuận | Col 3: 2026-06-01 00:00:00 | Col 4: 2.Tạo từ 9h-19h | Col 5: 0.Ontime OPR | Col 6: FRM NUTS | Col 7: 14.0 | Col 8: 23.0 | Col 9: NTB | Col 10: 14.0 | Col 11: W23 | Col 12: <openpyxl.worksheet.formula.ArrayFormula object at 0x0000023824216030> | Col 13: <openpyxl.worksheet.formula.ArrayFormula object at 0x0000023824216090>
+Row 3: Col 1: Bình Thuận | Col 2: Bưu Cục Số 7 Lê Thánh Tôn-LaGi-Bình Thuận | Col 3: 2026-06-01 00:00:00 | Col 4: 2.Tạo từ 9h-19h | Col 5: 0.Ontime OPR | Col 6: TUAN LE CLOTHING | Col 7: 12.0 | Col 8: 23.0 | Col 9: NTB | Col 10: 12.0 | Col 11: W23 | Col 12: <openpyxl.worksheet.formula.ArrayFormula object at 0x0000023824215C10> | Col 13: 1.Tạo từ 9h-19h
+Row 4: Col 1: Bình Thuận | Col 2: Bưu Cục 158 Quốc lộ 55-Tánh Linh-Bình Thuận | Col 3: 2026-06-01 00:00:00 | Col 4: 1.Tạo trước 9h | Col 5: 0.Ontime OPR | Col 6: phụ tùng Lê Trung. | Col 7: 1.0 | Col 8: 23.0 | Col 9: NTB | Col 10: 1.0 | Col 11: W23 | Col 12: <openpyxl.worksheet.formula.ArrayFormula object at 0x0000023824215BB0> | Col 13: 2.Tạo từ 19h-9h
+Row 5: Col 1: Lâm Đồng | Col 2: Bưu cục Ngô Thỳ Sỹ - Đà Lạt - Lâm Đồng | Col 3: 2026-06-01 00:00:00 | Col 4: 3.Tạo sau 19h | Col 5: 4.Khác | Col 6: ĐẶC SẢN XỨ ĐÀ LẠT | Col 7: 1.0 | Col 8: 23.0 | Col 9: NTB | Col 10: 0.0 | Col 11: W23 | Col 12: <openpyxl.worksheet.formula.ArrayFormula object at 0x00000238242160F0> | Col 13: 2.Tạo từ 19h-9h
+Row 6: Col 1: Lâm Đồng | Col 2: Bưu Cục Cao Bá Quát-Phường 7-Đà Lạt-Lâm Đồng | Col 3: 2026-06-01 00:00:00 | Col 4: 3.Tạo sau 19h | Col 5: 4.Khác | Col 6: YODY Official | Col 7: 2.0 | Col 8: 23.0 | Col 9: NTB | Col 10: 0.0 | Col 11: W23 | Col 12: <openpyxl.worksheet.formula.ArrayFormula object at 0x0000023824215C70> | Col 13: 2.Tạo từ 19h-9h
+Row 7: Col 1: Khánh Hòa | Col 2: Bưu Cục Thôn Long Hoà-Vạn Long-Vạn Ninh-Khánh Hoà | Col 3: 2026-06-01 00:00:00 | Col 4: 2.Tạo từ 9h-19h | Col 5: 2.Khách hẹn lại | Col 6: Tạp Hóa Nhà Nông Anh Nguyên | Col 7: 3.0 | Col 8: 23.0 | Col 9: NTB | Col 10: 0.0 | Col 11: W23 | Col 12: <openpyxl.worksheet.formula.ArrayFormula object at 0x0000023824215CD0> | Col 13: 1.Tạo từ 9h-19h
+Row 8: Col 1: Lâm Đồng | Col 2: Bưu Cục Đạ Huoai-Lâm Đồng | Col 3: 2026-06-01 00:00:00 | Col 4: 2.Tạo từ 9h-19h | Col 5: 0.Ontime OPR | Col 6: ĐỒ ĐI RỪNG 49 | Col 7: 3.0 | Col 8: 23.0 | Col 9: NTB | Col 10: 3.0 | Col 11: W23 | Col 12: <openpyxl.worksheet.formula.ArrayFormula object at 0x0000023824216150> | Col 13: 1.Tạo từ 9h-19h
+Row 9: Col 1: Lâm Đồng | Col 2: Bưu Cục Đạ Huoai-Lâm Đồng | Col 3: 2026-06-01 00:00:00 | Col 4: 3.Tạo sau 19h | Col 5: 0.Ontime OPR | Col 6: Hongthu.shop | Col 7: 2.0 | Col 8: 23.0 | Col 9: NTB | Col 10: 2.0 | Col 11: W23 | Col 12: <openpyxl.worksheet.formula.ArrayFormula object at 0x00000238242161B0> | Col 13: 2.Tạo từ 19h-9h
+Row 10: Col 1: Khánh Hòa | Col 2: Bưu Cục Đường Tỉnh Lộ 10-Xã Diên Thọ-Khánh Hòa | Col 3: 2026-06-01 00:00:00 | Col 4: 2.Tạo từ 9h-19h | Col 5: 2.Khách hẹn lại | Col 6: Riu Lab - Xưởng Gỗ Decor | Col 7: 1.0 | Col 8: 23.0 | Col 9: NTB | Col 10: 0.0 | Col 11: W23 | Col 12: <openpyxl.worksheet.formula.ArrayFormula object at 0x0000023824216210> | Col 13: 1.Tạo từ 9h-19h
+Row 11: Col 1: Lâm Đồng | Col 2: Bưu Cục Đạ Huoai-Lâm Đồng | Col 3: 2026-06-01 00:00:00 | Col 4: 2.Tạo từ 9h-19h | Col 5: 3.Không liên lạc được | Col 6: Văn Thức Shop 49 | Col 7: 2.0 | Col 8: 23.0 | Col 9: NTB | Col 10: 0.0 | Col 11: W23 | Col 12: <openpyxl.worksheet.formula.ArrayFormula object at 0x0000023824215D30> | Col 13: 1.Tạo từ 9h-19h
+Row 12: Col 1: Ninh Thuận | Col 2: Bưu Cục 254A Đường 21 tháng 8-Phan Rang-Tháp Chàm-Ninh Thuận | Col 3: 2026-06-01 00:00:00 | Col 4: 2.Tạo từ 9h-19h | Col 5: 0.Ontime OPR | Col 6: Thích Làm Loa | Col 7: 1.0 | Col 8: 23.0 | Col 9: NTB | Col 10: 1.0 | Col 11: W23 | Col 12: <openpyxl.worksheet.formula.ArrayFormula object at 0x0000023824216270> | Col 13: 1.Tạo từ 9h-19h
+Row 13: Col 1: Bình Thuận | Col 2: Bưu Cục Xã Nam Chính-Đức Linh-Bình Thuận | Col 3: 2026-06-01 00:00:00 | Col 4: 3.Tạo sau 19h | Col 5: 0.Ontime OPR | Col 6: shop B&B.... | Col 7: 21.0 | Col 8: 23.0 | Col 9: NTB | Col 10: 21.0 | Col 11: W23 | Col 12: <openpyxl.worksheet.formula.ArrayFormula object at 0x0000023824215D90> | Col 13: 2.Tạo từ 19h-9h
+Row 14: Col 1: Khánh Hòa | Col 2: Bưu Cục 56 Phan Đình Phùng-Cam Linh-Khánh Hòa | Col 3: 2026-06-01 00:00:00 | Col 4: 2.Tạo từ 9h-19h | Col 5: 1.Gan_tre | Col 6: THE CÓI | Col 7: 10.0 | Col 8: 23.0 | Col 9: NTB | Col 10: 0.0 | Col 11: W23 | Col 12: <openpyxl.worksheet.formula.ArrayFormula object at 0x00000238242162D0> | Col 13: 1.Tạo từ 9h-19h

@@ -1,0 +1,65 @@
+Ca1 + Tồn Tỉnh
+ Chi tiết
+ Time
+ Volume
+ Hàng Mới Về Trong Ngày
+ Gán
+ Chưa Gán
+ GTC
+ Chuyển Trả
+ Tồn
+ %Gán
+ %Chưa Gán
+ %GTC
+ %Chuyển trả
+ %Tồn
+ 
+Tồn Tỉnh
+ Chi tiết.1
+ Time.1
+ Volume.1
+ Hàng Mới Về Trong Ngày.1
+ Gán.1
+ Chưa Gán.1
+ GTC.1
+ Chuyển Trả.1
+ Tồn.1
+ %Gán.1
+ %Chưa Gán.1
+ %GTC.1
+ %Chuyển trả.1
+ %Tồn.1
+ .1
+Ca1 Tỉnh
+ Chi tiết.2
+ Time.2
+ Volume.2
+ Hàng Mới Về Trong Ngày.2
+ Gán.2
+ Chưa Gán.2
+ GTC.2
+ Chuyển Trả.2
+ Tồn.2
+ %Gán.2
+ %Chưa Gán.2
+ %GTC.2
+ %Chuyển trả.2
+ %Tồn.2
+ .2
+Ca2 Tỉnh
+ Chi tiết.3
+ Time.3
+ Volume.3
+ Hàng Mới Về Trong Ngày.3
+ Gán.3
+ Chưa Gán.3
+ GTC.3
+ Chuyển Trả.3
+ Tồn.3
+ %Gán.3
+ %Chưa Gán.3
+ %GTC.3
+ %Chuyển trả.3
+ %Tồn.3
+ .3
+ .4

@@ -1,0 +1,7 @@
+    Mã bưu cục                                              Bưu cục                                              BC      Tỉnh               Am   ID - Họ Tên Am
+2   22222000.0    Bưu Cục 337 Hùng Vương-Lộc Thắng-Bảo Lâm-Lâm Đồng   BC 337 Hùng Vương-Lộc Thắng-Bảo Lâm-Lâm Đồng   Lâm Đồng  Hồng Bích Nga  Hồng Bích Nga
+35  23015000.0                      Bưu Cục QL55-Bảo Lâm 3-Lâm Đồng                      BC QL55-Bảo Lâm 3-Lâm Đồng  Lâm Đồng  Hồng Bích Nga  Hồng Bích Nga
+56  20785000.0                 Bưu Cục 95A Đội Cấn-Bảo Lộc-Lâm Đồng                 BC 95A Đội Cấn-Bảo Lộc-Lâm Đồng  Lâm Đồng  Hồng Bích Nga  Hồng Bích Nga
+74  21688000.0  Bưu Cục 412 Nguyễn Văn Cừ-Lộc Phát-Bảo Lộc-Lâm Đồng  BC 412 Nguyễn Văn Cừ-Lộc Phát-Bảo Lộc-Lâm Đồng  Lâm Đồng  Hồng Bích Nga  Hồng Bích Nga
+79  22222000.0    Bưu Cục 337 Hùng Vương-Lộc Thắng-Bảo Lâm-Lâm Đồng    BC 337 Hùng Vương-Lộc Thắng-Bảo Lâm-Lâm Đồng  Lâm Đồng  Hồng Bích Nga  Hồng Bích Nga
+84  22759000.0              Bưu Cục 231 Thôn 1-Xã Hòa Ninh-Lâm Đồng              BC 231 Thôn 1-Xã Hòa Ninh-Lâm Đồng  Lâm Đồng  Hồng Bích Nga  Hồng Bích Nga

@@ -1,0 +1,15 @@
+=== COLUMNS ===
+['Cấp quản lý', 'Chi tiết', 'Ca', 'Time', 'Volume', '%Gán', '%LTC', '%Đóng kiện', '%LC', 'Leadtime', 'Sản Lượng Lấy Thành Công', 'Sản Lượng Gán', 'Sản Lượng Chưa Gán', '% Chưa Gán', 'Hàng Mới Về Trong Ngày', 'Tỉnh', 'Vùng', 'AM']
+
+=== UNIQUE AM IN LOCAL W21 ===
+[]
+
+=== TRẦN CÔNG HẬU W21 ROWS ===
+Empty DataFrame
+Columns: [Chi tiết, Volume, %Gán, %LTC, AM]
+Index: []
+
+=== HỒNG BÍCH NGA W21 ROWS ===
+Empty DataFrame
+Columns: [Chi tiết, Volume, %Gán, %LTC, AM]
+Index: []

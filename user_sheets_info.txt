@@ -1,0 +1,67 @@
+Workbook: c:\Users\lap4all\Desktop\New folder\downloaded_user_sheet.xlsx
+Number of sheets: 16
+Sheets and their columns:
+
+--- Sheet: dataGTC gốc full hàng ---
+Columns: ['Cấp Quản Lý', 'Chi tiết', 'Loại Hàng', 'Time', 'Volume', '% Gán', '% GTC', '% Chuyển trả', 'Leadtime']
+Shape: (2, 9)
+
+--- Sheet: dataGTC gốc TTS ---
+Columns: ['Cấp Quản Lý', 'Chi tiết', 'Loại Hàng', 'Time', 'Volume', '% Gán', '% GTC', '% Chuyển trả', 'Leadtime']
+Shape: (2, 9)
+
+--- Sheet: dataODRfull hàng  ---
+Columns: ['Quản lý', 'Chi tiết', 'Time', 'GTC', '%Ontime']
+Shape: (2, 5)
+
+--- Sheet: dataODR TTS ---
+Columns: ['Quản lý', 'Chi tiết', 'Time', 'GTC', '%Ontime']
+Shape: (2, 5)
+
+--- Sheet: dataLTC full hàng ---
+Columns: ['Cấp quản lý', 'Chi tiết', 'Time', 'Volume', '%Gán', '%LTC', '%Đóng kiện', '%LC', 'Leadtime']
+Shape: (2, 9)
+
+--- Sheet: dataLTC TTS ---
+Columns: ['Cấp quản lý', 'Chi tiết', 'Time', 'Volume', '%Gán', '%LTC', '%Đóng kiện', '%LC', 'Leadtime']
+Shape: (2, 9)
+
+--- Sheet: sản lượng ---
+Columns: ['Unnamed: 0', 'Sản Lương ( Volume Tổng)', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Sản Lương ( Volume TTS )', 'Unnamed: 10', 'Unnamed: 11', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14']
+Shape: (2, 15)
+
+--- Sheet: gtcnew ---
+Columns: ['Unnamed: 0', 'GTC Tổng', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9', 'Unnamed: 10', 'Unnamed: 11', 'Unnamed: 12', 'Unnamed: 13', 'GTC - TTS', 'Unnamed: 15', 'Unnamed: 16', 'Unnamed: 17', 'Unnamed: 18', 'Unnamed: 19', 'Unnamed: 20', 'Unnamed: 21']
+Shape: (2, 22)
+
+--- Sheet: gtc + tồn ---
+Columns: ['Unnamed: 0', 'GTC Tổng (Ca 1 + Tồn)', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9', 'Unnamed: 10', 'GTC TTS (Ca 1 + Tồn)', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15', 'Unnamed: 16', 'Unnamed: 17', 'Unnamed: 18', 'Unnamed: 19']
+Shape: (2, 20)
+
+--- Sheet: LTC ---
+Columns: ['Unnamed: 0', 'LTC Tổng', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9', 'Unnamed: 10', 'Unnamed: 11', 'LTC TTS', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15', 'Unnamed: 16', 'Unnamed: 17', 'Unnamed: 18', 'Unnamed: 19', 'Unnamed: 20']
+Shape: (2, 21)
+
+--- Sheet: cocau ---
+Columns: ['Mã bưu cục', 'Bưu cục', 'BC', 'Tỉnh', 'Am', 'ID - Họ Tên Am']
+Shape: (2, 6)
+
+--- Sheet: ca2 ---
+Columns: ['Unnamed: 0', 'GTC Tổng (Ca 2)', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9', 'Unnamed: 10', 'GTC TTS (Ca 2)', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15', 'Unnamed: 16', 'Unnamed: 17', 'Unnamed: 18', 'Unnamed: 19']
+Shape: (2, 20)
+
+--- Sheet: ODR ---
+Columns: ['Unnamed: 0', 'Ontime ODR  Tổng - Tỉnh', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Ontime ODR  Tổng - Tỉnh.1', 'Unnamed: 9', 'Unnamed: 10', 'Unnamed: 11']
+Shape: (2, 12)
+
+--- Sheet: data rớt LC ---
+Columns: ['Quản lý', 'Chi tiết', 'Loại ngày', 'Vol cần LC', '%_rot_lc', 'Tuần', 'AM', 'Vol rớt LC']
+Shape: (2, 8)
+
+--- Sheet: draft ---
+Columns: ['Unnamed: 0', 'LTC Tổng', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9', 'LTC TTS', 'Unnamed: 11', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14']
+Shape: (2, 15)
+
+--- Sheet: OPR TTS ---
+Columns: ['tutinh', 'kholay', 'NgayLTC', 'khung_gio_tao_don', 'ly_do_tre_12h', 'sellername', 'vol_ltc', 'tuan', 'vung', 'ot', 'Tuần', 'AM', 'Khung giờ']
+Shape: (2, 13)

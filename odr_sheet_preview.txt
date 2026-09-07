@@ -1,0 +1,23 @@
+                                       0                        1        2        3        4     5   6           7                            8         9         10        11
+0                                     NaN  Ontime ODR  Tổng - Tỉnh      NaN      NaN      NaN   NaN NaN         NaN      Ontime ODR  Tổng - Tỉnh       NaN       NaN       NaN
+1                                    Tỉnh                  2026/21  2026/22  2026/23  2026/24   NaN NaN        Tỉnh                      2026/21   2026/22   2026/23   2026/24
+2                              Ninh Thuận                   96.47%   95.75%   96.83%   96.51% -0.32 NaN  Bình Thuận                     0.970294  0.968882  0.971059  0.964882
+3                                Đắk Nông                   94.27%   94.62%   94.03%   93.86% -0.17 NaN    Đắk Nông                     0.912467  0.925333     0.918  0.920067
+4                              Bình Thuận                   97.37%   97.25%   97.35%   97.10% -0.25 NaN   Khánh Hòa                     0.859286  0.931476  0.952143  0.945238
+5                               Khánh Hòa                   83.42%   90.49%   95.16%   95.36%  0.20 NaN    Lâm Đồng                        0.865  0.856542    0.8568     0.882
+6                                Lâm Đồng                   87.24%   86.04%   86.72%   88.05%  1.33 NaN  Ninh Thuận                       0.9615    0.9595  0.969833  0.965167
+7                             Grand Total                   90.65%   92.16%   93.58%   93.95%  0.37 NaN   Tổng cộng                     0.900675  0.918386  0.922762  0.927321
+8                                     NaN                      NaN      NaN      NaN      NaN   NaN NaN         NaN                          NaN       NaN       NaN       NaN
+9   Ontime ODR: tăng 0,37% so với tuần 23                      NaN      NaN      NaN      NaN   NaN NaN         NaN                          NaN       NaN       NaN       NaN
+10                                    NaN                      NaN      NaN      NaN      NaN   NaN NaN         NaN                          NaN       NaN       NaN       NaN
+11                                    NaN                      NaN      NaN      NaN      NaN   NaN NaN         NaN                          NaN       NaN       NaN       NaN
+12                                    NaN                      NaN      NaN      NaN      NaN   NaN NaN         NaN                          NaN       NaN       NaN       NaN
+13                                    NaN                      NaN      NaN      NaN      NaN   NaN NaN         NaN                          NaN       NaN       NaN       NaN
+14                                    NaN                      NaN      NaN      NaN      NaN   NaN NaN         NaN  Ontime ODR TTS  Tổng - Tỉnh       NaN       NaN       NaN
+15                                    NaN                      NaN      NaN      NaN      NaN   NaN NaN        Tỉnh                      2026/21   2026/22   2026/23   2026/24
+16                                    NaN                      NaN      NaN      NaN      NaN   NaN NaN  Bình Thuận                     0.974556  0.972647    0.9755   0.97119
+17                                    NaN                      NaN      NaN      NaN      NaN   NaN NaN    Đắk Nông                     0.915857  0.941643  0.934615  0.925615
+18                                    NaN                      NaN      NaN      NaN      NaN   NaN NaN   Khánh Hòa                     0.856476  0.933095  0.952667  0.947238
+19                                    NaN                      NaN      NaN      NaN      NaN   NaN NaN    Lâm Đồng                     0.867542  0.867792   0.86416   0.88744
+20                                    NaN                      NaN      NaN      NaN      NaN   NaN NaN  Ninh Thuận                       0.9605    0.9555  0.969167     0.966
+21                                    NaN                      NaN      NaN      NaN      NaN   NaN NaN   Tổng cộng                     0.902819   0.92528  0.929325  0.933744

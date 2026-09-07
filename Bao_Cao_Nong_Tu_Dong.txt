@@ -1,0 +1,48 @@
+BÁO CÁO VẬN HÀNH VÙNG NTB – NGÀY 23/07
+
+Tổng quan toàn vùng hôm qua (22/07):
+* Vol: 73,131 đơn | %GTC: 58.53% (tăng +0.59% vs N-1 | tăng +0.15% vs Cùng kỳ)
+* %Gán: 82.71% | %Tồn: 39.15%
+* %ODR: 93.30% (tăng +1.50% vs N-1 91.80%)
+
+ĐIỂM LOWLIGHT TOP 5 TỆ NHẤT NGÀY 22/07:
+
+1/ (LDO) Đức Trọng 1 (Lâm Đồng)
+- Chỉ số: GTC 8.54% | Tồn 1,922 đơn | %Gán 22.33%
+- Tình trạng nhân sự: Hiện hữu 7/8 NVPTTT (Thiếu hụt thực tế: 1)
+- Tình trạng tồn: Tồn Last Mile 2,102 đơn (Tồn >5 ngày: 771 đơn) | Dự kiến clear: 6 ngày
+- Nguyên nhân: Áp lực từ 1,832 đơn tồn cũ tích lũy cộng dồn với hàng mới Ca 1 gây nghẽn năng lực khai thác đơn ca khi tổng sản lượng đạt 2,109 đơn
+- Thực tế gán 23/07 (Hàng giao): Đã gán 224 / 2,102 đơn (10.66%)
+- Phương án: Nâng gán Ca 1 >85%, nghiên cứu mở thêm Ca 2 chiều nếu đơn duy trì cao.
+
+2/ (DNO) Kiến Đức (Đắk Nông)
+- Chỉ số: GTC 14.73% | Tồn 1,569 đơn | %Gán 27.91%
+- Tình trạng nhân sự: Hiện hữu 8/10 NVPTTT (Thiếu hụt thực tế: 2)
+- Tình trạng tồn: Tồn Last Mile 1,741 đơn (Tồn >5 ngày: 465 đơn) | Dự kiến clear: 5 ngày
+- Nguyên nhân: Năng lực xử lý đơn ca bị giới hạn do tổng sản lượng cần giao lên tới 1,867 đơn, trong đó hàng tồn cũ (1,430 đơn) dồn ứ tương đương lượng hàng mới của Ca 1
+- Thực tế gán 23/07 (Hàng giao): Đã gán 589 / 1,741 đơn (33.83%)
+- Phương án: Đẩy mạnh gán sớm đầu ca 1 (>85%), nghiên cứu phân bổ nhân sự chạy bổ trợ ca chiều nếu áp lực đơn lớn.
+
+3/ (DNO) Quảng Tín (Đắk Nông)
+- Chỉ số: GTC 23.14% | Tồn 850 đơn | %Gán 45.74%
+- Tình trạng nhân sự: Hiện hữu 8/8 NVPTTT (Thiếu hụt thực tế: 0)
+- Tình trạng tồn: Tồn Last Mile 1,271 đơn (Tồn >5 ngày: 153 đơn) | Dự kiến clear: 4 ngày
+- Nguyên nhân: Năng lực xử lý đơn ca bị giới hạn do tổng sản lượng cần giao lên tới 1,115 đơn, trong đó hàng tồn cũ (760 đơn) dồn ứ tương đương lượng hàng mới của Ca 1
+- Thực tế gán 23/07 (Hàng giao): Đã gán 398 / 1,271 đơn (31.31%)
+- Phương án: Nâng gán Ca 1 >85%, nghiên cứu mở thêm Ca 2 chiều nếu đơn duy trì cao.
+
+4/ (DNO) Trường Xuân (Đắk Nông)
+- Chỉ số: GTC 35.41% | Tồn 283 đơn | %Gán 59.02%
+- Tình trạng nhân sự: Hiện hữu 5/6 NVPTTT (Thiếu hụt thực tế: 1)
+- Tình trạng tồn: Tồn Last Mile 623 đơn (Tồn >5 ngày: 47 đơn) | Dự kiến clear: 3 ngày
+- Nguyên nhân: Năng lực xử lý đơn ca bị giới hạn do tổng sản lượng cần giao lên tới 449 đơn, trong đó hàng tồn cũ (223 đơn) dồn ứ tương đương lượng hàng mới của Ca 1
+- Thực tế gán 23/07 (Hàng giao): Đã gán 540 / 624 đơn (86.54%)
+- Phương án: Nâng gán Ca 1 >85%, nghiên cứu mở thêm Ca 2 chiều nếu đơn duy trì cao.
+
+5/ (DNO) Nhân Cơ (Đắk Nông)
+- Chỉ số: GTC 36.81% | Tồn 210 đơn | %Gán 59.71%
+- Tình trạng nhân sự: Hiện hữu 7/8 NVPTTT (Thiếu hụt thực tế: 1)
+- Tình trạng tồn: Tồn Last Mile 677 đơn (Tồn >5 ngày: 6 đơn) | Dự kiến clear: 3 ngày
+- Nguyên nhân: Hệ thống vận hành ca chiều chưa hiệu quả: hàng Ca 2 đổ về 137 đơn nhưng khâu điều phối lỏng lẻo, chỉ gán thành công 2 đơn
+- Thực tế gán 23/07 (Hàng giao): Đã gán 391 / 677 đơn (57.75%)
+- Phương án: Siết chặt Ca 2 chiều, buộc shippers trực ca chiều nghiêm túc, gán Ca 2 phải >70%.

@@ -1,0 +1,109 @@
+{
+  "last_updated_date": "2026-09-04",
+  "history": [
+    {
+      "time": "15:28",
+      "totals": {
+        "Huỳnh Thúc Duân": 3,
+        "Huỳnh Thị Kim Chi": 3,
+        "Hồng Bích Nga": 22,
+        "Lê Minh Lợi": 2,
+        "Lê Văn Trường": 46,
+        "Nguyễn Lê Nguyên Vũ": 1,
+        "Nguyễn Thanh Long": 3,
+        "Nguyễn Tiến Lực": 2,
+        "Trương Quang Linh": 59,
+        "Trầm Hữu Tiến": 19,
+        "Trần Thị Nhung": 1,
+        "Chưa gán AM": 2
+      },
+      "doneTotals": {
+        "Huỳnh Thúc Duân": 0,
+        "Huỳnh Thị Kim Chi": 0,
+        "Hồng Bích Nga": 0,
+        "Lê Minh Lợi": 0,
+        "Lê Văn Trường": 0,
+        "Nguyễn Lê Nguyên Vũ": 0,
+        "Nguyễn Thanh Long": 0,
+        "Nguyễn Tiến Lực": 0,
+        "Trương Quang Linh": 0,
+        "Trầm Hữu Tiến": 0,
+        "Trần Thị Nhung": 0,
+        "Chưa gán AM": 0
+      },
+      "unassignedTotals": {
+        "Huỳnh Thúc Duân": 1,
+        "Huỳnh Thị Kim Chi": 1,
+        "Hồng Bích Nga": 19,
+        "Lê Minh Lợi": 1,
+        "Lê Văn Trường": 29,
+        "Nguyễn Lê Nguyên Vũ": 1,
+        "Nguyễn Thanh Long": 0,
+        "Nguyễn Tiến Lực": 2,
+        "Trương Quang Linh": 32,
+        "Trầm Hữu Tiến": 10,
+        "Trần Thị Nhung": 1,
+        "Chưa gán AM": 2
+      },
+      "stagnantTotals": {
+        "Huỳnh Thúc Duân": 3,
+        "Huỳnh Thị Kim Chi": 3,
+        "Hồng Bích Nga": 22,
+        "Lê Minh Lợi": 1,
+        "Lê Văn Trường": 42,
+        "Nguyễn Lê Nguyên Vũ": 0,
+        "Nguyễn Thanh Long": 3,
+        "Nguyễn Tiến Lực": 0,
+        "Trương Quang Linh": 59,
+        "Trầm Hữu Tiến": 18,
+        "Trần Thị Nhung": 0,
+        "Chưa gán AM": 0
+      },
+      "bcTotals": {
+        "(DNO) Kiến Đức": 22,
+        "(DNO) Quảng Tín": 59,
+        "(LDO) Đơn Dương": 42,
+        "(LDO) Đức Trọng 1": 17,
+        "Kho Chuyển Tiếp Bảo Lộc": 1,
+        "(DNO) Quảng Sơn": 1,
+        "Kho Giao Hàng Nặng - TP Đà Lạt - Lâm Đồng": 1,
+        "Kho Trung Chuyển Khánh Hòa": 2,
+        "(LDO) Tân Hà Lâm Hà": 1,
+        "(LDO) Đam Rông 3": 2,
+        "(DNO) Nhân Cơ": 1,
+        "(LDO) Di Linh": 2,
+        "(LDO) Lang Biang - Đà Lạt 1": 2,
+        "(DNO) Bắc Gia Nghĩa": 2,
+        "(LDO) Cát Tiên": 1,
+        "(LDO) Lang Biang - Đà Lạt 2": 1,
+        "(KHO) Cam Linh": 3,
+        "(LDO) Xuân Hương - Đà Lạt": 3
+      },
+      "grandTotal": 163,
+      "grandDone": 0,
+      "totalAtHub": 160,
+      "totalNotAtHub": 3,
+      "grandUnassigned": 99,
+      "grandStagnant": 151
+    }
+  ],
+  "daily_snapshots": {
+    "20260904": {
+      "totals": {
+        "Huỳnh Thúc Duân": 3,
+        "Huỳnh Thị Kim Chi": 3,
+        "Hồng Bích Nga": 22,
+        "Lê Minh Lợi": 2,
+        "Lê Văn Trường": 46,
+        "Nguyễn Lê Nguyên Vũ": 1,
+        "Nguyễn Thanh Long": 3,
+        "Nguyễn Tiến Lực": 2,
+        "Trương Quang Linh": 59,
+        "Trầm Hữu Tiến": 19,
+        "Trần Thị Nhung": 1,
+        "Chưa gán AM": 2
+      },
+      "grandTotal": 163
+    }
+  }
+}

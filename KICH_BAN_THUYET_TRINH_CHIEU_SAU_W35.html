@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Báo Cáo Vận Hành & Kinh Doanh Tuần W35 - Nam Trung Bộ</title>
+  <style>
+    :root {
+      --primary: #f97316;
+      --navy: #0f172a;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --green: #059669;
+      --green-bg: #ecfdf5;
+      --red: #e11d48;
+      --red-bg: #fff1f2;
+      --blue: #0284c7;
+      --blue-bg: #f0f9ff;
+      --amber: #d97706;
+      --amber-bg: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #090d16;
+        --card-bg: #111827;
+        --text: #f8fafc;
+        --text-muted: #94a3b8;
+        --border: #1f2937;
+        --green-bg: rgba(5, 150, 105, 0.15);
+        --red-bg: rgba(225, 29, 72, 0.15);
+        --blue-bg: rgba(2, 132, 199, 0.15);
+        --amber-bg: rgba(217, 119, 6, 0.15);
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 14px; line-height: 1.65; font-size: 15px; }
+    
+    .header { text-align: center; margin-bottom: 20px; padding: 18px 12px; background: linear-gradient(135deg, #1e3a8a, #0f172a); border-radius: 16px; color: white; box-shadow: 0 6px 20px rgba(15, 23, 42, 0.25); }
+    .badge-top { display: inline-block; background: var(--primary); color: white; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 11px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+    h1 { font-size: 19px; font-weight: 900; line-height: 1.35; margin-bottom: 4px; }
+    .sub { font-size: 12.5px; opacity: 0.9; }
+
+    .section-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 16px; margin-bottom: 18px; box-shadow: 0 3px 10px rgba(0,0,0,0.03); }
+    .section-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid var(--border); padding-bottom: 8px; margin-bottom: 12px; }
+    .section-title { font-size: 15.5px; font-weight: 800; display: flex; align-items: center; gap: 6px; }
+    .sec-tag { font-size: 10.5px; padding: 2px 7px; border-radius: 6px; font-weight: 700; text-transform: uppercase; }
+
+    .speech-box { background: rgba(249, 115, 22, 0.06); border-left: 4px solid var(--primary); border-radius: 0 10px 10px 0; padding: 12px 14px; margin: 8px 0 12px 0; font-style: italic; font-size: 14.5px; color: var(--text); }
+    .speech-label { font-weight: 800; font-size: 11px; text-transform: uppercase; color: var(--primary); margin-bottom: 4px; font-style: normal; display: flex; align-items: center; gap: 4px; }
+
+    .deep-box { background: var(--blue-bg); border: 1px solid rgba(2, 132, 199, 0.3); border-radius: 10px; padding: 12px; margin: 10px 0; font-size: 13.5px; }
+    .deep-title { font-weight: 800; color: var(--blue); margin-bottom: 4px; display: flex; align-items: center; gap: 4px; }
+
+    .action-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+    .action-table th, .action-table td { border: 1px solid var(--border); padding: 7px 8px; text-align: left; }
+    .action-table th { background: #1e3a8a; color: white; font-weight: 700; }
+
+    .floating-nav { position: fixed; bottom: 12px; right: 12px; display: flex; gap: 6px; z-index: 99; }
+    .nav-btn { background: var(--primary); color: white; border: none; border-radius: 20px; padding: 8px 14px; font-weight: 700; font-size: 12px; box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4); text-decoration: none; }
+
+    /* GHN Brand Header */
+    .ghn-header-brand { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px; }
+    .ghn-cube-badge { position: relative; width: 44px; height: 38px; background: linear-gradient(135deg, #f26522, #ea580c); border-radius: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(242, 101, 34, 0.4); overflow: hidden; }
+    .ghn-cube-ribbon { position: absolute; width: 10px; height: 100%; background: rgba(255, 255, 255, 0.3); }
+    .ghn-cube-ribbon::before { content: ''; position: absolute; top: 50%; left: -17px; transform: translateY(-50%); width: 44px; height: 9px; background: rgba(255, 255, 255, 0.3); }
+    .ghn-cube-text { position: relative; z-index: 2; color: #fff; font-weight: 900; font-size: 15px; }
+    .ghn-tag-slogan { font-size: 10px; font-weight: 800; color: #ffedd5; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* GHN Mini Highway in Header */
+    .ghn-header-highway { position: relative; height: 24px; background: #0b1329; border-radius: 6px; margin-top: 12px; overflow: hidden; }
+    .ghn-header-road { position: absolute; top: 50%; left: 0; right: 0; height: 2px; transform: translateY(-50%); background: repeating-linear-gradient(90deg, #f26522, #f26522 10px, transparent 10px, transparent 20px); animation: headerRoad 1s linear infinite; }
+    @keyframes headerRoad { from { background-position: 0 0; } to { background-position: -40px 0; } }
+    .ghn-header-truck-anim { position: absolute; top: -2px; left: 0; animation: driveAcross 8s linear infinite; }
+    @keyframes driveAcross { 0% { left: -70px; } 100% { left: 100%; } }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="ghn-header-brand">
+      <div class="ghn-cube-badge">
+        <div class="ghn-cube-ribbon"></div>
+        <span class="ghn-cube-text">GHN</span>
+      </div>
+      <div style="text-align: left;">
+        <div style="font-weight: 900; font-size: 17px; letter-spacing: -0.01em;">GiaoHangNhanh <span style="background:var(--primary); font-size:10px; padding:2px 6px; border-radius:4px;">NTB</span></div>
+        <div class="ghn-tag-slogan">GIAO SIÊU NHANH · GIÁ SIÊU TỐT</div>
+      </div>
+    </div>
+    <h1>BÁO CÁO VẬN HÀNH & KINH DOANH TUẦN W35</h1>
+    <div class="sub">Kịch Bản Thuyết Trình Chuẩn Số Liệu Thực Tế & Phân Tích Tương Quan</div>
+
+    <!-- Mini Fleet Highway Animation -->
+    <div class="ghn-header-highway">
+      <div class="ghn-header-road"></div>
+      <div class="ghn-header-truck-anim">
+        <svg viewBox="0 0 120 48" width="60" height="24">
+          <rect x="6" y="6" width="68" height="30" rx="3" fill="#F26522"/>
+          <path d="M12 14 L24 14 L28 28 L16 28 Z" fill="#ffffff" opacity="0.25"/>
+          <text x="38" y="24" font-family="sans-serif" font-weight="900" font-size="10" fill="#fff" text-anchor="middle">GHN</text>
+          <path d="M74 15 L92 15 L104 26 L104 36 L74 36 Z" fill="#ffffff"/>
+          <path d="M74 24 L104 24 L104 36 L74 36 Z" fill="#F26522"/>
+          <path d="M78 17 L90 17 L98 24 L78 24 Z" fill="#BAE6FD"/>
+          <polygon points="103,28 105,29 105,33 103,34" fill="#FDE047"/>
+          <polygon points="105,29 125,23 125,39 105,33" fill="rgba(253, 224, 71, 0.4)"/>
+          <circle cx="24" cy="38" r="7" fill="#1E293B"/>
+          <circle cx="88" cy="38" r="7" fill="#1E293B"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. TỔNG QUAN -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title" style="color: var(--primary);">📊 [I. TỔNG QUAN VẬN HÀNH]</div>
+      <span class="sec-tag" style="background:#ffedd5; color:#c2410c;">Toàn Vùng</span>
+    </div>
+    <div class="speech-box">
+      <div class="speech-label">🗣️ LỜI THUYẾT TRÌNH:</div>
+      "Báo cáo vùng NTB tuần 35, từ 24/08 đến 30/08/2026:<br>
+      • <strong>Sản lượng full hàng:</strong> Đạt <strong>318.989 đơn</strong>, <strong>giảm thêm -15.489 đơn (-4,6%)</strong> so tuần trước — tuần thứ tư liên tiếp sản lượng giảm, từ đỉnh 374.433 đơn ở W33 xuống còn 318.989 đơn.<br>
+      • <strong>Sản lượng TTS:</strong> Gần như đi ngang, <strong>chỉ giảm nhẹ -91 đơn (-0,1%)</strong>, đạt <strong>72.881 đơn</strong> — đây là điểm tích cực, TTS đang duy trì ổn định dù full hàng tiếp tục giảm, nâng tỷ trọng TTS lên <strong>22,8%</strong> toàn vùng.<br>
+      • <strong>Chất lượng vận hành có sự phân hóa rõ rệt:</strong><br>
+      &nbsp;&nbsp;🟢 <strong>LTC:</strong> Cải thiện tốt <strong>+0,6% lên 91,1%</strong>.<br>
+      &nbsp;&nbsp;🟢 <strong>Rớt LC:</strong> Giảm mạnh <strong>-1,0% về 1,6%</strong> — mức thấp nhất từ trước đến nay.<br>
+      &nbsp;&nbsp;🔴 <strong>ODR SLA:</strong> Giảm đáng lo ngại <strong>-1,5% xuống 92,2%</strong>.<br>
+      &nbsp;&nbsp;🔴 <strong>GTC Tổng:</strong> Gần như đi ngang, giảm nhẹ <strong>-0,1% về 58,2%</strong>.<br>
+      • <strong>Về AM:</strong> AM cải thiện GTC mạnh nhất là anh <strong>Lê Minh Lợi (+12,1%)</strong>; AM giảm GTC mạnh nhất là anh <strong>Trầm Hữu Tiến (-5,6%)</strong> — cần rà soát ngay."
+    </div>
+    <div class="deep-box">
+      <div class="deep-title">🔍 PHÂN TÍCH TƯƠNG QUAN SỐ LIỆU:</div>
+      • Sản lượng Full giảm 4,6% nhưng TTS chỉ giảm 0,1%, cho thấy nguồn hàng TMĐT TikTok Shop đang giữ nhịp ổn định hơn các kênh ngoài sàn.<br>
+      • LTC tăng (+0,6%) và Rớt LC giảm (-1,0%) chứng minh khâu luân chuyển tải hoàn thành tốt, nhưng ODR giảm (-1,5%) phản ánh nút thắt phát sinh tại khâu giao hàng chặng cuối.
+    </div>
+  </div>
+
+  <!-- 2. SẢN LƯỢNG THEO TỈNH -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title" style="color: var(--blue);">📍 [SẢN LƯỢNG THEO TỈNH]</div>
+      <span class="sec-tag" style="background:#e0f2fe; color:#0369a1;">5 Tỉnh</span>
+    </div>
+    <div class="speech-box">
+      <div class="speech-label">🗣️ LỜI THUYẾT TRÌNH:</div>
+      "Tất cả 5 tỉnh đều giảm full hàng:<br>
+      • <strong>Lâm Đồng giảm nhiều nhất:</strong> <strong>-8.002 đơn</strong> (từ 133.003 xuống 125.001 đơn).<br>
+      • <strong>Khánh Hòa:</strong> <strong>-3.066 đơn</strong> (từ 84.148 xuống 81.082 đơn).<br>
+      • <strong>Bình Thuận:</strong> <strong>-1.892 đơn</strong> (từ 49.691 xuống 47.799 đơn).<br>
+      • <strong>Đắk Nông:</strong> <strong>-1.412 đơn</strong> (từ 40.540 xuống 39.128 đơn).<br>
+      • <strong>Ninh Thuận:</strong> <strong>-1.117 đơn</strong> (từ 27.096 xuống 25.979 đơn).<br>
+      • <strong>Về TTS, có 2 tỉnh cải thiện sản lượng:</strong><br>
+      &nbsp;&nbsp;🟢 <strong>Bình Thuận tăng +273 đơn</strong> (đạt 11.233 đơn).<br>
+      &nbsp;&nbsp;🟢 <strong>Ninh Thuận tăng +108 đơn</strong> (đạt 5.569 đơn).<br>
+      &nbsp;&nbsp;🔴 Trong khi Khánh Hòa (-177 đơn), Lâm Đồng (-235 đơn) và Đắk Nông (-60 đơn) tiếp tục giảm nhẹ."
+    </div>
+  </div>
+
+  <!-- 3. SẢN LƯỢNG THEO AM -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title" style="color: var(--navy);">👤 [SẢN LƯỢNG THEO AM]</div>
+      <span class="sec-tag" style="background:#f1f5f9; color:#334155;">18 AM</span>
+    </div>
+    <div class="speech-box">
+      <div class="speech-label">🗣️ LỜI THUYẾT TRÌNH:</div>
+      "Chỉ có hai AM tăng full hàng tuần này: Chị <strong>Cao Thị Thanh Thủy (+67 đơn, đạt 13.914 đơn)</strong> và anh <strong>Trầm Hữu Tiến (+168 đơn, đạt 11.218 đơn)</strong>.<br>
+      Toàn bộ các AM còn lại đều giảm — anh <strong>Lê Văn Trường giảm nhiều nhất: -3.812 đơn</strong> (từ 38.330 xuống 34.518 đơn); tiếp theo là chị Thái Thị Thanh Thư (-2.540 đơn), anh Huỳnh Thúc Duân (-1.748 đơn), anh Phan Đình Duy (-1.650 đơn).<br>
+      Về TTS: Chị <strong>Cao Thị Thanh Thủy (+189 đơn)</strong> và anh <strong>Trầm Hữu Tiến (+173 đơn)</strong> cũng là 2 AM tăng TTS nhiều nhất. Anh Lê Văn Trường giảm TTS nhiều nhất (-412 đơn)."
+    </div>
+  </div>
+
+  <!-- 4. GÁN -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title" style="color: var(--green);">📋 [TỶ LỆ GÁN VẬN HÀNH]</div>
+      <span class="sec-tag" style="background:#dcfce7; color:#15803d;">82.1% (+0.8%)</span>
+    </div>
+    <div class="speech-box">
+      <div class="speech-label">🗣️ LỜI THUYẾT TRÌNH:</div>
+      "Gán full hàng đạt <strong>82,1%</strong>, tăng nhẹ <strong>+0,8%</strong> so tuần trước — tín hiệu phục hồi sau 3 tuần liên tiếp giảm.<br>
+      • <strong>Ca 2 cải thiện tốt nhất:</strong> Tăng <strong>+1,5% lên 62,4%</strong>.<br>
+      • <strong>Ca 1 cộng hàng tồn:</strong> Tăng nhẹ <strong>+0,5% lên 86,5%</strong>.<br>
+      • <strong>TTS cũng cải thiện tương tự:</strong> Gán TTS tăng <strong>+1,6% lên 82,3%</strong>.<br>
+      • Đây là tuần Gán đầu tiên đi lên sau chuỗi giảm, cần theo dõi để xác nhận đây là đảo chiều thật."
+    </div>
+  </div>
+
+  <!-- 5. GTC TỔNG -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title" style="color: var(--primary);">🎯 [GTC TỔNG & PHÂN THEO AM]</div>
+      <span class="sec-tag" style="background:#ffedd5; color:#c2410c;">58.2%</span>
+    </div>
+    <div class="speech-box">
+      <div class="speech-label">🗣️ LỜI THUYẾT TRÌNH:</div>
+      "GTC full hàng đạt <strong>58,2%</strong>, giảm nhẹ <strong>-0,1%</strong> — gần như đi ngang. Tuy nhiên <strong>GTC TTS cải thiện tốt, tăng +1,0% lên 57,7%</strong> — lần đầu tiên TTS cải thiện sau nhiều tuần liên tiếp giảm, đây là tín hiệu tốt.<br>
+      • <strong>Theo tỉnh:</strong> Đắk Nông cải thiện mạnh nhất, <strong>+2,6% lên 41,7%</strong> — dù vẫn thấp nhất vùng nhưng đang đi đúng hướng. Lâm Đồng (-0,8%) và Ninh Thuận (-0,5%) giảm nhẹ.<br>
+      • <strong>Theo AM:</strong> Anh <strong>Lê Minh Lợi</strong> cải thiện ấn tượng nhất, <strong>+12,1% lên 35,6%</strong> — AM mới đang có xu hướng rất tốt. Anh <strong>Trương Quang Linh</strong> cũng tăng mạnh, <strong>+10,7% lên 17,4%</strong>. Anh <strong>Trầm Hữu Tiến</strong> giảm mạnh nhất, <strong>-5,6% xuống 34,1%</strong> — thấp nhất vùng và cần rà soát ngay."
+    </div>
+  </div>
+
+  <!-- 6. GTC CA 1 + TỒN -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title" style="color: var(--blue);">🌅 [GTC CA 1 CỘNG HÀNG TỒN]</div>
+      <span class="sec-tag" style="background:#e0f2fe; color:#0369a1;">59.7%</span>
+    </div>
+    <div class="speech-box">
+      <div class="speech-label">🗣️ LỜI THUYẾT TRÌNH:</div>
+      "Ca 1 cộng hàng tồn full hàng đạt <strong>59,7%</strong>, giảm nhẹ <strong>-0,4%</strong>. TTS Ca 1 cải thiện tốt, tăng <strong>+1,1% lên 59,4%</strong> — đồng chiều với GTC TTS tổng.<br>
+      • <strong>Theo AM:</strong> Chị <strong>Trần Thị Nhung</strong> cải thiện Ca 1 mạnh nhất, <strong>+3,2% lên 64,6%</strong>; chị <strong>Nguyễn Ngọc Khánh</strong> cũng tăng tốt <strong>+1,6% lên 61,2%</strong>.<br>
+      • <strong>Giảm mạnh:</strong> Anh <strong>Lê Văn Trường</strong> (-5,5% xuống 48,3%); anh <strong>Trầm Hữu Tiến</strong> (-5,3% xuống 38,9%)."
+    </div>
+  </div>
+
+  <!-- 7. GTC CA 1 TTS -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title" style="color: var(--primary);">⭐ [GTC CA 1 TTS — CHỈ SỐ CÔNG TY QUAN TÂM]</div>
+      <span class="sec-tag" style="background:#ffedd5; color:#c2410c;">75.8% (Target 76.0%)</span>
+    </div>
+    <div class="speech-box">
+      <div class="speech-label">🗣️ LỜI THUYẾT TRÌNH:</div>
+      "GTC Ca 1 TTS toàn vùng đạt <strong>75,8%</strong>, giảm nhẹ <strong>-0,2%</strong> — tiếp tục xu hướng giảm chậm.<br>
+      • Anh <strong>Nguyễn Thanh Long</strong> cải thiện tốt nhất, <strong>+3,2% lên 60,8%</strong>.<br>
+      • Anh <strong>Lê Minh Lợi</strong> cũng tăng <strong>+27,3% lên 43,7%</strong> — mức tăng đột biến của AM mới, rất đáng khuyến khích.<br>
+      • <strong>Ngược lại:</strong> Anh <strong>Lê Văn Trường</strong> giảm mạnh nhất, <strong>-6,8% xuống 60,2%</strong>. Anh <strong>Trầm Hữu Tiến</strong> giảm <strong>-4,3% xuống 47,2%</strong> — cùng với GTC tổng cũng thấp nhất vùng, đây là AM cần được ưu tiên rà soát nhất tuần này."
+    </div>
+  </div>
+
+  <!-- 8. GTC CA 2 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title" style="color: var(--navy);">🌇 [GTC CA 2 CHIỀU]</div>
+      <span class="sec-tag" style="background:#f1f5f9; color:#334155;">51.2% (+0.8%)</span>
+    </div>
+    <div class="speech-box">
+      <div class="speech-label">🗣️ LỜI THUYẾT TRÌNH:</div>
+      "Ca 2 full hàng đạt <strong>51,2% (+0,8%)</strong> — cải thiện tiếp theo sau tuần trước. TTS Ca 2 cũng tăng +0,8% lên 49,8%.<br>
+      • <strong>Khánh Hòa</strong> cải thiện mạnh nhất theo tỉnh, <strong>+2,6% lên 66,8%</strong>. Lâm Đồng và Đắk Nông cũng tăng nhẹ.<br>
+      • <strong>Ngược lại:</strong> Chị <strong>Nguyễn Thị Tuyết Thơ</strong> giảm Ca 2 mạnh nhất, <strong>-8,2% xuống 57,9%</strong>.<br>
+      • Anh <strong>Trầm Hữu Tiến Ca 2 gần như bằng 0, chỉ đạt 0,5%</strong> — vấn đề phát sinh tại giao hàng ca chiều khu vực này."
+    </div>
+  </div>
+
+  <!-- 9. LTC -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title" style="color: var(--green);">📦 [CHỈ SỐ %LTC — LẤY THÀNH CÔNG]</div>
+      <span class="sec-tag" style="background:#dcfce7; color:#15803d;">91.1% (+0.6%)</span>
+    </div>
+    <div class="speech-box">
+      <div class="speech-label">🗣️ LỜI THUYẾT TRÌNH:</div>
+      "LTC full hàng đạt <strong>91,1%, tăng +0,6%</strong> — cải thiện sau nhiều tuần giảm liên tiếp. Đây là tuần đầu tiên LTC đảo chiều từ W31, tín hiệu tích cực.<br>
+      • <strong>Đắk Nông</strong> cải thiện mạnh nhất theo tỉnh, <strong>+2,6% lên 90,1%</strong>. Bình Thuận cũng tăng +1,4% lên 91,5%.<br>
+      • <strong>Theo AM:</strong> Chị <strong>Nguyễn Thị Tuyết Thơ</strong> cải thiện LTC ấn tượng nhất, <strong>+13,4% lên 92,2%</strong> — đảo chiều hoàn toàn sau tuần trước giảm sốc. Chị <strong>Trần Thị Nhung</strong> cũng tăng mạnh, <strong>+3,4% lên 85,6%</strong>.<br>
+      • <strong>Ngược lại:</strong> Anh <strong>Lê Văn Trường</strong> giảm sốc nhất, -1,7% xuống 87,9% full hàng nhưng <strong>TTS giảm tới -12,7% xuống 75,3%</strong> — mức giảm bất thường cần kiểm tra ngay. Anh <strong>Trầm Hữu Tiến</strong> cũng giảm LTC, <strong>-1,0% xuống 82,5%</strong>."
+    </div>
+  </div>
+
+  <!-- 10. OPR -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title" style="color: var(--blue);">⏰ [OPR TTS THEO KHUNG GIỜ]</div>
+      <span class="sec-tag" style="background:#e0f2fe; color:#0369a1;">Quy Định Forward</span>
+    </div>
+    <div class="speech-box">
+      <div class="speech-label">🗣️ LỜI THUYẾT TRÌNH:</div>
+      "<em>Nhắc lại lưu ý: OPR TTS chỉ tính đơn forward từ seller đến buyer, không tính đơn thu hồi hoàn trả — AM không giải trình rớt OPR do những trường hợp này.</em><br><br>
+      • <strong>Theo tỉnh:</strong> Khánh Hòa biến động lớn — khung ngày giảm mạnh -10,5% nhưng khung đêm tăng <strong>+23,0%</strong>, tổng OPR đạt 76,4%. Lâm Đồng khung đêm cải thiện +5,6% lên 38,7%. Bình Thuận giảm nhẹ -1,6%. Đắk Nông khung đêm gần như 0% — vấn đề kéo dài nhiều tuần chưa được giải quyết.<br>
+      • <strong>Theo AM:</strong> Anh <strong>Phan Đình Duy</strong> cải thiện đột biến nhất — <strong>khung đêm tăng vọt +66,2% lên 84,1%, tổng OPR tăng +26,9% lên 93,0%</strong>. Chị <strong>Huỳnh Thị Kim Chi</strong> cải thiện mạnh, tổng OPR tăng +19,7% lên 82,2%, khung đêm tăng +28,2%. Anh <strong>Nguyễn Thanh Long</strong> cải thiện tốt, +10,9% lên 92,7%.<br>
+      • <strong>Ngược lại:</strong> Chị <strong>Thái Thị Thanh Thư</strong> giảm sốc nhất, tổng OPR -15,0%, khung đêm giảm -10,4% xuống chỉ 47,3% — cần rà soát ngay. Anh <strong>Lê Văn Trường</strong> giảm -18,0%, khung đêm chỉ còn 10,6% — mức rất thấp và giảm liên tiếp nhiều tuần. Anh <strong>Nguyễn Lê Nguyên Vũ</strong> cũng giảm -12,0%, khung đêm sụt mạnh -22,2%."
+    </div>
+  </div>
+
+  <!-- 11. ODR -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title" style="color: var(--red);">⏱️ [ODR — TỶ LỆ GIAO ĐÚNG HẸN SLA]</div>
+      <span class="sec-tag" style="background:#fee2e2; color:#991b1b;">92.2% (-1.5%)</span>
+    </div>
+    <div class="speech-box">
+      <div class="speech-label">🗣️ LỜI THUYẾT TRÌNH:</div>
+      "ODR full hàng đạt <strong>92,2%</strong>, giảm mạnh <strong>-1,5%</strong> — đây là mức giảm đáng lo nhất tuần này và là mức thấp nhất trong nhiều tuần.<br>
+      • Tất cả các tỉnh đều giảm ngoại trừ Khánh Hòa tăng nhẹ +0,4% (đạt 94,8%). <strong>Đắk Nông thấp nhất vùng, 86,2% (giảm mạnh -4,4%)</strong> — cần được ưu tiên can thiệp. Lâm Đồng giảm -2,6%.<br>
+      • <strong>Theo AM:</strong> Anh <strong>Trương Quang Linh</strong> giảm sốc nhất, <strong>-21,9% xuống 40,1%</strong> — mức thấp bất thường của AM mới, cần xem ngay. Anh <strong>Lê Văn Trường</strong> giảm <strong>-7,0% xuống 83,5%</strong>. Anh <strong>Trầm Hữu Tiến</strong> giảm <strong>-3,2% xuống 79,5%</strong> — thấp nhất vùng sau anh Linh.<br>
+      • Điểm tích cực: Anh <strong>Lê Minh Lợi</strong> cải thiện <strong>+6,5% lên 58,5%</strong>."
+    </div>
+  </div>
+
+  <!-- 12. RỚT LUÂN CHUYỂN -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title" style="color: var(--green);">🚛 [RỚT LUÂN CHUYỂN]</div>
+      <span class="sec-tag" style="background:#dcfce7; color:#15803d;">1.6% (-1.0%)</span>
+    </div>
+    <div class="speech-box">
+      <div class="speech-label">🗣️ LỜI THUYẾT TRÌNH:</div>
+      "<em>Lưu ý: Đơn LTC ngoài giờ cut-off 7h30 không tính vào chỉ số này; đơn LTC trước 7h30 phải được luân chuyển tải trước 9h30.</em><br><br>
+      • 👏 <strong>Rớt LC giảm mạnh -1,0% xuống còn 1,6%</strong> — đây là mức thấp nhất từ trước đến nay và là tín hiệu tích cực rõ rệt nhất tuần này.<br>
+      • Phần lớn AM đều cải thiện: Anh <strong>Lê Văn Trường</strong> cải thiện mạnh nhất, giảm <strong>-13,7% xuống 1,5%</strong>. Chị <strong>Hồng Bích Nga</strong> cũng giảm mạnh <strong>-10,0% về 4,1%</strong>.<br>
+      • <strong>Ngược lại:</strong> Anh <strong>Nguyễn Ngọc Khánh</strong> tăng đột biến từ 0% lên 3,1% — cần xem lại nguyên nhân. Anh <strong>Trầm Hữu Tiến</strong> vẫn cao nhất vùng, 28,6%, dù đã giảm -4,8% so tuần trước.<br>
+      • <strong>Top 3 BC có volume lớn nhất:</strong> BC Phan Rang Ninh Thuận (582 đơn, rớt 4,8%), BC B'Lao (639 đơn, rớt 3,1%), BC Mũi Né (790 đơn, rớt 2,3%) — ba BC này có volume lớn nhất và kéo chỉ số vùng xuống nhiều nhất."
+    </div>
+  </div>
+
+  <!-- 13. AGING & TREO LC -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title" style="color: var(--red);">⚠️ [AGING TỒN KHO & HÀNG TREO LUÂN CHUYỂN]</div>
+      <span class="sec-tag" style="background:#fee2e2; color:#991b1b;">4.373 Đơn Aging</span>
+    </div>
+    <div class="speech-box">
+      <div class="speech-label">🗣️ LỜI THUYẾT TRÌNH:</div>
+      "Về dữ liệu hàng tồn Aging và Treo Luân Chuyển:<br>
+      • <strong>Aging Tồn Kho (&gt;3 ngày):</strong> Toàn vùng ghi nhận <strong>4.373 đơn</strong>. Trong đó:<br>
+      &nbsp;&nbsp;▪ <strong>5–8 ngày:</strong> 1.535 đơn (chiếm 35,1%).<br>
+      &nbsp;&nbsp;▪ <strong>8–15 ngày:</strong> 1.280 đơn (chiếm 29,3%).<br>
+      &nbsp;&nbsp;▪ <strong>&gt;15 ngày:</strong> <strong>1.558 đơn (chiếm 35,6%)</strong>.<br>
+      • <strong>Theo Tỉnh:</strong> Đắk Nông chiếm 1.207 đơn (27,6%), Lâm Đồng 1.181 đơn (27,0%), Khánh Hòa 1.038 đơn (23,7%), Bình Thuận 628 đơn và Ninh Thuận 319 đơn.<br>
+      • <strong>Top 4 AM tồn Aging nhiều nhất:</strong><br>
+      &nbsp;&nbsp;1. Anh <strong>Lê Văn Trường:</strong> <strong>610 đơn</strong> (chiếm 26,1%) — gồm 385 đơn 5-8 ngày, 191 đơn 8-15 ngày, 34 đơn &gt;15 ngày.<br>
+      &nbsp;&nbsp;2. Anh <strong>Trương Quang Linh:</strong> <strong>562 đơn</strong> (chiếm 24,0%) — gồm 201 đơn 5-8 ngày, 203 đơn 8-15 ngày, 158 đơn &gt;15 ngày.<br>
+      &nbsp;&nbsp;3. Chị <strong>Hồng Bích Nga:</strong> <strong>529 đơn</strong> (chiếm 22,6%) — gồm 249 đơn 5-8 ngày, 156 đơn 8-15 ngày, 124 đơn &gt;15 ngày.<br>
+      &nbsp;&nbsp;4. Anh <strong>Trầm Hữu Tiến:</strong> <strong>259 đơn</strong> (chiếm 11,1%) — gồm 168 đơn 5-8 ngày, 83 đơn 8-15 ngày, 8 đơn &gt;15 ngày.<br>
+      • <strong>Hàng Treo Luân Chuyển (&gt;3 ngày):</strong> Toàn vùng có <strong>1.417 đơn treo LC</strong> tại 25 bưu cục. Top 3 điểm nghẽn lớn nhất: <strong>BC Kiến Đức (168 đơn)</strong>, <strong>BC Tân Hà Lâm Hà (124 đơn)</strong>, <strong>BC Quảng Tín (98 đơn)</strong>."
+    </div>
+  </div>
+
+  <!-- 14. COD TIỀN MẶT -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title" style="color: var(--primary);">💳 [III. KIỂM SOÁT — TỶ LỆ TIỀN MẶT QR]</div>
+      <span class="sec-tag" style="background:#ffedd5; color:#c2410c;">38.8% Tiền Mặt (+1.1%)</span>
+    </div>
+    <div class="speech-box">
+      <div class="speech-label">🗣️ LỜI THUYẾT TRÌNH:</div>
+      "Về dòng tiền COD thu hộ 2 tuần gần nhất (W34 vs W35):<br>
+      • <strong>Tổng tiền COD thu hộ toàn vùng:</strong> Đạt <strong>180.823,9 triệu đồng</strong> (Chuyển khoản QR: 109.188,8 triệu, Tiền mặt: 71.635,1 triệu). Tỷ lệ Tiền mặt toàn vùng tăng lên <strong>38,8%</strong> (tăng <strong>+1,1%</strong> so với 37,7% tuần trước), đồng nghĩa tỷ lệ chuyển khoản QR giảm về <strong>61,2%</strong>.<br>
+      • <strong>Top AM có tỷ lệ tiền mặt cao nhất (Cần kiểm soát đặc biệt):</strong><br>
+      &nbsp;&nbsp;🔴 Chị <strong>Huỳnh Thị Kim Chi:</strong> <strong>73,8% tiền mặt</strong> (W34: 74,5% ➔ giảm nhẹ -0,6%).<br>
+      &nbsp;&nbsp;🔴 Chị <strong>Trần Thị Nhung:</strong> <strong>71,0% tiền mặt</strong> (W34: 71,8% ➔ giảm -0,8%).<br>
+      &nbsp;&nbsp;🟡 Anh <strong>Lê Thanh Nhựt:</strong> <strong>69,3% tiền mặt</strong> (W34: 67,1% ➔ tăng <strong>+2,2%</strong>).<br>
+      &nbsp;&nbsp;🟡 Anh <strong>Huỳnh Thúc Duân:</strong> <strong>67,7% tiền mặt</strong> (W34: 72,3% ➔ cải thiện giảm <strong>-4,6%</strong>).<br>
+      &nbsp;&nbsp;🟡 Anh <strong>Trầm Hữu Tiến:</strong> <strong>63,8% tiền mặt</strong> (W34: 60,2% ➔ tăng <strong>+3,6%</strong>).<br>
+      • <strong>Top AM giảm tiền mặt mạnh nhất (Cải thiện QR tốt nhất tuần):</strong><br>
+      &nbsp;&nbsp;🌟 Anh <strong>Trương Quang Linh:</strong> Giảm mạnh nhất vùng, <strong>giảm -10,9% tiền mặt</strong> (từ 68,5% xuống <strong>57,6%</strong> — bước tiến rất lớn).<br>
+      &nbsp;&nbsp;🌟 Anh <strong>Nguyễn Thanh Long:</strong> Giảm <strong>-6,9% tiền mặt</strong> (từ 27,5% xuống <strong>20,6%</strong>, QR đạt 79,4%).<br>
+      &nbsp;&nbsp;🌟 Anh <strong>Huỳnh Thúc Duân:</strong> Giảm <strong>-4,6% tiền mặt</strong> (từ 72,3% xuống <strong>67,7%</strong>).<br>
+      &nbsp;&nbsp;🌟 Chị <strong>Cao Thị Thanh Thủy:</strong> Giảm <strong>-3,2% tiền mặt</strong> (từ 19,0% xuống <strong>15,8%</strong>, QR đạt 84,2%).<br>
+      • <strong>Top AM tăng tiền mặt nhiều nhất (Bị thụt lùi):</strong><br>
+      &nbsp;&nbsp;🔴 Anh <strong>Phan Đình Duy:</strong> Tăng mạnh <strong>+9,9% tiền mặt</strong> (từ 21,9% lên <strong>31,8%</strong>).<br>
+      &nbsp;&nbsp;🔴 Anh <strong>Nguyễn Lê Nguyên Vũ:</strong> Tăng <strong>+5,2% tiền mặt</strong> (từ 25,1% lên <strong>30,3%</strong>).<br>
+      &nbsp;&nbsp;🔴 Anh <strong>Trầm Hữu Tiến:</strong> Tăng <strong>+3,6% tiền mặt</strong> (từ 60,2% lên <strong>63,8%</strong>).<br>
+      &nbsp;&nbsp;🔴 Chị <strong>Hồng Bích Nga:</strong> Tăng <strong>+3,5% tiền mặt</strong> (từ 36,9% lên <strong>40,4%</strong>).<br>
+      • <strong>AM có tỷ lệ QR cao nhất toàn vùng:</strong> Chị <strong>Thái Thị Thanh Thư</strong> dẫn đầu tuyệt đối với <strong>QR đạt 94,5%</strong> (tiền mặt chỉ 5,5%).<br>
+      • <strong>Top 5 Bưu Cục có tỷ lệ Tiền mặt cao nhất toàn vùng:</strong><br>
+      &nbsp;&nbsp;1. <strong>BC (LDO) Hòa Ninh (AM Hồng Bích Nga):</strong> <strong>97,8% tiền mặt</strong> (W34: 98,5%, thu 1.463,9 Tr).<br>
+      &nbsp;&nbsp;2. <strong>BC (DNO) Quảng Khê (AM Trần Thị Nhung):</strong> <strong>93,9% tiền mặt</strong> (W34: 90,6%, tăng +3,3%, thu 959,8 Tr).<br>
+      &nbsp;&nbsp;3. <strong>BC (DNO) Bắc Gia Nghĩa (AM Huỳnh Thúc Duân):</strong> <strong>89,1% tiền mặt</strong> (W34: 91,2%, thu 1.009,8 Tr).<br>
+      &nbsp;&nbsp;4. <strong>BC (DNO) Đức Lập (AM Trần Thị Nhung):</strong> <strong>86,8% tiền mặt</strong> (W34: 89,8%, thu 3.537,1 Tr).<br>
+      &nbsp;&nbsp;5. <strong>BC (DNO) Krông Nô (AM Trần Thị Nhung):</strong> <strong>86,6% tiền mặt</strong> (W34: 89,1%, thu 1.920,3 Tr)."
+    </div>
+    <div class="deep-box">
+      <div class="deep-title">🔍 PHÂN TÍCH SỐ LIỆU COD TIỀN MẶT:</div>
+      • Chị Trần Thị Nhung có tới 3 bưu cục nằm trong Top 5 tiền mặt cao nhất toàn vùng (Quảng Khê 93,9%, Đức Lập 86,8%, Krông Nô 86,6%) với tổng số tiền mặt thu hộ lên tới hơn 6,4 tỷ đồng.<br>
+      • Điểm sáng chuyển đổi số: Anh Trương Quang Linh có mức giảm tiền mặt mạnh nhất (-10,9%), và chị Thái Thị Thanh Thư duy trì tỷ lệ QR cao nhất vùng đạt 94,5%.
+    </div>
+  </div>
+
+  <!-- 15. TRUY THU -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title" style="color: var(--red);">🛡️ [TRUY THU VÀ PHẠT TICKET OE-IA]</div>
+      <span class="sec-tag" style="background:#fee2e2; color:#991b1b;">673.2 Tr Cần Thu</span>
+    </div>
+    <div class="speech-box">
+      <div class="speech-label">🗣️ LỜI THUYẾT TRÌNH:</div>
+      "Về Báo Cáo Truy Thu (OE-IA):<br>
+      • <strong>Toàn vùng ghi nhận 8.892 bản ghi truy thu</strong> với số tiền ban đầu 692,7 triệu VNĐ (sau điều chỉnh -19,5 triệu ➔ Tổng tiền cần thu thêm là <strong>673,2 triệu VNĐ</strong>).<br>
+      • <strong>Phân loại vi phạm:</strong><br>
+      &nbsp;&nbsp;▪ Chênh lệch khối lượng/kích thước: Chiếm <strong>62% tổng tiền truy thu</strong>.<br>
+      &nbsp;&nbsp;▪ Sai tuyến/vùng cước: Chiếm <strong>21%</strong>.<br>
+      &nbsp;&nbsp;▪ Ticket bồi hoàn/thất lạc: Chiếm <strong>17%</strong>.<br>
+      • <strong>Top AM có số tiền & ticket vi phạm lớn nhất:</strong><br>
+      &nbsp;&nbsp;🚨 Anh <strong>Trần Văn Phước:</strong> <strong>1.706 ticket | 200,4 triệu VNĐ</strong> (chiếm 29,8% tiền truy thu toàn vùng).<br>
+      &nbsp;&nbsp;🔴 Anh <strong>Huỳnh Thúc Duân:</strong> 289 ticket | 32,5 triệu VNĐ.<br>
+      &nbsp;&nbsp;🔴 Anh <strong>Lê Văn Trường:</strong> 343 ticket | 27,0 triệu VNĐ.<br>
+      &nbsp;&nbsp;🔴 Anh <strong>Lê Minh Đại:</strong> 644 ticket | 20,9 triệu VNĐ.<br>
+      • <strong>Top 3 Bưu Cục giao phát sinh truy thu lớn nhất:</strong><br>
+      &nbsp;&nbsp;1. <strong>BC (DNO) Kiến Đức:</strong> 134,2 triệu VNĐ (chiếm 19,9% toàn vùng).<br>
+      &nbsp;&nbsp;2. <strong>BC (LDO) Tân Hà Lâm Hà:</strong> 81,1 triệu VNĐ (chiếm 11,7%).<br>
+      &nbsp;&nbsp;3. <strong>BC (DNO) Quảng Tín:</strong> 60,5 triệu VNĐ (chiếm 9,4%)."
+    </div>
+  </div>
+
+  <!-- 16. KINH DOANH -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title" style="color: var(--blue);">📈 [V. KINH DOANH & KHÁCH HÀNG MỚI F30]</div>
+      <span class="sec-tag" style="background:#e0f2fe; color:#0369a1;">1,073 Tỷ (+0.7%)</span>
+    </div>
+    <div class="speech-box">
+      <div class="speech-label">🗣️ LỜI THUYẾT TRÌNH:</div>
+      "Về kết quả kinh doanh và phát triển khách hàng mới:<br>
+      • <strong>Doanh thu vùng tuần 35 (23–29/08):</strong> Đạt <strong>1,073 tỷ đồng</strong> trên 32.739 đơn, <strong>tăng nhẹ +0,7%</strong> so với tuần 34 — tín hiệu tích cực nhỏ sau chuỗi tuần giảm liên tiếp.<br>
+      • <strong>Theo AM:</strong><br>
+      &nbsp;&nbsp;🌟 Anh <strong>Phan Đình Duy</strong> tiếp tục là trụ cột doanh thu lớn nhất: <strong>495 triệu VNĐ</strong> (chiếm 46,1% toàn vùng), tăng +3,5%.<br>
+      &nbsp;&nbsp;🌟 Chị <strong>Thái Thị Thanh Thư</strong> đứng thứ hai: 92 triệu VNĐ, giảm nhẹ -4,0%.<br>
+      &nbsp;&nbsp;🌟 Anh <strong>Huỳnh Thúc Duân</strong> tăng đột biến <strong>+15,7% lên 29,5 triệu VNĐ</strong> — mức tăng tốt nhất vùng tuần này.<br>
+      &nbsp;&nbsp;🔴 Giảm nhiều nhất: Anh Nguyễn Duy Long (-4,8 Tr), chị Thái Thị Thanh Thư (-3,9 Tr), anh Lê Văn Trường (-3,8 Tr).<br>
+      • <strong>Khách hàng mới F30:</strong> Toàn vùng đạt 95 KH mới (giảm 3 KH), nhưng tổng doanh thu F30 tăng <strong>+3,7% lên 12,2 triệu VNĐ</strong> — chất lượng KH mới đang tốt hơn. Anh <strong>Nguyễn Duy Long</strong> phát triển nhiều KH mới nhất: <strong>26 KH (tăng +9 KH)</strong>. Chị <strong>Thái Thị Thanh Thư (+7 KH)</strong>. Chị <strong>Trần Thị Nhung</strong> giảm nhiều nhất: -7 KH xuống còn 4 KH — cần làm rõ nguyên nhân."
+    </div>
+  </div>
+
+  <!-- 17. ACTION PLAN -->
+  <div class="section-card" style="border: 2px solid var(--primary);">
+    <div class="section-header">
+      <div class="section-title" style="color: var(--primary);">🎯 [VI. TỔNG HỢP GÓP Ý & ACTION PLAN TUẦN W36]</div>
+      <span class="sec-tag" style="background:#f97316; color:white;">Bám Sát Số Liệu</span>
+    </div>
+    
+    <table class="action-table">
+      <thead>
+        <tr>
+          <th>AM Phụ Trách</th>
+          <th>Vấn Đề Số Liệu Cần Xử Lý</th>
+          <th>Mục Tiêu & Deadline W36</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Trầm Hữu Tiến</strong></td>
+          <td>GTC Ca 2 = 0.5%, GTC tổng 34.1% thấp nhất vùng, Rớt LC 28.6%</td>
+          <td>Kéo GTC Ca 2 lên ≥30%, giảm Rớt LC &lt;10%. Hạn: Thứ 5</td>
+        </tr>
+        <tr>
+          <td><strong>Lê Văn Trường</strong></td>
+          <td>Sản lượng giảm -3.8k đơn, LTC TTS giảm -12.7%, OPR đêm 10.6%</td>
+          <td>Rà soát top shop giảm đơn, siết giờ lấy hàng trước 17h. Hạn: Thứ 4</td>
+        </tr>
+        <tr>
+          <td><strong>Trương Quang Linh</strong></td>
+          <td>ODR giảm sốc -21.9% (còn 40.1%)</td>
+          <td>Kiểm tra thao tác cập nhật app shipper hàng ngày. Hạn: Thứ 3</td>
+        </tr>
+        <tr>
+          <td><strong>Thái Thị Thanh Thư</strong></td>
+          <td>OPR đêm sụt -10.4% (còn 47.3%), doanh thu giảm -3.9 Tr</td>
+          <td>Tối ưu hóa ca xe gom hàng đêm kết nối SOC. Hạn: Thứ 5</td>
+        </tr>
+        <tr>
+          <td><strong>Huỳnh Thúc Duân</strong></td>
+          <td>COD tiền mặt 89.6%, Aging tồn 676 đơn</td>
+          <td>Đẩy mạnh thu QR, giải tỏa dứt điểm đơn tồn Aging. Hạn: Thứ 6</td>
+        </tr>
+        <tr>
+          <td><strong>Trần Thị Nhung</strong></td>
+          <td>F30 giảm -7 shop, COD tiền mặt 71.0%</td>
+          <td>Khôi phục số lượng KH mới F30, tăng tỷ lệ QR. Hạn: Hết tuần</td>
+        </tr>
+        <tr>
+          <td><strong>Trần Văn Phước</strong></td>
+          <td>1.706 ticket truy thu | 200.4 Tr (chiếm 29.8% vùng)</td>
+          <td>Rà soát biên bản cân đo tại BC Kiến Đức & Quảng Tín. Hạn: Thứ 7</td>
+        </tr>
+        <tr>
+          <td><strong>Lê Minh Lợi</strong></td>
+          <td>Duy trì đà bứt phá GTC (+12.1%), nâng ODR từ 58.5%</td>
+          <td>Nâng ODR lên ≥75% trong tuần W36. Hạn: Thứ 7</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="speech-box" style="margin-top: 12px; font-style: normal;">
+      "Trên đây là toàn bộ báo cáo phân tích chi tiết của vùng Nam Trung Bộ tuần 35. Em xin cảm ơn Ban Giám đốc và các anh chị em đã lắng nghe. Xin kính mời Ban Giám đốc cho ý kiến chỉ đạo!"
+    </div>
+  </div>
+
+  <div class="floating-nav">
+    <a href="http://localhost:3000/hop" class="nav-btn" target="_blank">🖥️ Mở Dashboard</a>
+  </div>
+
+</body>
+</html>

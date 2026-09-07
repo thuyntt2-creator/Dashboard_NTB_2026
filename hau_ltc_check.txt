@@ -1,0 +1,17 @@
+=== TRẦN CÔNG HẬU IN COCAU ===
+    Mã bưu cục                                                   Bưu cục                                                        BC      Tỉnh             Am ID - Họ Tên Am
+5   20797000.0                                  Kho Chuyển Tiếp Đắk Nông                                  Kho Chuyển Tiếp Đắk Nông  Đắk Nông  Trần Công Hậu  Trần Công Hậu
+9   22048001.0  Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng  Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng  Đắk Nông  Trần Công Hậu  Trần Công Hậu
+45  22048000.0         Bưu Cục Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông              BC Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông  Đắk Nông  Trần Công Hậu  Trần Công Hậu
+
+=== TRẦN CÔNG HẬU ROWS IN W21 (MAPPED BY COCAU) ===
+                                                     Chi tiết  Volume    %Gán    %LTC
+294              BC Hùng Vương-Nghĩa Trung-Gia Nghĩa-Đắk Nông    2296  0.9939  0.9682
+326                                  Kho Chuyển Tiếp Đắk Nông      60  0.0000  0.0000
+329  Điểm Xử Lý Hàng TDP 8 Quốc Lộ 14-Đông Gia Nghĩa-Lâm Đồng    5816  0.9278  0.9273
+Calculated: Vol=8172, Gan=0.9395593734703866, LTC=0.9319828683308861
+
+=== SEARCHING FOR 0.6406 or 0.6318 or Volume 6406 in df_w21 ===
+Empty DataFrame
+Columns: [Cấp quản lý, Chi tiết, Time, Volume, %Gán, %LTC, %Đóng kiện, %LC, Leadtime, AM_mapped]
+Index: []

@@ -735,6 +735,16 @@ if 'cod_report' in existing_data:
 if 'truy_thu_report' in existing_data:
     data['truy_thu_report'] = existing_data['truy_thu_report']
 
+# Embed KTC data (Backlog, Leadtime, Fill Rate)
+if os.path.exists('scratch/ktc_processed.json'):
+    try:
+        with open('scratch/ktc_processed.json', 'r', encoding='utf-8') as f:
+            data['ktc'] = json.load(f)
+    except Exception as e:
+        print("Error loading scratch/ktc_processed.json:", e)
+elif 'ktc' in existing_data:
+    data['ktc'] = existing_data['ktc']
+
 # Write out data.json and data.js
 with open('data.json', 'w', encoding='utf-8') as f:
     json.dump(data, f, ensure_ascii=False, indent=2)
