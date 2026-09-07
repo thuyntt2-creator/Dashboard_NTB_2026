@@ -6804,6 +6804,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 1,
         "bc": "(LDO) Lang Biang - Đà Lạt 1",
+        "am": "Lê Minh Lợi",
         "vol_can_lc": 1,
         "vol_rot_lc": 1,
         "pct_rot": 1
@@ -6811,6 +6812,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 2,
         "bc": "(LDO) Di Linh",
+        "am": "Trầm Hữu Tiến",
         "vol_can_lc": 1,
         "vol_rot_lc": 1,
         "pct_rot": 1
@@ -6818,6 +6820,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 3,
         "bc": "(DNO) Quảng Sơn",
+        "am": "Trần Thị Nhung",
         "vol_can_lc": 1,
         "vol_rot_lc": 1,
         "pct_rot": 1
@@ -6825,6 +6828,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 4,
         "bc": "(DNO) Kiến Đức",
+        "am": "Hồng Bích Nga",
         "vol_can_lc": 3,
         "vol_rot_lc": 3,
         "pct_rot": 1
@@ -6832,6 +6836,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 5,
         "bc": "(LDO) Bảo Lâm 1",
+        "am": "Hồng Bích Nga",
         "vol_can_lc": 3,
         "vol_rot_lc": 2,
         "pct_rot": 0.6666666666666666
@@ -6839,6 +6844,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 6,
         "bc": "(NTH) Thuận Nam",
+        "am": "Nguyễn Duy Long",
         "vol_can_lc": 17,
         "vol_rot_lc": 11,
         "pct_rot": 0.6470588235294118
@@ -6846,6 +6852,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 7,
         "bc": "(DNO) Đức Lập",
+        "am": "Trần Thị Nhung",
         "vol_can_lc": 81,
         "vol_rot_lc": 30,
         "pct_rot": 0.3703703703703703
@@ -6853,6 +6860,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 8,
         "bc": "(LDO) Bảo Lâm 3",
+        "am": "Hồng Bích Nga",
         "vol_can_lc": 161,
         "vol_rot_lc": 53,
         "pct_rot": 0.3291925465838509
@@ -6860,6 +6868,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 9,
         "bc": "(LDO) Cát Tiên",
+        "am": "Nguyễn Lê Nguyên Vũ",
         "vol_can_lc": 10,
         "vol_rot_lc": 3,
         "pct_rot": 0.3
@@ -6867,6 +6876,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 10,
         "bc": "(LDO) Ninh Gia",
+        "am": "Nguyễn Thị Tuyết Thơ",
         "vol_can_lc": 10,
         "vol_rot_lc": 3,
         "pct_rot": 0.3
@@ -6874,6 +6884,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 11,
         "bc": "(LDO) Tân Hà Lâm Hà",
+        "am": "Huỳnh Thị Kim Chi",
         "vol_can_lc": 4,
         "vol_rot_lc": 1,
         "pct_rot": 0.25
@@ -6881,6 +6892,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 12,
         "bc": "(DNO) Đông Gia Nghĩa",
+        "am": "Huỳnh Thúc Duân",
         "vol_can_lc": 58,
         "vol_rot_lc": 14,
         "pct_rot": 0.2413793103448276
@@ -6888,6 +6900,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 13,
         "bc": "(DNO) Bắc Gia Nghĩa",
+        "am": "Huỳnh Thúc Duân",
         "vol_can_lc": 38,
         "vol_rot_lc": 8,
         "pct_rot": 0.2105263157894737
@@ -6895,6 +6908,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 14,
         "bc": "(LDO) Lang Biang - Đà Lạt 2",
+        "am": "Lê Văn Trường",
         "vol_can_lc": 93,
         "vol_rot_lc": 8,
         "pct_rot": 0.08602150537634409
@@ -6902,6 +6916,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 15,
         "bc": "(NTH) Phước Dinh",
+        "am": "Nguyễn Duy Long",
         "vol_can_lc": 384,
         "vol_rot_lc": 24,
         "pct_rot": 0.0625
@@ -6909,6 +6924,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 16,
         "bc": "(LDO) Xuân Hương - Đà Lạt",
+        "am": "Lê Văn Trường",
         "vol_can_lc": 18,
         "vol_rot_lc": 1,
         "pct_rot": 0.05555555555555555
@@ -6916,6 +6932,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 17,
         "bc": "(KHO) Diên Khánh 2",
+        "am": "Nguyễn Hoàng Phi",
         "vol_can_lc": 77,
         "vol_rot_lc": 4,
         "pct_rot": 0.05194805194805195
@@ -6923,6 +6940,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 18,
         "bc": "(KHO) Diên Khánh 1",
+        "am": "Nguyễn Hoàng Phi",
         "vol_can_lc": 107,
         "vol_rot_lc": 4,
         "pct_rot": 0.03738317757009346
@@ -6930,6 +6948,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 19,
         "bc": "(LDO) Đức Trọng 1",
+        "am": "Trầm Hữu Tiến",
         "vol_can_lc": 29,
         "vol_rot_lc": 1,
         "pct_rot": 0.03448275862068965
@@ -6937,6 +6956,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 20,
         "bc": "(BTH) Hàm Thuận",
+        "am": "Lê Thanh Nhựt",
         "vol_can_lc": 59,
         "vol_rot_lc": 2,
         "pct_rot": 0.03389830508474576
@@ -6946,6 +6966,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 1,
         "bc": "(LDO) Lang Biang - Đà Lạt 1",
+        "am": "Lê Minh Lợi",
         "vol_can_lc": 1,
         "vol_rot_lc": 1,
         "pct_rot": 1
@@ -6953,6 +6974,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 2,
         "bc": "(LDO) Di Linh",
+        "am": "Trầm Hữu Tiến",
         "vol_can_lc": 1,
         "vol_rot_lc": 1,
         "pct_rot": 1
@@ -6960,6 +6982,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 3,
         "bc": "(DNO) Quảng Sơn",
+        "am": "Trần Thị Nhung",
         "vol_can_lc": 1,
         "vol_rot_lc": 1,
         "pct_rot": 1
@@ -6967,6 +6990,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 4,
         "bc": "(DNO) Kiến Đức",
+        "am": "Hồng Bích Nga",
         "vol_can_lc": 3,
         "vol_rot_lc": 3,
         "pct_rot": 1
@@ -6974,6 +6998,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 5,
         "bc": "(LDO) Bảo Lâm 1",
+        "am": "Hồng Bích Nga",
         "vol_can_lc": 3,
         "vol_rot_lc": 2,
         "pct_rot": 0.6666666666666666
@@ -6981,6 +7006,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 6,
         "bc": "(NTH) Thuận Nam",
+        "am": "Nguyễn Duy Long",
         "vol_can_lc": 17,
         "vol_rot_lc": 11,
         "pct_rot": 0.6470588235294118
@@ -6988,6 +7014,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 7,
         "bc": "(DNO) Đức Lập",
+        "am": "Trần Thị Nhung",
         "vol_can_lc": 81,
         "vol_rot_lc": 30,
         "pct_rot": 0.3703703703703703
@@ -6995,6 +7022,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 8,
         "bc": "(LDO) Bảo Lâm 3",
+        "am": "Hồng Bích Nga",
         "vol_can_lc": 161,
         "vol_rot_lc": 53,
         "pct_rot": 0.3291925465838509
@@ -7002,6 +7030,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 9,
         "bc": "(LDO) Cát Tiên",
+        "am": "Nguyễn Lê Nguyên Vũ",
         "vol_can_lc": 10,
         "vol_rot_lc": 3,
         "pct_rot": 0.3
@@ -7009,6 +7038,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 10,
         "bc": "(LDO) Ninh Gia",
+        "am": "Nguyễn Thị Tuyết Thơ",
         "vol_can_lc": 10,
         "vol_rot_lc": 3,
         "pct_rot": 0.3
@@ -7016,6 +7046,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 11,
         "bc": "(LDO) Tân Hà Lâm Hà",
+        "am": "Huỳnh Thị Kim Chi",
         "vol_can_lc": 4,
         "vol_rot_lc": 1,
         "pct_rot": 0.25
@@ -7023,6 +7054,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 12,
         "bc": "(DNO) Đông Gia Nghĩa",
+        "am": "Huỳnh Thúc Duân",
         "vol_can_lc": 58,
         "vol_rot_lc": 14,
         "pct_rot": 0.2413793103448276
@@ -7030,6 +7062,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 13,
         "bc": "(DNO) Bắc Gia Nghĩa",
+        "am": "Huỳnh Thúc Duân",
         "vol_can_lc": 38,
         "vol_rot_lc": 8,
         "pct_rot": 0.2105263157894737
@@ -7037,6 +7070,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 14,
         "bc": "(LDO) Lang Biang - Đà Lạt 2",
+        "am": "Lê Văn Trường",
         "vol_can_lc": 93,
         "vol_rot_lc": 8,
         "pct_rot": 0.08602150537634409
@@ -7044,6 +7078,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 15,
         "bc": "(NTH) Phước Dinh",
+        "am": "Nguyễn Duy Long",
         "vol_can_lc": 384,
         "vol_rot_lc": 24,
         "pct_rot": 0.0625
@@ -7051,6 +7086,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 16,
         "bc": "(LDO) Xuân Hương - Đà Lạt",
+        "am": "Lê Văn Trường",
         "vol_can_lc": 18,
         "vol_rot_lc": 1,
         "pct_rot": 0.05555555555555555
@@ -7058,6 +7094,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 17,
         "bc": "(KHO) Diên Khánh 2",
+        "am": "Nguyễn Hoàng Phi",
         "vol_can_lc": 77,
         "vol_rot_lc": 4,
         "pct_rot": 0.05194805194805195
@@ -7065,6 +7102,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 18,
         "bc": "(KHO) Diên Khánh 1",
+        "am": "Nguyễn Hoàng Phi",
         "vol_can_lc": 107,
         "vol_rot_lc": 4,
         "pct_rot": 0.03738317757009346
@@ -7072,6 +7110,7 @@ window.DASHBOARD_DATA = {
       {
         "stt": 19,
         "bc": "(LDO) Đức Trọng 1",
+        "am": "Trầm Hữu Tiến",
         "vol_can_lc": 29,
         "vol_rot_lc": 1,
         "pct_rot": 0.03448275862068965
@@ -7079,9 +7118,464 @@ window.DASHBOARD_DATA = {
       {
         "stt": 20,
         "bc": "(BTH) Hàm Thuận",
+        "am": "Lê Thanh Nhựt",
         "vol_can_lc": 59,
         "vol_rot_lc": 2,
         "pct_rot": 0.03389830508474576
+      }
+    ]
+  },
+  "fd": {
+    "summary": {
+      "vol_full": 304308,
+      "ret_full": 22954,
+      "rate_full": 0.0754,
+      "vol_tts": 64220,
+      "ret_tts": 4365,
+      "rate_tts": 0.068,
+      "bc_count": 84,
+      "am_count": 18
+    },
+    "am": [
+      {
+        "am": "Trương Quang Linh",
+        "am_code": "AM Linh",
+        "vol_full": 1988,
+        "ret_full": 573,
+        "rate_full": 0.2882,
+        "rate_full_prev": 0.25,
+        "diff_full": 0.0382,
+        "vol_tts": 649,
+        "ret_tts": 184,
+        "rate_tts": 0.2835,
+        "rate_tts_prev": 0.0387,
+        "diff_tts": 0.2448,
+        "share_ret": 0.025,
+        "share_vol": 0.0065
+      },
+      {
+        "am": "Lê Minh Lợi",
+        "am_code": "AM Lợi",
+        "vol_full": 2795,
+        "ret_full": 490,
+        "rate_full": 0.1753,
+        "rate_full_prev": 0.169,
+        "diff_full": 0.0063,
+        "vol_tts": 765,
+        "ret_tts": 119,
+        "rate_tts": 0.1556,
+        "rate_tts_prev": 0.0914,
+        "diff_tts": 0.0641,
+        "share_ret": 0.0213,
+        "share_vol": 0.0092
+      },
+      {
+        "am": "Hồng Bích Nga",
+        "am_code": "AM Nga",
+        "vol_full": 20265,
+        "ret_full": 2316,
+        "rate_full": 0.1143,
+        "rate_full_prev": 0.112,
+        "diff_full": 0.0023,
+        "vol_tts": 4188,
+        "ret_tts": 450,
+        "rate_tts": 0.1074,
+        "rate_tts_prev": 0.0956,
+        "diff_tts": 0.0119,
+        "share_ret": 0.1009,
+        "share_vol": 0.0666
+      },
+      {
+        "am": "Nguyễn Thanh Long",
+        "am_code": "AM Long",
+        "vol_full": 12516,
+        "ret_full": 1416,
+        "rate_full": 0.1131,
+        "rate_full_prev": 0.114,
+        "diff_full": -0.0009,
+        "vol_tts": 2784,
+        "ret_tts": 242,
+        "rate_tts": 0.0869,
+        "rate_tts_prev": 0.0949,
+        "diff_tts": -0.008,
+        "share_ret": 0.0617,
+        "share_vol": 0.0411
+      },
+      {
+        "am": "Huỳnh Thúc Duân",
+        "am_code": "AM Duân",
+        "vol_full": 5353,
+        "ret_full": 571,
+        "rate_full": 0.1067,
+        "rate_full_prev": 0.101,
+        "diff_full": 0.0057,
+        "vol_tts": 1172,
+        "ret_tts": 107,
+        "rate_tts": 0.0913,
+        "rate_tts_prev": 0.0565,
+        "diff_tts": 0.0348,
+        "share_ret": 0.0249,
+        "share_vol": 0.0176
+      },
+      {
+        "am": "Phan Đình Duy",
+        "am_code": "AM Duy",
+        "vol_full": 18697,
+        "ret_full": 1700,
+        "rate_full": 0.0909,
+        "rate_full_prev": 0.089,
+        "diff_full": 0.0019,
+        "vol_tts": 4198,
+        "ret_tts": 290,
+        "rate_tts": 0.0691,
+        "rate_tts_prev": 0.0521,
+        "diff_tts": 0.0169,
+        "share_ret": 0.0741,
+        "share_vol": 0.0614
+      },
+      {
+        "am": "Trầm Hữu Tiến",
+        "am_code": "AM Tiến",
+        "vol_full": 6935,
+        "ret_full": 603,
+        "rate_full": 0.087,
+        "rate_full_prev": 0.09,
+        "diff_full": -0.003,
+        "vol_tts": 1912,
+        "ret_tts": 151,
+        "rate_tts": 0.079,
+        "rate_tts_prev": 0.0979,
+        "diff_tts": -0.0189,
+        "share_ret": 0.0263,
+        "share_vol": 0.0228
+      },
+      {
+        "am": "Trần Thị Nhung",
+        "am_code": "AM Nhung",
+        "vol_full": 23321,
+        "ret_full": 2006,
+        "rate_full": 0.086,
+        "rate_full_prev": 0.084,
+        "diff_full": 0.002,
+        "vol_tts": 5615,
+        "ret_tts": 438,
+        "rate_tts": 0.078,
+        "rate_tts_prev": 0.0541,
+        "diff_tts": 0.0239,
+        "share_ret": 0.0874,
+        "share_vol": 0.0766
+      },
+      {
+        "am": "Lê Văn Trường",
+        "am_code": "AM Trường",
+        "vol_full": 26625,
+        "ret_full": 2079,
+        "rate_full": 0.0781,
+        "rate_full_prev": 0.077,
+        "diff_full": 0.0011,
+        "vol_tts": 4956,
+        "ret_tts": 360,
+        "rate_tts": 0.0726,
+        "rate_tts_prev": 0.0577,
+        "diff_tts": 0.0149,
+        "share_ret": 0.0906,
+        "share_vol": 0.0875
+      },
+      {
+        "am": "Nguyễn Hoàng Phi",
+        "am_code": "AM Phi",
+        "vol_full": 20717,
+        "ret_full": 1581,
+        "rate_full": 0.0763,
+        "rate_full_prev": 0.077,
+        "diff_full": -0.0007,
+        "vol_tts": 4749,
+        "ret_tts": 328,
+        "rate_tts": 0.0691,
+        "rate_tts_prev": 0.0626,
+        "diff_tts": 0.0065,
+        "share_ret": 0.0689,
+        "share_vol": 0.0681
+      },
+      {
+        "am": "Thái Thị Thanh Thư",
+        "am_code": "AM Thư",
+        "vol_full": 22458,
+        "ret_full": 1519,
+        "rate_full": 0.0676,
+        "rate_full_prev": 0.068,
+        "diff_full": -0.0004,
+        "vol_tts": 4362,
+        "ret_tts": 226,
+        "rate_tts": 0.0518,
+        "rate_tts_prev": 0.0691,
+        "diff_tts": -0.0173,
+        "share_ret": 0.0662,
+        "share_vol": 0.0738
+      },
+      {
+        "am": "Nguyễn Duy Long",
+        "am_code": "AM D.Long",
+        "vol_full": 37985,
+        "ret_full": 2376,
+        "rate_full": 0.0626,
+        "rate_full_prev": 0.062,
+        "diff_full": 0.0006,
+        "vol_tts": 8046,
+        "ret_tts": 442,
+        "rate_tts": 0.0549,
+        "rate_tts_prev": 0.0507,
+        "diff_tts": 0.0043,
+        "share_ret": 0.1035,
+        "share_vol": 0.1248
+      },
+      {
+        "am": "Nguyễn Thị Tuyết Thơ",
+        "am_code": "AM Thơ",
+        "vol_full": 8747,
+        "ret_full": 532,
+        "rate_full": 0.0608,
+        "rate_full_prev": 0.06,
+        "diff_full": 0.0008,
+        "vol_tts": 1979,
+        "ret_tts": 107,
+        "rate_tts": 0.0541,
+        "rate_tts_prev": 0.0458,
+        "diff_tts": 0.0082,
+        "share_ret": 0.0232,
+        "share_vol": 0.0287
+      },
+      {
+        "am": "Cao Thị Thanh Thủy",
+        "am_code": "AM Thủy",
+        "vol_full": 16177,
+        "ret_full": 947,
+        "rate_full": 0.0585,
+        "rate_full_prev": 0.059,
+        "diff_full": -0.0005,
+        "vol_tts": 3222,
+        "ret_tts": 167,
+        "rate_tts": 0.0518,
+        "rate_tts_prev": 0.0463,
+        "diff_tts": 0.0056,
+        "share_ret": 0.0413,
+        "share_vol": 0.0532
+      },
+      {
+        "am": "Huỳnh Thị Kim Chi",
+        "am_code": "AM Chi",
+        "vol_full": 12203,
+        "ret_full": 712,
+        "rate_full": 0.0583,
+        "rate_full_prev": 0.059,
+        "diff_full": -0.0007,
+        "vol_tts": 2545,
+        "ret_tts": 150,
+        "rate_tts": 0.0589,
+        "rate_tts_prev": 0.0496,
+        "diff_tts": 0.0093,
+        "share_ret": 0.031,
+        "share_vol": 0.0401
+      },
+      {
+        "am": "Nguyễn Lê Nguyên Vũ",
+        "am_code": "AM Vũ",
+        "vol_full": 13245,
+        "ret_full": 729,
+        "rate_full": 0.055,
+        "rate_full_prev": 0.056,
+        "diff_full": -0.001,
+        "vol_tts": 2606,
+        "ret_tts": 118,
+        "rate_tts": 0.0453,
+        "rate_tts_prev": 0.0528,
+        "diff_tts": -0.0075,
+        "share_ret": 0.0318,
+        "share_vol": 0.0435
+      },
+      {
+        "am": "Lê Thanh Nhựt",
+        "am_code": "AM Nhựt",
+        "vol_full": 28238,
+        "ret_full": 1528,
+        "rate_full": 0.0541,
+        "rate_full_prev": 0.054,
+        "diff_full": 0.0001,
+        "vol_tts": 6124,
+        "ret_tts": 295,
+        "rate_tts": 0.0482,
+        "rate_tts_prev": 0.0402,
+        "diff_tts": 0.0079,
+        "share_ret": 0.0666,
+        "share_vol": 0.0928
+      },
+      {
+        "am": "Nguyễn Ngọc Khánh",
+        "am_code": "AM Khánh",
+        "vol_full": 26043,
+        "ret_full": 1276,
+        "rate_full": 0.049,
+        "rate_full_prev": 0.048,
+        "diff_full": 0.001,
+        "vol_tts": 4348,
+        "ret_tts": 191,
+        "rate_tts": 0.0439,
+        "rate_tts_prev": 0.0215,
+        "diff_tts": 0.0225,
+        "share_ret": 0.0556,
+        "share_vol": 0.0856
+      }
+    ],
+    "top_bc": [
+      {
+        "stt": 1,
+        "id_bc": 20269000,
+        "bc": "(DNO) Kiến Đức",
+        "am": "Hồng Bích Nga",
+        "vol": 3254,
+        "ret": 1422,
+        "rate": 0.437,
+        "share_ret": 0.0619
+      },
+      {
+        "stt": 2,
+        "id_bc": 22394000,
+        "bc": "(DNO) Quảng Tín",
+        "am": "Trương Quang Linh",
+        "vol": 1988,
+        "ret": 573,
+        "rate": 0.2882,
+        "share_ret": 0.025
+      },
+      {
+        "stt": 3,
+        "id_bc": 22051000,
+        "bc": "(LDO) Lang Biang - Đà Lạt 1",
+        "am": "Lê Minh Lợi",
+        "vol": 2795,
+        "ret": 490,
+        "rate": 0.1753,
+        "share_ret": 0.0213
+      },
+      {
+        "stt": 4,
+        "id_bc": 22830000,
+        "bc": "(KHO) Cam Linh",
+        "am": "Nguyễn Thanh Long",
+        "vol": 5779,
+        "ret": 910,
+        "rate": 0.1575,
+        "share_ret": 0.0396
+      },
+      {
+        "stt": 5,
+        "id_bc": 20590000,
+        "bc": "(DNO) Tuy Đức",
+        "am": "Trần Thị Nhung",
+        "vol": 1781,
+        "ret": 236,
+        "rate": 0.1325,
+        "share_ret": 0.0103
+      },
+      {
+        "stt": 6,
+        "id_bc": 22048000,
+        "bc": "(DNO) Đông Gia Nghĩa",
+        "am": "Huỳnh Thúc Duân",
+        "vol": 2395,
+        "ret": 317,
+        "rate": 0.1324,
+        "share_ret": 0.0138
+      },
+      {
+        "stt": 7,
+        "id_bc": 20269003,
+        "bc": "(DNO) Nhân Cơ",
+        "am": "Huỳnh Thúc Duân",
+        "vol": 1119,
+        "ret": 141,
+        "rate": 0.126,
+        "share_ret": 0.0061
+      },
+      {
+        "stt": 8,
+        "id_bc": 22389000,
+        "bc": "(LDO) Đức Trọng 1",
+        "am": "Trầm Hữu Tiến",
+        "vol": 2069,
+        "ret": 243,
+        "rate": 0.1174,
+        "share_ret": 0.0106
+      },
+      {
+        "stt": 9,
+        "id_bc": 20495000,
+        "bc": "(KHO) Nha Trang",
+        "am": "Phan Đình Duy",
+        "vol": 3204,
+        "ret": 375,
+        "rate": 0.117,
+        "share_ret": 0.0163
+      },
+      {
+        "stt": 10,
+        "id_bc": 21364000,
+        "bc": "(DNO) Quảng Khê",
+        "am": "Trần Thị Nhung",
+        "vol": 1412,
+        "ret": 161,
+        "rate": 0.114,
+        "share_ret": 0.007
+      },
+      {
+        "stt": 11,
+        "id_bc": 21537000,
+        "bc": "(LDO) Lâm Viên - Đà Lạt 2",
+        "am": "Lê Văn Trường",
+        "vol": 1835,
+        "ret": 209,
+        "rate": 0.1139,
+        "share_ret": 0.0091
+      },
+      {
+        "stt": 12,
+        "id_bc": 21046000,
+        "bc": "(KHO) Vạn Ninh",
+        "am": "Phan Đình Duy",
+        "vol": 2835,
+        "ret": 315,
+        "rate": 0.1111,
+        "share_ret": 0.0137
+      },
+      {
+        "stt": 13,
+        "id_bc": 21150000,
+        "bc": "(DNO) Quảng Sơn",
+        "am": "Trần Thị Nhung",
+        "vol": 2125,
+        "ret": 232,
+        "rate": 0.1092,
+        "share_ret": 0.0101
+      },
+      {
+        "stt": 14,
+        "id_bc": 20320000,
+        "bc": "(KHO) Tây Nha Trang",
+        "am": "Phan Đình Duy",
+        "vol": 4100,
+        "ret": 421,
+        "rate": 0.1027,
+        "share_ret": 0.0183
+      },
+      {
+        "stt": 15,
+        "id_bc": 21479000,
+        "bc": "(KHO) Bắc Cam Ranh",
+        "am": "Nguyễn Thanh Long",
+        "vol": 2010,
+        "ret": 200,
+        "rate": 0.0995,
+        "share_ret": 0.0087
       }
     ]
   },
@@ -12067,3 +12561,4 @@ window.DASHBOARD_DATA = {
     ]
   }
 };
+window.DATA = window.DASHBOARD_DATA;

@@ -527,14 +527,32 @@ for r in range(32, 38):
             'w34': w35_val  # backward-compat fallback
         })
 
+co_cau_map = {}
+try:
+    import pandas as pd
+    import re
+    import unicodedata
+    co_df = pd.read_csv('co_cau_ntb.csv')
+    for _, cr in co_df.iterrows():
+        b_raw = str(cr['Bưu cục']).strip()
+        a_raw = unicodedata.normalize('NFC', str(cr['AM']).strip())
+        b_norm = unicodedata.normalize('NFC', re.sub(r'[\s\-_]+', '', b_raw.lower()))
+        co_cau_map[b_norm] = a_raw
+except Exception as e:
+    pass
+
 rot_top_bc = []
 for r in range(41, 62):
     stt = ws_rot.cell(r, 1).value
     bc = ws_rot.cell(r, 2).value
     if bc and str(bc).strip() not in ['None', '']:
+        bc_str = str(bc).strip()
+        bc_norm = unicodedata.normalize('NFC', re.sub(r'[\s\-_]+', '', bc_str.lower()))
+        am_found = co_cau_map.get(bc_norm, '---')
         rot_top_bc.append({
             'stt': stt,
-            'bc': str(bc).strip(),
+            'bc': bc_str,
+            'am': am_found,
             'vol_can_lc': ws_rot.cell(r, 3).value or 0,
             'vol_rot_lc': ws_rot.cell(r, 4).value or 0,
             'pct_rot': ws_rot.cell(r, 5).value or 0
@@ -546,6 +564,13 @@ data['rot_lc'] = {
     'top_bc': rot_top_bc,
     'bc': rot_top_bc
 }
+
+# 12_FD - Báo cáo %FD Return (Full Hàng & TikTok Shop)
+try:
+    with open('scratch/fd_processed.json', 'r', encoding='utf-8') as f_fd:
+        data['fd'] = json.load(f_fd)
+except Exception as e:
+    print(f"Warning: Could not load scratch/fd_processed.json: {e}")
 
 # 10_KinhDoanh_TongQuan
 ws_kd = wb['10_KinhDoanh_TongQuan']
