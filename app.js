@@ -1299,6 +1299,11 @@
     if (!ctx || !D.san_luong) return;
     if (charts.volAM) charts.volAM.destroy();
 
+    const prevKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2].toLowerCase() : 'w35';
+    const currKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1].toLowerCase() : 'w36';
+    const prevLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2] : 'W35';
+    const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W36';
+
     const mode = state.volChartMode || 'w34_vs_w35_full';
     const amFullList = D.san_luong.am_full || [];
     const amTtsList = D.san_luong.am_tts || [];
@@ -1312,22 +1317,22 @@
     // Master 18 AM dataset combining accurate Full and TTS figures
     let list = amFullList.map(r => {
       const tts = ttsMap[r.am] || {};
-      const volFullW35 = r.w35 || r.vol || 0;
-      const volFullW34 = r.w34 || (volFullW35 - (r.diff || 0));
-      const diffFull = r.diff !== undefined ? r.diff : (volFullW35 - volFullW34);
+      const volFullCurr = r[currKey] !== undefined ? r[currKey] : (r.w35 || r.vol || 0);
+      const volFullPrev = r[prevKey] !== undefined ? r[prevKey] : (r.w34 || (volFullCurr - (r.diff || 0)));
+      const diffFull = r.diff !== undefined ? r.diff : (volFullCurr - volFullPrev);
 
-      const volTtsW35 = tts.w35 !== undefined ? tts.w35 : (tts.vol || 0);
-      const volTtsW34 = tts.w34 !== undefined ? tts.w34 : (volTtsW35 - (tts.diff || 0));
-      const diffTts = tts.diff !== undefined ? tts.diff : (volTtsW35 - volTtsW34);
-      const pctTts = volFullW35 > 0 ? (volTtsW35 / volFullW35) * 100 : 0;
+      const volTtsCurr = tts[currKey] !== undefined ? tts[currKey] : (tts.w35 !== undefined ? tts.w35 : (tts.vol || 0));
+      const volTtsPrev = tts[prevKey] !== undefined ? tts[prevKey] : (tts.w34 !== undefined ? tts.w34 : (volTtsCurr - (tts.diff || 0)));
+      const diffTts = tts.diff !== undefined ? tts.diff : (volTtsCurr - volTtsPrev);
+      const pctTts = volFullCurr > 0 ? (volTtsCurr / volFullCurr) * 100 : 0;
 
       return {
         am: r.am,
-        vol_full_w34: volFullW34,
-        vol_full_w35: volFullW35,
+        vol_full_w34: volFullPrev,
+        vol_full_w35: volFullCurr,
         diff_full: diffFull,
-        vol_tts_w34: volTtsW34,
-        vol_tts_w35: volTtsW35,
+        vol_tts_w34: volTtsPrev,
+        vol_tts_w35: volTtsCurr,
         diff_tts: diffTts,
         pct_tts: pctTts
       };
@@ -1339,13 +1344,13 @@
     let y1Title = 'Biến Động WoW (Δ Đơn)';
 
     if (mode === 'w34_vs_w35_full') {
-      title = 'SẢN LƯỢNG FULL HÀNG (CỘT W34 vs W35 + ĐƯỜNG BIẾN ĐỘNG Δ)';
+      title = `SẢN LƯỢNG FULL HÀNG (CỘT ${prevLabel} vs ${currLabel} + ĐƯỜNG BIẾN ĐỘNG Δ)`;
       displayList.sort((a, b) => b.diff_full - a.diff_full);
 
       datasets = [
         {
           type: 'bar',
-          label: 'Full Hàng W34 (Tuần Trước)',
+          label: `Full Hàng ${prevLabel} (Tuần Trước)`,
           data: displayList.map(d => d.vol_full_w34),
           backgroundColor: '#94a3b8',
           borderRadius: 4,
@@ -1354,7 +1359,7 @@
         },
         {
           type: 'bar',
-          label: 'Full Hàng W35 (Hiện Tại)',
+          label: `Full Hàng ${currLabel} (Hiện Tại)`,
           data: displayList.map(d => d.vol_full_w35),
           backgroundColor: displayList.map(d => d.diff_full > 0 ? '#10b981' : '#2563eb'),
           borderRadius: 4,
@@ -1378,13 +1383,13 @@
         }
       ];
     } else if (mode === 'w34_vs_w35_tts') {
-      title = 'SẢN LƯỢNG TIKTOK SHOP (CỘT TTS W34 vs W35 + ĐƯỜNG BIẾN ĐỘNG TTS Δ)';
+      title = `SẢN LƯỢNG TIKTOK SHOP (CỘT TTS ${prevLabel} vs ${currLabel} + ĐƯỜNG BIẾN ĐỘNG TTS Δ)`;
       displayList.sort((a, b) => b.diff_tts - a.diff_tts);
 
       datasets = [
         {
           type: 'bar',
-          label: 'TTS W34 (Tuần Trước)',
+          label: `TTS ${prevLabel} (Tuần Trước)`,
           data: displayList.map(d => d.vol_tts_w34),
           backgroundColor: '#cbd5e1',
           borderRadius: 4,
@@ -1393,7 +1398,7 @@
         },
         {
           type: 'bar',
-          label: 'TTS W35 (Hiện Tại)',
+          label: `TTS ${currLabel} (Hiện Tại)`,
           data: displayList.map(d => d.vol_tts_w35),
           backgroundColor: displayList.map(d => d.diff_tts > 0 ? '#10b981' : '#f97316'),
           borderRadius: 4,
@@ -1417,14 +1422,14 @@
         }
       ];
     } else if (mode === 'full_vs_tts') {
-      title = 'SO SÁNH SẢN LƯỢNG (FULL HÀNG vs TIKTOK SHOP + ĐƯỜNG % TỶ TRỌNG TTS)';
+      title = `SO SÁNH SẢN LƯỢNG (FULL HÀNG vs TIKTOK SHOP + ĐƯỜNG % TỶ TRỌNG TTS - ${currLabel})`;
       displayList.sort((a, b) => b.vol_full_w35 - a.vol_full_w35);
       y1Title = '% Tỷ Trọng TTS';
 
       datasets = [
         {
           type: 'bar',
-          label: 'Full Hàng W35',
+          label: `Full Hàng ${currLabel}`,
           data: displayList.map(d => d.vol_full_w35),
           backgroundColor: '#2563eb',
           borderRadius: 4,
@@ -1433,7 +1438,7 @@
         },
         {
           type: 'bar',
-          label: 'Phân Khúc TTS W35',
+          label: `Phân Khúc TTS ${currLabel}`,
           data: displayList.map(d => d.vol_tts_w35),
           backgroundColor: '#f97316',
           borderRadius: 4,
@@ -1783,6 +1788,11 @@
     const selectedAM = state.selectedAM;
     const hlMode = state.gtcTongHighlight || 'all';
 
+    const prevKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2].toLowerCase() : 'w35';
+    const currKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1].toLowerCase() : 'w36';
+    const prevLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2] : 'W35';
+    const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W36';
+
     const amFullList = D.gtc_tong.am_full || D.gtc_tong.am || [];
     const amTtsList = D.gtc_tong.am_tts || [];
 
@@ -1795,12 +1805,12 @@
     // Combine list
     let list = amFullList.map(r => {
       const tts = ttsMap[r.am] || {};
-      const fullW34 = (r.w34 || 0) * 100;
-      const fullW35 = (r.w35 || 0) * 100;
+      const fullW34 = (r[prevKey] !== undefined ? r[prevKey] : (r.w34 || 0)) * 100;
+      const fullW35 = (r[currKey] !== undefined ? r[currKey] : (r.w35 || 0)) * 100;
       const fullDiff = (r.diff !== undefined ? (r.diff * 100) : (fullW35 - fullW34));
 
-      const ttsW34 = (tts.w34 !== undefined ? (tts.w34 * 100) : (r.w34 || 0) * 100);
-      const ttsW35 = (tts.w35 !== undefined ? (tts.w35 * 100) : (r.w35 || 0) * 100);
+      const ttsW34 = (tts[prevKey] !== undefined ? tts[prevKey] : (tts.w34 !== undefined ? tts.w34 : (r[prevKey] || 0))) * 100;
+      const ttsW35 = (tts[currKey] !== undefined ? tts[currKey] : (tts.w35 !== undefined ? tts.w35 : (r[currKey] || 0))) * 100;
       const ttsDiff = (tts.diff !== undefined ? (tts.diff * 100) : (ttsW35 - ttsW34));
       const gap = Number((ttsW35 - fullW35).toFixed(1));
 
@@ -1857,7 +1867,7 @@
       datasets = [
         {
           type: 'bar',
-          label: '%GTC Full W34 (%)',
+          label: `%GTC Full ${prevLabel} (%)`,
           data: displayList.map(d => d.full_w34),
           backgroundColor: displayList.map(d => {
             const isM = checkGtcMatch(d);
@@ -1876,7 +1886,7 @@
         },
         {
           type: 'bar',
-          label: '%GTC Full W35 (%)',
+          label: `%GTC Full ${currLabel} (%)`,
           data: displayList.map(d => d.full_w35),
           backgroundColor: displayList.map(d => {
             const isM = checkGtcMatch(d);
@@ -1927,7 +1937,7 @@
       datasets = [
         {
           type: 'bar',
-          label: '%GTC TTS W34 (%)',
+          label: `%GTC TTS ${prevLabel} (%)`,
           data: displayList.map(d => d.tts_w34),
           backgroundColor: displayList.map(d => {
             const isM = checkGtcMatch(d);
@@ -1946,7 +1956,7 @@
         },
         {
           type: 'bar',
-          label: '%GTC TTS W35 (%)',
+          label: `%GTC TTS ${currLabel} (%)`,
           data: displayList.map(d => d.tts_w35),
           backgroundColor: displayList.map(d => {
             const isM = checkGtcMatch(d);
@@ -1998,7 +2008,7 @@
       datasets = [
         {
           type: 'bar',
-          label: '%GTC Full Hàng W35',
+          label: `%GTC Full Hàng ${currLabel}`,
           data: displayList.map(d => d.full_w35),
           backgroundColor: displayList.map(d => {
             const isM = checkGtcMatch(d);
@@ -2017,7 +2027,7 @@
         },
         {
           type: 'bar',
-          label: '%GTC TikTok Shop W35',
+          label: `%GTC TikTok Shop ${currLabel}`,
           data: displayList.map(d => d.tts_w35),
           backgroundColor: displayList.map(d => {
             const isM = checkGtcMatch(d);
@@ -2154,20 +2164,24 @@
   };
 
   function getGtcCa1TtsData() {
+    const prevKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2].toLowerCase() : 'w35';
+    const currKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1].toLowerCase() : 'w36';
     const rawList = (D.gtc_ca1_thuan && D.gtc_ca1_thuan.am_tts) || (D.gtc_ca1_ton && D.gtc_ca1_ton.am_tts) || (D.gtc_tong && D.gtc_tong.am_tts) || [];
     return rawList.map(r => {
-      const w34_pct = (r.w34 || 0) * 100;
-      const w35_pct = (r.w35 || 0) * 100;
-      const diff_val = (r.diff !== undefined) ? r.diff : ((r.w35 || 0) - (r.w34 || 0));
+      const prev_val = r[currKey] !== undefined ? (r[prevKey] || 0) : (r.w34 || 0);
+      const curr_val = r[currKey] !== undefined ? (r[currKey] || 0) : (r.w35 || 0);
+      const prev_pct = prev_val * 100;
+      const curr_pct = curr_val * 100;
+      const diff_val = (r.diff !== undefined) ? r.diff : (curr_val - prev_val);
       const diff_pct = diff_val * 100;
-      const isPass = (r.w35 || 0) >= 0.76;
+      const isPass = curr_val >= 0.76;
       return {
         am: r.am,
         vol: r.vol || 0,
-        w34: r.w34 || 0,
-        w35: r.w35 || 0,
-        w34_pct: Number(w34_pct.toFixed(1)),
-        w35_pct: Number(w35_pct.toFixed(1)),
+        w34: prev_val,
+        w35: curr_val,
+        w34_pct: Number(prev_pct.toFixed(1)),
+        w35_pct: Number(curr_pct.toFixed(1)),
         diff: diff_val, // Decimal for renderDeltaBadge
         diff_pct: Number(diff_pct.toFixed(1)), // Percent for chart & sorting
         isPass: isPass
@@ -2206,6 +2220,7 @@
     if (!ctx) return;
     if (charts.gtcTtsCa1Bar) charts.gtcTtsCa1Bar.destroy();
 
+    const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W36';
     const selectedAM = state.selectedAM;
     const hlMode = state.gtcTtsCa1Highlight || 'all';
 
@@ -2246,7 +2261,7 @@
         datasets: [
           {
             type: 'bar',
-            label: '%GTC Ca 1 TTS W35 (Target ≥ 76%)',
+            label: `%GTC Ca 1 TTS ${currLabel} (Target ≥ 76%)`,
             data: sorted.map(d => d.w35_pct),
             backgroundColor: sorted.map(d => {
               const isM = checkCa1Match(d);
@@ -2568,17 +2583,20 @@
     if (!ctx || !D.gan || !D.gan.am) return;
     if (charts.ganBar) charts.ganBar.destroy();
 
+    const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W36';
     const selectedAM = state.selectedAM;
     const sorted = [...D.gan.am].map(r => {
-      const w34_val = r.tong_w34 || 0;
-      const w35_val = r.tong_w35 || 0;
-      const diff_val = r.diff !== undefined ? r.diff : (w35_val - w34_val);
+      const prev_val = r.tong_w36 !== undefined ? (r.tong_w35 || 0) : (r.tong_w34 || 0);
+      const curr_val = r.tong_w36 !== undefined ? (r.tong_w36 || 0) : (r.tong_w35 || 0);
+      const diff_val = r.tong_diff !== undefined ? r.tong_diff : (r.diff !== undefined ? r.diff : (curr_val - prev_val));
+      const ca1 = r.ca1ton_w36 !== undefined ? r.ca1ton_w36 : (r.ca1ton_w35 || 0);
+      const ca2 = r.ca2_w36 !== undefined ? r.ca2_w36 : (r.ca2_w35 || 0);
       return {
         ...r,
-        ca1_pct: Number(((r.ca1ton_w35 || 0) * 100).toFixed(1)),
-        ca2_pct: Number(((r.ca2_w35 || 0) * 100).toFixed(1)),
-        tong_w34_pct: Number((w34_val * 100).toFixed(1)),
-        tong_pct: Number((w35_val * 100).toFixed(1)),
+        ca1_pct: Number((ca1 * 100).toFixed(1)),
+        ca2_pct: Number((ca2 * 100).toFixed(1)),
+        tong_prev_pct: Number((prev_val * 100).toFixed(1)),
+        tong_pct: Number((curr_val * 100).toFixed(1)),
         diff_pct: Number((diff_val * 100).toFixed(1))
       };
     }).sort((a, b) => b.diff_pct - a.diff_pct); // Sort theo biến động WoW
@@ -2590,7 +2608,7 @@
         datasets: [
           {
             type: 'bar',
-            label: '% Gán Ca 1 + Tồn (W35)',
+            label: `% Gán Ca 1 + Tồn (${currLabel})`,
             data: sorted.map(d => d.ca1_pct),
             backgroundColor: '#c084fc',
             borderRadius: 4,
@@ -2599,7 +2617,7 @@
           },
           {
             type: 'bar',
-            label: '% Gán Ca 2 (W35)',
+            label: `% Gán Ca 2 (${currLabel})`,
             data: sorted.map(d => d.ca2_pct),
             backgroundColor: '#9333ea',
             borderRadius: 4,
@@ -2608,7 +2626,7 @@
           },
           {
             type: 'bar',
-            label: '% Gán Tổng W35 (Target ≥90%)',
+            label: `% Gán Tổng ${currLabel} (Target ≥90%)`,
             data: sorted.map(d => d.tong_pct),
             backgroundColor: sorted.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : (d.tong_pct >= 90 ? '#10b981' : '#f59e0b')),
             borderColor: sorted.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : 'transparent'),
@@ -2927,10 +2945,15 @@
     const selectedAM = state.selectedAM;
     const hlMode = state.odrHighlight || 'all';
 
+    const prevKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2].toLowerCase() : 'w35';
+    const currKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1].toLowerCase() : 'w36';
+    const prevLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2] : 'W35';
+    const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W36';
+
     const titleChart = document.getElementById('chart-odr-title');
     if (titleChart) {
       titleChart.textContent = seg === 'compare'
-        ? 'BIỂU ĐỒ SO SÁNH TRỰC DIỆN %ODR FULL HÀNG vs %ODR TIKTOK SHOP (W35)'
+        ? `BIỂU ĐỒ SO SÁNH TRỰC DIỆN %ODR FULL HÀNG vs %ODR TIKTOK SHOP (${currLabel})`
         : `BIỂU ĐỒ %ODR GIAO ĐÚNG HẸN THEO 18 AM (${seg === 'tts' ? 'TIKTOK SHOP' : 'FULL HÀNG'})`;
     }
 
@@ -2946,13 +2969,13 @@
     // Combine list
     let list = amFullList.map(r => {
       const tts = ttsMap[r.am] || {};
-      const fullW34 = (r.w34 || 0) * 100;
-      const fullW35 = (r.w35 || 0) * 100;
-      const fullDiff = (r.diff !== undefined ? r.diff : ((r.w35 || 0) - (r.w34 || 0))) * 100;
+      const fullW34 = (r[prevKey] !== undefined ? r[prevKey] : (r.w34 || 0)) * 100;
+      const fullW35 = (r[currKey] !== undefined ? r[currKey] : (r.w35 || 0)) * 100;
+      const fullDiff = (r.diff !== undefined ? (r.diff * 100) : (fullW35 - fullW34));
 
-      const ttsW34 = (tts.w34 !== undefined ? tts.w34 : (r.w34 || 0)) * 100;
-      const ttsW35 = (tts.w35 !== undefined ? tts.w35 : (r.w35 || 0)) * 100;
-      const ttsDiff = (tts.diff !== undefined ? tts.diff : (ttsW35 - ttsW34));
+      const ttsW34 = (tts[prevKey] !== undefined ? tts[prevKey] : (tts.w34 !== undefined ? tts.w34 : (r[prevKey] || 0))) * 100;
+      const ttsW35 = (tts[currKey] !== undefined ? tts[currKey] : (tts.w35 !== undefined ? tts.w35 : (r[currKey] || 0))) * 100;
+      const ttsDiff = (tts.diff !== undefined ? (tts.diff * 100) : (ttsW35 - ttsW34));
       const gap = Number((ttsW35 - fullW35).toFixed(1));
 
       return {
@@ -3007,7 +3030,7 @@
       datasets = [
         {
           type: 'bar',
-          label: '%ODR Full W34 (%)',
+          label: `%ODR Full ${prevLabel} (%)`,
           data: displayList.map(d => d.full_w34),
           backgroundColor: displayList.map(d => {
             const isM = checkOdrMatch(d);
@@ -3020,7 +3043,7 @@
         },
         {
           type: 'bar',
-          label: '%ODR Full W35 (Target ≥92%)',
+          label: `%ODR Full ${currLabel} (Target ≥92%)`,
           data: displayList.map(d => d.full_w35),
           backgroundColor: displayList.map(d => {
             const isM = checkOdrMatch(d);
@@ -3058,7 +3081,7 @@
       datasets = [
         {
           type: 'bar',
-          label: '%ODR TTS W34 (%)',
+          label: `%ODR TTS ${prevLabel} (%)`,
           data: displayList.map(d => d.tts_w34),
           backgroundColor: displayList.map(d => {
             const isM = checkOdrMatch(d);
@@ -3071,7 +3094,7 @@
         },
         {
           type: 'bar',
-          label: '%ODR TTS W35 (Target ≥92%)',
+          label: `%ODR TTS ${currLabel} (Target ≥92%)`,
           data: displayList.map(d => d.tts_w35),
           backgroundColor: displayList.map(d => {
             const isM = checkOdrMatch(d);
@@ -3110,7 +3133,7 @@
       datasets = [
         {
           type: 'bar',
-          label: '%ODR Full Hàng W35',
+          label: `%ODR Full Hàng ${currLabel}`,
           data: displayList.map(d => d.full_w35),
           backgroundColor: displayList.map(d => {
             const isM = checkOdrMatch(d);
@@ -3123,7 +3146,7 @@
         },
         {
           type: 'bar',
-          label: '%ODR TikTok Shop W35',
+          label: `%ODR TikTok Shop ${currLabel}`,
           data: displayList.map(d => d.tts_w35),
           backgroundColor: displayList.map(d => {
             const isM = checkOdrMatch(d);
@@ -3326,15 +3349,20 @@
     if (!ctx || !D.ltc || !D.ltc.am) return;
     if (charts.ltcBar) charts.ltcBar.destroy();
 
+    const prevKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2].toLowerCase() : 'w35';
+    const currKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1].toLowerCase() : 'w36';
+    const prevLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2] : 'W35';
+    const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W36';
+
     const selectedAM = state.selectedAM;
     const sorted = [...D.ltc.am].map(r => {
-      const w34_val = r.w34 || 0;
-      const w35_val = r.w35 || 0;
-      const diff_val = r.diff !== undefined ? r.diff : (w35_val - w34_val);
+      const prev_val = r[currKey] !== undefined ? (r[prevKey] || 0) : (r.w34 || 0);
+      const curr_val = r[currKey] !== undefined ? (r[currKey] || 0) : (r.w35 || 0);
+      const diff_val = r.diff !== undefined ? r.diff : (curr_val - prev_val);
       return {
         ...r,
-        w34_pct: Number((w34_val * 100).toFixed(1)),
-        w35_pct: Number((w35_val * 100).toFixed(1)),
+        w34_pct: Number((prev_val * 100).toFixed(1)),
+        w35_pct: Number((curr_val * 100).toFixed(1)),
         diff_pct: Number((diff_val * 100).toFixed(1)),
         vol: r.vol || 0
       };
@@ -3363,7 +3391,7 @@
           },
           {
             type: 'bar',
-            label: '%LTC W34 (%)',
+            label: `%LTC ${prevLabel} (%)`,
             data: sorted.map(d => d.w34_pct),
             backgroundColor: '#94a3b8',
             borderRadius: 4,
@@ -3372,7 +3400,7 @@
           },
           {
             type: 'bar',
-            label: '%LTC W35 (Target ≥90%)',
+            label: `%LTC ${currLabel} (Target ≥90%)`,
             data: sorted.map(d => d.w35_pct),
             backgroundColor: sorted.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : (d.w35_pct >= 90.0 ? '#10b981' : '#2563eb')),
             borderColor: sorted.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : 'transparent'),
@@ -3562,7 +3590,9 @@
         const isSelected = state.selectedAM === row.am;
         const rowClass = isSelected ? 'presenter-laser-box' : '';
         const currDay = row.w36_day !== undefined ? row.w36_day : row.w35_day;
+        const prevDay = row.w36_day !== undefined ? row.w35_day : row.w34_day;
         const currNight = row.w36_night !== undefined ? row.w36_night : row.w35_night;
+        const prevNight = row.w36_night !== undefined ? row.w35_night : row.w34_night;
         const heatDay = getHeatmapClass(currDay, 'opr');
         const heatNight = getHeatmapClass(currNight, 'opr');
         const diffDay = renderDeltaBadge(row.diff_day, true, true);
@@ -3573,12 +3603,12 @@
             <td class="center bold">${i + 1}</td>
             <td class="bold" style="font-weight:800; color:${isSelected ? '#ef4444' : 'inherit'};">${row.am}</td>
             <td class="num">${fNum(row.vol_day)}</td>
-            <td class="num">${fPct(row.w34_day)}</td>
-            <td class="num bold ${heatDay}">${fPct(row.w35_day)}</td>
+            <td class="num">${fPct(prevDay)}</td>
+            <td class="num bold ${heatDay}">${fPct(currDay)}</td>
             <td class="num bold">${diffDay}</td>
             <td class="num">${fNum(row.vol_night)}</td>
-            <td class="num">${fPct(row.w34_night)}</td>
-            <td class="num bold ${heatNight}">${fPct(row.w35_night)}</td>
+            <td class="num">${fPct(prevNight)}</td>
+            <td class="num bold ${heatNight}">${fPct(currNight)}</td>
             <td class="num bold">${diffNight}</td>
             <td class="num bold" style="color: var(--color-blue);">${fNum(row.total_vol)}</td>
           </tr>
@@ -3592,15 +3622,16 @@
     if (!ctx || !D.opr_tts || !D.opr_tts.am) return;
     if (charts.oprGrouped) charts.oprGrouped.destroy();
 
+    const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W36';
     const selectedAM = state.selectedAM;
     // Sắp xếp cải thiện tốt nhất giảm dần (diff_total descending)
     const ams = [...D.opr_tts.am].sort((a, b) => {
-      const diffA = a.diff_total !== undefined ? a.diff_total : ((a.w35_total || 0) - (a.w34_total || 0));
-      const diffB = b.diff_total !== undefined ? b.diff_total : ((b.w35_total || 0) - (b.w34_total || 0));
+      const diffA = a.diff_total !== undefined ? a.diff_total : ((a.w36_total || a.w35_total || 0) - (a.w35_total || a.w34_total || 0));
+      const diffB = b.diff_total !== undefined ? b.diff_total : ((b.w36_total || b.w35_total || 0) - (b.w35_total || b.w34_total || 0));
       return diffB - diffA;
     });
 
-    const diffVals = ams.map(d => Number(((d.diff_total !== undefined ? d.diff_total : ((d.w35_total || 0) - (d.w34_total || 0))) * 100).toFixed(1)));
+    const diffVals = ams.map(d => Number(((d.diff_total !== undefined ? d.diff_total : ((d.w36_total || d.w35_total || 0) - (d.w35_total || d.w34_total || 0))) * 100).toFixed(1)));
     const minD = Math.min(...diffVals, 0);
     const maxD = Math.max(...diffVals, 0);
 
@@ -3629,8 +3660,8 @@
           },
           {
             type: 'bar',
-            label: '%OPR 9h–19h W35 (Ca Ngày)',
-            data: ams.map(d => Number(((d.w35_day || 0) * 100).toFixed(1))),
+            label: `%OPR 9h–19h ${currLabel} (Ca Ngày)`,
+            data: ams.map(d => Number(((d.w36_day !== undefined ? d.w36_day : (d.w35_day || 0)) * 100).toFixed(1))),
             backgroundColor: ams.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#2563eb'),
             borderColor: ams.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : 'transparent'),
             borderWidth: ams.map(d => selectedAM && selectedAM === d.am ? 2 : 0),
@@ -3648,8 +3679,8 @@
           },
           {
             type: 'bar',
-            label: '%OPR 19h–9h W35 (Ca Đêm)',
-            data: ams.map(d => Number(((d.w35_night || 0) * 100).toFixed(1))),
+            label: `%OPR 19h–9h ${currLabel} (Ca Đêm)`,
+            data: ams.map(d => Number(((d.w36_night !== undefined ? d.w36_night : (d.w35_night || 0)) * 100).toFixed(1))),
             backgroundColor: ams.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#ea580c'),
             borderColor: ams.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : 'transparent'),
             borderWidth: ams.map(d => selectedAM && selectedAM === d.am ? 2 : 0),
@@ -3667,8 +3698,8 @@
           },
           {
             type: 'line',
-            label: '%OPR Tất cả W35 (Toàn Ngày)',
-            data: ams.map(d => Number(((d.w35_total !== undefined ? d.w35_total : ((d.w35_day || 0) * 0.6 + (d.w35_night || 0) * 0.4)) * 100).toFixed(1))),
+            label: `%OPR Tất cả ${currLabel} (Toàn Ngày)`,
+            data: ams.map(d => Number(((d.w36_total !== undefined ? d.w36_total : (d.w35_total !== undefined ? d.w35_total : ((d.w36_day || 0) * 0.6 + (d.w36_night || 0) * 0.4))) * 100).toFixed(1))),
             borderColor: '#65a30d',
             borderWidth: 3.5,
             tension: 0.25,
@@ -3885,15 +3916,20 @@
     if (!ctx || !D.rot_lc || !D.rot_lc.am) return;
     if (charts.rotLcBar) charts.rotLcBar.destroy();
 
+    const prevKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2].toLowerCase() : 'w35';
+    const currKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1].toLowerCase() : 'w36';
+    const prevLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2] : 'W35';
+    const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W36';
+
     const selectedAM = state.selectedAM;
     const sorted = [...D.rot_lc.am].map(r => {
-      const w34_val = r.w34 || 0;
-      const w35_val = r.w35 || 0;
-      const diff_val = r.diff !== undefined ? r.diff : (w35_val - w34_val);
+      const prev_val = r[currKey] !== undefined ? (r[prevKey] || 0) : (r.w34 || 0);
+      const curr_val = r[currKey] !== undefined ? (r[currKey] || 0) : (r.w35 || 0);
+      const diff_val = r.diff !== undefined ? r.diff : (curr_val - prev_val);
       return {
         ...r,
-        w34_pct: Number((w34_val * 100).toFixed(2)),
-        w35_pct: Number((w35_val * 100).toFixed(2)),
+        w34_pct: Number((prev_val * 100).toFixed(2)),
+        w35_pct: Number((curr_val * 100).toFixed(2)),
         diff_pct: Number((diff_val * 100).toFixed(2))
       };
     }).sort((a, b) => a.diff_pct - b.diff_pct); // Sort từ cải thiện giảm rớt tốt nhất đến tăng rớt
@@ -3905,7 +3941,7 @@
         datasets: [
           {
             type: 'bar',
-            label: '% Rớt LC W34 (%)',
+            label: `% Rớt LC ${prevLabel} (%)`,
             data: sorted.map(d => d.w34_pct),
             backgroundColor: '#94a3b8',
             borderRadius: 4,
@@ -3914,7 +3950,7 @@
           },
           {
             type: 'bar',
-            label: '% Rớt LC W35 (Target ≤ 1.0%)',
+            label: `% Rớt LC ${currLabel} (Target ≤ 1.0%)`,
             data: sorted.map(d => d.w35_pct),
             backgroundColor: sorted.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : (d.w35_pct <= 1.0 ? '#10b981' : (d.w35_pct <= 2.5 ? '#f59e0b' : '#ef4444'))),
             borderColor: sorted.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : 'transparent'),
