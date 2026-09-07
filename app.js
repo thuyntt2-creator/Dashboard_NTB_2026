@@ -4370,9 +4370,11 @@
               ${row.am} <span style="font-size:11px; color:var(--text-muted); font-weight:400;">(${row.am_code})</span>
             </td>
             <td class="num">${fNum(row.vol_full)}</td>
+            <td class="num">${fPct(row.rate_full_prev)}</td>
             <td class="num bold ${heatFull}">${fPct(row.rate_full)}</td>
             <td class="num bold">${diffBadgeFull}</td>
             <td class="num">${fNum(row.vol_tts)}</td>
+            <td class="num">${fPct(row.rate_tts_prev)}</td>
             <td class="num bold ${heatTts}">${fPct(row.rate_tts)}</td>
             <td class="num bold">${diffBadgeTts}</td>
             <td class="num" style="font-weight:700;">${fPct(row.share_ret)}</td>
@@ -4445,6 +4447,8 @@
       return '#3b82f6';
     });
 
+    const prevData = sorted.map(d => Number(((mode === 'tts' ? d.rate_tts_prev : d.rate_full_prev) * 100).toFixed(2)));
+
     charts.fdBar = new Chart(ctx, {
       type: 'bar',
       data: {
@@ -4462,11 +4466,20 @@
             pointRadius: 4,
             pointBackgroundColor: mode === 'tts' ? '#ea580c' : '#2563eb',
             yAxisID: 'yVol',
+            order: 4
+          },
+          {
+            type: 'bar',
+            label: mode === 'tts' ? '%FD TTS W35 (Tuần Trước)' : '%FD Full W35 (Tuần Trước)',
+            data: prevData,
+            backgroundColor: '#94a3b8',
+            borderRadius: 4,
+            yAxisID: 'y',
             order: 3
           },
           {
             type: 'bar',
-            label: mode === 'tts' ? '%FD Return TikTok Shop (%)' : '%FD Return Full Hàng (%)',
+            label: mode === 'tts' ? '%FD TTS W36 (Hiện Tại)' : '%FD Full W36 (Hiện Tại)',
             data: rateData,
             backgroundColor: barColors,
             borderRadius: 4,
@@ -4477,7 +4490,7 @@
             type: 'line',
             label: 'Đường Biến Động WoW (Δ %)',
             data: diffData,
-            borderColor: '#8b5cf6',
+            borderColor: '#f26522',
             borderWidth: 2.5,
             tension: 0.2,
             pointBackgroundColor: diffData.map(d => d <= 0 ? '#10b981' : '#ef4444'),
