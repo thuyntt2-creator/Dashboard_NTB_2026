@@ -12559,5 +12559,848 @@
         "can_thu": 2087181.0
       }
     ]
+  },
+  "ktc": {
+    "backlog": {
+      "by_am": [
+        {
+          "am": "Nguyễn Tiến Lực",
+          "h0_6": 6290,
+          "h6_12": 128,
+          "h12_24": 77,
+          "h24_36": 10,
+          "h36_72": 2,
+          "h72_120": 3,
+          "h120_192": 0,
+          "h192_plus": 0,
+          "treo_36h": 381,
+          "total": 6510,
+          "diff": 6129
+        },
+        {
+          "am": "Nguyễn Minh Hoàng",
+          "h0_6": 2851,
+          "h6_12": 1889,
+          "h12_24": 73,
+          "h24_36": 12,
+          "h36_72": 4,
+          "h72_120": 0,
+          "h120_192": 0,
+          "h192_plus": 0,
+          "treo_36h": 0,
+          "total": 4829,
+          "diff": 4829
+        },
+        {
+          "am": "Nguyễn Ngọc Khánh",
+          "h0_6": 2545,
+          "h6_12": 912,
+          "h12_24": 167,
+          "h24_36": 5,
+          "h36_72": 4,
+          "h72_120": 1,
+          "h120_192": 0,
+          "h192_plus": 0,
+          "treo_36h": 0,
+          "total": 3634,
+          "diff": 3634
+        },
+        {
+          "am": "Trương Quang Linh",
+          "h0_6": 623,
+          "h6_12": 611,
+          "h12_24": 0,
+          "h24_36": 0,
+          "h36_72": 0,
+          "h72_120": 0,
+          "h120_192": 0,
+          "h192_plus": 0,
+          "treo_36h": 0,
+          "total": 1234,
+          "diff": 1234
+        }
+      ],
+      "total_am": {
+        "am": "TỔNG TOÀN VÙNG",
+        "h0_6": 12309,
+        "h6_12": 3540,
+        "h12_24": 317,
+        "h24_36": 27,
+        "h36_72": 10,
+        "h72_120": 4,
+        "h120_192": 0,
+        "h192_plus": 0,
+        "treo_36h": 381,
+        "total": 16207,
+        "diff": 15826
+      },
+      "by_kho": [
+        {
+          "kho": "Kho Trung Chuyển Khánh Hòa",
+          "am": "Nguyễn Tiến Lực",
+          "h0_6": 6290,
+          "h6_12": 128,
+          "h12_24": 77,
+          "h24_36": 10,
+          "h36_72": 2,
+          "h72_120": 3,
+          "h120_192": 0,
+          "h192_plus": 0,
+          "treo_36h": 381,
+          "total": 6510,
+          "diff": 6129
+        },
+        {
+          "kho": "Kho Chuyển Tiếp Bình Thuận",
+          "am": "Nguyễn Ngọc Khánh",
+          "h0_6": 2545,
+          "h6_12": 912,
+          "h12_24": 167,
+          "h24_36": 5,
+          "h36_72": 4,
+          "h72_120": 1,
+          "h120_192": 0,
+          "h192_plus": 0,
+          "treo_36h": 0,
+          "total": 3634,
+          "diff": 3634
+        },
+        {
+          "kho": "Kho Chuyển Tiếp Bảo Lộc - Lâm Đồng",
+          "am": "Nguyễn Minh Hoàng",
+          "h0_6": 899,
+          "h6_12": 1831,
+          "h12_24": 0,
+          "h24_36": 0,
+          "h36_72": 0,
+          "h72_120": 0,
+          "h120_192": 0,
+          "h192_plus": 0,
+          "treo_36h": 0,
+          "total": 2730,
+          "diff": 2730
+        },
+        {
+          "kho": "Kho Chuyển Tiếp Đức Trọng - Lâm Đồng",
+          "am": "Nguyễn Minh Hoàng",
+          "h0_6": 1952,
+          "h6_12": 58,
+          "h12_24": 73,
+          "h24_36": 12,
+          "h36_72": 4,
+          "h72_120": 0,
+          "h120_192": 0,
+          "h192_plus": 0,
+          "treo_36h": 0,
+          "total": 2099,
+          "diff": 2099
+        },
+        {
+          "kho": "Kho Chuyển Tiếp Đắk Nông",
+          "am": "Trương Quang Linh",
+          "h0_6": 623,
+          "h6_12": 611,
+          "h12_24": 0,
+          "h24_36": 0,
+          "h36_72": 0,
+          "h72_120": 0,
+          "h120_192": 0,
+          "h192_plus": 0,
+          "treo_36h": 0,
+          "total": 1234,
+          "diff": 1234
+        }
+      ],
+      "total_kho": {
+        "kho": "TỔNG CỘNG (5 KTC/KCT)",
+        "am": "Toàn Vùng",
+        "h0_6": 12309,
+        "h6_12": 3540,
+        "h12_24": 317,
+        "h24_36": 27,
+        "h36_72": 10,
+        "h72_120": 4,
+        "h120_192": 0,
+        "h192_plus": 0,
+        "treo_36h": 381,
+        "total": 16207,
+        "diff": 15826
+      },
+      "trend_dates": [
+        "31/08",
+        "01/09",
+        "02/09",
+        "03/09",
+        "04/09",
+        "05/09",
+        "06/09",
+        "07/09"
+      ],
+      "trend_by_am": [
+        {
+          "am": "Nguyễn Tiến Lực",
+          "d_31_08": 106,
+          "d_01_09": {
+            "val": 180,
+            "diff": 74,
+            "pct": 0.7
+          },
+          "d_02_09": {
+            "val": 51,
+            "diff": -129,
+            "pct": -0.72
+          },
+          "d_03_09": {
+            "val": 24,
+            "diff": -27,
+            "pct": -0.53
+          },
+          "d_04_09": {
+            "val": 16,
+            "diff": -8,
+            "pct": -0.33
+          },
+          "d_05_09": {
+            "val": 12,
+            "diff": -4,
+            "pct": -0.25
+          },
+          "d_06_09": {
+            "val": 0,
+            "diff": -12,
+            "pct": -1.0
+          },
+          "d_07_09": {
+            "val": 23,
+            "diff": 23,
+            "pct": 1.0
+          }
+        },
+        {
+          "am": "Nguyễn Minh Hoàng",
+          "d_31_08": 12,
+          "d_01_09": {
+            "val": 11,
+            "diff": -1,
+            "pct": -0.08
+          },
+          "d_02_09": {
+            "val": 23,
+            "diff": 12,
+            "pct": 1.09
+          },
+          "d_03_09": {
+            "val": 5,
+            "diff": -18,
+            "pct": -0.78
+          },
+          "d_04_09": {
+            "val": 5,
+            "diff": 0,
+            "pct": 0.0
+          },
+          "d_05_09": {
+            "val": 13,
+            "diff": 8,
+            "pct": 1.6
+          },
+          "d_06_09": {
+            "val": 0,
+            "diff": -13,
+            "pct": -1.0
+          },
+          "d_07_09": {
+            "val": 38,
+            "diff": 38,
+            "pct": 1.0
+          }
+        },
+        {
+          "am": "Nguyễn Ngọc Khánh",
+          "d_31_08": 22,
+          "d_01_09": {
+            "val": 7,
+            "diff": -15,
+            "pct": -0.68
+          },
+          "d_02_09": {
+            "val": 5,
+            "diff": -2,
+            "pct": -0.29
+          },
+          "d_03_09": {
+            "val": 5,
+            "diff": 0,
+            "pct": 0.0
+          },
+          "d_04_09": {
+            "val": 5,
+            "diff": 0,
+            "pct": 0.0
+          },
+          "d_05_09": {
+            "val": 13,
+            "diff": 8,
+            "pct": 1.6
+          },
+          "d_06_09": {
+            "val": 0,
+            "diff": -13,
+            "pct": -1.0
+          },
+          "d_07_09": {
+            "val": 18,
+            "diff": 18,
+            "pct": 1.0
+          }
+        },
+        {
+          "am": "Trương Quang Linh",
+          "d_31_08": 0,
+          "d_01_09": {
+            "val": 0,
+            "diff": 0,
+            "pct": 0.0
+          },
+          "d_02_09": {
+            "val": 0,
+            "diff": 0,
+            "pct": 0.0
+          },
+          "d_03_09": {
+            "val": 2,
+            "diff": 2,
+            "pct": 1.0
+          },
+          "d_04_09": {
+            "val": 0,
+            "diff": -2,
+            "pct": -1.0
+          },
+          "d_05_09": {
+            "val": 0,
+            "diff": 0,
+            "pct": 0.0
+          },
+          "d_06_09": {
+            "val": 0,
+            "diff": 0,
+            "pct": 0.0
+          },
+          "d_07_09": {
+            "val": 1,
+            "diff": 1,
+            "pct": 1.0
+          }
+        }
+      ],
+      "total_trend": {
+        "am": "TỔNG VÙNG",
+        "d_31_08": 140,
+        "d_01_09": {
+          "val": 198,
+          "diff": 58,
+          "pct": 0.41
+        },
+        "d_02_09": {
+          "val": 79,
+          "diff": -119,
+          "pct": -0.6
+        },
+        "d_03_09": {
+          "val": 36,
+          "diff": -43,
+          "pct": -0.54
+        },
+        "d_04_09": {
+          "val": 26,
+          "diff": -10,
+          "pct": -0.28
+        },
+        "d_05_09": {
+          "val": 38,
+          "diff": 12,
+          "pct": 0.46
+        },
+        "d_06_09": {
+          "val": 0,
+          "diff": -38,
+          "pct": -1.0
+        },
+        "d_07_09": {
+          "val": 80,
+          "diff": 80,
+          "pct": 1.0
+        }
+      }
+    },
+    "leadtime": {
+      "snapshot": {
+        "items": [
+          {
+            "loai_kho": "01. KTC",
+            "ten_kho": "Kho Trung Chuyển Khánh Hòa",
+            "total_orders": 12880,
+            "ton_12h": 163,
+            "pct_12h": 1.3,
+            "ton_24h": 19,
+            "pct_24h": 0.1,
+            "lt_tb": 3.12,
+            "lt_p50": 1.8,
+            "lt_p95": 8.2
+          },
+          {
+            "loai_kho": "02. KCT",
+            "ten_kho": "Kho Chuyển Tiếp Bình Thuận",
+            "total_orders": 11028,
+            "ton_12h": 79,
+            "pct_12h": 0.7,
+            "ton_24h": 20,
+            "pct_24h": 0.2,
+            "lt_tb": 3.19,
+            "lt_p50": 2.67,
+            "lt_p95": 5.98
+          },
+          {
+            "loai_kho": "02. KCT",
+            "ten_kho": "Kho Chuyển Tiếp Đức Trọng - Lâm Đồng",
+            "total_orders": 4362,
+            "ton_12h": 15,
+            "pct_12h": 0.3,
+            "ton_24h": 1,
+            "pct_24h": 0.0,
+            "lt_tb": 2.88,
+            "lt_p50": 3.75,
+            "lt_p95": 5.43
+          },
+          {
+            "loai_kho": "02. KCT",
+            "ten_kho": "Kho Chuyển Tiếp Đắk Nông",
+            "total_orders": 3272,
+            "ton_12h": 405,
+            "pct_12h": 12.4,
+            "ton_24h": 6,
+            "pct_24h": 0.2,
+            "lt_tb": 4.99,
+            "lt_p50": 0.91,
+            "lt_p95": 17.06
+          }
+        ],
+        "total": {
+          "loai_kho": "---",
+          "ten_kho": "GRAND TOTAL",
+          "total_orders": 31542,
+          "ton_12h": 662,
+          "pct_12h": 2.1,
+          "ton_24h": 46,
+          "pct_24h": 0.1,
+          "lt_tb": 3.31,
+          "lt_p50": 2.24,
+          "lt_p95": 7.09
+        }
+      },
+      "w36": {
+        "items": [
+          {
+            "loai_kho": "01. KTC",
+            "ten_kho": "Kho Trung Chuyển Khánh Hòa",
+            "total_orders": 170746,
+            "ton_12h": 17234,
+            "pct_12h": 10.09,
+            "ton_24h": 1715,
+            "pct_24h": 1.0,
+            "lt_tb": 25855.23,
+            "lt_p50": 3.88,
+            "lt_p95": 14.07
+          },
+          {
+            "loai_kho": "02. KCT",
+            "ten_kho": "Kho Chuyển Tiếp Bình Thuận",
+            "total_orders": 102254,
+            "ton_12h": 8961,
+            "pct_12h": 8.76,
+            "ton_24h": 118,
+            "pct_24h": 0.12,
+            "lt_tb": 11806.06,
+            "lt_p50": 3.86,
+            "lt_p95": 11.05
+          },
+          {
+            "loai_kho": "02. KCT",
+            "ten_kho": "Kho Chuyển Tiếp Bảo Lộc",
+            "total_orders": 51133,
+            "ton_12h": 2137,
+            "pct_12h": 4.18,
+            "ton_24h": 101,
+            "pct_24h": 0.2,
+            "lt_tb": 5012.15,
+            "lt_p50": 4.42,
+            "lt_p95": 11.02
+          },
+          {
+            "loai_kho": "02. KCT",
+            "ten_kho": "Kho Chuyển Tiếp Đắk Nông",
+            "total_orders": 36854,
+            "ton_12h": 7234,
+            "pct_12h": 19.63,
+            "ton_24h": 148,
+            "pct_24h": 0.4,
+            "lt_tb": 7143.32,
+            "lt_p50": 2.03,
+            "lt_p95": 14.55
+          }
+        ],
+        "total": {
+          "loai_kho": "---",
+          "ten_kho": "GRAND TOTAL",
+          "total_orders": 360987,
+          "ton_12h": 35566,
+          "pct_12h": 9.85,
+          "ton_24h": 2082,
+          "pct_24h": 0.58,
+          "lt_tb": 17012.91,
+          "lt_p50": 3.87,
+          "lt_p95": 12.56
+        }
+      }
+    },
+    "fill_rate": {
+      "daily": {
+        "date_comp": "05/09/2026 vs 06/09/2026",
+        "items": [
+          {
+            "kho": "Kho Trung Chuyển Khánh Hòa",
+            "short_name": "KTC Khánh Hòa",
+            "chuyen_05": 31,
+            "chuyen_06": 31,
+            "diff_chuyen": 0,
+            "tld_05": 61.4,
+            "tld_06": 61.3,
+            "diff_tld": -0.1,
+            "u10": 0,
+            "u20": 0,
+            "u30": 1
+          },
+          {
+            "kho": "Kho Chuyển Tiếp Đức Trọng - Lâm Đồng",
+            "short_name": "KCT Đức Trọng-Lâm Đồng",
+            "chuyen_05": 14,
+            "chuyen_06": 16,
+            "diff_chuyen": 2,
+            "tld_05": 59.5,
+            "tld_06": 59.2,
+            "diff_tld": -0.3,
+            "u10": 1,
+            "u20": 1,
+            "u30": 0
+          },
+          {
+            "kho": "Kho Chuyển Tiếp Đắk Nông",
+            "short_name": "KCT Đắk Nông",
+            "chuyen_05": 7,
+            "chuyen_06": 6,
+            "diff_chuyen": -1,
+            "tld_05": 36.5,
+            "tld_06": 38.5,
+            "diff_tld": 2.0,
+            "u10": 0,
+            "u20": 0,
+            "u30": 3
+          },
+          {
+            "kho": "Kho Chuyển Tiếp Bình Thuận",
+            "short_name": "KCT Bình Thuận",
+            "chuyen_05": 16,
+            "chuyen_06": 20,
+            "diff_chuyen": 4,
+            "tld_05": 52.0,
+            "tld_06": 54.9,
+            "diff_tld": 2.9,
+            "u10": 0,
+            "u20": 1,
+            "u30": 1
+          },
+          {
+            "kho": "Kho Chuyển Tiếp Bảo Lộc - Lâm Đồng",
+            "short_name": "KCT Bảo Lộc-Lâm Đồng",
+            "chuyen_05": 8,
+            "chuyen_06": 9,
+            "diff_chuyen": 1,
+            "tld_05": 48.8,
+            "tld_06": 48.0,
+            "diff_tld": -0.8,
+            "u10": 0,
+            "u20": 0,
+            "u30": 1
+          }
+        ],
+        "total": {
+          "kho": "TỔNG CỘNG (5 KTC)",
+          "short_name": "Toàn Vùng",
+          "chuyen_05": 76,
+          "chuyen_06": 82,
+          "diff_chuyen": 6,
+          "tld_05": 55.5,
+          "tld_06": 56.2,
+          "diff_tld": 0.7,
+          "u10": 1,
+          "u20": 2,
+          "u30": 6
+        }
+      },
+      "weekly": {
+        "week_comp": "Tuần W35 vs Tuần W36 (24/08 – 06/09/2026)",
+        "items": [
+          {
+            "kho": "Kho Trung Chuyển Khánh Hòa",
+            "short_name": "KTC Khánh Hòa",
+            "chuyen_w35": 210,
+            "chuyen_w36": 199,
+            "diff_chuyen": -11,
+            "tld_w35": 55.6,
+            "tld_w36": 53.0,
+            "diff_tld": -2.6,
+            "under_30": 26,
+            "u10": 1,
+            "u20": 9,
+            "u30": 16
+          },
+          {
+            "kho": "Kho Chuyển Tiếp Đức Trọng - Lâm Đồng",
+            "short_name": "KCT Đức Trọng-Lâm Đồng",
+            "chuyen_w35": 104,
+            "chuyen_w36": 98,
+            "diff_chuyen": -6,
+            "tld_w35": 53.5,
+            "tld_w36": 49.1,
+            "diff_tld": -4.4,
+            "under_30": 26,
+            "u10": 6,
+            "u20": 11,
+            "u30": 9
+          },
+          {
+            "kho": "Kho Chuyển Tiếp Đắk Nông",
+            "short_name": "KCT Đắk Nông",
+            "chuyen_w35": 43,
+            "chuyen_w36": 46,
+            "diff_chuyen": 3,
+            "tld_w35": 38.1,
+            "tld_w36": 30.7,
+            "diff_tld": -7.4,
+            "under_30": 24,
+            "u10": 2,
+            "u20": 9,
+            "u30": 13
+          },
+          {
+            "kho": "Kho Chuyển Tiếp Bình Thuận",
+            "short_name": "KCT Bình Thuận",
+            "chuyen_w35": 123,
+            "chuyen_w36": 117,
+            "diff_chuyen": -6,
+            "tld_w35": 52.4,
+            "tld_w36": 48.2,
+            "diff_tld": -4.2,
+            "under_30": 21,
+            "u10": 1,
+            "u20": 6,
+            "u30": 14
+          },
+          {
+            "kho": "Kho Chuyển Tiếp Bảo Lộc - Lâm Đồng",
+            "short_name": "KCT Bảo Lộc-Lâm Đồng",
+            "chuyen_w35": 58,
+            "chuyen_w36": 56,
+            "diff_chuyen": -2,
+            "tld_w35": 43.8,
+            "tld_w36": 43.0,
+            "diff_tld": -0.8,
+            "under_30": 15,
+            "u10": 0,
+            "u20": 5,
+            "u30": 10
+          }
+        ],
+        "total": {
+          "kho": "TỔNG CỘNG (5 KTC)",
+          "short_name": "Toàn Vùng",
+          "chuyen_w35": 538,
+          "chuyen_w36": 516,
+          "diff_chuyen": -22,
+          "tld_w35": 51.8,
+          "tld_w36": 48.1,
+          "diff_tld": -3.7,
+          "under_30": 112,
+          "u10": 10,
+          "u20": 40,
+          "u30": 62
+        }
+      },
+      "trend_6w": [
+        {
+          "week": "Tuần 30",
+          "chuyen": 522,
+          "tld": 43.5,
+          "u10": 15,
+          "u20": 58,
+          "u30": 75,
+          "under30": 148,
+          "diff": 0.0
+        },
+        {
+          "week": "Tuần 31",
+          "chuyen": 521,
+          "tld": 46.6,
+          "u10": 16,
+          "u20": 50,
+          "u30": 71,
+          "under30": 137,
+          "diff": 3.1
+        },
+        {
+          "week": "Tuần 32",
+          "chuyen": 545,
+          "tld": 48.7,
+          "u10": 17,
+          "u20": 37,
+          "u30": 70,
+          "under30": 124,
+          "diff": 2.1
+        },
+        {
+          "week": "Tuần 33",
+          "chuyen": 562,
+          "tld": 54.2,
+          "u10": 15,
+          "u20": 38,
+          "u30": 39,
+          "under30": 92,
+          "diff": 5.5
+        },
+        {
+          "week": "Tuần 34",
+          "chuyen": 547,
+          "tld": 48.0,
+          "u10": 26,
+          "u20": 34,
+          "u30": 61,
+          "under30": 121,
+          "diff": -6.2
+        },
+        {
+          "week": "Tuần 35",
+          "chuyen": 538,
+          "tld": 51.8,
+          "u10": 14,
+          "u20": 26,
+          "u30": 53,
+          "under30": 93,
+          "diff": 3.8
+        },
+        {
+          "week": "Tuần 36",
+          "chuyen": 516,
+          "tld": 48.1,
+          "u10": 10,
+          "u20": 40,
+          "u30": 62,
+          "under30": 112,
+          "diff": -3.7
+        }
+      ],
+      "causes": [
+        {
+          "cause": "Sản lượng bưu cục / hàng lấy về thấp",
+          "kh": 3,
+          "dt": 8,
+          "dn": 19,
+          "bt": 0,
+          "bl": 3,
+          "total": 33,
+          "share": 35.1
+        },
+        {
+          "cause": "Lộ trình ghé nhiều điểm / quãng đường dài nhưng ít hàng",
+          "kh": 0,
+          "dt": 4,
+          "dn": 0,
+          "bt": 7,
+          "bl": 0,
+          "total": 11,
+          "share": 11.7
+        },
+        {
+          "cause": "Chủ động giữ hàng / ghép điểm để tối ưu (giảm chuyến khác)",
+          "kh": 0,
+          "dt": 8,
+          "dn": 0,
+          "bt": 0,
+          "bl": 0,
+          "total": 8,
+          "share": 8.5
+        },
+        {
+          "cause": "Vấn đề vận hành khác (xe trễ, lộ trình bất hợp lý...)",
+          "kh": 1,
+          "dt": 1,
+          "dn": 0,
+          "bt": 5,
+          "bl": 0,
+          "total": 7,
+          "share": 7.4
+        },
+        {
+          "cause": "Sản lượng giảm theo chu kỳ tuần (đầu/cuối tuần)",
+          "kh": 3,
+          "dt": 1,
+          "dn": 0,
+          "bt": 0,
+          "bl": 2,
+          "total": 6,
+          "share": 6.4
+        },
+        {
+          "cause": "Xe trọng tải 5.000kg không đủ hàng để ghép đầy",
+          "kh": 0,
+          "dt": 0,
+          "dn": 0,
+          "bt": 0,
+          "bl": 5,
+          "total": 5,
+          "share": 5.3
+        },
+        {
+          "cause": "Chuyến gom hàng bưu cục (đặc thù, TLLĐ thấp theo thiết kế)",
+          "kh": 5,
+          "dt": 0,
+          "dn": 0,
+          "bt": 0,
+          "bl": 0,
+          "total": 5,
+          "share": 5.3
+        },
+        {
+          "cause": "Chuyến bị hủy / xe phát sinh ngoài kế hoạch",
+          "kh": 2,
+          "dt": 0,
+          "dn": 0,
+          "bt": 3,
+          "bl": 2,
+          "total": 7,
+          "share": 7.4
+        },
+        {
+          "cause": "Khác / chưa rõ nguyên nhân",
+          "kh": 6,
+          "dt": 2,
+          "dn": 1,
+          "bt": 1,
+          "bl": 0,
+          "total": 10,
+          "share": 10.6
+        }
+      ]
+    }
   }
 }
