@@ -819,6 +819,12 @@ body {
   margin-bottom: 20px;
 }
 
+@media (min-width: 1200px) {
+  #overview-kpi-tiles {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
 .kpi-tile {
   background: var(--bg-card);
   border: 1px solid var(--border-color);

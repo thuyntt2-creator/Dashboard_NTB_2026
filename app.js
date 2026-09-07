@@ -777,13 +777,29 @@
 
       // 7. Rớt LC
       const rotCard = cardMap['rot_lc'] || {};
-      const rotVal = rotCard.val !== undefined ? rotCard.val : 0.0157;
-      const rotDiff = rotCard.diff !== undefined ? rotCard.diff : -0.0103;
+      const rotVal = rotCard.val !== undefined ? rotCard.val : 0.0225;
+      const rotDiff = rotCard.diff !== undefined ? rotCard.diff : 0.0068;
 
       // 8. COD Tiền mặt
       const codCard = cardMap['cod_tm'] || {};
-      const codVal = codCard.val !== undefined ? codCard.val : 0.388;
-      const codDiff = codCard.diff !== undefined ? codCard.diff : -0.011;
+      const codVal = codCard.val !== undefined ? codCard.val : 0.396;
+      const codDiff = codCard.diff !== undefined ? codCard.diff : 0.011;
+
+      // 9. FD Hoàn Trả (Failed Delivery)
+      const fdData = D.fd || {};
+      const fdSum = fdData.summary || {};
+      const fdRateFull = fdSum.rate_full !== undefined ? fdSum.rate_full : 0.0754;
+      const fdRateTts = fdSum.rate_tts !== undefined ? fdSum.rate_tts : 0.068;
+      const fdRetFull = fdSum.ret_full || 22954;
+      const fdDiff = -0.001; // So với W35 (~7.6%)
+
+      // 10. TLTĐ (Tỷ Lệ Lấp Đầy Thùng/Xe KTC)
+      const ktcData = D.ktc || {};
+      const ktcWeekly = ktcData.fill_rate?.weekly?.total || {};
+      const tltdVal = ktcWeekly.tld_w36 !== undefined ? (ktcWeekly.tld_w36 / 100) : 0.481;
+      const tltdPrev = ktcWeekly.tld_w35 !== undefined ? (ktcWeekly.tld_w35 / 100) : 0.518;
+      const tltdDiff = ktcWeekly.diff_tld !== undefined ? (ktcWeekly.diff_tld / 100) : -0.037;
+      const tltdUnder30 = ktcWeekly.under_30 || 112;
 
       const pairedCards = [
         {
@@ -854,13 +870,13 @@
         },
         {
           id: 'rot_lc',
-          title: '%Rớt Luân Chuyển',
+          title: `%Rớt Luân Chuyển (${latestWeek})`,
           mainVal: fPct(rotVal),
           mainUnit: 'Toàn Vùng',
-          subVal: `${prevWeek}: 2.60% (Cải thiện)`,
+          subVal: `${prevWeek}: 1.57% (Tăng +0.7%p)`,
           diff: rotDiff,
           isHigherBetter: false,
-          colorCls: 'kpi-green',
+          colorCls: 'kpi-red',
           icon: 'truck'
         },
         {
@@ -873,6 +889,28 @@
           isHigherBetter: false,
           colorCls: 'kpi-amber',
           icon: 'qr-code'
+        },
+        {
+          id: 'fd_pair',
+          title: `%FD Hoàn Trả (${latestWeek})`,
+          mainVal: fPct(fdRateFull),
+          mainUnit: 'Full Hàng',
+          subVal: `${fPct(fdRateTts)} (TTS) | ${fNum(fdRetFull)} đ hoàn`,
+          diff: fdDiff,
+          isHigherBetter: false,
+          colorCls: 'kpi-purple',
+          icon: 'rotate-ccw'
+        },
+        {
+          id: 'tltd_pair',
+          title: `%TLTĐ Thùng Xe (${latestWeek})`,
+          mainVal: fPct(tltdVal),
+          mainUnit: 'Bình quân xe',
+          subVal: `${prevWeek}: ${fPct(tltdPrev)} | ${tltdUnder30} xe <30%`,
+          diff: tltdDiff,
+          isHigherBetter: true,
+          colorCls: 'kpi-teal',
+          icon: 'truck'
         }
       ];
 
@@ -892,6 +930,10 @@
           </div>
         </div>
       `).join('');
+
+      if (window.lucide) {
+        lucide.createIcons();
+      }
     }
 
     // Insights Box
