@@ -672,13 +672,16 @@
     } else if (tabId === 'tab-aging') {
       renderAgingChart();
     } else if (tabId === 'tab-commercial') {
+      renderCommercialTab();
       renderKdDoanhThuChart();
       renderKdDoanhThuPie();
       renderKdGrowthWaterfall();
       renderF30ShopsChart();
     } else if (tabId === 'tab-control') {
+      renderControlTab();
       renderCodTmAmBar();
     } else if (tabId === 'tab-truythu') {
+      renderTruyThuTab();
       renderTruyThuLoaiBar();
     }
   }
@@ -3883,27 +3886,34 @@
     // 1. BẢNG 1: 18 AM
     const tblBodyAM = document.querySelector('#table-rot-am-detailed tbody');
     if (tblBodyAM && D.rot_lc.am) {
-      let listAM = [...D.rot_lc.am].map(r => ({
-        ...r,
-        diff_val: r.diff !== undefined ? r.diff : ((r.w35 || 0) - (r.w34 || 0))
-      })).sort((a, b) => (b.w35 || 0) - (a.w35 || 0));
+      let listAM = [...D.rot_lc.am].map(r => {
+        const wPrev = r.w36 !== undefined ? (r.w35 || 0) : (r.w34 || 0);
+        const wCurr = r.w36 !== undefined ? (r.w36 || 0) : (r.w35 || 0);
+        const diff_val = r.diff !== undefined ? r.diff : (wCurr - wPrev);
+        return {
+          ...r,
+          wPrev,
+          wCurr,
+          diff_val
+        };
+      }).sort((a, b) => (b.wCurr || 0) - (a.wCurr || 0));
 
       tblBodyAM.innerHTML = listAM.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
         const rowClass = isSelected ? 'presenter-laser-box' : '';
-        const heatW35 = getHeatmapClass(row.w35, 'rot_lc');
+        const heatCurr = getHeatmapClass(row.wCurr, 'rot_lc');
         const diffBadge = renderDeltaBadge(row.diff_val, false, true);
         let evalBadge = '<span class="badge-tag badge-tag-green">🟢 Tốt (≤1%)</span>';
-        if ((row.w35 || 0) > 0.05) evalBadge = '<span class="badge-tag badge-tag-red">🔴 Nghiêm Trọng (&gt;5%)</span>';
-        else if ((row.w35 || 0) > 0.02) evalBadge = '<span class="badge-tag badge-tag-amber">🟡 Cảnh Báo (2-5%)</span>';
+        if ((row.wCurr || 0) > 0.05) evalBadge = '<span class="badge-tag badge-tag-red">🔴 Nghiêm Trọng (&gt;5%)</span>';
+        else if ((row.wCurr || 0) > 0.02) evalBadge = '<span class="badge-tag badge-tag-amber">🟡 Cảnh Báo (2-5%)</span>';
 
         return `
           <tr data-entity="${row.am}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightAM('${row.am}')">
             <td class="center">${renderRankPill(i)}</td>
             <td class="bold" style="font-size:13px; font-weight:800; color:${isSelected ? '#ef4444' : 'inherit'};">${row.am}</td>
             <td class="num">${fNum(row.vol)}</td>
-            <td class="num">${fPct(row.w34, 2)}</td>
-            <td class="num bold ${heatW35}">${fPct(row.w35, 2)}</td>
+            <td class="num">${fPct(row.wPrev, 2)}</td>
+            <td class="num bold ${heatCurr}">${fPct(row.wCurr, 2)}</td>
             <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
@@ -3914,25 +3924,32 @@
     // 2. BẢNG 2: 5 TỈNH THÀNH
     const tblBodyTinh = document.querySelector('#table-rot-tinh-detailed tbody');
     if (tblBodyTinh && D.rot_lc.tinh) {
-      let listTinh = [...D.rot_lc.tinh].map(r => ({
-        ...r,
-        diff_val: r.diff !== undefined ? r.diff : ((r.w35 || 0) - (r.w34 || 0))
-      })).sort((a, b) => (b.w35 || 0) - (a.w35 || 0));
+      let listTinh = [...D.rot_lc.tinh].map(r => {
+        const wPrev = r.w36 !== undefined ? (r.w35 || 0) : (r.w34 || 0);
+        const wCurr = r.w36 !== undefined ? (r.w36 || 0) : (r.w35 || 0);
+        const diff_val = r.diff !== undefined ? r.diff : (wCurr - wPrev);
+        return {
+          ...r,
+          wPrev,
+          wCurr,
+          diff_val
+        };
+      }).sort((a, b) => (b.wCurr || 0) - (a.wCurr || 0));
 
       tblBodyTinh.innerHTML = listTinh.map((row, i) => {
-        const heatW35 = getHeatmapClass(row.w35, 'rot_lc');
+        const heatCurr = getHeatmapClass(row.wCurr, 'rot_lc');
         const diffBadge = renderDeltaBadge(row.diff_val, false, true);
         let evalBadge = '<span class="badge-tag badge-tag-green">🟢 Tốt (≤1%)</span>';
-        if ((row.w35 || 0) > 0.05) evalBadge = '<span class="badge-tag badge-tag-red">🔴 Nghiêm Trọng (&gt;5%)</span>';
-        else if ((row.w35 || 0) > 0.02) evalBadge = '<span class="badge-tag badge-tag-amber">🟡 Cảnh Báo (2-5%)</span>';
+        if ((row.wCurr || 0) > 0.05) evalBadge = '<span class="badge-tag badge-tag-red">🔴 Nghiêm Trọng (&gt;5%)</span>';
+        else if ((row.wCurr || 0) > 0.02) evalBadge = '<span class="badge-tag badge-tag-amber">🟡 Cảnh Báo (2-5%)</span>';
 
         return `
           <tr>
             <td class="center">${renderRankPill(i)}</td>
             <td class="bold" style="font-size:13px; font-weight:800;">${row.tinh}</td>
             <td class="num">${fNum(row.vol)}</td>
-            <td class="num">${fPct(row.w34, 2)}</td>
-            <td class="num bold ${heatW35}">${fPct(row.w35, 2)}</td>
+            <td class="num">${fPct(row.wPrev, 2)}</td>
+            <td class="num bold ${heatCurr}">${fPct(row.wCurr, 2)}</td>
             <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
@@ -5331,13 +5348,13 @@
         labels: sorted.map(d => d.am),
         datasets: [
           {
-            label: 'Kỳ 16–22/8 (Triệu VNĐ)',
+            label: 'Kỳ 23–29/8 (W35) (Triệu VNĐ)',
             data: sorted.map(d => Math.round((d.rev_prev || 0) / 1e6)),
             backgroundColor: '#cbd5e1',
             borderRadius: 4
           },
           {
-            label: 'Kỳ 23–29/8 (Triệu VNĐ)',
+            label: 'Kỳ 30/8–5/9 (W36) (Triệu VNĐ)',
             data: sorted.map(d => Math.round((d.rev_curr || 0) / 1e6)),
             backgroundColor: sorted.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#10b981'),
             borderColor: sorted.map(d => selectedAM && selectedAM === d.am ? '#b91c1c' : 'transparent'),
