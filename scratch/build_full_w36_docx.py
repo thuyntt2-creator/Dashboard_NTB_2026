@@ -201,7 +201,7 @@ add_callout_box(doc, [
      "Tất cả 5 tỉnh trong vùng tuần W36 đều đồng loạt giảm sản lượng full hàng:\n"
      "• Lâm Đồng: Tiếp tục là tỉnh có sản lượng lớn nhất vùng và cũng là tỉnh giảm nhiều nhất với -3.987 đơn (từ 91.754 xuống 87.767 đơn), chiếm tới 35,8% tổng lượng giảm toàn vùng.\n"
      "• Khánh Hòa: Đứng thứ 2 về volume, giảm -2.723 đơn (từ 78.923 xuống 76.200 đơn).\n"
-     "• Đắk Nông: Giảm -2.454 đơn (từ 35.534 xuống 33.080 đơn) — tỷ lệ giảm % cao nhất vùng (-6,9%).\n"
+     "• Đắk Nông: Giảm -2.454 đơn (từ 35.534 xuống 33.080 đơn). Tuy đứng thứ 3 về số lượng giảm, nhưng Đắk Nông lại là tỉnh có tốc độ sụt giảm đơn sâu nhất vùng (mất tới -6,9% sản lượng của tỉnh).\n"
      "• Bình Thuận: Giảm -1.314 đơn (từ 81.721 xuống 80.407 đơn).\n"
      "• Ninh Thuận: Giảm ít nhất với -671 đơn (từ 31.054 xuống 30.383 đơn).\n\n"
      "Về sản lượng TTS: 100% cả 5 tỉnh đều sụt giảm nghiêm trọng:\n"
@@ -418,7 +418,7 @@ add_callout_box(doc, [
      "  - KCT Bình Thuận: TLLĐ đạt 48,7% (W35: 50,4%, giảm -1,7%p), chạy 62 chuyến, 12 chuyến <30% tải.\n"
      "  - KCT Đắk Nông: Đáy lấp đầy toàn vùng, chỉ đạt 30,7% (W35: 38,1%, giảm sốc -7,4%p), chạy 41 chuyến nhưng có tới 21 chuyến <30% tải (chiếm hơn 51% số chuyến xe chạy ở Đắk Nông là xe rỗng!).\n\n"
      "• Nguyên nhân hàng đầu gây ra 112 chuyến xe <30% tải:\n"
-     "  1. Sản lượng gom bưu cục thấp do mùa vụ cà phê/nông sản chưa rộ (chiếm 35%).\n"
+     "  1. Sản lượng bưu cục và hàng lấy về phát sinh thấp (chiếm 35%).\n"
      "  2. Lộ trình xe ghé nhiều điểm nhưng các điểm cuối trả ít hàng (chiếm 12%).\n"
      "  3. Kho KTC chủ động điều xe chạy rỗng để kịp giờ ca kết nối liên tỉnh (chiếm 9%).\n"
      "→ Hành động: Yêu cầu phòng Vận Tải phối hợp AM Đắk Nông ghép chuyến tuyến Gia Nghĩa – Đắk Mil và Đức Trọng – Bảo Lộc để kéo TLLĐ toàn vùng quay lại mốc ≥52% trong tuần W37.",
@@ -623,7 +623,11 @@ out_file = r'C:\Users\lap4all\Desktop\New folder\KICH_BAN_THUYET_TRINH_W36_CHUAN
 doc.save(out_file)
 print(f"SUCCESS: Saved file to {out_file}")
 
-# Đồng thời copy đè ra file ngắn gọn nếu cần
+# Đồng thời copy ra file nếu không bị Word khóa
 out_file2 = r'C:\Users\lap4all\Desktop\New folder\KICH_BAN_THUYET_TRINH_W36_NTB.docx'
-doc.save(out_file2)
-print(f"SUCCESS: Also updated {out_file2}")
+try:
+    doc.save(out_file2)
+    print(f"SUCCESS: Also updated {out_file2}")
+except PermissionError:
+    print(f"NOTE: {out_file2} is currently open in Word, skipped overwrite.")
+
