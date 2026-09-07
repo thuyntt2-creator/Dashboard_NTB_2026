@@ -696,71 +696,129 @@
   function renderOverviewTab() {
     const ov = D.overview || {};
     const tilesEl = document.getElementById('overview-kpi-tiles');
+    const latestWeek = D.meta?.latest_week || 'W36';
+    const prevWeek = D.meta?.prev_week || 'W35';
     
     if (tilesEl) {
+      const cardMap = {};
+      (ov.cards || []).forEach(c => cardMap[c.id] = c);
+
+      const trendMap = {};
+      (ov.kpis_trend || []).forEach(t => trendMap[t.indicator] = t);
+
+      // 1. Sản lượng Full & TTS
+      const volCard = cardMap['vol_full'] || {};
+      const volTtsCard = cardMap['vol_tts'] || {};
+      const volVal = volCard.val || 63122;
+      const volDiff = volCard.diff !== undefined ? volCard.diff : -9759;
+      const volTtsVal = volTtsCard.val || 63122;
+      const volTtsDiff = volTtsCard.diff !== undefined ? volTtsCard.diff : -9759;
+      const volDiffPct = volCard.diff_pct !== undefined ? volCard.diff_pct : (volVal ? volDiff / volVal : -0.134);
+
+      // 2. GTC Tổng
+      const gtcCard = cardMap['gtc_full'] || {};
+      const gtcTtsCard = cardMap['gtc_tts'] || {};
+      const gtcVal = gtcCard.val !== undefined ? gtcCard.val : 0.5695;
+      const gtcDiff = gtcCard.diff !== undefined ? gtcCard.diff : -0.0077;
+      const gtcTtsVal = gtcTtsCard.val !== undefined ? gtcTtsCard.val : 0.5695;
+
+      // 3. GTC Ca 1 TTS
+      const gtcCa1Trend = trendMap['%GTC TTS (Ca1 thuần)'] || trendMap['%GTC Full hàng (Ca1 thuần)'] || {};
+      const gtcCa1Val = gtcCa1Trend[latestWeek.toLowerCase()] !== undefined ? gtcCa1Trend[latestWeek.toLowerCase()] : (latestWeek === 'W36' ? 0.7478 : 0.758);
+      const gtcCa1Diff = gtcCa1Trend.diff !== undefined ? gtcCa1Trend.diff : (latestWeek === 'W36' ? -0.0104 : 0.0181);
+
+      // 4. Gán vận hành
+      const isW36 = latestWeek === 'W36';
+      const ganVal = isW36 ? 0.834 : 0.813;
+      const ganDiff = isW36 ? 0.009 : 0.021;
+
+      // 5. ODR
+      const odrCard = cardMap['odr_full'] || {};
+      const odrTrendTts = trendMap['%ODR TTS'] || {};
+      const odrVal = odrCard.val !== undefined ? odrCard.val : 0.9288;
+      const odrDiff = odrCard.diff !== undefined ? odrCard.diff : 0.0071;
+      const odrTtsVal = odrTrendTts[latestWeek.toLowerCase()] !== undefined ? odrTrendTts[latestWeek.toLowerCase()] : 0.9243;
+
+      // 6. LTC
+      const ltcCard = cardMap['ltc_full'] || {};
+      const ltcTrendTts = trendMap['%LTC TTS'] || {};
+      const ltcVal = ltcCard.val !== undefined ? ltcCard.val : 0.905;
+      const ltcDiff = ltcCard.diff !== undefined ? ltcCard.diff : -0.0064;
+      const ltcTtsVal = ltcTrendTts[latestWeek.toLowerCase()] !== undefined ? ltcTrendTts[latestWeek.toLowerCase()] : 0.9419;
+
+      // 7. Rớt LC
+      const rotCard = cardMap['rot_lc'] || {};
+      const rotVal = rotCard.val !== undefined ? rotCard.val : 0.0157;
+      const rotDiff = rotCard.diff !== undefined ? rotCard.diff : -0.0103;
+
+      // 8. COD Tiền mặt
+      const codCard = cardMap['cod_tm'] || {};
+      const codVal = codCard.val !== undefined ? codCard.val : 0.388;
+      const codDiff = codCard.diff !== undefined ? codCard.diff : -0.011;
+
       const pairedCards = [
         {
           id: 'vol_pair',
-          title: 'Sản Lượng Giao (W35)',
-          mainVal: '318,989',
-          mainUnit: 'đơn Full (▼ -15,489 đ)',
-          subVal: 'TTS: 72,881 đ (▼ -91 đ / -0.1%)',
-          diff: -0.0463,
+          title: `Sản Lượng Giao (${latestWeek})`,
+          mainVal: fNum(volVal),
+          mainUnit: `đơn Full (${volDiff >= 0 ? '▲ +' : '▼ '}${fNum(volDiff)} đ)`,
+          subVal: `TTS: ${fNum(volTtsVal)} đ (${volTtsDiff >= 0 ? '▲ +' : '▼ '}${fNum(volTtsDiff)} đ / ${fPct(volDiffPct)})`,
+          diff: volDiffPct,
           isHigherBetter: true,
           colorCls: 'kpi-blue',
           icon: 'package'
         },
         {
           id: 'gtc_pair',
-          title: '%GTC Tổng (W35)',
-          mainVal: '58.2%',
+          title: `%GTC Tổng (${latestWeek})`,
+          mainVal: fPct(gtcVal),
           mainUnit: 'Full Hàng',
-          subVal: '57.7% (TTS)',
-          diff: -0.0017,
+          subVal: `${fPct(gtcTtsVal)} (TTS)`,
+          diff: gtcDiff,
           isHigherBetter: true,
           colorCls: 'kpi-amber',
           icon: 'check-circle-2'
         },
         {
           id: 'gtc_ca1_pair',
-          title: '%GTC TTS Ca 1',
-          mainVal: '75.8%',
+          title: `%GTC TTS Ca 1 (${latestWeek})`,
+          mainVal: fPct(gtcCa1Val),
           mainUnit: 'TikTok Shop',
           subVal: 'Target ≥ 76.0%',
-          diff: 0.0181,
+          diff: gtcCa1Diff,
           isHigherBetter: true,
           colorCls: 'kpi-purple',
           icon: 'award'
         },
         {
           id: 'gan_pair',
-          title: 'Tỷ Lệ Gán Vận Hành',
-          mainVal: '81.3%',
+          title: `Tỷ Lệ Gán Vận Hành (${latestWeek})`,
+          mainVal: fPct(ganVal),
           mainUnit: 'Toàn Vùng',
           subVal: 'Target ≥ 90.0%',
-          diff: 0.021,
+          diff: ganDiff,
           isHigherBetter: true,
           colorCls: 'kpi-purple',
           icon: 'user-check'
         },
         {
           id: 'odr_pair',
-          title: '%ODR (Giao Đúng Hẹn SLA)',
-          mainVal: '92.2%',
+          title: `%ODR (Giao Đúng Hẹn SLA - ${latestWeek})`,
+          mainVal: fPct(odrVal),
           mainUnit: 'Full Hàng',
-          subVal: '92.6% (TTS)',
-          diff: -0.0157,
+          subVal: `${fPct(odrTtsVal)} (TTS)`,
+          diff: odrDiff,
           isHigherBetter: true,
           colorCls: 'kpi-green',
           icon: 'clock'
         },
         {
           id: 'ltc_pair',
-          title: '%LTC (Lấy Thành Công)',
-          mainVal: '91.1%',
+          title: `%LTC (Lấy Thành Công - ${latestWeek})`,
+          mainVal: fPct(ltcVal),
           mainUnit: 'Full Hàng',
-          subVal: '96.1% (TTS)',
-          diff: 0.0068,
+          subVal: `${fPct(ltcTtsVal)} (TTS)`,
+          diff: ltcDiff,
           isHigherBetter: true,
           colorCls: 'kpi-green',
           icon: 'archive'
@@ -768,10 +826,10 @@
         {
           id: 'rot_lc',
           title: '%Rớt Luân Chuyển',
-          mainVal: '1.57%',
+          mainVal: fPct(rotVal),
           mainUnit: 'Toàn Vùng',
-          subVal: 'W34: 2.60% (Cải thiện)',
-          diff: -0.0103,
+          subVal: `${prevWeek}: 2.60% (Cải thiện)`,
+          diff: rotDiff,
           isHigherBetter: false,
           colorCls: 'kpi-green',
           icon: 'truck'
@@ -779,11 +837,11 @@
         {
           id: 'cod_tm',
           title: 'Tỷ Lệ COD Tiền Mặt',
-          mainVal: '38.8%',
+          mainVal: fPct(codVal),
           mainUnit: 'Tiền mặt',
-          subVal: '61.2% (Chuyển khoản QR)',
-          diff: -0.011,
-          isHigherBetter: true,
+          subVal: `${fPct(1 - codVal)} (Chuyển khoản QR)`,
+          diff: codDiff,
+          isHigherBetter: false,
           colorCls: 'kpi-amber',
           icon: 'qr-code'
         }
@@ -1537,20 +1595,23 @@
     const titleEl = document.getElementById('chart-gtc-tong-title');
     const badgeEl = document.getElementById('badge-gtc-tong-segment');
 
+    const prevLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2] : 'W35';
+    const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W36';
+
     if (seg === 'full' && btnFull) {
       btnFull.classList.add('btn-primary', 'active');
       btnFull.classList.remove('btn-secondary');
-      if (titleEl) titleEl.textContent = 'BIỂU ĐỒ SO SÁNH %GTC TỔNG W34 vs W35 THEO 18 AM (FULL HÀNG)';
+      if (titleEl) titleEl.textContent = `BIỂU ĐỒ SO SÁNH %GTC TỔNG ${prevLabel} vs ${currLabel} THEO 18 AM (FULL HÀNG)`;
       if (badgeEl) { badgeEl.textContent = 'Full Hàng'; badgeEl.className = 'badge-tag badge-tag-blue'; }
     } else if (seg === 'tts' && btnTts) {
       btnTts.classList.add('btn-primary', 'active');
       btnTts.classList.remove('btn-secondary');
-      if (titleEl) titleEl.textContent = 'BIỂU ĐỒ SO SÁNH %GTC TỔNG W34 vs W35 THEO 18 AM (TIKTOK SHOP)';
+      if (titleEl) titleEl.textContent = `BIỂU ĐỒ SO SÁNH %GTC TỔNG ${prevLabel} vs ${currLabel} THEO 18 AM (TIKTOK SHOP)`;
       if (badgeEl) { badgeEl.textContent = 'TikTok Shop (TTS)'; badgeEl.className = 'badge-tag badge-tag-green'; }
     } else if (seg === 'compare' && btnCompare) {
       btnCompare.classList.add('btn-primary', 'active');
       btnCompare.classList.remove('btn-secondary');
-      if (titleEl) titleEl.textContent = 'SO SÁNH ĐỐI CHIẾU %GTC (FULL HÀNG vs TIKTOK SHOP W35)';
+      if (titleEl) titleEl.textContent = `SO SÁNH ĐỐI CHIẾU %GTC (FULL HÀNG vs TIKTOK SHOP ${currLabel})`;
       if (badgeEl) { badgeEl.textContent = 'Full vs TTS'; badgeEl.className = 'badge-tag badge-tag-purple'; }
     }
 

@@ -59,11 +59,26 @@ try:
 except Exception as e:
     log(f"Step 2 Exception: {e}")
 
+# Step 2.5: Rebuild /hop weekly meeting data (data.js and data.json)
+try:
+    log("Step 2.5: Rebuilding /hop weekly dashboard data (build_data_js.py)...")
+    p_b = subprocess.run([sys.executable, "build_data_js.py"], cwd=cwd, capture_output=True, text=True, timeout=120)
+    log(f"build_data_js Return Code: {p_b.returncode}")
+    
+    # Run auxiliary enrichment scripts
+    for script_name in ["parse_4_cod_tabs.py", "calc_aging_buckets.py", "process_truy_thu_report.py"]:
+        s_path = os.path.join(cwd, "scratch", script_name)
+        if os.path.exists(s_path):
+            subprocess.run([sys.executable, s_path], cwd=cwd, capture_output=True, text=True, timeout=60)
+    log("Step 2.5: Hoàn tất cập nhật data.js & data.json cho /hop.")
+except Exception as e:
+    log(f"Step 2.5 Exception: {e}")
+
 # Step 3: Git add, commit, and push
 try:
     log("Step 3: Git add and commit...")
-    subprocess.run(["git", "add", "*.csv", "ops_ca_data.csv", "app.py", "scratch/", ".gitignore"], cwd=cwd, capture_output=True)
-    subprocess.run(["git", "commit", "-m", "Auto update data and DB"], cwd=cwd, capture_output=True)
+    subprocess.run(["git", "add", "*.csv", "ops_ca_data.csv", "app.py", "scratch/", "data.js", "data.json", "index.html", "app.js", ".gitignore"], cwd=cwd, capture_output=True)
+    subprocess.run(["git", "commit", "-m", "Auto update data, DB and /hop W36"], cwd=cwd, capture_output=True)
     # Push đồng thời tới cả 3 remote để dashboard sếp và dashboard mới luôn cập nhật song song
     remotes = ["origin", "db_2026", "boss"]
     for rem in remotes:
