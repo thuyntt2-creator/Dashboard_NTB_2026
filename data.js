@@ -10767,29 +10767,29 @@ window.DASHBOARD_DATA = {
     ]
   },
   "truy_thu_report": {
-    "total_records": 5391,
-    "total_ban_dau": 539179522.0,
-    "total_dieu_chinh": -363522269.0,
-    "total_can_thu": 175657253.0,
+    "total_records": 5033,
+    "total_ban_dau": 510080504.0,
+    "total_dieu_chinh": -335416880.0,
+    "total_can_thu": 174663624.0,
     "by_loai": [
       {
         "loai": "Backlog Giao Hàng",
-        "don": 3086,
-        "ban_dau": 363414485.0,
-        "dieu_chinh": -258065302.0,
+        "don": 2857,
+        "ban_dau": 347441383.0,
+        "dieu_chinh": -242092200.0,
         "can_thu": 105349183.0,
-        "pct_tien": 67.4,
-        "pct_don": 57.2,
+        "pct_tien": 68.1,
+        "pct_don": 56.8,
         "ghi_chu": ""
       },
       {
         "loai": "Backlog Luân Chuyển Trả",
-        "don": 863,
-        "ban_dau": 77314832.0,
-        "dieu_chinh": -59140425.0,
+        "don": 798,
+        "ban_dau": 71280341.0,
+        "dieu_chinh": -53105934.0,
         "can_thu": 18174407.0,
-        "pct_tien": 14.3,
-        "pct_don": 16.0,
+        "pct_tien": 14.0,
+        "pct_don": 15.9,
         "ghi_chu": "🚫 Loại trừ khỏi TOP BC"
       },
       {
@@ -10798,7 +10798,7 @@ window.DASHBOARD_DATA = {
         "ban_dau": 19918509.0,
         "dieu_chinh": -9840165.0,
         "can_thu": 10078344.0,
-        "pct_tien": 3.7,
+        "pct_tien": 3.9,
         "pct_don": 0.1,
         "ghi_chu": ""
       },
@@ -10808,28 +10808,28 @@ window.DASHBOARD_DATA = {
         "ban_dau": 18396640.0,
         "dieu_chinh": 0.0,
         "can_thu": 18396640.0,
-        "pct_tien": 3.4,
+        "pct_tien": 3.6,
         "pct_don": 0.4,
         "ghi_chu": ""
       },
       {
-        "loai": "Backlog Luân Chuyển Giao",
-        "don": 232,
-        "ban_dau": 14553582.0,
-        "dieu_chinh": -13999251.0,
-        "can_thu": 554331.0,
-        "pct_tien": 2.7,
-        "pct_don": 4.3,
+        "loai": "Backlog Bắn Kiểm Giao",
+        "don": 237,
+        "ban_dau": 11234009.0,
+        "dieu_chinh": -11232791.0,
+        "can_thu": 1218.0,
+        "pct_tien": 2.2,
+        "pct_don": 4.7,
         "ghi_chu": "🚫 Loại trừ khỏi TOP BC"
       },
       {
-        "loai": "Backlog Bắn Kiểm Giao",
-        "don": 274,
-        "ban_dau": 13976663.0,
-        "dieu_chinh": -13803977.0,
-        "can_thu": 172686.0,
-        "pct_tien": 2.6,
-        "pct_don": 5.1,
+        "loai": "Backlog Luân Chuyển Giao",
+        "don": 210,
+        "ban_dau": 11026972.0,
+        "dieu_chinh": -10472641.0,
+        "can_thu": 554331.0,
+        "pct_tien": 2.2,
+        "pct_don": 4.2,
         "ghi_chu": "🚫 Loại trừ khỏi TOP BC"
       },
       {
@@ -10838,8 +10838,8 @@ window.DASHBOARD_DATA = {
         "ban_dau": 8672789.0,
         "dieu_chinh": -8672789.0,
         "can_thu": 0.0,
-        "pct_tien": 1.6,
-        "pct_don": 4.0,
+        "pct_tien": 1.7,
+        "pct_don": 4.3,
         "ghi_chu": ""
       },
       {
@@ -10848,8 +10848,8 @@ window.DASHBOARD_DATA = {
         "ban_dau": 7226825.0,
         "dieu_chinh": 0.0,
         "can_thu": 7226825.0,
-        "pct_tien": 1.3,
-        "pct_don": 1.2,
+        "pct_tien": 1.4,
+        "pct_don": 1.3,
         "ghi_chu": ""
       },
       {
@@ -10879,7 +10879,7 @@ window.DASHBOARD_DATA = {
         "dieu_chinh": 0.0,
         "can_thu": 2198539.0,
         "pct_tien": 0.4,
-        "pct_don": 2.9,
+        "pct_don": 3.1,
         "ghi_chu": ""
       },
       {
@@ -10898,18 +10898,8 @@ window.DASHBOARD_DATA = {
         "ban_dau": 1809155.0,
         "dieu_chinh": 0.0,
         "can_thu": 1809155.0,
-        "pct_tien": 0.3,
-        "pct_don": 4.2,
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Khiếu nại chưa tick GTC",
-        "don": 5,
-        "ban_dau": 822161.0,
-        "dieu_chinh": 0.0,
-        "can_thu": 822161.0,
-        "pct_tien": 0.2,
-        "pct_don": 0.1,
+        "pct_tien": 0.4,
+        "pct_don": 4.5,
         "ghi_chu": ""
       },
       {
@@ -10919,7 +10909,7 @@ window.DASHBOARD_DATA = {
         "dieu_chinh": 0.0,
         "can_thu": 764670.0,
         "pct_tien": 0.1,
-        "pct_don": 1.3,
+        "pct_don": 1.4,
         "ghi_chu": ""
       },
       {
@@ -10959,7 +10949,7 @@ window.DASHBOARD_DATA = {
         "dieu_chinh": -360.0,
         "can_thu": 4435.0,
         "pct_tien": 0.0,
-        "pct_don": 2.0,
+        "pct_don": 2.1,
         "ghi_chu": ""
       },
       {
@@ -10998,31 +10988,31 @@ window.DASHBOARD_DATA = {
         "bc": "(DNO) Kiến Đức",
         "am": "Trần Văn Phước",
         "tinh": "",
-        "don": 451,
-        "ban_dau": 94240840.0,
-        "dieu_chinh": -63988442.0,
+        "don": 381,
+        "ban_dau": 84111961.0,
+        "dieu_chinh": -53859563.0,
         "can_thu": 30252398.0,
-        "pct": 17.5
+        "pct": 16.5
       },
       {
         "bc": "(DNO) Quảng Tín",
         "am": "Trần Văn Phước",
         "tinh": "",
-        "don": 359,
-        "ban_dau": 80241942.0,
+        "don": 357,
+        "ban_dau": 80240782.0,
         "dieu_chinh": -56963827.0,
-        "can_thu": 23278115.0,
-        "pct": 14.9
+        "can_thu": 23276955.0,
+        "pct": 15.7
       },
       {
         "bc": "(LDO) Đơn Dương",
         "am": "Lê Minh Đại",
         "tinh": "",
-        "don": 1404,
-        "ban_dau": 62085161.0,
-        "dieu_chinh": -55107979.0,
-        "can_thu": 6977182.0,
-        "pct": 11.5
+        "don": 1314,
+        "ban_dau": 58106072.0,
+        "dieu_chinh": -51949891.0,
+        "can_thu": 6156181.0,
+        "pct": 11.4
       },
       {
         "bc": "(LDO) Bảo Lâm 1",
@@ -11032,17 +11022,17 @@ window.DASHBOARD_DATA = {
         "ban_dau": 37751819.0,
         "dieu_chinh": -29664024.0,
         "can_thu": 8087795.0,
-        "pct": 7.0
+        "pct": 7.4
       },
       {
         "bc": "(LDO) Đức Trọng 1",
         "am": "Trầm Hữu Tiến",
         "tinh": "",
-        "don": 421,
-        "ban_dau": 32501963.0,
-        "dieu_chinh": -25041911.0,
+        "don": 377,
+        "ban_dau": 31289024.0,
+        "dieu_chinh": -23828972.0,
         "can_thu": 7460052.0,
-        "pct": 6.0
+        "pct": 6.1
       },
       {
         "bc": "(LDO) Lang Biang - Đà Lạt 1",
@@ -11052,17 +11042,17 @@ window.DASHBOARD_DATA = {
         "ban_dau": 22740401.0,
         "dieu_chinh": -1679960.0,
         "can_thu": 21060441.0,
-        "pct": 4.2
+        "pct": 4.5
       },
       {
         "bc": "(LDO) Tân Hà Lâm Hà",
         "am": "Huỳnh Thị Kim Chi",
         "tinh": "",
-        "don": 69,
-        "ban_dau": 22492509.0,
-        "dieu_chinh": -19634969.0,
+        "don": 64,
+        "ban_dau": 22490639.0,
+        "dieu_chinh": -19633099.0,
         "can_thu": 2857540.0,
-        "pct": 4.2
+        "pct": 4.4
       },
       {
         "bc": "(NTH) Phước Dinh",
@@ -11072,7 +11062,7 @@ window.DASHBOARD_DATA = {
         "ban_dau": 19693738.0,
         "dieu_chinh": -9840165.0,
         "can_thu": 9853573.0,
-        "pct": 3.7
+        "pct": 3.9
       },
       {
         "bc": "(LDO) Lang Biang - Đà Lạt 2",
@@ -11082,7 +11072,7 @@ window.DASHBOARD_DATA = {
         "ban_dau": 14784778.0,
         "dieu_chinh": -783317.0,
         "can_thu": 14001461.0,
-        "pct": 2.7
+        "pct": 2.9
       },
       {
         "bc": "(LDO) Hòa Ninh",
@@ -11092,7 +11082,7 @@ window.DASHBOARD_DATA = {
         "ban_dau": 10559010.0,
         "dieu_chinh": 0.0,
         "can_thu": 10559010.0,
-        "pct": 2.0
+        "pct": 2.1
       },
       {
         "bc": "(DNO) Đông Gia Nghĩa",
@@ -11102,7 +11092,7 @@ window.DASHBOARD_DATA = {
         "ban_dau": 7489564.0,
         "dieu_chinh": -7489329.0,
         "can_thu": 235.0,
-        "pct": 1.4
+        "pct": 1.5
       },
       {
         "bc": "(KHO) Nam Nha Trang 1",
@@ -11112,7 +11102,7 @@ window.DASHBOARD_DATA = {
         "ban_dau": 4898102.0,
         "dieu_chinh": -360.0,
         "can_thu": 4897742.0,
-        "pct": 0.9
+        "pct": 1.0
       },
       {
         "bc": "(BTH) Hàm Thuận",
@@ -11123,16 +11113,6 @@ window.DASHBOARD_DATA = {
         "dieu_chinh": 0.0,
         "can_thu": 3308426.0,
         "pct": 0.6
-      },
-      {
-        "bc": "(KHO) Cam Linh",
-        "am": "Nguyễn Thanh Long",
-        "tinh": "",
-        "don": 143,
-        "ban_dau": 2849669.0,
-        "dieu_chinh": -2586162.0,
-        "can_thu": 263507.0,
-        "pct": 0.5
       },
       {
         "bc": "(LDO) Xuân Hương - Đà Lạt",
@@ -11183,6 +11163,16 @@ window.DASHBOARD_DATA = {
         "dieu_chinh": -114170.0,
         "can_thu": 1896339.0,
         "pct": 0.4
+      },
+      {
+        "bc": "(KHO) Cam Linh",
+        "am": "Nguyễn Thanh Long",
+        "tinh": "",
+        "don": 120,
+        "ban_dau": 1378343.0,
+        "dieu_chinh": -1114836.0,
+        "can_thu": 263507.0,
+        "pct": 0.3
       },
       {
         "bc": "(LDO) Đinh Văn Lâm Hà",
@@ -11248,115 +11238,99 @@ window.DASHBOARD_DATA = {
     "top_am_ticket": [
       {
         "am": "Trần Văn Phước",
-        "ticket": 847,
-        "pct_ticket": 32.7,
-        "ban_dau": 156474691.0,
-        "can_thu": 36065262.0,
-        "pct_tien": 42.7
+        "ticket": 768,
+        "pct_ticket": 32.2,
+        "ban_dau": 145990726.0,
+        "can_thu": 36064682.0,
+        "pct_tien": 43.0
       },
       {
         "am": "Lê Minh Đại",
-        "ticket": 525,
-        "pct_ticket": 20.3,
-        "ban_dau": 34986226.0,
-        "can_thu": 12099257.0,
-        "pct_tien": 14.3
+        "ticket": 492,
+        "pct_ticket": 20.6,
+        "ban_dau": 33520493.0,
+        "can_thu": 11825590.0,
+        "pct_tien": 14.1
       },
       {
         "am": "Lê Văn Trường",
-        "ticket": 500,
-        "pct_ticket": 19.3,
-        "ban_dau": 33537111.0,
-        "can_thu": 11265629.0,
-        "pct_tien": 13.3
+        "ticket": 465,
+        "pct_ticket": 19.5,
+        "ban_dau": 31682768.0,
+        "can_thu": 10991962.0,
+        "pct_tien": 13.1
       },
       {
         "am": "Trầm Hữu Tiến",
-        "ticket": 221,
+        "ticket": 202,
         "pct_ticket": 8.5,
-        "ban_dau": 16011673.0,
+        "ban_dau": 14352487.0,
         "can_thu": 3213324.0,
         "pct_tien": 3.8
       },
       {
         "am": "Nguyễn Thanh Long",
-        "ticket": 97,
-        "pct_ticket": 3.7,
-        "ban_dau": 4093059.0,
+        "ticket": 87,
+        "pct_ticket": 3.6,
+        "ban_dau": 3268574.0,
         "can_thu": 545192.0,
         "pct_tien": 0.6
       },
       {
         "am": "Huỳnh Thúc Duân",
-        "ticket": 81,
-        "pct_ticket": 3.1,
-        "ban_dau": 3019407.0,
+        "ticket": 80,
+        "pct_ticket": 3.4,
+        "ban_dau": 3004432.0,
         "can_thu": 494951.0,
         "pct_tien": 0.6
       },
       {
         "am": "Huỳnh Thị Kim Chi",
-        "ticket": 77,
-        "pct_ticket": 3.0,
-        "ban_dau": 18109077.0,
+        "ticket": 73,
+        "pct_ticket": 3.1,
+        "ban_dau": 18008554.0,
         "can_thu": 2347319.0,
         "pct_tien": 2.8
       },
       {
         "am": "Trần Thị Nhung",
-        "ticket": 40,
-        "pct_ticket": 1.5,
-        "ban_dau": 7043805.0,
+        "ticket": 31,
+        "pct_ticket": 1.3,
+        "ban_dau": 6520422.0,
         "can_thu": 2780926.0,
         "pct_tien": 3.3
       },
       {
         "am": "Hồng Bích Nga",
-        "ticket": 32,
-        "pct_ticket": 1.2,
-        "ban_dau": 27005891.0,
+        "ticket": 26,
+        "pct_ticket": 1.1,
+        "ban_dau": 25806046.0,
         "can_thu": 13466968.0,
-        "pct_tien": 15.9
+        "pct_tien": 16.0
       },
       {
         "am": "Phan Đình Duy",
-        "ticket": 27,
-        "pct_ticket": 1.0,
-        "ban_dau": 4049647.0,
+        "ticket": 26,
+        "pct_ticket": 1.1,
+        "ban_dau": 3952980.0,
         "can_thu": 1807597.0,
-        "pct_tien": 2.1
+        "pct_tien": 2.2
       },
       {
         "am": "Lê Minh Lợi",
-        "ticket": 27,
-        "pct_ticket": 1.0,
-        "ban_dau": 1537174.0,
+        "ticket": 26,
+        "pct_ticket": 1.1,
+        "ban_dau": 1537149.0,
         "can_thu": 15767.0,
         "pct_tien": 0.0
       },
       {
         "am": "Nguyễn Duy Long",
         "ticket": 22,
-        "pct_ticket": 0.8,
+        "pct_ticket": 0.9,
         "ban_dau": 10512360.0,
         "can_thu": 7826.0,
         "pct_tien": 0.0
-      },
-      {
-        "am": "Nguyễn Hoàng Phi",
-        "ticket": 16,
-        "pct_ticket": 0.6,
-        "ban_dau": 607049.0,
-        "can_thu": 11827.0,
-        "pct_tien": 0.0
-      },
-      {
-        "am": "Nguyễn Ngọc Khánh",
-        "ticket": 15,
-        "pct_ticket": 0.6,
-        "ban_dau": 922880.0,
-        "can_thu": 59961.0,
-        "pct_tien": 0.1
       },
       {
         "am": "Lê Thanh Nhựt",
@@ -11367,25 +11341,41 @@ window.DASHBOARD_DATA = {
         "pct_tien": 0.0
       },
       {
-        "am": "Phan Thị Ngọc Diễm",
-        "ticket": 14,
-        "pct_ticket": 0.5,
-        "ban_dau": 99379.0,
-        "can_thu": 67359.0,
-        "pct_tien": 0.1
+        "am": "Nguyễn Hoàng Phi",
+        "ticket": 15,
+        "pct_ticket": 0.6,
+        "ban_dau": 606915.0,
+        "can_thu": 11827.0,
+        "pct_tien": 0.0
       },
       {
         "am": "Nguyễn Thị Tuyết Thơ",
         "ticket": 14,
-        "pct_ticket": 0.5,
+        "pct_ticket": 0.6,
         "ban_dau": 601178.0,
         "can_thu": 0.0,
         "pct_tien": 0.0
       },
       {
+        "am": "Phan Thị Ngọc Diễm",
+        "ticket": 14,
+        "pct_ticket": 0.6,
+        "ban_dau": 99379.0,
+        "can_thu": 67359.0,
+        "pct_tien": 0.1
+      },
+      {
+        "am": "Nguyễn Ngọc Khánh",
+        "ticket": 13,
+        "pct_ticket": 0.5,
+        "ban_dau": 922276.0,
+        "can_thu": 59961.0,
+        "pct_tien": 0.1
+      },
+      {
         "am": "Thái Thị Thanh Thư",
         "ticket": 11,
-        "pct_ticket": 0.4,
+        "pct_ticket": 0.5,
         "ban_dau": 570142.0,
         "can_thu": 72724.0,
         "pct_tien": 0.1
@@ -11420,71 +11410,71 @@ window.DASHBOARD_DATA = {
         "bc": "(LDO) Đơn Dương",
         "am": "Lê Minh Đại",
         "tinh": "",
-        "ticket": 1538,
+        "ticket": 1436,
         "pct_ticket": 28.5,
-        "can_thu": 7011582.0
+        "can_thu": 6190581.0
       },
       {
         "bc": "(DNO) Kiến Đức",
         "am": "Trần Văn Phước",
         "tinh": "",
-        "ticket": 699,
-        "pct_ticket": 13.0,
+        "ticket": 614,
+        "pct_ticket": 12.2,
         "can_thu": 31885721.0
       },
       {
         "bc": "(LDO) Đức Trọng 1",
         "am": "Trầm Hữu Tiến",
         "tinh": "",
-        "ticket": 467,
-        "pct_ticket": 8.7,
+        "ticket": 421,
+        "pct_ticket": 8.4,
         "can_thu": 7498563.0
       },
       {
         "bc": "(DNO) Quảng Tín",
         "am": "Trần Văn Phước",
         "tinh": "",
-        "ticket": 423,
-        "pct_ticket": 7.8,
-        "can_thu": 23280955.0
+        "ticket": 419,
+        "pct_ticket": 8.3,
+        "can_thu": 23279795.0
       },
       {
         "bc": "(KHO) Cam Linh",
         "am": "Nguyễn Thanh Long",
         "tinh": "",
-        "ticket": 250,
-        "pct_ticket": 4.6,
+        "ticket": 224,
+        "pct_ticket": 4.5,
         "can_thu": 1759508.0
       },
       {
         "bc": "Kho Trung Chuyển Khánh Hòa",
         "am": "—",
         "tinh": "",
-        "ticket": 223,
-        "pct_ticket": 4.1,
+        "ticket": 218,
+        "pct_ticket": 4.3,
         "can_thu": 255027.0
       },
       {
         "bc": "(DNO) Đông Gia Nghĩa",
         "am": "Huỳnh Thúc Duân",
         "tinh": "",
-        "ticket": 220,
-        "pct_ticket": 4.1,
+        "ticket": 216,
+        "pct_ticket": 4.3,
         "can_thu": 974743.0
       },
       {
         "bc": "(LDO) Lang Biang - Đà Lạt 1",
         "am": "Lê Minh Đại",
         "tinh": "",
-        "ticket": 192,
-        "pct_ticket": 3.6,
+        "ticket": 188,
+        "pct_ticket": 3.7,
         "can_thu": 21161412.0
       },
       {
         "bc": "(LDO) Tân Hà Lâm Hà",
         "am": "Huỳnh Thị Kim Chi",
         "tinh": "",
-        "ticket": 125,
+        "ticket": 114,
         "pct_ticket": 2.3,
         "can_thu": 2857789.0
       },
@@ -11493,39 +11483,31 @@ window.DASHBOARD_DATA = {
         "am": "Trầm Hữu Tiến",
         "tinh": "",
         "ticket": 79,
-        "pct_ticket": 1.5,
+        "pct_ticket": 1.6,
         "can_thu": 403019.0
-      },
-      {
-        "bc": "(LDO) Lang Biang - Đà Lạt 2",
-        "am": "Lê Văn Trường",
-        "tinh": "",
-        "ticket": 66,
-        "pct_ticket": 1.2,
-        "can_thu": 14001461.0
       },
       {
         "bc": "(NTH) Phước Dinh",
         "am": "Nguyễn Duy Long",
         "tinh": "",
         "ticket": 61,
-        "pct_ticket": 1.1,
+        "pct_ticket": 1.2,
         "can_thu": 9952741.0
       },
       {
-        "bc": "(DNO) Tuy Đức",
-        "am": "Trần Thị Nhung",
+        "bc": "(LDO) Lang Biang - Đà Lạt 2",
+        "am": "Lê Văn Trường",
         "tinh": "",
-        "ticket": 53,
-        "pct_ticket": 1.0,
-        "can_thu": 171564.0
+        "ticket": 54,
+        "pct_ticket": 1.1,
+        "can_thu": 14001461.0
       },
       {
         "bc": "(LDO) Xuân Hương - Đà Lạt",
         "am": "Phan Thị Ngọc Diễm",
         "tinh": "",
         "ticket": 50,
-        "pct_ticket": 0.9,
+        "pct_ticket": 1.0,
         "can_thu": 1148004.0
       },
       {
@@ -11533,7 +11515,7 @@ window.DASHBOARD_DATA = {
         "am": "Huỳnh Thị Kim Chi",
         "tinh": "",
         "ticket": 44,
-        "pct_ticket": 0.8,
+        "pct_ticket": 0.9,
         "can_thu": 633749.0
       },
       {
@@ -11545,11 +11527,19 @@ window.DASHBOARD_DATA = {
         "can_thu": 5299177.0
       },
       {
+        "bc": "(LDO) Đức Trọng 2",
+        "am": "Nguyễn Thị Tuyết Thơ",
+        "tinh": "",
+        "ticket": 38,
+        "pct_ticket": 0.8,
+        "can_thu": 22058.0
+      },
+      {
         "bc": "(LDO) Bảo Lâm 1",
         "am": "Hồng Bích Nga",
         "tinh": "",
         "ticket": 38,
-        "pct_ticket": 0.7,
+        "pct_ticket": 0.8,
         "can_thu": 8087795.0
       },
       {
@@ -11557,40 +11547,24 @@ window.DASHBOARD_DATA = {
         "am": "Huỳnh Thúc Duân",
         "tinh": "",
         "ticket": 38,
-        "pct_ticket": 0.7,
+        "pct_ticket": 0.8,
         "can_thu": 530659.0
-      },
-      {
-        "bc": "(LDO) Đức Trọng 2",
-        "am": "Nguyễn Thị Tuyết Thơ",
-        "tinh": "",
-        "ticket": 38,
-        "pct_ticket": 0.7,
-        "can_thu": 22058.0
-      },
-      {
-        "bc": "(DNO) Trường Xuân",
-        "am": "Trần Thị Nhung",
-        "tinh": "",
-        "ticket": 35,
-        "pct_ticket": 0.6,
-        "can_thu": 8235052.0
       },
       {
         "bc": "Kho Chuyển Tiếp Bình Thuận",
         "am": "Nguyễn Ngọc Khánh",
         "tinh": "",
         "ticket": 35,
-        "pct_ticket": 0.6,
+        "pct_ticket": 0.7,
         "can_thu": 81619.0
       },
       {
-        "bc": "(BTH) Đồng Kho",
-        "am": "Lê Thanh Nhựt",
+        "bc": "(DNO) Trường Xuân",
+        "am": "Trần Thị Nhung",
         "tinh": "",
-        "ticket": 31,
-        "pct_ticket": 0.6,
-        "can_thu": 43221.0
+        "ticket": 35,
+        "pct_ticket": 0.7,
+        "can_thu": 8235052.0
       },
       {
         "bc": "(LDO) Đinh Văn Lâm Hà",
@@ -11601,6 +11575,14 @@ window.DASHBOARD_DATA = {
         "can_thu": 1795421.0
       },
       {
+        "bc": "(BTH) Đồng Kho",
+        "am": "Lê Thanh Nhựt",
+        "tinh": "",
+        "ticket": 31,
+        "pct_ticket": 0.6,
+        "can_thu": 43221.0
+      },
+      {
         "bc": "(KHO) Vạn Ninh",
         "am": "Phan Đình Duy",
         "tinh": "",
@@ -11609,11 +11591,19 @@ window.DASHBOARD_DATA = {
         "can_thu": 56525.0
       },
       {
+        "bc": "(DNO) Tuy Đức",
+        "am": "Trần Thị Nhung",
+        "tinh": "",
+        "ticket": 29,
+        "pct_ticket": 0.6,
+        "can_thu": 96.0
+      },
+      {
         "bc": "Kho Chuyển Tiếp Đức Trọng",
         "am": "—",
         "tinh": "",
         "ticket": 29,
-        "pct_ticket": 0.5,
+        "pct_ticket": 0.6,
         "can_thu": 546936.0
       },
       {
@@ -11641,20 +11631,20 @@ window.DASHBOARD_DATA = {
         "can_thu": 173336.0
       },
       {
-        "bc": "(LDO) Bảo Lâm 3",
-        "am": "Hồng Bích Nga",
-        "tinh": "",
-        "ticket": 26,
-        "pct_ticket": 0.5,
-        "can_thu": 18026.0
-      },
-      {
         "bc": "(KHO) Nam Nha Trang 1",
         "am": "Thái Thị Thanh Thư",
         "tinh": "",
         "ticket": 23,
-        "pct_ticket": 0.4,
+        "pct_ticket": 0.5,
         "can_thu": 4898072.0
+      },
+      {
+        "bc": "(LDO) Xuân Trường - Đà Lạt",
+        "am": "Lê Văn Trường",
+        "tinh": "",
+        "ticket": 22,
+        "pct_ticket": 0.4,
+        "can_thu": 2087181.0
       }
     ]
   }
