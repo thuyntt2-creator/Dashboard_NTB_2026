@@ -1026,9 +1026,9 @@
           <div class="exec-banner-text">
             <h3>PHÂN TÍCH HIỆU SUẤT %ODR (GIAO ĐÚNG HẸN SLA) TOÀN VÙNG (TARGET ≥ 92.0%)</h3>
             <p>
-              • <strong>Toàn Vùng:</strong> Đạt <strong>92.18%</strong> (-1.47% WoW). Có <strong>15/18 AM</strong> đạt chuẩn xanh SLA ≥92.0%.<br>
-              • <strong>Top AM Xuất Sắc:</strong> <strong>Nguyễn Duy Long (96.5%)</strong>, <strong>Thái Thị Thanh Thư (96.4%)</strong>, <strong>Nguyễn Hoàng Phi (96.1%)</strong>.<br>
-              • <strong>Nhóm AM Cần Khắc Phục Giao Trễ:</strong> <strong>Lê Minh Lợi (58.5%)</strong>, <strong>Trầm Hữu Tiến (82.7%)</strong>, <strong>Trương Quang Linh (83.8%)</strong>.
+              • <strong>Toàn Vùng:</strong> Đạt <strong>92.9%</strong> (+0.7%p WoW). Vùng duy trì vững trên chuẩn ≥92.0%.<br>
+              • <strong>Top AM Xuất Sắc:</strong> <strong>Nguyễn Duy Long (96.4%)</strong>, <strong>Cao Thị Thanh Thủy (96.4%)</strong>, <strong>Thái Thị Thanh Thư (96.0%)</strong>.<br>
+              • <strong>Nhóm AM Cần Khắc Phục Giao Trễ:</strong> <strong>Trương Quang Linh (60.4%)</strong>, <strong>Lê Minh Lợi (71.0%)</strong>, <strong>Trầm Hữu Tiến (75.6%)</strong>.
             </p>
           </div>
         </div>
@@ -1350,26 +1350,32 @@
     <!-- TAB 8: %OPR TIKTOK SHOP (NGÀY 9H-19H vs ĐÊM 19H-9H) -->
     <!-- ==================================================================== -->
     <div id="tab-opr-tts" class="tab-view">
-      <div class="exec-banner" style="border-left-color: var(--color-amber);">
+      <div class="exec-banner" style="border-left-color: #ef4444;">
         <div class="exec-banner-content">
-          <div class="exec-banner-icon" style="background: rgba(245, 158, 11, 0.2); color: var(--color-amber);">
+          <div class="exec-banner-icon" style="background: rgba(239, 68, 68, 0.15); color: #ef4444;">
             <i data-lucide="sun-moon" style="width: 24px; height: 24px;"></i>
           </div>
           <div class="exec-banner-text">
-            <h3>PHÂN TÍCH CHỈ SỐ %OPR TIKTOK SHOP (KHUNG GIỜ NGÀY 9H–19H vs ĐÊM 19H–9H)</h3>
+            <h3>PHÂN TÍCH CHỈ SỐ %OPR TIKTOK SHOP TOÀN VÙNG (TARGET KPI ≥ 80.0%)</h3>
             <p>
-              • <strong>Khung Giờ Ngày (9h–19h):</strong> Toàn vùng đạt <strong>94.2%</strong> (15/18 AM đạt chuẩn xanh).<br>
-              • <strong>Khung Giờ Đêm (19h–9h):</strong> Toàn vùng đạt <strong>88.5%</strong>. Anh <strong>Lê Thanh Nhựt</strong> bứt phá xuất sắc +29.5% lên 90.8%.<br>
-              • <strong>Điểm Cần Khắc Phục:</strong> AM Nguyễn Duy Long (74.2% ca đêm) & AM Huỳnh Thúc Duân (76.8% ca đêm) cần bổ sung nhân sự quét đóng chuyến ca đêm.
+              • <strong>Toàn Vùng (Tổng):</strong> Đạt <strong>76.9%</strong> (+0.8%p WoW so với W35: 76.1%) — <span style="color:#ef4444; font-weight:800;">CHƯA ĐẠT KPI ≥ 80.0%</span> (cách mục tiêu -3.1%p).<br>
+              • <strong>Khung Giờ Ngày (9h–19h):</strong> Đạt <strong>88.9%</strong> (-0.1%p WoW) — <strong>13/17 AM</strong> đạt chuẩn xanh ≥80.0%. Nhóm chưa đạt: Tuyết Thơ (63.5%), Trần Nhung (65.6%), Lê Văn Trường (67.7%), Ngọc Khánh (71.6%).<br>
+              • <strong>Khung Giờ Đêm (19h–9h):</strong> Đạt <strong>61.5%</strong> (+2.0%p WoW) — <span style="color:#ef4444; font-weight:700;">điểm nghẽn lớn nhất vùng</span> khi có tới <strong>15/17 AM</strong> chưa đạt chuẩn, chỉ 2 AM đạt (Cao Thị Thanh Thủy 88.7%, Nguyễn Duy Long 80.0%).
             </p>
           </div>
         </div>
         <div class="exec-banner-actions">
-          <span class="badge-tag badge-tag-amber" style="font-size: 12px; padding: 6px 12px;">
-            Target OPR Ngày ≥ 92% | Đêm ≥ 88%
+          <span class="badge-tag badge-tag-red" style="font-size: 12px; padding: 6px 12px; font-weight:800;">
+            Target OPR KPI ≥ 80.0%
           </span>
         </div>
       </div>
+
+      <!-- Container tổng OPR TTS Toàn Vùng được render động -->
+      <div id="opr-tts-vung-total"></div>
+
+      <!-- Container Danh sách các AM chưa đạt KPI OPR TTS (< 80%) -->
+      <div id="opr-failed-ams-container"></div>
 
       <!-- OPR TTS Phân Tích Khung Giờ Chart -->
       <div class="report-card">
@@ -1378,7 +1384,7 @@
             <i data-lucide="sun-moon" style="color: var(--color-amber);"></i>
             BIỂU ĐỒ %OPR TTS THEO KHUNG GIỜ TẠO ĐƠN (NGÀY 9H–19H vs ĐÊM 19H–9H) THEO 18 AM
           </div>
-          <span class="badge-tag badge-tag-amber">SLA TikTok Shop</span>
+          <span class="badge-tag badge-tag-red" style="font-weight:700;">Đường Chuẩn KPI ≥ 80.0%</span>
         </div>
         <div class="report-card-body">
           <div class="chart-box chart-box-tall">
@@ -1396,7 +1402,7 @@
               <i data-lucide="sun" style="color: var(--ghn-orange);"></i>
               BẢNG 1: %OPR CA NGÀY (9H–19H - SORT BIẾN ĐỘNG Δ)
             </div>
-            <span class="badge-tag badge-tag-amber">Ca Ngày (≥92%)</span>
+            <span class="badge-tag badge-tag-green">Ca Ngày (KPI ≥ 80%)</span>
           </div>
           <div class="report-card-body">
             <div class="bi-table-wrap">
@@ -1409,7 +1415,7 @@
                     <th class="num">W35</th>
                     <th class="num" style="background: var(--color-blue-bg); font-weight:800;">%OPR W36</th>
                     <th class="num">Biến Động (Δ)</th>
-                    <th class="center">Đánh Giá SLA</th>
+                    <th class="center">Đánh Giá KPI</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -1425,7 +1431,7 @@
               <i data-lucide="moon" style="color: var(--color-purple);"></i>
               BẢNG 2: %OPR CA ĐÊM (19H–9H - SORT BIẾN ĐỘNG Δ)
             </div>
-            <span class="badge-tag badge-tag-purple">Ca Đêm (≥88%)</span>
+            <span class="badge-tag badge-tag-purple">Ca Đêm (KPI ≥ 80%)</span>
           </div>
           <div class="report-card-body">
             <div class="bi-table-wrap">

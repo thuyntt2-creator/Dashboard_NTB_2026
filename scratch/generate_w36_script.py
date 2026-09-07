@@ -151,7 +151,7 @@ rows_data = [
     ('%GTC Full (Ca1+Ca2+Tồn)', '58,2%', '58,1%', '▼ -0,03%p'),
     ('%GTC Full (Ca1+Tồn)', '59,7%', '60,5%', '▲ +0,8%p'),
     ('%GTC Full (Ca2)', '51,2%', '48,4%', '▼ -2,9%p'),
-    ('%ODR Full Hàng', '92,2%', '92,9%', '▲ +0,7%p'),
+    ('%ODR Full Hàng', '92,18%', '92,88%', '▲ +0,7%p'),
     ('%LTC Full Hàng', '91,1%', '90,5%', '▼ -0,6%p'),
     ('%Gán Vận Hành (Full)', '82,1%', '83,5%', '▲ +1,4%p'),
     ('%FD Hoàn Trả (Full)', '~7,6%*', '7,5%', '≈ ổn định'),
@@ -216,16 +216,24 @@ add_speech(doc,
 )
 
 # ===================== ODR =====================
-add_section_title(doc, '⏱️', 'II.6 ODR — TỶ LỆ GIAO ĐÚNG HẸN SLA')
+add_section_title(doc, '⏱️', 'II.6 PHÂN TÍCH HIỆU SUẤT %ODR — GIAO ĐÚNG HẸN SLA (TARGET ≥ 92%)')
 add_speech(doc,
-    '"ODR full hàng W36 đạt 92,9% — cải thiện +0,7%p so với W35 (92,2%). Đây là tín hiệu đáng mừng.\n'
-    '• Tất cả các tỉnh đều cải thiện: Đắk Nông +2,9% (lên 89,1%), Lâm Đồng +0,9% (89,5%), Bình Thuận +0,6% (96,4%).\n'
-    '• Khánh Hòa và Ninh Thuận giảm nhẹ -0,5% và -0,2% nhưng vẫn ở mức cao.\n'
-    '• Theo AM cải thiện tốt nhất: Trương Quang Linh (+20,3% lên 60,4%), Lê Minh Lợi (+12,5% lên 71,0%).\n'
-    '• AM cần chú ý: Trầm Hữu Tiến giảm -3,9% xuống 75,6% — thấp nhất vùng (sau anh Linh và anh Lợi).\n'
-    '→ Đề nghị anh Trầm Hữu Tiến báo cáo kế hoạch đẩy ODR lên ≥80% trong W37."'
+    '"Về chỉ số ODR (Giao đúng hẹn SLA) tuần W36:\n'
+    '• Full hàng toàn vùng đạt 92,9% (▲+0,7%p so W35 92,2%) — duy trì vững trên ngưỡng chuẩn ≥92%.\n'
+    '• TTS đạt 92,4% (▼-0,15%p) — vẫn trên chuẩn.\n\n'
+    '🏆 TOP AM XUẤT SẮC (ODR cao nhất W36):\n'
+    '  ✅ Nguyễn Duy Long: 96,4%\n'
+    '  ✅ Thái Thị Thanh Thư: 96,0%\n'
+    '  ✅ Cao Thị Thanh Thủy: 96,4%\n\n'
+    '⚠️ NHÓM AM CẦN KHẮC PHỤC (ODR thấp nhất W36):\n'
+    '  ❌ Trương Quang Linh: 60,4% — cách chuẩn -31,6%p (dù đã cải thiện mạnh +20,3%p)\n'
+    '  ❌ Lê Minh Lợi: 71,0% — cách chuẩn -21%p (đã cải thiện +12,5%p)\n'
+    '  ❌ Trầm Hữu Tiến: 75,6% — giảm -3,9%p so W35 (79,5%)\n\n'
+    '→ Hai AM Trương Quang Linh và Lê Minh Lợi dù đã cải thiện mạnh nhưng vẫn còn rất xa chuẩn 92%. '
+    'Đề nghị hai AM trình bày lộ trình cụ thể để đưa ODR lên ≥85% trong W37 và ≥92% trong W38."'
 )
-add_action(doc, 'AM Trầm Hữu Tiến: Kế hoạch cải thiện ODR lên ≥80% trong W37.', 'Trước họp W37')
+add_action(doc, 'AM Trương Quang Linh (60,4%) & Lê Minh Lợi (71,0%): Lộ trình cụ thể đưa ODR về ≥85% (W37) và ≥92% (W38).', 'Ngay trong họp')
+add_action(doc, 'AM Trầm Hữu Tiến: Nguyên nhân ODR giảm -3,9%p & cam kết cải thiện W37.', 'Trước họp W37')
 
 # ===================== LTC =====================
 add_section_title(doc, '📦', 'II.7 CHỈ SỐ %LTC — LẤY THÀNH CÔNG')
@@ -385,6 +393,6 @@ r.font.name = 'Times New Roman'
 r.font.color.rgb = RGBColor(120, 120, 120)
 
 # ===================== LƯU FILE =====================
-output_path = r'C:\Users\lap4all\Desktop\New folder\KICH_BAN_THUYET_TRINH_W36_NTB.docx'
+output_path = r'C:\Users\lap4all\Downloads\KICH_BAN_THUYET_TRINH_W36_NTB_v2.docx'
 doc.save(output_path)
 print(f'✅ Saved: {output_path}')

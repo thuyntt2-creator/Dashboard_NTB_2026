@@ -3661,19 +3661,152 @@
   function renderOprTab() {
     if (!D.opr_tts || !D.opr_tts.am) return;
 
-    // Helper evaluation badge for OPR Day (>=92%) & Night (>=88%)
+    // Helper evaluation badge for OPR (KPI >= 80%)
     function getOprDayBadge(v) {
       const val = v || 0;
-      if (val >= 0.95) return '<span class="badge-tag badge-tag-green">🏆 Xuất Sắc (≥95%)</span>';
-      if (val >= 0.92) return '<span class="badge-tag badge-tag-green">🟢 Đạt Chuẩn (≥92%)</span>';
-      return '<span class="badge-tag badge-tag-red">🔴 Chưa Đạt (&lt;92%)</span>';
+      if (val >= 0.92) return '<span class="badge-tag badge-tag-green">🏆 Xuất Sắc (≥92%)</span>';
+      if (val >= 0.80) return '<span class="badge-tag badge-tag-green">🟢 Đạt KPI (≥80%)</span>';
+      return '<span class="badge-tag badge-tag-red">🔴 Chưa Đạt KPI (<80%)</span>';
     }
 
     function getOprNightBadge(v) {
       const val = v || 0;
       if (val >= 0.92) return '<span class="badge-tag badge-tag-green">🏆 Xuất Sắc (≥92%)</span>';
-      if (val >= 0.88) return '<span class="badge-tag badge-tag-green">🟢 Đạt Chuẩn (≥88%)</span>';
-      return '<span class="badge-tag badge-tag-red">🔴 Chưa Đạt (&lt;88%)</span>';
+      if (val >= 0.80) return '<span class="badge-tag badge-tag-green">🟢 Đạt KPI (≥80%)</span>';
+      return '<span class="badge-tag badge-tag-red">🔴 Chưa Đạt KPI (<80%)</span>';
+    }
+
+    // Tính % OPR TTS tổng toàn vùng (weighted)
+    const _ams = D.opr_tts.am;
+    const _totalVol = _ams.reduce((s, r) => s + (r.vol_day||0) + (r.vol_night||0), 0);
+    const _volDay = _ams.reduce((s, r) => s + (r.vol_day || 0), 0);
+    const _volNight = _ams.reduce((s, r) => s + (r.vol_night || 0), 0);
+    const _vung36Day = _volDay > 0 ? _ams.reduce((s, r) => s + (r.vol_day || 0) * (r.w36_day || 0), 0) / _volDay : 0;
+    const _vung36Night = _volNight > 0 ? _ams.reduce((s, r) => s + (r.vol_night || 0) * (r.w36_night || 0), 0) / _volNight : 0;
+    const _wtd36 = _ams.reduce((s, r) => {
+      const vol = (r.vol_day||0) + (r.vol_night||0);
+      const o36 = vol > 0 ? ((r.vol_day||0)*(r.w36_day||0) + (r.vol_night||0)*(r.w36_night||0)) / vol : 0;
+      return s + vol * o36;
+    }, 0);
+    const _wtd35 = _ams.reduce((s, r) => {
+      const vol = (r.vol_day||0) + (r.vol_night||0);
+      const o35 = vol > 0 ? ((r.vol_day||0)*(r.w35_day||0) + (r.vol_night||0)*(r.w35_night||0)) / vol : 0;
+      return s + vol * o35;
+    }, 0);
+    const _vung36 = _totalVol > 0 ? _wtd36 / _totalVol : 0;
+    const _vung35 = _totalVol > 0 ? _wtd35 / _totalVol : 0;
+    const _diff = _vung36 - _vung35;
+    const _kpiOk = _vung36 >= 0.80;
+    const _vungEl = document.getElementById('opr-tts-vung-total');
+    if (_vungEl) {
+      const diffTxt = (_diff >= 0 ? '▲ +' : '▼ ') + Math.abs(_diff * 100).toFixed(1) + '%p WoW';
+      const diffColor = _diff >= 0 ? '#10b981' : '#ef4444';
+      const kpiBadge = _kpiOk
+        ? '<span class="badge-tag badge-tag-green" style="font-size:13px; font-weight:800; padding:6px 14px;">✅ Đạt KPI (≥80%)</span>'
+        : '<span class="badge-tag badge-tag-red" style="font-size:13px; font-weight:800; padding:6px 14px;">❌ Chưa Đạt KPI (<80%)</span>';
+      _vungEl.innerHTML = `
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; padding:14px 20px; background:linear-gradient(135deg, rgba(239,68,68,0.06), rgba(245,158,11,0.06)); border:1.5px solid rgba(239,68,68,0.25); border-radius:12px; margin-bottom:16px;">
+          <div style="display:flex; align-items:center; gap:16px;">
+            <div style="font-size:32px; font-weight:900; color:${_kpiOk ? '#10b981' : '#ef4444'}; font-family:var(--font-mono, monospace); line-height:1;">
+              ${(_vung36*100).toFixed(1)}%
+            </div>
+            <div>
+              <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-main, #1e293b);">
+                OPR TTS Toàn Vùng W36 (Tổng Ngày + Đêm)
+              </div>
+              <div style="font-size:12px; font-weight:700; color:${diffColor}; margin-top:2px;">
+                ${diffTxt} (W35: ${(_vung35*100).toFixed(1)}%) &nbsp;•&nbsp; 
+                <span style="color:#64748b;">Mục tiêu KPI: ≥ 80.0% (Cách KPI: -${((0.80 - _vung36)*100).toFixed(1)}%p)</span>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+            <div style="display:flex; gap:8px;">
+              <span class="badge-tag badge-tag-amber" style="font-size:11px; padding:5px 10px;">☀️ Ca Ngày: <strong>${(_vung36Day*100).toFixed(1)}%</strong></span>
+              <span class="badge-tag badge-tag-purple" style="font-size:11px; padding:5px 10px;">🌙 Ca Đêm: <strong>${(_vung36Night*100).toFixed(1)}%</strong></span>
+            </div>
+            ${kpiBadge}
+          </div>
+        </div>
+      `;
+    }
+
+    // Render danh sách AM chưa đạt KPI OPR TTS (< 80.0%)
+    const _failedContainer = document.getElementById('opr-failed-ams-container');
+    if (_failedContainer) {
+      // Sắp xếp các AM chưa đạt tổng (< 80%) từ thấp nhất lên
+      const failedTotal = _ams.filter(r => (r.w36_total !== undefined ? r.w36_total : 0) < 0.80)
+                              .sort((a, b) => (a.w36_total || 0) - (b.w36_total || 0));
+      const failedDay = _ams.filter(r => (r.w36_day || 0) < 0.80)
+                            .sort((a, b) => (a.w36_day || 0) - (b.w36_day || 0));
+      const failedNight = _ams.filter(r => (r.w36_night || 0) < 0.80)
+                              .sort((a, b) => (a.w36_night || 0) - (b.w36_night || 0));
+
+      _failedContainer.innerHTML = `
+        <div style="background:var(--bg-surface, #ffffff); border:1.5px solid rgba(239, 68, 68, 0.35); border-left:5px solid #ef4444; border-radius:12px; padding:16px 20px; box-shadow:0 3px 12px rgba(239,68,68,0.06); margin-bottom:16px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:14px; border-bottom:1px solid rgba(239,68,68,0.15); padding-bottom:12px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span style="font-size:22px;">🚨</span>
+              <div>
+                <h4 style="margin:0; font-size:15px; font-weight:900; color:#b91c1c; text-transform:uppercase; letter-spacing:0.3px;">
+                  DANH SÁCH ${failedTotal.length} AM CHƯA ĐẠT KPI OPR TTS (< 80.0%)
+                </h4>
+                <div style="font-size:12px; color:var(--text-muted, #64748b); margin-top:2px;">
+                  Nhấp vào từng thẻ AM để tự động định vị và làm nổi bật (laser highlight) trên biểu đồ & các bảng bên dưới
+                </div>
+              </div>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <span class="badge-tag badge-tag-red" style="font-size:12px; font-weight:800; padding:6px 12px;">
+                🔴 Toàn Ngày: <strong>${failedTotal.length}/17 AM</strong>
+              </span>
+              <span class="badge-tag badge-tag-amber" style="font-size:12px; font-weight:800; padding:6px 12px;">
+                ☀️ Ca Ngày: <strong>${failedDay.length}/17 AM</strong>
+              </span>
+              <span class="badge-tag badge-tag-purple" style="font-size:12px; font-weight:800; padding:6px 12px;">
+                🌙 Ca Đêm: <strong>${failedNight.length}/17 AM</strong>
+              </span>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(285px, 1fr)); gap:12px;">
+            ${failedTotal.map(r => {
+              const val = ((r.w36_total !== undefined ? r.w36_total : 0) * 100);
+              const gap = (80 - val).toFixed(1);
+              const dayVal = ((r.w36_day || 0) * 100).toFixed(1);
+              const nightVal = ((r.w36_night || 0) * 100).toFixed(1);
+              const diffTot = r.diff_total !== undefined ? (r.diff_total * 100) : 0;
+              const diffBadge = diffTot !== 0 ? `<span style="font-size:11px; font-weight:800; color:${diffTot > 0 ? '#10b981' : '#ef4444'};">${diffTot > 0 ? '▲ +' : '▼ '}${Math.abs(diffTot).toFixed(1)}%p</span>` : '';
+              const isSelected = state.selectedAM === r.am;
+
+              return `
+                <div onclick="selectAndHighlightAM('${r.am}')" 
+                     style="cursor:pointer; padding:12px 14px; background:${isSelected ? 'rgba(239,68,68,0.12)' : 'var(--bg-main, #f8fafc)'}; border:1.5px solid ${isSelected ? '#ef4444' : 'rgba(239,68,68,0.22)'}; border-radius:10px; transition:all 0.2s;" 
+                     onmouseover="this.style.borderColor='#ef4444'; this.style.boxShadow='0 4px 12px rgba(239,68,68,0.15)'; this.style.transform='translateY(-2px)'" 
+                     onmouseout="this.style.borderColor='${isSelected ? '#ef4444' : 'rgba(239,68,68,0.22)'}'; this.style.boxShadow='none'; this.style.transform='none'">
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                    <div style="font-weight:900; font-size:13.5px; color:${isSelected ? '#ef4444' : 'var(--text-main, #0f172a)'};">${r.am}</div>
+                    <span style="font-size:11px; font-weight:800; color:#b91c1c; background:rgba(239,68,68,0.12); padding:2px 8px; border-radius:6px;">
+                      Thiếu -${gap}%p
+                    </span>
+                  </div>
+                  <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;">
+                    <div style="display:flex; align-items:baseline; gap:6px;">
+                      <span style="font-size:24px; font-weight:900; color:#dc2626; font-family:var(--font-mono, monospace); line-height:1;">${val.toFixed(1)}%</span>
+                      <span style="font-size:11px; font-weight:700; color:#dc2626;">(Chưa Đạt)</span>
+                    </div>
+                    <div>${diffBadge}</div>
+                  </div>
+                  <div style="display:flex; justify-content:space-between; font-size:11.5px; color:var(--text-muted, #64748b); padding-top:6px; border-top:1px dashed rgba(0,0,0,0.08);">
+                    <span>☀️ Ngày: <strong style="color:${Number(dayVal) >= 80 ? '#10b981' : '#dc2626'};">${dayVal}%</strong></span>
+                    <span>🌙 Đêm: <strong style="color:${Number(nightVal) >= 80 ? '#10b981' : '#dc2626'};">${nightVal}%</strong></span>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `;
     }
 
     // 1. BẢNG 1: %OPR CA NGÀY (9H-19H)
@@ -3870,25 +4003,42 @@
             type: 'line',
             label: `%OPR Tất cả ${currLabel} (Toàn Ngày)`,
             data: ams.map(d => Number(((d.w36_total !== undefined ? d.w36_total : (d.w35_total !== undefined ? d.w35_total : ((d.w36_day || 0) * 0.6 + (d.w36_night || 0) * 0.4))) * 100).toFixed(1))),
-            borderColor: '#65a30d',
+            borderColor: '#15803d',
             borderWidth: 3.5,
             tension: 0.25,
-            pointBackgroundColor: '#65a30d',
+            pointBackgroundColor: ams.map(d => {
+              const val = ((d.w36_total !== undefined ? d.w36_total : 0) * 100);
+              return val < 80 ? '#dc2626' : '#16a34a';
+            }),
             pointBorderColor: '#ffffff',
             pointBorderWidth: 2,
-            pointRadius: 5,
-            pointHoverRadius: 8,
+            pointRadius: ams.map(d => {
+              const val = ((d.w36_total !== undefined ? d.w36_total : 0) * 100);
+              return val < 80 ? 6.5 : 4.5;
+            }),
+            pointHoverRadius: 9,
             yAxisID: 'y',
             order: 2,
             datalabels: {
               display: true,
               align: 'bottom',
               offset: 4,
-              color: '#365314',
-              backgroundColor: 'rgba(255, 255, 255, 0.85)',
+              color: ams.map(d => {
+                const val = ((d.w36_total !== undefined ? d.w36_total : 0) * 100);
+                return val < 80 ? '#b91c1c' : '#166534';
+              }),
+              backgroundColor: ams.map(d => {
+                const val = ((d.w36_total !== undefined ? d.w36_total : 0) * 100);
+                return val < 80 ? 'rgba(254, 226, 226, 0.96)' : 'rgba(240, 253, 244, 0.96)';
+              }),
+              borderColor: ams.map(d => {
+                const val = ((d.w36_total !== undefined ? d.w36_total : 0) * 100);
+                return val < 80 ? '#fca5a5' : '#86efac';
+              }),
+              borderWidth: 1,
               borderRadius: 3,
               font: { size: 9.5, weight: '800' },
-              formatter: v => v + '%'
+              formatter: v => v + '%' + (v < 80 ? ' ❌' : ' ✅')
             }
           },
           {
@@ -3918,6 +4068,38 @@
               font: { size: 10, weight: '900' },
               formatter: v => (v > 0 ? '▲ +' : v < 0 ? '▼ ' : '') + v + '%'
             }
+          },
+          // ---- KPI 80% reference line ----
+          {
+            type: 'line',
+            label: 'KPI ≥ 80.0% (Mục Tiêu)',
+            data: ams.map(() => 80),
+            borderColor: '#dc2626',
+            borderWidth: 2.5,
+            borderDash: [6, 4],
+            pointRadius: 0,
+            pointHoverRadius: 0,
+            fill: false,
+            tension: 0,
+            yAxisID: 'y',
+            order: 0,
+            datalabels: { display: false }
+          },
+          // ---- Toàn Vùng W36 reference line ----
+          {
+            type: 'line',
+            label: 'Toàn Vùng W36: 76.9% (Chưa Đạt)',
+            data: ams.map(() => 76.9),
+            borderColor: '#0284c7',
+            borderWidth: 2,
+            borderDash: [4, 4],
+            pointRadius: 0,
+            pointHoverRadius: 0,
+            fill: false,
+            tension: 0,
+            yAxisID: 'y',
+            order: 0,
+            datalabels: { display: false }
           }
         ]
       },
@@ -3950,7 +4132,16 @@
             }
           },
           x: {
-            ticks: { maxRotation: 45, minRotation: 25, font: { size: 11, weight: '800' } },
+            ticks: {
+              maxRotation: 45,
+              minRotation: 25,
+              font: { size: 11, weight: '800' },
+              color: (c) => {
+                const item = ams[c.index];
+                if (item && (((item.w36_total !== undefined ? item.w36_total : 0) * 100) < 80)) return '#dc2626';
+                return '#1e293b';
+              }
+            },
             grid: { display: false }
           }
         },
