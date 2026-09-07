@@ -4836,38 +4836,16 @@ def api_sync_sheets_oauth():
         sync_script = os.path.join(root_dir, 'sync_google_sheets_oauth.py')
         res1 = subprocess.run([sys.executable, sync_script], cwd=root_dir, capture_output=True, text=True, timeout=120)
         
-        # 2. Run parse_4_cod_tabs.py
-        cod_script = os.path.join(root_dir, 'scratch', 'parse_4_cod_tabs.py')
-        if not os.path.exists(cod_script):
-            cod_script = r"C:\Users\lap4all\.gemini\antigravity-ide\brain\1048c0be-798c-47f0-9d90-dfb903985b99\scratch\parse_4_cod_tabs.py"
-        if os.path.exists(cod_script):
-            subprocess.run([sys.executable, cod_script], cwd=root_dir, capture_output=True, text=True, timeout=60)
-
-        # 3. Run calc_aging_buckets.py
-        aging_script = os.path.join(root_dir, 'scratch', 'calc_aging_buckets.py')
-        if not os.path.exists(aging_script):
-            aging_script = r"C:\Users\lap4all\.gemini\antigravity-ide\brain\1048c0be-798c-47f0-9d90-dfb903985b99\scratch\calc_aging_buckets.py"
-        if os.path.exists(aging_script):
-            subprocess.run([sys.executable, aging_script], cwd=root_dir, capture_output=True, text=True, timeout=60)
-
-        # 4. Run process_truy_thu_report.py
-        tt_script = os.path.join(root_dir, 'scratch', 'process_truy_thu_report.py')
-        if not os.path.exists(tt_script):
-            tt_script = r"C:\Users\lap4all\.gemini\antigravity-ide\brain\1048c0be-798c-47f0-9d90-dfb903985b99\scratch\process_truy_thu_report.py"
-        if os.path.exists(tt_script):
-            subprocess.run([sys.executable, tt_script], cwd=root_dir, capture_output=True, text=True, timeout=60)
-        
-        # 5. Run build_data_js.py to refresh weekly meeting data (/hop)
+        # 2. Run build_data_js.py to refresh weekly meeting data (/hop)
         build_script = os.path.join(root_dir, 'build_data_js.py')
         if os.path.exists(build_script):
-            subprocess.run([sys.executable, build_script], cwd=root_dir, capture_output=True, text=True, timeout=60)
-            # Re-run COD & Truy Thu to re-merge enriched sections
-            if os.path.exists(cod_script):
-                subprocess.run([sys.executable, cod_script], cwd=root_dir, capture_output=True, text=True, timeout=60)
-            if os.path.exists(tt_script):
-                subprocess.run([sys.executable, tt_script], cwd=root_dir, capture_output=True, text=True, timeout=60)
-            if os.path.exists(aging_script):
-                subprocess.run([sys.executable, aging_script], cwd=root_dir, capture_output=True, text=True, timeout=60)
+            subprocess.run([sys.executable, build_script], cwd=root_dir, capture_output=True, text=True, timeout=120)
+
+        # 3. Enrich with auxiliary scripts (COD, Aging, Truy Thu)
+        for s_name in ['parse_4_cod_tabs.py', 'calc_aging_buckets.py', 'process_truy_thu_report.py']:
+            s_path = os.path.join(root_dir, 'scratch', s_name)
+            if os.path.exists(s_path):
+                subprocess.run([sys.executable, s_path], cwd=root_dir, capture_output=True, text=True, timeout=60)
         
         return jsonify({
             "success": True,
