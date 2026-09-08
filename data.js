@@ -6511,7 +6511,7 @@ window.DASHBOARD_DATA = {
         "am": "Lê Minh Lợi",
         "vol_day": 0,
         "w35_day": 0,
-        "w36_day": 2,
+        "w36_day": 0,
         "diff_day": 0,
         "vol_night": 0,
         "w35_night": 0,

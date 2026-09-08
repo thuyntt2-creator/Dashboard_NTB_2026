@@ -3766,12 +3766,29 @@
     // Render danh sách AM chưa đạt KPI OPR TTS (< 80.0%)
     const _failedContainer = document.getElementById('opr-failed-ams-container');
     if (_failedContainer) {
-      // Sắp xếp các AM chưa đạt tổng (< 80%) từ thấp nhất lên
-      const failedTotal = _ams.filter(r => (r.w36_total !== undefined ? r.w36_total : 0) < 0.80)
-                              .sort((a, b) => (a.w36_total || 0) - (b.w36_total || 0));
-      const failedDay = _ams.filter(r => (r.w36_day || 0) < 0.80)
+      // Tính tổng đơn trễ OPR toàn vùng
+      const totalFailRegion = _ams.reduce((s, r) => {
+        const vTot = r.vol_total || r.total_vol || ((r.vol_day || 0) + (r.vol_night || 0));
+        const oTot = (r.vol_day === 0 && r.vol_night === 0) ? 0 : (r.w36_total !== undefined ? r.w36_total : (r.w35_total || 0));
+        return s + (vTot > 0 ? Math.round(vTot * (1 - (oTot > 1 ? 0 : oTot))) : 0);
+      }, 0);
+
+      // Sắp xếp các AM chưa đạt tổng (< 80%) và có đơn (> 0) theo số lượng đơn rớt OPR giảm dần
+      const failedTotal = _ams.filter(r => {
+        const vTot = r.vol_total || r.total_vol || ((r.vol_day || 0) + (r.vol_night || 0));
+        const oTot = r.w36_total !== undefined ? r.w36_total : 0;
+        return vTot > 0 && oTot < 0.80;
+      }).map(r => {
+        const vTot = r.vol_total || r.total_vol || ((r.vol_day || 0) + (r.vol_night || 0));
+        const oTot = r.w36_total !== undefined ? r.w36_total : 0;
+        const failTot = vTot > 0 ? Math.round(vTot * (1 - (oTot > 1 ? 0 : oTot))) : 0;
+        const rateFail = totalFailRegion > 0 ? (failTot / totalFailRegion) : 0;
+        return { ...r, fail_total: failTot, rate_fail: rateFail };
+      }).sort((a, b) => b.fail_total - a.fail_total);
+
+      const failedDay = _ams.filter(r => (r.vol_day || 0) > 0 && (r.w36_day || 0) < 0.80)
                             .sort((a, b) => (a.w36_day || 0) - (b.w36_day || 0));
-      const failedNight = _ams.filter(r => (r.w36_night || 0) < 0.80)
+      const failedNight = _ams.filter(r => (r.vol_night || 0) > 0 && (r.w36_night || 0) < 0.80)
                               .sort((a, b) => (a.w36_night || 0) - (b.w36_night || 0));
 
       _failedContainer.innerHTML = `
@@ -3787,13 +3804,13 @@
             </div>
             <div style="display:flex; gap:8px; flex-wrap:wrap;">
               <span class="badge-tag badge-tag-red" style="font-size:12px; font-weight:800; padding:6px 12px;">
-                🔴 Toàn Ngày: <strong>${failedTotal.length}/17 AM</strong>
+                🔴 Toàn Ngày: <strong>${failedTotal.length}/16 AM</strong>
               </span>
               <span class="badge-tag badge-tag-amber" style="font-size:12px; font-weight:800; padding:6px 12px;">
-                ☀️ Ca Ngày: <strong>${failedDay.length}/17 AM</strong>
+                ☀️ Ca Ngày: <strong>${failedDay.length}/16 AM</strong>
               </span>
               <span class="badge-tag badge-tag-purple" style="font-size:12px; font-weight:800; padding:6px 12px;">
-                🌙 Ca Đêm: <strong>${failedNight.length}/17 AM</strong>
+                🌙 Ca Đêm: <strong>${failedNight.length}/16 AM</strong>
               </span>
             </div>
           </div>
@@ -3817,9 +3834,14 @@
                      onmouseout="this.style.borderColor='${isSelected ? '#ef4444' : 'rgba(239,68,68,0.22)'}'; this.style.boxShadow='none'; this.style.transform='none'">
                   <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                     <div style="font-weight:900; font-size:13.5px; color:${isSelected ? '#ef4444' : 'var(--text-main, #0f172a)'};">${r.am}</div>
-                    <span style="font-size:11px; font-weight:800; color:#b91c1c; background:rgba(239,68,68,0.12); padding:2px 8px; border-radius:6px;">
-                      Thiếu -${gap}%p
-                    </span>
+                    <div style="display:flex; gap:4px; align-items:center;">
+                      <span style="font-size:11px; font-weight:800; color:#ea580c; background:var(--color-amber-bg); padding:2px 7px; border-radius:6px;" title="Tỷ trọng đóng góp vào tổng đơn rớt OPR vùng">
+                        Trễ ${fNum(r.fail_total)} đơn (${fPct(r.rate_fail, 1)})
+                      </span>
+                      <span style="font-size:11px; font-weight:800; color:#b91c1c; background:rgba(239,68,68,0.12); padding:2px 7px; border-radius:6px;">
+                        -${gap}%p
+                      </span>
+                    </div>
                   </div>
                   <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;">
                     <div style="display:flex; align-items:baseline; gap:6px;">
@@ -3918,17 +3940,29 @@
         list = list.filter(r => r.am.toLowerCase().includes(state.searchOpr));
       }
 
-      const sorted = list.sort((a, b) => (b.diff_night || 0) - (a.diff_night || 0));
+      const totalFailRegion = D.opr_tts.am.reduce((s, r) => {
+        const vTot = r.vol_total || r.total_vol || ((r.vol_day || 0) + (r.vol_night || 0));
+        const oTot = (r.vol_day === 0 && r.vol_night === 0) ? 0 : (r.w36_total !== undefined ? r.w36_total : (r.w35_total || 0));
+        return s + (vTot > 0 ? Math.round(vTot * (1 - (oTot > 1 ? 0 : oTot))) : 0);
+      }, 0);
+
+      const sorted = list.map(row => {
+        const vTot = row.vol_total || row.total_vol || ((row.vol_day || 0) + (row.vol_night || 0));
+        const oTot = (row.vol_day === 0 && row.vol_night === 0) ? 0 : (row.w36_total !== undefined ? row.w36_total : (row.w35_total || 0));
+        const failTot = vTot > 0 ? Math.round(vTot * (1 - (oTot > 1 ? 0 : oTot))) : 0;
+        const rateFail = totalFailRegion > 0 ? (failTot / totalFailRegion) : 0;
+        return { ...row, fail_total: failTot, rate_fail: rateFail, total_calc_vol: vTot };
+      }).sort((a, b) => b.fail_total - a.fail_total || (b.diff_night || 0) - (a.diff_night || 0));
 
       tblBody.innerHTML = sorted.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
         const rowClass = isSelected ? 'presenter-laser-box' : '';
-        const currDay = row.w36_day !== undefined ? row.w36_day : row.w35_day;
+        const rawDay = (row.vol_day === 0 || (row.w36_day || 0) > 1) ? 0 : (row.w36_day !== undefined ? row.w36_day : row.w35_day);
         const prevDay = row.w36_day !== undefined ? row.w35_day : row.w34_day;
-        const currNight = row.w36_night !== undefined ? row.w36_night : row.w35_night;
+        const rawNight = (row.vol_night === 0 || (row.w36_night || 0) > 1) ? 0 : (row.w36_night !== undefined ? row.w36_night : row.w35_night);
         const prevNight = row.w36_night !== undefined ? row.w35_night : row.w34_night;
-        const heatDay = getHeatmapClass(currDay, 'opr');
-        const heatNight = getHeatmapClass(currNight, 'opr');
+        const heatDay = getHeatmapClass(rawDay, 'opr');
+        const heatNight = getHeatmapClass(rawNight, 'opr');
         const diffDay = renderDeltaBadge(row.diff_day, true, true);
         const diffNight = renderDeltaBadge(row.diff_night, true, true);
 
@@ -3938,13 +3972,15 @@
             <td class="bold" style="font-weight:800; color:${isSelected ? '#ef4444' : 'inherit'};">${row.am}</td>
             <td class="num">${fNum(row.vol_day)}</td>
             <td class="num">${fPct(prevDay)}</td>
-            <td class="num bold ${heatDay}">${fPct(currDay)}</td>
+            <td class="num bold ${heatDay}">${fPct(rawDay)}</td>
             <td class="num bold">${diffDay}</td>
             <td class="num">${fNum(row.vol_night)}</td>
             <td class="num">${fPct(prevNight)}</td>
-            <td class="num bold ${heatNight}">${fPct(currNight)}</td>
+            <td class="num bold ${heatNight}">${fPct(rawNight)}</td>
             <td class="num bold">${diffNight}</td>
-            <td class="num bold" style="color: var(--color-blue);">${fNum(row.total_vol)}</td>
+            <td class="num bold" style="color: var(--color-blue);">${fNum(row.total_calc_vol)}</td>
+            <td class="num bold" style="background: rgba(239, 68, 68, 0.08); color: ${row.fail_total > 50 ? '#b91c1c' : 'inherit'}; font-weight: 800; font-size: 13.5px;">${fNum(row.fail_total)}</td>
+            <td class="num bold" style="background: var(--color-amber-bg); color: #ea580c; font-weight: 800; font-size: 13px;">${fPct(row.rate_fail, 1)}</td>
           </tr>
         `;
       }).join('');
@@ -3995,7 +4031,11 @@
           {
             type: 'bar',
             label: `%OPR 9h–19h ${currLabel} (Ca Ngày)`,
-            data: ams.map(d => Number(((d.w36_day !== undefined ? d.w36_day : (d.w35_day || 0)) * 100).toFixed(1))),
+            data: ams.map(d => {
+              if (!d.vol_day || d.vol_day === 0) return 0;
+              const val = d.w36_day !== undefined ? d.w36_day : (d.w35_day || 0);
+              return Number(((val > 1 ? 0 : val) * 100).toFixed(1));
+            }),
             backgroundColor: ams.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#2563eb'),
             borderColor: ams.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : 'transparent'),
             borderWidth: ams.map(d => selectedAM && selectedAM === d.am ? 2 : 0),
@@ -4014,7 +4054,11 @@
           {
             type: 'bar',
             label: `%OPR 19h–9h ${currLabel} (Ca Đêm)`,
-            data: ams.map(d => Number(((d.w36_night !== undefined ? d.w36_night : (d.w35_night || 0)) * 100).toFixed(1))),
+            data: ams.map(d => {
+              if (!d.vol_night || d.vol_night === 0) return 0;
+              const val = d.w36_night !== undefined ? d.w36_night : (d.w35_night || 0);
+              return Number(((val > 1 ? 0 : val) * 100).toFixed(1));
+            }),
             backgroundColor: ams.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#ea580c'),
             borderColor: ams.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : 'transparent'),
             borderWidth: ams.map(d => selectedAM && selectedAM === d.am ? 2 : 0),
@@ -4033,7 +4077,11 @@
           {
             type: 'line',
             label: `%OPR Tất cả ${currLabel} (Toàn Ngày)`,
-            data: ams.map(d => Number(((d.w36_total !== undefined ? d.w36_total : (d.w35_total !== undefined ? d.w35_total : ((d.w36_day || 0) * 0.6 + (d.w36_night || 0) * 0.4))) * 100).toFixed(1))),
+            data: ams.map(d => {
+              if ((!d.vol_day || d.vol_day === 0) && (!d.vol_night || d.vol_night === 0)) return 0;
+              const val = d.w36_total !== undefined ? d.w36_total : (d.w35_total !== undefined ? d.w35_total : 0);
+              return Number(((val > 1 ? 0 : val) * 100).toFixed(1));
+            }),
             borderColor: '#15803d',
             borderWidth: 3.5,
             tension: 0.25,
@@ -4214,17 +4262,26 @@
     // 1. BẢNG 1: 18 AM
     const tblBodyAM = document.querySelector('#table-rot-am-detailed tbody');
     if (tblBodyAM && D.rot_lc.am) {
+      const totalRotAM = D.rot_lc.am.reduce((s, r) => {
+        const wCurr = r.w36 !== undefined ? (r.w36 || 0) : (r.w35 || 0);
+        return s + Math.round((r.vol || 0) * wCurr);
+      }, 0);
+
       let listAM = [...D.rot_lc.am].map(r => {
         const wPrev = r.w36 !== undefined ? (r.w35 || 0) : (r.w34 || 0);
         const wCurr = r.w36 !== undefined ? (r.w36 || 0) : (r.w35 || 0);
         const diff_val = r.diff !== undefined ? r.diff : (wCurr - wPrev);
+        const vol_rot = Math.round((r.vol || 0) * wCurr);
+        const rate_rot = totalRotAM > 0 ? (vol_rot / totalRotAM) : 0;
         return {
           ...r,
           wPrev,
           wCurr,
-          diff_val
+          diff_val,
+          vol_rot,
+          rate_rot
         };
-      }).sort((a, b) => (b.wCurr || 0) - (a.wCurr || 0));
+      }).sort((a, b) => (b.vol_rot || 0) - (a.vol_rot || 0) || (b.wCurr || 0) - (a.wCurr || 0));
 
       tblBodyAM.innerHTML = listAM.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
@@ -4240,6 +4297,8 @@
             <td class="center">${renderRankPill(i)}</td>
             <td class="bold" style="font-size:13px; font-weight:800; color:${isSelected ? '#ef4444' : 'inherit'};">${row.am}</td>
             <td class="num">${fNum(row.vol)}</td>
+            <td class="num bold" style="background: rgba(239, 68, 68, 0.08); color: ${row.vol_rot > 10 ? '#b91c1c' : 'inherit'}; font-weight: 800; font-size: 13.5px;">${fNum(row.vol_rot)}</td>
+            <td class="num bold" style="background: var(--color-amber-bg); color: #ea580c; font-weight: 800; font-size: 13px;">${fPct(row.rate_rot, 1)}</td>
             <td class="num">${fPct(row.wPrev, 2)}</td>
             <td class="num bold ${heatCurr}">${fPct(row.wCurr, 2)}</td>
             <td class="num bold">${diffBadge}</td>
@@ -4252,17 +4311,26 @@
     // 2. BẢNG 2: 5 TỈNH THÀNH
     const tblBodyTinh = document.querySelector('#table-rot-tinh-detailed tbody');
     if (tblBodyTinh && D.rot_lc.tinh) {
+      const totalRotTinh = D.rot_lc.tinh.reduce((s, r) => {
+        const wCurr = r.w36 !== undefined ? (r.w36 || 0) : (r.w35 || 0);
+        return s + Math.round((r.vol || 0) * wCurr);
+      }, 0);
+
       let listTinh = [...D.rot_lc.tinh].map(r => {
         const wPrev = r.w36 !== undefined ? (r.w35 || 0) : (r.w34 || 0);
         const wCurr = r.w36 !== undefined ? (r.w36 || 0) : (r.w35 || 0);
         const diff_val = r.diff !== undefined ? r.diff : (wCurr - wPrev);
+        const vol_rot = Math.round((r.vol || 0) * wCurr);
+        const rate_rot = totalRotTinh > 0 ? (vol_rot / totalRotTinh) : 0;
         return {
           ...r,
           wPrev,
           wCurr,
-          diff_val
+          diff_val,
+          vol_rot,
+          rate_rot
         };
-      }).sort((a, b) => (b.wCurr || 0) - (a.wCurr || 0));
+      }).sort((a, b) => (b.vol_rot || 0) - (a.vol_rot || 0) || (b.wCurr || 0) - (a.wCurr || 0));
 
       tblBodyTinh.innerHTML = listTinh.map((row, i) => {
         const heatCurr = getHeatmapClass(row.wCurr, 'rot_lc');
@@ -4276,6 +4344,8 @@
             <td class="center">${renderRankPill(i)}</td>
             <td class="bold" style="font-size:13px; font-weight:800;">${row.tinh}</td>
             <td class="num">${fNum(row.vol)}</td>
+            <td class="num bold" style="background: rgba(239, 68, 68, 0.08); color: ${row.vol_rot > 10 ? '#b91c1c' : 'inherit'}; font-weight: 800; font-size: 13.5px;">${fNum(row.vol_rot)}</td>
+            <td class="num bold" style="background: var(--color-amber-bg); color: #ea580c; font-weight: 800; font-size: 13px;">${fPct(row.rate_rot, 1)}</td>
             <td class="num">${fPct(row.wPrev, 2)}</td>
             <td class="num bold ${heatCurr}">${fPct(row.wCurr, 2)}</td>
             <td class="num bold">${diffBadge}</td>
