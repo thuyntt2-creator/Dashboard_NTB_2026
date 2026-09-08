@@ -1393,15 +1393,12 @@
     // 4. BẢNG 3B: SẢN LƯỢNG 5 TỈNH THÀNH (TIKTOK SHOP)
     const tblBodyTinhTTS = document.querySelector('#table-vol-tinh-tts tbody');
     if (tblBodyTinhTTS && D.san_luong) {
-      const rawTinhFull = D.san_luong.tinh_full || D.san_luong.tinh || [];
-      const fullTinhMap = {};
-      rawTinhFull.forEach(f => fullTinhMap[f.tinh] = f.w36 || f.w35 || f.vol || 0);
-
       const rawTinhTTS = D.san_luong.tinh_tts || [];
+      const totalTtsVol = rawTinhTTS.reduce((sum, r) => sum + (r.w36 !== undefined ? r.w36 : (r.w35 || r.vol || 0)), 0);
+
       const listTinhTTS = [...rawTinhTTS].map(r => {
-        const fullVol = fullTinhMap[r.tinh] || 0;
-        const ttsVol = r.w36 || r.w35 || r.vol || 0;
-        const rate = fullVol > 0 ? (ttsVol / fullVol) : 0.228;
+        const ttsVol = r.w36 !== undefined ? r.w36 : (r.w35 || r.vol || 0);
+        const rate = totalTtsVol > 0 ? (ttsVol / totalTtsVol) : 0;
         return {
           ...r,
           rate_tts: rate,
