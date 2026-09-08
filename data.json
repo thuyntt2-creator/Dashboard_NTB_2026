@@ -11409,7 +11409,7 @@
         "prev_tm": "93.6%",
         "curr_tm": "85.8%",
         "diff": "-7.8%",
-        "action": "🔴 Mức rất cao (85.8% TM). Dù có giảm nhưng vẫn vượt ngưỡng 70%.\n• Tiếp tục duy trì đôn đốc cài đặt QR/POS tại các bưu cục trực thuộc.\n• Giám sát đối chiếu nộp tiền mặt cuối ca hàng ngày.",
+        "action": "🔴 Mức rất cao (≥70% TM). Vẫn duy trì mức cao qua 2 tuần.\n• Lập biên bản làm việc 1-1 với AM.\n• Đẩy mạnh cài đặt QR/POS tại các bưu cục trực thuộc.",
         "deadline": "Trong 3 ngày"
       },
       {
@@ -11417,48 +11417,48 @@
         "prev_tm": "71.2%",
         "curr_tm": "78.3%",
         "diff": "+7.1%",
-        "action": "🔴 Mức rất cao (78.3% TM & tăng +7.1%).\n• Lập biên bản làm việc 1-1 với AM ngay trong ngày.\n• Kiểm tra danh sách Shop mới phát sinh tiền mặt lớn.\n• Bắt buộc bưu tá in mã QR cá nhân trên áo và thùng xe.",
-        "deadline": "⚡ Gấp trong 24h"
+        "action": "⚠️ CẢNH BÁO: Tăng 7.1% TM so với tuần trước (71% ➔ 78%).\n• Yêu cầu giải trình biến động tăng ngay trong ngày.\n• Kiểm tra danh sách Shop phát sinh tiền mặt mới.",
+        "deadline": "Gấp trong 24h"
       },
       {
         "am": "Huỳnh Thị Kim Chi",
         "prev_tm": "73.7%",
         "curr_tm": "76.5%",
         "diff": "+2.8%",
-        "action": "🔴 Mức rất cao (76.5% TM & tăng +2.8%).\n• Lập biên bản làm việc 1-1 với AM ngay trong ngày.\n• Kiểm tra danh sách Shop mới phát sinh tiền mặt lớn.\n• Bắt buộc bưu tá in mã QR cá nhân trên áo và thùng xe.",
-        "deadline": "⚡ Gấp trong 24h"
+        "action": "🔴 Mức rất cao (≥70% TM). Vẫn duy trì mức cao qua 2 tuần.\n• Lập biên bản làm việc 1-1 với AM.\n• Đẩy mạnh cài đặt QR/POS tại các bưu cục trực thuộc.",
+        "deadline": "Trong 3 ngày"
       },
       {
         "am": "Trần Thị Nhung",
         "prev_tm": "71.1%",
         "curr_tm": "71.8%",
         "diff": "+0.8%",
-        "action": "🔴 Mức rất cao (71.8% TM & tăng +0.8%).\n• Lập biên bản làm việc 1-1 với AM ngay trong ngày.\n• Kiểm tra danh sách Shop mới phát sinh tiền mặt lớn.\n• Bắt buộc bưu tá in mã QR cá nhân trên áo và thùng xe.",
-        "deadline": "⚡ Gấp trong 24h"
+        "action": "🔴 Mức rất cao (≥70% TM). Vẫn duy trì mức cao qua 2 tuần.\n• Lập biên bản làm việc 1-1 với AM.\n• Đẩy mạnh cài đặt QR/POS tại các bưu cục trực thuộc.",
+        "deadline": "Trong 3 ngày"
       },
       {
         "am": "Trầm Hữu Tiến",
         "prev_tm": "69.4%",
         "curr_tm": "70.2%",
         "diff": "+0.8%",
-        "action": "🔴 Mức rất cao (70.2% TM & tăng +0.8%).\n• Lập biên bản làm việc 1-1 với AM ngay trong ngày.\n• Kiểm tra danh sách Shop mới phát sinh tiền mặt lớn.\n• Bắt buộc bưu tá in mã QR cá nhân trên áo và thùng xe.",
-        "deadline": "⚡ Gấp trong 24h"
+        "action": "🔴 Mức rất cao (≥70% TM). Vẫn duy trì mức cao qua 2 tuần.\n• Lập biên bản làm việc 1-1 với AM.\n• Đẩy mạnh cài đặt QR/POS tại các bưu cục trực thuộc.",
+        "deadline": "Trong 3 ngày"
       },
       {
         "am": "Trần Văn Phước",
         "prev_tm": "57.9%",
         "curr_tm": "58.3%",
         "diff": "+0.5%",
-        "action": "⚠️ CẢNH BÁO TĂNG TIỀN MẶT (58.3% TM, tăng +0.5%).\n• Yêu cầu AM giải trình danh sách Shop/tuyến phát sinh tiền mặt.\n• Tối ưu chuyển đổi QR cho các Shop lớn.",
-        "deadline": "⚡ Gấp trong 24h"
+        "action": "🟡 Đang ở ngưỡng cảnh báo (50% - 70%).\n• Tiếp tục theo dõi và yêu cầu tối ưu tỷ lệ CK cho các Shop lớn.",
+        "deadline": "Cuối tuần N"
       },
       {
         "am": "Lê Minh Đại",
         "prev_tm": "42.5%",
         "curr_tm": "51.9%",
         "diff": "+9.3%",
-        "action": "⚠️ CẢNH BÁO TĂNG TIỀN MẶT (51.9% TM, tăng +9.3%).\n• Yêu cầu AM giải trình danh sách Shop/tuyến phát sinh tiền mặt.\n• Tối ưu chuyển đổi QR cho các Shop lớn.",
-        "deadline": "⚡ Gấp trong 24h"
+        "action": "⚠️ CẢNH BÁO: Tăng 9.3% TM so với tuần trước (43% ➔ 52%).\n• Yêu cầu giải trình biến động tăng ngay trong ngày.\n• Kiểm tra danh sách Shop phát sinh tiền mặt mới.",
+        "deadline": "Gấp trong 24h"
       },
       {
         "am": "Phan Đình Duy",

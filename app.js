@@ -5573,38 +5573,6 @@
     });
   }
 
-  function renderTruyThuLoaiBar() {
-    const ctx = document.getElementById('chart-truy-thu-loai-bar');
-    if (!ctx || !D.truy_thu || !D.truy_thu.types) return;
-    if (charts.truyThuLoaiBar) charts.truyThuLoaiBar.destroy();
-
-    const types = D.truy_thu.types;
-
-    charts.truyThuLoaiBar = new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels: types.map(d => d.type),
-        datasets: [
-          {
-            data: types.map(d => Math.round((d.amount || 0) / 1e6)),
-            backgroundColor: ['#ef4444', '#f59e0b', '#3b82f6', '#8b5cf6']
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { position: 'bottom' },
-          tooltip: {
-            callbacks: {
-              label: c => ` ${c.label}: ${fNum(c.parsed)} Triệu VNĐ (${types[c.dataIndex].pct}%)`
-            }
-          }
-        }
-      }
-    });
-  }
 
   // --------------------------------------------------------------------------
   // TAB 12: BÁO CÁO TRUY THU KHỐI LƯỢNG & TICKET VI PHẠM (OE-IA)
