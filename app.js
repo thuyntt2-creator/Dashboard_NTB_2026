@@ -55,6 +55,8 @@
     volHighlight: 'all',
     gtcTongHighlight: 'all',
     gtcTongSegment: 'full',
+    gtcTtsCa1Highlight: 'all',
+    gtcTtsCa1Sort: 'diff_asc',
     theme: 'light',
     searchVol: '',
     searchGtcTong: '',
@@ -2318,6 +2320,31 @@
     renderGtcTtsCa1BarChart();
   };
 
+  window.setGtcTtsCa1Sort = function(mode) {
+    state.gtcTtsCa1Sort = mode;
+    const btnMap = {
+      diff_asc: 'btn-gtcttsca1-sort-diff-asc',
+      diff_desc: 'btn-gtcttsca1-sort-diff-desc',
+      gtc_desc: 'btn-gtcttsca1-sort-gtc-desc'
+    };
+
+    Object.keys(btnMap).forEach(k => {
+      const b = document.getElementById(btnMap[k]);
+      if (b) {
+        if (k === mode) {
+          b.classList.add('active');
+          b.style.fontWeight = '800';
+          b.style.color = '#ea580c';
+        } else {
+          b.classList.remove('active');
+          b.style.fontWeight = 'normal';
+          b.style.color = '';
+        }
+      }
+    });
+    renderGtcTtsCa1BarChart();
+  };
+
   function getGtcCa1TtsData() {
     const prevKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2].toLowerCase() : 'w35';
     const currKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1].toLowerCase() : 'w36';
@@ -2378,8 +2405,16 @@
     const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W36';
     const selectedAM = state.selectedAM;
     const hlMode = state.gtcTtsCa1Highlight || 'all';
+    const sortMode = state.gtcTtsCa1Sort || 'diff_asc';
 
-    const sorted = getGtcCa1TtsData().sort((a, b) => b.w35_pct - a.w35_pct);
+    let sorted = getGtcCa1TtsData();
+    if (sortMode === 'diff_asc') {
+      sorted.sort((a, b) => a.diff_pct - b.diff_pct);
+    } else if (sortMode === 'diff_desc') {
+      sorted.sort((a, b) => b.diff_pct - a.diff_pct);
+    } else {
+      sorted.sort((a, b) => b.w35_pct - a.w35_pct);
+    }
 
     function checkCa1Match(d) {
       if (selectedAM) return selectedAM === d.am;
@@ -3748,9 +3783,6 @@
                 <h4 style="margin:0; font-size:15px; font-weight:900; color:#b91c1c; text-transform:uppercase; letter-spacing:0.3px;">
                   DANH SÁCH ${failedTotal.length} AM CHƯA ĐẠT KPI OPR TTS (< 80.0%)
                 </h4>
-                <div style="font-size:12px; color:var(--text-muted, #64748b); margin-top:2px;">
-                  Nhấp vào từng thẻ AM để tự động định vị và làm nổi bật (laser highlight) trên biểu đồ & các bảng bên dưới
-                </div>
               </div>
             </div>
             <div style="display:flex; gap:8px; flex-wrap:wrap;">
@@ -3770,8 +3802,10 @@
             ${failedTotal.map(r => {
               const val = ((r.w36_total !== undefined ? r.w36_total : 0) * 100);
               const gap = (80 - val).toFixed(1);
-              const dayVal = ((r.w36_day || 0) * 100).toFixed(1);
-              const nightVal = ((r.w36_night || 0) * 100).toFixed(1);
+              const rawDay = (r.vol_day === 0 || (r.w36_day || 0) > 1) ? 0 : (r.w36_day || 0);
+              const dayVal = (rawDay * 100).toFixed(1);
+              const rawNight = (r.vol_night === 0 || (r.w36_night || 0) > 1) ? 0 : (r.w36_night || 0);
+              const nightVal = (rawNight * 100).toFixed(1);
               const diffTot = r.diff_total !== undefined ? (r.diff_total * 100) : 0;
               const diffBadge = diffTot !== 0 ? `<span style="font-size:11px; font-weight:800; color:${diffTot > 0 ? '#10b981' : '#ef4444'};">${diffTot > 0 ? '▲ +' : '▼ '}${Math.abs(diffTot).toFixed(1)}%p</span>` : '';
               const isSelected = state.selectedAM === r.am;

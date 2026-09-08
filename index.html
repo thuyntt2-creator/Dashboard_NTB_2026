@@ -814,6 +814,15 @@
             <button class="btn btn-sm btn-secondary" id="btn-gtcttsca1-hl-fail" onclick="setGtcTtsCa1Highlight('fail')" style="color: #b91c1c; font-weight: 800;">⚠️ Chưa Đạt SLA (&lt;76%)</button>
           </div>
         </div>
+
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+          <span style="font-size: 12px; font-weight: 700; color: var(--text-muted);">🔃 THỨ TỰ BIỂU ĐỒ:</span>
+          <div class="btn-group">
+            <button class="btn btn-sm btn-secondary active" id="btn-gtcttsca1-sort-diff-asc" onclick="setGtcTtsCa1Sort('diff_asc')" style="color: #ea580c; font-weight: 800;">📉 Biến Động A → Z (Tăng dần)</button>
+            <button class="btn btn-sm btn-secondary" id="btn-gtcttsca1-sort-diff-desc" onclick="setGtcTtsCa1Sort('diff_desc')">📈 Biến Động Z → A (Giảm dần)</button>
+            <button class="btn btn-sm btn-secondary" id="btn-gtcttsca1-sort-gtc-desc" onclick="setGtcTtsCa1Sort('gtc_desc')">🏆 %GTC Ca 1 (Cao → Thấp)</button>
+          </div>
+        </div>
       </div>
 
       <!-- Chart %GTC TTS Ca 1 -->
