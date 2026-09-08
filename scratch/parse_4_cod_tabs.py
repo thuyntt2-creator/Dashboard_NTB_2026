@@ -2,7 +2,6 @@ import json
 import sys
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
-import pandas as pd
 
 sys.stdout.reconfigure(encoding='utf-8')
 sheet_id = '1j6Xm7JRemUGRSfbL-wc8DMwt7qfR7j79w9q79_snVnU'
@@ -18,6 +17,12 @@ with open('data.json', 'r', encoding='utf-8') as f:
 res1 = service.spreadsheets().values().get(spreadsheetId=sheet_id, range='1. Xu hướng 2 Tuần').execute()
 rows1 = res1.get('values', [])
 summary_text = rows1[1][0] if len(rows1) > 1 and len(rows1[1]) > 0 else ""
+
+prev_period = "Tuần N-1"
+curr_period = "Tuần N"
+if len(rows1) >= 4 and len(rows1[3]) >= 3:
+    prev_period = rows1[3][1].strip()
+    curr_period = rows1[3][2].strip()
 
 metrics_list = []
 if len(rows1) >= 8:
@@ -83,8 +88,87 @@ if len(rows4) > 2:
                 "deadline": r[5]
             })
 
+# If action_list is empty from Google Sheets, generate automatically based on AM comparison
+if not action_list:
+    gsheet_update_rows = [
+        ["HƯỚNG XỬ LÝ AM CÓ TỶ LỆ TIỀN MẶT CAO TRONG TUẦN N (≥ 50%)", "", "", "", "", ""],
+        ["AM", prev_period + " (% TM)", curr_period + " (% TM)", "Biến động", "Hành động yêu cầu", "Deadline"]
+    ]
+    for a in am_list:
+        try:
+            curr_val = float(a['curr_tm'].replace('%', '').strip())
+        except Exception:
+            continue
+        
+        diff_str = a['diff']
+        is_rising = diff_str.startswith('+')
+        
+        if curr_val >= 70.0:
+            if is_rising:
+                act = f"🔴 Mức rất cao ({a['curr_tm']} TM & tăng {diff_str}).\n• Lập biên bản làm việc 1-1 với AM ngay trong ngày.\n• Kiểm tra danh sách Shop mới phát sinh tiền mặt lớn.\n• Bắt buộc bưu tá in mã QR cá nhân trên áo và thùng xe."
+                dl = "⚡ Gấp trong 24h"
+            else:
+                act = f"🔴 Mức rất cao ({a['curr_tm']} TM). Dù có giảm nhưng vẫn vượt ngưỡng 70%.\n• Tiếp tục duy trì đôn đốc cài đặt QR/POS tại các bưu cục trực thuộc.\n• Giám sát đối chiếu nộp tiền mặt cuối ca hàng ngày."
+                dl = "Trong 3 ngày"
+            action_list.append({
+                "am": a['am'],
+                "prev_tm": a['prev_tm'],
+                "curr_tm": a['curr_tm'],
+                "diff": a['diff'],
+                "action": act,
+                "deadline": dl
+            })
+            gsheet_update_rows.append([a['am'], a['prev_tm'], a['curr_tm'], a['diff'], act, dl])
+        elif curr_val >= 50.0:
+            if is_rising:
+                act = f"⚠️ CẢNH BÁO TĂNG TIỀN MẶT ({a['curr_tm']} TM, tăng {diff_str}).\n• Yêu cầu AM giải trình danh sách Shop/tuyến phát sinh tiền mặt.\n• Tối ưu chuyển đổi QR cho các Shop lớn."
+                dl = "⚡ Gấp trong 24h"
+            else:
+                act = f"🟡 Đang ở ngưỡng cảnh báo (50% - 70%).\n• Tiếp tục theo dõi và yêu cầu tối ưu tỷ lệ chuyển khoản QR cho các Shop lớn."
+                dl = "Cuối tuần N"
+            action_list.append({
+                "am": a['am'],
+                "prev_tm": a['prev_tm'],
+                "curr_tm": a['curr_tm'],
+                "diff": a['diff'],
+                "action": act,
+                "deadline": dl
+            })
+            gsheet_update_rows.append([a['am'], a['prev_tm'], a['curr_tm'], a['diff'], act, dl])
+        elif is_rising:
+            try:
+                diff_val = float(diff_str.replace('+', '').replace('%', '').strip())
+                if diff_val >= 8.0:
+                    act = f"⚠️ Tăng đột biến tỷ lệ tiền mặt (+{diff_val}%p so với tuần trước).\n• Rà soát các tuyến giao và bưu cục trực thuộc có phát sinh đơn tiền mặt bất thường."
+                    dl = "Trong 48h"
+                    action_list.append({
+                        "am": a['am'],
+                        "prev_tm": a['prev_tm'],
+                        "curr_tm": a['curr_tm'],
+                        "diff": a['diff'],
+                        "action": act,
+                        "deadline": dl
+                    })
+                    gsheet_update_rows.append([a['am'], a['prev_tm'], a['curr_tm'], a['diff'], act, dl])
+            except Exception:
+                pass
+
+    # Push to Google Sheet Tab 4
+    try:
+        service.spreadsheets().values().update(
+            spreadsheetId=sheet_id,
+            range='4. Hướng xử lý AM!A1',
+            valueInputOption='USER_ENTERED',
+            body={'values': gsheet_update_rows}
+        ).execute()
+        print("Updated Google Sheet Tab 4: 4. Hướng xử lý AM successfully!")
+    except Exception as e:
+        print(f"Note: Could not update Tab 4 on Google Sheets: {e}")
+
 d['cod_report'] = {
     "summary_text": summary_text,
+    "prev_period": prev_period,
+    "curr_period": curr_period,
     "metrics": metrics_list,
     "am_comparison": am_list,
     "bc_details": bc_list,

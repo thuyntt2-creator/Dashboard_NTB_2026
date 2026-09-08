@@ -5337,6 +5337,80 @@
     const seg = state.codSegment || 'trend';
     const report = D.cod_report || {};
 
+    // Dynamic Banner & KPIs
+    const prevPeriod = report.prev_period || 'Tuần N-1';
+    const currPeriod = report.curr_period || 'Tuần N';
+
+    const bannerTitle = document.getElementById('cod-banner-title');
+    if (bannerTitle) {
+      bannerTitle.textContent = `BÁO CÁO COD – SO SÁNH BIẾN ĐỘNG 2 TUẦN (${prevPeriod} vs ${currPeriod}) | VÙNG NTB`;
+    }
+
+    const topBad = (report.am_comparison || [])
+      .filter(r => parseFloat(r.curr_tm) >= 70)
+      .map(r => `${r.am} (${r.curr_tm})`);
+    const bannerDescEl = document.getElementById('cod-summary-banner-desc');
+    if (bannerDescEl) {
+      bannerDescEl.innerHTML = `
+        • <strong>${report.summary_text || ''}</strong><br>
+        • <strong>Top AM cần giảm tiền mặt gấp (≥70% TM):</strong> ${topBad.length ? topBad.join(', ') : 'Không có'}.
+      `;
+    }
+
+    const totalMetric = (report.metrics || []).find(m => m.chi_so.includes('Tổng COD'));
+    const cashMetric = (report.metrics || []).find(m => m.chi_so.includes('Tiền mặt') && !m.chi_so.includes('Tỷ lệ'));
+    const bankMetric = (report.metrics || []).find(m => m.chi_so.includes('Chuyển khoản'));
+    const tmRateMetric = (report.metrics || []).find(m => m.chi_so.includes('Tỷ lệ') || m.chi_so.includes('% TM'));
+
+    const badgeEl = document.getElementById('cod-summary-banner-badge');
+    if (badgeEl && totalMetric && tmRateMetric) {
+      badgeEl.textContent = `Tổng COD: ${totalMetric.curr} Tr | % TM: ${tmRateMetric.curr}`;
+    }
+
+    // 4 KPI Tiles
+    if (totalMetric) {
+      const elVal = document.getElementById('kpi-cod-total-val');
+      const elMeta = document.getElementById('kpi-cod-total-meta');
+      const elTitle = document.getElementById('kpi-cod-total-title');
+      if (elTitle) elTitle.textContent = `Tổng COD Thu Hộ (${currPeriod})`;
+      if (elVal) elVal.innerHTML = `${totalMetric.curr} <small>Tr ₫</small>`;
+      if (elMeta) elMeta.innerHTML = `<span class="diff-tag diff-neutral">${prevPeriod}: ${totalMetric.prev} Tr ₫ (${totalMetric.diff_pct})</span>`;
+    }
+
+    if (cashMetric) {
+      const elVal = document.getElementById('kpi-cod-cash-val');
+      const elMeta = document.getElementById('kpi-cod-cash-meta');
+      const elTitle = document.getElementById('kpi-cod-cash-title');
+      if (elTitle) elTitle.textContent = `Tiền Mặt (${currPeriod})`;
+      if (elVal) elVal.innerHTML = `${cashMetric.curr} <small>Tr ₫</small>`;
+      if (elMeta) elMeta.innerHTML = `<span class="diff-tag diff-neutral">${prevPeriod}: ${cashMetric.prev} Tr ₫ (${cashMetric.diff_pct})</span>`;
+    }
+
+    if (bankMetric) {
+      const elVal = document.getElementById('kpi-cod-bank-val');
+      const elMeta = document.getElementById('kpi-cod-bank-meta');
+      const elTitle = document.getElementById('kpi-cod-bank-title');
+      if (elTitle) elTitle.textContent = `Chuyển Khoản (${currPeriod})`;
+      if (elVal) elVal.innerHTML = `${bankMetric.curr} <small>Tr ₫</small>`;
+      if (elMeta) elMeta.innerHTML = `<span class="diff-tag diff-neutral">${prevPeriod}: ${bankMetric.prev} Tr ₫ (${bankMetric.diff_pct})</span>`;
+    }
+
+    if (tmRateMetric) {
+      const elVal = document.getElementById('kpi-cod-rate-val');
+      const elMeta = document.getElementById('kpi-cod-rate-meta');
+      const elTitle = document.getElementById('kpi-cod-rate-title');
+      if (elTitle) elTitle.textContent = `Tỷ Lệ Tiền Mặt (% TM)`;
+      if (elVal) elVal.textContent = `${tmRateMetric.curr}`;
+      const isBad = tmRateMetric.diff_val.startsWith('+') || !tmRateMetric.diff_val.startsWith('-');
+      if (elMeta) elMeta.innerHTML = `<span class="diff-tag ${isBad ? 'diff-up-bad' : 'diff-down-good'}">${isBad ? '▲ Tăng' : '▼ Giảm'} ${tmRateMetric.diff_val} (${prevPeriod}: ${tmRateMetric.prev})</span>`;
+    }
+
+    // Dynamic Table 1 Header
+    const thPrev = document.getElementById('th-cod-prev');
+    const thCurr = document.getElementById('th-cod-curr');
+    if (thPrev) thPrev.textContent = prevPeriod;
+    if (thCurr) thCurr.textContent = currPeriod;
+
     // 1. PANEL 1: XU HƯỚNG 2 TUẦN
     const tblTrend = document.querySelector('#table-cod-trend-metrics tbody');
     if (tblTrend && report.metrics) {
@@ -5444,20 +5518,32 @@
     if (!ctx) return;
     if (charts.codTmAmBar) charts.codTmAmBar.destroy();
 
+    const report = D.cod_report || {};
+    const prevLabel = report.prev_period || 'Tuần N-1';
+    const currLabel = report.curr_period || 'Tuần N';
+
+    const cashMetric = (report.metrics || []).find(m => m.chi_so.includes('Tiền mặt') && !m.chi_so.includes('Tỷ lệ'));
+    const bankMetric = (report.metrics || []).find(m => m.chi_so.includes('Chuyển khoản'));
+
+    const cashPrev = cashMetric ? parseFloat(cashMetric.prev.replace(/,/g, '')) : 34322.1;
+    const cashCurr = cashMetric ? parseFloat(cashMetric.curr.replace(/,/g, '')) : 33475.7;
+    const bankPrev = bankMetric ? parseFloat(bankMetric.prev.replace(/,/g, '')) : 50307.8;
+    const bankCurr = bankMetric ? parseFloat(bankMetric.curr.replace(/,/g, '')) : 42147.7;
+
     charts.codTmAmBar = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['Tuần N-1 (01–15/08)', 'Tuần N (16–30/08)'],
+        labels: [prevLabel, currLabel],
         datasets: [
           {
             label: 'Tiền Mặt (Triệu ₫)',
-            data: [78462.9, 71635.1],
+            data: [cashPrev, cashCurr],
             backgroundColor: '#ef4444',
             borderRadius: 4
           },
           {
             label: 'Chuyển Khoản (Triệu ₫)',
-            data: [125488.2, 109188.8],
+            data: [bankPrev, bankCurr],
             backgroundColor: '#10b981',
             borderRadius: 4
           }

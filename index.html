@@ -2349,16 +2349,15 @@
             <i data-lucide="wallet" style="width: 24px; height: 24px;"></i>
           </div>
           <div class="exec-banner-text">
-            <h3>BÁO CÁO COD – SO SÁNH BIẾN ĐỘNG 2 TUẦN (TUẦN N-1 vs TUẦN N) | VÙNG NTB</h3>
+            <h3 id="cod-banner-title">BÁO CÁO COD – SO SÁNH BIẾN ĐỘNG 2 TUẦN | VÙNG NTB</h3>
             <p id="cod-summary-banner-desc">
-              • <strong>Tuần N-1 (01/08–15/08):</strong> 38.5% TM ➔ <strong>Tuần N (16/08–30/08):</strong> 39.6% TM | <strong>Biến động:</strong> +1.1% (Tỷ lệ tiền mặt tăng nhẹ ⚠️).<br>
-              • <strong>Top AM cần giảm tiền mặt gấp:</strong> Huỳnh Thúc Duân (89.6%), Huỳnh Thị Kim Chi (73.8%), Trần Thị Nhung (71.0%), Lê Thanh Nhựt (69.3%).
+              Đang tải dữ liệu COD...
             </p>
           </div>
         </div>
         <div class="exec-banner-actions">
-          <span class="badge-tag badge-tag-amber" style="font-size: 12px; padding: 6px 12px;">
-            Tổng COD: 180,823.9 Tr | % TM: 39.6%
+          <span class="badge-tag badge-tag-amber" id="cod-summary-banner-badge" style="font-size: 12px; padding: 6px 12px;">
+            Tổng COD: -- Tr | % TM: --%
           </span>
         </div>
       </div>
@@ -2389,24 +2388,24 @@
         <!-- 4 COD Summary KPI Tiles -->
         <div class="kpi-strip" style="margin-bottom: 20px;">
           <div class="kpi-tile kpi-blue">
-            <div class="kpi-tile-header">Tổng COD Thu Hộ Tuần N</div>
-            <div class="kpi-tile-value">180,823.9 <small>Tr ₫</small></div>
-            <div class="kpi-tile-meta"><span class="diff-tag diff-neutral">Tuần N-1: 203,951.1 Tr ₫</span></div>
+            <div class="kpi-tile-header" id="kpi-cod-total-title">Tổng COD Thu Hộ Tuần N</div>
+            <div class="kpi-tile-value" id="kpi-cod-total-val">-- <small>Tr ₫</small></div>
+            <div class="kpi-tile-meta" id="kpi-cod-total-meta"><span class="diff-tag diff-neutral">--</span></div>
           </div>
           <div class="kpi-tile kpi-amber">
-            <div class="kpi-tile-header">Tiền Mặt Tuần N</div>
-            <div class="kpi-tile-value">71,635.1 <small>Tr ₫</small></div>
-            <div class="kpi-tile-meta"><span class="diff-tag diff-neutral">Tuần N-1: 78,462.9 Tr ₫</span></div>
+            <div class="kpi-tile-header" id="kpi-cod-cash-title">Tiền Mặt Tuần N</div>
+            <div class="kpi-tile-value" id="kpi-cod-cash-val">-- <small>Tr ₫</small></div>
+            <div class="kpi-tile-meta" id="kpi-cod-cash-meta"><span class="diff-tag diff-neutral">--</span></div>
           </div>
           <div class="kpi-tile kpi-green">
-            <div class="kpi-tile-header">Chuyển Khoản Tuần N</div>
-            <div class="kpi-tile-value">109,188.8 <small>Tr ₫</small></div>
-            <div class="kpi-tile-meta"><span class="diff-tag diff-neutral">Tuần N-1: 125,488.2 Tr ₫</span></div>
+            <div class="kpi-tile-header" id="kpi-cod-bank-title">Chuyển Khoản Tuần N</div>
+            <div class="kpi-tile-value" id="kpi-cod-bank-val">-- <small>Tr ₫</small></div>
+            <div class="kpi-tile-meta" id="kpi-cod-bank-meta"><span class="diff-tag diff-neutral">--</span></div>
           </div>
           <div class="kpi-tile kpi-red">
-            <div class="kpi-tile-header">Tỷ Lệ Tiền Mặt (% TM)</div>
-            <div class="kpi-tile-value">39.6%</div>
-            <div class="kpi-tile-meta"><span class="diff-tag diff-up-bad">▲ Tăng 1.1% (Tuần N-1: 38.5%)</span></div>
+            <div class="kpi-tile-header" id="kpi-cod-rate-title">Tỷ Lệ Tiền Mặt (% TM)</div>
+            <div class="kpi-tile-value" id="kpi-cod-rate-val">--%</div>
+            <div class="kpi-tile-meta" id="kpi-cod-rate-meta"><span class="diff-tag diff-up-bad">--</span></div>
           </div>
         </div>
 
@@ -2425,8 +2424,8 @@
                   <thead>
                     <tr style="background: #1e3a8a; color: #ffffff;">
                       <th style="color:#ffffff;">Chỉ Số</th>
-                      <th class="num" style="color:#ffffff;">Tuần N-1 (01–15/08)</th>
-                      <th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Tuần N (16–30/08)</th>
+                      <th class="num" id="th-cod-prev" style="color:#ffffff;">Tuần N-1</th>
+                      <th class="num" id="th-cod-curr" style="background: #0284c7; color:#ffffff; font-weight:800;">Tuần N</th>
                       <th class="num" style="color:#ffffff;">Chênh Lệch (Tr ₫)</th>
                       <th class="num" style="color:#ffffff;">Biến Động (%)</th>
                       <th class="center" style="color:#ffffff;">Đánh Giá</th>
