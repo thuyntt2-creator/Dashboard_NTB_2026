@@ -7908,3 +7908,5 @@ if __name__ == '__main__':
     app.run(debug=False, use_reloader=False, host='0.0.0.0', port=port)
 
 
+
+# Trigger rebuild for Kinh Doanh tab in templates/index.html: 2026-09-09
