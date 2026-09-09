@@ -449,7 +449,7 @@ for r in range(6, 23):
             'am': str(am).strip(),
             'vol_day': ws_opr.cell(r, 2).value or 0,
             'w35_day': ws_opr.cell(r, 3).value or 0,
-            'w36_day': ws_opr.cell(r, 4).value or 0,
+            'w36_day': (ws_opr.cell(r, 4).value or 0) if (ws_opr.cell(r, 4).value or 0) <= 1 else 0,
             'diff_day': ws_opr.cell(r, 5).value or 0,
             'vol_night': ws_opr.cell(r, 6).value or 0,
             'w35_night': ws_opr.cell(r, 7).value or 0,
@@ -626,11 +626,22 @@ try:
 except Exception as e:
     pass
 
+
+khach_hang_a = {}
+try:
+    kh_json_p = os.path.join(os.path.dirname(__file__), 'scratch', 'khach_hang_a.json')
+    if os.path.exists(kh_json_p):
+        with open(kh_json_p, 'r', encoding='utf-8') as f_kh:
+            khach_hang_a = json.load(f_kh)
+except Exception as e:
+    pass
+
 data['kinh_doanh'] = {
     'am': kd_am,
     'top_drop': top_drop_kd,
     'churn_top10': churn_top10,
     'churn_zero': churn_zero,
+    'khach_hang_a': khach_hang_a,
     'total': {
         'vol_prev': 32739,
         'vol_curr': 30132,
