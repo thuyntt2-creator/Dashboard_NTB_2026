@@ -7912,3 +7912,5 @@ if __name__ == '__main__':
 # Trigger rebuild for Kinh Doanh tab in templates/index.html: 2026-09-09
 
 # Trigger rebuild premium KD UI: 1788973037.3088765
+
+# Trigger rebuild Khach Hang A UI v2: 1788973970.3328724
