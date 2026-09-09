@@ -6020,8 +6020,99 @@
     }).join('');
   }
 
+
+  function renderKdNhomATable() {
+    const tbody = document.querySelector('#table-kd-nhom-a tbody');
+    if (!tbody || !D.kinh_doanh || !D.kinh_doanh.khach_hang_a || !D.kinh_doanh.khach_hang_a.shops) return;
+
+    const selectedAM = state.selectedAM;
+    let shops = D.kinh_doanh.khach_hang_a.shops;
+    if (selectedAM && selectedAM !== 'all') {
+      shops = shops.filter(s => s.am === selectedAM);
+    }
+
+    if (shops.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="18" class="center" style="padding: 24px; color: var(--text-muted);">Không có shop nhóm A nào thuộc AM <strong>${selectedAM}</strong></td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = shops.map((s, idx) => {
+      const isSelected = selectedAM === s.am;
+      const rowClass = isSelected ? 'presenter-laser-box' : '';
+      
+      const diffBadge = s.diff_w1 > 0
+        ? `<span class="diff-tag diff-up-good">▲ +${fNum(s.diff_w1)} (${s.pct_w1}%)</span>`
+        : (s.diff_w1 < 0 ? `<span class="diff-tag diff-down-bad">▼ ${fNum(s.diff_w1)} (${s.pct_w1}%)</span>` : `<span class="diff-tag diff-neutral">0%</span>`);
+
+      const truHangVal = parseFloat(s.pct_tru_hang) || 0;
+      const truHangBadge = truHangVal >= 25 
+        ? `<span class="badge-tag badge-tag-green" style="font-weight:700;">${s.pct_tru_hang}</span>`
+        : `<span class="badge-tag badge-tag-amber" style="font-weight:700;">${s.pct_tru_hang}</span>`;
+
+      return `
+        <tr class="${rowClass}">
+          <td class="center bold">${idx + 1}</td>
+          <td class="bold" style="color: ${isSelected ? '#ef4444' : 'inherit'}; cursor:pointer;" onclick="selectAndHighlightAM('${s.am}')">${s.am}</td>
+          <td style="font-size: 11.5px; color: var(--text-muted);">${s.buu_cuc}</td>
+          <td class="bold" style="font-family: monospace;">${s.makh}</td>
+          <td class="bold" style="color: var(--color-blue);">${s.tenkh}</td>
+          <td class="center"><span class="badge-tag badge-tag-blue">${s.nhom_n || 'A5'}</span></td>
+          <td class="center">${truHangBadge}</td>
+          <td class="num bold" style="color: #059669; font-size: 13.5px;">${fNum(s.mtd)}</td>
+          <td class="center bold" style="color: #4b5563;">${s.pct_mtd_m1}</td>
+          <td class="num">${fNum(s.daily_dt['01/09'] || 0)}</td>
+          <td class="num">${fNum(s.daily_dt['02/09'] || 0)}</td>
+          <td class="num">${fNum(s.daily_dt['03/09'] || 0)}</td>
+          <td class="num">${fNum(s.daily_dt['04/09'] || 0)}</td>
+          <td class="num">${fNum(s.daily_dt['05/09'] || 0)}</td>
+          <td class="num">${fNum(s.daily_dt['06/09'] || 0)}</td>
+          <td class="num">${fNum(s.daily_dt['07/09'] || 0)}</td>
+          <td class="num bold" style="color: #2563eb; font-size: 13.5px; background: rgba(37, 99, 235, 0.06);">${fNum(s.dt_n1)}</td>
+          <td class="num bold">${diffBadge}</td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  function renderKdNhomAWarningTable() {
+    const tbody = document.querySelector('#table-kd-nhom-a-warning tbody');
+    if (!tbody || !D.kinh_doanh || !D.kinh_doanh.khach_hang_a || !D.kinh_doanh.khach_hang_a.warning) return;
+
+    const selectedAM = state.selectedAM;
+    let warnings = D.kinh_doanh.khach_hang_a.warning;
+    if (selectedAM && selectedAM !== 'all') {
+      warnings = warnings.filter(w => w.am === selectedAM);
+    }
+
+    if (warnings.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="12" class="center" style="padding: 20px; color: #10b981; font-weight:700;">✅ Không có cảnh báo bất thường nào cho shop nhóm A ${selectedAM ? `thuộc AM ${selectedAM}` : ''}</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = warnings.map((w, idx) => {
+      return `
+        <tr>
+          <td class="center bold">${idx + 1}</td>
+          <td class="bold" style="font-family: monospace;">${w.makh}</td>
+          <td class="bold" style="color: #b91c1c;">${w.tenkh}</td>
+          <td class="bold" onclick="selectAndHighlightAM('${w.am}')" style="cursor:pointer;">${w.am}</td>
+          <td style="font-size: 11.5px; color: var(--text-muted);">${w.buu_cuc}</td>
+          <td class="center"><span class="badge-tag badge-tag-blue">${w.nhomkh}</span></td>
+          <td class="num">${fNum(w.cam_ket)}</td>
+          <td class="num bold">${fNum(w.mtd)}</td>
+          <td class="center bold">${w.pct_mtd_m1}</td>
+          <td class="center bold">${w.ngay}</td>
+          <td class="num bold" style="color: #ef4444; font-size: 14px; background: rgba(239, 68, 68, 0.08);">${fNum(w.dt)}</td>
+          <td class="center"><span class="diff-tag diff-down-bad">▼ Sụt giảm ngày 08/09 (DT chỉ còn 12 Tr)</span></td>
+        </tr>
+      `;
+    }).join('');
+  }
+
   function renderCommercialTab() {
     renderKdChurnTable();
+    renderKdNhomATable();
+    renderKdNhomAWarningTable();
     // 1. Doanh Thu Theo AM Table
     const tblKd = document.querySelector('#table-kd-doanh-thu-data tbody');
     if (tblKd && D.kinh_doanh && D.kinh_doanh.am) {
