@@ -1828,7 +1828,7 @@
                 <li class="menu-item" id="nav-tab-nhan-su" onclick="switchTab('tab-nhan-su', this)">
                     <i class="fa-solid fa-users"></i> Quản lý Nhân sự
                 </li>
-                <li class="menu-item" id="nav-tab-kinh-doanh" onclick="window.location.href='/hop'" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(59, 130, 246, 0.12)); border: 1px solid rgba(16, 185, 129, 0.3); font-weight: 700; color: #059669;">
+                <li class="menu-item" id="nav-tab-kinh-doanh" onclick="switchTab('tab-kinh-doanh', this)" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(59, 130, 246, 0.12)); border: 1px solid rgba(16, 185, 129, 0.3); font-weight: 700; color: #059669;">
                     <i class="fa-solid fa-chart-line" style="color: #10b981;"></i> 📊 Báo Cáo Kinh Doanh (Nhóm A & F30)
                 </li>
                 <li class="menu-item" id="nav-tab-sync" onclick="switchTab('tab-sync', this)">
@@ -4576,6 +4576,144 @@
                     </div>
                 </div>
             </div>
+        
+            <!-- TAB: KINH DOANH (LOOKER DB - GID 652503222) -->
+            <div id="tab-kinh-doanh" class="content-panel">
+                <!-- Hero Banner -->
+                <div class="ntb-hero-banner" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(30, 58, 138, 0.15)); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                            <span class="badge badge-success" style="font-size: 11px; padding: 4px 10px;"><i class="fa-solid fa-circle-check"></i> Looker DB Chuẩn</span>
+                            <span class="badge" style="background: rgba(59, 130, 246, 0.15); color: #2563eb; font-size: 11px; padding: 4px 10px;">Cập nhật: 08/09 (N-1)</span>
+                        </div>
+                        <h2 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 800; color: var(--text-primary); margin: 0 0 4px 0;">
+                            BÁO CÁO DOANH THU KHÁCH HÀNG NHÓM A THEO SHOP & AM
+                        </h2>
+                        <p style="font-size: 13px; color: var(--text-secondary); margin: 0;">
+                            Theo dõi doanh thu luỹ kế MTD, tỷ lệ trụ hạng và biến động đơn hàng theo từng ngày của 9 khách hàng nhóm A vùng Nam Trung Bộ.
+                        </p>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="https://docs.google.com/spreadsheets/d/1JZ1eRerRqrpwjZ4HBevQunjd8VquM_cvPFz12TaJfMQ/edit?gid=652503222#gid=652503222" target="_blank" class="btn" style="background: #ffffff; border: 1px solid var(--border-color); color: #1e293b; padding: 8px 14px; font-size: 12px; font-weight: 600; border-radius: 8px; display: flex; align-items: center; gap: 6px; text-decoration: none;">
+                            <i class="fa-solid fa-arrow-up-right-from-square" style="color: #10b981;"></i> Mở Google Sheet Gốc
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4 KPI Stat Cards -->
+                <div class="ntb-hero-stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px;">
+                    <div class="ntb-stat-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 16px; border-left: 4px solid #10b981;">
+                        <div style="font-size: 11.5px; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px;">TỔNG DOANH THU MTD NHÓM A</div>
+                        <div class="ntb-stat-val" style="font-size: 24px; font-weight: 800; color: #059669; font-family: 'Outfit', sans-serif;">16,278 <small style="font-size: 14px;">Tr ₫</small></div>
+                        <div style="font-size: 11px; color: #10b981; font-weight: 600; margin-top: 4px;">👑 9 Shop Trọng Điểm NTB</div>
+                    </div>
+                    <div class="ntb-stat-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 16px; border-left: 4px solid #3b82f6;">
+                        <div style="font-size: 11.5px; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px;">DOANH THU NGÀY N-1 (08/09)</div>
+                        <div class="ntb-stat-val" style="font-size: 24px; font-weight: 800; color: #2563eb; font-family: 'Outfit', sans-serif;">2,199 <small style="font-size: 14px;">Tr ₫</small></div>
+                        <div style="font-size: 11px; color: #2563eb; font-weight: 600; margin-top: 4px;">▲ +512 Tr vs W-1 (+30.3%)</div>
+                    </div>
+                    <div class="ntb-stat-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 16px; border-left: 4px solid #8b5cf6;">
+                        <div style="font-size: 11.5px; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px;">TOP 1 SHOP DOANH THU</div>
+                        <div class="ntb-stat-val" style="font-size: 18px; font-weight: 800; color: #7c3aed; font-family: 'Outfit', sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Vận Chuyển Online</div>
+                        <div style="font-size: 11px; color: var(--text-secondary); font-weight: 600; margin-top: 4px;">8,166 Tr MTD • AM Phan Đình Duy</div>
+                    </div>
+                    <div class="ntb-stat-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 16px; border-left: 4px solid #f59e0b;">
+                        <div style="font-size: 11.5px; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px;">TIẾN ĐỘ THÁNG MTD</div>
+                        <div class="ntb-stat-val" style="font-size: 24px; font-weight: 800; color: #d97706; font-family: 'Outfit', sans-serif;">8 / 30 <small style="font-size: 14px;">ngày</small></div>
+                        <div style="font-size: 11px; color: var(--text-secondary); font-weight: 600; margin-top: 4px;">26.7% Số ngày trong tháng</div>
+                    </div>
+                </div>
+
+                <!-- Bảng 1: Doanh Thu Khách Hàng Nhóm A -->
+                <div class="card" style="margin-bottom: 24px; border: 1px solid var(--border-color); border-radius: 10px; overflow: hidden; background: var(--bg-secondary);">
+                    <div class="card-header" style="padding: 16px 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <i class="fa-solid fa-crown" style="color: #f59e0b; font-size: 16px;"></i>
+                            <h3 style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 700; margin: 0; color: var(--text-primary);">
+                                CHI TIẾT DOANH THU 9 SHOP NHÓM A THEO AM & BƯU CỤC
+                            </h3>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <div class="filter-group" style="margin: 0;">
+                                <select id="kd-am-filter" class="select-input" style="padding: 6px 12px; font-size: 12px; font-weight: 600; border-radius: 6px; border: 1px solid var(--border-color);" onchange="filterKinhDoanhNhomA()">
+                                    <option value="">-- Tất cả AM (8 AM) --</option>
+                                    <option value="Phan Đình Duy">AM Phan Đình Duy</option>
+                                    <option value="Thái Thị Thanh Thư">AM Thái Thị Thanh Thư</option>
+                                    <option value="Huỳnh Thúc Duân">AM Huỳnh Thúc Duân</option>
+                                    <option value="Lê Văn Trường">AM Lê Văn Trường</option>
+                                    <option value="Lê Thanh Nhựt">AM Lê Thanh Nhựt</option>
+                                    <option value="Nguyễn Lê Nguyên Vũ">AM Nguyễn Lê Nguyên Vũ</option>
+                                    <option value="Nguyễn Duy Long">AM Nguyễn Duy Long</option>
+                                    <option value="Hồng Bích Nga">AM Hồng Bích Nga</option>
+                                </select>
+                            </div>
+                            <input type="text" id="kd-shop-search" placeholder="🔍 Tìm kiếm shop..." style="padding: 6px 12px; font-size: 12px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary);" oninput="filterKinhDoanhNhomA()">
+                        </div>
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table class="custom-table ntb-matrix-table" id="table-main-kd-nhom-a" style="min-width: 1100px;">
+                            <thead>
+                                <tr style="background: rgba(30, 58, 138, 0.05);">
+                                    <th style="width: 36px; text-align: center;">#</th>
+                                    <th>AM Phụ Trách</th>
+                                    <th>Bưu Cục Quản Lý</th>
+                                    <th>Mã Shop</th>
+                                    <th>Tên Shop / Khách Hàng</th>
+                                    <th style="text-align: center;">Hạng</th>
+                                    <th style="text-align: center;">% Trụ Hạng</th>
+                                    <th style="text-align: right; background: rgba(16, 185, 129, 0.1); color: #059669; font-weight: 800;">MTD (Tr ₫)</th>
+                                    <th style="text-align: center;">% vs MTD M-1</th>
+                                    <th style="text-align: right;">01/09 (W-1)</th>
+                                    <th style="text-align: right;">02/09</th>
+                                    <th style="text-align: right;">03/09</th>
+                                    <th style="text-align: right;">04/09</th>
+                                    <th style="text-align: right;">05/09</th>
+                                    <th style="text-align: right;">06/09</th>
+                                    <th style="text-align: right;">07/09</th>
+                                    <th style="text-align: right; background: rgba(37, 99, 235, 0.1); color: #2563eb; font-weight: 800;">08/09 (N-1)</th>
+                                    <th style="text-align: right;">Δ vs W-1</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-kd-nhom-a"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Bảng 2: Cảnh báo shop giảm đơn -->
+                <div class="card" style="margin-bottom: 24px; border: 1px solid rgba(239, 68, 68, 0.3); border-left: 4px solid #ef4444; border-radius: 10px; overflow: hidden; background: var(--bg-secondary);">
+                    <div class="card-header" style="padding: 16px 20px; border-bottom: 1px solid var(--border-color); background: rgba(239, 68, 68, 0.03); display: flex; justify-content: space-between; align-items: center;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <i class="fa-solid fa-triangle-exclamation" style="color: #ef4444; font-size: 16px;"></i>
+                            <h3 style="font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 700; margin: 0; color: #b91c1c;">
+                                CẢNH BÁO: SHOP NHÓM A SỤT GIẢM ĐƠN HÀNG / NGUY CƠ RỚT HẠNG
+                            </h3>
+                        </div>
+                        <span class="badge badge-danger" style="font-size: 11px;"><i class="fa-solid fa-bell"></i> Cần AM Hỗ Trợ Gấp</span>
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table class="custom-table" id="table-main-kd-warning" style="min-width: 900px;">
+                            <thead>
+                                <tr style="background: rgba(239, 68, 68, 0.04);">
+                                    <th style="width: 36px; text-align: center;">#</th>
+                                    <th>Mã Shop</th>
+                                    <th>Tên Shop / Khách Hàng</th>
+                                    <th>AM Phụ Trách</th>
+                                    <th>Bưu Cục Quản Lý</th>
+                                    <th style="text-align: center;">Hạng</th>
+                                    <th style="text-align: right;">Cam Kết</th>
+                                    <th style="text-align: right;">MTD Lũy Kế</th>
+                                    <th style="text-align: center;">% vs MTD M-1</th>
+                                    <th style="text-align: center;">Ngày Gần Nhất</th>
+                                    <th style="text-align: right; color: #ef4444; font-weight: 800;">Doanh Thu (Tr ₫)</th>
+                                    <th style="text-align: center;">Tình Trạng & Đề Xuất</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-kd-warning"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
         </main>
     </div>
 
@@ -11867,6 +12005,112 @@
 
 
 </script>
+
+    <!-- LOGIC BÁO CÁO KINH DOANH NHÓM A (LOOKER GID 652503222) -->
+    <script>
+        const KHACH_HANG_A_DATA = {"dates": ["01/09", "02/09", "03/09", "04/09", "05/09", "06/09", "07/09", "08/09"], "shops": [{"stt": "10", "makh": "3910354", "tenkh": "Vận Chuyển Online", "nhom_n": "A1", "nhomkh_1": "A1", "ph_prev": "A1", "vung": "NTB-Khánh Hòa", "tinh": "Khánh Hòa", "nhanvien": "201974", "vol_cam_ket": "15,000", "aov": "55,231", "mtd": 8166.0, "pct_mtd_m1": "103.50%", "pct_tru_hang": "1002.30%", "am": "Phan Đình Duy", "buu_cuc": "20495000 - (KHO) Nha Trang", "daily_dt": {"07/09": 1378.0, "08/09": 1232.0, "06/09": 1130.0, "03/09": 988.0, "05/09": 937.0, "01/09": 902.0, "04/09": 875.0, "02/09": 724.0}, "dt_w1": 902.0, "dt_n1": 1232.0, "diff_w1": 330.0, "pct_w1": 36.6}, {"stt": "23", "makh": "5099749", "tenkh": "Công Ty TNHH Khởi Phát Thịnh", "nhom_n": "A2", "nhomkh_1": "A2", "ph_prev": "A2", "vung": "NTB-Khánh Hòa", "tinh": "Khánh Hòa", "nhanvien": "3087650", "vol_cam_ket": "15,000", "aov": "13,796", "mtd": 3191.0, "pct_mtd_m1": "100.30%", "pct_tru_hang": "97.80%", "am": "Thái Thị Thanh Thư", "buu_cuc": "22363000 - (KHO) Nam Nha Trang 3", "daily_dt": {"05/09": 505.0, "07/09": 497.0, "03/09": 462.0, "06/09": 424.0, "08/09": 360.0, "04/09": 350.0, "01/09": 301.0, "02/09": 292.0}, "dt_w1": 301.0, "dt_n1": 360.0, "diff_w1": 59.0, "pct_w1": 19.6}, {"stt": "13", "makh": "4264387", "tenkh": "Thuý Vân", "nhom_n": "A3", "nhomkh_1": "A3", "ph_prev": "A3", "vung": "NTB-Đắk Nông", "tinh": "Đắk Nông", "nhanvien": "3087078", "vol_cam_ket": "10,000", "aov": "12,634", "mtd": 1210.0, "pct_mtd_m1": "50.80%", "pct_tru_hang": "34%", "am": "Huỳnh Thúc Duân", "buu_cuc": "22242000 - (DNO) Bắc Gia Nghĩa", "daily_dt": {"03/09": 338.0, "08/09": 187.0, "04/09": 169.0, "07/09": 160.0, "06/09": 149.0, "05/09": 123.0, "02/09": 52.0, "01/09": 32.0}, "dt_w1": 32.0, "dt_n1": 187.0, "diff_w1": 155.0, "pct_w1": 484.4}, {"stt": "24", "makh": "5109892", "tenkh": "My Hà", "nhom_n": "A5", "nhomkh_1": "A4", "ph_prev": "A4", "vung": "NTB-Lâm Đồng", "tinh": "Lâm Đồng", "nhanvien": "2035990", "vol_cam_ket": "4,000", "aov": "15,885", "mtd": 813.0, "pct_mtd_m1": "76.80%", "pct_tru_hang": "28.70%", "am": "Lê Văn Trường", "buu_cuc": "22116000 - (LDO) Xuân Trường - Đà Lạt", "daily_dt": {"03/09": 148.0, "04/09": 139.0, "05/09": 123.0, "07/09": 123.0, "06/09": 105.0, "08/09": 74.0, "02/09": 52.0, "01/09": 49.0}, "dt_w1": 49.0, "dt_n1": 74.0, "diff_w1": 25.0, "pct_w1": 51.0}, {"stt": "4", "makh": "3200594", "tenkh": "Quoc Toan", "nhom_n": "A5", "nhomkh_1": "A5", "ph_prev": "A5", "vung": "NTB-Bình Thuận", "tinh": "Bình Thuận", "nhanvien": "201973", "vol_cam_ket": "3,000", "aov": "15,863", "mtd": 763.0, "pct_mtd_m1": "92.30%", "pct_tru_hang": "26.90%", "am": "Lê Thanh Nhựt", "buu_cuc": "2357 - (BTH) Đồng Kho", "daily_dt": {"03/09": 163.0, "05/09": 129.0, "06/09": 104.0, "07/09": 88.0, "01/09": 80.0, "08/09": 78.0, "04/09": 71.0, "02/09": 50.0}, "dt_w1": 80.0, "dt_n1": 78.0, "diff_w1": -2.0, "pct_w1": -2.5}, {"stt": "8", "makh": "3559462", "tenkh": "luan don", "nhom_n": "A5", "nhomkh_1": "A4", "ph_prev": "A4", "vung": "NTB-Lâm Đồng", "tinh": "Lâm Đồng", "nhanvien": "3001956", "vol_cam_ket": "2,500", "aov": "19,923", "mtd": 619.0, "pct_mtd_m1": "90.10%", "pct_tru_hang": "27.40%", "am": "Nguyễn Lê Nguyên Vũ", "buu_cuc": "20663000 - (LDO) Đạ Tẻh", "daily_dt": {"01/09": 94.0, "06/09": 84.0, "07/09": 84.0, "08/09": 79.0, "02/09": 76.0, "05/09": 71.0, "03/09": 70.0, "04/09": 61.0}, "dt_w1": 94.0, "dt_n1": 79.0, "diff_w1": -15.0, "pct_w1": -16.0}, {"stt": "25", "makh": "5197975", "tenkh": "TIÊN HUỲNH US", "nhom_n": "A4", "nhomkh_1": "A4", "ph_prev": "A4", "vung": "NTB-Ninh Thuận", "tinh": "Ninh Thuận", "nhanvien": "1713667", "vol_cam_ket": "3,000", "aov": "19,079", "mtd": 580.0, "pct_mtd_m1": "55.10%", "pct_tru_hang": "24.60%", "am": "Nguyễn Duy Long", "buu_cuc": "20499000 - (NTH) Phước Dinh", "daily_dt": {"08/09": 110.0, "01/09": 95.0, "05/09": 85.0, "03/09": 82.0, "06/09": 80.0, "02/09": 59.0, "07/09": 53.0, "04/09": 16.0}, "dt_w1": 95.0, "dt_n1": 110.0, "diff_w1": 15.0, "pct_w1": 15.8}, {"stt": "11", "makh": "3950975", "tenkh": "Bếp vườn nhà Trinh", "nhom_n": "A5", "nhomkh_1": "B", "ph_prev": "B", "vung": "NTB-Khánh Hòa", "tinh": "Khánh Hòa", "nhanvien": "3041011", "vol_cam_ket": "1,000", "aov": "19,228", "mtd": 519.0, "pct_mtd_m1": "58.70%", "pct_tru_hang": "22.20%", "am": "Phan Đình Duy", "buu_cuc": "21046000 - (KHO) Vạn Ninh", "daily_dt": {"03/09": 96.0, "04/09": 84.0, "05/09": 83.0, "07/09": 72.0, "06/09": 70.0, "01/09": 55.0, "02/09": 47.0, "08/09": 12.0}, "dt_w1": 55.0, "dt_n1": 12.0, "diff_w1": -43.0, "pct_w1": -78.2}, {"stt": "14", "makh": "4313038", "tenkh": "Cám store", "nhom_n": "A5", "nhomkh_1": "A4", "ph_prev": "A4", "vung": "NTB-Lâm Đồng", "tinh": "Lâm Đồng", "nhanvien": "3025995", "vol_cam_ket": "3,000", "aov": "18,638", "mtd": 417.0, "pct_mtd_m1": "82.10%", "pct_tru_hang": "17.30%", "am": "Hồng Bích Nga", "buu_cuc": "20785000 - (LDO) B'Lao", "daily_dt": {"07/09": 98.0, "01/09": 79.0, "08/09": 67.0, "06/09": 58.0, "05/09": 41.0, "03/09": 30.0, "02/09": 24.0, "04/09": 20.0}, "dt_w1": 79.0, "dt_n1": 67.0, "diff_w1": -12.0, "pct_w1": -15.2}], "warning": [{"stt": "1", "makh": "3950975", "tenkh": "Bếp vườn nhà Trinh", "nhomkh": "A5", "vung": "NTB-Khánh Hòa", "nhanvien": "3041011", "cam_ket": "1,000", "mtd": 519.0, "pct_mtd_m1": "58.70%", "aov": "19,228", "ngay": "03/09", "dt": 96.0, "am": "Phan Đình Duy", "buu_cuc": "21046000 - (KHO) Vạn Ninh"}, {"stt": "1", "makh": "3950975", "tenkh": "Bếp vườn nhà Trinh", "nhomkh": "A5", "vung": "NTB-Khánh Hòa", "nhanvien": "3041011", "cam_ket": "1,000", "mtd": 519.0, "pct_mtd_m1": "58.70%", "aov": "19,228", "ngay": "04/09", "dt": 84.0, "am": "Phan Đình Duy", "buu_cuc": "21046000 - (KHO) Vạn Ninh"}, {"stt": "1", "makh": "3950975", "tenkh": "Bếp vườn nhà Trinh", "nhomkh": "A5", "vung": "NTB-Khánh Hòa", "nhanvien": "3041011", "cam_ket": "1,000", "mtd": 519.0, "pct_mtd_m1": "58.70%", "aov": "19,228", "ngay": "05/09", "dt": 83.0, "am": "Phan Đình Duy", "buu_cuc": "21046000 - (KHO) Vạn Ninh"}, {"stt": "1", "makh": "3950975", "tenkh": "Bếp vườn nhà Trinh", "nhomkh": "A5", "vung": "NTB-Khánh Hòa", "nhanvien": "3041011", "cam_ket": "1,000", "mtd": 519.0, "pct_mtd_m1": "58.70%", "aov": "19,228", "ngay": "07/09", "dt": 72.0, "am": "Phan Đình Duy", "buu_cuc": "21046000 - (KHO) Vạn Ninh"}, {"stt": "1", "makh": "3950975", "tenkh": "Bếp vườn nhà Trinh", "nhomkh": "A5", "vung": "NTB-Khánh Hòa", "nhanvien": "3041011", "cam_ket": "1,000", "mtd": 519.0, "pct_mtd_m1": "58.70%", "aov": "19,228", "ngay": "06/09", "dt": 70.0, "am": "Phan Đình Duy", "buu_cuc": "21046000 - (KHO) Vạn Ninh"}, {"stt": "1", "makh": "3950975", "tenkh": "Bếp vườn nhà Trinh", "nhomkh": "A5", "vung": "NTB-Khánh Hòa", "nhanvien": "3041011", "cam_ket": "1,000", "mtd": 519.0, "pct_mtd_m1": "58.70%", "aov": "19,228", "ngay": "02/09", "dt": 47.0, "am": "Phan Đình Duy", "buu_cuc": "21046000 - (KHO) Vạn Ninh"}, {"stt": "1", "makh": "3950975", "tenkh": "Bếp vườn nhà Trinh", "nhomkh": "A5", "vung": "NTB-Khánh Hòa", "nhanvien": "3041011", "cam_ket": "1,000", "mtd": 519.0, "pct_mtd_m1": "58.70%", "aov": "19,228", "ngay": "08/09", "dt": 12.0, "am": "Phan Đình Duy", "buu_cuc": "21046000 - (KHO) Vạn Ninh"}]};
+
+        function renderKinhDoanhTab() {
+            filterKinhDoanhNhomA();
+            renderKinhDoanhWarning();
+        }
+
+        function filterKinhDoanhNhomA() {
+            const amFilter = document.getElementById('kd-am-filter')?.value || '';
+            const searchKeyword = (document.getElementById('kd-shop-search')?.value || '').toLowerCase().trim();
+            const tbody = document.getElementById('tbody-kd-nhom-a');
+            if (!tbody || !KHACH_HANG_A_DATA || !KHACH_HANG_A_DATA.shops) return;
+
+            let shops = KHACH_HANG_A_DATA.shops;
+            if (amFilter) {
+                shops = shops.filter(s => s.am === amFilter);
+            }
+            if (searchKeyword) {
+                shops = shops.filter(s => s.tenkh.toLowerCase().includes(searchKeyword) || s.makh.toLowerCase().includes(searchKeyword));
+            }
+
+            if (shops.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="18" style="text-align:center; padding: 24px; color: var(--text-secondary);">Không tìm thấy khách hàng nhóm A phù hợp.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = shops.map((s, idx) => {
+                const diffBadge = s.diff_w1 > 0
+                    ? `<span style="color: #059669; font-weight: 700;">▲ +${s.diff_w1} (${s.pct_w1}%)</span>`
+                    : (s.diff_w1 < 0 ? `<span style="color: #dc2626; font-weight: 700;">▼ ${s.diff_w1} (${s.pct_w1}%)</span>` : `<span style="color: var(--text-secondary);">0%</span>`);
+
+                const truHangVal = parseFloat(s.pct_tru_hang) || 0;
+                const truHangBadge = truHangVal >= 25 
+                    ? `<span class="badge badge-success" style="font-size:11px;">${s.pct_tru_hang}</span>`
+                    : `<span class="badge badge-warning" style="font-size:11px;">${s.pct_tru_hang}</span>`;
+
+                return `
+                    <tr>
+                        <td style="text-align: center; font-weight: 700; color: var(--text-secondary);">${idx + 1}</td>
+                        <td style="font-weight: 700; color: var(--text-primary); cursor: pointer;" onclick="document.getElementById('kd-am-filter').value='${s.am}'; filterKinhDoanhNhomA();">${s.am}</td>
+                        <td style="font-size: 11.5px; color: var(--text-secondary);">${s.buu_cuc}</td>
+                        <td style="font-family: monospace; font-weight: 700;">${s.makh}</td>
+                        <td style="font-weight: 700; color: #0284c7;">${s.tenkh}</td>
+                        <td style="text-align: center;"><span class="badge" style="background: rgba(2, 132, 199, 0.1); color: #0284c7;">${s.nhom_n || 'A5'}</span></td>
+                        <td style="text-align: center;">${truHangBadge}</td>
+                        <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px; background: rgba(16, 185, 129, 0.04);">${Number(s.mtd).toLocaleString('vi-VN')}</td>
+                        <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">${s.pct_mtd_m1}</td>
+                        <td style="text-align: right;">${Number(s.daily_dt['01/09'] || 0).toLocaleString('vi-VN')}</td>
+                        <td style="text-align: right;">${Number(s.daily_dt['02/09'] || 0).toLocaleString('vi-VN')}</td>
+                        <td style="text-align: right;">${Number(s.daily_dt['03/09'] || 0).toLocaleString('vi-VN')}</td>
+                        <td style="text-align: right;">${Number(s.daily_dt['04/09'] || 0).toLocaleString('vi-VN')}</td>
+                        <td style="text-align: right;">${Number(s.daily_dt['05/09'] || 0).toLocaleString('vi-VN')}</td>
+                        <td style="text-align: right;">${Number(s.daily_dt['06/09'] || 0).toLocaleString('vi-VN')}</td>
+                        <td style="text-align: right;">${Number(s.daily_dt['07/09'] || 0).toLocaleString('vi-VN')}</td>
+                        <td style="text-align: right; font-weight: 800; color: #2563eb; font-size: 13.5px; background: rgba(37, 99, 235, 0.06);">${Number(s.dt_n1).toLocaleString('vi-VN')}</td>
+                        <td style="text-align: right;">${diffBadge}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function renderKinhDoanhWarning() {
+            const tbody = document.getElementById('tbody-kd-warning');
+            if (!tbody || !KHACH_HANG_A_DATA || !KHACH_HANG_A_DATA.warning) return;
+            const warnings = KHACH_HANG_A_DATA.warning;
+
+            if (warnings.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="12" style="text-align:center; padding: 20px; color: #10b981; font-weight: 700;">✅ Không có cảnh báo bất thường nào cho các shop nhóm A.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = warnings.map((w, idx) => {
+                return `
+                    <tr>
+                        <td style="text-align: center; font-weight: 700;">${idx + 1}</td>
+                        <td style="font-family: monospace; font-weight: 700;">${w.makh}</td>
+                        <td style="font-weight: 700; color: #dc2626;">${w.tenkh}</td>
+                        <td style="font-weight: 700;">${w.am}</td>
+                        <td style="font-size: 11.5px; color: var(--text-secondary);">${w.buu_cuc}</td>
+                        <td style="text-align: center;"><span class="badge" style="background: rgba(239, 68, 68, 0.1); color: #dc2626;">${w.nhomkh}</span></td>
+                        <td style="text-align: right;">${Number(w.cam_ket).toLocaleString('vi-VN')}</td>
+                        <td style="text-align: right; font-weight: 700;">${Number(w.mtd).toLocaleString('vi-VN')}</td>
+                        <td style="text-align: center; font-weight: 600;">${w.pct_mtd_m1}</td>
+                        <td style="text-align: center; font-weight: 600;">${w.ngay}</td>
+                        <td style="text-align: right; font-weight: 800; color: #dc2626; font-size: 14px; background: rgba(239, 68, 68, 0.08);">${Number(w.dt).toLocaleString('vi-VN')}</td>
+                        <td style="text-align: center;"><span class="badge badge-danger"><i class="fa-solid fa-triangle-exclamation"></i> Sụt giảm ngày 08/09 (DT chỉ còn 12 Tr)</span></td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // Gắn vào sự kiện switchTab
+        const origSwitchTab = window.switchTab;
+        window.switchTab = function(tabId, el) {
+            if (typeof origSwitchTab === 'function') {
+                origSwitchTab(tabId, el);
+            }
+            if (tabId === 'tab-kinh-doanh') {
+                renderKinhDoanhTab();
+            }
+        };
+    </script>
+
 </body>
 
 </html>
