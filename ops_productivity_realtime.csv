@@ -1,5 +1,16 @@
 BÁO CÁO NĂNG SUẤT BƯU CỤC - REAL TIME,,,,,,,,,,,DanhSachBC
 Chọn Bưu Cục:,TẤT CẢ,,,Thấp (<80%),Đạt (80-84.9%),OK (>=85%),,,,,TẤT CẢ
-,,,,,,,,,,,#N/A
-Bưu Cục,AM,Mã NV,Nhân Viên,Gán Giao,Giao TC,%GTC,LTC,Đánh Giá,,,
-#N/A,,,,,,0.00%,,#N/A,,,
+,,,,,,,,,,,(BTH) Đồng Kho
+Bưu Cục,AM,Mã NV,Nhân Viên,Gán Giao,Giao TC,%GTC,LTC,Đánh Giá,,,(BTH) Phước Hội
+(BTH) Phước Hội,Cao Thị Thanh Thủy,3168167,Nguyễn Nhật Tảo,3,0,0.00%,0,Thấp,,,(DNO) Đông Gia Nghĩa
+(BTH) Phước Hội,Cao Thị Thanh Thủy,3091485,Lê Bảo Thái Huy,5,0,0.00%,0,Thấp,,,(LDO) Di Linh
+(BTH) Đồng Kho,Lê Thanh Nhựt,1881968,Nguyễn Viết Hùng,5,0,0.00%,0,Thấp,,,(LDO) Lâm Viên - Đà Lạt 2
+(DNO) Đông Gia Nghĩa,Huỳnh Thúc Duân,3117746,Huỳnh Tấn Tài,4,0,0.00%,0,Thấp,,,(LDO) Lang Biang - Đà Lạt 2
+(LDO) Di Linh,Trầm Hữu Tiến,3180334,NGUYỄN TRƯỜNG HOÀNG,1,0,0.00%,0,Thấp,,,(LDO) Tân Hà Lâm Hà
+(LDO) Di Linh,Trầm Hữu Tiến,3178750,An Xuân Dương,73,0,0.00%,0,Thấp,,,
+(LDO) Di Linh,Trầm Hữu Tiến,3177025,Gín Hữu Toàn,47,0,0.00%,0,Thấp,,,
+(LDO) Di Linh,Trầm Hữu Tiến,3177024,K' Cường,90,0,0.00%,0,Thấp,,,
+(LDO) Di Linh,Trầm Hữu Tiến,3130358,Nguyễn Văn Linh,117,0,0.00%,0,Thấp,,,
+(LDO) Lang Biang - Đà Lạt 2,Lê Văn Trường,3099776,Nguyễn Văn Quyết,5,0,0.00%,0,Thấp,,,
+(LDO) Lâm Viên - Đà Lạt 2,Lê Văn Trường,3185379,Biện Vinh Hiển,2,0,0.00%,0,Thấp,,,
+(LDO) Tân Hà Lâm Hà,Huỳnh Thị Kim Chi,3022214,Nguyễn Thị Chúc,1,1,100.00%,0,OK,,,
