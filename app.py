@@ -6943,6 +6943,23 @@ def get_ntb_structure():
     except Exception as e:
         return jsonify({"error": f"Lỗi đọc file cơ cấu: {str(e)}"}), 500
 
+def load_khach_hang_a():
+    try:
+        kh_p = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'scratch', 'khach_hang_a.json')
+        if os.path.exists(kh_p):
+            with open(kh_p, 'r', encoding='utf-8') as f_kh:
+                return json.load(f_kh)
+    except Exception as e:
+        print(f"Error loading khach_hang_a.json: {e}")
+    return {}
+
+@app.route('/api/khach-hang-a')
+def get_khach_hang_a():
+    data = load_khach_hang_a()
+    if data:
+        return jsonify(data)
+    return jsonify({"error": "Chưa có dữ liệu khách hàng nhóm A"}), 404
+
 @app.route('/api/batch-data')
 @requires_auth
 def get_batch_data():
@@ -7115,6 +7132,9 @@ def get_batch_data():
             result['fd'] = {"error": str(e)}
     else:
         result['fd'] = {"error": "No permission"}
+
+    # Khach Hang Nhom A
+    result['khach_hang_a'] = load_khach_hang_a()
 
     return jsonify(result)
 

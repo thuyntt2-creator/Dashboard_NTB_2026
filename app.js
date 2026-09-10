@@ -6023,7 +6023,38 @@
 
   function renderKdNhomATable() {
     const tbody = document.querySelector('#table-kd-nhom-a tbody');
+    const theadTr = document.querySelector('#table-kd-nhom-a thead tr');
     if (!tbody || !D.kinh_doanh || !D.kinh_doanh.khach_hang_a || !D.kinh_doanh.khach_hang_a.shops) return;
+
+    const dates = D.kinh_doanh.khach_hang_a.dates || [];
+    const latestDate = dates.length > 0 ? dates[dates.length - 1] : '';
+    const w1Date = dates.length >= 8 ? dates[dates.length - 8] : (dates[0] || '');
+
+    if (theadTr && dates.length > 0) {
+      const datesThs = dates.map(d => {
+        if (d === latestDate) {
+          return `<th class="num" style="background: #2563eb; color:#ffffff; font-weight:800;">${d} (N-1)</th>`;
+        } else if (d === w1Date) {
+          return `<th class="num" style="color:#ffffff;">${d} (W-1)</th>`;
+        } else {
+          return `<th class="num" style="color:#ffffff;">${d}</th>`;
+        }
+      }).join('');
+
+      theadTr.innerHTML = `
+        <th class="center" style="width: 36px; color:#ffffff;">#</th>
+        <th style="color:#ffffff;">AM Phụ Trách</th>
+        <th style="color:#ffffff;">Bưu Cục Quản Lý</th>
+        <th style="color:#ffffff;">Mã KH</th>
+        <th style="color:#ffffff;">Tên Shop / Khách Hàng</th>
+        <th class="center" style="color:#ffffff;">Hạng</th>
+        <th class="center" style="color:#ffffff;">% Trụ Hạng</th>
+        <th class="num" style="background: #059669; color:#ffffff; font-weight:800;">MTD (Tr ₫)</th>
+        <th class="center" style="color:#ffffff;">% vs MTD M-1</th>
+        ${datesThs}
+        <th class="num" style="color:#ffffff;">Δ vs W-1</th>
+      `;
+    }
 
     const selectedAM = state.selectedAM;
     let shops = D.kinh_doanh.khach_hang_a.shops;
@@ -6032,7 +6063,8 @@
     }
 
     if (shops.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="18" class="center" style="padding: 24px; color: var(--text-muted);">Không có shop nhóm A nào thuộc AM <strong>${selectedAM}</strong></td></tr>`;
+      const colSpan = 10 + dates.length;
+      tbody.innerHTML = `<tr><td colspan="${colSpan}" class="center" style="padding: 24px; color: var(--text-muted);">Không có shop nhóm A nào thuộc AM <strong>${selectedAM}</strong></td></tr>`;
       return;
     }
 
@@ -6049,6 +6081,14 @@
         ? `<span class="badge-tag badge-tag-green" style="font-weight:700;">${s.pct_tru_hang}</span>`
         : `<span class="badge-tag badge-tag-amber" style="font-weight:700;">${s.pct_tru_hang}</span>`;
 
+      const datesTds = dates.map(d => {
+        const val = Number(s.daily_dt[d] || 0);
+        if (d === latestDate) {
+          return `<td class="num bold" style="color: #2563eb; font-size: 13.5px; background: rgba(37, 99, 235, 0.06);">${fNum(val)}</td>`;
+        }
+        return `<td class="num">${fNum(val)}</td>`;
+      }).join('');
+
       return `
         <tr class="${rowClass}">
           <td class="center bold">${idx + 1}</td>
@@ -6060,14 +6100,7 @@
           <td class="center">${truHangBadge}</td>
           <td class="num bold" style="color: #059669; font-size: 13.5px;">${fNum(s.mtd)}</td>
           <td class="center bold" style="color: #4b5563;">${s.pct_mtd_m1}</td>
-          <td class="num">${fNum(s.daily_dt['01/09'] || 0)}</td>
-          <td class="num">${fNum(s.daily_dt['02/09'] || 0)}</td>
-          <td class="num">${fNum(s.daily_dt['03/09'] || 0)}</td>
-          <td class="num">${fNum(s.daily_dt['04/09'] || 0)}</td>
-          <td class="num">${fNum(s.daily_dt['05/09'] || 0)}</td>
-          <td class="num">${fNum(s.daily_dt['06/09'] || 0)}</td>
-          <td class="num">${fNum(s.daily_dt['07/09'] || 0)}</td>
-          <td class="num bold" style="color: #2563eb; font-size: 13.5px; background: rgba(37, 99, 235, 0.06);">${fNum(s.dt_n1)}</td>
+          ${datesTds}
           <td class="num bold">${diffBadge}</td>
         </tr>
       `;

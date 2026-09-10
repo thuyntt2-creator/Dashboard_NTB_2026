@@ -66,7 +66,7 @@ try:
     log(f"build_data_js Return Code: {p_b.returncode}")
     
     # Run auxiliary enrichment scripts
-    for script_name in ["parse_4_cod_tabs.py", "calc_aging_buckets.py", "process_truy_thu_report.py"]:
+    for script_name in ["parse_kinh_doanh.py", "parse_4_cod_tabs.py", "calc_aging_buckets.py", "process_truy_thu_report.py"]:
         s_path = os.path.join(cwd, "scratch", script_name)
         if os.path.exists(s_path):
             subprocess.run([sys.executable, s_path], cwd=cwd, capture_output=True, text=True, timeout=60)

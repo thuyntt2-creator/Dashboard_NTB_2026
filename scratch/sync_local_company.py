@@ -122,7 +122,8 @@ sheet_mappings = [
     (["sl", "sl ", "sản lượng", "ops_heavy_10kg", "hàng nặng", "hang nang"], "ops_heavy_10kg.csv"),
     (["sanluong", "sản lượng ca", "san luong ca", "ops_ca_data", "ca_data"], "ops_ca_data.csv"),
     (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "10kg", "hàng 10kg", "ops_tao_don_10kg"], "ops_tao_don_10kg.csv"),
-    (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "10kg", "hàng 10kg", "raw_tren10kg"], "raw_tren10kg.csv")
+    (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "10kg", "hàng 10kg", "raw_tren10kg"], "raw_tren10kg.csv"),
+    (["kinh doanh", "kinh_doanh", "kinh doanh ", "khách hàng nhóm a", "khach hang a"], "scratch/kinh_doanh_raw.csv")
 ]
 
 import time
@@ -218,4 +219,16 @@ for matched_gid, target_csvs in gid_to_targets.items():
                 print(f"Downloaded {target_csv} ({len(content)} bytes)", flush=True)
 
 print(f"\nCOMPLETED LOCAL SYNC! Downloaded {downloaded_count} CSV files.", flush=True)
+
+# Auto parse Kinh Doanh if downloaded
+kd_csv_p = os.path.join(os.path.dirname(__file__), 'kinh_doanh_raw.csv')
+if os.path.exists(kd_csv_p):
+    try:
+        import subprocess
+        parse_p = os.path.join(os.path.dirname(__file__), 'parse_kinh_doanh.py')
+        if os.path.exists(parse_p):
+            subprocess.run([sys.executable, parse_p], capture_output=True, text=True)
+            print("Auto-parsed scratch/khach_hang_a.json successfully.", flush=True)
+    except Exception as e_parse:
+        print(f"Error auto-parsing Kinh Doanh: {e_parse}", flush=True)
 
