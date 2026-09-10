@@ -6482,20 +6482,20 @@
                 updateHeaderSubtitle(activeTabId);
 
                 // Populate filters
-                populateFilters();
+                try { populateFilters(); } catch (e) { console.error("populateFilters error:", e); }
 
                 // Render Dashboard view
-                renderOverviewDashboard();
-                renderOperationalDashboard();
-                renderOprDashboard();
-                renderAgingDashboard();
-                renderTreoDashboard();
-                loadNtbSummaryData();
-                renderUnstablePo(globalData.unstablePo);
-                renderOffSpe(globalData.offSpe);
-                renderVolumeCreation(globalData.volumeCreation);
-                renderFdDashboard(globalData.fd);
-                loadHeavy10kgData();
+                try { renderOverviewDashboard(); } catch (e) { console.error("renderOverviewDashboard error:", e); }
+                try { renderOperationalDashboard(); } catch (e) { console.error("renderOperationalDashboard error:", e); }
+                try { renderOprDashboard(); } catch (e) { console.error("renderOprDashboard error:", e); }
+                try { renderAgingDashboard(); } catch (e) { console.error("renderAgingDashboard error:", e); }
+                try { renderTreoDashboard(); } catch (e) { console.error("renderTreoDashboard error:", e); }
+                try { loadNtbSummaryData(); } catch (e) { console.error("loadNtbSummaryData error:", e); }
+                try { renderUnstablePo(globalData.unstablePo); } catch (e) { console.error("renderUnstablePo error:", e); }
+                try { renderOffSpe(globalData.offSpe); } catch (e) { console.error("renderOffSpe error:", e); }
+                try { renderVolumeCreation(globalData.volumeCreation); } catch (e) { console.error("renderVolumeCreation error:", e); }
+                try { renderFdDashboard(globalData.fd); } catch (e) { console.error("renderFdDashboard error:", e); }
+                try { loadHeavy10kgData(); } catch (e) { console.error("loadHeavy10kgData error:", e); }
 
             } catch (err) {
                 console.error(err);
@@ -7224,10 +7224,14 @@
         let opsTrendChart = null;
 
         function renderOperationalDashboard() {
-            const ops = globalData.operational;
+            const ops = globalData.operational || {};
+            if (ops.error || !ops.trend_gtc) {
+                console.warn("Operational data empty or error:", ops.error);
+                return;
+            }
 
             // Render Trend Chart
-            const dates = ops.trend_gtc ? ops.trend_gtc.map(r => r.Time.split(" - ")[0]) : [];
+            const dates = ops.trend_gtc ? ops.trend_gtc.map(r => r.Time ? r.Time.split(" - ")[0] : "") : [];
             const gtcVals = ops.trend_gtc ? ops.trend_gtc.map(r => roundNum(r['% GTC'])) : [];
             const ltcVals = ops.trend_ltc ? ops.trend_ltc.map(r => roundNum(r['% LTC'])) : [];
             const vols = ops.trend_gtc ? ops.trend_gtc.map(r => r.Volume) : [];

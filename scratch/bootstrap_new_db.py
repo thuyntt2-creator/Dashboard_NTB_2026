@@ -48,7 +48,17 @@ try:
     
     imported_count = 0
     for filename in csv_files:
-        if os.path.exists(filename) and os.path.getsize(filename) > 10:
+        if os.path.exists(filename) and os.path.getsize(filename) > 100:
+            # Check for corrupt content (#REF!)
+            try:
+                with open(filename, 'rb') as f_chk:
+                    head = f_chk.read(300)
+                if head.startswith(b'#REF!') or b'#REF!' in head[:50]:
+                    print(f"Skipping corrupt file {filename} (contains #REF!)", flush=True)
+                    continue
+            except Exception:
+                pass
+
             table_name = filename.lower().replace(".csv", "").replace(" ", "_")
             print(f"Importing {filename} -> table '{table_name}'...", flush=True)
             try:
@@ -57,6 +67,10 @@ try:
                 except Exception:
                     df = pd.read_csv(filename, encoding='latin-1')
                 
+                if df.empty or len(df.columns) < 2:
+                    print(f"  --> Skipping {filename}: dataframe is empty or invalid", flush=True)
+                    continue
+
                 df.to_sql(table_name, engine, if_exists="replace", index=False, chunksize=1000)
                 imported_count += 1
                 print(f"  --> Successfully imported {len(df)} rows into '{table_name}'", flush=True)

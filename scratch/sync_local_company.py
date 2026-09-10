@@ -69,21 +69,37 @@ if not match:
     sys.exit(1)
 spreadsheet_id = match.group(1)
 
-edit_url = f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/edit"
-r_edit = requests.get(edit_url, headers=headers, timeout=20)
-if r_edit.status_code != 200:
-    print(f"Failed to access Google Sheet: HTTP {r_edit.status_code}", flush=True)
-    sys.exit(1)
-
-html = r_edit.text
-pattern = r'\[\s*\d+\s*,\s*0\s*,\s*\\"?(\d+)\\"?\s*,\s*\[\s*\{\s*\\"?1\\"?\s*:\s*\[\s*\[\s*0\s*,\s*0\s*,\s*\\"?([^\\"\(\]]+)\\"?'
-matches = re.findall(pattern, html)
-print(f"Extracted {len(matches)} tabs/sheets from company Google Sheet.", flush=True)
-
+# Try Google Sheets API v4 first for 100% accurate tab titles and GIDs
 gid_map = {}
-for gid, name in matches:
-    norm_name = unicodedata.normalize('NFC', name.strip().lower())
-    gid_map[norm_name] = gid
+api_url = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}?fields=sheets.properties"
+try:
+    r_api = requests.get(api_url, headers=headers, timeout=15)
+    if r_api.status_code == 200:
+        for s in r_api.json().get('sheets', []):
+            p = s.get('properties', {})
+            gid = str(p.get('sheetId'))
+            title = p.get('title', '')
+            norm_name = unicodedata.normalize('NFC', title.strip().lower())
+            gid_map[norm_name] = gid
+        print(f"Extracted {len(gid_map)} tabs/sheets via Google Sheets API v4.", flush=True)
+except Exception as e_api:
+    print(f"Sheets API v4 attempt: {e_api}", flush=True)
+
+if not gid_map:
+    edit_url = f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/edit"
+    r_edit = requests.get(edit_url, headers=headers, timeout=20)
+    if r_edit.status_code != 200:
+        print(f"Failed to access Google Sheet: HTTP {r_edit.status_code}", flush=True)
+        sys.exit(1)
+
+    html = r_edit.text
+    pattern = r'\[\s*\d+\s*,\s*0\s*,\s*\\"?(\d+)\\"?\s*,\s*\[\s*\{\s*\\"?1\\"?\s*:\s*\[\s*\[\s*0\s*,\s*0\s*,\s*\\"?([^\\"\(\]]+)\\"?'
+    matches = re.findall(pattern, html)
+    print(f"Extracted {len(matches)} tabs/sheets from HTML.", flush=True)
+
+    for gid, name in matches:
+        norm_name = unicodedata.normalize('NFC', name.strip().lower())
+        gid_map[norm_name] = gid
 
 sheet_mappings = [
     (["data"], "ops_gtc.csv"),
@@ -112,6 +128,19 @@ sheet_mappings = [
 import time
 import io
 
+def is_valid_csv_content(content):
+    if not content or len(content) < 50:
+        return False
+    chunk = content[:500].decode('utf-8', errors='ignore').strip()
+    if chunk.startswith('#REF!') or '#REF!' in chunk[:50]:
+        return False
+    if '<!doctype' in chunk.lower() or '<html' in chunk.lower():
+        return False
+    lines = [l for l in chunk.splitlines() if l.strip()]
+    if len(lines) < 2:
+        return False
+    return True
+
 # Resolve target CSVs to GIDs
 gid_to_targets = {}
 for candidates, target_csv in sheet_mappings:
@@ -130,22 +159,24 @@ downloaded_count = 0
 for matched_gid, target_csvs in gid_to_targets.items():
     csv_url = f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/export?format=csv&gid={matched_gid}"
     content = None
-    for retry in range(4):
+    for retry in range(5):
         try:
-            time.sleep(1.5)
+            time.sleep(2)
             r_csv = requests.get(csv_url, headers=headers, timeout=90)
-            if r_csv.status_code == 200 and len(r_csv.content) > 10:
+            if r_csv.status_code == 200 and is_valid_csv_content(r_csv.content):
                 content = r_csv.content
                 break
             elif r_csv.status_code == 429:
-                print(f"Rate limited (429) for GID {matched_gid} ({target_csvs[0]}), waiting {5 * (retry + 1)}s...", flush=True)
-                time.sleep(5 * (retry + 1))
+                wait_time = 6 * (retry + 1)
+                print(f"Rate limited (429) for GID {matched_gid} ({target_csvs[0]}), waiting {wait_time}s...", flush=True)
+                time.sleep(wait_time)
             else:
-                print(f"Failed GID {matched_gid} ({target_csvs[0]}): HTTP {r_csv.status_code}", flush=True)
-                break
+                reason = "Invalid/corrupt content" if r_csv.status_code == 200 else f"HTTP {r_csv.status_code}"
+                print(f"Retry {retry+1}/5 for GID {matched_gid} ({target_csvs[0]}): {reason}", flush=True)
+                time.sleep(4)
         except Exception as e:
             print(f"Error downloading GID {matched_gid} (retry {retry+1}): {e}", flush=True)
-            time.sleep(3)
+            time.sleep(4)
 
     if content:
         for target_csv in target_csvs:
