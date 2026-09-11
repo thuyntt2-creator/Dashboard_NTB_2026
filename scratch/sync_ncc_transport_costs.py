@@ -479,19 +479,36 @@ region_summary = {
     'last_updated': datetime.datetime.now().strftime("%H:%M - %d/%m/%Y")
 }
 
-# Format sample trip rows for fast frontend table view (last 100 trips)
-sample_trips = []
-for t in all_trips[:120]:
-    sample_trips.append({
+import re
+
+def normalize_date(d_str):
+    if not d_str:
+        return 'N/A', ''
+    s = str(d_str).strip()
+    m = re.search(r'(\d{1,2})[/.-](\d{1,2})[/.-](\d{4})', s)
+    if m:
+        day, mon, yr = int(m.group(1)), int(m.group(2)), int(m.group(3))
+        return f"{day:02d}/{mon:02d}/{yr}", f"{yr:04d}-{mon:02d}-{day:02d}"
+    return s, ''
+
+# Include all trips with standardized date_iso for interactive frontend filtering
+all_trips_formatted = []
+for t in all_trips:
+    d_disp, d_iso = normalize_date(t.get('date'))
+    all_trips_formatted.append({
         'ncc': t['ncc'],
-        'date': t['date'],
+        'date': d_disp,
+        'date_iso': d_iso,
         'truck': t['truck'],
+        'capacity': t.get('capacity', ''),
         'route': t['route'],
         'ktc': t['ktc'],
         'type': t['type'],
         'cost_str': f"{t['cost']:,.0f} đ".replace(',', '.'),
         'cost': t['cost'],
-        'trip_code': t['trip_code']
+        'trips_equivalent': t.get('trips_equivalent', 1),
+        'trip_code': t['trip_code'],
+        'ontime': t.get('ontime', '100%')
     })
 
 payload = {
@@ -499,7 +516,7 @@ payload = {
     'surge_fixed': surge_fixed_summary,
     'ktcs': ktc_list,
     'nccs': ncc_list,
-    'trips': sample_trips,
+    'trips': all_trips_formatted,
     'all_trips_count': len(all_trips)
 }
 
