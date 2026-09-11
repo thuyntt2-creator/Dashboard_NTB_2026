@@ -3,6 +3,8 @@ import sys
 import subprocess
 import datetime
 
+sys.stdout.reconfigure(encoding='utf-8')
+
 cwd = r"c:\Users\lap4all\Desktop\New folder"
 log_path = os.path.join(cwd, "auto_sync.log")
 
