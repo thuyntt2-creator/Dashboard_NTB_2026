@@ -98,34 +98,66 @@ for makh, g in df_main.groupby('MaKH', sort=False):
 # Sort shops by MTD descending
 shops.sort(key=lambda s: s['mtd'], reverse=True)
 
-# 2. Inspect warning table (right side: columns 19 to 32)
+# 2. Inspect warning table (consolidate to 1 row per shop)
+warn_makhs = []
+if len(df.columns) > 19:
+    df_warn = df.iloc[:, 19:33].copy()
+    warn_cols = ['stt', 'makh', 'tenkh', 'nhomkh', 'vung', 'nhanvien', 'vol_dt_cam_ket', 'mtd', 'pct_mtd_m1', 'aov', 'ngaynext', 'dt', 'am', 'buu_cuc']
+    df_warn.columns = warn_cols[:len(df_warn.columns)]
+    for val in df_warn['makh'].dropna().unique():
+        try:
+            warn_makhs.append(str(int(val)))
+        except Exception:
+            pass
+
+candidate_shops = []
+for s in shops:
+    m_id = s['makh']
+    is_in_warn_table = m_id in warn_makhs
+    tru_hang_val = float(str(s.get('pct_tru_hang', 0)).replace('%', '').strip() or 0)
+    is_dropping = (s.get('diff_w1', 0) < 0 and s.get('pct_w1', 0) <= -20) or tru_hang_val < 25
+    if is_in_warn_table or is_dropping:
+        candidate_shops.append(s)
+
+# Sort by diff_w1 ascending (biggest drop first)
+candidate_shops.sort(key=lambda s: s.get('diff_w1', 0))
+
 warnings = []
-df_warn = df.iloc[:, 19:33].copy()
-# Rename columns
-warn_cols = ['stt', 'makh', 'tenkh', 'nhomkh', 'vung', 'nhanvien', 'vol_dt_cam_ket', 'mtd', 'pct_mtd_m1', 'aov', 'ngaynext', 'dt', 'am', 'buu_cuc']
-df_warn.columns = warn_cols[:len(df_warn.columns)]
-df_warn = df_warn.dropna(subset=['makh', 'ngaynext']).copy()
-for _, r in df_warn.iterrows():
-    try:
-        m_id = str(int(r.get('makh', 0)))
-        warnings.append({
-            "stt": str(int(r.get('stt', 1))),
-            "makh": m_id,
-            "tenkh": str(r.get('tenkh', '')).strip(),
-            "nhomkh": str(r.get('nhomkh', '')).strip(),
-            "vung": str(r.get('vung', '')).strip(),
-            "nhanvien": str(int(r.get('nhanvien', 0))) if pd.notna(r.get('nhanvien')) else "",
-            "cam_ket": str(r.get('vol_dt_cam_ket', '')).strip(),
-            "mtd": float(str(r.get('mtd', 0)).replace(',', '').strip()) if pd.notna(r.get('mtd')) else 0.0,
-            "pct_mtd_m1": str(r.get('pct_mtd_m1', '')).strip(),
-            "aov": str(r.get('aov', '')).strip(),
-            "ngay": parse_date(r.get('ngaynext', '')),
-            "dt": float(str(r.get('dt', 0)).replace(',', '').strip()) if pd.notna(r.get('dt')) else 0.0,
-            "am": str(r.get('am', '')).strip() or SHOP_META_MAP.get(m_id, {}).get('am', ''),
-            "buu_cuc": str(r.get('buu_cuc', '')).strip() or SHOP_META_MAP.get(m_id, {}).get('buu_cuc', '')
-        })
-    except Exception as e:
-        print("Warning row parse error:", e)
+for idx, s in enumerate(candidate_shops):
+    m_id = s['makh']
+    tru_hang_val = float(str(s.get('pct_tru_hang', 0)).replace('%', '').strip() or 0)
+    reasons = []
+    if s.get('diff_w1', 0) < 0:
+        reasons.append(f"▼ Giảm {abs(s['pct_w1'])}% sv W-1 ({s['diff_w1']} Tr)")
+    if tru_hang_val < 25:
+        reasons.append(f"Nguy cơ rớt hạng (Trụ hạng {s['pct_tru_hang']})")
+    elif s.get('pct_mtd_m1') and float(str(s['pct_mtd_m1']).replace('%', '').strip() or 100) < 60:
+        reasons.append(f"MTD thấp ({s['pct_mtd_m1']} sv M-1)")
+    
+    canh_bao_str = " | ".join(reasons) if reasons else "Cần AM theo dõi sát"
+    
+    warnings.append({
+        "stt": str(idx + 1),
+        "makh": m_id,
+        "tenkh": s['tenkh'],
+        "nhomkh": s['nhom_n'],
+        "vung": s.get('vung', ''),
+        "nhanvien": s.get('nhanvien', ''),
+        "cam_ket": s.get('vol_cam_ket', ''),
+        "mtd": s['mtd'],
+        "pct_mtd_m1": s['pct_mtd_m1'],
+        "pct_tru_hang": s['pct_tru_hang'],
+        "aov": s.get('aov', ''),
+        "ngay": latest_date,
+        "dt": s['dt_n1'],
+        "dt_n1": s['dt_n1'],
+        "dt_w1": s['dt_w1'],
+        "diff_w1": s['diff_w1'],
+        "pct_w1": s['pct_w1'],
+        "am": s['am'],
+        "buu_cuc": s['buu_cuc'],
+        "canh_bao": canh_bao_str
+    })
 
 # 3. AM chart aggregation (Sum of MTD by AM)
 am_totals = {}

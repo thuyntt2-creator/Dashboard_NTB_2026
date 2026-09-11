@@ -6123,6 +6123,11 @@
     }
 
     tbody.innerHTML = warnings.map((w, idx) => {
+      const ckVal = parseFloat(String(w.cam_ket || '').replace(/,/g, '').trim());
+      const ckDisplay = (!isNaN(ckVal) && ckVal > 0) ? fNum(ckVal) : (w.cam_ket || '—');
+      const diffVal = Number(w.diff_w1 || 0);
+      const pctW1 = Number(w.pct_w1 || 0);
+      const canhBaoText = w.canh_bao || (diffVal < 0 ? `▼ Sụt giảm ${Math.abs(pctW1)}% vs W-1` : 'Cần theo dõi');
       return `
         <tr>
           <td class="center bold">${idx + 1}</td>
@@ -6131,12 +6136,12 @@
           <td class="bold" onclick="selectAndHighlightAM('${w.am}')" style="cursor:pointer;">${w.am}</td>
           <td style="font-size: 11.5px; color: var(--text-muted);">${w.buu_cuc}</td>
           <td class="center"><span class="badge-tag badge-tag-blue">${w.nhomkh}</span></td>
-          <td class="num">${fNum(w.cam_ket)}</td>
+          <td class="num">${ckDisplay}</td>
           <td class="num bold">${fNum(w.mtd)}</td>
           <td class="center bold">${w.pct_mtd_m1}</td>
           <td class="center bold">${w.ngay}</td>
-          <td class="num bold" style="color: #ef4444; font-size: 14px; background: rgba(239, 68, 68, 0.08);">${fNum(w.dt)}</td>
-          <td class="center"><span class="diff-tag diff-down-bad">▼ Sụt giảm ngày 08/09 (DT chỉ còn 12 Tr)</span></td>
+          <td class="num bold" style="color: #ef4444; font-size: 14px; background: rgba(239, 68, 68, 0.08);">${fNum(w.dt || w.dt_n1)}</td>
+          <td class="center"><span class="diff-tag diff-down-bad">${canhBaoText}</span></td>
         </tr>
       `;
     }).join('');
