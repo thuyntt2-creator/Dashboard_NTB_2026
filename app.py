@@ -2788,12 +2788,10 @@ def process_heavy_10kg_report(am=None, province=None, post_office=None, date=Non
             df_tao['mapped_am'] = df_tao['clean_bc'].map(bc_to_am).replace({'': np.nan, 'none': np.nan, 'nan': np.nan}).fillna(am_col_t).fillna("Không xác định")
             df_tao['is_ck'] = df_tao['po_name'].apply(is_ck_po)
 
-        # Build list of available dates
-        all_dates = []
-        if len(df_ops) > 0 and 'date' in df_ops.columns:
-            all_dates = sorted([str(d) for d in df_ops['date'].unique() if re.match(r'^\d{4}-\d{2}-\d{2}$', str(d))])
-        elif len(df_tao) > 0 and 'date' in df_tao.columns:
-            all_dates = sorted([str(d) for d in df_tao['date'].unique() if re.match(r'^\d{4}-\d{2}-\d{2}$', str(d))])
+        # Build list of available dates (combine dates from both operational and creation data)
+        ops_dates = set([str(d) for d in df_ops['date'].unique() if re.match(r'^\d{4}-\d{2}-\d{2}$', str(d))]) if (len(df_ops) > 0 and 'date' in df_ops.columns) else set()
+        tao_dates = set([str(d) for d in df_tao['date'].unique() if re.match(r'^\d{4}-\d{2}-\d{2}$', str(d))]) if (len(df_tao) > 0 and 'date' in df_tao.columns) else set()
+        all_dates = sorted(list(ops_dates.union(tao_dates)))
 
         selected_date = date if (date and date in all_dates) else (all_dates[-1] if all_dates else None)
         prev_dates = [d for d in all_dates if d < selected_date][-7:] if selected_date else []
@@ -5766,6 +5764,8 @@ def split_excel_to_csvs(xlsx_path):
             (["odr tts", "odr_tts"], "ODR TTS.csv"),
             (["baocao", "báo cáo"], "ops_productivity_realtime.csv"),
             (["nhân sự", "nhan su"], "ops_nhan_su.csv"),
+            (["sl > 10kg", "sl >10kg", "sl>10kg", "sl 10kg", "hàng nặng > 10kg", "hang nang > 10kg", "sl", "sản lượng"], "ops_heavy_10kg.csv"),
+            (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "treen10kg", "treen 10kg", "tạo đơn 10kg", "tao don 10kg"], "ops_tao_don_10kg.csv"),
             (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "10kg", "hàng 10kg"], "raw_tren10kg.csv")
         ]
         

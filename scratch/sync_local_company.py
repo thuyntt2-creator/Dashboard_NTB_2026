@@ -119,10 +119,10 @@ sheet_mappings = [
     (["fd"], "ops_fd.csv"),
     (["baocao", "báo cáo"], "ops_productivity_realtime.csv"),
     (["nhân sự", "nhan su"], "ops_nhan_su.csv"),
-    (["sl", "sl ", "sản lượng", "ops_heavy_10kg", "hàng nặng", "hang nang"], "ops_heavy_10kg.csv"),
+    (["sl > 10kg", "sl >10kg", "sl>10kg", "sl 10kg", "hàng nặng > 10kg", "hang nang > 10kg", "sl", "sl ", "sản lượng", "ops_heavy_10kg", "hàng nặng", "hang nang"], "ops_heavy_10kg.csv"),
     (["sanluong", "sản lượng ca", "san luong ca", "ops_ca_data", "ca_data"], "ops_ca_data.csv"),
-    (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "10kg", "hàng 10kg", "ops_tao_don_10kg"], "ops_tao_don_10kg.csv"),
-    (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "10kg", "hàng 10kg", "raw_tren10kg"], "raw_tren10kg.csv"),
+    (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "treen10kg", "treen 10kg", "10kg", "hàng 10kg", "ops_tao_don_10kg", "tạo đơn 10kg"], "ops_tao_don_10kg.csv"),
+    (["trên10kg", "tren10kg", "trên 10kg", "tren 10kg", "treen10kg", "treen 10kg", "10kg", "hàng 10kg"], "raw_tren10kg.csv"),
     (["kinh doanh", "kinh_doanh", "kinh doanh ", "khách hàng nhóm a", "khach hang a"], "scratch/kinh_doanh_raw.csv")
 ]
 
