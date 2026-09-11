@@ -87,6 +87,8 @@ DEFAULT_USERS = {
             "tab-off-spe",
             "tab-volume-creation",
             "tab-ca-report", "tab-fd",
+            "tab-kinh-doanh",
+            "tab-transport-cost",
             "tab-sync"
         ]
     },
@@ -104,7 +106,9 @@ DEFAULT_USERS = {
             "tab-unstable-po",
             "tab-off-spe",
             "tab-volume-creation",
-            "tab-ca-report", "tab-fd"
+            "tab-ca-report", "tab-fd",
+            "tab-kinh-doanh",
+            "tab-transport-cost"
         ]
     }
 }
@@ -6960,6 +6964,43 @@ def get_khach_hang_a():
         return jsonify(data)
     return jsonify({"error": "Chưa có dữ liệu khách hàng nhóm A"}), 404
 
+def load_transport_costs():
+    try:
+        candidates = [
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), 'scratch', 'transport_costs.json'),
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), 'transport_costs.json'),
+            resolve_path('transport_costs.json', write=False)
+        ]
+        for p in candidates:
+            if p and os.path.exists(p):
+                with open(p, 'r', encoding='utf-8') as f_tc:
+                    return json.load(f_tc)
+    except Exception as e:
+        print(f"Error loading transport_costs.json: {e}")
+    return {}
+
+@app.route('/api/transport-costs')
+def get_transport_costs():
+    data = load_transport_costs()
+    if data:
+        return jsonify(data)
+    return jsonify({"error": "Chưa có dữ liệu chi phí vận tải"}), 404
+
+@app.route('/api/sync-transport-costs', methods=['POST', 'GET'])
+def api_sync_transport_costs():
+    try:
+        sync_script = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'scratch', 'sync_ncc_transport_costs.py')
+        if os.path.exists(sync_script):
+            res = subprocess.run([sys.executable, sync_script], capture_output=True, text=True, timeout=120)
+            if res.returncode == 0:
+                data = load_transport_costs()
+                return jsonify({"status": "success", "message": "Đã đồng bộ chi phí vận tải từ 7 NCC thành công!", "data": data})
+            else:
+                return jsonify({"status": "error", "message": res.stderr or res.stdout}), 500
+        return jsonify({"status": "error", "message": "Không tìm thấy sync_ncc_transport_costs.py"}), 404
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
+
 @app.route('/api/batch-data')
 @requires_auth
 def get_batch_data():
@@ -7135,6 +7176,9 @@ def get_batch_data():
 
     # Khach Hang Nhom A
     result['khach_hang_a'] = load_khach_hang_a()
+
+    # Chi Phi Van Tai NCC & KTC
+    result['transport_costs'] = load_transport_costs()
 
     return jsonify(result)
 

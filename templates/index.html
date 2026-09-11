@@ -1831,6 +1831,9 @@
                 <li class="menu-item" id="nav-tab-kinh-doanh" onclick="switchTab('tab-kinh-doanh', this)" style="background: linear-gradient(135deg, rgba(242, 101, 34, 0.12), rgba(16, 185, 129, 0.12)); border: 1px solid rgba(242, 101, 34, 0.3); font-weight: 700; color: #ea580c;">
                     <i class="fa-solid fa-crown" style="color: #f26522;"></i> Khách Hàng Nhóm A
                 </li>
+                                <li class="menu-item" id="nav-tab-transport-cost" onclick="switchTab('tab-transport-cost', this)" style="background: linear-gradient(135deg, rgba(2, 132, 199, 0.12), rgba(59, 130, 246, 0.12)); border: 1px solid rgba(2, 132, 199, 0.3); font-weight: 700; color: #0284c7;">
+                    <i class="fa-solid fa-truck-moving" style="color: #0284c7;"></i> Chi Phí Vận Tải & KTC
+                </li>
                 <li class="menu-item" id="nav-tab-sync" onclick="switchTab('tab-sync', this)">
                     <i class="fa-solid fa-rotate"></i> Đồng bộ & Files
                 </li>
@@ -5291,6 +5294,1079 @@
                     transition: width 0.5s ease;
                 }
             </style>
+
+        <!-- ==================================================================== -->
+            <!-- TAB: QUẢN TRỊ CHI PHÍ VẬN TẢI & XE TRUNG CHUYỂN KTC -->
+            <!-- ==================================================================== -->
+            <div id="tab-transport-cost" class="content-panel">
+                <!-- Executive Header Banner -->
+                <div style="background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(59, 130, 246, 0.05) 100%); border: 1px solid rgba(2, 132, 199, 0.25); border-left: 5px solid #0284c7; border-radius: 14px; padding: 20px 24px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 6px;">
+                            <div style="width: 40px; height: 40px; border-radius: 10px; background: #0284c7; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 18px; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);">
+                                <i class="fa-solid fa-truck-moving"></i>
+                            </div>
+                            <div>
+                                <h2 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 800; color: var(--text-primary); margin: 0;">
+                                    QUẢN TRỊ CHI PHÍ VẬN TẢI & XE TRUNG CHUYỂN KTC
+                                </h2>
+                                <div style="font-size: 12.5px; color: var(--text-secondary); margin-top: 2px;">
+                                    Theo dõi chi phí / chuyến theo <strong>6 KTC Trọng Điểm</strong> & <strong>7 Đối tác Nhà Cung Cấp (NCC)</strong> Vùng Nam Trung Bộ
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                        <span style="background: var(--bg-primary); border: 1px solid var(--border-color); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; color: var(--text-secondary); display: inline-flex; align-items: center; gap: 6px;">
+                            <i class="fa-solid fa-clock-rotate-left" style="color: #0284c7;"></i> <span id="tc-last-updated-text">17:49 - 11/09/2026</span>
+                        </span>
+                        <button onclick="triggerSyncNccTransport(this)" style="background: linear-gradient(135deg, #0284c7, #0369a1); color: #ffffff; border: none; padding: 8px 16px; border-radius: 20px; font-size: 12.5px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25); transition: all 0.2s;">
+                            <i class="fa-solid fa-rotate" id="tc-sync-icon"></i> Đồng Bộ Số Liệu NCC
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 4 KPI Cards Strip -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 24px;">
+                    <!-- Card 1: Tổng chi phí -->
+                    <div class="card" style="margin: 0; padding: 18px 20px; border-left: 4px solid #0284c7; background: var(--bg-secondary);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="font-size: 12px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px;">Tổng Chi Phí Toàn Vùng</span>
+                            <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(2, 132, 199, 0.12); display: flex; align-items: center; justify-content: center; color: #0284c7;">
+                                <i class="fa-solid fa-coins"></i>
+                            </div>
+                        </div>
+                        <div style="font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 800; color: #0284c7; line-height: 1.2;">
+                            865.87 <span style="font-size: 15px; font-weight: 600; color: var(--text-secondary);">Tr ₫</span>
+                        </div>
+                        <div style="font-size: 11.5px; color: var(--text-secondary); margin-top: 6px;">
+                            865.874.916 đ • 7 Đối tác NCC
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Tổng số chuyến xe -->
+                    <div class="card" style="margin: 0; padding: 18px 20px; border-left: 4px solid #10b981; background: var(--bg-secondary);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="font-size: 12px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px;">Tổng Số Chuyến Xe</span>
+                            <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(16, 185, 129, 0.12); display: flex; align-items: center; justify-content: center; color: #10b981;">
+                                <i class="fa-solid fa-route"></i>
+                            </div>
+                        </div>
+                        <div style="font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 800; color: #10b981; line-height: 1.2;">
+                            916 <span style="font-size: 15px; font-weight: 600; color: var(--text-secondary);">chuyến</span>
+                        </div>
+                        <div style="font-size: 11.5px; color: var(--text-secondary); margin-top: 6px;">
+                            Phục vụ 6 KTC & Kho trung chuyển NTB
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Chi phí bình quân / chuyến -->
+                    <div class="card" style="margin: 0; padding: 18px 20px; border-left: 4px solid #f59e0b; background: var(--bg-secondary);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="font-size: 12px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px;">Chi Phí Bình Quân / Chuyến</span>
+                            <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(245, 158, 11, 0.12); display: flex; align-items: center; justify-content: center; color: #f59e0b;">
+                                <i class="fa-solid fa-scale-balanced"></i>
+                            </div>
+                        </div>
+                        <div style="font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 800; color: #f59e0b; line-height: 1.2;">
+                            0.95 <span style="font-size: 15px; font-weight: 600; color: var(--text-secondary);">Tr ₫</span>
+                        </div>
+                        <div style="font-size: 11.5px; color: var(--text-secondary); margin-top: 6px;">
+                            945.278 đ/chuyến
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Cơ cấu cố định vs tăng cường -->
+                    <div class="card" style="margin: 0; padding: 18px 20px; border-left: 4px solid #8b5cf6; background: var(--bg-secondary);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="font-size: 12px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px;">Tỷ Trọng Cố Định / Tăng Cường</span>
+                            <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(139, 92, 246, 0.12); display: flex; align-items: center; justify-content: center; color: #8b5cf6;">
+                                <i class="fa-solid fa-chart-pie"></i>
+                            </div>
+                        </div>
+                        <div style="font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 800; color: #8b5cf6; line-height: 1.2;">
+                            100.0% <span style="font-size: 14px; font-weight: 600; color: var(--text-secondary);">Cố Định</span>
+                        </div>
+                        <div style="font-size: 11.5px; color: #10b981; font-weight: 700; margin-top: 6px;">
+                            <i class="fa-solid fa-circle-check"></i> An toàn (<20% chi phí xe tăng cường)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 1: Charts Row -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); gap: 20px; margin-bottom: 24px;">
+                    <!-- Chart 1: Chi phí & CP/Chuyến từng KTC -->
+                    <div class="card" style="margin: 0; padding: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <div>
+                                <h3 style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 800; color: var(--text-primary); margin: 0 0 2px 0;">
+                                    📊 CHI PHÍ & ĐƠN GIÁ BÌNH QUÂN / CHUYẾN TỪNG KTC
+                                </h3>
+                                <div style="font-size: 12px; color: var(--text-secondary);">So sánh quy mô chi phí và đơn giá theo từng Kho trung chuyển</div>
+                            </div>
+                        </div>
+                        <div id="apex-chart-transport-ktc" style="min-height: 320px;"></div>
+                    </div>
+
+                    <!-- Chart 2: Cơ cấu chi phí NCC -->
+                    <div class="card" style="margin: 0; padding: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <div>
+                                <h3 style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 800; color: var(--text-primary); margin: 0 0 2px 0;">
+                                    🥧 TỶ TRỌNG CHI PHÍ THEO NHÀ CUNG CẤP (NCC)
+                                </h3>
+                                <div style="font-size: 12px; color: var(--text-secondary);">Cơ cấu ngân sách cước vận chuyển giữa 7 đơn vị xe tải</div>
+                            </div>
+                        </div>
+                        <div id="apex-chart-transport-ncc" style="min-height: 320px;"></div>
+                    </div>
+                </div>
+
+                <!-- Row 2: Tables Row (KTC & NCC Breakdown) -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 20px; margin-bottom: 24px;">
+                    <!-- Table 1: Từng KTC -->
+                    <div class="card" style="margin: 0; padding: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <div>
+                                <h3 style="font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 800; color: #0284c7; margin: 0 0 2px 0;">
+                                    1. CHI PHÍ & ĐƠN GIÁ CHUYẾN TỪNG KTC
+                                </h3>
+                                <div style="font-size: 12px; color: var(--text-secondary);">Thống kê toàn bộ các Kho trung chuyển trong mạng lưới NTB</div>
+                            </div>
+                            <span style="background: rgba(2, 132, 199, 0.1); color: #0284c7; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 6px;">
+                                6 KTC
+                            </span>
+                        </div>
+                        <div style="overflow-x: auto;">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 32px; text-align: center;">#</th>
+                                        <th>Kho Trung Chuyển (KTC)</th>
+                                        <th style="text-align: right;">Tổng Tiền</th>
+                                        <th style="text-align: center;">Chuyến</th>
+                                        <th style="text-align: right;">CP / Chuyến</th>
+                                        <th>NCC Chính</th>
+                                        <th style="text-align: center;">Số Xe</th>
+                                        <th style="text-align: center;">Đánh Giá</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-transport-ktc-tbody">
+        <tr>
+            <td style="text-align: center; font-weight: 700; color: var(--text-secondary);">1</td>
+            <td style="font-weight: 800; color: var(--text-primary); font-size: 13.5px;">
+                <i class="fa-solid fa-warehouse" style="color: #0284c7; margin-right: 6px; font-size: 12px;"></i>KTC Đức Trọng
+            </td>
+            <td style="text-align: right; font-weight: 800; color: #0284c7; font-size: 14px;">346.63 Tr</td>
+            <td style="text-align: center; font-weight: 700;">241 chuyến</td>
+            <td style="text-align: right; font-weight: 800; color: #ef4444; font-size: 14px; background: rgba(0,0,0,0.02);">1.44 Tr / chuyến</td>
+            <td style="font-size: 12px; color: var(--text-secondary);">NAK, Mạnh Cường</td>
+            <td style="text-align: center; font-weight: 700;">12 xe</td>
+            <td style="text-align: center;"><span style="background: rgba(239, 68, 68, 0.12); color: #ef4444; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 6px;">Chi Phí Cao / Tuyến Dài</span></td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 700; color: var(--text-secondary);">2</td>
+            <td style="font-weight: 800; color: var(--text-primary); font-size: 13.5px;">
+                <i class="fa-solid fa-warehouse" style="color: #0284c7; margin-right: 6px; font-size: 12px;"></i>KTC Đắk Nông
+            </td>
+            <td style="text-align: right; font-weight: 800; color: #0284c7; font-size: 14px;">154.98 Tr</td>
+            <td style="text-align: center; font-weight: 700;">124 chuyến</td>
+            <td style="text-align: right; font-weight: 800; color: #f59e0b; font-size: 14px; background: rgba(0,0,0,0.02);">1.25 Tr / chuyến</td>
+            <td style="font-size: 12px; color: var(--text-secondary);">Lâm Ngọc Thành, Tốt và Rẻ</td>
+            <td style="text-align: center; font-weight: 700;">4 xe</td>
+            <td style="text-align: center;"><span style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 6px;">Đạt Tiêu Chuẩn</span></td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 700; color: var(--text-secondary);">3</td>
+            <td style="font-weight: 800; color: var(--text-primary); font-size: 13.5px;">
+                <i class="fa-solid fa-warehouse" style="color: #0284c7; margin-right: 6px; font-size: 12px;"></i>KTC Bảo Lộc
+            </td>
+            <td style="text-align: right; font-weight: 800; color: #0284c7; font-size: 14px;">138.70 Tr</td>
+            <td style="text-align: center; font-weight: 700;">125 chuyến</td>
+            <td style="text-align: right; font-weight: 800; color: #f59e0b; font-size: 14px; background: rgba(0,0,0,0.02);">1.11 Tr / chuyến</td>
+            <td style="font-size: 12px; color: var(--text-secondary);">NAK, Công Định</td>
+            <td style="text-align: center; font-weight: 700;">6 xe</td>
+            <td style="text-align: center;"><span style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 6px;">Đạt Tiêu Chuẩn</span></td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 700; color: var(--text-secondary);">4</td>
+            <td style="font-weight: 800; color: var(--text-primary); font-size: 13.5px;">
+                <i class="fa-solid fa-warehouse" style="color: #0284c7; margin-right: 6px; font-size: 12px;"></i>KTC Khánh Hòa
+            </td>
+            <td style="text-align: right; font-weight: 800; color: #0284c7; font-size: 14px;">84.58 Tr</td>
+            <td style="text-align: center; font-weight: 700;">62 chuyến</td>
+            <td style="text-align: right; font-weight: 800; color: #ef4444; font-size: 14px; background: rgba(0,0,0,0.02);">1.36 Tr / chuyến</td>
+            <td style="font-size: 12px; color: var(--text-secondary);">Mạnh Cường</td>
+            <td style="text-align: center; font-weight: 700;">2 xe</td>
+            <td style="text-align: center;"><span style="background: rgba(239, 68, 68, 0.12); color: #ef4444; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 6px;">Chi Phí Cao / Tuyến Dài</span></td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 700; color: var(--text-secondary);">5</td>
+            <td style="font-weight: 800; color: var(--text-primary); font-size: 13.5px;">
+                <i class="fa-solid fa-warehouse" style="color: #0284c7; margin-right: 6px; font-size: 12px;"></i>KTC Bắc Nha Trang
+            </td>
+            <td style="text-align: right; font-weight: 800; color: #0284c7; font-size: 14px;">71.53 Tr</td>
+            <td style="text-align: center; font-weight: 700;">214 chuyến</td>
+            <td style="text-align: right; font-weight: 800; color: #10b981; font-size: 14px; background: rgba(0,0,0,0.02);">0.33 Tr / chuyến</td>
+            <td style="font-size: 12px; color: var(--text-secondary);">Mạnh Cường, Mạnh Cường (BCCK)</td>
+            <td style="text-align: center; font-weight: 700;">9 xe</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #10b981; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 6px;">Rất Tối Ưu</span></td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 700; color: var(--text-secondary);">6</td>
+            <td style="font-weight: 800; color: var(--text-primary); font-size: 13.5px;">
+                <i class="fa-solid fa-warehouse" style="color: #0284c7; margin-right: 6px; font-size: 12px;"></i>KTC Nam Nha Trang
+            </td>
+            <td style="text-align: right; font-weight: 800; color: #0284c7; font-size: 14px;">69.46 Tr</td>
+            <td style="text-align: center; font-weight: 700;">150 chuyến</td>
+            <td style="text-align: right; font-weight: 800; color: #10b981; font-size: 14px; background: rgba(0,0,0,0.02);">0.46 Tr / chuyến</td>
+            <td style="font-size: 12px; color: var(--text-secondary);">Mạnh Cường, Mạnh Cường (BCCK)</td>
+            <td style="text-align: center; font-weight: 700;">5 xe</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #10b981; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 6px;">Rất Tối Ưu</span></td>
+        </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Table 2: Từng NCC -->
+                    <div class="card" style="margin: 0; padding: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <div>
+                                <h3 style="font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 800; color: #b91c1c; margin: 0 0 2px 0;">
+                                    2. CHI PHÍ & HIỆU QUẢ TỪNG NHÀ CUNG CẤP (NCC)
+                                </h3>
+                                <div style="font-size: 12px; color: var(--text-secondary);">So sánh khối lượng và đơn giá bình quân giữa các đối tác vận tải</div>
+                            </div>
+                            <span style="background: rgba(239, 68, 68, 0.1); color: #b91c1c; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 6px;">
+                                7 Đối tác NCC
+                            </span>
+                        </div>
+                        <div style="overflow-x: auto;">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 32px; text-align: center;">#</th>
+                                        <th>Nhà Cung Cấp (NCC)</th>
+                                        <th style="text-align: center;">Số Xe</th>
+                                        <th style="text-align: center;">Chuyến</th>
+                                        <th style="text-align: right;">Tổng Cước</th>
+                                        <th style="text-align: right;">CP / Chuyến</th>
+                                        <th>KTC Hoạt Động</th>
+                                        <th style="text-align: center;">Chất Lượng</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-transport-ncc-tbody">
+        <tr>
+            <td style="text-align: center; font-weight: 700; color: var(--text-secondary);">1</td>
+            <td style="font-weight: 800; color: #b91c1c; font-size: 13.5px;">
+                <i class="fa-solid fa-truck" style="color: var(--color-ghn-orange); margin-right: 6px; font-size: 12px;"></i>NAK
+            </td>
+            <td style="text-align: center; font-weight: 700;">12 xe</td>
+            <td style="text-align: center; font-weight: 700;">240 chuyến</td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 14px;">339.16 Tr</td>
+            <td style="text-align: right; font-weight: 800; color: #ef4444; font-size: 14px; background: rgba(0,0,0,0.02);">1.41 Tr / chuyến</td>
+            <td style="font-size: 12px; color: var(--text-secondary);">KTC Bảo Lộc, KTC Đức Trọng</td>
+            <td style="text-align: center;">
+                <span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 6px;">100% Ontime</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 700; color: var(--text-secondary);">2</td>
+            <td style="font-weight: 800; color: #b91c1c; font-size: 13.5px;">
+                <i class="fa-solid fa-truck" style="color: var(--color-ghn-orange); margin-right: 6px; font-size: 12px;"></i>Mạnh Cường
+            </td>
+            <td style="text-align: center; font-weight: 700;">7 xe</td>
+            <td style="text-align: center; font-weight: 700;">247 chuyến</td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 14px;">198.19 Tr</td>
+            <td style="text-align: right; font-weight: 800; color: #10b981; font-size: 14px; background: rgba(0,0,0,0.02);">0.80 Tr / chuyến</td>
+            <td style="font-size: 12px; color: var(--text-secondary);">KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Đức Trọng</td>
+            <td style="text-align: center;">
+                <span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 6px;">100% Ontime</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 700; color: var(--text-secondary);">3</td>
+            <td style="font-weight: 800; color: #b91c1c; font-size: 13.5px;">
+                <i class="fa-solid fa-truck" style="color: var(--color-ghn-orange); margin-right: 6px; font-size: 12px;"></i>Mạnh Cường (BCCK)
+            </td>
+            <td style="text-align: center; font-weight: 700;">7 xe</td>
+            <td style="text-align: center; font-weight: 700;">210 chuyến</td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 14px;">93.59 Tr</td>
+            <td style="text-align: right; font-weight: 800; color: #10b981; font-size: 14px; background: rgba(0,0,0,0.02);">0.45 Tr / chuyến</td>
+            <td style="font-size: 12px; color: var(--text-secondary);">KTC Bắc Nha Trang, KTC Nam Nha Trang</td>
+            <td style="text-align: center;">
+                <span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 6px;">100% Ontime</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 700; color: var(--text-secondary);">4</td>
+            <td style="font-weight: 800; color: #b91c1c; font-size: 13.5px;">
+                <i class="fa-solid fa-truck" style="color: var(--color-ghn-orange); margin-right: 6px; font-size: 12px;"></i>Công Định
+            </td>
+            <td style="text-align: center; font-weight: 700;">3 xe</td>
+            <td style="text-align: center; font-weight: 700;">95 chuyến</td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 14px;">79.96 Tr</td>
+            <td style="text-align: right; font-weight: 800; color: #10b981; font-size: 14px; background: rgba(0,0,0,0.02);">0.84 Tr / chuyến</td>
+            <td style="font-size: 12px; color: var(--text-secondary);">KTC Bảo Lộc</td>
+            <td style="text-align: center;">
+                <span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 6px;">100% Ontime</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 700; color: var(--text-secondary);">5</td>
+            <td style="font-weight: 800; color: #b91c1c; font-size: 13.5px;">
+                <i class="fa-solid fa-truck" style="color: var(--color-ghn-orange); margin-right: 6px; font-size: 12px;"></i>Lâm Ngọc Thành
+            </td>
+            <td style="text-align: center; font-weight: 700;">1 xe</td>
+            <td style="text-align: center; font-weight: 700;">31 chuyến</td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 14px;">71.92 Tr</td>
+            <td style="text-align: right; font-weight: 800; color: #ef4444; font-size: 14px; background: rgba(0,0,0,0.02);">2.32 Tr / chuyến</td>
+            <td style="font-size: 12px; color: var(--text-secondary);">KTC Đắk Nông</td>
+            <td style="text-align: center;">
+                <span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 6px;">100% Ontime</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 700; color: var(--text-secondary);">6</td>
+            <td style="font-weight: 800; color: #b91c1c; font-size: 13.5px;">
+                <i class="fa-solid fa-truck" style="color: var(--color-ghn-orange); margin-right: 6px; font-size: 12px;"></i>Tốt và Rẻ
+            </td>
+            <td style="text-align: center; font-weight: 700;">2 xe</td>
+            <td style="text-align: center; font-weight: 700;">62 chuyến</td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 14px;">54.16 Tr</td>
+            <td style="text-align: right; font-weight: 800; color: #10b981; font-size: 14px; background: rgba(0,0,0,0.02);">0.87 Tr / chuyến</td>
+            <td style="font-size: 12px; color: var(--text-secondary);">KTC Đắk Nông</td>
+            <td style="text-align: center;">
+                <span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 6px;">100% Ontime</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 700; color: var(--text-secondary);">7</td>
+            <td style="font-weight: 800; color: #b91c1c; font-size: 13.5px;">
+                <i class="fa-solid fa-truck" style="color: var(--color-ghn-orange); margin-right: 6px; font-size: 12px;"></i>Trâm Hoá
+            </td>
+            <td style="text-align: center; font-weight: 700;">1 xe</td>
+            <td style="text-align: center; font-weight: 700;">31 chuyến</td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 14px;">28.90 Tr</td>
+            <td style="text-align: right; font-weight: 800; color: #f59e0b; font-size: 14px; background: rgba(0,0,0,0.02);">0.93 Tr / chuyến</td>
+            <td style="font-size: 12px; color: var(--text-secondary);">KTC Đắk Nông</td>
+            <td style="text-align: center;">
+                <span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 6px;">100% Ontime</span>
+            </td>
+        </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 3: Searchable Detailed Trips Table -->
+                <div class="card" style="margin: 0; padding: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+                        <div>
+                            <h3 style="font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 800; color: var(--text-primary); margin: 0 0 2px 0;">
+                                📋 TRA CỨU CHI TIẾT CÁC CHUYẾN XE VẬN TẢI (TRIP LOG)
+                            </h3>
+                            <div style="font-size: 12px; color: var(--text-secondary);">Tra cứu chuyến xe theo KTC, NCC, Biển số hoặc Mã chuyến</div>
+                        </div>
+                        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                            <select id="filter-tc-ktc" onchange="filterTransportTrips()" style="padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary); font-size: 12px; font-weight: 600;">
+                                <option value="all">Tất cả KTC</option>
+                                <option value="KTC Đức Trọng">KTC Đức Trọng</option>
+                                <option value="KTC Đắk Nông">KTC Đắk Nông</option>
+                                <option value="KTC Bảo Lộc">KTC Bảo Lộc</option>
+                                <option value="KTC Khánh Hòa">KTC Khánh Hòa</option>
+                                <option value="KTC Bắc Nha Trang">KTC Bắc Nha Trang</option>
+                                <option value="KTC Nam Nha Trang">KTC Nam Nha Trang</option>
+                            </select>
+                            <select id="filter-tc-ncc" onchange="filterTransportTrips()" style="padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary); font-size: 12px; font-weight: 600;">
+                                <option value="all">Tất cả NCC</option>
+                                <option value="NAK">NAK</option>
+                                <option value="Mạnh Cường">Mạnh Cường</option>
+                                <option value="Mạnh Cường (BCCK)">Mạnh Cường (BCCK)</option>
+                                <option value="Công Định">Công Định</option>
+                                <option value="Lâm Ngọc Thành">Lâm Ngọc Thành</option>
+                                <option value="Tốt và Rẻ">Tốt và Rẻ</option>
+                                <option value="Trâm Hoá">Trâm Hoá</option>
+                            </select>
+                            <input type="text" id="search-tc-keyword" oninput="filterTransportTrips()" placeholder="Tìm biển số, mã chuyến..." style="padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary); font-size: 12px; width: 180px;">
+                        </div>
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table class="custom-table" id="table-transport-trips">
+                            <thead>
+                                <tr>
+                                    <th style="width: 32px; text-align: center;">#</th>
+                                    <th>Ngày</th>
+                                    <th>NCC</th>
+                                    <th>KTC</th>
+                                    <th>Biển Số</th>
+                                    <th>Lộ Trình Vận Chuyển</th>
+                                    <th style="text-align: center;">Hình Thức</th>
+                                    <th style="text-align: right;">Cước Phí</th>
+                                    <th>Mã Chuyến</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-transport-trips-tbody">
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">1</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">26/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">1.014.687 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260825O7K1F42Y</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">2</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">26/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">913.219 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260825UQTUJ15Z</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">3</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">27/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">1.014.687 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260826C4RHX8RC</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">4</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">27/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">913.219 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E2608260W6EDIBS</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">5</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">28/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">913.219 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260827LI3IY6SR</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">6</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">28/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">913.219 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260827U5J3CDRT</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">7</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">29/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">1.014.687 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E2608283VPM827V</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">8</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">29/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">913.219 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260829OK10RQ5D</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">9</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">30/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">1.014.687 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260829T08TW6C5</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">10</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">30/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">913.219 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260830UFULAZN1</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">11</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">31/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">1.014.687 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260830Y0NU59XL</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">12</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">31/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">913.219 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260830OKIEW7GE</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">13</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">01/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">1.014.687 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260831BN8WL35U</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">14</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">01/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">913.219 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260831SXZGN7XR</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">15</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">02/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">1.014.687 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260901NRTAVCYR</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">16</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">02/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">913.219 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260901JUGSVBG3</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">17</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">03/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">1.014.687 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260902TD47TYO7</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">18</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">03/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">913.219 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E26090265Y3ANWL</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">19</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">04/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Bảo Lâm 3 -> (LDO) Hòa Ninh -> (LDO) Di Linh -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Bảo Lâm 3 -> (LDO) Hòa Ninh -> (LDO) Di Linh -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">1.014.687 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260903MDRE0AW4</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">20</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">04/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">913.219 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E2609046BAT8RVU</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">21</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">05/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">913.219 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E2609048EXCYX3A</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">22</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">05/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">913.219 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260905IHW67AVN</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">23</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">06/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">1.014.687 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260905MIB24ZB9</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">24</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">06/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">913.219 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E2609058LMSM25I</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">25</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">07/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">1.014.687 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260906DQ3UNPE4</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">26</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">07/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">913.219 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E2609062LOERA88</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">27</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">08/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">1.014.687 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260907A2LKXE1C</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">28</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">08/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">913.219 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260907NDFY3BWL</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">29</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">09/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">1.014.687 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E26090862ZEU3OI</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">30</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">09/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">913.219 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260908H0TYSXWD</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">31</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">10/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">1.014.687 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260909A2RTZ02E</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">32</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">10/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04910</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">913.219 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260910MZL4OUJC</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">33</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">26/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04926</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">710.281 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260825CINI5VXJ</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">34</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">26/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04926</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">811.749 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260826POPYQ40U</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">35</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">27/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04926</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">710.281 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260826Y74CNN2X</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">36</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">27/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04926</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">811.749 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260827Y1TNWYVF</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">37</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">28/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04926</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">710.281 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E2608277RC0UCD2</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">38</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">28/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04926</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">811.749 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260828ETUQLHH1</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">39</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">29/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04926</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">710.281 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260828CJG8E0SE</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">40</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">29/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04926</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">811.749 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260829L8UE33H4</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">41</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">30/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04926</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">710.281 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260829BVP5I6V1</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">42</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">30/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04926</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">811.749 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260830EOBTC5EB</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">43</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">31/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04926</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">710.281 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260830T7L89T55</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">44</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">31/08/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04926</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">811.749 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E2608304DGADV4Y</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">45</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">01/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04926</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">710.281 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260831VSHOY4V2</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">46</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">01/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04926</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">811.749 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260901EXB4NPT7</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">47</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">02/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04926</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">710.281 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260901S757J54H</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">48</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">02/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04926</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">811.749 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260902P5P2ZECB</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">49</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">03/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04926</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">710.281 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E2609024PI7CHTW</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">50</td>
+            <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">03/09/2026</td>
+            <td style="font-weight: 700; color: var(--text-primary);">Công Định</td>
+            <td style="font-weight: 700; color: #0284c7;">KTC Bảo Lộc</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">49H-04926</span>
+            </td>
+            <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc">Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc</td>
+            <td style="text-align: center;"><span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span></td>
+            <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">811.749 đ</td>
+            <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">E260902QKOS2A77</td>
+        </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
         </main>
     </div>
@@ -12964,7 +14040,233 @@
             if (tabId === 'tab-kinh-doanh') {
                 setTimeout(renderKinhDoanhTab, 50);
             }
+            if (tabId === 'tab-transport-cost') {
+                setTimeout(renderTransportCostTab, 50);
+            }
         };
+    
+        // ====================================================================
+        // LOGIC QUẢN TRỊ CHI PHÍ VẬN TẢI & TRUNG CHUYỂN KTC
+        // ====================================================================
+        window.TRANSPORT_COSTS_DATA = {"region": {"total_cost": 865.87, "total_cost_formatted": "865.874.916 đ", "total_trips": 916, "avg_cost_per_trip": 0.95, "avg_cost_per_trip_formatted": "945.278 đ/chuyến", "ncc_count": 7, "ktc_count": 6, "total_trucks": 33, "last_updated": "17:49 - 11/09/2026"}, "surge_fixed": {"fixed_cost": 865.87, "fixed_cost_pct": 100.0, "fixed_trips": 916, "surge_cost": 0.0, "surge_cost_pct": 0.0, "surge_trips": 0, "eval": "An toàn (<20% chi phí xe tăng cường)"}, "ktcs": [{"ktc": "KTC Đức Trọng", "total_cost": 346.63, "total_cost_raw": 346633321.3999995, "total_trips": 241, "cost_per_trip": 1.44, "cost_per_trip_raw": 1438312.5369294586, "fixed_cost": 346.63, "surge_cost": 0.0, "surge_pct": 0.0, "primary_ncc": "NAK, Mạnh Cường", "truck_count": 12}, {"ktc": "KTC Đắk Nông", "total_cost": 154.98, "total_cost_raw": 154978204.40000007, "total_trips": 124, "cost_per_trip": 1.25, "cost_per_trip_raw": 1249824.2290322585, "fixed_cost": 154.98, "surge_cost": 0.0, "surge_pct": 0.0, "primary_ncc": "Lâm Ngọc Thành, Tốt và Rẻ", "truck_count": 4}, {"ktc": "KTC Bảo Lộc", "total_cost": 138.7, "total_cost_raw": 138695156.0, "total_trips": 125, "cost_per_trip": 1.11, "cost_per_trip_raw": 1109561.248, "fixed_cost": 138.7, "surge_cost": 0.0, "surge_pct": 0.0, "primary_ncc": "NAK, Công Định", "truck_count": 6}, {"ktc": "KTC Khánh Hòa", "total_cost": 84.58, "total_cost_raw": 84579486.49999994, "total_trips": 62, "cost_per_trip": 1.36, "cost_per_trip_raw": 1364185.2661290313, "fixed_cost": 84.58, "surge_cost": 0.0, "surge_pct": 0.0, "primary_ncc": "Mạnh Cường", "truck_count": 2}, {"ktc": "KTC Bắc Nha Trang", "total_cost": 71.53, "total_cost_raw": 71527266.0, "total_trips": 214, "cost_per_trip": 0.33, "cost_per_trip_raw": 334239.56074766355, "fixed_cost": 71.53, "surge_cost": 0.0, "surge_pct": 0.0, "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)", "truck_count": 9}, {"ktc": "KTC Nam Nha Trang", "total_cost": 69.46, "total_cost_raw": 69461481.20000003, "total_trips": 150, "cost_per_trip": 0.46, "cost_per_trip_raw": 463076.54133333353, "fixed_cost": 69.46, "surge_cost": 0.0, "surge_pct": 0.0, "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)", "truck_count": 5}], "nccs": [{"ncc": "NAK", "total_cost": 339.16, "total_cost_raw": 339160216.0, "total_trips": 240, "cost_per_trip": 1.41, "cost_per_trip_raw": 1413167.5666666667, "fixed_cost": 339.16, "surge_cost": 0.0, "surge_pct": 0.0, "truck_count": 12, "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"}, {"ncc": "Mạnh Cường", "total_cost": 198.19, "total_cost_raw": 198190316.10000014, "total_trips": 247, "cost_per_trip": 0.8, "cost_per_trip_raw": 802389.943724697, "fixed_cost": 198.19, "surge_cost": 0.0, "surge_pct": 0.0, "truck_count": 7, "active_ktcs": "KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Đức Trọng"}, {"ncc": "Mạnh Cường (BCCK)", "total_cost": 93.59, "total_cost_raw": 93588824.0, "total_trips": 210, "cost_per_trip": 0.45, "cost_per_trip_raw": 445661.06666666665, "fixed_cost": 93.59, "surge_cost": 0.0, "surge_pct": 0.0, "truck_count": 7, "active_ktcs": "KTC Bắc Nha Trang, KTC Nam Nha Trang"}, {"ncc": "Công Định", "total_cost": 79.96, "total_cost_raw": 79957355.0, "total_trips": 95, "cost_per_trip": 0.84, "cost_per_trip_raw": 841656.3684210526, "fixed_cost": 79.96, "surge_cost": 0.0, "surge_pct": 0.0, "truck_count": 3, "active_ktcs": "KTC Bảo Lộc"}, {"ncc": "Lâm Ngọc Thành", "total_cost": 71.92, "total_cost_raw": 71919588.0, "total_trips": 31, "cost_per_trip": 2.32, "cost_per_trip_raw": 2319986.709677419, "fixed_cost": 71.92, "surge_cost": 0.0, "surge_pct": 0.0, "truck_count": 1, "active_ktcs": "KTC Đắk Nông"}, {"ncc": "Tốt và Rẻ", "total_cost": 54.16, "total_cost_raw": 54162617.20000005, "total_trips": 62, "cost_per_trip": 0.87, "cost_per_trip_raw": 873590.6000000008, "fixed_cost": 54.16, "surge_cost": 0.0, "surge_pct": 0.0, "truck_count": 2, "active_ktcs": "KTC Đắk Nông"}, {"ncc": "Trâm Hoá", "total_cost": 28.9, "total_cost_raw": 28895999.2, "total_trips": 31, "cost_per_trip": 0.93, "cost_per_trip_raw": 932129.0064516129, "fixed_cost": 28.9, "surge_cost": 0.0, "surge_pct": 0.0, "truck_count": 1, "active_ktcs": "KTC Đắk Nông"}], "trips": [{"ncc": "Công Định", "date": "26/08/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "1.014.687 đ", "cost": 1014687.0, "trip_code": "E260825O7K1F42Y"}, {"ncc": "Công Định", "date": "26/08/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260825UQTUJ15Z"}, {"ncc": "Công Định", "date": "27/08/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "1.014.687 đ", "cost": 1014687.0, "trip_code": "E260826C4RHX8RC"}, {"ncc": "Công Định", "date": "27/08/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E2608260W6EDIBS"}, {"ncc": "Công Định", "date": "28/08/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260827LI3IY6SR"}, {"ncc": "Công Định", "date": "28/08/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260827U5J3CDRT"}, {"ncc": "Công Định", "date": "29/08/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "1.014.687 đ", "cost": 1014687.0, "trip_code": "E2608283VPM827V"}, {"ncc": "Công Định", "date": "29/08/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260829OK10RQ5D"}, {"ncc": "Công Định", "date": "30/08/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "1.014.687 đ", "cost": 1014687.0, "trip_code": "E260829T08TW6C5"}, {"ncc": "Công Định", "date": "30/08/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260830UFULAZN1"}, {"ncc": "Công Định", "date": "31/08/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "1.014.687 đ", "cost": 1014687.0, "trip_code": "E260830Y0NU59XL"}, {"ncc": "Công Định", "date": "31/08/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260830OKIEW7GE"}, {"ncc": "Công Định", "date": "01/09/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "1.014.687 đ", "cost": 1014687.0, "trip_code": "E260831BN8WL35U"}, {"ncc": "Công Định", "date": "01/09/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260831SXZGN7XR"}, {"ncc": "Công Định", "date": "02/09/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "1.014.687 đ", "cost": 1014687.0, "trip_code": "E260901NRTAVCYR"}, {"ncc": "Công Định", "date": "02/09/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260901JUGSVBG3"}, {"ncc": "Công Định", "date": "03/09/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "1.014.687 đ", "cost": 1014687.0, "trip_code": "E260902TD47TYO7"}, {"ncc": "Công Định", "date": "03/09/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E26090265Y3ANWL"}, {"ncc": "Công Định", "date": "04/09/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Bảo Lâm 3 -> (LDO) Hòa Ninh -> (LDO) Di Linh -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "1.014.687 đ", "cost": 1014687.0, "trip_code": "E260903MDRE0AW4"}, {"ncc": "Công Định", "date": "04/09/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E2609046BAT8RVU"}, {"ncc": "Công Định", "date": "05/09/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E2609048EXCYX3A"}, {"ncc": "Công Định", "date": "05/09/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260905IHW67AVN"}, {"ncc": "Công Định", "date": "06/09/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "1.014.687 đ", "cost": 1014687.0, "trip_code": "E260905MIB24ZB9"}, {"ncc": "Công Định", "date": "06/09/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E2609058LMSM25I"}, {"ncc": "Công Định", "date": "07/09/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "1.014.687 đ", "cost": 1014687.0, "trip_code": "E260906DQ3UNPE4"}, {"ncc": "Công Định", "date": "07/09/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E2609062LOERA88"}, {"ncc": "Công Định", "date": "08/09/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "1.014.687 đ", "cost": 1014687.0, "trip_code": "E260907A2LKXE1C"}, {"ncc": "Công Định", "date": "08/09/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260907NDFY3BWL"}, {"ncc": "Công Định", "date": "09/09/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "1.014.687 đ", "cost": 1014687.0, "trip_code": "E26090862ZEU3OI"}, {"ncc": "Công Định", "date": "09/09/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260908H0TYSXWD"}, {"ncc": "Công Định", "date": "10/09/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "1.014.687 đ", "cost": 1014687.0, "trip_code": "E260909A2RTZ02E"}, {"ncc": "Công Định", "date": "10/09/2026", "truck": "49H-04910", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260910MZL4OUJC"}, {"ncc": "Công Định", "date": "26/08/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260825CINI5VXJ"}, {"ncc": "Công Định", "date": "26/08/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "811.749 đ", "cost": 811749.0, "trip_code": "E260826POPYQ40U"}, {"ncc": "Công Định", "date": "27/08/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260826Y74CNN2X"}, {"ncc": "Công Định", "date": "27/08/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "811.749 đ", "cost": 811749.0, "trip_code": "E260827Y1TNWYVF"}, {"ncc": "Công Định", "date": "28/08/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E2608277RC0UCD2"}, {"ncc": "Công Định", "date": "28/08/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "811.749 đ", "cost": 811749.0, "trip_code": "E260828ETUQLHH1"}, {"ncc": "Công Định", "date": "29/08/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260828CJG8E0SE"}, {"ncc": "Công Định", "date": "29/08/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "811.749 đ", "cost": 811749.0, "trip_code": "E260829L8UE33H4"}, {"ncc": "Công Định", "date": "30/08/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260829BVP5I6V1"}, {"ncc": "Công Định", "date": "30/08/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "811.749 đ", "cost": 811749.0, "trip_code": "E260830EOBTC5EB"}, {"ncc": "Công Định", "date": "31/08/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260830T7L89T55"}, {"ncc": "Công Định", "date": "31/08/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "811.749 đ", "cost": 811749.0, "trip_code": "E2608304DGADV4Y"}, {"ncc": "Công Định", "date": "01/09/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260831VSHOY4V2"}, {"ncc": "Công Định", "date": "01/09/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "811.749 đ", "cost": 811749.0, "trip_code": "E260901EXB4NPT7"}, {"ncc": "Công Định", "date": "02/09/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260901S757J54H"}, {"ncc": "Công Định", "date": "02/09/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "811.749 đ", "cost": 811749.0, "trip_code": "E260902P5P2ZECB"}, {"ncc": "Công Định", "date": "03/09/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E2609024PI7CHTW"}, {"ncc": "Công Định", "date": "03/09/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "811.749 đ", "cost": 811749.0, "trip_code": "E260902QKOS2A77"}, {"ncc": "Công Định", "date": "04/09/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) B'Lao -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260903H2FWY16X"}, {"ncc": "Công Định", "date": "04/09/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "811.749 đ", "cost": 811749.0, "trip_code": "E26090432MA7IRU"}, {"ncc": "Công Định", "date": "05/09/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260904CVMCRHLC"}, {"ncc": "Công Định", "date": "05/09/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260905B0F6AREH"}, {"ncc": "Công Định", "date": "06/09/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260905AWAFUTT7"}, {"ncc": "Công Định", "date": "06/09/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260905LDYBU3GI"}, {"ncc": "Công Định", "date": "07/09/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E2609062QPFVVG5"}, {"ncc": "Công Định", "date": "07/09/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260907YA7O8LZZ"}, {"ncc": "Công Định", "date": "08/09/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E2609072I6GTEHJ"}, {"ncc": "Công Định", "date": "08/09/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260907B10BH29M"}, {"ncc": "Công Định", "date": "09/09/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260908YC19TFOT"}, {"ncc": "Công Định", "date": "09/09/2026", "truck": "49H-04926", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "811.749 đ", "cost": 811749.0, "trip_code": "E260908NBF0B3KO"}, {"ncc": "Công Định", "date": "26/08/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260825M9BILG8K"}, {"ncc": "Công Định", "date": "26/08/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> (LDO) ĐL B'Lao 1 -> (LDO) ĐL B'Lao -> (LDO) B'Lao -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E2608256MVTVT15"}, {"ncc": "Công Định", "date": "27/08/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E2608269UOVVHVF"}, {"ncc": "Công Định", "date": "27/08/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> (LDO) ĐL B'Lao 1 -> (LDO) ĐL B'Lao -> (LDO) B'Lao -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260826ZQ3W5VS0"}, {"ncc": "Công Định", "date": "28/08/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260827OGGJT5MV"}, {"ncc": "Công Định", "date": "28/08/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> (LDO) ĐL B'Lao 1 -> (LDO) ĐL B'Lao -> (LDO) B'Lao -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260827CZYVZ4IR"}, {"ncc": "Công Định", "date": "29/08/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "811.749 đ", "cost": 811749.0, "trip_code": "E2608283GISHDNS"}, {"ncc": "Công Định", "date": "29/08/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> (LDO) ĐL B'Lao 1 -> (LDO) B'Lao -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E26082919GNOXY7"}, {"ncc": "Công Định", "date": "30/08/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260829RLOLHSQ4"}, {"ncc": "Công Định", "date": "30/08/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> (LDO) ĐL B'Lao 1 -> (LDO) ĐL B'Lao -> (LDO) B'Lao -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260830DY25NZ6S"}, {"ncc": "Công Định", "date": "31/08/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260830VTYTH3NU"}, {"ncc": "Công Định", "date": "31/08/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> (LDO) ĐL B'Lao 1 -> (LDO) ĐL B'Lao -> (LDO) B'Lao -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260830H24SXUJN"}, {"ncc": "Công Định", "date": "01/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E26083176L9I4V1"}, {"ncc": "Công Định", "date": "01/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> (LDO) ĐL B'Lao 1 -> (LDO) ĐL B'Lao -> (LDO) B'Lao -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260831RHILSDSX"}, {"ncc": "Công Định", "date": "02/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260901B7FJRU5R"}, {"ncc": "Công Định", "date": "02/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> (LDO) B'Lao -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260901PD0JDWH4"}, {"ncc": "Công Định", "date": "03/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260902BFRDCXQ6"}, {"ncc": "Công Định", "date": "03/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> (LDO) ĐL B'Lao 1 -> (LDO) B'Lao -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260902THRUYJAJ"}, {"ncc": "Công Định", "date": "04/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> (LDO) ĐL B'Lao 1 -> (LDO) ĐL B'Lao -> (LDO) B'Lao -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260904RFZ3KIUM"}, {"ncc": "Công Định", "date": "05/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260904BL8AJ1J2"}, {"ncc": "Công Định", "date": "05/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> (LDO) ĐL B'Lao 1 -> (LDO) ĐL B'Lao -> (LDO) B'Lao -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E2609050QV2HLAM"}, {"ncc": "Công Định", "date": "06/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260905HILH9M67"}, {"ncc": "Công Định", "date": "06/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) B'Lao -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E2609060W93HWUU"}, {"ncc": "Công Định", "date": "06/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> (LDO) ĐL B'Lao 1 -> (LDO) ĐL B'Lao -> (LDO) B'Lao -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260905NX00M68O"}, {"ncc": "Công Định", "date": "07/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260906T2AS6W9Q"}, {"ncc": "Công Định", "date": "07/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> (LDO) ĐL B'Lao 1 -> (LDO) ĐL B'Lao -> (LDO) B'Lao -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E2609063VOAKESD"}, {"ncc": "Công Định", "date": "08/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260907N423L343"}, {"ncc": "Công Định", "date": "08/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> (LDO) ĐL B'Lao 1 -> (LDO) ĐL B'Lao -> (LDO) B'Lao -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260907VSGBRWLN"}, {"ncc": "Công Định", "date": "09/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E26090868OBHV8X"}, {"ncc": "Công Định", "date": "09/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "811.749 đ", "cost": 811749.0, "trip_code": "E260909OAL7GNDD"}, {"ncc": "Công Định", "date": "09/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> (LDO) ĐL B'Lao 1 -> (LDO) ĐL B'Lao -> (LDO) B'Lao -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260909DRWCIES7"}, {"ncc": "Công Định", "date": "10/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "710.281 đ", "cost": 710281.0, "trip_code": "E260909VZYK999P"}, {"ncc": "Công Định", "date": "10/09/2026", "truck": "49H-09142", "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> (LDO) ĐL B'Lao 1 -> (LDO) ĐL B'Lao -> (LDO) B'Lao -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc", "ktc": "KTC Bảo Lộc", "type": "Cố định", "cost_str": "913.219 đ", "cost": 913219.0, "trip_code": "E260910OOZD29BQ"}, {"ncc": "Tốt và Rẻ", "date": "26/08/2026", "truck": "51C-38556", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "796.723 đ", "cost": 796723.0, "trip_code": "E26082525462KVK"}, {"ncc": "Tốt và Rẻ", "date": "27/08/2026", "truck": "51C-38556", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "796.723 đ", "cost": 796723.2, "trip_code": "E260826YOYAH763"}, {"ncc": "Tốt và Rẻ", "date": "28/08/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "796.723 đ", "cost": 796723.2, "trip_code": "E2608277PT3I5Z8"}, {"ncc": "Tốt và Rẻ", "date": "29/08/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "796.723 đ", "cost": 796723.2, "trip_code": "E260828IYFBMAIF"}, {"ncc": "Tốt và Rẻ", "date": "30/08/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "796.723 đ", "cost": 796723.2, "trip_code": "E260829TL7F3HJJ"}, {"ncc": "Tốt và Rẻ", "date": "31/08/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "796.723 đ", "cost": 796723.2, "trip_code": "E260830H9WYY8BH"}, {"ncc": "Tốt và Rẻ", "date": "01/09/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "796.723 đ", "cost": 796723.2, "trip_code": "E260831N1J2N3MA"}, {"ncc": "Tốt và Rẻ", "date": "02/09/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "796.723 đ", "cost": 796723.2, "trip_code": "E260901I96H026W"}, {"ncc": "Tốt và Rẻ", "date": "03/09/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "796.723 đ", "cost": 796723.2, "trip_code": "E260902JHL3TPOW"}, {"ncc": "Tốt và Rẻ", "date": "04/09/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "796.723 đ", "cost": 796723.2, "trip_code": "E260903V6DS5ZE1"}, {"ncc": "Tốt và Rẻ", "date": "05/09/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "820.344 đ", "cost": 820344.0, "trip_code": "E260904IJU8EW8B"}, {"ncc": "Tốt và Rẻ", "date": "06/09/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "820.344 đ", "cost": 820344.0, "trip_code": "E260905NRQNGCDV"}, {"ncc": "Tốt và Rẻ", "date": "07/09/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "820.344 đ", "cost": 820344.0, "trip_code": "E260906H513PUZ8"}, {"ncc": "Tốt và Rẻ", "date": "08/09/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "820.344 đ", "cost": 820344.0, "trip_code": "E260907V0A5L72L"}, {"ncc": "Tốt và Rẻ", "date": "09/09/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "820.344 đ", "cost": 820344.0, "trip_code": "E260908ESELOEOL"}, {"ncc": "Tốt và Rẻ", "date": "10/09/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "796.723 đ", "cost": 796723.2, "trip_code": ""}, {"ncc": "Tốt và Rẻ", "date": "11/09/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "796.723 đ", "cost": 796723.2, "trip_code": ""}, {"ncc": "Tốt và Rẻ", "date": "12/09/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "796.723 đ", "cost": 796723.2, "trip_code": ""}, {"ncc": "Tốt và Rẻ", "date": "13/09/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "796.723 đ", "cost": 796723.2, "trip_code": ""}, {"ncc": "Tốt và Rẻ", "date": "14/09/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "796.723 đ", "cost": 796723.2, "trip_code": ""}, {"ncc": "Tốt và Rẻ", "date": "15/09/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "796.723 đ", "cost": 796723.2, "trip_code": ""}, {"ncc": "Tốt và Rẻ", "date": "16/09/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "796.723 đ", "cost": 796723.2, "trip_code": ""}, {"ncc": "Tốt và Rẻ", "date": "17/09/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "796.723 đ", "cost": 796723.2, "trip_code": ""}, {"ncc": "Tốt và Rẻ", "date": "18/09/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "796.723 đ", "cost": 796723.2, "trip_code": ""}, {"ncc": "Tốt và Rẻ", "date": "19/09/2026", "truck": "49H-08063", "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Bắc Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông", "ktc": "KTC Đắk Nông", "type": "Cố định", "cost_str": "796.723 đ", "cost": 796723.2, "trip_code": ""}], "all_trips_count": 713};
+
+        let chartTransportKtcInstance = null;
+        let chartTransportNccInstance = null;
+
+        async function renderTransportCostTab() {
+            try {
+                const res = await fetch('/api/transport-costs');
+                if (res.ok) {
+                    const d = await res.json();
+                    if (d && d.ktcs && d.ktcs.length) {
+                        window.TRANSPORT_COSTS_DATA = d;
+                    }
+                }
+            } catch(e) {}
+
+            initTransportCharts();
+        }
+
+        function initTransportCharts() {
+            if (typeof ApexCharts === 'undefined') return;
+            const data = window.TRANSPORT_COSTS_DATA;
+            if (!data || !data.ktcs || !data.nccs) return;
+
+            // Chart 1: Chi phí & Đơn giá chuyến từng KTC
+            const ktcEl = document.getElementById('apex-chart-transport-ktc');
+            if (ktcEl) {
+                if (chartTransportKtcInstance) {
+                    chartTransportKtcInstance.destroy();
+                    chartTransportKtcInstance = null;
+                }
+                const categories = data.ktcs.map(k => k.ktc.replace('KTC ', ''));
+                const totalCosts = data.ktcs.map(k => k.total_cost);
+                const costPerTrips = data.ktcs.map(k => k.cost_per_trip);
+
+                const optionsKtc = {
+                    chart: {
+                        height: 330,
+                        type: 'line',
+                        fontFamily: "'Inter', sans-serif",
+                        toolbar: { show: false }
+                    },
+                    stroke: {
+                        width: [0, 3],
+                        curve: 'smooth'
+                    },
+                    plotOptions: {
+                        bar: {
+                            columnWidth: '45%',
+                            borderRadius: 6
+                        }
+                    },
+                    colors: ['#0284c7', '#f59e0b'],
+                    series: [
+                        {
+                            name: 'Tổng Chi Phí (Tr ₫)',
+                            type: 'column',
+                            data: totalCosts
+                        },
+                        {
+                            name: 'Đơn Giá / Chuyến (Tr ₫)',
+                            type: 'line',
+                            data: costPerTrips
+                        }
+                    ],
+                    xaxis: {
+                        categories: categories,
+                        labels: { style: { fontSize: '11.5px', fontWeight: 700 } }
+                    },
+                    yaxis: [
+                        {
+                            title: { text: 'Tổng Chi Phí (Tr ₫)', style: { fontSize: '11px', color: '#0284c7' } },
+                            labels: { formatter: val => Number(val).toLocaleString('vi-VN') + ' Tr' }
+                        },
+                        {
+                            opposite: true,
+                            title: { text: 'CP / Chuyến (Tr ₫)', style: { fontSize: '11px', color: '#f59e0b' } },
+                            labels: { formatter: val => Number(val).toFixed(2) + ' Tr' }
+                        }
+                    ],
+                    legend: { position: 'top', horizontalAlign: 'right' },
+                    tooltip: {
+                        shared: true,
+                        intersect: false,
+                        y: {
+                            formatter: (val, opt) => opt.seriesIndex === 0 ? Number(val).toLocaleString('vi-VN') + ' Triệu ₫' : Number(val).toFixed(2) + ' Triệu ₫ / chuyến'
+                        }
+                    }
+                };
+                chartTransportKtcInstance = new ApexCharts(ktcEl, optionsKtc);
+                chartTransportKtcInstance.render();
+            }
+
+            // Chart 2: Cơ cấu chi phí NCC Donut Chart
+            const nccEl = document.getElementById('apex-chart-transport-ncc');
+            if (nccEl) {
+                if (chartTransportNccInstance) {
+                    chartTransportNccInstance.destroy();
+                    chartTransportNccInstance = null;
+                }
+                const nccLabels = data.nccs.map(n => n.ncc);
+                const nccValues = data.nccs.map(n => n.total_cost);
+
+                const optionsNcc = {
+                    chart: {
+                        height: 330,
+                        type: 'donut',
+                        fontFamily: "'Inter', sans-serif"
+                    },
+                    series: nccValues,
+                    labels: nccLabels,
+                    colors: ['#0284c7', '#10b981', '#f59e0b', '#8b5cf6', '#ef4444', '#06b6d4', '#ec4899'],
+                    legend: {
+                        position: 'bottom',
+                        fontSize: '11.5px',
+                        fontWeight: 600
+                    },
+                    plotOptions: {
+                        pie: {
+                            donut: {
+                                size: '65%',
+                                labels: {
+                                    show: true,
+                                    total: {
+                                        show: true,
+                                        label: 'Tổng Cước',
+                                        fontSize: '13px',
+                                        fontWeight: 700,
+                                        formatter: () => data.region.total_cost + ' Tr'
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    tooltip: {
+                        y: {
+                            formatter: val => Number(val).toLocaleString('vi-VN') + ' Triệu VNĐ'
+                        }
+                    }
+                };
+                chartTransportNccInstance = new ApexCharts(nccEl, optionsNcc);
+                chartTransportNccInstance.render();
+            }
+        }
+
+        function filterTransportTrips() {
+            const ktcFilter = document.getElementById('filter-tc-ktc')?.value || 'all';
+            const nccFilter = document.getElementById('filter-tc-ncc')?.value || 'all';
+            const keyword = (document.getElementById('search-tc-keyword')?.value || '').toLowerCase().trim();
+            const tbody = document.getElementById('table-transport-trips-tbody');
+            if (!tbody || !window.TRANSPORT_COSTS_DATA || !window.TRANSPORT_COSTS_DATA.trips) return;
+
+            let filtered = window.TRANSPORT_COSTS_DATA.trips;
+            if (ktcFilter !== 'all') {
+                filtered = filtered.filter(t => t.ktc === ktcFilter);
+            }
+            if (nccFilter !== 'all') {
+                filtered = filtered.filter(t => t.ncc === nccFilter);
+            }
+            if (keyword) {
+                filtered = filtered.filter(t => 
+                    (t.truck && t.truck.toLowerCase().includes(keyword)) ||
+                    (t.trip_code && t.trip_code.toLowerCase().includes(keyword)) ||
+                    (t.route && t.route.toLowerCase().includes(keyword))
+                );
+            }
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="9" style="text-align:center; padding: 24px; color: var(--text-secondary); font-size: 13px;">Không tìm thấy chuyến xe nào phù hợp với bộ lọc.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = filtered.map((t, idx) => {
+                const typeBadge = t.type === 'Cố định' 
+                    ? '<span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Cố định</span>' 
+                    : '<span style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px;">Tăng cường</span>';
+                return `
+                    <tr>
+                        <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">${idx + 1}</td>
+                        <td style="font-weight: 600; color: var(--text-secondary); font-size: 12px;">${t.date}</td>
+                        <td style="font-weight: 700; color: var(--text-primary);">${t.ncc}</td>
+                        <td style="font-weight: 700; color: #0284c7;">${t.ktc}</td>
+                        <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #475569;">
+                            <span style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px;">${t.truck || '-'}</span>
+                        </td>
+                        <td style="font-size: 12px; color: var(--text-secondary); max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${t.route || ''}">${t.route || '-'}</td>
+                        <td style="text-align: center;">${typeBadge}</td>
+                        <td style="text-align: right; font-weight: 800; color: #059669; font-size: 13.5px;">${t.cost_str}</td>
+                        <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary);">${t.trip_code || '-'}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        async function triggerSyncNccTransport(btn) {
+            const icon = document.getElementById('tc-sync-icon');
+            if (icon) icon.classList.add('fa-spin');
+            if (btn) btn.disabled = true;
+
+            try {
+                const res = await fetch('/api/sync-transport-costs', { method: 'POST' });
+                const resData = await res.json();
+                if (res.ok && resData.status === 'success') {
+                    if (resData.data) {
+                        window.TRANSPORT_COSTS_DATA = resData.data;
+                    }
+                    alert('🎉 ' + (resData.message || 'Đồng bộ chi phí vận tải thành công!'));
+                    renderTransportCostTab();
+                } else {
+                    alert('⚠️ ' + (resData.message || 'Đồng bộ thất bại, vui lòng thử lại!'));
+                }
+            } catch(e) {
+                alert('⚠️ Không thể kết nối tới server đồng bộ: ' + e.message);
+            } finally {
+                if (icon) icon.classList.remove('fa-spin');
+                if (btn) btn.disabled = false;
+            }
+        }
+
     </script>
 
 </body>

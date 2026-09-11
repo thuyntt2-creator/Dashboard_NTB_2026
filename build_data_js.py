@@ -636,6 +636,19 @@ try:
 except Exception as e:
     pass
 
+transport_costs = {}
+try:
+    tc_json_p = os.path.join(os.path.dirname(__file__), 'scratch', 'transport_costs.json')
+    if not os.path.exists(tc_json_p):
+        tc_json_p = os.path.join(os.path.dirname(__file__), 'transport_costs.json')
+    if os.path.exists(tc_json_p):
+        with open(tc_json_p, 'r', encoding='utf-8') as f_tc:
+            transport_costs = json.load(f_tc)
+except Exception as e:
+    pass
+
+data['transport_costs'] = transport_costs
+
 data['kinh_doanh'] = {
     'am': kd_am,
     'top_drop': top_drop_kd,
