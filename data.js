@@ -13738,4 +13738,3 @@ window.DASHBOARD_DATA = {
     }
   }
 };
-window.DATA = window.DASHBOARD_DATA;
