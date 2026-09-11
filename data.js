@@ -7589,7 +7589,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 6,
       "total_trucks": 33,
-      "last_updated": "23:28 - 11/09/2026"
+      "last_updated": "00:03 - 12/09/2026"
     },
     "surge_fixed": {
       "fixed_cost": 865.87,
@@ -7624,7 +7624,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 154.98,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Tốt và Rẻ, Trâm Hoá",
+        "primary_ncc": "Trâm Hoá, Tốt và Rẻ",
         "truck_count": 4
       },
       {
@@ -7637,7 +7637,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 138.7,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Công Định",
+        "primary_ncc": "Công Định, NAK",
         "truck_count": 6
       },
       {
@@ -7663,7 +7663,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 71.53,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 9
       },
       {
@@ -7676,7 +7676,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 69.46,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 5
       }
     ],
@@ -7705,7 +7705,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 7,
-        "active_ktcs": "KTC Khánh Hòa, KTC Đức Trọng, KTC Bắc Nha Trang, KTC Nam Nha Trang"
+        "active_ktcs": "KTC Đức Trọng, KTC Nam Nha Trang, KTC Khánh Hòa, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Mạnh Cường (BCCK)",
@@ -7718,7 +7718,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 7,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Nam Nha Trang"
+        "active_ktcs": "KTC Nam Nha Trang, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Công Định",
