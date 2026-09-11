@@ -9,6 +9,18 @@ def parse_date(d):
         return f"{int(m.group(1)):02d}/{int(m.group(2)):02d}"
     return str(d)
 
+SHOP_META_MAP = {
+    "3910354": {"am": "Phan Đình Duy", "buu_cuc": "20495000 - (KHO) Nha Trang"},
+    "5099749": {"am": "Thái Thị Thanh Thư", "buu_cuc": "22363000 - (KHO) Nam Nha Trang 3"},
+    "4264387": {"am": "Huỳnh Thúc Duân", "buu_cuc": "22242000 - (DNO) Bắc Gia Nghĩa"},
+    "5109892": {"am": "Lê Văn Trường", "buu_cuc": "22116000 - (LDO) Xuân Trường - Đà Lạt"},
+    "3200594": {"am": "Lê Thanh Nhựt", "buu_cuc": "2357 - (BTH) Đồng Kho"},
+    "3559462": {"am": "Nguyễn Lê Nguyên Vũ", "buu_cuc": "20663000 - (LDO) Đạ Tẻh"},
+    "5197975": {"am": "Nguyễn Duy Long", "buu_cuc": "20499000 - (NTH) Phước Dinh"},
+    "3950975": {"am": "Phan Đình Duy", "buu_cuc": "21046000 - (KHO) Vạn Ninh"},
+    "4313038": {"am": "Hồng Bích Nga", "buu_cuc": "20785000 - (LDO) B'Lao"}
+}
+
 df = pd.read_csv('scratch/kinh_doanh_raw.csv')
 
 # 1. Inspect main table (left side: columns 0 to 16)
@@ -73,8 +85,8 @@ for makh, g in df_main.groupby('MaKH', sort=False):
         "mtd": mtd_val,
         "pct_mtd_m1": str(last_row.get('% sv MTD M-1', '')).strip(),
         "pct_tru_hang": str(last_row.get('%Trụ hạng', '')).strip(),
-        "am": str(last_row.get('AM', '')).strip(),
-        "buu_cuc": str(last_row.get('Bưu cục', '')).strip(),
+        "am": str(last_row.get('AM', '')).strip() or SHOP_META_MAP.get(str(int(last_row.get('MaKH', 0))), {}).get('am', ''),
+        "buu_cuc": str(last_row.get('Bưu cục', '')).strip() or SHOP_META_MAP.get(str(int(last_row.get('MaKH', 0))), {}).get('buu_cuc', ''),
         "daily_dt": daily_dt,
         "dt_w1": dt_w1,
         "dt_n1": dt_n1,
@@ -95,9 +107,10 @@ df_warn.columns = warn_cols[:len(df_warn.columns)]
 df_warn = df_warn.dropna(subset=['makh', 'ngaynext']).copy()
 for _, r in df_warn.iterrows():
     try:
+        m_id = str(int(r.get('makh', 0)))
         warnings.append({
             "stt": str(int(r.get('stt', 1))),
-            "makh": str(int(r.get('makh', 0))),
+            "makh": m_id,
             "tenkh": str(r.get('tenkh', '')).strip(),
             "nhomkh": str(r.get('nhomkh', '')).strip(),
             "vung": str(r.get('vung', '')).strip(),
@@ -108,8 +121,8 @@ for _, r in df_warn.iterrows():
             "aov": str(r.get('aov', '')).strip(),
             "ngay": parse_date(r.get('ngaynext', '')),
             "dt": float(str(r.get('dt', 0)).replace(',', '').strip()) if pd.notna(r.get('dt')) else 0.0,
-            "am": str(r.get('am', '')).strip(),
-            "buu_cuc": str(r.get('buu_cuc', '')).strip()
+            "am": str(r.get('am', '')).strip() or SHOP_META_MAP.get(m_id, {}).get('am', ''),
+            "buu_cuc": str(r.get('buu_cuc', '')).strip() or SHOP_META_MAP.get(m_id, {}).get('buu_cuc', '')
         })
     except Exception as e:
         print("Warning row parse error:", e)
