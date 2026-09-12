@@ -7581,20 +7581,20 @@ window.DASHBOARD_DATA = {
   },
   "transport_costs": {
     "region": {
-      "total_cost": 865.87,
-      "total_cost_formatted": "865.874.916 đ",
-      "total_trips": 916,
-      "avg_cost_per_trip": 0.95,
-      "avg_cost_per_trip_formatted": "945.278 đ/chuyến",
-      "ncc_count": 7,
+      "total_cost": 772.29,
+      "total_cost_formatted": "772.286.092 đ",
+      "total_trips": 706,
+      "avg_cost_per_trip": 1.09,
+      "avg_cost_per_trip_formatted": "1.093.890 đ/chuyến",
+      "ncc_count": 6,
       "ktc_count": 6,
-      "total_trucks": 33,
-      "last_updated": "07:06 - 12/09/2026"
+      "total_trucks": 26,
+      "last_updated": "07:42 - 12/09/2026"
     },
     "surge_fixed": {
-      "fixed_cost": 865.87,
+      "fixed_cost": 772.29,
       "fixed_cost_pct": 100.0,
-      "fixed_trips": 916,
+      "fixed_trips": 706,
       "surge_cost": 0.0,
       "surge_cost_pct": 0.0,
       "surge_trips": 0,
@@ -7624,7 +7624,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 154.98,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Trâm Hoá, Tốt và Rẻ",
+        "primary_ncc": "Lâm Ngọc Thành, Trâm Hoá",
         "truck_count": 4
       },
       {
@@ -7654,30 +7654,30 @@ window.DASHBOARD_DATA = {
         "truck_count": 2
       },
       {
-        "ktc": "KTC Bắc Nha Trang",
-        "total_cost": 71.53,
-        "total_cost_raw": 71527266.0,
-        "total_trips": 214,
-        "cost_per_trip": 0.33,
-        "cost_per_trip_raw": 334239.56074766355,
-        "fixed_cost": 71.53,
+        "ktc": "KTC Nam Nha Trang",
+        "total_cost": 36.9,
+        "total_cost_raw": 36901435.20000003,
+        "total_trips": 120,
+        "cost_per_trip": 0.31,
+        "cost_per_trip_raw": 307511.96000000025,
+        "fixed_cost": 36.9,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
-        "truck_count": 9
+        "primary_ncc": "Mạnh Cường",
+        "truck_count": 4
       },
       {
-        "ktc": "KTC Nam Nha Trang",
-        "total_cost": 69.46,
-        "total_cost_raw": 69461481.20000003,
-        "total_trips": 150,
-        "cost_per_trip": 0.46,
-        "cost_per_trip_raw": 463076.54133333353,
-        "fixed_cost": 69.46,
+        "ktc": "KTC Bắc Nha Trang",
+        "total_cost": 10.5,
+        "total_cost_raw": 10498488.0,
+        "total_trips": 34,
+        "cost_per_trip": 0.31,
+        "cost_per_trip_raw": 308779.0588235294,
+        "fixed_cost": 10.5,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
-        "truck_count": 5
+        "primary_ncc": "Mạnh Cường",
+        "truck_count": 3
       }
     ],
     "nccs": [
@@ -7692,7 +7692,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 12,
-        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
+        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
       },
       {
         "ncc": "Mạnh Cường",
@@ -7705,20 +7705,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 7,
-        "active_ktcs": "KTC Nam Nha Trang, KTC Đức Trọng, KTC Bắc Nha Trang, KTC Khánh Hòa"
-      },
-      {
-        "ncc": "Mạnh Cường (BCCK)",
-        "total_cost": 93.59,
-        "total_cost_raw": 93588824.0,
-        "total_trips": 210,
-        "cost_per_trip": 0.45,
-        "cost_per_trip_raw": 445661.06666666665,
-        "fixed_cost": 93.59,
-        "surge_cost": 0.0,
-        "surge_pct": 0.0,
-        "truck_count": 7,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Nam Nha Trang"
+        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Đức Trọng, KTC Nam Nha Trang"
       },
       {
         "ncc": "Công Định",
@@ -18363,114 +18350,9 @@ window.DASHBOARD_DATA = {
         "trips_equivalent": 1,
         "trip_code": "",
         "ontime": ""
-      },
-      {
-        "ncc": "Mạnh Cường (BCCK)",
-        "date": "Hàng ngày",
-        "date_iso": "",
-        "truck": "62C-16402",
-        "capacity": "Bưu cục CK",
-        "route": "Kho CK Bắc Nha Trang đến các điểm giao nội khu vực KV1-Khánh Hòa 3",
-        "ktc": "KTC Bắc Nha Trang",
-        "type": "Cố định",
-        "cost_str": "31.503.123 đ",
-        "cost": 31503123.0,
-        "trips_equivalent": 30,
-        "trip_code": "HĐ_BCCK_1",
-        "ontime": "100%"
-      },
-      {
-        "ncc": "Mạnh Cường (BCCK)",
-        "date": "Hàng ngày",
-        "date_iso": "",
-        "truck": "79C-19784",
-        "capacity": "Bưu cục CK",
-        "route": "Kho CK Bắc Nha Trang đến các điểm giao nội khu vực KV1-Khánh Hòa 4",
-        "ktc": "KTC Bắc Nha Trang",
-        "type": "Cố định",
-        "cost_str": "1.056.923 đ",
-        "cost": 1056923.0,
-        "trips_equivalent": 30,
-        "trip_code": "HĐ_BCCK_2",
-        "ontime": "100%"
-      },
-      {
-        "ncc": "Mạnh Cường (BCCK)",
-        "date": "Hàng ngày",
-        "date_iso": "",
-        "truck": "79F-00632",
-        "capacity": "Bưu cục CK",
-        "route": "Kho CK Bắc Nha Trang đến các điểm giao nội khu vực KV1-Khánh Hòa 3",
-        "ktc": "KTC Bắc Nha Trang",
-        "type": "Cố định",
-        "cost_str": "1.056.923 đ",
-        "cost": 1056923.0,
-        "trips_equivalent": 30,
-        "trip_code": "HĐ_BCCK_3",
-        "ontime": "100%"
-      },
-      {
-        "ncc": "Mạnh Cường (BCCK)",
-        "date": "Hàng ngày",
-        "date_iso": "",
-        "truck": "79G-00249",
-        "capacity": "Bưu cục CK",
-        "route": "Kho CK Nam Nha Trang đến các điểm giao nội khu vực KV1-Khánh Hòa 1",
-        "ktc": "KTC Nam Nha Trang",
-        "type": "Cố định",
-        "cost_str": "32.560.046 đ",
-        "cost": 32560046.0,
-        "trips_equivalent": 30,
-        "trip_code": "HĐ_BCCK_4",
-        "ontime": "100%"
-      },
-      {
-        "ncc": "Mạnh Cường (BCCK)",
-        "date": "Hàng ngày",
-        "date_iso": "",
-        "truck": "79H-05341",
-        "capacity": "Bưu cục CK",
-        "route": "Kho CK Bắc Nha Trang đến các điểm giao nội khu vực KV1-Khánh Hòa 4",
-        "ktc": "KTC Bắc Nha Trang",
-        "type": "Cố định",
-        "cost_str": "25.332.057 đ",
-        "cost": 25332057.0,
-        "trips_equivalent": 30,
-        "trip_code": "HĐ_BCCK_5",
-        "ontime": "100%"
-      },
-      {
-        "ncc": "Mạnh Cường (BCCK)",
-        "date": "Hàng ngày",
-        "date_iso": "",
-        "truck": "79H-09372",
-        "capacity": "Bưu cục CK",
-        "route": "Kho CK Bắc Nha Trang đến các điểm giao nội khu vực KV1-Khánh Hòa 4",
-        "ktc": "KTC Bắc Nha Trang",
-        "type": "Cố định",
-        "cost_str": "1.022.829 đ",
-        "cost": 1022829.0,
-        "trips_equivalent": 30,
-        "trip_code": "HĐ_BCCK_6",
-        "ontime": "100%"
-      },
-      {
-        "ncc": "Mạnh Cường (BCCK)",
-        "date": "Hàng ngày",
-        "date_iso": "",
-        "truck": "79H-09972",
-        "capacity": "Bưu cục CK",
-        "route": "Kho CK Bắc Nha Trang đến các điểm giao nội khu vực KV1-Khánh Hòa 4",
-        "ktc": "KTC Bắc Nha Trang",
-        "type": "Cố định",
-        "cost_str": "1.056.923 đ",
-        "cost": 1056923.0,
-        "trips_equivalent": 30,
-        "trip_code": "HĐ_BCCK_7",
-        "ontime": "100%"
       }
     ],
-    "all_trips_count": 713
+    "all_trips_count": 706
   },
   "kinh_doanh": {
     "am": [
@@ -18978,7 +18860,8 @@ window.DASHBOARD_DATA = {
         "07/09",
         "08/09",
         "09/09",
-        "10/09"
+        "10/09",
+        "11/09"
       ],
       "shops": [
         {
@@ -18992,10 +18875,10 @@ window.DASHBOARD_DATA = {
           "tinh": "Khánh Hòa",
           "nhanvien": "201974",
           "vol_cam_ket": "15,000",
-          "aov": "54,523",
-          "mtd": 10316.0,
-          "pct_mtd_m1": "105%",
-          "pct_tru_hang": "1249.90%",
+          "aov": "54,516",
+          "mtd": 11403.0,
+          "pct_mtd_m1": "106.20%",
+          "pct_tru_hang": "1381.40%",
           "am": "Phan Đình Duy",
           "buu_cuc": "20495000 - (KHO) Nha Trang",
           "daily_dt": {
@@ -19008,12 +18891,13 @@ window.DASHBOARD_DATA = {
             "07/09": 1378.0,
             "08/09": 1232.0,
             "09/09": 1099.0,
-            "10/09": 1051.0
+            "10/09": 1051.0,
+            "11/09": 1087.0
           },
-          "dt_w1": 988.0,
-          "dt_n1": 1051.0,
-          "diff_w1": 63.0,
-          "pct_w1": 6.4
+          "dt_w1": 875.0,
+          "dt_n1": 1087.0,
+          "diff_w1": 212.0,
+          "pct_w1": 24.2
         },
         {
           "stt": "23",
@@ -19026,10 +18910,10 @@ window.DASHBOARD_DATA = {
           "tinh": "Khánh Hòa",
           "nhanvien": "3087650",
           "vol_cam_ket": "15,000",
-          "aov": "13,657",
-          "mtd": 4126.0,
-          "pct_mtd_m1": "104.70%",
-          "pct_tru_hang": "125.20%",
+          "aov": "13,456",
+          "mtd": 4522.0,
+          "pct_mtd_m1": "103.10%",
+          "pct_tru_hang": "135.20%",
           "am": "Thái Thị Thanh Thư",
           "buu_cuc": "22363000 - (KHO) Nam Nha Trang 3",
           "daily_dt": {
@@ -19042,12 +18926,13 @@ window.DASHBOARD_DATA = {
             "07/09": 497.0,
             "08/09": 360.0,
             "09/09": 478.0,
-            "10/09": 457.0
+            "10/09": 457.0,
+            "11/09": 396.0
           },
-          "dt_w1": 462.0,
-          "dt_n1": 457.0,
-          "diff_w1": -5.0,
-          "pct_w1": -1.1
+          "dt_w1": 350.0,
+          "dt_n1": 396.0,
+          "diff_w1": 46.0,
+          "pct_w1": 13.1
         },
         {
           "stt": "13",
@@ -19060,10 +18945,10 @@ window.DASHBOARD_DATA = {
           "tinh": "Đắk Nông",
           "nhanvien": "3087078",
           "vol_cam_ket": "10,000",
-          "aov": "12,864",
-          "mtd": 1618.0,
-          "pct_mtd_m1": "55.60%",
-          "pct_tru_hang": "46.30%",
+          "aov": "12,921",
+          "mtd": 1792.0,
+          "pct_mtd_m1": "58.30%",
+          "pct_tru_hang": "51.50%",
           "am": "Huỳnh Thúc Duân",
           "buu_cuc": "22242000 - (DNO) Bắc Gia Nghĩa",
           "daily_dt": {
@@ -19076,12 +18961,13 @@ window.DASHBOARD_DATA = {
             "07/09": 160.0,
             "08/09": 187.0,
             "09/09": 218.0,
-            "10/09": 190.0
+            "10/09": 190.0,
+            "11/09": 174.0
           },
-          "dt_w1": 338.0,
-          "dt_n1": 190.0,
-          "diff_w1": -148.0,
-          "pct_w1": -43.8
+          "dt_w1": 169.0,
+          "dt_n1": 174.0,
+          "diff_w1": 5.0,
+          "pct_w1": 3.0
         },
         {
           "stt": "24",
@@ -19094,10 +18980,10 @@ window.DASHBOARD_DATA = {
           "tinh": "Lâm Đồng",
           "nhanvien": "2035990",
           "vol_cam_ket": "4,000",
-          "aov": "15,919",
-          "mtd": 1011.0,
-          "pct_mtd_m1": "80.30%",
-          "pct_tru_hang": "35.80%",
+          "aov": "15,927",
+          "mtd": 1129.0,
+          "pct_mtd_m1": "82.70%",
+          "pct_tru_hang": "40%",
           "am": "Lê Văn Trường",
           "buu_cuc": "22116000 - (LDO) Xuân Trường - Đà Lạt",
           "daily_dt": {
@@ -19110,12 +18996,13 @@ window.DASHBOARD_DATA = {
             "07/09": 123.0,
             "08/09": 74.0,
             "09/09": 91.0,
-            "10/09": 107.0
+            "10/09": 107.0,
+            "11/09": 118.0
           },
-          "dt_w1": 148.0,
-          "dt_n1": 107.0,
-          "diff_w1": -41.0,
-          "pct_w1": -27.7
+          "dt_w1": 139.0,
+          "dt_n1": 118.0,
+          "diff_w1": -21.0,
+          "pct_w1": -15.1
         },
         {
           "stt": "4",
@@ -19128,10 +19015,10 @@ window.DASHBOARD_DATA = {
           "tinh": "Bình Thuận",
           "nhanvien": "201973",
           "vol_cam_ket": "3,000",
-          "aov": "15,858",
-          "mtd": 931.0,
-          "pct_mtd_m1": "92.40%",
-          "pct_tru_hang": "32.80%",
+          "aov": "15,878",
+          "mtd": 962.0,
+          "pct_mtd_m1": "89.30%",
+          "pct_tru_hang": "33.90%",
           "am": "Lê Thanh Nhựt",
           "buu_cuc": "2357 - (BTH) Đồng Kho",
           "daily_dt": {
@@ -19144,12 +19031,13 @@ window.DASHBOARD_DATA = {
             "07/09": 88.0,
             "08/09": 78.0,
             "09/09": 100.0,
-            "10/09": 68.0
+            "10/09": 68.0,
+            "11/09": 31.0
           },
-          "dt_w1": 163.0,
-          "dt_n1": 68.0,
-          "diff_w1": -95.0,
-          "pct_w1": -58.3
+          "dt_w1": 71.0,
+          "dt_n1": 31.0,
+          "diff_w1": -40.0,
+          "pct_w1": -56.3
         },
         {
           "stt": "8",
@@ -19162,10 +19050,10 @@ window.DASHBOARD_DATA = {
           "tinh": "Lâm Đồng",
           "nhanvien": "3001956",
           "vol_cam_ket": "2,500",
-          "aov": "19,853",
-          "mtd": 790.0,
-          "pct_mtd_m1": "97.10%",
-          "pct_tru_hang": "34.90%",
+          "aov": "19,902",
+          "mtd": 875.0,
+          "pct_mtd_m1": "99%",
+          "pct_tru_hang": "38.70%",
           "am": "Nguyễn Lê Nguyên Vũ",
           "buu_cuc": "20663000 - (LDO) Đạ Tẻh",
           "daily_dt": {
@@ -19178,12 +19066,13 @@ window.DASHBOARD_DATA = {
             "07/09": 84.0,
             "08/09": 79.0,
             "09/09": 87.0,
-            "10/09": 84.0
+            "10/09": 84.0,
+            "11/09": 85.0
           },
-          "dt_w1": 70.0,
-          "dt_n1": 84.0,
-          "diff_w1": 14.0,
-          "pct_w1": 20.0
+          "dt_w1": 61.0,
+          "dt_n1": 85.0,
+          "diff_w1": 24.0,
+          "pct_w1": 39.3
         },
         {
           "stt": "25",
@@ -19196,10 +19085,10 @@ window.DASHBOARD_DATA = {
           "tinh": "Ninh Thuận",
           "nhanvien": "1713667",
           "vol_cam_ket": "3,000",
-          "aov": "19,399",
-          "mtd": 727.0,
+          "aov": "19,479",
+          "mtd": 746.0,
           "pct_mtd_m1": "54.50%",
-          "pct_tru_hang": "31.30%",
+          "pct_tru_hang": "32.30%",
           "am": "Nguyễn Duy Long",
           "buu_cuc": "20499000 - (NTH) Phước Dinh",
           "daily_dt": {
@@ -19212,12 +19101,13 @@ window.DASHBOARD_DATA = {
             "07/09": 53.0,
             "08/09": 110.0,
             "09/09": 97.0,
-            "10/09": 50.0
+            "10/09": 50.0,
+            "11/09": 19.0
           },
-          "dt_w1": 82.0,
-          "dt_n1": 50.0,
-          "diff_w1": -32.0,
-          "pct_w1": -39.0
+          "dt_w1": 16.0,
+          "dt_n1": 19.0,
+          "diff_w1": 3.0,
+          "pct_w1": 18.8
         },
         {
           "stt": "14",
@@ -19230,10 +19120,10 @@ window.DASHBOARD_DATA = {
           "tinh": "Lâm Đồng",
           "nhanvien": "3025995",
           "vol_cam_ket": "3,000",
-          "aov": "18,923",
-          "mtd": 602.0,
-          "pct_mtd_m1": "79.20%",
-          "pct_tru_hang": "25.30%",
+          "aov": "18,882",
+          "mtd": 698.0,
+          "pct_mtd_m1": "82.40%",
+          "pct_tru_hang": "29.30%",
           "am": "Hồng Bích Nga",
           "buu_cuc": "20785000 - (LDO) B'Lao",
           "daily_dt": {
@@ -19246,12 +19136,13 @@ window.DASHBOARD_DATA = {
             "07/09": 98.0,
             "08/09": 67.0,
             "09/09": 98.0,
-            "10/09": 87.0
+            "10/09": 87.0,
+            "11/09": 96.0
           },
-          "dt_w1": 30.0,
-          "dt_n1": 87.0,
-          "diff_w1": 57.0,
-          "pct_w1": 190.0
+          "dt_w1": 20.0,
+          "dt_n1": 96.0,
+          "diff_w1": 76.0,
+          "pct_w1": 380.0
         },
         {
           "stt": "11",
@@ -19264,10 +19155,10 @@ window.DASHBOARD_DATA = {
           "tinh": "Khánh Hòa",
           "nhanvien": "3041011",
           "vol_cam_ket": "1,000",
-          "aov": "19,262",
-          "mtd": 562.0,
-          "pct_mtd_m1": "55.50%",
-          "pct_tru_hang": "24.10%",
+          "aov": "19,277",
+          "mtd": 577.0,
+          "pct_mtd_m1": "51.80%",
+          "pct_tru_hang": "24.70%",
           "am": "Phan Đình Duy",
           "buu_cuc": "21046000 - (KHO) Vạn Ninh",
           "daily_dt": {
@@ -19280,36 +19171,37 @@ window.DASHBOARD_DATA = {
             "07/09": 72.0,
             "08/09": 12.0,
             "09/09": 14.0,
-            "10/09": 29.0
+            "10/09": 29.0,
+            "11/09": 15.0
           },
-          "dt_w1": 96.0,
-          "dt_n1": 29.0,
-          "diff_w1": -67.0,
-          "pct_w1": -69.8
+          "dt_w1": 84.0,
+          "dt_n1": 15.0,
+          "diff_w1": -69.0,
+          "pct_w1": -82.1
         }
       ],
       "warning": [
         {
           "stt": "1",
-          "makh": "4264387",
-          "tenkh": "Thuý Vân",
-          "nhomkh": "A3",
-          "vung": "NTB-Đắk Nông",
-          "nhanvien": "3087078",
-          "cam_ket": "10,000",
-          "mtd": 1618.0,
-          "pct_mtd_m1": "55.60%",
-          "pct_tru_hang": "46.30%",
-          "aov": "12,864",
-          "ngay": "10/09",
-          "dt": 190.0,
-          "dt_n1": 190.0,
-          "dt_w1": 338.0,
-          "diff_w1": -148.0,
-          "pct_w1": -43.8,
-          "am": "Huỳnh Thúc Duân",
-          "buu_cuc": "22242000 - (DNO) Bắc Gia Nghĩa",
-          "canh_bao": "▼ Giảm 43.8% sv W-1 (-148.0 Tr) | MTD thấp (55.60% sv M-1)"
+          "makh": "3950975",
+          "tenkh": "Bếp vườn nhà Trinh",
+          "nhomkh": "A5",
+          "vung": "NTB-Khánh Hòa",
+          "nhanvien": "3041011",
+          "cam_ket": "1,000",
+          "mtd": 577.0,
+          "pct_mtd_m1": "51.80%",
+          "pct_tru_hang": "24.70%",
+          "aov": "19,277",
+          "ngay": "11/09",
+          "dt": 15.0,
+          "dt_n1": 15.0,
+          "dt_w1": 84.0,
+          "diff_w1": -69.0,
+          "pct_w1": -82.1,
+          "am": "Phan Đình Duy",
+          "buu_cuc": "21046000 - (KHO) Vạn Ninh",
+          "canh_bao": "▼ Giảm 82.1% sv W-1 (-69.0 Tr) | Nguy cơ rớt hạng (Trụ hạng 24.70%)"
         },
         {
           "stt": "2",
@@ -19319,127 +19211,61 @@ window.DASHBOARD_DATA = {
           "vung": "NTB-Bình Thuận",
           "nhanvien": "201973",
           "cam_ket": "3,000",
-          "mtd": 931.0,
-          "pct_mtd_m1": "92.40%",
-          "pct_tru_hang": "32.80%",
-          "aov": "15,858",
-          "ngay": "10/09",
-          "dt": 68.0,
-          "dt_n1": 68.0,
-          "dt_w1": 163.0,
-          "diff_w1": -95.0,
-          "pct_w1": -58.3,
+          "mtd": 962.0,
+          "pct_mtd_m1": "89.30%",
+          "pct_tru_hang": "33.90%",
+          "aov": "15,878",
+          "ngay": "11/09",
+          "dt": 31.0,
+          "dt_n1": 31.0,
+          "dt_w1": 71.0,
+          "diff_w1": -40.0,
+          "pct_w1": -56.3,
           "am": "Lê Thanh Nhựt",
           "buu_cuc": "2357 - (BTH) Đồng Kho",
-          "canh_bao": "▼ Giảm 58.3% sv W-1 (-95.0 Tr)"
-        },
-        {
-          "stt": "3",
-          "makh": "3950975",
-          "tenkh": "Bếp vườn nhà Trinh",
-          "nhomkh": "A5",
-          "vung": "NTB-Khánh Hòa",
-          "nhanvien": "3041011",
-          "cam_ket": "1,000",
-          "mtd": 562.0,
-          "pct_mtd_m1": "55.50%",
-          "pct_tru_hang": "24.10%",
-          "aov": "19,262",
-          "ngay": "10/09",
-          "dt": 29.0,
-          "dt_n1": 29.0,
-          "dt_w1": 96.0,
-          "diff_w1": -67.0,
-          "pct_w1": -69.8,
-          "am": "Phan Đình Duy",
-          "buu_cuc": "21046000 - (KHO) Vạn Ninh",
-          "canh_bao": "▼ Giảm 69.8% sv W-1 (-67.0 Tr) | Nguy cơ rớt hạng (Trụ hạng 24.10%)"
-        },
-        {
-          "stt": "4",
-          "makh": "5109892",
-          "tenkh": "My Hà",
-          "nhomkh": "A5",
-          "vung": "NTB-Lâm Đồng",
-          "nhanvien": "2035990",
-          "cam_ket": "4,000",
-          "mtd": 1011.0,
-          "pct_mtd_m1": "80.30%",
-          "pct_tru_hang": "35.80%",
-          "aov": "15,919",
-          "ngay": "10/09",
-          "dt": 107.0,
-          "dt_n1": 107.0,
-          "dt_w1": 148.0,
-          "diff_w1": -41.0,
-          "pct_w1": -27.7,
-          "am": "Lê Văn Trường",
-          "buu_cuc": "22116000 - (LDO) Xuân Trường - Đà Lạt",
-          "canh_bao": "▼ Giảm 27.7% sv W-1 (-41.0 Tr)"
-        },
-        {
-          "stt": "5",
-          "makh": "5197975",
-          "tenkh": "TIÊN HUỲNH US",
-          "nhomkh": "A4",
-          "vung": "NTB-Ninh Thuận",
-          "nhanvien": "1713667",
-          "cam_ket": "3,000",
-          "mtd": 727.0,
-          "pct_mtd_m1": "54.50%",
-          "pct_tru_hang": "31.30%",
-          "aov": "19,399",
-          "ngay": "10/09",
-          "dt": 50.0,
-          "dt_n1": 50.0,
-          "dt_w1": 82.0,
-          "diff_w1": -32.0,
-          "pct_w1": -39.0,
-          "am": "Nguyễn Duy Long",
-          "buu_cuc": "20499000 - (NTH) Phước Dinh",
-          "canh_bao": "▼ Giảm 39.0% sv W-1 (-32.0 Tr) | MTD thấp (54.50% sv M-1)"
+          "canh_bao": "▼ Giảm 56.3% sv W-1 (-40.0 Tr)"
         }
       ],
       "am_chart": [
         {
           "am": "Phan Đình Duy",
-          "mtd": 10878.0,
-          "pct": 52.6
+          "mtd": 11980.0,
+          "pct": 52.8
         },
         {
           "am": "Thái Thị Thanh Thư",
-          "mtd": 4126.0,
+          "mtd": 4522.0,
           "pct": 19.9
         },
         {
           "am": "Huỳnh Thúc Duân",
-          "mtd": 1618.0,
-          "pct": 7.8
+          "mtd": 1792.0,
+          "pct": 7.9
         },
         {
           "am": "Lê Văn Trường",
-          "mtd": 1011.0,
-          "pct": 4.9
+          "mtd": 1129.0,
+          "pct": 5.0
         },
         {
           "am": "Lê Thanh Nhựt",
-          "mtd": 931.0,
-          "pct": 4.5
+          "mtd": 962.0,
+          "pct": 4.2
         },
         {
           "am": "Nguyễn Lê Nguyên Vũ",
-          "mtd": 790.0,
-          "pct": 3.8
+          "mtd": 875.0,
+          "pct": 3.9
         },
         {
           "am": "Nguyễn Duy Long",
-          "mtd": 727.0,
-          "pct": 3.5
+          "mtd": 746.0,
+          "pct": 3.3
         },
         {
           "am": "Hồng Bích Nga",
-          "mtd": 602.0,
-          "pct": 2.9
+          "mtd": 698.0,
+          "pct": 3.1
         }
       ],
       "daily_trend": [
@@ -19482,6 +19308,10 @@ window.DASHBOARD_DATA = {
         {
           "date": "10/09",
           "dt": 2123.0
+        },
+        {
+          "date": "11/09",
+          "dt": 2021.0
         }
       ]
     },
