@@ -7582,14 +7582,14 @@ window.DASHBOARD_DATA = {
   "transport_costs": {
     "region": {
       "total_cost": 865.87,
-      "total_cost_formatted": "865.874.916 đ",
+      "total_cost_formatted": "865.867.893 đ",
       "total_trips": 916,
       "avg_cost_per_trip": 0.95,
-      "avg_cost_per_trip_formatted": "945.278 đ/chuyến",
+      "avg_cost_per_trip_formatted": "945.271 đ/chuyến",
       "ncc_count": 7,
       "ktc_count": 6,
       "total_trucks": 33,
-      "last_updated": "11:50 - 12/09/2026"
+      "last_updated": "17:39 - 12/09/2026"
     },
     "surge_fixed": {
       "fixed_cost": 865.87,
@@ -7611,7 +7611,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 346.63,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, NAK",
+        "primary_ncc": "NAK, Mạnh Cường",
         "truck_count": 12
       },
       {
@@ -7624,7 +7624,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 154.98,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Trâm Hoá, Tốt và Rẻ",
+        "primary_ncc": "Lâm Ngọc Thành, Trâm Hoá",
         "truck_count": 4
       },
       {
@@ -7637,7 +7637,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 138.7,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Công Định, NAK",
+        "primary_ncc": "NAK, Công Định",
         "truck_count": 6
       },
       {
@@ -7655,12 +7655,12 @@ window.DASHBOARD_DATA = {
       },
       {
         "ktc": "KTC Bắc Nha Trang",
-        "total_cost": 71.53,
-        "total_cost_raw": 71527266.0,
+        "total_cost": 71.52,
+        "total_cost_raw": 71520243.6,
         "total_trips": 214,
         "cost_per_trip": 0.33,
-        "cost_per_trip_raw": 334239.56074766355,
-        "fixed_cost": 71.53,
+        "cost_per_trip_raw": 334206.7457943925,
+        "fixed_cost": 71.52,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
@@ -7692,20 +7692,20 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 12,
-        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
+        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
       },
       {
         "ncc": "Mạnh Cường",
-        "total_cost": 198.19,
-        "total_cost_raw": 198190316.10000014,
+        "total_cost": 198.18,
+        "total_cost_raw": 198183293.70000017,
         "total_trips": 247,
         "cost_per_trip": 0.8,
-        "cost_per_trip_raw": 802389.943724697,
-        "fixed_cost": 198.19,
+        "cost_per_trip_raw": 802361.5129554663,
+        "fixed_cost": 198.18,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 7,
-        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang, KTC Đức Trọng, KTC Nam Nha Trang"
+        "active_ktcs": "KTC Đức Trọng, KTC Nam Nha Trang, KTC Khánh Hòa, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Mạnh Cường (BCCK)",
@@ -7718,7 +7718,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 7,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Nam Nha Trang"
+        "active_ktcs": "KTC Nam Nha Trang, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Công Định",
@@ -15826,7 +15826,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "228.547 đ",
         "cost": 228547.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260909967G60A0",
         "ontime": ""
       },
       {
@@ -15841,7 +15841,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "228.547 đ",
         "cost": 228547.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2609105XIO2LBI",
         "ontime": ""
       },
       {
@@ -15856,7 +15856,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "228.547 đ",
         "cost": 228547.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260911HPWNW5ZD",
         "ontime": ""
       },
       {
@@ -16756,7 +16756,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "298.133 đ",
         "cost": 298132.8,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260909G99C35L6",
         "ontime": ""
       },
       {
@@ -16765,13 +16765,13 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-09-11",
         "truck": "50E-19875",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Bắc Nha Trang -> (KHO) Nam Nha Trang 3 -> (KHO) Nam Nha Trang 5 -> Kho Trung Chuyển Khánh Hòa",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Bắc Nha Trang -> (KHO) Nam Nha Trang 5 -> Kho Trung Chuyển Khánh Hòa",
         "ktc": "KTC Bắc Nha Trang",
         "type": "Cố định",
-        "cost_str": "298.133 đ",
-        "cost": 298132.8,
+        "cost_str": "291.110 đ",
+        "cost": 291110.4,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260910LXTEYBL8",
         "ontime": ""
       },
       {
@@ -16786,7 +16786,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "298.133 đ",
         "cost": 298132.8,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260911J4LINQIP",
         "ontime": ""
       },
       {
@@ -17206,7 +17206,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "283.450 đ",
         "cost": 283449.6,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260909O1J7RJIW",
         "ontime": ""
       },
       {
@@ -17221,7 +17221,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "283.450 đ",
         "cost": 283449.6,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2609106W8GYLKR",
         "ontime": ""
       },
       {
