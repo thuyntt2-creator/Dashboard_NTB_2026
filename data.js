@@ -7589,7 +7589,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 6,
       "total_trucks": 33,
-      "last_updated": "17:39 - 12/09/2026"
+      "last_updated": "18:15 - 12/09/2026"
     },
     "surge_fixed": {
       "fixed_cost": 865.87,
@@ -7663,7 +7663,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 71.52,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 9
       },
       {
@@ -7676,7 +7676,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 69.46,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 5
       }
     ],
@@ -7705,7 +7705,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 7,
-        "active_ktcs": "KTC Đức Trọng, KTC Nam Nha Trang, KTC Khánh Hòa, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Đức Trọng, KTC Bắc Nha Trang, KTC Nam Nha Trang, KTC Khánh Hòa"
       },
       {
         "ncc": "Mạnh Cường (BCCK)",
