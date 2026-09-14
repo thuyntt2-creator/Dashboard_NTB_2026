@@ -7589,7 +7589,7 @@
       "ncc_count": 7,
       "ktc_count": 6,
       "total_trucks": 32,
-      "last_updated": "16:26 - 14/09/2026"
+      "last_updated": "17:00 - 14/09/2026"
     },
     "surge_fixed": {
       "fixed_cost": 963.43,
@@ -7611,7 +7611,7 @@
         "fixed_cost": 420.09,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, NAK",
         "truck_count": 12
       },
       {
@@ -7624,7 +7624,7 @@
         "fixed_cost": 163.88,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Công Định",
+        "primary_ncc": "Công Định, NAK",
         "truck_count": 6
       },
       {
@@ -7637,7 +7637,7 @@
         "fixed_cost": 154.98,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Lâm Ngọc Thành, Tốt và Rẻ",
+        "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
         "truck_count": 4
       },
       {
@@ -7663,7 +7663,7 @@
         "fixed_cost": 70.46,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 8
       },
       {
@@ -7676,7 +7676,7 @@
         "fixed_cost": 69.46,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 6
       }
     ],
@@ -7692,7 +7692,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 12,
-        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
+        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
       },
       {
         "ncc": "Mạnh Cường",
@@ -7705,7 +7705,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 7,
-        "active_ktcs": "KTC Đức Trọng, KTC Bắc Nha Trang, KTC Nam Nha Trang, KTC Khánh Hòa"
+        "active_ktcs": "KTC Khánh Hòa, KTC Nam Nha Trang, KTC Đức Trọng, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Mạnh Cường (BCCK)",
@@ -7718,7 +7718,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Nam Nha Trang"
+        "active_ktcs": "KTC Nam Nha Trang, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Công Định",
@@ -10836,21 +10836,6 @@
       },
       {
         "ncc": "NAK",
-        "date": "09/09/2026",
-        "date_iso": "2026-09-09",
-        "truck": "29H-78672",
-        "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Lâm Viên - Đà Lạt 1 -> (LDO) Lâm Viên - Đà Lạt 2 -> (LDO) Xuân Trường - Đà Lạt -> (LDO) Lâm Viên - Đà Lạt 1 -> Kho Chuyển Tiếp Đức Trọng",
-        "ktc": "KTC Đức Trọng",
-        "type": "Cố định",
-        "cost_str": "1.161.763 đ",
-        "cost": 1161763.0,
-        "trips_equivalent": 1,
-        "trip_code": "E260910XGXY51ZE",
-        "ontime": ""
-      },
-      {
-        "ncc": "NAK",
         "date": "10/09/2026",
         "date_iso": "2026-09-10",
         "truck": "29H-78672",
@@ -10861,7 +10846,7 @@
         "cost_str": "1.161.763 đ",
         "cost": 1161763.0,
         "trips_equivalent": 1,
-        "trip_code": "E260911LLRBEC1D",
+        "trip_code": "E260910XGXY51ZE",
         "ontime": ""
       },
       {
@@ -10876,13 +10861,28 @@
         "cost_str": "1.161.763 đ",
         "cost": 1161763.0,
         "trips_equivalent": 1,
-        "trip_code": "E2609125865023Y",
+        "trip_code": "E260911LLRBEC1D",
         "ontime": ""
       },
       {
         "ncc": "NAK",
         "date": "12/09/2026",
         "date_iso": "2026-09-12",
+        "truck": "29H-78672",
+        "capacity": "1900",
+        "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Lâm Viên - Đà Lạt 1 -> (LDO) Lâm Viên - Đà Lạt 2 -> (LDO) Xuân Trường - Đà Lạt -> (LDO) Lâm Viên - Đà Lạt 1 -> Kho Chuyển Tiếp Đức Trọng",
+        "ktc": "KTC Đức Trọng",
+        "type": "Cố định",
+        "cost_str": "1.161.763 đ",
+        "cost": 1161763.0,
+        "trips_equivalent": 1,
+        "trip_code": "E2609125865023Y",
+        "ontime": ""
+      },
+      {
+        "ncc": "NAK",
+        "date": "13/09/2026",
+        "date_iso": "2026-09-13",
         "truck": "29H-78672",
         "capacity": "1900",
         "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Lâm Viên - Đà Lạt 1 -> (LDO) Lâm Viên - Đà Lạt 2 -> (LDO) Xuân Trường - Đà Lạt -> (LDO) Lâm Viên - Đà Lạt 1 -> Kho Chuyển Tiếp Đức Trọng",
@@ -21211,172 +21211,172 @@
     ]
   },
   "aging": {
-    "total": 1236,
-    "total_5_8": 876,
-    "total_8_15": 296,
-    "total_gt_15": 64,
+    "total": 1638,
+    "total_5_8": 1196,
+    "total_8_15": 416,
+    "total_gt_15": 26,
     "top_am": [
       {
         "am": "Trầm Hữu Tiến",
         "tinh": "Lâm Đồng",
-        "d_5_8": 220,
-        "d_8_15": 94,
-        "gt_15": 2,
-        "vol": 316,
-        "pct": 25.6
+        "d_5_8": 291,
+        "d_8_15": 200,
+        "gt_15": 13,
+        "vol": 504,
+        "pct": 30.8
       },
       {
         "am": "Trương Quang Linh",
         "tinh": "Đắk Nông",
-        "d_5_8": 154,
-        "d_8_15": 43,
-        "gt_15": 20,
-        "vol": 217,
-        "pct": 17.6
-      },
-      {
-        "am": "Hồng Bích Nga",
-        "tinh": "Đắk Nông",
-        "d_5_8": 98,
-        "d_8_15": 66,
-        "gt_15": 22,
-        "vol": 186,
-        "pct": 15.0
+        "d_5_8": 237,
+        "d_8_15": 123,
+        "gt_15": 7,
+        "vol": 367,
+        "pct": 22.4
       },
       {
         "am": "Lê Văn Trường",
         "tinh": "Lâm Đồng",
-        "d_5_8": 86,
-        "d_8_15": 66,
-        "gt_15": 14,
-        "vol": 166,
-        "pct": 13.4
-      },
-      {
-        "am": "Lê Minh Lợi",
-        "tinh": "Lâm Đồng",
-        "d_5_8": 97,
-        "d_8_15": 5,
+        "d_5_8": 272,
+        "d_8_15": 28,
         "gt_15": 1,
-        "vol": 103,
-        "pct": 8.3
+        "vol": 301,
+        "pct": 18.4
       },
       {
-        "am": "Huỳnh Thị Kim Chi",
-        "tinh": "Lâm Đồng",
-        "d_5_8": 50,
-        "d_8_15": 5,
+        "am": "Hồng Bích Nga",
+        "tinh": "Đắk Nông",
+        "d_5_8": 100,
+        "d_8_15": 15,
         "gt_15": 4,
-        "vol": 59,
-        "pct": 4.8
-      },
-      {
-        "am": "Huỳnh Thúc Duân",
-        "tinh": "Đắk Nông",
-        "d_5_8": 43,
-        "d_8_15": 10,
-        "gt_15": 1,
-        "vol": 54,
-        "pct": 4.4
-      },
-      {
-        "am": "Nguyễn Hoàng Phi",
-        "tinh": "Khánh Hòa",
-        "d_5_8": 27,
-        "d_8_15": 2,
-        "gt_15": 0,
-        "vol": 29,
-        "pct": 2.3
-      },
-      {
-        "am": "Trần Thị Nhung",
-        "tinh": "Đắk Nông",
-        "d_5_8": 26,
-        "d_8_15": 1,
-        "gt_15": 0,
-        "vol": 27,
-        "pct": 2.2
-      },
-      {
-        "am": "Phan Đình Duy",
-        "tinh": "Khánh Hòa",
-        "d_5_8": 13,
-        "d_8_15": 1,
-        "gt_15": 0,
-        "vol": 14,
-        "pct": 1.1
+        "vol": 119,
+        "pct": 7.3
       },
       {
         "am": "Nguyễn Thanh Long",
         "tinh": "Khánh Hòa",
-        "d_5_8": 12,
-        "d_8_15": 1,
+        "d_5_8": 85,
+        "d_8_15": 9,
         "gt_15": 0,
-        "vol": 13,
+        "vol": 94,
+        "pct": 5.7
+      },
+      {
+        "am": "Huỳnh Thị Kim Chi",
+        "tinh": "Lâm Đồng",
+        "d_5_8": 47,
+        "d_8_15": 12,
+        "gt_15": 0,
+        "vol": 59,
+        "pct": 3.6
+      },
+      {
+        "am": "Huỳnh Thúc Duân",
+        "tinh": "Đắk Nông",
+        "d_5_8": 30,
+        "d_8_15": 14,
+        "gt_15": 1,
+        "vol": 45,
+        "pct": 2.7
+      },
+      {
+        "am": "Lê Minh Lợi",
+        "tinh": "Lâm Đồng",
+        "d_5_8": 40,
+        "d_8_15": 2,
+        "gt_15": 0,
+        "vol": 42,
+        "pct": 2.6
+      },
+      {
+        "am": "Trần Thị Nhung",
+        "tinh": "Đắk Nông",
+        "d_5_8": 27,
+        "d_8_15": 5,
+        "gt_15": 0,
+        "vol": 32,
+        "pct": 2.0
+      },
+      {
+        "am": "Nguyễn Hoàng Phi",
+        "tinh": "Khánh Hòa",
+        "d_5_8": 16,
+        "d_8_15": 2,
+        "gt_15": 0,
+        "vol": 18,
+        "pct": 1.1
+      },
+      {
+        "am": "Phan Đình Duy",
+        "tinh": "Khánh Hòa",
+        "d_5_8": 15,
+        "d_8_15": 3,
+        "gt_15": 0,
+        "vol": 18,
         "pct": 1.1
       },
       {
         "am": "Nguyễn Duy Long",
         "tinh": "Ninh Thuận",
-        "d_5_8": 11,
+        "d_5_8": 14,
         "d_8_15": 0,
         "gt_15": 0,
-        "vol": 11,
+        "vol": 14,
         "pct": 0.9
-      },
-      {
-        "am": "Thái Thị Thanh Thư",
-        "tinh": "Khánh Hòa",
-        "d_5_8": 9,
-        "d_8_15": 1,
-        "gt_15": 0,
-        "vol": 10,
-        "pct": 0.8
       },
       {
         "am": "Lê Thanh Nhựt",
         "tinh": "Bình Thuận",
-        "d_5_8": 10,
+        "d_5_8": 8,
         "d_8_15": 0,
         "gt_15": 0,
-        "vol": 10,
-        "pct": 0.8
+        "vol": 8,
+        "pct": 0.5
       },
       {
-        "am": "Nguyễn Ngọc Khánh",
-        "tinh": "Bình Thuận",
-        "d_5_8": 6,
-        "d_8_15": 1,
+        "am": "Thái Thị Thanh Thư",
+        "tinh": "Khánh Hòa",
+        "d_5_8": 4,
+        "d_8_15": 2,
         "gt_15": 0,
-        "vol": 7,
-        "pct": 0.6
+        "vol": 6,
+        "pct": 0.4
       },
       {
         "am": "Nguyễn Thị Tuyết Thơ",
         "tinh": "Lâm Đồng",
-        "d_5_8": 6,
+        "d_5_8": 5,
         "d_8_15": 0,
         "gt_15": 0,
-        "vol": 6,
-        "pct": 0.5
-      },
-      {
-        "am": "Nguyễn Lê Nguyên Vũ",
-        "tinh": "Lâm Đồng",
-        "d_5_8": 6,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 6,
-        "pct": 0.5
+        "vol": 5,
+        "pct": 0.3
       },
       {
         "am": "Cao Thị Thanh Thủy",
         "tinh": "Bình Thuận",
-        "d_5_8": 2,
+        "d_5_8": 3,
         "d_8_15": 0,
         "gt_15": 0,
-        "vol": 2,
+        "vol": 3,
         "pct": 0.2
+      },
+      {
+        "am": "Nguyễn Lê Nguyên Vũ",
+        "tinh": "Lâm Đồng",
+        "d_5_8": 1,
+        "d_8_15": 1,
+        "gt_15": 0,
+        "vol": 2,
+        "pct": 0.1
+      },
+      {
+        "am": "Nguyễn Ngọc Khánh",
+        "tinh": "Bình Thuận",
+        "d_5_8": 1,
+        "d_8_15": 0,
+        "gt_15": 0,
+        "vol": 1,
+        "pct": 0.1
       },
       {
         "am": "Lê Minh Đại",
@@ -21402,191 +21402,181 @@
         "bc": "(DNO) Quảng Tín",
         "tinh": "Đắk Nông",
         "am": "Trương Quang Linh",
-        "d_5_8": 154,
-        "d_8_15": 43,
-        "gt_15": 20,
-        "vol": 217,
-        "pct": 17.6
+        "d_5_8": 237,
+        "d_8_15": 123,
+        "gt_15": 7,
+        "vol": 367,
+        "pct": 22.4
       },
       {
         "bc": "(LDO) Đức Trọng 1",
         "tinh": "Lâm Đồng",
         "am": "Trầm Hữu Tiến",
-        "d_5_8": 127,
-        "d_8_15": 66,
-        "gt_15": 2,
-        "vol": 195,
-        "pct": 15.8
-      },
-      {
-        "bc": "(DNO) Kiến Đức",
-        "tinh": "Đắk Nông",
-        "am": "Hồng Bích Nga",
-        "d_5_8": 75,
-        "d_8_15": 52,
-        "gt_15": 22,
-        "vol": 149,
-        "pct": 12.1
-      },
-      {
-        "bc": "(LDO) Đơn Dương",
-        "tinh": "Lâm Đồng",
-        "am": "Lê Văn Trường",
-        "d_5_8": 58,
-        "d_8_15": 64,
-        "gt_15": 14,
-        "vol": 136,
-        "pct": 11.0
-      },
-      {
-        "bc": "(LDO) Di Linh",
-        "tinh": "Lâm Đồng",
-        "am": "Trầm Hữu Tiến",
-        "d_5_8": 93,
-        "d_8_15": 28,
-        "gt_15": 0,
-        "vol": 121,
-        "pct": 9.8
-      },
-      {
-        "bc": "(LDO) Lang Biang - Đà Lạt 1",
-        "tinh": "Lâm Đồng",
-        "am": "Lê Minh Lợi",
-        "d_5_8": 97,
-        "d_8_15": 5,
-        "gt_15": 1,
-        "vol": 103,
-        "pct": 8.3
-      },
-      {
-        "bc": "(LDO) Tân Hà Lâm Hà",
-        "tinh": "Lâm Đồng",
-        "am": "Huỳnh Thị Kim Chi",
-        "d_5_8": 41,
-        "d_8_15": 3,
-        "gt_15": 3,
-        "vol": 47,
-        "pct": 3.8
-      },
-      {
-        "bc": "(LDO) Bảo Lâm 1",
-        "tinh": "Lâm Đồng",
-        "am": "Hồng Bích Nga",
-        "d_5_8": 13,
-        "d_8_15": 11,
-        "gt_15": 0,
-        "vol": 24,
-        "pct": 1.9
-      },
-      {
-        "bc": "(DNO) Nhân Cơ",
-        "tinh": "Đắk Nông",
-        "am": "Huỳnh Thúc Duân",
-        "d_5_8": 14,
-        "d_8_15": 5,
-        "gt_15": 0,
-        "vol": 19,
-        "pct": 1.5
-      },
-      {
-        "bc": "(DNO) Đông Gia Nghĩa",
-        "tinh": "Đắk Nông",
-        "am": "Huỳnh Thúc Duân",
-        "d_5_8": 15,
-        "d_8_15": 2,
-        "gt_15": 1,
-        "vol": 18,
-        "pct": 1.5
-      },
-      {
-        "bc": "(DNO) Bắc Gia Nghĩa",
-        "tinh": "Đắk Nông",
-        "am": "Huỳnh Thúc Duân",
-        "d_5_8": 14,
-        "d_8_15": 3,
-        "gt_15": 0,
-        "vol": 17,
-        "pct": 1.4
+        "d_5_8": 173,
+        "d_8_15": 133,
+        "gt_15": 12,
+        "vol": 318,
+        "pct": 19.4
       },
       {
         "bc": "(LDO) Xuân Hương - Đà Lạt",
         "tinh": "Lâm Đồng",
         "am": "Lê Văn Trường",
-        "d_5_8": 16,
-        "d_8_15": 1,
+        "d_5_8": 227,
+        "d_8_15": 20,
         "gt_15": 0,
-        "vol": 17,
-        "pct": 1.4
+        "vol": 247,
+        "pct": 15.1
+      },
+      {
+        "bc": "(LDO) Di Linh",
+        "tinh": "Lâm Đồng",
+        "am": "Trầm Hữu Tiến",
+        "d_5_8": 118,
+        "d_8_15": 67,
+        "gt_15": 1,
+        "vol": 186,
+        "pct": 11.4
+      },
+      {
+        "bc": "(DNO) Kiến Đức",
+        "tinh": "Đắk Nông",
+        "am": "Hồng Bích Nga",
+        "d_5_8": 88,
+        "d_8_15": 13,
+        "gt_15": 1,
+        "vol": 102,
+        "pct": 6.2
       },
       {
         "bc": "(KHO) Cam Linh",
         "tinh": "Khánh Hòa",
         "am": "Nguyễn Thanh Long",
-        "d_5_8": 10,
-        "d_8_15": 1,
+        "d_5_8": 83,
+        "d_8_15": 9,
         "gt_15": 0,
-        "vol": 11,
-        "pct": 0.9
+        "vol": 92,
+        "pct": 5.6
       },
       {
-        "bc": "(LDO) Đam Rông 3",
+        "bc": "(LDO) Đơn Dương",
+        "tinh": "Lâm Đồng",
+        "am": "Lê Văn Trường",
+        "d_5_8": 38,
+        "d_8_15": 8,
+        "gt_15": 1,
+        "vol": 47,
+        "pct": 2.9
+      },
+      {
+        "bc": "(LDO) Lang Biang - Đà Lạt 1",
+        "tinh": "Lâm Đồng",
+        "am": "Lê Minh Lợi",
+        "d_5_8": 40,
+        "d_8_15": 2,
+        "gt_15": 0,
+        "vol": 42,
+        "pct": 2.6
+      },
+      {
+        "bc": "(LDO) Tân Hà Lâm Hà",
         "tinh": "Lâm Đồng",
         "am": "Huỳnh Thị Kim Chi",
-        "d_5_8": 8,
-        "d_8_15": 1,
+        "d_5_8": 27,
+        "d_8_15": 10,
+        "gt_15": 0,
+        "vol": 37,
+        "pct": 2.3
+      },
+      {
+        "bc": "(DNO) Nhân Cơ",
+        "tinh": "Đắk Nông",
+        "am": "Huỳnh Thúc Duân",
+        "d_5_8": 21,
+        "d_8_15": 12,
         "gt_15": 1,
-        "vol": 10,
-        "pct": 0.8
+        "vol": 34,
+        "pct": 2.1
       },
       {
         "bc": "(DNO) Tuy Đức",
         "tinh": "Đắk Nông",
         "am": "Trần Thị Nhung",
-        "d_5_8": 10,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 10,
-        "pct": 0.8
-      },
-      {
-        "bc": "(KHO) Cam Lâm 1",
-        "tinh": "Khánh Hòa",
-        "am": "Nguyễn Hoàng Phi",
-        "d_5_8": 8,
+        "d_5_8": 15,
         "d_8_15": 2,
         "gt_15": 0,
-        "vol": 10,
-        "pct": 0.8
+        "vol": 17,
+        "pct": 1.0
       },
       {
-        "bc": "(LDO) Lang Biang - Đà Lạt 2",
+        "bc": "(LDO) Đinh Văn Lâm Hà",
         "tinh": "Lâm Đồng",
-        "am": "Lê Văn Trường",
-        "d_5_8": 7,
-        "d_8_15": 1,
-        "gt_15": 0,
-        "vol": 8,
-        "pct": 0.6
-      },
-      {
-        "bc": "(DNO) Đức Lập",
-        "tinh": "Đắk Nông",
-        "am": "Trần Thị Nhung",
-        "d_5_8": 7,
+        "am": "Huỳnh Thị Kim Chi",
+        "d_5_8": 15,
         "d_8_15": 0,
         "gt_15": 0,
-        "vol": 7,
-        "pct": 0.6
+        "vol": 15,
+        "pct": 0.9
+      },
+      {
+        "bc": "(LDO) Bảo Lâm 1",
+        "tinh": "Lâm Đồng",
+        "am": "Hồng Bích Nga",
+        "d_5_8": 9,
+        "d_8_15": 1,
+        "gt_15": 1,
+        "vol": 11,
+        "pct": 0.7
       },
       {
         "bc": "(KHO) Diên Khánh 2",
         "tinh": "Khánh Hòa",
         "am": "Nguyễn Hoàng Phi",
-        "d_5_8": 6,
+        "d_5_8": 7,
+        "d_8_15": 2,
+        "gt_15": 0,
+        "vol": 9,
+        "pct": 0.5
+      },
+      {
+        "bc": "(KHO) Tây Nha Trang",
+        "tinh": "Khánh Hòa",
+        "am": "Phan Đình Duy",
+        "d_5_8": 7,
+        "d_8_15": 1,
+        "gt_15": 0,
+        "vol": 8,
+        "pct": 0.5
+      },
+      {
+        "bc": "(LDO) Đam Rông 3",
+        "tinh": "Lâm Đồng",
+        "am": "Huỳnh Thị Kim Chi",
+        "d_5_8": 5,
+        "d_8_15": 2,
+        "gt_15": 0,
+        "vol": 7,
+        "pct": 0.4
+      },
+      {
+        "bc": "(LDO) Lâm Viên - Đà Lạt 2",
+        "tinh": "Lâm Đồng",
+        "am": "Lê Văn Trường",
+        "d_5_8": 7,
         "d_8_15": 0,
         "gt_15": 0,
+        "vol": 7,
+        "pct": 0.4
+      },
+      {
+        "bc": "(DNO) Đông Gia Nghĩa",
+        "tinh": "Đắk Nông",
+        "am": "Huỳnh Thúc Duân",
+        "d_5_8": 5,
+        "d_8_15": 1,
+        "gt_15": 0,
         "vol": 6,
-        "pct": 0.5
+        "pct": 0.4
       },
       {
         "bc": "(KHO) Bắc Nha Trang",
@@ -21596,37 +21586,37 @@
         "d_8_15": 1,
         "gt_15": 0,
         "vol": 5,
-        "pct": 0.4
-      },
-      {
-        "bc": "(KHO) Khánh Vĩnh",
-        "tinh": "Khánh Hòa",
-        "am": "Nguyễn Hoàng Phi",
-        "d_5_8": 5,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 5,
-        "pct": 0.4
-      },
-      {
-        "bc": "(KHO) Tây Nha Trang",
-        "tinh": "Khánh Hòa",
-        "am": "Phan Đình Duy",
-        "d_5_8": 4,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 4,
         "pct": 0.3
       },
       {
-        "bc": "(LDO) Bảo Lâm 3",
-        "tinh": "Lâm Đồng",
-        "am": "Hồng Bích Nga",
+        "bc": "(DNO) Bắc Gia Nghĩa",
+        "tinh": "Đắk Nông",
+        "am": "Huỳnh Thúc Duân",
+        "d_5_8": 4,
+        "d_8_15": 1,
+        "gt_15": 0,
+        "vol": 5,
+        "pct": 0.3
+      },
+      {
+        "bc": "(DNO) Cư Jút",
+        "tinh": "Đắk Nông",
+        "am": "Trần Thị Nhung",
+        "d_5_8": 4,
+        "d_8_15": 1,
+        "gt_15": 0,
+        "vol": 5,
+        "pct": 0.3
+      },
+      {
+        "bc": "(DNO) Quảng Khê",
+        "tinh": "Đắk Nông",
+        "am": "Trần Thị Nhung",
         "d_5_8": 3,
         "d_8_15": 1,
         "gt_15": 0,
         "vol": 4,
-        "pct": 0.3
+        "pct": 0.2
       },
       {
         "bc": "(NTH) Phước Dinh",
@@ -21636,37 +21626,17 @@
         "d_8_15": 0,
         "gt_15": 0,
         "vol": 4,
-        "pct": 0.3
+        "pct": 0.2
       },
       {
-        "bc": "(KHO) Nha Trang",
+        "bc": "(KHO) Vạn Ninh",
         "tinh": "Khánh Hòa",
         "am": "Phan Đình Duy",
         "d_5_8": 4,
         "d_8_15": 0,
         "gt_15": 0,
         "vol": 4,
-        "pct": 0.3
-      },
-      {
-        "bc": "(LDO) 3 Bảo Lộc",
-        "tinh": "Lâm Đồng",
-        "am": "Nguyễn Lê Nguyên Vũ",
-        "d_5_8": 4,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 4,
-        "pct": 0.3
-      },
-      {
-        "bc": "(LDO) B'Lao",
-        "tinh": "Lâm Đồng",
-        "am": "Hồng Bích Nga",
-        "d_5_8": 2,
-        "d_8_15": 2,
-        "gt_15": 0,
-        "vol": 4,
-        "pct": 0.3
+        "pct": 0.2
       },
       {
         "bc": "(KHO) Ninh Hòa 2",
@@ -21676,62 +21646,22 @@
         "d_8_15": 0,
         "gt_15": 0,
         "vol": 4,
-        "pct": 0.3
-      },
-      {
-        "bc": "(BTH) Hàm Thuận",
-        "tinh": "Bình Thuận",
-        "am": "Lê Thanh Nhựt",
-        "d_5_8": 4,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 4,
-        "pct": 0.3
-      },
-      {
-        "bc": "(DNO) Quảng Sơn",
-        "tinh": "Đắk Nông",
-        "am": "Trần Thị Nhung",
-        "d_5_8": 3,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 3,
         "pct": 0.2
       },
       {
-        "bc": "(DNO) Quảng Khê",
-        "tinh": "Đắk Nông",
-        "am": "Trần Thị Nhung",
+        "bc": "(LDO) B'Lao",
+        "tinh": "Lâm Đồng",
+        "am": "Hồng Bích Nga",
         "d_5_8": 2,
         "d_8_15": 1,
-        "gt_15": 0,
-        "vol": 3,
+        "gt_15": 1,
+        "vol": 4,
         "pct": 0.2
       },
       {
-        "bc": "(BTH) Phú Quý",
-        "tinh": "Bình Thuận",
-        "am": "Nguyễn Ngọc Khánh",
-        "d_5_8": 3,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 3,
-        "pct": 0.2
-      },
-      {
-        "bc": "(NTH) Bảo An",
+        "bc": "(NTH) Phan Rang",
         "tinh": "Ninh Thuận",
         "am": "Nguyễn Duy Long",
-        "d_5_8": 3,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 3,
-        "pct": 0.2
-      },
-      {
-        "bc": "(KHO) Đông Ninh Hòa",
-        "tinh": "Khánh Hòa",
-        "am": "Phan Đình Duy",
         "d_5_8": 3,
         "d_8_15": 0,
         "gt_15": 0,
@@ -21749,207 +21679,137 @@
         "pct": 0.2
       },
       {
-        "bc": "(NTH) Phan Rang",
-        "tinh": "Ninh Thuận",
-        "am": "Nguyễn Duy Long",
-        "d_5_8": 3,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 3,
-        "pct": 0.2
-      },
-      {
-        "bc": "(BTH) Đồng Kho",
-        "tinh": "Bình Thuận",
-        "am": "Lê Thanh Nhựt",
-        "d_5_8": 3,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 3,
-        "pct": 0.2
-      },
-      {
-        "bc": "(KHO) Nam Nha Trang 2",
-        "tinh": "Khánh Hòa",
-        "am": "Thái Thị Thanh Thư",
-        "d_5_8": 3,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 3,
-        "pct": 0.2
-      },
-      {
-        "bc": "(LDO) Hòa Ninh",
-        "tinh": "Lâm Đồng",
-        "am": "Hồng Bích Nga",
-        "d_5_8": 3,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 3,
-        "pct": 0.2
-      },
-      {
-        "bc": "(KHO) Vạn Ninh",
+        "bc": "(KHO) Đông Ninh Hòa",
         "tinh": "Khánh Hòa",
         "am": "Phan Đình Duy",
-        "d_5_8": 2,
+        "d_5_8": 3,
         "d_8_15": 0,
         "gt_15": 0,
-        "vol": 2,
-        "pct": 0.2
-      },
-      {
-        "bc": "(BTH) Mũi Né",
-        "tinh": "Bình Thuận",
-        "am": "Nguyễn Ngọc Khánh",
-        "d_5_8": 2,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 2,
-        "pct": 0.2
-      },
-      {
-        "bc": "(BTH) Đức Linh",
-        "tinh": "Bình Thuận",
-        "am": "Lê Thanh Nhựt",
-        "d_5_8": 2,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 2,
-        "pct": 0.2
-      },
-      {
-        "bc": "(DNO) Krông Nô",
-        "tinh": "Đắk Nông",
-        "am": "Trần Thị Nhung",
-        "d_5_8": 2,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 2,
-        "pct": 0.2
-      },
-      {
-        "bc": "(BTH) Phú Thủy",
-        "tinh": "Bình Thuận",
-        "am": "Nguyễn Ngọc Khánh",
-        "d_5_8": 1,
-        "d_8_15": 1,
-        "gt_15": 0,
-        "vol": 2,
-        "pct": 0.2
-      },
-      {
-        "bc": "(KHO) Cam Lâm 2",
-        "tinh": "Khánh Hòa",
-        "am": "Nguyễn Thanh Long",
-        "d_5_8": 2,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 2,
-        "pct": 0.2
-      },
-      {
-        "bc": "(KHO) Ninh Hòa 1",
-        "tinh": "Khánh Hòa",
-        "am": "Nguyễn Hoàng Phi",
-        "d_5_8": 2,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 2,
+        "vol": 3,
         "pct": 0.2
       },
       {
         "bc": "(KHO) Diên Khánh 1",
         "tinh": "Khánh Hòa",
         "am": "Nguyễn Hoàng Phi",
-        "d_5_8": 2,
+        "d_5_8": 3,
         "d_8_15": 0,
         "gt_15": 0,
-        "vol": 2,
+        "vol": 3,
         "pct": 0.2
       },
       {
-        "bc": "(KHO) Nam Nha Trang 1",
+        "bc": "(BTH) Tuyên Quang",
+        "tinh": "Bình Thuận",
+        "am": "Lê Thanh Nhựt",
+        "d_5_8": 3,
+        "d_8_15": 0,
+        "gt_15": 0,
+        "vol": 3,
+        "pct": 0.2
+      },
+      {
+        "bc": "(DNO) Krông Nô",
+        "tinh": "Đắk Nông",
+        "am": "Trần Thị Nhung",
+        "d_5_8": 3,
+        "d_8_15": 0,
+        "gt_15": 0,
+        "vol": 3,
+        "pct": 0.2
+      },
+      {
+        "bc": "(BTH) Hàm Thuận",
+        "tinh": "Bình Thuận",
+        "am": "Lê Thanh Nhựt",
+        "d_5_8": 3,
+        "d_8_15": 0,
+        "gt_15": 0,
+        "vol": 3,
+        "pct": 0.2
+      },
+      {
+        "bc": "(BTH) Hàm Tân",
+        "tinh": "Bình Thuận",
+        "am": "Cao Thị Thanh Thủy",
+        "d_5_8": 3,
+        "d_8_15": 0,
+        "gt_15": 0,
+        "vol": 3,
+        "pct": 0.2
+      },
+      {
+        "bc": "(KHO) Tu Bông",
         "tinh": "Khánh Hòa",
-        "am": "Thái Thị Thanh Thư",
-        "d_5_8": 2,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 2,
-        "pct": 0.2
-      },
-      {
-        "bc": "(LDO) Lâm Viên - Đà Lạt 2",
-        "tinh": "Lâm Đồng",
-        "am": "Lê Văn Trường",
-        "d_5_8": 2,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 2,
-        "pct": 0.2
-      },
-      {
-        "bc": "(LDO) Đinh Văn Lâm Hà",
-        "tinh": "Lâm Đồng",
-        "am": "Huỳnh Thị Kim Chi",
+        "am": "Phan Đình Duy",
         "d_5_8": 1,
         "d_8_15": 1,
         "gt_15": 0,
         "vol": 2,
-        "pct": 0.2
+        "pct": 0.1
       },
       {
-        "bc": "(LDO) 1 Bảo Lộc",
-        "tinh": "Lâm Đồng",
-        "am": "Hồng Bích Nga",
+        "bc": "(KHO) Cam Lâm 1",
+        "tinh": "Khánh Hòa",
+        "am": "Nguyễn Hoàng Phi",
         "d_5_8": 2,
         "d_8_15": 0,
         "gt_15": 0,
         "vol": 2,
-        "pct": 0.2
+        "pct": 0.1
       },
       {
-        "bc": "(LDO) Hiệp Thạnh",
+        "bc": "(NTH) Ninh Chử",
+        "tinh": "Ninh Thuận",
+        "am": "Nguyễn Duy Long",
+        "d_5_8": 2,
+        "d_8_15": 0,
+        "gt_15": 0,
+        "vol": 2,
+        "pct": 0.1
+      },
+      {
+        "bc": "(DNO) Đức Lập",
+        "tinh": "Đắk Nông",
+        "am": "Trần Thị Nhung",
+        "d_5_8": 1,
+        "d_8_15": 1,
+        "gt_15": 0,
+        "vol": 2,
+        "pct": 0.1
+      },
+      {
+        "bc": "(NTH) Bảo An",
+        "tinh": "Ninh Thuận",
+        "am": "Nguyễn Duy Long",
+        "d_5_8": 2,
+        "d_8_15": 0,
+        "gt_15": 0,
+        "vol": 2,
+        "pct": 0.1
+      },
+      {
+        "bc": "(LDO) Ninh Gia",
         "tinh": "Lâm Đồng",
         "am": "Nguyễn Thị Tuyết Thơ",
         "d_5_8": 2,
         "d_8_15": 0,
         "gt_15": 0,
         "vol": 2,
-        "pct": 0.2
+        "pct": 0.1
       },
       {
-        "bc": "(LDO) Lâm Viên - Đà Lạt 1",
+        "bc": "(LDO) Bảo Lâm 3",
         "tinh": "Lâm Đồng",
-        "am": "Lê Văn Trường",
-        "d_5_8": 2,
+        "am": "Hồng Bích Nga",
+        "d_5_8": 1,
         "d_8_15": 0,
-        "gt_15": 0,
+        "gt_15": 1,
         "vol": 2,
-        "pct": 0.2
-      },
-      {
-        "bc": "(BTH) Tân Hải",
-        "tinh": "Bình Thuận",
-        "am": "Cao Thị Thanh Thủy",
-        "d_5_8": 1,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 1,
         "pct": 0.1
       },
       {
-        "bc": "(BTH) Phước Hội",
-        "tinh": "Bình Thuận",
-        "am": "Cao Thị Thanh Thủy",
-        "d_5_8": 1,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 1,
-        "pct": 0.1
-      },
-      {
-        "bc": "(DNO) Cư Jút",
+        "bc": "(DNO) Trường Xuân",
         "tinh": "Đắk Nông",
         "am": "Trần Thị Nhung",
         "d_5_8": 1,
@@ -21959,9 +21819,9 @@
         "pct": 0.1
       },
       {
-        "bc": "(DNO) Đức An",
-        "tinh": "Đắk Nông",
-        "am": "Trần Thị Nhung",
+        "bc": "(BTH) Phan Rí Cửa",
+        "tinh": "Bình Thuận",
+        "am": "Nguyễn Duy Long",
         "d_5_8": 1,
         "d_8_15": 0,
         "gt_15": 0,
@@ -21969,7 +21829,17 @@
         "pct": 0.1
       },
       {
-        "bc": "(BTH) Tuyên Quang",
+        "bc": "(BTH) Bắc Bình",
+        "tinh": "Bình Thuận",
+        "am": "Nguyễn Ngọc Khánh",
+        "d_5_8": 1,
+        "d_8_15": 0,
+        "gt_15": 0,
+        "vol": 1,
+        "pct": 0.1
+      },
+      {
+        "bc": "(BTH) Đồng Kho",
         "tinh": "Bình Thuận",
         "am": "Lê Thanh Nhựt",
         "d_5_8": 1,
@@ -21979,9 +21849,9 @@
         "pct": 0.1
       },
       {
-        "bc": "(LDO) Cát Tiên",
-        "tinh": "Lâm Đồng",
-        "am": "Nguyễn Lê Nguyên Vũ",
+        "bc": "(BTH) Đức Linh",
+        "tinh": "Bình Thuận",
+        "am": "Lê Thanh Nhựt",
         "d_5_8": 1,
         "d_8_15": 0,
         "gt_15": 0,
@@ -21989,7 +21859,37 @@
         "pct": 0.1
       },
       {
-        "bc": "(KHO) Tu Bông",
+        "bc": "(KHO) CK Bắc Nha Trang",
+        "tinh": "Khánh Hòa",
+        "am": "Thái Thị Thanh Thư",
+        "d_5_8": 0,
+        "d_8_15": 1,
+        "gt_15": 0,
+        "vol": 1,
+        "pct": 0.1
+      },
+      {
+        "bc": "(KHO) Bắc Cam Ranh",
+        "tinh": "Khánh Hòa",
+        "am": "Nguyễn Thanh Long",
+        "d_5_8": 1,
+        "d_8_15": 0,
+        "gt_15": 0,
+        "vol": 1,
+        "pct": 0.1
+      },
+      {
+        "bc": "(KHO) Cam Lâm 2",
+        "tinh": "Khánh Hòa",
+        "am": "Nguyễn Thanh Long",
+        "d_5_8": 1,
+        "d_8_15": 0,
+        "gt_15": 0,
+        "vol": 1,
+        "pct": 0.1
+      },
+      {
+        "bc": "(KHO) Nha Trang",
         "tinh": "Khánh Hòa",
         "am": "Phan Đình Duy",
         "d_5_8": 0,
@@ -21999,21 +21899,11 @@
         "pct": 0.1
       },
       {
-        "bc": "(LDO) Xuân Trường - Đà Lạt",
+        "bc": "(LDO) Cát Tiên",
         "tinh": "Lâm Đồng",
-        "am": "Lê Văn Trường",
-        "d_5_8": 1,
-        "d_8_15": 0,
-        "gt_15": 0,
-        "vol": 1,
-        "pct": 0.1
-      },
-      {
-        "bc": "(LDO) Ninh Gia",
-        "tinh": "Lâm Đồng",
-        "am": "Nguyễn Thị Tuyết Thơ",
-        "d_5_8": 1,
-        "d_8_15": 0,
+        "am": "Nguyễn Lê Nguyên Vũ",
+        "d_5_8": 0,
+        "d_8_15": 1,
         "gt_15": 0,
         "vol": 1,
         "pct": 0.1
@@ -22030,6 +21920,16 @@
       },
       {
         "bc": "(NTH) Ninh Sơn",
+        "tinh": "Ninh Thuận",
+        "am": "Nguyễn Duy Long",
+        "d_5_8": 1,
+        "d_8_15": 0,
+        "gt_15": 0,
+        "vol": 1,
+        "pct": 0.1
+      },
+      {
+        "bc": "(NTH) Thuận Nam",
         "tinh": "Ninh Thuận",
         "am": "Nguyễn Duy Long",
         "d_5_8": 1,
@@ -22042,653 +21942,632 @@
     "tinh": [
       {
         "tinh": "Lâm Đồng",
-        "vol": 693,
-        "pct": 56.1
+        "vol": 930,
+        "pct": 56.8
       },
       {
         "tinh": "Đắk Nông",
-        "vol": 447,
-        "pct": 36.2
+        "vol": 546,
+        "pct": 33.3
       },
       {
         "tinh": "Khánh Hòa",
-        "vol": 66,
-        "pct": 5.3
+        "vol": 136,
+        "pct": 8.3
       },
       {
         "tinh": "Bình Thuận",
-        "vol": 19,
-        "pct": 1.5
+        "vol": 13,
+        "pct": 0.8
       },
       {
         "tinh": "Ninh Thuận",
-        "vol": 11,
-        "pct": 0.9
+        "vol": 13,
+        "pct": 0.8
       }
     ]
   },
   "treo_lc": {
-    "total": 4988,
+    "total": 4649,
     "top_am": [
-      {
-        "am": "Hồng Bích Nga",
-        "tinh": "Lâm Đồng",
-        "vol": 562,
-        "pct": 11.3
-      },
       {
         "am": "Lê Văn Trường",
         "tinh": "Lâm Đồng",
-        "vol": 557,
-        "pct": 11.2
-      },
-      {
-        "am": "Nguyễn Duy Long",
-        "tinh": "Ninh Thuận",
-        "vol": 464,
-        "pct": 9.3
-      },
-      {
-        "am": "Phan Đình Duy",
-        "tinh": "Khánh Hòa",
-        "vol": 364,
-        "pct": 7.3
-      },
-      {
-        "am": "Thái Thị Thanh Thư",
-        "tinh": "Khánh Hòa",
-        "vol": 320,
-        "pct": 6.4
+        "vol": 534,
+        "pct": 11.5
       },
       {
         "am": "Trần Thị Nhung",
         "tinh": "Đắk Nông",
-        "vol": 303,
-        "pct": 6.1
+        "vol": 428,
+        "pct": 9.2
       },
       {
-        "am": "Trầm Hữu Tiến",
-        "tinh": "Lâm Đồng",
-        "vol": 296,
-        "pct": 5.9
+        "am": "Nguyễn Duy Long",
+        "tinh": "Ninh Thuận",
+        "vol": 423,
+        "pct": 9.1
+      },
+      {
+        "am": "Phan Đình Duy",
+        "tinh": "Khánh Hòa",
+        "vol": 408,
+        "pct": 8.8
       },
       {
         "am": "Nguyễn Hoàng Phi",
         "tinh": "Khánh Hòa",
-        "vol": 246,
-        "pct": 4.9
+        "vol": 362,
+        "pct": 7.8
       },
       {
-        "am": "Nguyễn Ngọc Khánh",
-        "tinh": "Bình Thuận",
-        "vol": 227,
-        "pct": 4.6
+        "am": "Thái Thị Thanh Thư",
+        "tinh": "Khánh Hòa",
+        "vol": 344,
+        "pct": 7.4
       },
       {
-        "am": "Cao Thị Thanh Thủy",
-        "tinh": "Bình Thuận",
-        "vol": 227,
-        "pct": 4.6
-      },
-      {
-        "am": "Trương Quang Linh",
-        "tinh": "Đắk Nông",
-        "vol": 221,
-        "pct": 4.4
+        "am": "Hồng Bích Nga",
+        "tinh": "Lâm Đồng",
+        "vol": 302,
+        "pct": 6.5
       },
       {
         "am": "Nguyễn Thanh Long",
         "tinh": "Khánh Hòa",
-        "vol": 219,
-        "pct": 4.4
+        "vol": 293,
+        "pct": 6.3
       },
       {
         "am": "Huỳnh Thị Kim Chi",
         "tinh": "Lâm Đồng",
-        "vol": 212,
-        "pct": 4.3
+        "vol": 245,
+        "pct": 5.3
+      },
+      {
+        "am": "Nguyễn Ngọc Khánh",
+        "tinh": "Bình Thuận",
+        "vol": 237,
+        "pct": 5.1
       },
       {
         "am": "Lê Thanh Nhựt",
         "tinh": "Bình Thuận",
-        "vol": 200,
-        "pct": 4.0
+        "vol": 211,
+        "pct": 4.5
+      },
+      {
+        "am": "Trầm Hữu Tiến",
+        "tinh": "Lâm Đồng",
+        "vol": 183,
+        "pct": 3.9
+      },
+      {
+        "am": "Lê Minh Lợi",
+        "tinh": "Lâm Đồng",
+        "vol": 149,
+        "pct": 3.2
+      },
+      {
+        "am": "Cao Thị Thanh Thủy",
+        "tinh": "Bình Thuận",
+        "vol": 144,
+        "pct": 3.1
       },
       {
         "am": "Huỳnh Thúc Duân",
         "tinh": "Đắk Nông",
-        "vol": 161,
-        "pct": 3.2
-      },
-      {
-        "am": "Lê Minh Lợi",
-        "tinh": "Lâm Đồng",
-        "vol": 152,
-        "pct": 3.0
-      },
-      {
-        "am": "Nguyễn Lê Nguyên Vũ",
-        "tinh": "Lâm Đồng",
-        "vol": 137,
-        "pct": 2.7
+        "vol": 134,
+        "pct": 2.9
       },
       {
         "am": "Nguyễn Thị Tuyết Thơ",
         "tinh": "Lâm Đồng",
-        "vol": 120,
-        "pct": 2.4
+        "vol": 93,
+        "pct": 2.0
+      },
+      {
+        "am": "Nguyễn Lê Nguyên Vũ",
+        "tinh": "Lâm Đồng",
+        "vol": 88,
+        "pct": 1.9
+      },
+      {
+        "am": "Trương Quang Linh",
+        "tinh": "Đắk Nông",
+        "vol": 71,
+        "pct": 1.5
       }
     ],
     "top_bc": [
       {
-        "bc": "(DNO) Kiến Đức",
-        "tinh": "Đắk Nông",
-        "am": "Hồng Bích Nga",
-        "vol": 280,
-        "pct": 5.6
-      },
-      {
-        "bc": "(DNO) Quảng Tín",
-        "tinh": "Đắk Nông",
-        "am": "Trương Quang Linh",
-        "vol": 221,
-        "pct": 4.4
-      },
-      {
-        "bc": "(LDO) Di Linh",
-        "tinh": "Lâm Đồng",
-        "am": "Trầm Hữu Tiến",
-        "vol": 195,
-        "pct": 3.9
-      },
-      {
-        "bc": "(LDO) Đơn Dương",
-        "tinh": "Lâm Đồng",
-        "am": "Lê Văn Trường",
-        "vol": 188,
-        "pct": 3.8
-      },
-      {
-        "bc": "(NTH) Phước Dinh",
-        "tinh": "Ninh Thuận",
-        "am": "Nguyễn Duy Long",
-        "vol": 175,
-        "pct": 3.5
-      },
-      {
         "bc": "(KHO) Cam Linh",
         "tinh": "Khánh Hòa",
         "am": "Nguyễn Thanh Long",
-        "vol": 158,
-        "pct": 3.2
-      },
-      {
-        "bc": "(LDO) Lang Biang - Đà Lạt 1",
-        "tinh": "Lâm Đồng",
-        "am": "Lê Minh Lợi",
-        "vol": 152,
-        "pct": 3.0
-      },
-      {
-        "bc": "(KHO) Tây Nha Trang",
-        "tinh": "Khánh Hòa",
-        "am": "Phan Đình Duy",
-        "vol": 139,
-        "pct": 2.8
-      },
-      {
-        "bc": "(LDO) B'Lao",
-        "tinh": "Lâm Đồng",
-        "am": "Hồng Bích Nga",
-        "vol": 138,
-        "pct": 2.8
+        "vol": 201,
+        "pct": 4.3
       },
       {
         "bc": "(KHO) Bắc Nha Trang",
         "tinh": "Khánh Hòa",
         "am": "Thái Thị Thanh Thư",
-        "vol": 122,
-        "pct": 2.4
+        "vol": 181,
+        "pct": 3.9
       },
       {
-        "bc": "(BTH) Hàm Tân",
-        "tinh": "Bình Thuận",
-        "am": "Cao Thị Thanh Thủy",
-        "vol": 112,
-        "pct": 2.2
+        "bc": "(KHO) Tây Nha Trang",
+        "tinh": "Khánh Hòa",
+        "am": "Phan Đình Duy",
+        "vol": 167,
+        "pct": 3.6
+      },
+      {
+        "bc": "(LDO) Đơn Dương",
+        "tinh": "Lâm Đồng",
+        "am": "Lê Văn Trường",
+        "vol": 163,
+        "pct": 3.5
       },
       {
         "bc": "(LDO) Lang Biang - Đà Lạt 2",
         "tinh": "Lâm Đồng",
         "am": "Lê Văn Trường",
-        "vol": 105,
-        "pct": 2.1
+        "vol": 155,
+        "pct": 3.3
       },
       {
-        "bc": "(KHO) Vạn Ninh",
-        "tinh": "Khánh Hòa",
-        "am": "Phan Đình Duy",
-        "vol": 104,
-        "pct": 2.1
+        "bc": "(DNO) Đức Lập",
+        "tinh": "Đắk Nông",
+        "am": "Trần Thị Nhung",
+        "vol": 154,
+        "pct": 3.3
       },
       {
-        "bc": "(LDO) Lâm Viên - Đà Lạt 2",
+        "bc": "(LDO) Lang Biang - Đà Lạt 1",
         "tinh": "Lâm Đồng",
-        "am": "Lê Văn Trường",
-        "vol": 104,
-        "pct": 2.1
+        "am": "Lê Minh Lợi",
+        "vol": 149,
+        "pct": 3.2
       },
       {
-        "bc": "(LDO) Đức Trọng 1",
+        "bc": "(LDO) Di Linh",
         "tinh": "Lâm Đồng",
         "am": "Trầm Hữu Tiến",
-        "vol": 101,
+        "vol": 118,
+        "pct": 2.5
+      },
+      {
+        "bc": "(NTH) Phước Dinh",
+        "tinh": "Ninh Thuận",
+        "am": "Nguyễn Duy Long",
+        "vol": 116,
+        "pct": 2.5
+      },
+      {
+        "bc": "(KHO) Cam Lâm 1",
+        "tinh": "Khánh Hòa",
+        "am": "Nguyễn Hoàng Phi",
+        "vol": 112,
+        "pct": 2.4
+      },
+      {
+        "bc": "(LDO) B'Lao",
+        "tinh": "Lâm Đồng",
+        "am": "Hồng Bích Nga",
+        "vol": 92,
         "pct": 2.0
+      },
+      {
+        "bc": "(LDO) 1 Bảo Lộc",
+        "tinh": "Lâm Đồng",
+        "am": "Hồng Bích Nga",
+        "vol": 89,
+        "pct": 1.9
+      },
+      {
+        "bc": "(LDO) Xuân Hương - Đà Lạt",
+        "tinh": "Lâm Đồng",
+        "am": "Lê Văn Trường",
+        "vol": 86,
+        "pct": 1.8
       },
       {
         "bc": "(LDO) Đam Rông 3",
         "tinh": "Lâm Đồng",
         "am": "Huỳnh Thị Kim Chi",
-        "vol": 90,
+        "vol": 86,
         "pct": 1.8
+      },
+      {
+        "bc": "(KHO) Nha Trang",
+        "tinh": "Khánh Hòa",
+        "am": "Phan Đình Duy",
+        "vol": 83,
+        "pct": 1.8
+      },
+      {
+        "bc": "(KHO) Nam Nha Trang 1",
+        "tinh": "Khánh Hòa",
+        "am": "Thái Thị Thanh Thư",
+        "vol": 82,
+        "pct": 1.8
+      },
+      {
+        "bc": "(LDO) Tân Hà Lâm Hà",
+        "tinh": "Lâm Đồng",
+        "am": "Huỳnh Thị Kim Chi",
+        "vol": 81,
+        "pct": 1.7
       },
       {
         "bc": "(BTH) Hàm Thắng",
         "tinh": "Bình Thuận",
         "am": "Nguyễn Ngọc Khánh",
-        "vol": 78,
+        "vol": 79,
+        "pct": 1.7
+      },
+      {
+        "bc": "(BTH) Phú Thủy",
+        "tinh": "Bình Thuận",
+        "am": "Nguyễn Ngọc Khánh",
+        "vol": 76,
         "pct": 1.6
       },
       {
-        "bc": "(DNO) Đông Gia Nghĩa",
-        "tinh": "Đắk Nông",
-        "am": "Huỳnh Thúc Duân",
+        "bc": "(NTH) Phan Rang",
+        "tinh": "Ninh Thuận",
+        "am": "Nguyễn Duy Long",
         "vol": 76,
+        "pct": 1.6
+      },
+      {
+        "bc": "(BTH) Hàm Tân",
+        "tinh": "Bình Thuận",
+        "am": "Cao Thị Thanh Thủy",
+        "vol": 75,
+        "pct": 1.6
+      },
+      {
+        "bc": "(KHO) Vạn Ninh",
+        "tinh": "Khánh Hòa",
+        "am": "Phan Đình Duy",
+        "vol": 72,
+        "pct": 1.5
+      },
+      {
+        "bc": "(DNO) Quảng Tín",
+        "tinh": "Đắk Nông",
+        "am": "Trương Quang Linh",
+        "vol": 71,
+        "pct": 1.5
+      },
+      {
+        "bc": "(DNO) Kiến Đức",
+        "tinh": "Đắk Nông",
+        "am": "Hồng Bích Nga",
+        "vol": 69,
         "pct": 1.5
       },
       {
         "bc": "(KHO) Diên Khánh 2",
         "tinh": "Khánh Hòa",
         "am": "Nguyễn Hoàng Phi",
-        "vol": 76,
+        "vol": 69,
         "pct": 1.5
       },
       {
-        "bc": "(NTH) Phan Rang",
-        "tinh": "Ninh Thuận",
-        "am": "Nguyễn Duy Long",
-        "vol": 73,
-        "pct": 1.5
-      },
-      {
-        "bc": "(KHO) Nam Nha Trang 3",
-        "tinh": "Khánh Hòa",
-        "am": "Thái Thị Thanh Thư",
-        "vol": 73,
-        "pct": 1.5
-      },
-      {
-        "bc": "(DNO) Đức Lập",
-        "tinh": "Đắk Nông",
-        "am": "Trần Thị Nhung",
-        "vol": 72,
+        "bc": "(LDO) Đức Trọng 1",
+        "tinh": "Lâm Đồng",
+        "am": "Trầm Hữu Tiến",
+        "vol": 65,
         "pct": 1.4
       },
       {
-        "bc": "(LDO) Lâm Viên - Đà Lạt 1",
-        "tinh": "Lâm Đồng",
-        "am": "Lê Văn Trường",
-        "vol": 67,
+        "bc": "(NTH) Ninh Sơn",
+        "tinh": "Ninh Thuận",
+        "am": "Nguyễn Duy Long",
+        "vol": 64,
+        "pct": 1.4
+      },
+      {
+        "bc": "(DNO) Đông Gia Nghĩa",
+        "tinh": "Đắk Nông",
+        "am": "Huỳnh Thúc Duân",
+        "vol": 61,
         "pct": 1.3
       },
       {
         "bc": "(BTH) Hàm Thuận",
         "tinh": "Bình Thuận",
         "am": "Lê Thanh Nhựt",
-        "vol": 65,
-        "pct": 1.3
-      },
-      {
-        "bc": "(LDO) 3 Bảo Lộc",
-        "tinh": "Lâm Đồng",
-        "am": "Nguyễn Lê Nguyên Vũ",
-        "vol": 63,
-        "pct": 1.3
-      },
-      {
-        "bc": "(LDO) Xuân Hương - Đà Lạt",
-        "tinh": "Lâm Đồng",
-        "am": "Lê Văn Trường",
         "vol": 60,
-        "pct": 1.2
-      },
-      {
-        "bc": "(BTH) Phú Thủy",
-        "tinh": "Bình Thuận",
-        "am": "Nguyễn Ngọc Khánh",
-        "vol": 58,
-        "pct": 1.2
-      },
-      {
-        "bc": "(BTH) Phước Hội",
-        "tinh": "Bình Thuận",
-        "am": "Cao Thị Thanh Thủy",
-        "vol": 57,
-        "pct": 1.1
-      },
-      {
-        "bc": "(KHO) Nam Nha Trang 1",
-        "tinh": "Khánh Hòa",
-        "am": "Thái Thị Thanh Thư",
-        "vol": 56,
-        "pct": 1.1
-      },
-      {
-        "bc": "(LDO) Đức Trọng 2",
-        "tinh": "Lâm Đồng",
-        "am": "Nguyễn Thị Tuyết Thơ",
-        "vol": 55,
-        "pct": 1.1
-      },
-      {
-        "bc": "(DNO) Bắc Gia Nghĩa",
-        "tinh": "Đắk Nông",
-        "am": "Huỳnh Thúc Duân",
-        "vol": 55,
-        "pct": 1.1
+        "pct": 1.3
       },
       {
         "bc": "(BTH) Đồng Kho",
         "tinh": "Bình Thuận",
         "am": "Lê Thanh Nhựt",
-        "vol": 55,
-        "pct": 1.1
+        "vol": 60,
+        "pct": 1.3
       },
       {
-        "bc": "(KHO) Nam Nha Trang 2",
-        "tinh": "Khánh Hòa",
-        "am": "Thái Thị Thanh Thư",
-        "vol": 54,
-        "pct": 1.1
+        "bc": "(DNO) Tuy Đức",
+        "tinh": "Đắk Nông",
+        "am": "Trần Thị Nhung",
+        "vol": 59,
+        "pct": 1.3
       },
       {
-        "bc": "(LDO) 1 Bảo Lộc",
+        "bc": "(LDO) Lâm Viên - Đà Lạt 1",
         "tinh": "Lâm Đồng",
-        "am": "Hồng Bích Nga",
-        "vol": 53,
-        "pct": 1.1
+        "am": "Lê Văn Trường",
+        "vol": 59,
+        "pct": 1.3
       },
       {
         "bc": "(LDO) Đinh Văn Lâm Hà",
         "tinh": "Lâm Đồng",
         "am": "Huỳnh Thị Kim Chi",
-        "vol": 51,
-        "pct": 1.0
-      },
-      {
-        "bc": "(LDO) Bảo Lâm 1",
-        "tinh": "Lâm Đồng",
-        "am": "Hồng Bích Nga",
-        "vol": 51,
-        "pct": 1.0
-      },
-      {
-        "bc": "(BTH) Hàm Liêm",
-        "tinh": "Bình Thuận",
-        "am": "Lê Thanh Nhựt",
-        "vol": 50,
-        "pct": 1.0
-      },
-      {
-        "bc": "(NTH) Ninh Sơn",
-        "tinh": "Ninh Thuận",
-        "am": "Nguyễn Duy Long",
-        "vol": 50,
-        "pct": 1.0
-      },
-      {
-        "bc": "(KHO) Nha Trang",
-        "tinh": "Khánh Hòa",
-        "am": "Phan Đình Duy",
-        "vol": 49,
-        "pct": 1.0
-      },
-      {
-        "bc": "(DNO) Quảng Khê",
-        "tinh": "Đắk Nông",
-        "am": "Trần Thị Nhung",
-        "vol": 48,
-        "pct": 1.0
-      },
-      {
-        "bc": "(LDO) Tân Hà Lâm Hà",
-        "tinh": "Lâm Đồng",
-        "am": "Huỳnh Thị Kim Chi",
-        "vol": 48,
-        "pct": 1.0
-      },
-      {
-        "bc": "(BTH) Liên Hương",
-        "tinh": "Bình Thuận",
-        "am": "Nguyễn Duy Long",
-        "vol": 46,
-        "pct": 0.9
+        "vol": 58,
+        "pct": 1.2
       },
       {
         "bc": "(NTH) Thuận Nam",
         "tinh": "Ninh Thuận",
         "am": "Nguyễn Duy Long",
-        "vol": 44,
+        "vol": 57,
+        "pct": 1.2
+      },
+      {
+        "bc": "(DNO) Trường Xuân",
+        "tinh": "Đắk Nông",
+        "am": "Trần Thị Nhung",
+        "vol": 55,
+        "pct": 1.2
+      },
+      {
+        "bc": "(KHO) Tu Bông",
+        "tinh": "Khánh Hòa",
+        "am": "Phan Đình Duy",
+        "vol": 55,
+        "pct": 1.2
+      },
+      {
+        "bc": "(LDO) 3 Bảo Lộc",
+        "tinh": "Lâm Đồng",
+        "am": "Nguyễn Lê Nguyên Vũ",
+        "vol": 52,
+        "pct": 1.1
+      },
+      {
+        "bc": "(KHO) Cam Lâm 2",
+        "tinh": "Khánh Hòa",
+        "am": "Nguyễn Thanh Long",
+        "vol": 52,
+        "pct": 1.1
+      },
+      {
+        "bc": "(NTH) Bảo An",
+        "tinh": "Ninh Thuận",
+        "am": "Nguyễn Duy Long",
+        "vol": 49,
+        "pct": 1.1
+      },
+      {
+        "bc": "(KHO) Ninh Hòa 2",
+        "tinh": "Khánh Hòa",
+        "am": "Nguyễn Hoàng Phi",
+        "vol": 49,
+        "pct": 1.1
+      },
+      {
+        "bc": "(BTH) Hàm Liêm",
+        "tinh": "Bình Thuận",
+        "am": "Lê Thanh Nhựt",
+        "vol": 45,
+        "pct": 1.0
+      },
+      {
+        "bc": "(BTH) Tuyên Quang",
+        "tinh": "Bình Thuận",
+        "am": "Lê Thanh Nhựt",
+        "vol": 45,
+        "pct": 1.0
+      },
+      {
+        "bc": "(DNO) Cư Jút",
+        "tinh": "Đắk Nông",
+        "am": "Trần Thị Nhung",
+        "vol": 43,
+        "pct": 0.9
+      },
+      {
+        "bc": "(LDO) Xuân Trường - Đà Lạt",
+        "tinh": "Lâm Đồng",
+        "am": "Lê Văn Trường",
+        "vol": 42,
+        "pct": 0.9
+      },
+      {
+        "bc": "(KHO) Diên Thọ",
+        "tinh": "Khánh Hòa",
+        "am": "Nguyễn Hoàng Phi",
+        "vol": 41,
+        "pct": 0.9
+      },
+      {
+        "bc": "(LDO) Đức Trọng 2",
+        "tinh": "Lâm Đồng",
+        "am": "Nguyễn Thị Tuyết Thơ",
+        "vol": 41,
+        "pct": 0.9
+      },
+      {
+        "bc": "(KHO) Bắc Cam Ranh",
+        "tinh": "Khánh Hòa",
+        "am": "Nguyễn Thanh Long",
+        "vol": 40,
         "pct": 0.9
       },
       {
         "bc": "(LDO) Ninh Gia",
         "tinh": "Lâm Đồng",
         "am": "Nguyễn Thị Tuyết Thơ",
-        "vol": 43,
-        "pct": 0.9
+        "vol": 39,
+        "pct": 0.8
+      },
+      {
+        "bc": "(DNO) Bắc Gia Nghĩa",
+        "tinh": "Đắk Nông",
+        "am": "Huỳnh Thúc Duân",
+        "vol": 38,
+        "pct": 0.8
+      },
+      {
+        "bc": "(DNO) Krông Nô",
+        "tinh": "Đắk Nông",
+        "am": "Trần Thị Nhung",
+        "vol": 37,
+        "pct": 0.8
+      },
+      {
+        "bc": "(DNO) Quảng Khê",
+        "tinh": "Đắk Nông",
+        "am": "Trần Thị Nhung",
+        "vol": 37,
+        "pct": 0.8
+      },
+      {
+        "bc": "(BTH) Phước Hội",
+        "tinh": "Bình Thuận",
+        "am": "Cao Thị Thanh Thủy",
+        "vol": 36,
+        "pct": 0.8
+      },
+      {
+        "bc": "(BTH) Liên Hương",
+        "tinh": "Bình Thuận",
+        "am": "Nguyễn Duy Long",
+        "vol": 36,
+        "pct": 0.8
+      },
+      {
+        "bc": "(KHO) Ninh Hòa 1",
+        "tinh": "Khánh Hòa",
+        "am": "Nguyễn Hoàng Phi",
+        "vol": 36,
+        "pct": 0.8
       },
       {
         "bc": "(DNO) Đức An",
         "tinh": "Đắk Nông",
         "am": "Trần Thị Nhung",
-        "vol": 41,
-        "pct": 0.8
-      },
-      {
-        "bc": "(KHO) Ninh Hòa 2",
-        "tinh": "Khánh Hòa",
-        "am": "Nguyễn Hoàng Phi",
-        "vol": 41,
-        "pct": 0.8
-      },
-      {
-        "bc": "(BTH) Tân Hải",
-        "tinh": "Bình Thuận",
-        "am": "Cao Thị Thanh Thủy",
-        "vol": 40,
+        "vol": 36,
         "pct": 0.8
       },
       {
         "bc": "(LDO) Hòa Ninh",
         "tinh": "Lâm Đồng",
         "am": "Hồng Bích Nga",
-        "vol": 40,
-        "pct": 0.8
-      },
-      {
-        "bc": "(DNO) Trường Xuân",
-        "tinh": "Đắk Nông",
-        "am": "Trần Thị Nhung",
-        "vol": 39,
-        "pct": 0.8
-      },
-      {
-        "bc": "(KHO) Tu Bông",
-        "tinh": "Khánh Hòa",
-        "am": "Phan Đình Duy",
-        "vol": 39,
-        "pct": 0.8
-      },
-      {
-        "bc": "(KHO) Diên Thọ",
-        "tinh": "Khánh Hòa",
-        "am": "Nguyễn Hoàng Phi",
-        "vol": 36,
-        "pct": 0.7
-      },
-      {
-        "bc": "(DNO) Tuy Đức",
-        "tinh": "Đắk Nông",
-        "am": "Trần Thị Nhung",
-        "vol": 36,
-        "pct": 0.7
-      },
-      {
-        "bc": "(NTH) Bảo An",
-        "tinh": "Ninh Thuận",
-        "am": "Nguyễn Duy Long",
-        "vol": 36,
+        "vol": 34,
         "pct": 0.7
       },
       {
         "bc": "(BTH) Mũi Né",
         "tinh": "Bình Thuận",
         "am": "Nguyễn Ngọc Khánh",
-        "vol": 35,
+        "vol": 32,
         "pct": 0.7
       },
       {
-        "bc": "(KHO) Bắc Cam Ranh",
+        "bc": "(KHO) Khánh Vĩnh",
         "tinh": "Khánh Hòa",
-        "am": "Nguyễn Thanh Long",
-        "vol": 34,
+        "am": "Nguyễn Hoàng Phi",
+        "vol": 31,
         "pct": 0.7
       },
       {
-        "bc": "(LDO) Xuân Trường - Đà Lạt",
+        "bc": "(KHO) Nam Nha Trang 2",
+        "tinh": "Khánh Hòa",
+        "am": "Thái Thị Thanh Thư",
+        "vol": 31,
+        "pct": 0.7
+      },
+      {
+        "bc": "(KHO) Nam Nha Trang 3",
+        "tinh": "Khánh Hòa",
+        "am": "Thái Thị Thanh Thư",
+        "vol": 30,
+        "pct": 0.6
+      },
+      {
+        "bc": "(LDO) Lâm Viên - Đà Lạt 2",
         "tinh": "Lâm Đồng",
         "am": "Lê Văn Trường",
-        "vol": 33,
-        "pct": 0.7
+        "vol": 29,
+        "pct": 0.6
+      },
+      {
+        "bc": "(BTH) Lương Sơn",
+        "tinh": "Bình Thuận",
+        "am": "Nguyễn Ngọc Khánh",
+        "vol": 27,
+        "pct": 0.6
       },
       {
         "bc": "(KHO) Đông Ninh Hòa",
         "tinh": "Khánh Hòa",
         "am": "Phan Đình Duy",
-        "vol": 32,
+        "vol": 26,
         "pct": 0.6
       },
       {
         "bc": "(KHO) Diên Khánh 1",
         "tinh": "Khánh Hòa",
         "am": "Nguyễn Hoàng Phi",
-        "vol": 31,
-        "pct": 0.6
-      },
-      {
-        "bc": "(DNO) Cư Jút",
-        "tinh": "Đắk Nông",
-        "am": "Trần Thị Nhung",
-        "vol": 31,
-        "pct": 0.6
-      },
-      {
-        "bc": "(LDO) Đạ Tẻh",
-        "tinh": "Lâm Đồng",
-        "am": "Nguyễn Lê Nguyên Vũ",
-        "vol": 28,
-        "pct": 0.6
-      },
-      {
-        "bc": "(BTH) Bắc Bình",
-        "tinh": "Bình Thuận",
-        "am": "Nguyễn Ngọc Khánh",
-        "vol": 28,
-        "pct": 0.6
-      },
-      {
-        "bc": "(KHO) Cam Lâm 2",
-        "tinh": "Khánh Hòa",
-        "am": "Nguyễn Thanh Long",
-        "vol": 27,
-        "pct": 0.5
-      },
-      {
-        "bc": "(DNO) Krông Nô",
-        "tinh": "Đắk Nông",
-        "am": "Trần Thị Nhung",
-        "vol": 27,
-        "pct": 0.5
-      },
-      {
-        "bc": "(BTH) Lương Sơn",
-        "tinh": "Bình Thuận",
-        "am": "Nguyễn Ngọc Khánh",
-        "vol": 26,
-        "pct": 0.5
-      },
-      {
-        "bc": "(BTH) Tuyên Quang",
-        "tinh": "Bình Thuận",
-        "am": "Lê Thanh Nhựt",
-        "vol": 26,
-        "pct": 0.5
-      },
-      {
-        "bc": "(LDO) Cát Tiên",
-        "tinh": "Lâm Đồng",
-        "am": "Nguyễn Lê Nguyên Vũ",
-        "vol": 26,
+        "vol": 24,
         "pct": 0.5
       },
       {
         "bc": "(DNO) Nhân Cơ",
         "tinh": "Đắk Nông",
         "am": "Huỳnh Thúc Duân",
-        "vol": 25,
-        "pct": 0.5
-      },
-      {
-        "bc": "(NTH) Ninh Chử",
-        "tinh": "Ninh Thuận",
-        "am": "Nguyễn Duy Long",
         "vol": 23,
         "pct": 0.5
       },
       {
-        "bc": "(KHO) Cam Lâm 1",
-        "tinh": "Khánh Hòa",
-        "am": "Nguyễn Hoàng Phi",
-        "vol": 23,
-        "pct": 0.5
-      },
-      {
-        "bc": "(KHO) Khánh Vĩnh",
-        "tinh": "Khánh Hòa",
-        "am": "Nguyễn Hoàng Phi",
-        "vol": 23,
+        "bc": "(LDO) Cát Tiên",
+        "tinh": "Lâm Đồng",
+        "am": "Nguyễn Lê Nguyên Vũ",
+        "vol": 21,
         "pct": 0.5
       },
       {
         "bc": "(LDO) Nam Ban Lâm Hà",
         "tinh": "Lâm Đồng",
         "am": "Huỳnh Thị Kim Chi",
-        "vol": 23,
-        "pct": 0.5
-      },
-      {
-        "bc": "(LDO) Hiệp Thạnh",
-        "tinh": "Lâm Đồng",
-        "am": "Nguyễn Thị Tuyết Thơ",
-        "vol": 22,
+        "vol": 20,
         "pct": 0.4
       },
       {
-        "bc": "(LDO) Đạ Huoai",
-        "tinh": "Lâm Đồng",
-        "am": "Nguyễn Lê Nguyên Vũ",
+        "bc": "(KHO) Nam Nha Trang 5",
+        "tinh": "Khánh Hòa",
+        "am": "Thái Thị Thanh Thư",
         "vol": 20,
+        "pct": 0.4
+      },
+      {
+        "bc": "(BTH) Bắc Bình",
+        "tinh": "Bình Thuận",
+        "am": "Nguyễn Ngọc Khánh",
+        "vol": 19,
+        "pct": 0.4
+      },
+      {
+        "bc": "(LDO) Bảo Lâm 1",
+        "tinh": "Lâm Đồng",
+        "am": "Hồng Bích Nga",
+        "vol": 18,
         "pct": 0.4
       },
       {
@@ -22699,58 +22578,79 @@
         "pct": 0.4
       },
       {
-        "bc": "(BTH) Phan Rí Cửa",
+        "bc": "(BTH) Tân Hải",
         "tinh": "Bình Thuận",
-        "am": "Nguyễn Duy Long",
-        "vol": 17,
-        "pct": 0.3
-      },
-      {
-        "bc": "(KHO) Ninh Hòa 1",
-        "tinh": "Khánh Hòa",
-        "am": "Nguyễn Hoàng Phi",
-        "vol": 16,
-        "pct": 0.3
-      },
-      {
-        "bc": "(KHO) Nam Nha Trang 5",
-        "tinh": "Khánh Hòa",
-        "am": "Thái Thị Thanh Thư",
+        "am": "Cao Thị Thanh Thủy",
         "vol": 15,
         "pct": 0.3
       },
       {
-        "bc": "(DNO) Quảng Sơn",
-        "tinh": "Đắk Nông",
-        "am": "Trần Thị Nhung",
-        "vol": 9,
-        "pct": 0.2
+        "bc": "(NTH) Ninh Chử",
+        "tinh": "Ninh Thuận",
+        "am": "Nguyễn Duy Long",
+        "vol": 14,
+        "pct": 0.3
+      },
+      {
+        "bc": "(LDO) Hiệp Thạnh",
+        "tinh": "Lâm Đồng",
+        "am": "Nguyễn Thị Tuyết Thơ",
+        "vol": 13,
+        "pct": 0.3
       },
       {
         "bc": "(DNO) ĐL Nam Gia Nghĩa 2",
         "tinh": "Đắk Nông",
         "am": "Huỳnh Thúc Duân",
-        "vol": 5,
-        "pct": 0.1
+        "vol": 12,
+        "pct": 0.3
       },
       {
-        "bc": "(BTH) Đức Linh",
+        "bc": "(LDO) Đạ Huoai",
+        "tinh": "Lâm Đồng",
+        "am": "Nguyễn Lê Nguyên Vũ",
+        "vol": 11,
+        "pct": 0.2
+      },
+      {
+        "bc": "(BTH) Phan Rí Cửa",
         "tinh": "Bình Thuận",
-        "am": "Lê Thanh Nhựt",
-        "vol": 4,
+        "am": "Nguyễn Duy Long",
+        "vol": 11,
+        "pct": 0.2
+      },
+      {
+        "bc": "(DNO) Quảng Sơn",
+        "tinh": "Đắk Nông",
+        "am": "Trần Thị Nhung",
+        "vol": 7,
+        "pct": 0.2
+      },
+      {
+        "bc": "(KHO) Khánh Sơn",
+        "tinh": "Khánh Hòa",
+        "am": "Phan Đình Duy",
+        "vol": 5,
         "pct": 0.1
       },
       {
         "bc": "(BTH) Phú Quý",
         "tinh": "Bình Thuận",
         "am": "Nguyễn Ngọc Khánh",
-        "vol": 2,
-        "pct": 0.0
+        "vol": 4,
+        "pct": 0.1
       },
       {
-        "bc": "(KHO) Khánh Sơn",
-        "tinh": "Khánh Hòa",
-        "am": "Phan Đình Duy",
+        "bc": "(LDO) Đạ Tẻh",
+        "tinh": "Lâm Đồng",
+        "am": "Nguyễn Lê Nguyên Vũ",
+        "vol": 4,
+        "pct": 0.1
+      },
+      {
+        "bc": "(BTH) Đức Linh",
+        "tinh": "Bình Thuận",
+        "am": "Lê Thanh Nhựt",
         "vol": 1,
         "pct": 0.0
       }
@@ -22758,28 +22658,28 @@
     "tinh": [
       {
         "tinh": "Lâm Đồng",
-        "vol": 1756,
-        "pct": 35.2
+        "vol": 1525,
+        "pct": 32.8
       },
       {
         "tinh": "Khánh Hòa",
-        "vol": 1149,
-        "pct": 23.0
+        "vol": 1407,
+        "pct": 30.3
       },
       {
         "tinh": "Đắk Nông",
-        "vol": 965,
-        "pct": 19.3
+        "vol": 702,
+        "pct": 15.1
       },
       {
         "tinh": "Bình Thuận",
-        "vol": 717,
-        "pct": 14.4
+        "vol": 639,
+        "pct": 13.7
       },
       {
         "tinh": "Ninh Thuận",
-        "vol": 401,
-        "pct": 8.0
+        "vol": 376,
+        "pct": 8.1
       }
     ]
   },
@@ -23977,884 +23877,876 @@
     ]
   },
   "truy_thu_report": {
-    "total_records": 5033,
-    "total_ban_dau": 510080504.0,
-    "total_dieu_chinh": -335416880.0,
-    "total_can_thu": 174663624.0,
+    "total_records": 2426,
+    "total_ban_dau": 163781127.0,
+    "total_dieu_chinh": 0.0,
+    "total_can_thu": 163781127.0,
     "by_loai": [
       {
         "loai": "Backlog Giao Hàng",
-        "don": 2857,
-        "ban_dau": 347441383.0,
-        "dieu_chinh": -242092200.0,
-        "can_thu": 105349183.0,
-        "pct_tien": 68.1,
-        "pct_don": 56.8,
+        "don": 710,
+        "ban_dau": 64367495.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 64367495.0,
+        "pct_tien": 39.3,
+        "pct_don": 29.3,
         "ghi_chu": ""
       },
       {
         "loai": "Backlog Luân Chuyển Trả",
-        "don": 798,
-        "ban_dau": 71280341.0,
-        "dieu_chinh": -53105934.0,
-        "can_thu": 18174407.0,
-        "pct_tien": 14.0,
-        "pct_don": 15.9,
-        "ghi_chu": "🚫 Loại trừ khỏi TOP BC"
-      },
-      {
-        "loai": "Liên đới chiếm dụng",
-        "don": 4,
-        "ban_dau": 19918509.0,
-        "dieu_chinh": -9840165.0,
-        "can_thu": 10078344.0,
-        "pct_tien": 3.9,
-        "pct_don": 0.1,
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Mất/Thiếu/Tráo sản phẩm",
-        "don": 20,
-        "ban_dau": 18396640.0,
+        "don": 310,
+        "ban_dau": 27448662.0,
         "dieu_chinh": 0.0,
-        "can_thu": 18396640.0,
-        "pct_tien": 3.6,
-        "pct_don": 0.4,
-        "ghi_chu": ""
+        "can_thu": 27448662.0,
+        "pct_tien": 16.8,
+        "pct_don": 12.8,
+        "ghi_chu": "🚫 Loại trừ khỏi TOP BC"
       },
       {
-        "loai": "Backlog Bắn Kiểm Giao",
-        "don": 237,
-        "ban_dau": 11234009.0,
-        "dieu_chinh": -11232791.0,
-        "can_thu": 1218.0,
-        "pct_tien": 2.2,
-        "pct_don": 4.7,
-        "ghi_chu": "🚫 Loại trừ khỏi TOP BC"
+        "loai": "Đơn hàng hư hỏng",
+        "don": 164,
+        "ban_dau": 17005514.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 17005514.0,
+        "pct_tien": 10.4,
+        "pct_don": 6.8,
+        "ghi_chu": ""
       },
       {
         "loai": "Backlog Luân Chuyển Giao",
-        "don": 210,
-        "ban_dau": 11026972.0,
-        "dieu_chinh": -10472641.0,
-        "can_thu": 554331.0,
-        "pct_tien": 2.2,
-        "pct_don": 4.2,
+        "don": 156,
+        "ban_dau": 11848717.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 11848717.0,
+        "pct_tien": 7.2,
+        "pct_don": 6.4,
         "ghi_chu": "🚫 Loại trừ khỏi TOP BC"
       },
       {
-        "loai": "Backlog Trả Hàng",
-        "don": 216,
-        "ban_dau": 8672789.0,
-        "dieu_chinh": -8672789.0,
-        "can_thu": 0.0,
-        "pct_tien": 1.7,
-        "pct_don": 4.3,
+        "loai": "Mất/Thiếu/Tráo sản phẩm",
+        "don": 39,
+        "ban_dau": 9055530.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 9055530.0,
+        "pct_tien": 5.5,
+        "pct_don": 1.6,
         "ghi_chu": ""
       },
       {
-        "loai": "Đơn hàng bị quá hạn toàn trình",
-        "don": 64,
-        "ban_dau": 7226825.0,
+        "loai": "Backlog Trả Hàng",
+        "don": 134,
+        "ban_dau": 7490434.0,
         "dieu_chinh": 0.0,
-        "can_thu": 7226825.0,
-        "pct_tien": 1.4,
-        "pct_don": 1.3,
+        "can_thu": 7490434.0,
+        "pct_tien": 4.6,
+        "pct_don": 5.5,
+        "ghi_chu": ""
+      },
+      {
+        "loai": "Kiện hàng bị thiếu đơn",
+        "don": 22,
+        "ban_dau": 7387622.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 7387622.0,
+        "pct_tien": 4.5,
+        "pct_don": 0.9,
         "ghi_chu": ""
       },
       {
         "loai": "Chiếm dụng",
         "don": 1,
-        "ban_dau": 4821925.0,
+        "ban_dau": 4789295.0,
         "dieu_chinh": 0.0,
-        "can_thu": 4821925.0,
-        "pct_tien": 0.9,
+        "can_thu": 4789295.0,
+        "pct_tien": 2.9,
         "pct_don": 0.0,
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Khiếu nại chưa nhận hàng giao",
-        "don": 36,
-        "ban_dau": 2766084.0,
-        "dieu_chinh": 0.0,
-        "can_thu": 2766084.0,
-        "pct_tien": 0.5,
-        "pct_don": 0.7,
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Đơn hàng hư hỏng",
-        "don": 154,
-        "ban_dau": 2198539.0,
-        "dieu_chinh": 0.0,
-        "can_thu": 2198539.0,
-        "pct_tien": 0.4,
-        "pct_don": 3.1,
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Khiếu nại chưa nhận hàng trả",
-        "don": 4,
-        "ban_dau": 2001107.0,
-        "dieu_chinh": 0.0,
-        "can_thu": 2001107.0,
-        "pct_tien": 0.4,
-        "pct_don": 0.1,
         "ghi_chu": ""
       },
       {
         "loai": "Giao lấy trả sai số lần quy định",
-        "don": 229,
-        "ban_dau": 1809155.0,
+        "don": 501,
+        "ban_dau": 3360976.0,
         "dieu_chinh": 0.0,
-        "can_thu": 1809155.0,
-        "pct_tien": 0.4,
-        "pct_don": 4.5,
+        "can_thu": 3360976.0,
+        "pct_tien": 2.1,
+        "pct_don": 20.7,
         "ghi_chu": ""
       },
       {
-        "loai": "Kiện hàng bị thiếu đơn",
-        "don": 70,
-        "ban_dau": 764670.0,
+        "loai": "Đơn hàng bị quá hạn toàn trình",
+        "don": 44,
+        "ban_dau": 3148309.0,
         "dieu_chinh": 0.0,
-        "can_thu": 764670.0,
-        "pct_tien": 0.1,
-        "pct_don": 1.4,
+        "can_thu": 3148309.0,
+        "pct_tien": 1.9,
+        "pct_don": 1.8,
         "ghi_chu": ""
+      },
+      {
+        "loai": "Khiếu nại chưa nhận hàng giao",
+        "don": 39,
+        "ban_dau": 2346277.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 2346277.0,
+        "pct_tien": 1.4,
+        "pct_don": 1.6,
+        "ghi_chu": ""
+      },
+      {
+        "loai": "Backlog Bắn Kiểm Giao",
+        "don": 46,
+        "ban_dau": 2135742.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 2135742.0,
+        "pct_tien": 1.3,
+        "pct_don": 1.9,
+        "ghi_chu": "🚫 Loại trừ khỏi TOP BC"
       },
       {
         "loai": "Tự ý thay đổi KTKL đơn",
-        "don": 3,
-        "ban_dau": 331069.0,
+        "don": 14,
+        "ban_dau": 1740088.0,
         "dieu_chinh": 0.0,
-        "can_thu": 331069.0,
-        "pct_tien": 0.1,
-        "pct_don": 0.1,
+        "can_thu": 1740088.0,
+        "pct_tien": 1.1,
+        "pct_don": 0.6,
+        "ghi_chu": ""
+      },
+      {
+        "loai": "Khiếu nại chưa nhận hàng trả",
+        "don": 5,
+        "ban_dau": 1001449.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 1001449.0,
+        "pct_tien": 0.6,
+        "pct_don": 0.2,
         "ghi_chu": ""
       },
       {
         "loai": "Giao ngoài giờ",
-        "don": 17,
-        "ban_dau": 147837.0,
+        "don": 32,
+        "ban_dau": 500798.0,
         "dieu_chinh": 0.0,
-        "can_thu": 147837.0,
-        "pct_tien": 0.0,
-        "pct_don": 0.3,
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Sai ghi chú bắt buộc",
-        "don": 2,
-        "ban_dau": 31844.0,
-        "dieu_chinh": 0.0,
-        "can_thu": 31844.0,
-        "pct_tien": 0.0,
-        "pct_don": 0.0,
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Thu dư tiền",
-        "don": 106,
-        "ban_dau": 4795.0,
-        "dieu_chinh": -360.0,
-        "can_thu": 4435.0,
-        "pct_tien": 0.0,
-        "pct_don": 2.1,
+        "can_thu": 500798.0,
+        "pct_tien": 0.3,
+        "pct_don": 1.3,
         "ghi_chu": ""
       },
       {
         "loai": "Không giao lấy tận nơi",
         "don": 1,
-        "ban_dau": 4355.0,
+        "ban_dau": 71505.0,
         "dieu_chinh": 0.0,
-        "can_thu": 4355.0,
+        "can_thu": 71505.0,
+        "pct_tien": 0.0,
+        "pct_don": 0.0,
+        "ghi_chu": ""
+      },
+      {
+        "loai": "Kiện thất lạc",
+        "don": 28,
+        "ban_dau": 69776.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 69776.0,
+        "pct_tien": 0.0,
+        "pct_don": 1.2,
+        "ghi_chu": ""
+      },
+      {
+        "loai": "Tick mất hàng",
+        "don": 2,
+        "ban_dau": 7487.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 7487.0,
+        "pct_tien": 0.0,
+        "pct_don": 0.1,
+        "ghi_chu": "⚠️ Giá trị lớn bất thường"
+      },
+      {
+        "loai": "Thu dư tiền",
+        "don": 176,
+        "ban_dau": 4957.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 4957.0,
+        "pct_tien": 0.0,
+        "pct_don": 7.3,
+        "ghi_chu": ""
+      },
+      {
+        "loai": "Sai ghi chú bắt buộc",
+        "don": 1,
+        "ban_dau": 375.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 375.0,
         "pct_tien": 0.0,
         "pct_don": 0.0,
         "ghi_chu": ""
       },
       {
         "loai": "Sai quy trình G1P",
-        "don": 3,
-        "ban_dau": 1356.0,
-        "dieu_chinh": 0.0,
-        "can_thu": 1356.0,
-        "pct_tien": 0.0,
-        "pct_don": 0.1,
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Tick mất hàng",
         "don": 1,
-        "ban_dau": 300.0,
+        "ban_dau": 119.0,
         "dieu_chinh": 0.0,
-        "can_thu": 300.0,
+        "can_thu": 119.0,
         "pct_tien": 0.0,
         "pct_don": 0.0,
-        "ghi_chu": "⚠️ Giá trị lớn bất thường"
+        "ghi_chu": ""
       }
     ],
     "top_bc_giao": [
       {
-        "bc": "(DNO) Kiến Đức",
-        "am": "Trần Văn Phước",
-        "tinh": "",
-        "don": 381,
-        "ban_dau": 84111961.0,
-        "dieu_chinh": -53859563.0,
-        "can_thu": 30252398.0,
-        "pct": 16.5
-      },
-      {
         "bc": "(DNO) Quảng Tín",
         "am": "Trần Văn Phước",
         "tinh": "",
-        "don": 357,
-        "ban_dau": 80240782.0,
-        "dieu_chinh": -56963827.0,
-        "can_thu": 23276955.0,
-        "pct": 15.7
+        "don": 206,
+        "ban_dau": 30837737.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 30837737.0,
+        "pct": 18.8
       },
       {
         "bc": "(LDO) Đơn Dương",
-        "am": "Lê Minh Đại",
+        "am": "Lê Văn Trường",
         "tinh": "",
-        "don": 1314,
-        "ban_dau": 58106072.0,
-        "dieu_chinh": -51949891.0,
-        "can_thu": 6156181.0,
-        "pct": 11.4
-      },
-      {
-        "bc": "(LDO) Bảo Lâm 1",
-        "am": "Hồng Bích Nga",
-        "tinh": "",
-        "don": 38,
-        "ban_dau": 37751819.0,
-        "dieu_chinh": -29664024.0,
-        "can_thu": 8087795.0,
-        "pct": 7.4
+        "don": 101,
+        "ban_dau": 13602575.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 13602575.0,
+        "pct": 8.3
       },
       {
         "bc": "(LDO) Đức Trọng 1",
         "am": "Trầm Hữu Tiến",
         "tinh": "",
-        "don": 377,
-        "ban_dau": 31289024.0,
-        "dieu_chinh": -23828972.0,
-        "can_thu": 7460052.0,
-        "pct": 6.1
-      },
-      {
-        "bc": "(LDO) Lang Biang - Đà Lạt 1",
-        "am": "Lê Minh Đại",
-        "tinh": "",
-        "don": 120,
-        "ban_dau": 22740401.0,
-        "dieu_chinh": -1679960.0,
-        "can_thu": 21060441.0,
-        "pct": 4.5
-      },
-      {
-        "bc": "(LDO) Tân Hà Lâm Hà",
-        "am": "Huỳnh Thị Kim Chi",
-        "tinh": "",
-        "don": 64,
-        "ban_dau": 22490639.0,
-        "dieu_chinh": -19633099.0,
-        "can_thu": 2857540.0,
-        "pct": 4.4
-      },
-      {
-        "bc": "(NTH) Phước Dinh",
-        "am": "Nguyễn Duy Long",
-        "tinh": "",
-        "don": 11,
-        "ban_dau": 19693738.0,
-        "dieu_chinh": -9840165.0,
-        "can_thu": 9853573.0,
-        "pct": 3.9
-      },
-      {
-        "bc": "(LDO) Lang Biang - Đà Lạt 2",
-        "am": "Lê Văn Trường",
-        "tinh": "",
-        "don": 28,
-        "ban_dau": 14784778.0,
-        "dieu_chinh": -783317.0,
-        "can_thu": 14001461.0,
-        "pct": 2.9
-      },
-      {
-        "bc": "(LDO) Hòa Ninh",
-        "am": "Hồng Bích Nga",
-        "tinh": "",
-        "don": 16,
-        "ban_dau": 10559010.0,
+        "don": 292,
+        "ban_dau": 12386907.0,
         "dieu_chinh": 0.0,
-        "can_thu": 10559010.0,
-        "pct": 2.1
-      },
-      {
-        "bc": "(DNO) Đông Gia Nghĩa",
-        "am": "Huỳnh Thúc Duân",
-        "tinh": "",
-        "don": 203,
-        "ban_dau": 7489564.0,
-        "dieu_chinh": -7489329.0,
-        "can_thu": 235.0,
-        "pct": 1.5
-      },
-      {
-        "bc": "(KHO) Nam Nha Trang 1",
-        "am": "Thái Thị Thanh Thư",
-        "tinh": "",
-        "don": 16,
-        "ban_dau": 4898102.0,
-        "dieu_chinh": -360.0,
-        "can_thu": 4897742.0,
-        "pct": 1.0
-      },
-      {
-        "bc": "(BTH) Hàm Thuận",
-        "am": "Lê Thanh Nhựt",
-        "tinh": "",
-        "don": 8,
-        "ban_dau": 3308426.0,
-        "dieu_chinh": 0.0,
-        "can_thu": 3308426.0,
-        "pct": 0.6
-      },
-      {
-        "bc": "(LDO) Xuân Hương - Đà Lạt",
-        "am": "Phan Thị Ngọc Diễm",
-        "tinh": "",
-        "don": 46,
-        "ban_dau": 2221364.0,
-        "dieu_chinh": -1073360.0,
-        "can_thu": 1148004.0,
-        "pct": 0.4
-      },
-      {
-        "bc": "(KHO) Cam Lâm 2",
-        "am": "Nguyễn Thanh Long",
-        "tinh": "",
-        "don": 8,
-        "ban_dau": 2102050.0,
-        "dieu_chinh": -769002.0,
-        "can_thu": 1333048.0,
-        "pct": 0.4
-      },
-      {
-        "bc": "(LDO) Xuân Trường - Đà Lạt",
-        "am": "Lê Văn Trường",
-        "tinh": "",
-        "don": 16,
-        "ban_dau": 2089221.0,
-        "dieu_chinh": -2040.0,
-        "can_thu": 2087181.0,
-        "pct": 0.4
-      },
-      {
-        "bc": "(LDO) Đam Rông 3",
-        "am": "Huỳnh Thị Kim Chi",
-        "tinh": "",
-        "don": 36,
-        "ban_dau": 2029946.0,
-        "dieu_chinh": -1396197.0,
-        "can_thu": 633749.0,
-        "pct": 0.4
-      },
-      {
-        "bc": "(LDO) Lâm Viên - Đà Lạt 2",
-        "am": "Lê Văn Trường",
-        "tinh": "",
-        "don": 17,
-        "ban_dau": 2010509.0,
-        "dieu_chinh": -114170.0,
-        "can_thu": 1896339.0,
-        "pct": 0.4
-      },
-      {
-        "bc": "(KHO) Cam Linh",
-        "am": "Nguyễn Thanh Long",
-        "tinh": "",
-        "don": 120,
-        "ban_dau": 1378343.0,
-        "dieu_chinh": -1114836.0,
-        "can_thu": 263507.0,
-        "pct": 0.3
-      },
-      {
-        "bc": "(LDO) Đinh Văn Lâm Hà",
-        "am": "Huỳnh Thị Kim Chi",
-        "tinh": "",
-        "don": 13,
-        "ban_dau": 1100490.0,
-        "dieu_chinh": -70.0,
-        "can_thu": 1100420.0,
-        "pct": 0.2
-      },
-      {
-        "bc": "(BTH) Phước Hội",
-        "am": "Cao Thị Thanh Thủy",
-        "tinh": "",
-        "don": 8,
-        "ban_dau": 1032970.0,
-        "dieu_chinh": 0.0,
-        "can_thu": 1032970.0,
-        "pct": 0.2
-      },
-      {
-        "bc": "(KHO) Tây Nha Trang",
-        "am": "Phan Đình Duy",
-        "tinh": "",
-        "don": 19,
-        "ban_dau": 1001173.0,
-        "dieu_chinh": 0.0,
-        "can_thu": 1001173.0,
-        "pct": 0.2
-      },
-      {
-        "bc": "Kho Chuyển Tiếp Đức Trọng",
-        "am": "—",
-        "tinh": "",
-        "don": 26,
-        "ban_dau": 546936.0,
-        "dieu_chinh": 0.0,
-        "can_thu": 546936.0,
-        "pct": 0.1
-      },
-      {
-        "bc": "(LDO) B'Lao",
-        "am": "Hồng Bích Nga",
-        "tinh": "",
-        "don": 16,
-        "ban_dau": 512374.0,
-        "dieu_chinh": -345822.0,
-        "can_thu": 166552.0,
-        "pct": 0.1
-      },
-      {
-        "bc": "(KHO) CK Diên Điền",
-        "am": "Phan Đình Duy",
-        "tinh": "",
-        "don": 1,
-        "ban_dau": 356012.0,
-        "dieu_chinh": 0.0,
-        "can_thu": 356012.0,
-        "pct": 0.1
-      }
-    ],
-    "top_am_ticket": [
-      {
-        "am": "Trần Văn Phước",
-        "ticket": 768,
-        "pct_ticket": 32.2,
-        "ban_dau": 145990726.0,
-        "can_thu": 36064682.0,
-        "pct_tien": 43.0
-      },
-      {
-        "am": "Lê Minh Đại",
-        "ticket": 492,
-        "pct_ticket": 20.6,
-        "ban_dau": 33520493.0,
-        "can_thu": 11825590.0,
-        "pct_tien": 14.1
-      },
-      {
-        "am": "Lê Văn Trường",
-        "ticket": 465,
-        "pct_ticket": 19.5,
-        "ban_dau": 31682768.0,
-        "can_thu": 10991962.0,
-        "pct_tien": 13.1
-      },
-      {
-        "am": "Trầm Hữu Tiến",
-        "ticket": 202,
-        "pct_ticket": 8.5,
-        "ban_dau": 14352487.0,
-        "can_thu": 3213324.0,
-        "pct_tien": 3.8
-      },
-      {
-        "am": "Nguyễn Thanh Long",
-        "ticket": 87,
-        "pct_ticket": 3.6,
-        "ban_dau": 3268574.0,
-        "can_thu": 545192.0,
-        "pct_tien": 0.6
-      },
-      {
-        "am": "Huỳnh Thúc Duân",
-        "ticket": 80,
-        "pct_ticket": 3.4,
-        "ban_dau": 3004432.0,
-        "can_thu": 494951.0,
-        "pct_tien": 0.6
-      },
-      {
-        "am": "Huỳnh Thị Kim Chi",
-        "ticket": 73,
-        "pct_ticket": 3.1,
-        "ban_dau": 18008554.0,
-        "can_thu": 2347319.0,
-        "pct_tien": 2.8
-      },
-      {
-        "am": "Trần Thị Nhung",
-        "ticket": 31,
-        "pct_ticket": 1.3,
-        "ban_dau": 6520422.0,
-        "can_thu": 2780926.0,
-        "pct_tien": 3.3
-      },
-      {
-        "am": "Hồng Bích Nga",
-        "ticket": 26,
-        "pct_ticket": 1.1,
-        "ban_dau": 25806046.0,
-        "can_thu": 13466968.0,
-        "pct_tien": 16.0
-      },
-      {
-        "am": "Phan Đình Duy",
-        "ticket": 26,
-        "pct_ticket": 1.1,
-        "ban_dau": 3952980.0,
-        "can_thu": 1807597.0,
-        "pct_tien": 2.2
-      },
-      {
-        "am": "Lê Minh Lợi",
-        "ticket": 26,
-        "pct_ticket": 1.1,
-        "ban_dau": 1537149.0,
-        "can_thu": 15767.0,
-        "pct_tien": 0.0
-      },
-      {
-        "am": "Nguyễn Duy Long",
-        "ticket": 22,
-        "pct_ticket": 0.9,
-        "ban_dau": 10512360.0,
-        "can_thu": 7826.0,
-        "pct_tien": 0.0
-      },
-      {
-        "am": "Lê Thanh Nhựt",
-        "ticket": 15,
-        "pct_ticket": 0.6,
-        "ban_dau": 710887.0,
-        "can_thu": 214.0,
-        "pct_tien": 0.0
-      },
-      {
-        "am": "Nguyễn Hoàng Phi",
-        "ticket": 15,
-        "pct_ticket": 0.6,
-        "ban_dau": 606915.0,
-        "can_thu": 11827.0,
-        "pct_tien": 0.0
-      },
-      {
-        "am": "Nguyễn Thị Tuyết Thơ",
-        "ticket": 14,
-        "pct_ticket": 0.6,
-        "ban_dau": 601178.0,
-        "can_thu": 0.0,
-        "pct_tien": 0.0
-      },
-      {
-        "am": "Phan Thị Ngọc Diễm",
-        "ticket": 14,
-        "pct_ticket": 0.6,
-        "ban_dau": 99379.0,
-        "can_thu": 67359.0,
-        "pct_tien": 0.1
-      },
-      {
-        "am": "Nguyễn Ngọc Khánh",
-        "ticket": 13,
-        "pct_ticket": 0.5,
-        "ban_dau": 922276.0,
-        "can_thu": 59961.0,
-        "pct_tien": 0.1
-      },
-      {
-        "am": "Thái Thị Thanh Thư",
-        "ticket": 11,
-        "pct_ticket": 0.5,
-        "ban_dau": 570142.0,
-        "can_thu": 72724.0,
-        "pct_tien": 0.1
-      },
-      {
-        "am": "Cao Thị Thanh Thủy",
-        "ticket": 4,
-        "pct_ticket": 0.2,
-        "ban_dau": 475907.0,
-        "can_thu": 21667.0,
-        "pct_tien": 0.0
-      },
-      {
-        "am": "Lê Hồng Minh Tâm",
-        "ticket": 2,
-        "pct_ticket": 0.1,
-        "ban_dau": 65001.0,
-        "can_thu": 65001.0,
-        "pct_tien": 0.1
-      },
-      {
-        "am": "Nguyễn Lê Nguyên Vũ",
-        "ticket": 2,
-        "pct_ticket": 0.1,
-        "ban_dau": 65001.0,
-        "can_thu": 65001.0,
-        "pct_tien": 0.1
-      }
-    ],
-    "top_bc_ticket": [
-      {
-        "bc": "(LDO) Đơn Dương",
-        "am": "Lê Minh Đại",
-        "tinh": "",
-        "ticket": 1436,
-        "pct_ticket": 28.5,
-        "can_thu": 6190581.0
-      },
-      {
-        "bc": "(DNO) Kiến Đức",
-        "am": "Trần Văn Phước",
-        "tinh": "",
-        "ticket": 614,
-        "pct_ticket": 12.2,
-        "can_thu": 31885721.0
-      },
-      {
-        "bc": "(LDO) Đức Trọng 1",
-        "am": "Trầm Hữu Tiến",
-        "tinh": "",
-        "ticket": 421,
-        "pct_ticket": 8.4,
-        "can_thu": 7498563.0
-      },
-      {
-        "bc": "(DNO) Quảng Tín",
-        "am": "Trần Văn Phước",
-        "tinh": "",
-        "ticket": 419,
-        "pct_ticket": 8.3,
-        "can_thu": 23279795.0
-      },
-      {
-        "bc": "(KHO) Cam Linh",
-        "am": "Nguyễn Thanh Long",
-        "tinh": "",
-        "ticket": 224,
-        "pct_ticket": 4.5,
-        "can_thu": 1759508.0
-      },
-      {
-        "bc": "Kho Trung Chuyển Khánh Hòa",
-        "am": "—",
-        "tinh": "",
-        "ticket": 218,
-        "pct_ticket": 4.3,
-        "can_thu": 255027.0
-      },
-      {
-        "bc": "(DNO) Đông Gia Nghĩa",
-        "am": "Huỳnh Thúc Duân",
-        "tinh": "",
-        "ticket": 216,
-        "pct_ticket": 4.3,
-        "can_thu": 974743.0
-      },
-      {
-        "bc": "(LDO) Lang Biang - Đà Lạt 1",
-        "am": "Lê Minh Đại",
-        "tinh": "",
-        "ticket": 188,
-        "pct_ticket": 3.7,
-        "can_thu": 21161412.0
-      },
-      {
-        "bc": "(LDO) Tân Hà Lâm Hà",
-        "am": "Huỳnh Thị Kim Chi",
-        "tinh": "",
-        "ticket": 114,
-        "pct_ticket": 2.3,
-        "can_thu": 2857789.0
-      },
-      {
-        "bc": "(LDO) Di Linh",
-        "am": "Trầm Hữu Tiến",
-        "tinh": "",
-        "ticket": 79,
-        "pct_ticket": 1.6,
-        "can_thu": 403019.0
-      },
-      {
-        "bc": "(NTH) Phước Dinh",
-        "am": "Nguyễn Duy Long",
-        "tinh": "",
-        "ticket": 61,
-        "pct_ticket": 1.2,
-        "can_thu": 9952741.0
-      },
-      {
-        "bc": "(LDO) Lang Biang - Đà Lạt 2",
-        "am": "Lê Văn Trường",
-        "tinh": "",
-        "ticket": 54,
-        "pct_ticket": 1.1,
-        "can_thu": 14001461.0
-      },
-      {
-        "bc": "(LDO) Xuân Hương - Đà Lạt",
-        "am": "Phan Thị Ngọc Diễm",
-        "tinh": "",
-        "ticket": 50,
-        "pct_ticket": 1.0,
-        "can_thu": 1148004.0
-      },
-      {
-        "bc": "(LDO) Đam Rông 3",
-        "am": "Huỳnh Thị Kim Chi",
-        "tinh": "",
-        "ticket": 44,
-        "pct_ticket": 0.9,
-        "can_thu": 633749.0
-      },
-      {
-        "bc": "(KHO) Tây Nha Trang",
-        "am": "Phan Đình Duy",
-        "tinh": "",
-        "ticket": 42,
-        "pct_ticket": 0.8,
-        "can_thu": 5299177.0
-      },
-      {
-        "bc": "(LDO) Đức Trọng 2",
-        "am": "Nguyễn Thị Tuyết Thơ",
-        "tinh": "",
-        "ticket": 38,
-        "pct_ticket": 0.8,
-        "can_thu": 22058.0
-      },
-      {
-        "bc": "(LDO) Bảo Lâm 1",
-        "am": "Hồng Bích Nga",
-        "tinh": "",
-        "ticket": 38,
-        "pct_ticket": 0.8,
-        "can_thu": 8087795.0
-      },
-      {
-        "bc": "(DNO) Bắc Gia Nghĩa",
-        "am": "Huỳnh Thúc Duân",
-        "tinh": "",
-        "ticket": 38,
-        "pct_ticket": 0.8,
-        "can_thu": 530659.0
+        "can_thu": 12386907.0,
+        "pct": 7.6
       },
       {
         "bc": "Kho Chuyển Tiếp Bình Thuận",
         "am": "Nguyễn Ngọc Khánh",
         "tinh": "",
-        "ticket": 35,
-        "pct_ticket": 0.7,
-        "can_thu": 81619.0
+        "don": 51,
+        "ban_dau": 8945080.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 8945080.0,
+        "pct": 5.5
       },
       {
-        "bc": "(DNO) Trường Xuân",
-        "am": "Trần Thị Nhung",
+        "bc": "(LDO) Di Linh",
+        "am": "Trầm Hữu Tiến",
         "tinh": "",
-        "ticket": 35,
-        "pct_ticket": 0.7,
-        "can_thu": 8235052.0
+        "don": 139,
+        "ban_dau": 8816908.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 8816908.0,
+        "pct": 5.4
+      },
+      {
+        "bc": "(DNO) Đông Gia Nghĩa",
+        "am": "Huỳnh Thúc Duân",
+        "tinh": "",
+        "don": 132,
+        "ban_dau": 6511677.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 6511677.0,
+        "pct": 4.0
+      },
+      {
+        "bc": "(KHO) Cam Linh",
+        "am": "Nguyễn Thanh Long",
+        "tinh": "",
+        "don": 81,
+        "ban_dau": 6014420.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 6014420.0,
+        "pct": 3.7
+      },
+      {
+        "bc": "(KHO) Cam Lâm 2",
+        "am": "—",
+        "tinh": "",
+        "don": 7,
+        "ban_dau": 4790179.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 4790179.0,
+        "pct": 2.9
+      },
+      {
+        "bc": "(LDO) Bảo Lâm 1",
+        "am": "Hồng Bích Nga",
+        "tinh": "",
+        "don": 15,
+        "ban_dau": 4084863.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 4084863.0,
+        "pct": 2.5
+      },
+      {
+        "bc": "Kho Chuyển Tiếp Đắk Nông",
+        "am": "Trần Văn Phước",
+        "tinh": "",
+        "don": 24,
+        "ban_dau": 3619512.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 3619512.0,
+        "pct": 2.2
       },
       {
         "bc": "(LDO) Đinh Văn Lâm Hà",
         "am": "Huỳnh Thị Kim Chi",
         "tinh": "",
-        "ticket": 31,
-        "pct_ticket": 0.6,
-        "can_thu": 1795421.0
+        "don": 16,
+        "ban_dau": 3320810.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 3320810.0,
+        "pct": 2.0
       },
       {
-        "bc": "(BTH) Đồng Kho",
-        "am": "Lê Thanh Nhựt",
+        "bc": "(LDO) Đam Rông 3",
+        "am": "Huỳnh Thị Kim Chi",
         "tinh": "",
-        "ticket": 31,
-        "pct_ticket": 0.6,
-        "can_thu": 43221.0
+        "don": 13,
+        "ban_dau": 2757236.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 2757236.0,
+        "pct": 1.7
       },
       {
-        "bc": "(KHO) Vạn Ninh",
-        "am": "Phan Đình Duy",
+        "bc": "(DNO) Bắc Gia Nghĩa",
+        "am": "Trần Văn Phước",
         "tinh": "",
-        "ticket": 30,
-        "pct_ticket": 0.6,
-        "can_thu": 56525.0
+        "don": 20,
+        "ban_dau": 2076022.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 2076022.0,
+        "pct": 1.3
       },
       {
-        "bc": "(DNO) Tuy Đức",
-        "am": "Trần Thị Nhung",
+        "bc": "(LDO) Lang Biang - Đà Lạt 1",
+        "am": "Lê Minh Đại",
         "tinh": "",
-        "ticket": 29,
-        "pct_ticket": 0.6,
-        "can_thu": 96.0
+        "don": 61,
+        "ban_dau": 1879561.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 1879561.0,
+        "pct": 1.1
       },
       {
-        "bc": "Kho Chuyển Tiếp Đức Trọng",
-        "am": "—",
+        "bc": "(DNO) Kiến Đức",
+        "am": "Trần Văn Phước",
         "tinh": "",
-        "ticket": 29,
-        "pct_ticket": 0.6,
-        "can_thu": 546936.0
-      },
-      {
-        "bc": "(LDO) Lâm Viên - Đà Lạt 1",
-        "am": "Lê Văn Trường",
-        "tinh": "",
-        "ticket": 27,
-        "pct_ticket": 0.5,
-        "can_thu": 500485.0
-      },
-      {
-        "bc": "(LDO) Lâm Viên - Đà Lạt 2",
-        "am": "Lê Văn Trường",
-        "tinh": "",
-        "ticket": 26,
-        "pct_ticket": 0.5,
-        "can_thu": 1896339.0
+        "don": 95,
+        "ban_dau": 1476872.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 1476872.0,
+        "pct": 0.9
       },
       {
         "bc": "(KHO) Bắc Nha Trang",
         "am": "Thái Thị Thanh Thư",
         "tinh": "",
-        "ticket": 26,
-        "pct_ticket": 0.5,
-        "can_thu": 173336.0
+        "don": 46,
+        "ban_dau": 1176824.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 1176824.0,
+        "pct": 0.7
+      },
+      {
+        "bc": "(LDO) Hòa Ninh",
+        "am": "Hồng Bích Nga",
+        "tinh": "",
+        "don": 12,
+        "ban_dau": 1087764.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 1087764.0,
+        "pct": 0.7
+      },
+      {
+        "bc": "(LDO) Xuân Hương - Đà Lạt",
+        "am": "Lê Văn Trường",
+        "tinh": "",
+        "don": 12,
+        "ban_dau": 1008053.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 1008053.0,
+        "pct": 0.6
+      },
+      {
+        "bc": "(BTH) Mũi Né",
+        "am": "Nguyễn Ngọc Khánh",
+        "tinh": "",
+        "don": 13,
+        "ban_dau": 1006183.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 1006183.0,
+        "pct": 0.6
+      },
+      {
+        "bc": "(BTH) Đồng Kho",
+        "am": "Lê Thanh Nhựt",
+        "tinh": "",
+        "don": 15,
+        "ban_dau": 798046.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 798046.0,
+        "pct": 0.5
+      },
+      {
+        "bc": "Kho Trung Chuyển Khánh Hòa",
+        "am": "—",
+        "tinh": "",
+        "don": 33,
+        "ban_dau": 781803.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 781803.0,
+        "pct": 0.5
+      },
+      {
+        "bc": "(KHO) Tây Nha Trang",
+        "am": "Phan Đình Duy",
+        "tinh": "",
+        "don": 35,
+        "ban_dau": 704607.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 704607.0,
+        "pct": 0.4
       },
       {
         "bc": "(KHO) Nam Nha Trang 1",
         "am": "Thái Thị Thanh Thư",
         "tinh": "",
-        "ticket": 23,
-        "pct_ticket": 0.5,
-        "can_thu": 4898072.0
+        "don": 22,
+        "ban_dau": 591776.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 591776.0,
+        "pct": 0.4
       },
       {
-        "bc": "(LDO) Xuân Trường - Đà Lạt",
+        "bc": "(LDO) B'Lao",
+        "am": "Hồng Bích Nga",
+        "tinh": "",
+        "don": 21,
+        "ban_dau": 577670.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 577670.0,
+        "pct": 0.4
+      },
+      {
+        "bc": "(LDO) Đức Trọng 2",
+        "am": "Nguyễn Thị Tuyết Thơ",
+        "tinh": "",
+        "don": 9,
+        "ban_dau": 568190.0,
+        "dieu_chinh": 0.0,
+        "can_thu": 568190.0,
+        "pct": 0.3
+      }
+    ],
+    "top_am_ticket": [
+      {
+        "am": "Trầm Hữu Tiến",
+        "ticket": 224,
+        "pct_ticket": 31.3,
+        "ban_dau": 14367292.0,
+        "can_thu": 14367292.0,
+        "pct_tien": 18.5
+      },
+      {
+        "am": "Trần Văn Phước",
+        "ticket": 199,
+        "pct_ticket": 27.8,
+        "ban_dau": 33881018.0,
+        "can_thu": 33881018.0,
+        "pct_tien": 43.6
+      },
+      {
+        "am": "Huỳnh Thúc Duân",
+        "ticket": 59,
+        "pct_ticket": 8.3,
+        "ban_dau": 2398897.0,
+        "can_thu": 2398897.0,
+        "pct_tien": 3.1
+      },
+      {
+        "am": "Lê Văn Trường",
+        "ticket": 48,
+        "pct_ticket": 6.7,
+        "ban_dau": 7127974.0,
+        "can_thu": 7127974.0,
+        "pct_tien": 9.2
+      },
+      {
+        "am": "Lê Minh Đại",
+        "ticket": 34,
+        "pct_ticket": 4.8,
+        "ban_dau": 5170732.0,
+        "can_thu": 5170732.0,
+        "pct_tien": 6.6
+      },
+      {
+        "am": "Phan Đình Duy",
+        "ticket": 26,
+        "pct_ticket": 3.6,
+        "ban_dau": 4495151.0,
+        "can_thu": 4495151.0,
+        "pct_tien": 5.8
+      },
+      {
+        "am": "Huỳnh Thị Kim Chi",
+        "ticket": 20,
+        "pct_ticket": 2.8,
+        "ban_dau": 3262870.0,
+        "can_thu": 3262870.0,
+        "pct_tien": 4.2
+      },
+      {
+        "am": "Nguyễn Ngọc Khánh",
+        "ticket": 18,
+        "pct_ticket": 2.5,
+        "ban_dau": 961393.0,
+        "can_thu": 961393.0,
+        "pct_tien": 1.2
+      },
+      {
+        "am": "Nguyễn Thanh Long",
+        "ticket": 17,
+        "pct_ticket": 2.4,
+        "ban_dau": 2309111.0,
+        "can_thu": 2309111.0,
+        "pct_tien": 3.0
+      },
+      {
+        "am": "Thái Thị Thanh Thư",
+        "ticket": 17,
+        "pct_ticket": 2.4,
+        "ban_dau": 369410.0,
+        "can_thu": 369410.0,
+        "pct_tien": 0.5
+      },
+      {
+        "am": "Hồng Bích Nga",
+        "ticket": 16,
+        "pct_ticket": 2.2,
+        "ban_dau": 1821339.0,
+        "can_thu": 1821339.0,
+        "pct_tien": 2.3
+      },
+      {
+        "am": "Trần Thị Nhung",
+        "ticket": 11,
+        "pct_ticket": 1.5,
+        "ban_dau": 612373.0,
+        "can_thu": 612373.0,
+        "pct_tien": 0.8
+      },
+      {
+        "am": "Lê Thanh Nhựt",
+        "ticket": 8,
+        "pct_ticket": 1.1,
+        "ban_dau": 473943.0,
+        "can_thu": 473943.0,
+        "pct_tien": 0.6
+      },
+      {
+        "am": "Nguyễn Hoàng Phi",
+        "ticket": 7,
+        "pct_ticket": 1.0,
+        "ban_dau": 184376.0,
+        "can_thu": 184376.0,
+        "pct_tien": 0.2
+      },
+      {
+        "am": "Nguyễn Duy Long",
+        "ticket": 5,
+        "pct_ticket": 0.7,
+        "ban_dau": 64921.0,
+        "can_thu": 64921.0,
+        "pct_tien": 0.1
+      },
+      {
+        "am": "Cao Thị Thanh Thủy",
+        "ticket": 2,
+        "pct_ticket": 0.3,
+        "ban_dau": 21751.0,
+        "can_thu": 21751.0,
+        "pct_tien": 0.0
+      },
+      {
+        "am": "Nguyễn Lê Nguyên Vũ",
+        "ticket": 1,
+        "pct_ticket": 0.1,
+        "ban_dau": 66667.0,
+        "can_thu": 66667.0,
+        "pct_tien": 0.1
+      },
+      {
+        "am": "Lê Minh Lợi",
+        "ticket": 1,
+        "pct_ticket": 0.1,
+        "ban_dau": 84.0,
+        "can_thu": 84.0,
+        "pct_tien": 0.0
+      },
+      {
+        "am": "Phan Thị Ngọc Diễm",
+        "ticket": 1,
+        "pct_ticket": 0.1,
+        "ban_dau": 84.0,
+        "can_thu": 84.0,
+        "pct_tien": 0.0
+      },
+      {
+        "am": "Nguyễn Thị Tuyết Thơ",
+        "ticket": 1,
+        "pct_ticket": 0.1,
+        "ban_dau": 178658.0,
+        "can_thu": 178658.0,
+        "pct_tien": 0.2
+      }
+    ],
+    "top_bc_ticket": [
+      {
+        "bc": "(LDO) Đức Trọng 1",
+        "am": "Trầm Hữu Tiến",
+        "tinh": "",
+        "ticket": 335,
+        "pct_ticket": 13.8,
+        "can_thu": 15267621.0
+      },
+      {
+        "bc": "(DNO) Quảng Tín",
+        "am": "Trần Văn Phước",
+        "tinh": "",
+        "ticket": 226,
+        "pct_ticket": 9.3,
+        "can_thu": 32533118.0
+      },
+      {
+        "bc": "(DNO) Kiến Đức",
+        "am": "Trần Văn Phước",
+        "tinh": "",
+        "ticket": 177,
+        "pct_ticket": 7.3,
+        "can_thu": 8145347.0
+      },
+      {
+        "bc": "(LDO) Di Linh",
+        "am": "Trầm Hữu Tiến",
+        "tinh": "",
+        "ticket": 160,
+        "pct_ticket": 6.6,
+        "can_thu": 9879137.0
+      },
+      {
+        "bc": "(DNO) Đông Gia Nghĩa",
+        "am": "Huỳnh Thúc Duân",
+        "tinh": "",
+        "ticket": 135,
+        "pct_ticket": 5.6,
+        "can_thu": 6539679.0
+      },
+      {
+        "bc": "(LDO) Đơn Dương",
         "am": "Lê Văn Trường",
         "tinh": "",
+        "ticket": 127,
+        "pct_ticket": 5.2,
+        "can_thu": 14131517.0
+      },
+      {
+        "bc": "(KHO) Cam Linh",
+        "am": "Nguyễn Thanh Long",
+        "tinh": "",
+        "ticket": 105,
+        "pct_ticket": 4.3,
+        "can_thu": 8654053.0
+      },
+      {
+        "bc": "(KHO) Bắc Nha Trang",
+        "am": "Thái Thị Thanh Thư",
+        "tinh": "",
+        "ticket": 86,
+        "pct_ticket": 3.5,
+        "can_thu": 1183824.0
+      },
+      {
+        "bc": "(LDO) Lang Biang - Đà Lạt 1",
+        "am": "Lê Minh Đại",
+        "tinh": "",
+        "ticket": 61,
+        "pct_ticket": 2.5,
+        "can_thu": 1879561.0
+      },
+      {
+        "bc": "Kho Chuyển Tiếp Bình Thuận",
+        "am": "Nguyễn Ngọc Khánh",
+        "tinh": "",
+        "ticket": 55,
+        "pct_ticket": 2.3,
+        "can_thu": 9157892.0
+      },
+      {
+        "bc": "(KHO) Tây Nha Trang",
+        "am": "Phan Đình Duy",
+        "tinh": "",
+        "ticket": 47,
+        "pct_ticket": 1.9,
+        "can_thu": 2981613.0
+      },
+      {
+        "bc": "(LDO) Xuân Hương - Đà Lạt",
+        "am": "Lê Văn Trường",
+        "tinh": "",
+        "ticket": 45,
+        "pct_ticket": 1.9,
+        "can_thu": 5815160.0
+      },
+      {
+        "bc": "(KHO) Vạn Ninh",
+        "am": "Phan Đình Duy",
+        "tinh": "",
+        "ticket": 42,
+        "pct_ticket": 1.7,
+        "can_thu": 663946.0
+      },
+      {
+        "bc": "(DNO) Bắc Gia Nghĩa",
+        "am": "Trần Văn Phước",
+        "tinh": "",
+        "ticket": 39,
+        "pct_ticket": 1.6,
+        "can_thu": 2976654.0
+      },
+      {
+        "bc": "(LDO) Lang Biang - Đà Lạt 2",
+        "am": "Lê Văn Trường",
+        "tinh": "",
+        "ticket": 39,
+        "pct_ticket": 1.6,
+        "can_thu": 3349678.0
+      },
+      {
+        "bc": "Kho Trung Chuyển Khánh Hòa",
+        "am": "—",
+        "tinh": "",
+        "ticket": 33,
+        "pct_ticket": 1.4,
+        "can_thu": 781803.0
+      },
+      {
+        "bc": "(BTH) Phú Thủy",
+        "am": "Nguyễn Ngọc Khánh",
+        "tinh": "",
+        "ticket": 33,
+        "pct_ticket": 1.4,
+        "can_thu": 1111559.0
+      },
+      {
+        "bc": "Kho Chuyển Tiếp Đức Trọng",
+        "am": "—",
+        "tinh": "",
+        "ticket": 28,
+        "pct_ticket": 1.2,
+        "can_thu": 69776.0
+      },
+      {
+        "bc": "(KHO) Nam Nha Trang 1",
+        "am": "Thái Thị Thanh Thư",
+        "tinh": "",
+        "ticket": 27,
+        "pct_ticket": 1.1,
+        "can_thu": 850948.0
+      },
+      {
+        "bc": "(BTH) Hàm Thắng",
+        "am": "Nguyễn Ngọc Khánh",
+        "tinh": "",
+        "ticket": 26,
+        "pct_ticket": 1.1,
+        "can_thu": 1907243.0
+      },
+      {
+        "bc": "(LDO) Tân Hà Lâm Hà",
+        "am": "Huỳnh Thị Kim Chi",
+        "tinh": "",
+        "ticket": 25,
+        "pct_ticket": 1.0,
+        "can_thu": 214160.0
+      },
+      {
+        "bc": "Kho Chuyển Tiếp Đắk Nông",
+        "am": "Trần Văn Phước",
+        "tinh": "",
+        "ticket": 24,
+        "pct_ticket": 1.0,
+        "can_thu": 3619512.0
+      },
+      {
+        "bc": "(LDO) Đam Rông 3",
+        "am": "Huỳnh Thị Kim Chi",
+        "tinh": "",
         "ticket": 22,
-        "pct_ticket": 0.4,
-        "can_thu": 2087181.0
+        "pct_ticket": 0.9,
+        "can_thu": 3300590.0
+      },
+      {
+        "bc": "(DNO) ĐL Nam Gia Nghĩa 2",
+        "am": "Huỳnh Thúc Duân",
+        "tinh": "",
+        "ticket": 22,
+        "pct_ticket": 0.9,
+        "can_thu": 15150.0
+      },
+      {
+        "bc": "(NTH) Phước Dinh",
+        "am": "Nguyễn Duy Long",
+        "tinh": "",
+        "ticket": 21,
+        "pct_ticket": 0.9,
+        "can_thu": 29910.0
+      },
+      {
+        "bc": "(BTH) Hàm Tân",
+        "am": "Cao Thị Thanh Thủy",
+        "tinh": "",
+        "ticket": 21,
+        "pct_ticket": 0.9,
+        "can_thu": 104874.0
+      },
+      {
+        "bc": "(LDO) B'Lao",
+        "am": "Hồng Bích Nga",
+        "tinh": "",
+        "ticket": 21,
+        "pct_ticket": 0.9,
+        "can_thu": 577670.0
+      },
+      {
+        "bc": "(NTH) Phan Rang",
+        "am": "Nguyễn Duy Long",
+        "tinh": "",
+        "ticket": 20,
+        "pct_ticket": 0.8,
+        "can_thu": 281776.0
+      },
+      {
+        "bc": "(BTH) Hàm Thuận",
+        "am": "Lê Thanh Nhựt",
+        "tinh": "",
+        "ticket": 19,
+        "pct_ticket": 0.8,
+        "can_thu": 250806.0
+      },
+      {
+        "bc": "(BTH) Đồng Kho",
+        "am": "Lê Thanh Nhựt",
+        "tinh": "",
+        "ticket": 18,
+        "pct_ticket": 0.7,
+        "can_thu": 798136.0
       }
     ]
   },
