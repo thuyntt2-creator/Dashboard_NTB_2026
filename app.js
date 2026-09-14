@@ -731,14 +731,16 @@
       });
     }
 
-    const searchBcCanhBao = document.getElementById('search-bc-canh-bao');
-    if (searchBcCanhBao) {
-      searchBcCanhBao.addEventListener('input', e => {
+    const searchBcInputs = document.querySelectorAll('.search-bc-input, #search-bc-canh-bao');
+    searchBcInputs.forEach(input => {
+      input.addEventListener('input', e => {
         state.searchBcCanhBao = e.target.value.toLowerCase().trim();
+        // Sync values across all search boxes
+        searchBcInputs.forEach(si => { if (si !== e.target) si.value = e.target.value; });
         renderBcCanhBaoTable();
         if (window.lucide) lucide.createIcons();
       });
-    }
+    });
 
     const searchAgingAM = document.getElementById('search-aging-am');
     if (searchAgingAM) {
@@ -889,8 +891,23 @@
   // ==========================================================================
   // RENDER MASTER
   // ==========================================================================
+  
+  window.switchTabDirect = function(tabId) {
+    const tabBtn = document.querySelector(`.tab-item[data-tab="${tabId}"]`);
+    if (tabBtn) {
+      tabBtn.click();
+    } else {
+      document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-view').forEach(v => v.classList.remove('active'));
+      const v = document.getElementById(tabId);
+      if (v) v.classList.add('active');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   function renderAll() {
     renderOverviewTab();
+    renderBcCanhBaoTable();
     renderVolumeTab();
     renderGtcTongTab();
     renderGtcTtsCa1Tab();
@@ -950,6 +967,8 @@
     } else if (tabId === 'tab-control') {
       renderControlTab();
       renderCodTmAmBar();
+    } else if (tabId === 'tab-bc-canhbao') {
+      renderBcCanhBaoTable();
     } else if (tabId === 'tab-truythu') {
       renderTruyThuTab();
       renderTruyThuLoaiBar();
@@ -2204,8 +2223,8 @@
   state.searchBcCanhBao = '';
 
   function renderBcCanhBaoTable() {
-    const tblBody = document.querySelector('#table-bc-canh-bao tbody');
-    if (!tblBody) return;
+    const tblBodies = document.querySelectorAll('.table-bc-canh-bao-body, #table-bc-canh-bao tbody, #table-bc-canh-bao-overview tbody, #table-bc-canhbao-tab tbody');
+    if (!tblBodies || tblBodies.length === 0) return;
     const raw = D.bc_canh_bao || [];
     let list = [...raw];
     if (state.searchBcCanhBao) {
@@ -2217,7 +2236,7 @@
       );
     }
 
-    tblBody.innerHTML = list.map((row, i) => {
+    const rowsHtml = list.map((row, i) => {
       const isSelected = state.selectedAM && state.selectedAM === row.am;
       const rowClass = isSelected ? 'presenter-laser-box' : '';
       const diffBadge = renderDeltaBadge(row.diff / 100, true, true);
@@ -2249,6 +2268,10 @@
         </tr>
       `;
     }).join('');
+
+    tblBodies.forEach(tblBody => {
+      tblBody.innerHTML = rowsHtml;
+    });
   }
 
   function renderGtcTongBarChart() {
@@ -2694,7 +2717,7 @@
     const tblBody = document.querySelector('#table-gtc-tts-ca1-detailed tbody');
     if (tblBody) {
       const list = getGtcCa1TtsData().sort((a, b) => b.diff_pct - a.diff_pct);
-      tblBody.innerHTML = list.map((row, i) => {
+      const rowsHtml = list.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
         const rowClass = isSelected ? 'presenter-laser-box' : '';
         const heatCls = getHeatmapClass(row.curr_val, 'gtc');
@@ -6384,6 +6407,10 @@
         </tr>
       `;
     }).join('');
+
+    tblBodies.forEach(tblBody => {
+      tblBody.innerHTML = rowsHtml;
+    });
   }
 
 
@@ -6471,6 +6498,10 @@
         </tr>
       `;
     }).join('');
+
+    tblBodies.forEach(tblBody => {
+      tblBody.innerHTML = rowsHtml;
+    });
   }
 
   function renderKdNhomAWarningTable() {
@@ -6511,6 +6542,10 @@
         </tr>
       `;
     }).join('');
+
+    tblBodies.forEach(tblBody => {
+      tblBody.innerHTML = rowsHtml;
+    });
   }
 
   function renderCommercialTab() {

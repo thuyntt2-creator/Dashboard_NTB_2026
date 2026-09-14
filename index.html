@@ -170,6 +170,9 @@
           <button class="tab-item" data-tab="tab-commercial">
             <i data-lucide="trending-up"></i> 14. Kinh Doanh & F30
           </button>
+          <button class="tab-item" data-tab="tab-bc-canhbao" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(249, 115, 22, 0.12) 100%); border: 1.5px solid #ef4444; color: #dc2626; font-weight: 800; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2);">
+            <i data-lucide="alert-triangle" style="color: #dc2626;"></i> 15. BC Cảnh Báo (11 BC)
+          </button>
         </div>
 
         <!-- Quick Filter Bar -->
@@ -330,6 +333,59 @@
                 </tr>
               </thead>
               <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    
+      <!-- CẢNH BÁO BẤT ỔN: BẢNG 11 BƯU CỤC TRONG NHÓM CẢNH BÁO -->
+      <div class="report-card" style="margin-top: 24px; margin-bottom: 24px; border: 2px solid #ef4444; box-shadow: 0 4px 16px rgba(239, 68, 68, 0.12);">
+        <div class="report-card-header" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.12) 0%, rgba(249, 115, 22, 0.08) 100%);">
+          <div class="report-card-title" style="color: #b91c1c; font-size: 14px; font-weight: 800;">
+            <i data-lucide="alert-triangle" style="color: #dc2626;"></i>
+            🚨 BẢNG THEO DÕI BƯU CỤC TRONG NHÓM CẢNH BÁO BẤT ỔN (%GTC &lt; 45% HOẶC &lt; 70% LỊCH SỬ) — GOOGLE SHEETS
+          </div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <span class="badge-tag badge-tag-red" style="font-weight: 800; font-size: 12px;">🚨 11 Bưu Cục Cảnh Báo</span>
+            <button onclick="window.switchTabDirect('tab-bc-canhbao')" class="btn btn-sm btn-secondary" style="font-size: 11.5px; padding: 4px 10px; cursor: pointer;">
+              Xem Tab Riêng ➔
+            </button>
+            <a href="https://docs.google.com/spreadsheets/d/1lmQv8KwHJzDFs_RMz64ydu4SOmG3M1YAzILNFGtzFec/edit?gid=250113221#gid=250113221" target="_blank" class="btn btn-sm btn-secondary" style="font-size: 11.5px; padding: 4px 10px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+              <i data-lucide="external-link" style="width: 12px; height: 12px;"></i> Google Sheets
+            </a>
+          </div>
+        </div>
+        <div class="report-card-body">
+          <div class="table-toolbar" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+            <div class="table-search-box">
+              <i data-lucide="search" class="table-search-icon" style="width: 14px; height: 14px;"></i>
+              <input type="text" id="search-bc-canhbao-ov" class="table-search-input search-bc-input" placeholder="Tìm bưu cục, AM, tỉnh...">
+            </div>
+            <div style="font-size: 12px; color: var(--text-muted);">
+              Logic cảnh báo: <strong>%GTC 7 ngày &lt; 45%</strong> hoặc <strong>&lt; 70% mốc tốt nhất lịch sử</strong> | Dữ liệu Tuần W37
+            </div>
+          </div>
+          <div class="bi-table-wrap">
+            <table class="bi-table table-bc-canhbao-grid" id="table-bc-canh-bao-overview">
+              <thead>
+                <tr style="background: #1e3a8a; color: #ffffff;">
+                  <th class="center" style="width: 44px; color: #ffffff;">#</th>
+                  <th style="color: #ffffff;">Bưu Cục Điểm Nóng</th>
+                  <th style="color: #ffffff;">Tỉnh / TP</th>
+                  <th style="color: #ffffff;">AM Phụ Trách</th>
+                  <th class="num" style="background: #0284c7; color: #ffffff; font-weight: 700;">%GTC W36</th>
+                  <th class="num" style="background: #dc2626; color: #ffffff; font-weight: 800;">%GTC W37</th>
+                  <th class="num" style="background: #ea580c; color: #ffffff; font-weight: 700;">Biến Động WoW (Δ)</th>
+                  <th class="num" style="background: #475569; color: #ffffff;">Mốc Tốt Nhất</th>
+                  <th class="center" style="background: #d97706; color: #ffffff; font-weight: 800;">Số Ngày Cảnh Báo (3T)</th>
+                  <th class="num" style="background: #334155; color: #ffffff;">Backlog Tồn</th>
+                  <th class="num" style="background: #991b1b; color: #ffffff;">Tồn &gt; 5 Ngày</th>
+                  <th class="center" style="background: #0d9488; color: #ffffff;">Dự Kiến Clear</th>
+                  <th class="center" style="color: #ffffff;">Tiêu Chí Cảnh Báo</th>
+                </tr>
+              </thead>
+              <tbody class="table-bc-canh-bao-body"></tbody>
             </table>
           </div>
         </div>
@@ -801,7 +857,7 @@
             </div>
           </div>
           <div class="bi-table-wrap">
-            <table class="bi-table" id="table-bc-canh-bao">
+            <table class="bi-table table-bc-canhbao-grid" id="table-bc-canh-bao">
               <thead>
                 <tr style="background: #1e3a8a; color: #ffffff;">
                   <th class="center" style="width: 44px; color: #ffffff;">#</th>
@@ -819,7 +875,7 @@
                   <th class="center" style="color: #ffffff;">Tiêu Chí Cảnh Báo</th>
                 </tr>
               </thead>
-              <tbody></tbody>
+              <tbody class="table-bc-canh-bao-body"></tbody>
             </table>
           </div>
         </div>
@@ -2259,6 +2315,9 @@
             <button class="btn btn-sm btn-secondary" id="btn-aging-compare" onclick="setAgingSegment('compare')">
               <i data-lucide="split" style="width: 14px; height: 14px;"></i> ⚡ Đối Chiếu Song Song Cả 2
             </button>
+            <button class="btn btn-sm btn-secondary" id="btn-aging-canhbao" onclick="window.switchTabDirect('tab-bc-canhbao')" style="color: #dc2626; font-weight: 800; border-color: #ef4444; background: rgba(239, 68, 68, 0.08);">
+              <i data-lucide="alert-triangle" style="width: 14px; height: 14px; color: #dc2626;"></i> 🚨 11 Bưu Cục Cảnh Báo
+            </button>
           </div>
         </div>
 
@@ -3191,6 +3250,105 @@
 
     </div>
 
+  
+  <!-- ==================================================================== -->
+    <!-- TAB 15: BƯU CỤC TRONG NHÓM CẢNH BÁO BẤT ỔN (GOOGLE SHEETS) -->
+    <!-- ==================================================================== -->
+    <div id="tab-bc-canhbao" class="tab-view">
+      <!-- Executive Warning Banner -->
+      <div class="exec-banner" style="border-left: 5px solid #dc2626; border-top: 1px solid #fee2e2; border-right: 1px solid #fee2e2; border-bottom: 1px solid #fee2e2; background: #ffffff; box-shadow: 0 4px 14px rgba(220, 38, 38, 0.08); border-radius: 10px; padding: 18px 24px; margin-bottom: 20px;">
+        <div class="exec-banner-content" style="display: flex; align-items: flex-start; gap: 16px;">
+          <div class="exec-banner-icon" style="background: #fef2f2; color: #dc2626; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid #fecaca;">
+            <i data-lucide="alert-triangle" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="exec-banner-text" style="flex: 1;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+              <h3 style="color: #991b1b; font-size: 16px; font-weight: 800; margin: 0; display: flex; align-items: center; gap: 8px;">
+                ĐIỀU HÀNH TRỌNG ĐIỂM: 11 BƯU CỤC TRONG DIỆN CẢNH BÁO BẤT ỔN (%GTC &lt; 45% HOẶC &lt; 70% LỊCH SỬ)
+              </h3>
+              <a href="https://docs.google.com/spreadsheets/d/1lmQv8KwHJzDFs_RMz64ydu4SOmG3M1YAzILNFGtzFec/edit?gid=250113221#gid=250113221" target="_blank" class="btn btn-sm" style="background: #dc2626; color: #ffffff; font-weight: 700; padding: 6px 14px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border-radius: 6px; font-size: 12px; box-shadow: 0 2px 6px rgba(220,38,38,0.25);">
+                <i data-lucide="external-link" style="width: 13px; height: 13px;"></i> Mở Google Sheets Gốc
+              </a>
+            </div>
+            <p style="color: #1e293b; font-size: 13px; line-height: 1.65; margin: 0;">
+              • <strong style="color: #b45309;">Tiêu chí phân loại cảnh báo:</strong> (1) %GTC 7 ngày gần nhất &lt; 45%, hoặc (2) %GTC &lt; 70% so với mốc kỷ lục tốt nhất lịch sử của bưu cục.<br>
+              • <strong style="color: #b91c1c;">4 Bưu cục điểm nóng nguy hiểm cần giải cứu:</strong> <strong>(DNO) Quảng Tín</strong> (%GTC W37: <strong>18.4%</strong> | Tồn cảnh báo <strong>99 ngày</strong> | Backlog <strong>1.077</strong> đơn), <strong>(LDO) Đức Trọng 1</strong> (<strong>20.0%</strong> | Cảnh báo <strong>83 ngày</strong> | Backlog <strong>1.127</strong> đơn), <strong>(LDO) Xuân Hương - Đà Lạt</strong> (<strong>30.2%</strong> / giảm sâu <strong>-21.4% WoW</strong> | Backlog <strong>1.738</strong> đơn), <strong>(KHO) Cam Linh</strong> (<strong>33.9%</strong> | Cảnh báo <strong>107 ngày</strong> | Backlog <strong>2.187</strong> đơn).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Warning KPI Tiles -->
+      <div class="kpi-strip" style="margin-bottom: 20px;">
+        <div class="kpi-tile kpi-red">
+          <div class="kpi-tile-header">Tổng Bưu Cục Cảnh Báo</div>
+          <div class="kpi-tile-value" style="color: #dc2626;">11 <small>bưu cục</small></div>
+          <div class="kpi-tile-meta"><span class="diff-tag diff-up-bad">10 BC &lt; 45% | 1 BC &lt; 70% kỷ lục</span></div>
+        </div>
+        <div class="kpi-tile kpi-red">
+          <div class="kpi-tile-header">%GTC Thấp Nhất Vùng</div>
+          <div class="kpi-tile-value" style="font-size: 20px; color: #dc2626;">18.4%</div>
+          <div class="kpi-tile-meta"><span class="diff-tag diff-neutral">(DNO) Quảng Tín (W36: 15.2%)</span></div>
+        </div>
+        <div class="kpi-tile kpi-amber">
+          <div class="kpi-tile-header">Nằm Cảnh Báo Lâu Nhất</div>
+          <div class="kpi-tile-value" style="font-size: 20px; color: #d97706;">107 <small>ngày</small></div>
+          <div class="kpi-tile-meta"><span class="diff-tag diff-up-bad">(KHO) Cam Linh &amp; Lang Biang 1</span></div>
+        </div>
+        <div class="kpi-tile kpi-red">
+          <div class="kpi-tile-header">Tổng Backlog Điểm Nóng</div>
+          <div class="kpi-tile-value" style="color: #dc2626;">13,038 <small>đơn</small></div>
+          <div class="kpi-tile-meta"><span class="diff-tag diff-up-bad">1.570 đơn tồn &gt;5 ngày</span></div>
+        </div>
+      </div>
+
+      <!-- Main Warning Table Card -->
+      <div class="report-card" style="border: 2px solid #ef4444; box-shadow: 0 4px 16px rgba(239, 68, 68, 0.12);">
+        <div class="report-card-header" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.12) 0%, rgba(249, 115, 22, 0.08) 100%);">
+          <div class="report-card-title" style="color: #b91c1c; font-size: 14px; font-weight: 800;">
+            <i data-lucide="alert-triangle" style="color: #dc2626;"></i>
+            BẢNG CHI TIẾT: 11 BƯU CỤC TRONG DIỆN CẢNH BÁO BẤT ỔN — SO SÁNH W36 vs W37 &amp; SỐ NGÀY NẰM TRONG DANH SÁCH
+          </div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <span class="badge-tag badge-tag-red" style="font-weight: 800; font-size: 12px;">🚨 11 Bưu Cục</span>
+          </div>
+        </div>
+        <div class="report-card-body">
+          <div class="table-toolbar" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+            <div class="table-search-box">
+              <i data-lucide="search" class="table-search-icon" style="width: 14px; height: 14px;"></i>
+              <input type="text" id="search-bc-canhbao-tab" class="table-search-input search-bc-input" placeholder="Tìm bưu cục, AM, tỉnh...">
+            </div>
+            <div style="font-size: 12px; color: var(--text-muted);">
+              Cập nhật đồng bộ trực tiếp từ Google Sheets | Tuần W37
+            </div>
+          </div>
+          <div class="bi-table-wrap">
+            <table class="bi-table table-bc-canhbao-grid" id="table-bc-canhbao-tab">
+              <thead>
+                <tr style="background: #1e3a8a; color: #ffffff;">
+                  <th class="center" style="width: 44px; color: #ffffff;">#</th>
+                  <th style="color: #ffffff;">Bưu Cục Điểm Nóng</th>
+                  <th style="color: #ffffff;">Tỉnh / TP</th>
+                  <th style="color: #ffffff;">AM Phụ Trách</th>
+                  <th class="num" style="background: #0284c7; color: #ffffff; font-weight: 700;">%GTC W36</th>
+                  <th class="num" style="background: #dc2626; color: #ffffff; font-weight: 800;">%GTC W37</th>
+                  <th class="num" style="background: #ea580c; color: #ffffff; font-weight: 700;">Biến Động WoW (Δ)</th>
+                  <th class="num" style="background: #475569; color: #ffffff;">Mốc Tốt Nhất</th>
+                  <th class="center" style="background: #d97706; color: #ffffff; font-weight: 800;">Số Ngày Cảnh Báo (3T)</th>
+                  <th class="num" style="background: #334155; color: #ffffff;">Backlog Tồn</th>
+                  <th class="num" style="background: #991b1b; color: #ffffff;">Tồn &gt; 5 Ngày</th>
+                  <th class="center" style="background: #0d9488; color: #ffffff;">Dự Kiến Clear</th>
+                  <th class="center" style="color: #ffffff;">Tiêu Chí Cảnh Báo</th>
+                </tr>
+              </thead>
+              <tbody class="table-bc-canh-bao-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <!-- Upload Modal -->
@@ -3242,7 +3400,7 @@
   </div>
 
   <!-- Scripts -->
-  <script src="data.js?v=1789408141"></script>
-  <script src="app.js?v=1789408141"></script>
+  <script src="data.js?v=1789410733"></script>
+  <script src="app.js?v=1789410733"></script>
 </body>
 </html>
