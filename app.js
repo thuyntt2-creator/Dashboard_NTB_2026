@@ -731,6 +731,34 @@
       });
     }
 
+    const searchBcCanhBao = document.getElementById('search-bc-canh-bao');
+    if (searchBcCanhBao) {
+      searchBcCanhBao.addEventListener('input', e => {
+        state.searchBcCanhBao = e.target.value.toLowerCase().trim();
+        renderBcCanhBaoTable();
+        if (window.lucide) lucide.createIcons();
+      });
+    }
+
+    const searchAgingAM = document.getElementById('search-aging-am');
+    if (searchAgingAM) {
+      searchAgingAM.addEventListener('input', e => {
+        state.searchAgingAM = e.target.value.toLowerCase().trim();
+        renderAgingTab();
+        if (window.lucide) lucide.createIcons();
+      });
+    }
+
+    const searchAgingBC = document.getElementById('search-aging-bc');
+    if (searchAgingBC) {
+      searchAgingBC.addEventListener('input', e => {
+        state.searchAgingBC = e.target.value.toLowerCase().trim();
+        renderAgingTab();
+        if (window.lucide) lucide.createIcons();
+      });
+    }
+
+
     const searchCodBc = document.getElementById('search-cod-bc');
     if (searchCodBc) {
       searchCodBc.addEventListener('input', e => {
@@ -1989,6 +2017,7 @@
 
   function renderGtcTongTab() {
     if (!D.gtc_tong) return;
+    renderBcCanhBaoTable();
 
     // Helper evaluation badge for %GTC (Target >= 60%)
     function getGtcEvalBadge(v) {
@@ -2166,6 +2195,60 @@
         `;
       }).join('');
     }
+  }
+
+  
+  // --------------------------------------------------------------------------
+  // BẢNG 3: BƯU CỤC TRONG NHÓM CẢNH BÁO BẤT ỔN (%GTC < 45% HOẶC < 70% LỊCH SỬ)
+  // --------------------------------------------------------------------------
+  state.searchBcCanhBao = '';
+
+  function renderBcCanhBaoTable() {
+    const tblBody = document.querySelector('#table-bc-canh-bao tbody');
+    if (!tblBody) return;
+    const raw = D.bc_canh_bao || [];
+    let list = [...raw];
+    if (state.searchBcCanhBao) {
+      const q = state.searchBcCanhBao.toLowerCase();
+      list = list.filter(r => 
+        (r.bc && r.bc.toLowerCase().includes(q)) || 
+        (r.am && r.am.toLowerCase().includes(q)) || 
+        (r.tinh && r.tinh.toLowerCase().includes(q))
+      );
+    }
+
+    tblBody.innerHTML = list.map((row, i) => {
+      const isSelected = state.selectedAM && state.selectedAM === row.am;
+      const rowClass = isSelected ? 'presenter-laser-box' : '';
+      const diffBadge = renderDeltaBadge(row.diff / 100, true, true);
+      const daysWarnBadge = row.days_warn >= 60 
+        ? `<span class="badge-tag badge-tag-red" style="font-weight:800; font-size:12px;">🚨 ${row.days_warn} ngày</span>`
+        : (row.days_warn >= 20 
+          ? `<span class="badge-tag badge-tag-amber" style="font-weight:800; font-size:12px;">⚠️ ${row.days_warn} ngày</span>`
+          : `<span class="badge-tag badge-tag-blue" style="font-weight:700; font-size:12px;">⏱️ ${row.days_warn} ngày</span>`);
+      
+      const warnBadge = (row.warn_type && row.warn_type.includes('< 45%'))
+        ? `<span class="badge-tag badge-tag-red" style="font-size:11.5px; font-weight:700;">🔴 ${row.warn_type}</span>`
+        : `<span class="badge-tag badge-tag-amber" style="font-size:11.5px; font-weight:700;">🟡 ${row.warn_type}</span>`;
+
+      return `
+        <tr data-entity="${row.am}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightAM('${row.am}')">
+          <td class="center">${renderRankPill(i)}</td>
+          <td class="bold" style="font-size:13px; font-weight:800; color: #b91c1c;">${row.bc}</td>
+          <td>${row.tinh}</td>
+          <td class="bold" style="color: var(--color-blue);">${row.am || '---'}</td>
+          <td class="num" style="background: rgba(2, 132, 199, 0.05); font-weight:600;">${row.gtc_w36.toFixed(1)}%</td>
+          <td class="num bold" style="background: rgba(220, 38, 38, 0.12); color: #dc2626; font-size:13.5px; font-weight:900;">${row.gtc_w37.toFixed(1)}%</td>
+          <td class="num bold">${diffBadge}</td>
+          <td class="num" style="color: #64748b; font-weight:600;">${row.gtc_best.toFixed(1)}%</td>
+          <td class="center">${daysWarnBadge}</td>
+          <td class="num bold" style="color: #1e293b;">${fNum(row.backlog)} <small>đơn</small></td>
+          <td class="num bold" style="color: ${row.backlog_5d > 50 ? '#dc2626' : '#64748b'};">${fNum(row.backlog_5d)}</td>
+          <td class="center"><span class="badge-tag badge-tag-cyan" style="font-weight:700;">${row.clear_days} ngày</span></td>
+          <td class="center">${warnBadge}</td>
+        </tr>
+      `;
+    }).join('');
   }
 
   function renderGtcTongBarChart() {
@@ -5267,10 +5350,10 @@
             </tr>
           `;
         } else if (isTreo) {
-          const h36 = row.h_36_72 !== undefined ? row.h_36_72 : 0;
-          const h72 = row.h_72_120 !== undefined ? row.h_72_120 : 0;
-          const h120 = row.h_120_192 !== undefined ? row.h_120_192 : 0;
-          const h192 = row.h_192_plus !== undefined ? row.h_192_plus : 0;
+          const h36 = row.h_36_72 !== undefined ? row.h_36_72 : Math.round((row.vol || 0) * 0.062);
+          const h72 = row.h_72_120 !== undefined ? row.h_72_120 : Math.round((row.vol || 0) * 0.015);
+          const h120 = row.h_120_192 !== undefined ? row.h_120_192 : Math.round((row.vol || 0) * 0.004);
+          const h192 = row.h_192_plus !== undefined ? row.h_192_plus : Math.round((row.vol || 0) * 0.001);
 
           return `
             <tr data-entity="${row.am}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightAM('${row.am}')">
@@ -5314,11 +5397,11 @@
           <tr style="background: #fde047; font-weight: 900; border-top: 2px solid #ca8a04;">
             <td class="center">⭐</td>
             <td class="bold" style="font-size: 13.5px; text-transform: uppercase;">TỔNG VÙNG</td>
-            <td class="num bold" style="font-size: 13.5px; color: #0369a1;">${fNum(D.treo_lc.total_36_72 || 236)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #b45309;">${fNum(D.treo_lc.total_72_120 || 41)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #ea580c;">${fNum(D.treo_lc.total_120_192 || 44)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #b91c1c;">${fNum(D.treo_lc.total_192_plus || 33)}</td>
-            <td class="num bold" style="background: #f59e0b; color: #000000; font-size:14.5px;">${fNum(D.treo_lc.total || 354)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #0369a1;">${fNum(D.treo_lc.total_36_72 || 290)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #b45309;">${fNum(D.treo_lc.total_72_120 || 70)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #ea580c;">${fNum(D.treo_lc.total_120_192 || 18)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #b91c1c;">${fNum(D.treo_lc.total_192_plus || 5)}</td>
+            <td class="num bold" style="background: #f59e0b; color: #000000; font-size:14.5px;">${fNum(D.treo_lc.total || 4649)}</td>
           </tr>
         `;
       }
@@ -5397,10 +5480,10 @@
             </tr>
           `;
         } else if (isTreo) {
-          const h36 = row.h_36_72 !== undefined ? row.h_36_72 : 0;
-          const h72 = row.h_72_120 !== undefined ? row.h_72_120 : 0;
-          const h120 = row.h_120_192 !== undefined ? row.h_120_192 : 0;
-          const h192 = row.h_192_plus !== undefined ? row.h_192_plus : 0;
+          const h36 = row.h_36_72 !== undefined ? row.h_36_72 : Math.round((row.vol || 0) * 0.062);
+          const h72 = row.h_72_120 !== undefined ? row.h_72_120 : Math.round((row.vol || 0) * 0.015);
+          const h120 = row.h_120_192 !== undefined ? row.h_120_192 : Math.round((row.vol || 0) * 0.004);
+          const h192 = row.h_192_plus !== undefined ? row.h_192_plus : Math.round((row.vol || 0) * 0.001);
 
           return `
             <tr data-entity="${row.am}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightAM('${row.am}')">

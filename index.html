@@ -772,6 +772,58 @@
           </div>
         </div>
       </div>
+
+
+      <!-- ==================================================================== -->
+      <!-- BẢNG 3: BƯU CỤC TRONG NHÓM CẢNH BÁO BẤT ỔN (GOOGLE SHEETS) -->
+      <!-- ==================================================================== -->
+      <div class="report-card" style="margin-top: 24px; margin-bottom: 24px; border: 2px solid #ef4444; box-shadow: 0 4px 16px rgba(239, 68, 68, 0.12);">
+        <div class="report-card-header" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.12) 0%, rgba(249, 115, 22, 0.08) 100%);">
+          <div class="report-card-title" style="color: #b91c1c; font-size: 14px; font-weight: 800;">
+            <i data-lucide="alert-triangle" style="color: #dc2626;"></i>
+            BẢNG 3: THEO DÕI BƯU CỤC TRONG NHÓM CẢNH BÁO BẤT ỔN (%GTC &lt; 45% HOẶC &lt; 70% LỊCH SỬ) — SO SÁNH W36 vs W37 &amp; THỜI GIAN CẢNH BÁO
+          </div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <span class="badge-tag badge-tag-red" style="font-weight: 800; font-size: 12px;">🚨 11 Bưu Cục Cảnh Báo</span>
+            <a href="https://docs.google.com/spreadsheets/d/1lmQv8KwHJzDFs_RMz64ydu4SOmG3M1YAzILNFGtzFec/edit?gid=250113221#gid=250113221" target="_blank" class="btn btn-sm btn-secondary" style="font-size: 11.5px; padding: 4px 10px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+              <i data-lucide="external-link" style="width: 12px; height: 12px;"></i> Google Sheets
+            </a>
+          </div>
+        </div>
+        <div class="report-card-body">
+          <div class="table-toolbar" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+            <div class="table-search-box">
+              <i data-lucide="search" class="table-search-icon" style="width: 14px; height: 14px;"></i>
+              <input type="text" id="search-bc-canh-bao" class="table-search-input" placeholder="Tìm bưu cục, AM, tỉnh...">
+            </div>
+            <div style="font-size: 12px; color: var(--text-muted);">
+              Logic cảnh báo: <strong>%GTC 7 ngày &lt; 45%</strong> hoặc <strong>&lt; 70% mốc tốt nhất lịch sử</strong> | Dữ liệu Tuần W37
+            </div>
+          </div>
+          <div class="bi-table-wrap">
+            <table class="bi-table" id="table-bc-canh-bao">
+              <thead>
+                <tr style="background: #1e3a8a; color: #ffffff;">
+                  <th class="center" style="width: 44px; color: #ffffff;">#</th>
+                  <th style="color: #ffffff;">Bưu Cục Điểm Nóng</th>
+                  <th style="color: #ffffff;">Tỉnh / TP</th>
+                  <th style="color: #ffffff;">AM Phụ Trách</th>
+                  <th class="num" style="background: #0284c7; color: #ffffff; font-weight: 700;">%GTC W36</th>
+                  <th class="num" style="background: #dc2626; color: #ffffff; font-weight: 800;">%GTC W37</th>
+                  <th class="num" style="background: #ea580c; color: #ffffff; font-weight: 700;">Biến Động WoW (Δ)</th>
+                  <th class="num" style="background: #475569; color: #ffffff;">Mốc Tốt Nhất</th>
+                  <th class="center" style="background: #d97706; color: #ffffff; font-weight: 800;">Số Ngày Cảnh Báo (3T)</th>
+                  <th class="num" style="background: #334155; color: #ffffff;">Backlog Tồn</th>
+                  <th class="num" style="background: #991b1b; color: #ffffff;">Tồn &gt; 5 Ngày</th>
+                  <th class="center" style="background: #0d9488; color: #ffffff;">Dự Kiến Clear</th>
+                  <th class="center" style="color: #ffffff;">Tiêu Chí Cảnh Báo</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- ==================================================================== -->
@@ -3190,7 +3242,7 @@
   </div>
 
   <!-- Scripts -->
-  <script src="data.js?v=1789393915"></script>
-  <script src="app.js?v=1789393915"></script>
+  <script src="data.js?v=1789408141"></script>
+  <script src="app.js?v=1789408141"></script>
 </body>
 </html>
