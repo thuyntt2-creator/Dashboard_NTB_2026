@@ -1,13 +1,13 @@
 [
     {
-        "timestamp": "2026-09-10 11:52:11",
+        "timestamp": "2026-09-11 19:18:07",
         "date": "(N-1)",
         "summary": {
-            "total_orders": 356731,
+            "total_orders": 367941,
             "total_orders_note": "Tổng đơn từ các bưu cục có quản lý AM",
-            "return_orders": 26630,
+            "return_orders": 26606,
             "return_orders_note": "Tổng đơn bị trả về",
-            "fd_rate": 7.47,
+            "fd_rate": 7.23,
             "fd_rate_note": "Tỷ lệ đơn trả = Đơn return / Total đơn",
             "po_count": 84,
             "po_count_note": "Tổng số 18 AM phụ trách"
@@ -53,922 +53,922 @@
             "AM Linh": {
                 "stt": 1,
                 "am": "AM Linh",
-                "total_orders": 2382,
-                "return_orders": 896,
-                "fd_rate": 37.6,
-                "return_share": 3.36,
-                "volume_share": 0.67
+                "total_orders": 2443,
+                "return_orders": 958,
+                "fd_rate": 39.2,
+                "return_share": 3.6,
+                "volume_share": 0.66
             },
             "AM Lợi": {
                 "stt": 2,
                 "am": "AM Lợi",
-                "total_orders": 3426,
-                "return_orders": 534,
-                "fd_rate": 15.6,
-                "return_share": 2.01,
+                "total_orders": 3535,
+                "return_orders": 560,
+                "fd_rate": 15.8,
+                "return_share": 2.1,
                 "volume_share": 0.96
             },
-            "AM Nga": {
+            "AM Duân": {
                 "stt": 3,
-                "am": "AM Nga",
-                "total_orders": 23387,
-                "return_orders": 2469,
-                "fd_rate": 10.6,
-                "return_share": 9.27,
-                "volume_share": 6.56
+                "am": "AM Duân",
+                "total_orders": 6985,
+                "return_orders": 718,
+                "fd_rate": 10.3,
+                "return_share": 2.7,
+                "volume_share": 1.9
             },
             "AM Long": {
                 "stt": 4,
                 "am": "AM Long",
-                "total_orders": 14152,
-                "return_orders": 1467,
-                "fd_rate": 10.4,
-                "return_share": 5.51,
-                "volume_share": 3.97
+                "total_orders": 14079,
+                "return_orders": 1421,
+                "fd_rate": 10.1,
+                "return_share": 5.34,
+                "volume_share": 3.83
             },
-            "AM Duân": {
+            "AM Nga": {
                 "stt": 5,
-                "am": "AM Duân",
-                "total_orders": 6914,
-                "return_orders": 716,
-                "fd_rate": 10.4,
-                "return_share": 2.69,
-                "volume_share": 1.94
+                "am": "AM Nga",
+                "total_orders": 24114,
+                "return_orders": 2262,
+                "fd_rate": 9.4,
+                "return_share": 8.5,
+                "volume_share": 6.55
             },
             "AM Tiến": {
                 "stt": 6,
                 "am": "AM Tiến",
-                "total_orders": 7713,
-                "return_orders": 704,
-                "fd_rate": 9.1,
-                "return_share": 2.64,
-                "volume_share": 2.16
+                "total_orders": 7675,
+                "return_orders": 665,
+                "fd_rate": 8.7,
+                "return_share": 2.5,
+                "volume_share": 2.09
             },
             "AM Nhung": {
                 "stt": 7,
                 "am": "AM Nhung",
-                "total_orders": 27976,
-                "return_orders": 2371,
-                "fd_rate": 8.5,
-                "return_share": 8.9,
-                "volume_share": 7.84
+                "total_orders": 28275,
+                "return_orders": 2385,
+                "fd_rate": 8.4,
+                "return_share": 8.96,
+                "volume_share": 7.68
             },
             "AM Duy": {
                 "stt": 8,
                 "am": "AM Duy",
-                "total_orders": 22077,
-                "return_orders": 1870,
-                "fd_rate": 8.5,
-                "return_share": 7.02,
-                "volume_share": 6.19
+                "total_orders": 22657,
+                "return_orders": 1876,
+                "fd_rate": 8.3,
+                "return_share": 7.05,
+                "volume_share": 6.16
             },
             "AM Phi": {
                 "stt": 9,
                 "am": "AM Phi",
-                "total_orders": 24810,
-                "return_orders": 1883,
+                "total_orders": 25825,
+                "return_orders": 1954,
                 "fd_rate": 7.6,
-                "return_share": 7.07,
-                "volume_share": 6.95
+                "return_share": 7.34,
+                "volume_share": 7.02
             },
             "AM Trường": {
                 "stt": 10,
                 "am": "AM Trường",
-                "total_orders": 31716,
-                "return_orders": 2394,
-                "fd_rate": 7.6,
-                "return_share": 8.99,
-                "volume_share": 8.89
+                "total_orders": 32749,
+                "return_orders": 2418,
+                "fd_rate": 7.4,
+                "return_share": 9.09,
+                "volume_share": 8.9
             },
             "AM Thư": {
                 "stt": 11,
                 "am": "AM Thư",
-                "total_orders": 27420,
-                "return_orders": 1756,
-                "fd_rate": 6.4,
-                "return_share": 6.59,
-                "volume_share": 7.69
+                "total_orders": 28417,
+                "return_orders": 1766,
+                "fd_rate": 6.2,
+                "return_share": 6.64,
+                "volume_share": 7.72
             },
-            "AM Thủy": {
+            "AM D.Long": {
                 "stt": 12,
-                "am": "AM Thủy",
-                "total_orders": 18234,
-                "return_orders": 1141,
-                "fd_rate": 6.3,
-                "return_share": 4.28,
-                "volume_share": 5.11
+                "am": "AM D.Long",
+                "total_orders": 47141,
+                "return_orders": 2836,
+                "fd_rate": 6.0,
+                "return_share": 10.66,
+                "volume_share": 12.81
             },
             "AM Chi": {
                 "stt": 13,
                 "am": "AM Chi",
-                "total_orders": 14071,
-                "return_orders": 879,
-                "fd_rate": 6.3,
-                "return_share": 3.3,
-                "volume_share": 3.94
+                "total_orders": 14794,
+                "return_orders": 888,
+                "fd_rate": 6.0,
+                "return_share": 3.34,
+                "volume_share": 4.02
             },
-            "AM D.Long": {
+            "AM Thủy": {
                 "stt": 14,
-                "am": "AM D.Long",
-                "total_orders": 45110,
-                "return_orders": 2797,
-                "fd_rate": 6.2,
-                "return_share": 10.5,
-                "volume_share": 12.65
+                "am": "AM Thủy",
+                "total_orders": 18654,
+                "return_orders": 1112,
+                "fd_rate": 6.0,
+                "return_share": 4.18,
+                "volume_share": 5.07
             },
             "AM Thơ": {
                 "stt": 15,
                 "am": "AM Thơ",
-                "total_orders": 9995,
-                "return_orders": 608,
-                "fd_rate": 6.1,
-                "return_share": 2.28,
+                "total_orders": 10309,
+                "return_orders": 613,
+                "fd_rate": 6.0,
+                "return_share": 2.3,
                 "volume_share": 2.8
             },
-            "AM Nhựt": {
-                "stt": 16,
-                "am": "AM Nhựt",
-                "total_orders": 32222,
-                "return_orders": 1811,
-                "fd_rate": 5.6,
-                "return_share": 6.8,
-                "volume_share": 9.03
-            },
             "AM Vũ": {
-                "stt": 17,
+                "stt": 16,
                 "am": "AM Vũ",
-                "total_orders": 15036,
-                "return_orders": 836,
+                "total_orders": 15644,
+                "return_orders": 869,
                 "fd_rate": 5.6,
-                "return_share": 3.14,
-                "volume_share": 4.21
+                "return_share": 3.27,
+                "volume_share": 4.25
+            },
+            "AM Nhựt": {
+                "stt": 17,
+                "am": "AM Nhựt",
+                "total_orders": 33322,
+                "return_orders": 1796,
+                "fd_rate": 5.4,
+                "return_share": 6.75,
+                "volume_share": 9.06
             },
             "AM Khánh": {
                 "stt": 18,
                 "am": "AM Khánh",
-                "total_orders": 30090,
-                "return_orders": 1498,
-                "fd_rate": 5.0,
-                "return_share": 5.63,
-                "volume_share": 8.43
+                "total_orders": 31323,
+                "return_orders": 1509,
+                "fd_rate": 4.8,
+                "return_share": 5.67,
+                "volume_share": 8.51
             }
         },
         "po_map": {
-            "(DNO) Kiến Đức": {
-                "stt": 1,
-                "post_office": "(DNO) Kiến Đức",
-                "am": "AM Nga",
-                "total_orders": 3532,
-                "return_orders": 1371,
-                "fd_rate": 38.8,
-                "return_share": 5.15
-            },
             "(DNO) Quảng Tín": {
-                "stt": 2,
+                "stt": 1,
                 "post_office": "(DNO) Quảng Tín",
                 "am": "AM Linh",
-                "total_orders": 2382,
-                "return_orders": 896,
-                "fd_rate": 37.6,
-                "return_share": 3.36
+                "total_orders": 2443,
+                "return_orders": 958,
+                "fd_rate": 39.2,
+                "return_share": 3.6
+            },
+            "(DNO) Kiến Đức": {
+                "stt": 2,
+                "post_office": "(DNO) Kiến Đức",
+                "am": "AM Nga",
+                "total_orders": 3446,
+                "return_orders": 1131,
+                "fd_rate": 32.8,
+                "return_share": 4.25
             },
             "(LDO) Lang Biang - Đà Lạt 1": {
                 "stt": 3,
                 "post_office": "(LDO) Lang Biang - Đà Lạt 1",
                 "am": "AM Lợi",
-                "total_orders": 3426,
-                "return_orders": 534,
-                "fd_rate": 15.6,
-                "return_share": 2.01
+                "total_orders": 3535,
+                "return_orders": 560,
+                "fd_rate": 15.8,
+                "return_share": 2.1
             },
             "(KHO) Cam Linh": {
                 "stt": 4,
                 "post_office": "(KHO) Cam Linh",
                 "am": "AM Long",
-                "total_orders": 6233,
-                "return_orders": 939,
-                "fd_rate": 15.1,
-                "return_share": 3.53
+                "total_orders": 6108,
+                "return_orders": 882,
+                "fd_rate": 14.4,
+                "return_share": 3.32
             },
             "(LDO) Đức Trọng 1": {
                 "stt": 5,
                 "post_office": "(LDO) Đức Trọng 1",
                 "am": "AM Tiến",
-                "total_orders": 2148,
-                "return_orders": 295,
-                "fd_rate": 13.7,
-                "return_share": 1.11
+                "total_orders": 2037,
+                "return_orders": 287,
+                "fd_rate": 14.1,
+                "return_share": 1.08
             },
             "(DNO) Đông Gia Nghĩa": {
                 "stt": 6,
                 "post_office": "(DNO) Đông Gia Nghĩa",
                 "am": "AM Duân",
-                "total_orders": 3116,
-                "return_orders": 404,
-                "fd_rate": 13.0,
-                "return_share": 1.52
+                "total_orders": 3219,
+                "return_orders": 415,
+                "fd_rate": 12.9,
+                "return_share": 1.56
             },
             "(DNO) Tuy Đức": {
                 "stt": 7,
                 "post_office": "(DNO) Tuy Đức",
                 "am": "AM Nhung",
-                "total_orders": 2158,
-                "return_orders": 258,
-                "fd_rate": 12.0,
-                "return_share": 0.97
+                "total_orders": 2148,
+                "return_orders": 268,
+                "fd_rate": 12.5,
+                "return_share": 1.01
             },
             "(DNO) Quảng Khê": {
                 "stt": 8,
                 "post_office": "(DNO) Quảng Khê",
                 "am": "AM Nhung",
-                "total_orders": 1824,
-                "return_orders": 201,
-                "fd_rate": 11.0,
+                "total_orders": 1745,
+                "return_orders": 200,
+                "fd_rate": 11.5,
                 "return_share": 0.75
             },
-            "(DNO) Quảng Sơn": {
-                "stt": 9,
-                "post_office": "(DNO) Quảng Sơn",
-                "am": "AM Nhung",
-                "total_orders": 2529,
-                "return_orders": 273,
-                "fd_rate": 10.8,
-                "return_share": 1.03
-            },
             "(KHO) Tây Nha Trang": {
-                "stt": 10,
+                "stt": 9,
                 "post_office": "(KHO) Tây Nha Trang",
                 "am": "AM Duy",
-                "total_orders": 4486,
-                "return_orders": 478,
-                "fd_rate": 10.7,
-                "return_share": 1.79
+                "total_orders": 4495,
+                "return_orders": 499,
+                "fd_rate": 11.1,
+                "return_share": 1.88
             },
-            "(KHO) Vạn Ninh": {
-                "stt": 11,
-                "post_office": "(KHO) Vạn Ninh",
-                "am": "AM Duy",
-                "total_orders": 3543,
-                "return_orders": 368,
-                "fd_rate": 10.4,
-                "return_share": 1.38
-            },
-            "(DNO) Nhân Cơ": {
-                "stt": 12,
-                "post_office": "(DNO) Nhân Cơ",
-                "am": "AM Duân",
-                "total_orders": 1456,
-                "return_orders": 146,
-                "fd_rate": 10.0,
-                "return_share": 0.55
-            },
-            "(KHO) Nha Trang": {
-                "stt": 13,
-                "post_office": "(KHO) Nha Trang",
-                "am": "AM Duy",
-                "total_orders": 4018,
-                "return_orders": 391,
-                "fd_rate": 9.7,
-                "return_share": 1.47
-            },
-            "(KHO) Khánh Vĩnh": {
-                "stt": 14,
-                "post_office": "(KHO) Khánh Vĩnh",
-                "am": "AM Phi",
-                "total_orders": 1668,
-                "return_orders": 161,
-                "fd_rate": 9.7,
-                "return_share": 0.6
-            },
-            "(DNO) Đức An": {
-                "stt": 15,
-                "post_office": "(DNO) Đức An",
+            "(DNO) Quảng Sơn": {
+                "stt": 10,
+                "post_office": "(DNO) Quảng Sơn",
                 "am": "AM Nhung",
-                "total_orders": 3281,
-                "return_orders": 316,
-                "fd_rate": 9.6,
-                "return_share": 1.19
+                "total_orders": 2548,
+                "return_orders": 279,
+                "fd_rate": 11.0,
+                "return_share": 1.05
             },
             "(LDO) Lâm Viên - Đà Lạt 2": {
-                "stt": 16,
+                "stt": 11,
                 "post_office": "(LDO) Lâm Viên - Đà Lạt 2",
                 "am": "AM Trường",
-                "total_orders": 2284,
-                "return_orders": 219,
+                "total_orders": 2156,
+                "return_orders": 225,
+                "fd_rate": 10.4,
+                "return_share": 0.85
+            },
+            "(KHO) Khánh Vĩnh": {
+                "stt": 12,
+                "post_office": "(KHO) Khánh Vĩnh",
+                "am": "AM Phi",
+                "total_orders": 1738,
+                "return_orders": 177,
+                "fd_rate": 10.2,
+                "return_share": 0.67
+            },
+            "(DNO) Trường Xuân": {
+                "stt": 13,
+                "post_office": "(DNO) Trường Xuân",
+                "am": "AM Nhung",
+                "total_orders": 2193,
+                "return_orders": 212,
+                "fd_rate": 9.7,
+                "return_share": 0.8
+            },
+            "(KHO) Bắc Cam Ranh": {
+                "stt": 14,
+                "post_office": "(KHO) Bắc Cam Ranh",
+                "am": "AM Long",
+                "total_orders": 2253,
+                "return_orders": 217,
                 "fd_rate": 9.6,
                 "return_share": 0.82
             },
-            "(KHO) Bắc Cam Ranh": {
-                "stt": 17,
-                "post_office": "(KHO) Bắc Cam Ranh",
-                "am": "AM Long",
-                "total_orders": 2231,
-                "return_orders": 210,
-                "fd_rate": 9.4,
-                "return_share": 0.79
+            "(KHO) Vạn Ninh": {
+                "stt": 15,
+                "post_office": "(KHO) Vạn Ninh",
+                "am": "AM Duy",
+                "total_orders": 3675,
+                "return_orders": 353,
+                "fd_rate": 9.6,
+                "return_share": 1.33
             },
-            "(DNO) Trường Xuân": {
-                "stt": 18,
-                "post_office": "(DNO) Trường Xuân",
+            "(DNO) Đức An": {
+                "stt": 16,
+                "post_office": "(DNO) Đức An",
                 "am": "AM Nhung",
-                "total_orders": 2272,
-                "return_orders": 207,
-                "fd_rate": 9.1,
-                "return_share": 0.78
+                "total_orders": 3271,
+                "return_orders": 312,
+                "fd_rate": 9.5,
+                "return_share": 1.17
+            },
+            "(DNO) Nhân Cơ": {
+                "stt": 17,
+                "post_office": "(DNO) Nhân Cơ",
+                "am": "AM Duân",
+                "total_orders": 1439,
+                "return_orders": 135,
+                "fd_rate": 9.4,
+                "return_share": 0.51
             },
             "(LDO) Đơn Dương": {
-                "stt": 19,
+                "stt": 18,
                 "post_office": "(LDO) Đơn Dương",
                 "am": "AM Trường",
-                "total_orders": 8213,
-                "return_orders": 732,
-                "fd_rate": 8.9,
-                "return_share": 2.75
+                "total_orders": 8437,
+                "return_orders": 769,
+                "fd_rate": 9.1,
+                "return_share": 2.89
+            },
+            "(KHO) Nha Trang": {
+                "stt": 19,
+                "post_office": "(KHO) Nha Trang",
+                "am": "AM Duy",
+                "total_orders": 4199,
+                "return_orders": 380,
+                "fd_rate": 9.1,
+                "return_share": 1.43
             },
             "(LDO) Tân Hà Lâm Hà": {
                 "stt": 20,
                 "post_office": "(LDO) Tân Hà Lâm Hà",
                 "am": "AM Chi",
-                "total_orders": 3163,
-                "return_orders": 280,
-                "fd_rate": 8.9,
-                "return_share": 1.05
-            },
-            "(NTH) Phước Dinh": {
-                "stt": 21,
-                "post_office": "(NTH) Phước Dinh",
-                "am": "AM D.Long",
-                "total_orders": 7201,
-                "return_orders": 624,
+                "total_orders": 3226,
+                "return_orders": 282,
                 "fd_rate": 8.7,
-                "return_share": 2.34
-            },
-            "(LDO) Cát Tiên": {
-                "stt": 22,
-                "post_office": "(LDO) Cát Tiên",
-                "am": "AM Vũ",
-                "total_orders": 2745,
-                "return_orders": 238,
-                "fd_rate": 8.7,
-                "return_share": 0.89
+                "return_share": 1.06
             },
             "(KHO) Diên Thọ": {
-                "stt": 23,
+                "stt": 21,
                 "post_office": "(KHO) Diên Thọ",
                 "am": "AM Phi",
-                "total_orders": 3025,
-                "return_orders": 258,
-                "fd_rate": 8.5,
-                "return_share": 0.97
+                "total_orders": 3085,
+                "return_orders": 268,
+                "fd_rate": 8.7,
+                "return_share": 1.01
+            },
+            "(NTH) Phước Dinh": {
+                "stt": 22,
+                "post_office": "(NTH) Phước Dinh",
+                "am": "AM D.Long",
+                "total_orders": 7528,
+                "return_orders": 646,
+                "fd_rate": 8.6,
+                "return_share": 2.43
             },
             "(KHO) Cam Lâm 1": {
-                "stt": 24,
+                "stt": 23,
                 "post_office": "(KHO) Cam Lâm 1",
                 "am": "AM Phi",
-                "total_orders": 2960,
-                "return_orders": 252,
+                "total_orders": 3077,
+                "return_orders": 260,
                 "fd_rate": 8.5,
-                "return_share": 0.95
-            },
-            "(KHO) Diên Khánh 1": {
-                "stt": 25,
-                "post_office": "(KHO) Diên Khánh 1",
-                "am": "AM Phi",
-                "total_orders": 2537,
-                "return_orders": 216,
-                "fd_rate": 8.5,
-                "return_share": 0.81
+                "return_share": 0.98
             },
             "(KHO) Diên Khánh 2": {
-                "stt": 26,
+                "stt": 24,
                 "post_office": "(KHO) Diên Khánh 2",
                 "am": "AM Phi",
-                "total_orders": 5121,
-                "return_orders": 426,
+                "total_orders": 5413,
+                "return_orders": 450,
                 "fd_rate": 8.3,
-                "return_share": 1.6
+                "return_share": 1.69
+            },
+            "(LDO) Cát Tiên": {
+                "stt": 25,
+                "post_office": "(LDO) Cát Tiên",
+                "am": "AM Vũ",
+                "total_orders": 2943,
+                "return_orders": 240,
+                "fd_rate": 8.2,
+                "return_share": 0.9
             },
             "(DNO) Krông Nô": {
-                "stt": 27,
+                "stt": 26,
                 "post_office": "(DNO) Krông Nô",
                 "am": "AM Nhung",
-                "total_orders": 4203,
-                "return_orders": 342,
+                "total_orders": 4380,
+                "return_orders": 353,
                 "fd_rate": 8.1,
-                "return_share": 1.28
+                "return_share": 1.33
             },
-            "(LDO) Lâm Viên - Đà Lạt 1": {
+            "(KHO) Diên Khánh 1": {
+                "stt": 27,
+                "post_office": "(KHO) Diên Khánh 1",
+                "am": "AM Phi",
+                "total_orders": 2705,
+                "return_orders": 215,
+                "fd_rate": 8.0,
+                "return_share": 0.81
+            },
+            "(LDO) Hòa Ninh": {
                 "stt": 28,
-                "post_office": "(LDO) Lâm Viên - Đà Lạt 1",
-                "am": "AM Trường",
-                "total_orders": 4530,
-                "return_orders": 366,
-                "fd_rate": 8.1,
-                "return_share": 1.37
+                "post_office": "(LDO) Hòa Ninh",
+                "am": "AM Nga",
+                "total_orders": 3141,
+                "return_orders": 239,
+                "fd_rate": 7.6,
+                "return_share": 0.9
             },
             "(LDO) Xuân Trường - Đà Lạt": {
                 "stt": 29,
                 "post_office": "(LDO) Xuân Trường - Đà Lạt",
                 "am": "AM Trường",
-                "total_orders": 2255,
+                "total_orders": 2348,
                 "return_orders": 177,
-                "fd_rate": 7.9,
-                "return_share": 0.66
-            },
-            "(KHO) Đông Ninh Hòa": {
-                "stt": 30,
-                "post_office": "(KHO) Đông Ninh Hòa",
-                "am": "AM Duy",
-                "total_orders": 4051,
-                "return_orders": 309,
-                "fd_rate": 7.6,
-                "return_share": 1.16
-            },
-            "(LDO) Đức Trọng 2": {
-                "stt": 31,
-                "post_office": "(LDO) Đức Trọng 2",
-                "am": "AM Thơ",
-                "total_orders": 3697,
-                "return_orders": 279,
-                "fd_rate": 7.6,
-                "return_share": 1.05
-            },
-            "(LDO) Hòa Ninh": {
-                "stt": 32,
-                "post_office": "(LDO) Hòa Ninh",
-                "am": "AM Nga",
-                "total_orders": 3091,
-                "return_orders": 233,
                 "fd_rate": 7.5,
-                "return_share": 0.87
+                "return_share": 0.67
             },
             "(BTH) Hàm Tân": {
-                "stt": 33,
+                "stt": 30,
                 "post_office": "(BTH) Hàm Tân",
                 "am": "AM Thủy",
-                "total_orders": 4222,
-                "return_orders": 314,
-                "fd_rate": 7.4,
-                "return_share": 1.18
+                "total_orders": 4323,
+                "return_orders": 323,
+                "fd_rate": 7.5,
+                "return_share": 1.21
             },
-            "(LDO) Bảo Lâm 3": {
-                "stt": 34,
-                "post_office": "(LDO) Bảo Lâm 3",
-                "am": "AM Nga",
-                "total_orders": 2047,
-                "return_orders": 151,
-                "fd_rate": 7.4,
-                "return_share": 0.57
+            "(LDO) Lâm Viên - Đà Lạt 1": {
+                "stt": 31,
+                "post_office": "(LDO) Lâm Viên - Đà Lạt 1",
+                "am": "AM Trường",
+                "total_orders": 4937,
+                "return_orders": 360,
+                "fd_rate": 7.3,
+                "return_share": 1.35
             },
-            "(LDO) Di Linh": {
-                "stt": 35,
-                "post_office": "(LDO) Di Linh",
-                "am": "AM Tiến",
-                "total_orders": 5565,
-                "return_orders": 409,
-                "fd_rate": 7.4,
-                "return_share": 1.54
+            "(LDO) Đức Trọng 2": {
+                "stt": 32,
+                "post_office": "(LDO) Đức Trọng 2",
+                "am": "AM Thơ",
+                "total_orders": 3778,
+                "return_orders": 275,
+                "fd_rate": 7.3,
+                "return_share": 1.03
+            },
+            "(KHO) Đông Ninh Hòa": {
+                "stt": 33,
+                "post_office": "(KHO) Đông Ninh Hòa",
+                "am": "AM Duy",
+                "total_orders": 4244,
+                "return_orders": 308,
+                "fd_rate": 7.3,
+                "return_share": 1.16
             },
             "(DNO) Bắc Gia Nghĩa": {
-                "stt": 36,
+                "stt": 34,
                 "post_office": "(DNO) Bắc Gia Nghĩa",
                 "am": "AM Duân",
-                "total_orders": 2342,
-                "return_orders": 166,
-                "fd_rate": 7.1,
-                "return_share": 0.62
+                "total_orders": 2327,
+                "return_orders": 168,
+                "fd_rate": 7.2,
+                "return_share": 0.63
             },
             "(NTH) Bảo An": {
-                "stt": 37,
+                "stt": 35,
                 "post_office": "(NTH) Bảo An",
                 "am": "AM D.Long",
-                "total_orders": 4283,
-                "return_orders": 303,
+                "total_orders": 4530,
+                "return_orders": 323,
                 "fd_rate": 7.1,
-                "return_share": 1.14
-            },
-            "(KHO) Nam Nha Trang 1": {
-                "stt": 38,
-                "post_office": "(KHO) Nam Nha Trang 1",
-                "am": "AM Thư",
-                "total_orders": 5172,
-                "return_orders": 364,
-                "fd_rate": 7.0,
-                "return_share": 1.37
+                "return_share": 1.21
             },
             "(LDO) Xuân Hương - Đà Lạt": {
-                "stt": 39,
+                "stt": 36,
                 "post_office": "(LDO) Xuân Hương - Đà Lạt",
                 "am": "AM Trường",
-                "total_orders": 5355,
-                "return_orders": 376,
-                "fd_rate": 7.0,
-                "return_share": 1.41
+                "total_orders": 5358,
+                "return_orders": 380,
+                "fd_rate": 7.1,
+                "return_share": 1.43
             },
             "(NTH) Ninh Sơn": {
-                "stt": 40,
+                "stt": 37,
                 "post_office": "(NTH) Ninh Sơn",
                 "am": "AM D.Long",
-                "total_orders": 4102,
-                "return_orders": 283,
+                "total_orders": 3977,
+                "return_orders": 278,
+                "fd_rate": 7.0,
+                "return_share": 1.04
+            },
+            "(LDO) Bảo Lâm 3": {
+                "stt": 38,
+                "post_office": "(LDO) Bảo Lâm 3",
+                "am": "AM Nga",
+                "total_orders": 2221,
+                "return_orders": 155,
+                "fd_rate": 7.0,
+                "return_share": 0.58
+            },
+            "(KHO) Nam Nha Trang 1": {
+                "stt": 39,
+                "post_office": "(KHO) Nam Nha Trang 1",
+                "am": "AM Thư",
+                "total_orders": 5374,
+                "return_orders": 368,
                 "fd_rate": 6.9,
-                "return_share": 1.06
+                "return_share": 1.38
+            },
+            "(LDO) Di Linh": {
+                "stt": 40,
+                "post_office": "(LDO) Di Linh",
+                "am": "AM Tiến",
+                "total_orders": 5638,
+                "return_orders": 378,
+                "fd_rate": 6.7,
+                "return_share": 1.42
             },
             "(DNO) Cư Jút": {
                 "stt": 41,
                 "post_office": "(DNO) Cư Jút",
                 "am": "AM Nhung",
-                "total_orders": 4711,
-                "return_orders": 324,
-                "fd_rate": 6.9,
-                "return_share": 1.22
+                "total_orders": 4739,
+                "return_orders": 314,
+                "fd_rate": 6.6,
+                "return_share": 1.18
             },
             "(KHO) Bắc Nha Trang": {
                 "stt": 42,
                 "post_office": "(KHO) Bắc Nha Trang",
                 "am": "AM Thư",
-                "total_orders": 12440,
-                "return_orders": 843,
-                "fd_rate": 6.8,
-                "return_share": 3.17
-            },
-            "(BTH) Mũi Né": {
-                "stt": 43,
-                "post_office": "(BTH) Mũi Né",
-                "am": "AM Khánh",
-                "total_orders": 4437,
-                "return_orders": 292,
+                "total_orders": 12889,
+                "return_orders": 847,
                 "fd_rate": 6.6,
-                "return_share": 1.1
-            },
-            "(DNO) Đức Lập": {
-                "stt": 44,
-                "post_office": "(DNO) Đức Lập",
-                "am": "AM Nhung",
-                "total_orders": 6998,
-                "return_orders": 450,
-                "fd_rate": 6.4,
-                "return_share": 1.69
-            },
-            "(LDO) Đam Rông 3": {
-                "stt": 45,
-                "post_office": "(LDO) Đam Rông 3",
-                "am": "AM Chi",
-                "total_orders": 3459,
-                "return_orders": 222,
-                "fd_rate": 6.4,
-                "return_share": 0.83
+                "return_share": 3.18
             },
             "(NTH) Thuận Nam": {
-                "stt": 46,
+                "stt": 43,
                 "post_office": "(NTH) Thuận Nam",
                 "am": "AM D.Long",
-                "total_orders": 3006,
-                "return_orders": 193,
-                "fd_rate": 6.4,
-                "return_share": 0.72
+                "total_orders": 3124,
+                "return_orders": 203,
+                "fd_rate": 6.5,
+                "return_share": 0.76
             },
-            "(BTH) Tuyên Quang": {
-                "stt": 47,
-                "post_office": "(BTH) Tuyên Quang",
-                "am": "AM Nhựt",
-                "total_orders": 6115,
-                "return_orders": 392,
-                "fd_rate": 6.4,
-                "return_share": 1.47
+            "(BTH) Mũi Né": {
+                "stt": 44,
+                "post_office": "(BTH) Mũi Né",
+                "am": "AM Khánh",
+                "total_orders": 4549,
+                "return_orders": 286,
+                "fd_rate": 6.3,
+                "return_share": 1.07
+            },
+            "(DNO) Đức Lập": {
+                "stt": 45,
+                "post_office": "(DNO) Đức Lập",
+                "am": "AM Nhung",
+                "total_orders": 7251,
+                "return_orders": 447,
+                "fd_rate": 6.2,
+                "return_share": 1.68
             },
             "(KHO) CK Diên Điền": {
-                "stt": 48,
+                "stt": 46,
                 "post_office": "(KHO) CK Diên Điền",
                 "am": "AM Duy",
-                "total_orders": 491,
-                "return_orders": 30,
+                "total_orders": 473,
+                "return_orders": 29,
                 "fd_rate": 6.1,
                 "return_share": 0.11
             },
-            "(LDO) Ninh Gia": {
-                "stt": 49,
-                "post_office": "(LDO) Ninh Gia",
-                "am": "AM Thơ",
-                "total_orders": 2809,
-                "return_orders": 171,
-                "fd_rate": 6.1,
-                "return_share": 0.64
-            },
-            "(BTH) Phước Hội": {
-                "stt": 50,
-                "post_office": "(BTH) Phước Hội",
-                "am": "AM Thủy",
-                "total_orders": 7696,
-                "return_orders": 464,
-                "fd_rate": 6.0,
-                "return_share": 1.74
-            },
             "(KHO) Ninh Hòa 2": {
-                "stt": 51,
+                "stt": 47,
                 "post_office": "(KHO) Ninh Hòa 2",
                 "am": "AM Phi",
-                "total_orders": 6866,
-                "return_orders": 413,
-                "fd_rate": 6.0,
-                "return_share": 1.55
+                "total_orders": 7104,
+                "return_orders": 432,
+                "fd_rate": 6.1,
+                "return_share": 1.62
             },
-            "(NTH) Phan Rang": {
-                "stt": 52,
-                "post_office": "(NTH) Phan Rang",
-                "am": "AM D.Long",
-                "total_orders": 10828,
-                "return_orders": 651,
+            "(BTH) Tuyên Quang": {
+                "stt": 48,
+                "post_office": "(BTH) Tuyên Quang",
+                "am": "AM Nhựt",
+                "total_orders": 6491,
+                "return_orders": 388,
                 "fd_rate": 6.0,
-                "return_share": 2.44
-            },
-            "(KHO) Nam Nha Trang 5": {
-                "stt": 53,
-                "post_office": "(KHO) Nam Nha Trang 5",
-                "am": "AM Thư",
-                "total_orders": 2021,
-                "return_orders": 121,
-                "fd_rate": 6.0,
-                "return_share": 0.45
-            },
-            "(KHO) Ninh Hòa 1": {
-                "stt": 54,
-                "post_office": "(KHO) Ninh Hòa 1",
-                "am": "AM Phi",
-                "total_orders": 2633,
-                "return_orders": 157,
-                "fd_rate": 6.0,
-                "return_share": 0.59
+                "return_share": 1.46
             },
             "(KHO) Nam Nha Trang 3": {
-                "stt": 55,
+                "stt": 49,
                 "post_office": "(KHO) Nam Nha Trang 3",
                 "am": "AM Thư",
-                "total_orders": 3460,
-                "return_orders": 202,
-                "fd_rate": 5.8,
-                "return_share": 0.76
-            },
-            "(BTH) Hàm Thuận Nam": {
-                "stt": 56,
-                "post_office": "(BTH) Hàm Thuận Nam",
-                "am": "AM Thủy",
-                "total_orders": 2601,
-                "return_orders": 151,
-                "fd_rate": 5.8,
-                "return_share": 0.57
-            },
-            "(BTH) Đồng Kho": {
-                "stt": 57,
-                "post_office": "(BTH) Đồng Kho",
-                "am": "AM Nhựt",
-                "total_orders": 6280,
-                "return_orders": 364,
-                "fd_rate": 5.8,
-                "return_share": 1.37
-            },
-            "(LDO) Lang Biang - Đà Lạt 2": {
-                "stt": 58,
-                "post_office": "(LDO) Lang Biang - Đà Lạt 2",
-                "am": "AM Trường",
-                "total_orders": 9079,
-                "return_orders": 524,
-                "fd_rate": 5.8,
-                "return_share": 1.97
-            },
-            "(BTH) Tân Hải": {
-                "stt": 59,
-                "post_office": "(BTH) Tân Hải",
-                "am": "AM Thủy",
-                "total_orders": 3715,
-                "return_orders": 212,
-                "fd_rate": 5.7,
+                "total_orders": 3619,
+                "return_orders": 214,
+                "fd_rate": 5.9,
                 "return_share": 0.8
             },
-            "(LDO) B'Lao": {
-                "stt": 60,
-                "post_office": "(LDO) B'Lao",
-                "am": "AM Nga",
-                "total_orders": 6170,
-                "return_orders": 347,
-                "fd_rate": 5.6,
-                "return_share": 1.3
+            "(LDO) Đam Rông 3": {
+                "stt": 50,
+                "post_office": "(LDO) Đam Rông 3",
+                "am": "AM Chi",
+                "total_orders": 3691,
+                "return_orders": 218,
+                "fd_rate": 5.9,
+                "return_share": 0.82
             },
             "(KHO) Tu Bông": {
-                "stt": 61,
+                "stt": 51,
                 "post_office": "(KHO) Tu Bông",
                 "am": "AM Duy",
-                "total_orders": 3707,
-                "return_orders": 208,
-                "fd_rate": 5.6,
-                "return_share": 0.78
+                "total_orders": 3771,
+                "return_orders": 222,
+                "fd_rate": 5.9,
+                "return_share": 0.83
+            },
+            "(KHO) Nam Nha Trang 5": {
+                "stt": 52,
+                "post_office": "(KHO) Nam Nha Trang 5",
+                "am": "AM Thư",
+                "total_orders": 2033,
+                "return_orders": 119,
+                "fd_rate": 5.9,
+                "return_share": 0.45
+            },
+            "(LDO) Ninh Gia": {
+                "stt": 53,
+                "post_office": "(LDO) Ninh Gia",
+                "am": "AM Thơ",
+                "total_orders": 2924,
+                "return_orders": 170,
+                "fd_rate": 5.8,
+                "return_share": 0.64
+            },
+            "(NTH) Phan Rang": {
+                "stt": 54,
+                "post_office": "(NTH) Phan Rang",
+                "am": "AM D.Long",
+                "total_orders": 11316,
+                "return_orders": 643,
+                "fd_rate": 5.7,
+                "return_share": 2.42
             },
             "(KHO) Cam Lâm 2": {
-                "stt": 62,
+                "stt": 55,
                 "post_office": "(KHO) Cam Lâm 2",
                 "am": "AM Long",
-                "total_orders": 5688,
-                "return_orders": 318,
+                "total_orders": 5718,
+                "return_orders": 322,
                 "fd_rate": 5.6,
-                "return_share": 1.19
+                "return_share": 1.21
+            },
+            "(KHO) Ninh Hòa 1": {
+                "stt": 56,
+                "post_office": "(KHO) Ninh Hòa 1",
+                "am": "AM Phi",
+                "total_orders": 2703,
+                "return_orders": 152,
+                "fd_rate": 5.6,
+                "return_share": 0.57
+            },
+            "(BTH) Phước Hội": {
+                "stt": 57,
+                "post_office": "(BTH) Phước Hội",
+                "am": "AM Thủy",
+                "total_orders": 7864,
+                "return_orders": 441,
+                "fd_rate": 5.6,
+                "return_share": 1.66
+            },
+            "(BTH) Hàm Thuận Nam": {
+                "stt": 58,
+                "post_office": "(BTH) Hàm Thuận Nam",
+                "am": "AM Thủy",
+                "total_orders": 2660,
+                "return_orders": 148,
+                "fd_rate": 5.6,
+                "return_share": 0.56
+            },
+            "(LDO) B'Lao": {
+                "stt": 59,
+                "post_office": "(LDO) B'Lao",
+                "am": "AM Nga",
+                "total_orders": 6378,
+                "return_orders": 351,
+                "fd_rate": 5.5,
+                "return_share": 1.32
+            },
+            "(BTH) Hàm Liêm": {
+                "stt": 60,
+                "post_office": "(BTH) Hàm Liêm",
+                "am": "AM Nhựt",
+                "total_orders": 5630,
+                "return_orders": 306,
+                "fd_rate": 5.4,
+                "return_share": 1.15
+            },
+            "(BTH) Đồng Kho": {
+                "stt": 61,
+                "post_office": "(BTH) Đồng Kho",
+                "am": "AM Nhựt",
+                "total_orders": 6495,
+                "return_orders": 350,
+                "fd_rate": 5.4,
+                "return_share": 1.32
+            },
+            "(LDO) Lang Biang - Đà Lạt 2": {
+                "stt": 62,
+                "post_office": "(LDO) Lang Biang - Đà Lạt 2",
+                "am": "AM Trường",
+                "total_orders": 9513,
+                "return_orders": 507,
+                "fd_rate": 5.3,
+                "return_share": 1.91
             },
             "(BTH) Liên Hương": {
                 "stt": 63,
                 "post_office": "(BTH) Liên Hương",
                 "am": "AM D.Long",
-                "total_orders": 5638,
-                "return_orders": 307,
-                "fd_rate": 5.5,
-                "return_share": 1.15
-            },
-            "(BTH) Hàm Liêm": {
-                "stt": 64,
-                "post_office": "(BTH) Hàm Liêm",
-                "am": "AM Nhựt",
-                "total_orders": 5349,
-                "return_orders": 291,
-                "fd_rate": 5.4,
-                "return_share": 1.09
-            },
-            "(LDO) Nam Ban Lâm Hà": {
-                "stt": 65,
-                "post_office": "(LDO) Nam Ban Lâm Hà",
-                "am": "AM Chi",
-                "total_orders": 2745,
-                "return_orders": 149,
-                "fd_rate": 5.4,
-                "return_share": 0.56
+                "total_orders": 5836,
+                "return_orders": 308,
+                "fd_rate": 5.3,
+                "return_share": 1.16
             },
             "(BTH) Phú Thủy": {
-                "stt": 66,
+                "stt": 64,
                 "post_office": "(BTH) Phú Thủy",
                 "am": "AM Khánh",
-                "total_orders": 8574,
-                "return_orders": 464,
-                "fd_rate": 5.4,
-                "return_share": 1.74
+                "total_orders": 8995,
+                "return_orders": 472,
+                "fd_rate": 5.3,
+                "return_share": 1.77
+            },
+            "(BTH) Tân Hải": {
+                "stt": 65,
+                "post_office": "(BTH) Tân Hải",
+                "am": "AM Thủy",
+                "total_orders": 3807,
+                "return_orders": 200,
+                "fd_rate": 5.3,
+                "return_share": 0.75
+            },
+            "(LDO) 3 Bảo Lộc": {
+                "stt": 66,
+                "post_office": "(LDO) 3 Bảo Lộc",
+                "am": "AM Vũ",
+                "total_orders": 5596,
+                "return_orders": 293,
+                "fd_rate": 5.2,
+                "return_share": 1.1
             },
             "(BTH) Đức Linh": {
                 "stt": 67,
                 "post_office": "(BTH) Đức Linh",
                 "am": "AM Nhựt",
-                "total_orders": 8124,
-                "return_orders": 439,
-                "fd_rate": 5.4,
-                "return_share": 1.65
-            },
-            "(KHO) Nam Nha Trang 2": {
-                "stt": 68,
-                "post_office": "(KHO) Nam Nha Trang 2",
-                "am": "AM Thư",
-                "total_orders": 3689,
-                "return_orders": 196,
-                "fd_rate": 5.3,
-                "return_share": 0.74
+                "total_orders": 8248,
+                "return_orders": 428,
+                "fd_rate": 5.2,
+                "return_share": 1.61
             },
             "(BTH) Hàm Thắng": {
-                "stt": 69,
+                "stt": 68,
                 "post_office": "(BTH) Hàm Thắng",
                 "am": "AM Khánh",
-                "total_orders": 7084,
-                "return_orders": 365,
-                "fd_rate": 5.2,
-                "return_share": 1.37
-            },
-            "(LDO) 3 Bảo Lộc": {
-                "stt": 70,
-                "post_office": "(LDO) 3 Bảo Lộc",
-                "am": "AM Vũ",
-                "total_orders": 5541,
-                "return_orders": 285,
+                "total_orders": 7268,
+                "return_orders": 370,
                 "fd_rate": 5.1,
-                "return_share": 1.07
+                "return_share": 1.39
+            },
+            "(LDO) Nam Ban Lâm Hà": {
+                "stt": 69,
+                "post_office": "(LDO) Nam Ban Lâm Hà",
+                "am": "AM Chi",
+                "total_orders": 2927,
+                "return_orders": 149,
+                "fd_rate": 5.1,
+                "return_share": 0.56
             },
             "(BTH) Hàm Thuận": {
-                "stt": 71,
+                "stt": 70,
                 "post_office": "(BTH) Hàm Thuận",
                 "am": "AM Nhựt",
-                "total_orders": 6354,
-                "return_orders": 325,
-                "fd_rate": 5.1,
+                "total_orders": 6458,
+                "return_orders": 324,
+                "fd_rate": 5.0,
                 "return_share": 1.22
+            },
+            "(KHO) Nam Nha Trang 2": {
+                "stt": 71,
+                "post_office": "(KHO) Nam Nha Trang 2",
+                "am": "AM Thư",
+                "total_orders": 3828,
+                "return_orders": 186,
+                "fd_rate": 4.9,
+                "return_share": 0.7
             },
             "(LDO) Đinh Văn Lâm Hà": {
                 "stt": 72,
                 "post_office": "(LDO) Đinh Văn Lâm Hà",
                 "am": "AM Chi",
-                "total_orders": 4704,
-                "return_orders": 228,
-                "fd_rate": 4.9,
-                "return_share": 0.86
-            },
-            "(KHO) Khánh Sơn": {
-                "stt": 73,
-                "post_office": "(KHO) Khánh Sơn",
-                "am": "AM Duy",
-                "total_orders": 1781,
-                "return_orders": 86,
+                "total_orders": 4950,
+                "return_orders": 239,
                 "fd_rate": 4.8,
-                "return_share": 0.32
+                "return_share": 0.9
             },
-            "(BTH) Phan Rí Cửa": {
-                "stt": 74,
-                "post_office": "(BTH) Phan Rí Cửa",
-                "am": "AM D.Long",
-                "total_orders": 4005,
-                "return_orders": 189,
-                "fd_rate": 4.7,
-                "return_share": 0.71
+            "(LDO) Đạ Huoai": {
+                "stt": 73,
+                "post_office": "(LDO) Đạ Huoai",
+                "am": "AM Vũ",
+                "total_orders": 3277,
+                "return_orders": 157,
+                "fd_rate": 4.8,
+                "return_share": 0.59
             },
             "(KHO) CK Bắc Nha Trang": {
-                "stt": 75,
+                "stt": 74,
                 "post_office": "(KHO) CK Bắc Nha Trang",
                 "am": "AM Thư",
-                "total_orders": 638,
-                "return_orders": 30,
+                "total_orders": 674,
+                "return_orders": 32,
+                "fd_rate": 4.8,
+                "return_share": 0.12
+            },
+            "(KHO) Khánh Sơn": {
+                "stt": 75,
+                "post_office": "(KHO) Khánh Sơn",
+                "am": "AM Duy",
+                "total_orders": 1800,
+                "return_orders": 85,
                 "fd_rate": 4.7,
-                "return_share": 0.11
+                "return_share": 0.32
             },
             "(LDO) Đạ Tẻh": {
                 "stt": 76,
                 "post_office": "(LDO) Đạ Tẻh",
                 "am": "AM Vũ",
-                "total_orders": 3602,
-                "return_orders": 169,
+                "total_orders": 3828,
+                "return_orders": 179,
+                "fd_rate": 4.7,
+                "return_share": 0.67
+            },
+            "(LDO) Hiệp Thạnh": {
+                "stt": 77,
+                "post_office": "(LDO) Hiệp Thạnh",
+                "am": "AM Thơ",
+                "total_orders": 3607,
+                "return_orders": 168,
                 "fd_rate": 4.7,
                 "return_share": 0.63
             },
-            "(LDO) Đạ Huoai": {
-                "stt": 77,
-                "post_office": "(LDO) Đạ Huoai",
-                "am": "AM Vũ",
-                "total_orders": 3148,
-                "return_orders": 144,
-                "fd_rate": 4.6,
-                "return_share": 0.54
-            },
-            "(LDO) Hiệp Thạnh": {
-                "stt": 78,
-                "post_office": "(LDO) Hiệp Thạnh",
-                "am": "AM Thơ",
-                "total_orders": 3489,
-                "return_orders": 158,
-                "fd_rate": 4.5,
-                "return_share": 0.59
-            },
             "(LDO) 1 Bảo Lộc": {
-                "stt": 79,
+                "stt": 78,
                 "post_office": "(LDO) 1 Bảo Lộc",
                 "am": "AM Nga",
-                "total_orders": 5094,
-                "return_orders": 223,
-                "fd_rate": 4.4,
-                "return_share": 0.84
+                "total_orders": 5410,
+                "return_orders": 234,
+                "fd_rate": 4.3,
+                "return_share": 0.88
             },
             "(LDO) Bảo Lâm 1": {
-                "stt": 80,
+                "stt": 79,
                 "post_office": "(LDO) Bảo Lâm 1",
                 "am": "AM Nga",
-                "total_orders": 3453,
-                "return_orders": 144,
+                "total_orders": 3518,
+                "return_orders": 152,
+                "fd_rate": 4.3,
+                "return_share": 0.57
+            },
+            "(BTH) Phan Rí Cửa": {
+                "stt": 80,
+                "post_office": "(BTH) Phan Rí Cửa",
+                "am": "AM D.Long",
+                "total_orders": 4426,
+                "return_orders": 185,
                 "fd_rate": 4.2,
-                "return_share": 0.54
+                "return_share": 0.7
             },
             "(NTH) Ninh Chử": {
                 "stt": 81,
                 "post_office": "(NTH) Ninh Chử",
                 "am": "AM D.Long",
-                "total_orders": 6047,
-                "return_orders": 247,
-                "fd_rate": 4.1,
-                "return_share": 0.93
-            },
-            "(BTH) Lương Sơn": {
-                "stt": 82,
-                "post_office": "(BTH) Lương Sơn",
-                "am": "AM Khánh",
-                "total_orders": 2812,
-                "return_orders": 112,
-                "fd_rate": 4.0,
-                "return_share": 0.42
+                "total_orders": 6404,
+                "return_orders": 250,
+                "fd_rate": 3.9,
+                "return_share": 0.94
             },
             "(BTH) Bắc Bình": {
-                "stt": 83,
+                "stt": 82,
                 "post_office": "(BTH) Bắc Bình",
                 "am": "AM Khánh",
-                "total_orders": 4040,
-                "return_orders": 158,
+                "total_orders": 4234,
+                "return_orders": 165,
                 "fd_rate": 3.9,
-                "return_share": 0.59
+                "return_share": 0.62
+            },
+            "(BTH) Lương Sơn": {
+                "stt": 83,
+                "post_office": "(BTH) Lương Sơn",
+                "am": "AM Khánh",
+                "total_orders": 2904,
+                "return_orders": 103,
+                "fd_rate": 3.6,
+                "return_share": 0.39
             },
             "(BTH) Phú Quý": {
                 "stt": 84,
                 "post_office": "(BTH) Phú Quý",
                 "am": "AM Khánh",
-                "total_orders": 3143,
-                "return_orders": 107,
+                "total_orders": 3373,
+                "return_orders": 113,
                 "fd_rate": 3.4,
-                "return_share": 0.4
+                "return_share": 0.42
             }
         }
     }

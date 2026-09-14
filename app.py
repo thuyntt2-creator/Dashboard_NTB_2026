@@ -5,6 +5,7 @@ if hasattr(sys.stderr, 'reconfigure'):
     sys.stderr.reconfigure(encoding='utf-8')
 
 import os
+import subprocess
 from dotenv import load_dotenv
 load_dotenv(override=True)
 import json
@@ -6989,6 +6990,16 @@ def get_transport_costs():
 @app.route('/api/sync-transport-costs', methods=['POST', 'GET'])
 def api_sync_transport_costs():
     try:
+        # Kiểm tra môi trường Vercel hoặc thiếu authorized_user.json
+        has_credentials = os.path.exists('authorized_user.json') or os.path.exists(os.path.join(os.path.dirname(__file__), 'authorized_user.json'))
+        is_vercel = os.environ.get('VERCEL') == '1' or not has_credentials
+        
+        if is_vercel:
+            return jsonify({
+                "status": "notice",
+                "message": "Web Vercel hoạt động ở chế độ bảo mật Serverless (không chứa token Google cá nhân). Để đồng bộ số liệu mới nhất từ 7 Google Sheets NCC, bạn hãy chạy file 'DONG_BO_CHI_PHI_NCC.bat' trên máy tính, hệ thống sẽ tự động quét và đẩy số liệu mới lên web!"
+            }), 200
+
         sync_script = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'scratch', 'sync_ncc_transport_costs.py')
         if os.path.exists(sync_script):
             res = subprocess.run([sys.executable, sync_script], capture_output=True, text=True, timeout=120)

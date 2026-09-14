@@ -14816,6 +14816,8 @@
                     }
                     alert('🎉 ' + (resData.message || 'Đồng bộ chi phí vận tải thành công!'));
                     applyAllTransportFilters();
+                } else if (resData.status === 'notice') {
+                    alert('ℹ️ ' + resData.message);
                 } else {
                     alert('⚠️ ' + (resData.message || 'Đồng bộ thất bại, vui lòng thử lại!'));
                 }
