@@ -755,8 +755,8 @@
   function renderOverviewTab() {
     const ov = D.overview || {};
     const tilesEl = document.getElementById('overview-kpi-tiles');
-    const latestWeek = D.meta?.latest_week || 'W36';
-    const prevWeek = D.meta?.prev_week || 'W35';
+    const latestWeek = D.meta?.latest_week || 'W37';
+    const prevWeek = D.meta?.prev_week || 'W36';
     
     if (tilesEl) {
       const cardMap = {};
@@ -784,16 +784,16 @@
 
       // 3. GTC Ca 1 TTS
       const gtcCa1Trend = trendMap['%GTC TTS (Ca1 thuần)'] || trendMap['%GTC Full hàng (Ca1 thuần)'] || {};
-      const gtcCa1Val = gtcCa1Trend[latestWeek.toLowerCase()] !== undefined ? gtcCa1Trend[latestWeek.toLowerCase()] : (latestWeek === 'W36' ? 0.7478 : 0.758);
-      const gtcCa1Diff = gtcCa1Trend.diff !== undefined ? gtcCa1Trend.diff : (latestWeek === 'W36' ? -0.0104 : 0.0181);
+      const gtcCa1Val = gtcCa1Trend[latestWeek.toLowerCase()] !== undefined ? gtcCa1Trend[latestWeek.toLowerCase()] : 0.758;
+      const gtcCa1Diff = gtcCa1Trend.diff !== undefined ? gtcCa1Trend.diff : 0.0181;
 
       // 4. Gán vận hành
       const ganOverview = D.gan?.overview || [];
       const ganFullRow = ganOverview.find(r => r.indicator && r.indicator.includes('Full hàng – Tổng')) || {};
       const ganTtsRow = ganOverview.find(r => r.indicator && r.indicator.includes('TTS – Tổng')) || {};
-      const ganVal = ganFullRow.w36 !== undefined ? ganFullRow.w36 : 0.8355;
+      const ganVal = ganFullRow[latestWeek.toLowerCase()] !== undefined ? ganFullRow[latestWeek.toLowerCase()] : (ganFullRow.w37 || ganFullRow.w36 || 0.8355);
       const ganDiff = ganFullRow.diff !== undefined ? ganFullRow.diff : 0.0144;
-      const ganTtsVal = ganTtsRow.w36 !== undefined ? ganTtsRow.w36 : 0.8343;
+      const ganTtsVal = ganTtsRow[latestWeek.toLowerCase()] !== undefined ? ganTtsRow[latestWeek.toLowerCase()] : (ganTtsRow.w37 || ganTtsRow.w36 || 0.8343);
 
       // 5. ODR
       const odrCard = cardMap['odr_full'] || {};
@@ -830,7 +830,7 @@
       // 10. TLTĐ (Tỷ Lệ Lấp Đầy Thùng/Xe KTC)
       const ktcData = D.ktc || {};
       const ktcWeekly = ktcData.fill_rate?.weekly?.total || {};
-      const tltdVal = ktcWeekly.tld_w36 !== undefined ? (ktcWeekly.tld_w36 / 100) : 0.481;
+      const tltdVal = (ktcWeekly['tld_' + latestWeek.toLowerCase()] !== undefined ? ktcWeekly['tld_' + latestWeek.toLowerCase()] : (ktcWeekly.tld_w37 || ktcWeekly.tld_w36 || 54.8)) / 100;
       const tltdPrev = ktcWeekly.tld_w35 !== undefined ? (ktcWeekly.tld_w35 / 100) : 0.518;
       const tltdDiff = ktcWeekly.diff_tld !== undefined ? (ktcWeekly.diff_tld / 100) : -0.037;
       const tltdUnder30 = ktcWeekly.under_30 || 112;
@@ -912,17 +912,6 @@
           isHigherBetter: false,
           colorCls: 'kpi-red',
           icon: 'truck'
-        },
-        {
-          id: 'cod_tm',
-          title: 'Tỷ Lệ COD Tiền Mặt',
-          mainVal: fPct(codVal),
-          mainUnit: 'Tiền mặt',
-          subVal: `${fPct(1 - codVal)} (Chuyển khoản QR)`,
-          diff: codDiff,
-          isHigherBetter: false,
-          colorCls: 'kpi-amber',
-          icon: 'qr-code'
         },
         {
           id: 'fd_pair',
@@ -1034,10 +1023,11 @@
 
         grp.items.forEach(row => {
           const isPct = row.type === 'percent';
-          const val1 = row.w36 !== undefined ? row.w33 : row.w32;
-          const val2 = row.w36 !== undefined ? row.w34 : row.w33;
-          const val3 = row.w36 !== undefined ? row.w35 : row.w34;
-          const val4 = row.w36 !== undefined ? row.w36 : row.w35;
+          const wKeys = (D.meta?.weeks || ['W34', 'W35', 'W36', 'W37']).map(w => w.toLowerCase());
+          const val1 = row[wKeys[0]] !== undefined ? row[wKeys[0]] : (row.w34 || 0);
+          const val2 = row[wKeys[1]] !== undefined ? row[wKeys[1]] : (row.w35 || 0);
+          const val3 = row[wKeys[2]] !== undefined ? row[wKeys[2]] : (row.w36 || 0);
+          const val4 = row[wKeys[3]] !== undefined ? row[wKeys[3]] : (row.w37 !== undefined ? row.w37 : (row.vol || 0));
 
           const w_col1 = isPct ? fPct(val1) : fNum(val1);
           const w_col2 = isPct ? fPct(val2) : fNum(val2);
@@ -1311,9 +1301,11 @@
     // 1. BẢNG 1: SẢN LƯỢNG FULL HÀNG
     const tblBodyFull = document.querySelector('#table-vol-full-detailed tbody');
     if (tblBodyFull && D.san_luong.am_full) {
+      const latestKey = D.meta?.latest_week ? D.meta.latest_week.toLowerCase() : 'w37';
+      const prevKey = D.meta?.prev_week ? D.meta.prev_week.toLowerCase() : 'w36';
       let list = [...D.san_luong.am_full].map(r => {
-        const curr = r.w36 !== undefined ? r.w36 : (r.w35 || 0);
-        const prev = r.w36 !== undefined ? (r.w35 || 0) : (r.w34 || 0);
+        const curr = r[latestKey] !== undefined ? r[latestKey] : (r.w37 !== undefined ? r.w37 : (r.w36 || 0));
+        const prev = r[prevKey] !== undefined ? r[prevKey] : (r.w36 !== undefined ? r.w36 : (r.w35 || 0));
         return {
           ...r,
           curr_val: curr,
@@ -1352,13 +1344,15 @@
     // 2. BẢNG 2: SẢN LƯỢNG TIKTOK SHOP (TTS)
     const tblBodyTTS = document.querySelector('#table-vol-tts-detailed tbody');
     if (tblBodyTTS && D.san_luong.am_tts) {
+      const latestKey = D.meta?.latest_week ? D.meta.latest_week.toLowerCase() : 'w37';
+      const prevKey = D.meta?.prev_week ? D.meta.prev_week.toLowerCase() : 'w36';
       const fullMap = {};
-      (D.san_luong.am_full || []).forEach(f => fullMap[f.am] = (f.w36 !== undefined ? f.w36 : (f.w35 || 0)));
+      (D.san_luong.am_full || []).forEach(f => fullMap[f.am] = (f[latestKey] !== undefined ? f[latestKey] : (f.w37 !== undefined ? f.w37 : (f.w36 || 0))));
 
       let listTTS = [...D.san_luong.am_tts].map(r => {
         const fullVol = fullMap[r.am] || 0;
-        const curTTS = r.w36 !== undefined ? r.w36 : (r.w35 || 0);
-        const prevTTS = r.w36 !== undefined ? (r.w35 || 0) : (r.w34 || 0);
+        const curTTS = r[latestKey] !== undefined ? r[latestKey] : (r.w37 !== undefined ? r.w37 : (r.w36 || 0));
+        const prevTTS = r[prevKey] !== undefined ? r[prevKey] : (r.w36 !== undefined ? r.w36 : (r.w35 || 0));
         const rate = fullVol > 0 ? (curTTS / fullVol) : 0;
         return {
           ...r,
@@ -1400,11 +1394,16 @@
     // 3. BẢNG 3A: SẢN LƯỢNG 5 TỈNH THÀNH (FULL HÀNG)
     const tblBodyTinhFull = document.querySelector('#table-vol-tinh-full tbody');
     if (tblBodyTinhFull && D.san_luong) {
+      const wKeys = (D.meta?.weeks || ['W34', 'W35', 'W36', 'W37']).map(w => w.toLowerCase());
       const rawTinhFull = D.san_luong.tinh_full || D.san_luong.tinh || [];
-      const listTinhFull = [...rawTinhFull].map(r => ({
-        ...r,
-        diff_val: r.diff !== undefined ? r.diff : ((r.w36 || r.vol || 0) - (r.w35 || 0))
-      })).sort((a, b) => (b.w36 || b.vol || 0) - (a.w36 || a.vol || 0));
+      const listTinhFull = [...rawTinhFull].map(r => {
+        const curr = r[wKeys[3]] !== undefined ? r[wKeys[3]] : (r.w37 || r.vol || 0);
+        const prev = r[wKeys[2]] !== undefined ? r[wKeys[2]] : (r.w36 || 0);
+        return {
+          ...r,
+          diff_val: r.diff !== undefined ? r.diff : (curr - prev)
+        };
+      }).sort((a, b) => (b[wKeys[3]] || b.vol || 0) - (a[wKeys[3]] || a.vol || 0));
 
       tblBodyTinhFull.innerHTML = listTinhFull.map((row, i) => {
         const diffBadge = renderDeltaBadge(row.diff_val, true, false);
@@ -1412,10 +1411,10 @@
           ? '<span class="badge-tag badge-tag-green">🟢 Tăng Trưởng</span>'
           : '<span class="badge-tag badge-tag-blue">Giảm Nhẹ</span>';
 
-        const v1 = row.w36 !== undefined ? row.w33 : row.w32;
-        const v2 = row.w36 !== undefined ? row.w34 : row.w33;
-        const v3 = row.w36 !== undefined ? row.w35 : row.w34;
-        const v4 = row.w36 !== undefined ? (row.w36 || row.vol) : (row.w35 || row.vol);
+        const v1 = row[wKeys[0]] !== undefined ? row[wKeys[0]] : (row.w34 || 0);
+        const v2 = row[wKeys[1]] !== undefined ? row[wKeys[1]] : (row.w35 || 0);
+        const v3 = row[wKeys[2]] !== undefined ? row[wKeys[2]] : (row.w36 || 0);
+        const v4 = row[wKeys[3]] !== undefined ? row[wKeys[3]] : (row.w37 || row.vol || 0);
 
         return `
           <tr>
@@ -1816,10 +1815,12 @@
     // 1. BẢNG 1A: %GTC FULL HÀNG (18 AM)
     const tblBodyFull = document.querySelector('#table-gtc-full-detailed tbody');
     if (tblBodyFull) {
+      const latestKey = D.meta?.latest_week ? D.meta.latest_week.toLowerCase() : 'w37';
+      const prevKey = D.meta?.prev_week ? D.meta.prev_week.toLowerCase() : 'w36';
       const rawFull = D.gtc_tong.am_full || D.gtc_tong.am || [];
       let listFull = [...rawFull].map(r => {
-        const curr = r.w36 !== undefined ? r.w36 : (r.w35 || 0);
-        const prev = r.w36 !== undefined ? (r.w35 || 0) : (r.w34 || 0);
+        const curr = r[latestKey] !== undefined ? r[latestKey] : (r.w37 !== undefined ? r.w37 : (r.w36 || 0));
+        const prev = r[prevKey] !== undefined ? r[prevKey] : (r.w36 !== undefined ? r.w36 : (r.w35 || 0));
         return {
           ...r,
           curr_val: curr,
@@ -1858,10 +1859,12 @@
     // 2. BẢNG 1B: %GTC TIKTOK SHOP (18 AM)
     const tblBodyTTS = document.querySelector('#table-gtc-tts-detailed tbody');
     if (tblBodyTTS) {
+      const latestKey = D.meta?.latest_week ? D.meta.latest_week.toLowerCase() : 'w37';
+      const prevKey = D.meta?.prev_week ? D.meta.prev_week.toLowerCase() : 'w36';
       const rawTTS = D.gtc_tong.am_tts || [];
       let listTTS = [...rawTTS].map(r => {
-        const curr = r.w36 !== undefined ? r.w36 : (r.w35 || 0);
-        const prev = r.w36 !== undefined ? (r.w35 || 0) : (r.w34 || 0);
+        const curr = r[latestKey] !== undefined ? r[latestKey] : (r.w37 !== undefined ? r.w37 : (r.w36 || 0));
+        const prev = r[prevKey] !== undefined ? r[prevKey] : (r.w36 !== undefined ? r.w36 : (r.w35 || 0));
         return {
           ...r,
           curr_val: curr,
@@ -1900,10 +1903,11 @@
     // 3. BẢNG 2A: %GTC 5 TỈNH THÀNH (FULL HÀNG)
     const tblBodyTinhFull = document.querySelector('#table-gtc-tinh-full tbody');
     if (tblBodyTinhFull) {
+      const wKeys = (D.meta?.weeks || ['W34', 'W35', 'W36', 'W37']).map(w => w.toLowerCase());
       const rawTinhFull = D.gtc_tong.tinh_full || D.gtc_tong.tinh || [];
       let listTinhFull = [...rawTinhFull].map(r => {
-        const v4 = r.w36 !== undefined ? r.w36 : r.w35;
-        const v3 = r.w36 !== undefined ? r.w35 : r.w34;
+        const v4 = r[wKeys[3]] !== undefined ? r[wKeys[3]] : (r.w37 || r.vol || 0);
+        const v3 = r[wKeys[2]] !== undefined ? r[wKeys[2]] : (r.w36 || 0);
         return {
           ...r,
           curr_val: v4,
@@ -1912,9 +1916,9 @@
       }).sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyTinhFull.innerHTML = listTinhFull.map((row, i) => {
-        const v1 = row.w36 !== undefined ? row.w33 : row.w32;
-        const v2 = row.w36 !== undefined ? row.w34 : row.w33;
-        const v3 = row.w36 !== undefined ? row.w35 : row.w34;
+        const v1 = row[wKeys[0]] !== undefined ? row[wKeys[0]] : (row.w34 || 0);
+        const v2 = row[wKeys[1]] !== undefined ? row[wKeys[1]] : (row.w35 || 0);
+        const v3 = row[wKeys[2]] !== undefined ? row[wKeys[2]] : (row.w36 || 0);
         const v4 = row.curr_val;
         const heatClass = getHeatmapClass(v4, 'gtc');
         const diffBadge = renderDeltaBadge(row.diff_val, true, true);
@@ -1939,10 +1943,11 @@
     // 4. BẢNG 2B: %GTC 5 TỈNH THÀNH (TIKTOK SHOP)
     const tblBodyTinhTTS = document.querySelector('#table-gtc-tinh-tts tbody');
     if (tblBodyTinhTTS) {
+      const wKeys = (D.meta?.weeks || ['W34', 'W35', 'W36', 'W37']).map(w => w.toLowerCase());
       const rawTinhTTS = D.gtc_tong.tinh_tts || [];
       let listTinhTTS = [...rawTinhTTS].map(r => {
-        const v4 = r.w36 !== undefined ? r.w36 : r.w35;
-        const v3 = r.w36 !== undefined ? r.w35 : r.w34;
+        const v4 = r[wKeys[3]] !== undefined ? r[wKeys[3]] : (r.w37 || r.vol || 0);
+        const v3 = r[wKeys[2]] !== undefined ? r[wKeys[2]] : (r.w36 || 0);
         return {
           ...r,
           curr_val: v4,
@@ -1951,9 +1956,9 @@
       }).sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyTinhTTS.innerHTML = listTinhTTS.map((row, i) => {
-        const v1 = row.w36 !== undefined ? row.w33 : row.w32;
-        const v2 = row.w36 !== undefined ? row.w34 : row.w33;
-        const v3 = row.w36 !== undefined ? row.w35 : row.w34;
+        const v1 = row[wKeys[0]] !== undefined ? row[wKeys[0]] : (row.w34 || 0);
+        const v2 = row[wKeys[1]] !== undefined ? row[wKeys[1]] : (row.w35 || 0);
+        const v3 = row[wKeys[2]] !== undefined ? row[wKeys[2]] : (row.w36 || 0);
         const v4 = row.curr_val;
         const heatClass = getHeatmapClass(v4, 'gtc');
         const diffBadge = renderDeltaBadge(row.diff_val, true, true);
@@ -2620,10 +2625,11 @@
           return 'background: #fef08a; color: #1e293b; font-weight:700;';
         };
 
-        const v1 = row.w36 !== undefined ? row.w33 : row.w32;
-        const v2 = row.w36 !== undefined ? row.w34 : row.w33;
-        const v3 = row.w36 !== undefined ? row.w35 : row.w34;
-        const v4 = row.w36 !== undefined ? row.w36 : row.w35;
+        const wKeys = (D.meta?.weeks || ['W34', 'W35', 'W36', 'W37']).map(w => w.toLowerCase());
+        const v1 = row[wKeys[0]] !== undefined ? row[wKeys[0]] : (row.w34 || 0);
+        const v2 = row[wKeys[1]] !== undefined ? row[wKeys[1]] : (row.w35 || 0);
+        const v3 = row[wKeys[2]] !== undefined ? row[wKeys[2]] : (row.w36 || 0);
+        const v4 = row[wKeys[3]] !== undefined ? row[wKeys[3]] : (row.w37 || row.w36 || 0);
 
         const diffBadge = row.diff >= 0
           ? `<span class="diff-tag diff-up-good">+${(row.diff * 100).toFixed(1)}%</span>`
@@ -2648,8 +2654,8 @@
     const tblBodyCa1 = document.querySelector('#table-gan-ca1-detailed tbody');
     if (tblBodyCa1) {
       let listCa1 = [...D.gan.am].map(r => {
-        const curr = r.ca1ton_w36 !== undefined ? r.ca1ton_w36 : r.ca1ton_w35;
-        const prev = r.ca1ton_w36 !== undefined ? r.ca1ton_w35 : r.ca1ton_w34;
+        const curr = r.ca1ton_w37 !== undefined ? r.ca1ton_w37 : (r.ca1ton_curr !== undefined ? r.ca1ton_curr : r.ca1ton_w36);
+        const prev = r.ca1ton_w36 !== undefined ? r.ca1ton_w36 : (r.ca1ton_prev !== undefined ? r.ca1ton_prev : r.ca1ton_w35);
         return {
           ...r,
           curr_val: curr,
@@ -2685,8 +2691,8 @@
     const tblBodyCa2 = document.querySelector('#table-gan-ca2-detailed tbody');
     if (tblBodyCa2) {
       let listCa2 = [...D.gan.am].map(r => {
-        const curr = r.tong_w36 !== undefined ? r.tong_w36 : r.tong_w35;
-        const prev = r.tong_w36 !== undefined ? r.tong_w35 : r.tong_w34;
+        const curr = r.tong_w37 !== undefined ? r.tong_w37 : (r.tong_curr !== undefined ? r.tong_curr : r.tong_w36);
+        const prev = r.tong_w36 !== undefined ? r.tong_w36 : (r.tong_prev !== undefined ? r.tong_prev : r.tong_w35);
         return {
           ...r,
           curr_val: curr,
@@ -2816,11 +2822,11 @@
     const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W36';
     const selectedAM = state.selectedAM;
     const sorted = [...D.gan.am].map(r => {
-      const prev_val = r.tong_w36 !== undefined ? (r.tong_w35 || 0) : (r.tong_w34 || 0);
-      const curr_val = r.tong_w36 !== undefined ? (r.tong_w36 || 0) : (r.tong_w35 || 0);
-      const diff_val = r.tong_diff !== undefined ? r.tong_diff : (r.diff !== undefined ? r.diff : (curr_val - prev_val));
-      const ca1 = r.ca1ton_w36 !== undefined ? r.ca1ton_w36 : (r.ca1ton_w35 || 0);
-      const ca2 = r.ca2_w36 !== undefined ? r.ca2_w36 : (r.ca2_w35 || 0);
+      const prev_val = r.tong_w36 !== undefined ? r.tong_w36 : (r.tong_prev !== undefined ? r.tong_prev : (r.tong_w35 || 0));
+      const curr_val = r.tong_w37 !== undefined ? r.tong_w37 : (r.tong_curr !== undefined ? r.tong_curr : (r.tong_w36 || 0));
+      const diff_val = r.tong_diff !== undefined ? r.tong_diff : (curr_val - prev_val);
+      const ca1 = r.ca1ton_w37 !== undefined ? r.ca1ton_w37 : (r.ca1ton_curr !== undefined ? r.ca1ton_curr : (r.ca1ton_w36 || 0));
+      const ca2 = r.ca2_w37 !== undefined ? r.ca2_w37 : (r.ca2_curr !== undefined ? r.ca2_curr : (r.ca2_w36 || 0));
       return {
         ...r,
         ca1_pct: Number((ca1 * 100).toFixed(1)),
@@ -3018,10 +3024,12 @@
     // 1. BẢNG 1A: %ODR FULL HÀNG (18 AM)
     const tblBodyFull = document.querySelector('#table-odr-full-detailed tbody');
     if (tblBodyFull) {
+      const latestKey = D.meta?.latest_week ? D.meta.latest_week.toLowerCase() : 'w37';
+      const prevKey = D.meta?.prev_week ? D.meta.prev_week.toLowerCase() : 'w36';
       const rawFull = D.odr.am_full || D.odr.am || [];
       let listFull = [...rawFull].map(r => {
-        const curr = r.w36 !== undefined ? r.w36 : (r.w35 || 0);
-        const prev = r.w36 !== undefined ? (r.w35 || 0) : (r.w34 || 0);
+        const curr = r[latestKey] !== undefined ? r[latestKey] : (r.w37 !== undefined ? r.w37 : (r.w36 || 0));
+        const prev = r[prevKey] !== undefined ? r[prevKey] : (r.w36 !== undefined ? r.w36 : (r.w35 || 0));
         return {
           ...r,
           curr_val: curr,
@@ -3060,10 +3068,12 @@
     // 2. BẢNG 1B: %ODR TIKTOK SHOP (18 AM)
     const tblBodyTTS = document.querySelector('#table-odr-tts-detailed tbody');
     if (tblBodyTTS) {
+      const latestKey = D.meta?.latest_week ? D.meta.latest_week.toLowerCase() : 'w37';
+      const prevKey = D.meta?.prev_week ? D.meta.prev_week.toLowerCase() : 'w36';
       const rawTTS = D.odr.am_tts || [];
       let listTTS = [...rawTTS].map(r => {
-        const curr = r.w36 !== undefined ? r.w36 : (r.w35 || 0);
-        const prev = r.w36 !== undefined ? (r.w35 || 0) : (r.w34 || 0);
+        const curr = r[latestKey] !== undefined ? r[latestKey] : (r.w37 !== undefined ? r.w37 : (r.w36 || 0));
+        const prev = r[prevKey] !== undefined ? r[prevKey] : (r.w36 !== undefined ? r.w36 : (r.w35 || 0));
         return {
           ...r,
           curr_val: curr,
@@ -3102,10 +3112,11 @@
     // 3. BẢNG 2A: %ODR 5 TỈNH THÀNH (FULL HÀNG)
     const tblBodyTinhFull = document.querySelector('#table-odr-tinh-full tbody');
     if (tblBodyTinhFull) {
+      const wKeys = (D.meta?.weeks || ['W34', 'W35', 'W36', 'W37']).map(w => w.toLowerCase());
       const rawTinhFull = D.odr.tinh_full || D.odr.tinh || [];
       let listTinhFull = [...rawTinhFull].map(r => {
-        const v4 = r.w36 !== undefined ? r.w36 : r.w35;
-        const v3 = r.w36 !== undefined ? r.w35 : r.w34;
+        const v4 = r[wKeys[3]] !== undefined ? r[wKeys[3]] : (r.w37 || r.vol || 0);
+        const v3 = r[wKeys[2]] !== undefined ? r[wKeys[2]] : (r.w36 || 0);
         return {
           ...r,
           curr_val: v4,
@@ -3114,9 +3125,9 @@
       }).sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyTinhFull.innerHTML = listTinhFull.map((row, i) => {
-        const v1 = row.w36 !== undefined ? row.w33 : row.w32;
-        const v2 = row.w36 !== undefined ? row.w34 : row.w33;
-        const v3 = row.w36 !== undefined ? row.w35 : row.w34;
+        const v1 = row[wKeys[0]] !== undefined ? row[wKeys[0]] : (row.w34 || 0);
+        const v2 = row[wKeys[1]] !== undefined ? row[wKeys[1]] : (row.w35 || 0);
+        const v3 = row[wKeys[2]] !== undefined ? row[wKeys[2]] : (row.w36 || 0);
         const v4 = row.curr_val;
         const heatClass = getHeatmapClass(v4, 'odr');
         const diffBadge = renderDeltaBadge(row.diff_val, true, true);
@@ -3141,10 +3152,11 @@
     // 4. BẢNG 2B: %ODR 5 TỈNH THÀNH (TIKTOK SHOP)
     const tblBodyTinhTTS = document.querySelector('#table-odr-tinh-tts tbody');
     if (tblBodyTinhTTS) {
+      const wKeys = (D.meta?.weeks || ['W34', 'W35', 'W36', 'W37']).map(w => w.toLowerCase());
       const rawTinhTTS = D.odr.tinh_tts || [];
       let listTinhTTS = [...rawTinhTTS].map(r => {
-        const v4 = r.w36 !== undefined ? r.w36 : r.w35;
-        const v3 = r.w36 !== undefined ? r.w35 : r.w34;
+        const v4 = r[wKeys[3]] !== undefined ? r[wKeys[3]] : (r.w37 || r.vol || 0);
+        const v3 = r[wKeys[2]] !== undefined ? r[wKeys[2]] : (r.w36 || 0);
         return {
           ...r,
           curr_val: v4,
@@ -3153,9 +3165,9 @@
       }).sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyTinhTTS.innerHTML = listTinhTTS.map((row, i) => {
-        const v1 = row.w36 !== undefined ? row.w33 : row.w32;
-        const v2 = row.w36 !== undefined ? row.w34 : row.w33;
-        const v3 = row.w36 !== undefined ? row.w35 : row.w34;
+        const v1 = row[wKeys[0]] !== undefined ? row[wKeys[0]] : (row.w34 || 0);
+        const v2 = row[wKeys[1]] !== undefined ? row[wKeys[1]] : (row.w35 || 0);
+        const v3 = row[wKeys[2]] !== undefined ? row[wKeys[2]] : (row.w36 || 0);
         const v4 = row.curr_val;
         const heatClass = getHeatmapClass(v4, 'odr');
         const diffBadge = renderDeltaBadge(row.diff_val, true, true);
@@ -3503,9 +3515,10 @@
     // 1. BẢNG 1: 18 AM
     const tblBodyAM = document.querySelector('#table-ltc-detailed tbody');
     if (tblBodyAM && D.ltc.am) {
+      const wKeys = (D.meta?.weeks || ['W34', 'W35', 'W36', 'W37']).map(w => w.toLowerCase());
       let list = [...D.ltc.am].map(r => {
-        const v4 = r.w36 !== undefined ? r.w36 : r.w35;
-        const v3 = r.w36 !== undefined ? r.w35 : r.w34;
+        const v4 = r[wKeys[3]] !== undefined ? r[wKeys[3]] : (r.w37 || r.w36 || 0);
+        const v3 = r[wKeys[2]] !== undefined ? r[wKeys[2]] : (r.w36 || r.w35 || 0);
         return {
           ...r,
           curr_val: v4,
@@ -3516,9 +3529,9 @@
       tblBodyAM.innerHTML = list.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
         const rowClass = isSelected ? 'presenter-laser-box' : '';
-        const v1 = row.w36 !== undefined ? row.w33 : row.w32;
-        const v2 = row.w36 !== undefined ? row.w34 : row.w33;
-        const v3 = row.w36 !== undefined ? row.w35 : row.w34;
+        const v1 = row[wKeys[0]] !== undefined ? row[wKeys[0]] : (row.w34 || 0);
+        const v2 = row[wKeys[1]] !== undefined ? row[wKeys[1]] : (row.w35 || 0);
+        const v3 = row[wKeys[2]] !== undefined ? row[wKeys[2]] : (row.w36 || 0);
         const v4 = row.curr_val;
         const heatClass = getHeatmapClass(v4, 'ltc');
         const diffBadge = renderDeltaBadge(row.diff_val, true, true);
@@ -3545,12 +3558,13 @@
     // 2. BẢNG 2: 5 TỈNH THÀNH (FULL HÀNG HOẶC TIKTOK SHOP)
     const tblBodyTinh = document.querySelector('#table-ltc-tinh-detailed tbody');
     if (tblBodyTinh && D.ltc) {
+      const wKeys = (D.meta?.weeks || ['W34', 'W35', 'W36', 'W37']).map(w => w.toLowerCase());
       const seg = state.ltcTinhSegment || 'full';
       const rawList = seg === 'tts' ? (D.ltc.tinh_tts || []) : (D.ltc.tinh_full || D.ltc.tinh || []);
 
       let listTinh = [...rawList].map(r => {
-        const v4 = r.w36 !== undefined ? r.w36 : r.w35;
-        const v3 = r.w36 !== undefined ? r.w35 : r.w34;
+        const v4 = r[wKeys[3]] !== undefined ? r[wKeys[3]] : (r.w37 || r.w36 || 0);
+        const v3 = r[wKeys[2]] !== undefined ? r[wKeys[2]] : (r.w36 || r.w35 || 0);
         return {
           ...r,
           curr_val: v4,
@@ -3559,9 +3573,9 @@
       }).sort((a, b) => b.diff_val - a.diff_val);
 
       tblBodyTinh.innerHTML = listTinh.map((row, i) => {
-        const v1 = row.w36 !== undefined ? row.w33 : row.w32;
-        const v2 = row.w36 !== undefined ? row.w34 : row.w33;
-        const v3 = row.w36 !== undefined ? row.w35 : row.w34;
+        const v1 = row[wKeys[0]] !== undefined ? row[wKeys[0]] : (row.w34 || 0);
+        const v2 = row[wKeys[1]] !== undefined ? row[wKeys[1]] : (row.w35 || 0);
+        const v3 = row[wKeys[2]] !== undefined ? row[wKeys[2]] : (row.w36 || 0);
         const v4 = row.curr_val;
         const heatClass = getHeatmapClass(v4, 'ltc');
         const diffBadge = renderDeltaBadge(row.diff_val, true, true);
@@ -3753,16 +3767,20 @@
     const _totalVol = _ams.reduce((s, r) => s + (r.vol_day||0) + (r.vol_night||0), 0);
     const _volDay = _ams.reduce((s, r) => s + (r.vol_day || 0), 0);
     const _volNight = _ams.reduce((s, r) => s + (r.vol_night || 0), 0);
-    const _vung36Day = _volDay > 0 ? _ams.reduce((s, r) => s + (r.vol_day || 0) * (r.w36_day || 0), 0) / _volDay : 0;
-    const _vung36Night = _volNight > 0 ? _ams.reduce((s, r) => s + (r.vol_night || 0) * (r.w36_night || 0), 0) / _volNight : 0;
+    const _vung36Day = _volDay > 0 ? _ams.reduce((s, r) => s + (r.vol_day || 0) * (r.w37_day !== undefined ? r.w37_day : (r.w36_day || 0)), 0) / _volDay : 0;
+    const _vung36Night = _volNight > 0 ? _ams.reduce((s, r) => s + (r.vol_night || 0) * (r.w37_night !== undefined ? r.w37_night : (r.w36_night || 0)), 0) / _volNight : 0;
     const _wtd36 = _ams.reduce((s, r) => {
       const vol = (r.vol_day||0) + (r.vol_night||0);
-      const o36 = vol > 0 ? ((r.vol_day||0)*(r.w36_day||0) + (r.vol_night||0)*(r.w36_night||0)) / vol : 0;
+      const curD = r.w37_day !== undefined ? r.w37_day : (r.w36_day || 0);
+      const curN = r.w37_night !== undefined ? r.w37_night : (r.w36_night || 0);
+      const o36 = vol > 0 ? ((r.vol_day||0)*curD + (r.vol_night||0)*curN) / vol : 0;
       return s + vol * o36;
     }, 0);
     const _wtd35 = _ams.reduce((s, r) => {
       const vol = (r.vol_day||0) + (r.vol_night||0);
-      const o35 = vol > 0 ? ((r.vol_day||0)*(r.w35_day||0) + (r.vol_night||0)*(r.w35_night||0)) / vol : 0;
+      const prvD = r.w36_day !== undefined ? r.w36_day : (r.w35_day || 0);
+      const prvN = r.w36_night !== undefined ? r.w36_night : (r.w35_night || 0);
+      const o35 = vol > 0 ? ((r.vol_day||0)*prvD + (r.vol_night||0)*prvN) / vol : 0;
       return s + vol * o35;
     }, 0);
     const _vung36 = _totalVol > 0 ? _wtd36 / _totalVol : 0;
@@ -3784,10 +3802,10 @@
             </div>
             <div>
               <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-main, #1e293b);">
-                OPR TTS Toàn Vùng W36 (Tổng Ngày + Đêm)
+                OPR TTS Toàn Vùng W37 (Tổng Ngày + Đêm)
               </div>
               <div style="font-size:12px; font-weight:700; color:${diffColor}; margin-top:2px;">
-                ${diffTxt} (W35: ${(_vung35*100).toFixed(1)}%) &nbsp;•&nbsp; 
+                ${diffTxt} (W36: ${(_vung35*100).toFixed(1)}%) &nbsp;•&nbsp; 
                 <span style="color:#64748b;">Mục tiêu KPI: ≥ 80.0% (Cách KPI: -${((0.80 - _vung36)*100).toFixed(1)}%p)</span>
               </div>
             </div>
@@ -3809,27 +3827,27 @@
       // Tính tổng đơn trễ OPR toàn vùng
       const totalFailRegion = _ams.reduce((s, r) => {
         const vTot = r.vol_total || r.total_vol || ((r.vol_day || 0) + (r.vol_night || 0));
-        const oTot = (r.vol_day === 0 && r.vol_night === 0) ? 0 : (r.w36_total !== undefined ? r.w36_total : (r.w35_total || 0));
+        const oTot = (r.vol_day === 0 && r.vol_night === 0) ? 0 : (r.w37_total !== undefined ? r.w37_total : (r.w36_total || 0));
         return s + (vTot > 0 ? Math.round(vTot * (1 - (oTot > 1 ? 0 : oTot))) : 0);
       }, 0);
 
       // Sắp xếp các AM chưa đạt tổng (< 80%) và có đơn (> 0) theo số lượng đơn rớt OPR giảm dần
       const failedTotal = _ams.filter(r => {
         const vTot = r.vol_total || r.total_vol || ((r.vol_day || 0) + (r.vol_night || 0));
-        const oTot = r.w36_total !== undefined ? r.w36_total : 0;
+        const oTot = r.w37_total !== undefined ? r.w37_total : (r.w36_total || 0);
         return vTot > 0 && oTot < 0.80;
       }).map(r => {
         const vTot = r.vol_total || r.total_vol || ((r.vol_day || 0) + (r.vol_night || 0));
-        const oTot = r.w36_total !== undefined ? r.w36_total : 0;
+        const oTot = r.w37_total !== undefined ? r.w37_total : (r.w36_total || 0);
         const failTot = vTot > 0 ? Math.round(vTot * (1 - (oTot > 1 ? 0 : oTot))) : 0;
         const rateFail = totalFailRegion > 0 ? (failTot / totalFailRegion) : 0;
         return { ...r, fail_total: failTot, rate_fail: rateFail };
       }).sort((a, b) => b.fail_total - a.fail_total);
 
-      const failedDay = _ams.filter(r => (r.vol_day || 0) > 0 && (r.w36_day || 0) < 0.80)
-                            .sort((a, b) => (a.w36_day || 0) - (b.w36_day || 0));
-      const failedNight = _ams.filter(r => (r.vol_night || 0) > 0 && (r.w36_night || 0) < 0.80)
-                              .sort((a, b) => (a.w36_night || 0) - (b.w36_night || 0));
+      const failedDay = _ams.filter(r => (r.vol_day || 0) > 0 && (r.w37_day !== undefined ? r.w37_day : (r.w36_day || 0)) < 0.80)
+                            .sort((a, b) => (a.w37_day || a.w36_day || 0) - (b.w37_day || b.w36_day || 0));
+      const failedNight = _ams.filter(r => (r.vol_night || 0) > 0 && (r.w37_night !== undefined ? r.w37_night : (r.w36_night || 0)) < 0.80)
+                              .sort((a, b) => (a.w37_night || a.w36_night || 0) - (b.w37_night || b.w36_night || 0));
 
       _failedContainer.innerHTML = `
         <div style="background:var(--bg-surface, #ffffff); border:1.5px solid rgba(239, 68, 68, 0.35); border-left:5px solid #ef4444; border-radius:12px; padding:16px 20px; box-shadow:0 3px 12px rgba(239,68,68,0.06); margin-bottom:16px;">
@@ -3857,11 +3875,11 @@
 
           <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(285px, 1fr)); gap:12px;">
             ${failedTotal.map(r => {
-              const val = ((r.w36_total !== undefined ? r.w36_total : 0) * 100);
+              const val = (((r.w37_total !== undefined ? r.w37_total : r.w36_total) || 0) * 100);
               const gap = (80 - val).toFixed(1);
-              const rawDay = (r.vol_day === 0 || (r.w36_day || 0) > 1) ? 0 : (r.w36_day || 0);
+              const rawDay = (r.vol_day === 0) ? 0 : (r.w37_day !== undefined ? r.w37_day : (r.w36_day || 0));
               const dayVal = (rawDay * 100).toFixed(1);
-              const rawNight = (r.vol_night === 0 || (r.w36_night || 0) > 1) ? 0 : (r.w36_night || 0);
+              const rawNight = (r.vol_night === 0) ? 0 : (r.w37_night !== undefined ? r.w37_night : (r.w36_night || 0));
               const nightVal = (rawNight * 100).toFixed(1);
               const diffTot = r.diff_total !== undefined ? (r.diff_total * 100) : 0;
               const diffBadge = diffTot !== 0 ? `<span style="font-size:11px; font-weight:800; color:${diffTot > 0 ? '#10b981' : '#ef4444'};">${diffTot > 0 ? '▲ +' : '▼ '}${Math.abs(diffTot).toFixed(1)}%p</span>` : '';
@@ -3906,8 +3924,8 @@
     const tblBodyDay = document.querySelector('#table-opr-day-detailed tbody');
     if (tblBodyDay) {
       let listDay = [...D.opr_tts.am].map(r => {
-        const curr = r.w36_day !== undefined ? r.w36_day : r.w35_day;
-        const prev = r.w36_day !== undefined ? r.w35_day : r.w34_day;
+        const curr = r.w37_day !== undefined ? r.w37_day : (r.w36_day || 0);
+        const prev = r.w36_day !== undefined ? r.w36_day : (r.w35_day || 0);
         return {
           ...r,
           curr_val: curr,
@@ -3941,8 +3959,8 @@
     const tblBodyNight = document.querySelector('#table-opr-night-detailed tbody');
     if (tblBodyNight) {
       let listNight = [...D.opr_tts.am].map(r => {
-        const curr = r.w36_night !== undefined ? r.w36_night : r.w35_night;
-        const prev = r.w36_night !== undefined ? r.w35_night : r.w34_night;
+        const curr = r.w37_night !== undefined ? r.w37_night : (r.w36_night || 0);
+        const prev = r.w36_night !== undefined ? r.w36_night : (r.w35_night || 0);
         return {
           ...r,
           curr_val: curr,
@@ -3982,13 +4000,13 @@
 
       const totalFailRegion = D.opr_tts.am.reduce((s, r) => {
         const vTot = r.vol_total || r.total_vol || ((r.vol_day || 0) + (r.vol_night || 0));
-        const oTot = (r.vol_day === 0 && r.vol_night === 0) ? 0 : (r.w36_total !== undefined ? r.w36_total : (r.w35_total || 0));
+        const oTot = (r.vol_day === 0 && r.vol_night === 0) ? 0 : (r.w37_total !== undefined ? r.w37_total : (r.w36_total || 0));
         return s + (vTot > 0 ? Math.round(vTot * (1 - (oTot > 1 ? 0 : oTot))) : 0);
       }, 0);
 
       const sorted = list.map(row => {
         const vTot = row.vol_total || row.total_vol || ((row.vol_day || 0) + (row.vol_night || 0));
-        const oTot = (row.vol_day === 0 && row.vol_night === 0) ? 0 : (row.w36_total !== undefined ? row.w36_total : (row.w35_total || 0));
+        const oTot = (row.vol_day === 0 && row.vol_night === 0) ? 0 : (row.w37_total !== undefined ? row.w37_total : (row.w36_total || 0));
         const failTot = vTot > 0 ? Math.round(vTot * (1 - (oTot > 1 ? 0 : oTot))) : 0;
         const rateFail = totalFailRegion > 0 ? (failTot / totalFailRegion) : 0;
         return { ...row, fail_total: failTot, rate_fail: rateFail, total_calc_vol: vTot };
@@ -4073,7 +4091,7 @@
             label: `%OPR 9h–19h ${currLabel} (Ca Ngày)`,
             data: ams.map(d => {
               if (!d.vol_day || d.vol_day === 0) return 0;
-              const val = d.w36_day !== undefined ? d.w36_day : (d.w35_day || 0);
+              const val = d.w37_day !== undefined ? d.w37_day : (d.w36_day || 0);
               return Number(((val > 1 ? 0 : val) * 100).toFixed(1));
             }),
             backgroundColor: ams.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#2563eb'),
@@ -4096,7 +4114,7 @@
             label: `%OPR 19h–9h ${currLabel} (Ca Đêm)`,
             data: ams.map(d => {
               if (!d.vol_night || d.vol_night === 0) return 0;
-              const val = d.w36_night !== undefined ? d.w36_night : (d.w35_night || 0);
+              const val = d.w37_night !== undefined ? d.w37_night : (d.w36_night || 0);
               return Number(((val > 1 ? 0 : val) * 100).toFixed(1));
             }),
             backgroundColor: ams.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#ea580c'),
@@ -4119,7 +4137,7 @@
             label: `%OPR Tất cả ${currLabel} (Toàn Ngày)`,
             data: ams.map(d => {
               if ((!d.vol_day || d.vol_day === 0) && (!d.vol_night || d.vol_night === 0)) return 0;
-              const val = d.w36_total !== undefined ? d.w36_total : (d.w35_total !== undefined ? d.w35_total : 0);
+              const val = d.w37_total !== undefined ? d.w37_total : (d.w36_total || 0);
               return Number(((val > 1 ? 0 : val) * 100).toFixed(1));
             }),
             borderColor: '#15803d',
@@ -4207,7 +4225,7 @@
           // ---- Toàn Vùng W36 reference line ----
           {
             type: 'line',
-            label: 'Toàn Vùng W36: 76.9% (Chưa Đạt)',
+            label: 'Toàn Vùng W37: 76.9% (Chưa Đạt)',
             data: ams.map(() => 76.9),
             borderColor: '#0284c7',
             borderWidth: 2,
@@ -4303,13 +4321,13 @@
     const tblBodyAM = document.querySelector('#table-rot-am-detailed tbody');
     if (tblBodyAM && D.rot_lc.am) {
       const totalRotAM = D.rot_lc.am.reduce((s, r) => {
-        const wCurr = r.w36 !== undefined ? (r.w36 || 0) : (r.w35 || 0);
+        const wCurr = r.w37 !== undefined ? (r.w37 || 0) : (r.w36 || 0);
         return s + Math.round((r.vol || 0) * wCurr);
       }, 0);
 
       let listAM = [...D.rot_lc.am].map(r => {
-        const wPrev = r.w36 !== undefined ? (r.w35 || 0) : (r.w34 || 0);
-        const wCurr = r.w36 !== undefined ? (r.w36 || 0) : (r.w35 || 0);
+        const wPrev = r.w36 !== undefined ? (r.w36 || 0) : (r.w35 || 0);
+        const wCurr = r.w37 !== undefined ? (r.w37 || 0) : (r.w36 || 0);
         const diff_val = r.diff !== undefined ? r.diff : (wCurr - wPrev);
         const vol_rot = Math.round((r.vol || 0) * wCurr);
         const rate_rot = totalRotAM > 0 ? (vol_rot / totalRotAM) : 0;
@@ -4352,13 +4370,13 @@
     const tblBodyTinh = document.querySelector('#table-rot-tinh-detailed tbody');
     if (tblBodyTinh && D.rot_lc.tinh) {
       const totalRotTinh = D.rot_lc.tinh.reduce((s, r) => {
-        const wCurr = r.w36 !== undefined ? (r.w36 || 0) : (r.w35 || 0);
+        const wCurr = r.w37 !== undefined ? (r.w37 || 0) : (r.w36 || 0);
         return s + Math.round((r.vol || 0) * wCurr);
       }, 0);
 
       let listTinh = [...D.rot_lc.tinh].map(r => {
-        const wPrev = r.w36 !== undefined ? (r.w35 || 0) : (r.w34 || 0);
-        const wCurr = r.w36 !== undefined ? (r.w36 || 0) : (r.w35 || 0);
+        const wPrev = r.w36 !== undefined ? (r.w36 || 0) : (r.w35 || 0);
+        const wCurr = r.w37 !== undefined ? (r.w37 || 0) : (r.w36 || 0);
         const diff_val = r.diff !== undefined ? r.diff : (wCurr - wPrev);
         const vol_rot = Math.round((r.vol || 0) * wCurr);
         const rate_rot = totalRotTinh > 0 ? (vol_rot / totalRotTinh) : 0;
@@ -4852,7 +4870,7 @@
           },
           {
             type: 'bar',
-            label: mode === 'tts' ? '%FD TTS W35 (Tuần Trước)' : '%FD Full W35 (Tuần Trước)',
+            label: mode === 'tts' ? '%FD TTS W36 (Tuần Trước)' : '%FD Full W36 (Tuần Trước)',
             data: prevData,
             backgroundColor: '#94a3b8',
             borderRadius: 4,
@@ -4861,7 +4879,7 @@
           },
           {
             type: 'bar',
-            label: mode === 'tts' ? '%FD TTS W36 (Hiện Tại)' : '%FD Full W36 (Hiện Tại)',
+            label: mode === 'tts' ? '%FD TTS W37 (Hiện Tại)' : '%FD Full W37 (Hiện Tại)',
             data: rateData,
             backgroundColor: barColors,
             borderRadius: 4,
@@ -6259,13 +6277,13 @@
         labels: sorted.map(d => d.am),
         datasets: [
           {
-            label: 'Kỳ 23–29/8 (W35) (Triệu VNĐ)',
+            label: 'Kỳ 6–12/9 (W37) (Triệu VNĐ)',
             data: sorted.map(d => Math.round((d.rev_prev || 0) / 1e6)),
             backgroundColor: '#cbd5e1',
             borderRadius: 4
           },
           {
-            label: 'Kỳ 30/8–5/9 (W36) (Triệu VNĐ)',
+            label: 'Kỳ 6–12/9 (W37) (Triệu VNĐ)',
             data: sorted.map(d => Math.round((d.rev_curr || 0) / 1e6)),
             backgroundColor: sorted.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#10b981'),
             borderColor: sorted.map(d => selectedAM && selectedAM === d.am ? '#b91c1c' : 'transparent'),
@@ -6726,11 +6744,11 @@
       thead.innerHTML = `<tr>
         <th class="center" style="width:44px;">#</th>
         <th>KTC / Kho</th>
-        <th class="num">Chuyến W35</th>
-        <th class="num">Chuyến W36</th>
+        <th class="num">Chuyến W37</th>
+        <th class="num">Chuyến W37</th>
         <th class="num">Δ Chuyến</th>
-        <th class="num" style="background:var(--color-blue-bg);">TLLĐ W35</th>
-        <th class="num bold" style="background:var(--color-blue-bg);">TLLĐ W36</th>
+        <th class="num" style="background:var(--color-blue-bg);">TLLĐ W37</th>
+        <th class="num bold" style="background:var(--color-blue-bg);">TLLĐ W37</th>
         <th class="num">Δ TLLĐ</th>
         <th class="num" style="background:var(--color-red-bg);color:#b91c1c;">&lt;10%</th>
         <th class="num" style="background:var(--color-red-bg);color:#b91c1c;">10-20%</th>
@@ -6751,11 +6769,11 @@
         return `<tr${isTotal ? ' style="background:var(--color-blue-bg);font-weight:800;"' : ''}>
           ${rankCell}
           <td class="bold">${r.short_name || r.kho || ''}</td>
-          <td class="num">${fNum(r.chuyen_w35 || 0)}</td>
-          <td class="num">${fNum(r.chuyen_w36 || 0)}</td>
+          <td class="num">${fNum(r.chuyen_w37 || 0)}</td>
+          <td class="num">${fNum(r.chuyen_w37 || 0)}</td>
           <td class="num">${diffCBadge}</td>
-          <td class="num" style="background:var(--color-blue-bg);">${(r.tld_w35 || 0).toFixed(1)}%</td>
-          <td class="num bold" style="background:var(--color-blue-bg);">${(r.tld_w36 || 0).toFixed(1)}%</td>
+          <td class="num" style="background:var(--color-blue-bg);">${(r.tld_w37 || 0).toFixed(1)}%</td>
+          <td class="num bold" style="background:var(--color-blue-bg);">${(r.tld_w37 || 0).toFixed(1)}%</td>
           <td class="num">${diffTBadge}</td>
           <td class="num" style="color:#b91c1c;">${fNum(r.u10 || 0)}</td>
           <td class="num" style="color:#b45309;">${fNum(r.u20 || 0)}</td>

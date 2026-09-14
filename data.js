@@ -92,16 +92,6 @@ window.DASHBOARD_DATA = {
         "icon": "alert-triangle"
       },
       {
-        "id": "cod_tm",
-        "title": "Tỷ Lệ COD Tiền Mặt",
-        "val": 0.396,
-        "unit": "%",
-        "diff": 0.011,
-        "diff_pct": 0.03,
-        "is_good": false,
-        "icon": "banknote"
-      },
-      {
         "id": "truy_thu",
         "title": "Tổng Cần Truy Thu",
         "val": 174663624,
@@ -9014,20 +9004,20 @@ window.DASHBOARD_DATA = {
   },
   "transport_costs": {
     "region": {
-      "total_cost": 963.43,
-      "total_cost_formatted": "963.432.174 đ",
-      "total_trips": 989,
+      "total_cost": 962.84,
+      "total_cost_formatted": "962.843.683 đ",
+      "total_trips": 988,
       "avg_cost_per_trip": 0.97,
-      "avg_cost_per_trip_formatted": "974.148 đ/chuyến",
+      "avg_cost_per_trip_formatted": "974.538 đ/chuyến",
       "ncc_count": 7,
       "ktc_count": 6,
       "total_trucks": 32,
-      "last_updated": "19:55 - 14/09/2026"
+      "last_updated": "20:30 - 14/09/2026"
     },
     "surge_fixed": {
-      "fixed_cost": 963.43,
+      "fixed_cost": 962.84,
       "fixed_cost_pct": 100.0,
-      "fixed_trips": 989,
+      "fixed_trips": 988,
       "surge_cost": 0.0,
       "surge_cost_pct": 0.0,
       "surge_trips": 0,
@@ -9036,12 +9026,12 @@ window.DASHBOARD_DATA = {
     "ktcs": [
       {
         "ktc": "KTC Đức Trọng",
-        "total_cost": 420.09,
-        "total_cost_raw": 420085657.3999995,
-        "total_trips": 293,
-        "cost_per_trip": 1.43,
-        "cost_per_trip_raw": 1433739.4450511928,
-        "fixed_cost": 420.09,
+        "total_cost": 419.5,
+        "total_cost_raw": 419497166.3999995,
+        "total_trips": 292,
+        "cost_per_trip": 1.44,
+        "cost_per_trip_raw": 1436634.1315068477,
+        "fixed_cost": 419.5,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "primary_ncc": "Mạnh Cường, NAK",
@@ -9070,7 +9060,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 154.98,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Lâm Ngọc Thành, Trâm Hoá",
+        "primary_ncc": "Lâm Ngọc Thành, Tốt và Rẻ",
         "truck_count": 4
       },
       {
@@ -9096,7 +9086,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 70.46,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 8
       },
       {
@@ -9109,19 +9099,19 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 69.46,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 6
       }
     ],
     "nccs": [
       {
         "ncc": "NAK",
-        "total_cost": 426.13,
-        "total_cost_raw": 426129372.0,
-        "total_trips": 299,
+        "total_cost": 425.54,
+        "total_cost_raw": 425540881.0,
+        "total_trips": 298,
         "cost_per_trip": 1.43,
-        "cost_per_trip_raw": 1425181.8461538462,
-        "fixed_cost": 426.13,
+        "cost_per_trip_raw": 1427989.533557047,
+        "fixed_cost": 425.54,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 12,
@@ -9138,7 +9128,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 7,
-        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang, KTC Nam Nha Trang, KTC Đức Trọng"
+        "active_ktcs": "KTC Nam Nha Trang, KTC Khánh Hòa, KTC Đức Trọng, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Mạnh Cường (BCCK)",
@@ -16243,21 +16233,6 @@ window.DASHBOARD_DATA = {
         "ontime": "1"
       },
       {
-        "ncc": "NAK",
-        "date": "30/08/2026",
-        "date_iso": "2026-08-30",
-        "truck": "61H-12544",
-        "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Đức Trọng 1 -> (LDO) Nam Ban Lâm Hà -> Kho Chuyển Tiếp Đức Trọng",
-        "ktc": "KTC Đức Trọng",
-        "type": "Cố định",
-        "cost_str": "588.491 đ",
-        "cost": 588491.0,
-        "trips_equivalent": 1,
-        "trip_code": "E260829TWBYL34A",
-        "ontime": "1"
-      },
-      {
         "ncc": "Lâm Ngọc Thành",
         "date": "26/08/2026",
         "date_iso": "2026-08-26",
@@ -20998,7 +20973,7 @@ window.DASHBOARD_DATA = {
         "ontime": "100%"
       }
     ],
-    "all_trips_count": 786
+    "all_trips_count": 785
   },
   "kinh_doanh": {
     "am": [
