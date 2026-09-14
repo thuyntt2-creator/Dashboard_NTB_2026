@@ -315,8 +315,23 @@
     if (thGtcFullCurr) thGtcFullCurr.textContent = currW;
     const thGtcTtsPrev = document.querySelector('#table-gtc-tts-detailed thead th:nth-child(4)');
     const thGtcTtsCurr = document.querySelector('#table-gtc-tts-detailed thead th:nth-child(5)');
-    if (thGtcTtsPrev) thGtcTtsPrev.textContent = prevW;
-    if (thGtcTtsCurr) thGtcTtsCurr.textContent = currW;
+    if (thGtcTtsPrev) thGtcTtsPrev.textContent = `TTS ${prevW}`;
+    if (thGtcTtsCurr) thGtcTtsCurr.textContent = `TTS ${currW}`;
+
+    const thOdrTtsPrev = document.querySelector('#table-odr-tts-detailed thead th:nth-child(4)');
+    const thOdrTtsCurr = document.querySelector('#table-odr-tts-detailed thead th:nth-child(5)');
+    if (thOdrTtsPrev) thOdrTtsPrev.textContent = `TTS ${prevW}`;
+    if (thOdrTtsCurr) thOdrTtsCurr.textContent = `TTS ${currW}`;
+
+    const thGanCa1Prev = document.querySelector('#table-gan-ca1-detailed thead th:nth-child(4)');
+    const thGanCa1Curr = document.querySelector('#table-gan-ca1-detailed thead th:nth-child(5)');
+    if (thGanCa1Prev) thGanCa1Prev.textContent = `Ca 1+Tồn ${prevW}`;
+    if (thGanCa1Curr) thGanCa1Curr.textContent = `Ca 1+Tồn ${currW}`;
+
+    const thGanCa2Prev = document.querySelector('#table-gan-ca2-detailed thead th:nth-child(4)');
+    const thGanCa2Curr = document.querySelector('#table-gan-ca2-detailed thead th:nth-child(5)');
+    if (thGanCa2Prev) thGanCa2Prev.textContent = `Tổng ${prevW}`;
+    if (thGanCa2Curr) thGanCa2Curr.textContent = `Gán Tổng ${currW}`;
 
     // 6. Tab 4: %GTC TTS Ca 1
     const thGtcCa1Prev = document.querySelector('#table-gtc-tts-ca1-detailed thead th:nth-child(4)');
@@ -1624,10 +1639,11 @@
           ? '<span class="badge-tag badge-tag-green">🟢 Tăng Trưởng</span>'
           : '<span class="badge-tag badge-tag-amber">Ổn Định</span>';
 
-        const v1 = row.w36 !== undefined ? row.w33 : row.w32;
-        const v2 = row.w36 !== undefined ? row.w34 : row.w33;
-        const v3 = row.w36 !== undefined ? row.w35 : row.w34;
-        const v4 = row.w36 !== undefined ? (row.w36 || row.vol) : (row.w35 || row.vol);
+        const wKeys = (D.meta?.weeks || ['W34', 'W35', 'W36', 'W37']).map(w => w.toLowerCase());
+        const v1 = row[wKeys[0]] !== undefined ? row[wKeys[0]] : (row.w34 || 0);
+        const v2 = row[wKeys[1]] !== undefined ? row[wKeys[1]] : (row.w35 || 0);
+        const v3 = row[wKeys[2]] !== undefined ? row[wKeys[2]] : (row.w36 || 0);
+        const v4 = row[wKeys[3]] !== undefined ? row[wKeys[3]] : (row.w37 !== undefined ? row.w37 : (row.vol || 0));
 
         return `
           <tr>
@@ -2913,6 +2929,12 @@
       'TTS - Ca 2'
     ];
 
+    const weeks = D.meta?.weeks || ['W34', 'W35', 'W36', 'W37'];
+    const w1 = weeks[0].toLowerCase();
+    const w2 = weeks[1].toLowerCase();
+    const w3 = weeks[2].toLowerCase();
+    const w4 = weeks[3].toLowerCase();
+
     charts.ganOverviewBar = new Chart(ctx, {
       type: 'bar',
       data: {
@@ -2920,33 +2942,33 @@
         datasets: [
           {
             type: 'bar',
-            label: 'W32',
-            data: overview.map(d => Number((d.w32 * 100).toFixed(1))),
+            label: weeks[0],
+            data: overview.map(d => Number(((d[w1] !== undefined ? d[w1] : (d.w34 || 0)) * 100).toFixed(1))),
             backgroundColor: '#cbd5e1',
             borderRadius: 3,
             datalabels: { display: false }
           },
           {
             type: 'bar',
-            label: 'W33',
-            data: overview.map(d => Number((d.w33 * 100).toFixed(1))),
+            label: weeks[1],
+            data: overview.map(d => Number(((d[w2] !== undefined ? d[w2] : (d.w35 || 0)) * 100).toFixed(1))),
             backgroundColor: '#94a3b8',
             borderRadius: 3,
             datalabels: { display: false }
           },
           {
             type: 'bar',
-            label: 'W34',
-            data: overview.map(d => Number((d.w34 * 100).toFixed(1))),
+            label: weeks[2],
+            data: overview.map(d => Number(((d[w3] !== undefined ? d[w3] : (d.w36 || 0)) * 100).toFixed(1))),
             backgroundColor: '#60a5fa',
             borderRadius: 3,
             datalabels: { display: false }
           },
           {
             type: 'bar',
-            label: 'W35',
-            data: overview.map(d => Number((d.w35 * 100).toFixed(1))),
-            backgroundColor: overview.map(d => d.w35 >= 0.80 ? '#10b981' : '#f59e0b'),
+            label: weeks[3],
+            data: overview.map(d => Number(((d[w4] !== undefined ? d[w4] : (d.w37 || 0)) * 100).toFixed(1))),
+            backgroundColor: overview.map(d => (d[w4] !== undefined ? d[w4] : (d.w37 || 0)) >= 0.80 ? '#10b981' : '#f59e0b'),
             borderRadius: 4,
             datalabels: {
               display: true,
