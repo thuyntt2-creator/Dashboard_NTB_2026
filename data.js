@@ -7589,7 +7589,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 6,
       "total_trucks": 32,
-      "last_updated": "07:41 - 14/09/2026"
+      "last_updated": "08:16 - 14/09/2026"
     },
     "surge_fixed": {
       "fixed_cost": 876.48,
@@ -7624,7 +7624,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 154.98,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Trâm Hoá, Lâm Ngọc Thành",
+        "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
         "truck_count": 4
       },
       {
@@ -7663,7 +7663,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 70.46,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 8
       },
       {
@@ -7676,7 +7676,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 69.46,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 6
       }
     ],
@@ -7692,7 +7692,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 12,
-        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
+        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
       },
       {
         "ncc": "Mạnh Cường",
@@ -7705,7 +7705,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 7,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Đức Trọng, KTC Nam Nha Trang"
+        "active_ktcs": "KTC Nam Nha Trang, KTC Khánh Hòa, KTC Bắc Nha Trang, KTC Đức Trọng"
       },
       {
         "ncc": "Mạnh Cường (BCCK)",
@@ -7718,7 +7718,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Nam Nha Trang"
+        "active_ktcs": "KTC Nam Nha Trang, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Công Định",
@@ -24817,3 +24817,4 @@ window.DASHBOARD_DATA = {
     }
   }
 };
+window.DATA = window.DASHBOARD_DATA;
