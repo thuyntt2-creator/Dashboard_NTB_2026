@@ -3379,11 +3379,22 @@ def process_off_spe(am=None, province=None, post_office=None):
             print(f"Error loading co_cau_ntb.csv in process_off_spe: {ecc}")
 
         df_raw = safe_read_csv(file_path)
-        if df_raw is None or df_raw.empty:
-            return {"error": "Không tìm thấy dữ liệu OFF tuyến SPE (off_tuyen_spe.csv)."}
+        if df_raw is None:
+            return {"error": "Không tìm thấy file off_tuyen_spe.csv"}
         
         # Remove empty rows or rows that have all NaN
         df_raw = df_raw.dropna(how='all')
+        if df_raw.empty:
+            mtime_str = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+            if file_path and os.path.exists(file_path):
+                mtime_str = datetime.datetime.fromtimestamp(os.path.getmtime(file_path)).strftime("%d-%m-%Y %H:%M:%S")
+            return {
+                "update_time": mtime_str,
+                "total_off": 0,
+                "total_pending": 0,
+                "records": [],
+                "status_desc": "Hoạt động bình thường 100%"
+            }
         
         # Find columns dynamically
         col_tinh = next((c for c in df_raw.columns if "tỉnh" in c.lower() or "tinh" in c.lower() or "province" in c.lower()), None)

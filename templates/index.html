@@ -10318,16 +10318,26 @@
                 }).length;
             }
 
+            const cardTrendEl = document.querySelector('#kpi-off-spe-card .kpi-trend');
             if (data.error) {
                 if (activeCountEl) activeCountEl.innerText = "Lỗi";
                 if (pendingCountEl) pendingCountEl.innerText = "Lỗi";
                 if (updateTimeEl) updateTimeEl.innerText = "File lỗi/chưa có";
                 if (tomorrowAlertEl) tomorrowAlertEl.style.display = 'none';
             } else {
-                if (activeCountEl) activeCountEl.innerText = data.total_off !== undefined ? data.total_off : "0";
+                if (activeCountEl) {
+                    activeCountEl.innerText = data.total_off !== undefined ? data.total_off : "0";
+                    activeCountEl.style.color = data.total_off > 0 ? "var(--color-danger)" : "#10b981";
+                }
                 if (pendingCountEl) pendingCountEl.innerText = data.total_pending !== undefined ? data.total_pending : "0";
                 if (updateTimeEl) {
                     updateTimeEl.innerText = data.update_time ? `Cập nhật: ${data.update_time}` : "Cập nhật: Chưa rõ";
+                }
+                if (cardTrendEl && data.total_off === 0 && data.total_pending === 0) {
+                    cardTrendEl.innerHTML = `<span style="color: #10b981; font-weight: 700;"><i class="fa-solid fa-circle-check"></i> 100% Tuyến đang hoạt động</span>`;
+                }
+                if (dateEl && data.total_off === 0) {
+                    dateEl.innerHTML = `<span style="background: rgba(16, 185, 129, 0.12); color: #059669; font-weight: 700; padding: 3px 8px; border-radius: 6px; margin-right: 8px;"><i class="fa-solid fa-circle-check"></i> 100% Tuyến đang hoạt động</span> Cập nhật: ${data.update_time || 'Hôm nay'}`;
                 }
                 if (tomorrowAlertEl) {
                     if (tomorrowCount > 0) {
@@ -10338,8 +10348,6 @@
                     }
                 }
             }
-
-
 
             // Populate Province Dropdown Filter in OFF SPE Tab
             const provSelect = document.getElementById('filter-off-spe-province');
@@ -10379,7 +10387,7 @@
             const tbody = document.getElementById('table-off-spe-body');
             if (!tbody) return;
 
-            if (!data || data.error) {
+            if (!data || (data.error && (!data.records || data.records.length === 0))) {
                 tbody.innerHTML = `<tr><td colspan="10" style="text-align: center; color: var(--text-danger); font-weight: 600; padding: 24px;"><i class="fa-solid fa-circle-exclamation"></i> ${data && data.error ? escapeHTML(data.error) : "Không có dữ liệu hoặc file cấu hình lỗi."}</td></tr>`;
                 return;
             }
@@ -10418,8 +10426,25 @@
                 return matchesSearch && matchesStatus && matchesTomorrow && matchesProv && matchesPo;
             });
 
+            const isFilterApplied = searchVal || statusFilter || provFilter || poFilter || (tomorrowFilter === 'tomorrow');
             if (filtered.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="10" style="text-align: center; color: var(--text-muted); padding: 24px;">Không tìm thấy tuyến nào phù hợp bộ lọc.</td></tr>`;
+                if (!isFilterApplied && (!data.records || data.records.length === 0)) {
+                    tbody.innerHTML = `<tr>
+                        <td colspan="10" style="text-align: center; padding: 42px 20px; background: rgba(16, 185, 129, 0.03);">
+                            <div style="width: 52px; height: 52px; border-radius: 50%; background: rgba(16, 185, 129, 0.12); color: #10b981; display: inline-flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 10px;">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+                            <div style="font-size: 15px; font-weight: 800; color: #059669; margin-bottom: 4px;">
+                                HIỆN TẠI KHÔNG CÓ TUYẾN NÀO ĐANG OFF
+                            </div>
+                            <div style="font-size: 12.5px; color: var(--text-secondary); max-width: 500px; margin: 0 auto;">
+                                Toàn bộ các tuyến giao nhận SPE thuộc Vùng Nam Trung Bộ đang hoạt động bình thường 100%.
+                            </div>
+                        </td>
+                    </tr>`;
+                } else {
+                    tbody.innerHTML = `<tr><td colspan="10" style="text-align: center; color: var(--text-muted); padding: 24px;">Không tìm thấy tuyến nào phù hợp bộ lọc.</td></tr>`;
+                }
                 return;
             }
 
