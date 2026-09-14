@@ -47,11 +47,11 @@
 
   // App State - LIGHT THEME BY DEFAULT & 12 DEDICATED SECTIONS
   const state = {
-    week: D.meta?.latest_week || 'W36',
+    week: D.meta?.latest_week || 'W37',
     province: 'ALL',
     am: 'ALL',
     selectedAM: null,
-    volChartMode: 'w35_vs_w36_full',
+    volChartMode: 'w34_vs_w35_full',
     volHighlight: 'all',
     gtcTongHighlight: 'all',
     gtcTongSegment: 'full',
@@ -222,12 +222,40 @@
   // Init Function
   function init() {
     applyTheme('light');
+    updateDynamicWeekLabels();
+    populateWeekFilter();
     populateAMFilter();
     setupEvents();
     setupTableSorting();
     setupLaserClickHighlighter();
     renderAll();
     lucide.createIcons();
+  }
+
+  function populateWeekFilter() {
+    const selWeek = document.getElementById('filter-week');
+    if (!selWeek || !D.meta?.weeks) return;
+    const wList = [...D.meta.weeks].reverse();
+    selWeek.innerHTML = wList.map((w, idx) => {
+      const label = idx === 0 ? `Tuần ${w} (Hiện tại)` : (idx === 1 ? `Tuần ${w} (Tuần trước)` : `Tuần ${w}`);
+      return `<option value="${w}" ${idx === 0 ? 'selected' : ''}>${label}</option>`;
+    }).join('');
+    state.week = D.meta.latest_week || wList[0];
+  }
+
+  function updateDynamicWeekLabels() {
+    if (!D.meta) return;
+    const latestW = D.meta.latest_week || 'W37';
+    const weeks = D.meta.weeks || ['W34', 'W35', 'W36', 'W37'];
+    const dateRange = D.meta.date_range || '07/09 - 13/09/2026';
+
+    const liveBadge = document.getElementById('header-live-badge') || document.querySelector('.live-badge');
+    if (liveBadge) liveBadge.textContent = `DỮ LIỆU CHUẨN ${latestW}`;
+
+    const dateRangeSpan = document.getElementById('header-weeks-range');
+    if (dateRangeSpan) {
+      dateRangeSpan.textContent = `So sánh 4 Tuần ${weeks[0]} – ${latestW} (${dateRange})`;
+    }
   }
 
   function applyTheme(theme) {
@@ -1201,15 +1229,21 @@
     if (!ctx || !D.san_luong || !D.san_luong.tinh) return;
     if (charts.sanLuongTinh) charts.sanLuongTinh.destroy();
 
+    const latestWeek = D.meta?.latest_week || 'W37';
+    const currKey = latestWeek.toLowerCase();
     const dataT = D.san_luong.tinh;
+    const ttsT = D.san_luong.tinh_tts || [];
+    const ttsMap = {};
+    ttsT.forEach(t => ttsMap[t.tinh] = t);
+
     charts.sanLuongTinh = new Chart(ctx, {
       type: 'bar',
       data: {
         labels: dataT.map(d => d.tinh),
         datasets: [
           {
-            label: 'Full Hàng (Toàn Mạng) W35',
-            data: dataT.map(d => d.w35),
+            label: `Full Hàng (Toàn Mạng) ${latestWeek}`,
+            data: dataT.map(d => d[currKey] !== undefined ? d[currKey] : (d.vol || d.w37 || 0)),
             backgroundColor: '#1e3a8a',
             datalabels: {
               anchor: 'end',
@@ -1221,8 +1255,14 @@
             }
           },
           {
-            label: 'Phân Khúc TTS (TikTok Shop) W35',
-            data: dataT.map(d => d.tts_w35 || Math.round(d.w35 * 0.228)),
+            label: `Phân Khúc TTS (TikTok Shop) ${latestWeek}`,
+            data: dataT.map(d => {
+              const t = ttsMap[d.tinh];
+              if (t && t[currKey] !== undefined) return t[currKey];
+              if (d.tts_vol) return d.tts_vol;
+              const total = d[currKey] !== undefined ? d[currKey] : (d.vol || 0);
+              return Math.round(total * 0.192);
+            }),
             backgroundColor: '#f26522',
             datalabels: {
               anchor: 'end',
@@ -1231,8 +1271,8 @@
               color: '#d44d0e',
               font: { weight: '800', size: 10 },
               formatter: (v, ctx) => {
-                const total = dataT[ctx.dataIndex].w35;
-                const pct = total ? ((v / total) * 100).toFixed(1) : '22.8';
+                const total = dataT[ctx.dataIndex][currKey] || dataT[ctx.dataIndex].vol || 0;
+                const pct = total ? ((v / total) * 100).toFixed(1) : '19.2';
                 return (v / 1000).toFixed(1) + `k (${pct}%)`;
               }
             }
@@ -1485,7 +1525,7 @@
     let datasets = [];
     let y1Title = 'Biến Động WoW (Δ Đơn)';
 
-    if (mode === 'w34_vs_w35_full') {
+    if (mode === 'w34_vs_w35_full' || mode === 'w35_vs_w36_full' || (mode.includes('full') && !mode.includes('tts'))) {
       title = `SẢN LƯỢNG FULL HÀNG (CỘT ${prevLabel} vs ${currLabel} + ĐƯỜNG BIẾN ĐỘNG Δ)`;
       displayList.sort((a, b) => b.diff_full - a.diff_full);
 
@@ -1524,7 +1564,7 @@
           order: 1
         }
       ];
-    } else if (mode === 'w34_vs_w35_tts') {
+    } else if (mode === 'w34_vs_w35_tts' || mode === 'w35_vs_w36_tts' || (mode.includes('tts') && !mode.includes('full'))) {
       title = `SẢN LƯỢNG TIKTOK SHOP (CỘT TTS ${prevLabel} vs ${currLabel} + ĐƯỜNG BIẾN ĐỘNG TTS Δ)`;
       displayList.sort((a, b) => b.diff_tts - a.diff_tts);
 

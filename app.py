@@ -4819,7 +4819,11 @@ def home():
 @app.route('/bao-cao-tuan')
 def meeting_dashboard():
     root_dir = os.path.dirname(os.path.abspath(__file__))
-    return send_from_directory(root_dir, 'index.html')
+    response = send_from_directory(root_dir, 'index.html')
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response
 
 @app.route('/slide')
 @app.route('/showcase')
