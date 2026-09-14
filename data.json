@@ -7589,7 +7589,7 @@
       "ncc_count": 7,
       "ktc_count": 6,
       "total_trucks": 32,
-      "last_updated": "17:00 - 14/09/2026"
+      "last_updated": "17:36 - 14/09/2026"
     },
     "surge_fixed": {
       "fixed_cost": 963.43,
@@ -7637,7 +7637,7 @@
         "fixed_cost": 154.98,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
+        "primary_ncc": "Trâm Hoá, Lâm Ngọc Thành",
         "truck_count": 4
       },
       {
@@ -7705,7 +7705,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 7,
-        "active_ktcs": "KTC Khánh Hòa, KTC Nam Nha Trang, KTC Đức Trọng, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Đức Trọng, KTC Nam Nha Trang, KTC Khánh Hòa, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Mạnh Cường (BCCK)",
