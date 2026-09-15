@@ -1011,14 +1011,15 @@
       // 2. GTC Tổng
       const gtcCard = cardMap['gtc_full'] || {};
       const gtcTtsCard = cardMap['gtc_tts'] || {};
-      const gtcVal = gtcCard.val !== undefined ? gtcCard.val : 0.5695;
-      const gtcDiff = gtcCard.diff !== undefined ? gtcCard.diff : -0.0077;
-      const gtcTtsVal = gtcTtsCard.val !== undefined ? gtcTtsCard.val : 0.5695;
+      const gtcVal = gtcCard.val !== undefined ? gtcCard.val : 0.5778;
+      const gtcDiff = gtcCard.diff !== undefined ? gtcCard.diff : -0.0036;
+      const gtcTtsVal = gtcTtsCard.val !== undefined ? gtcTtsCard.val : 0.5591;
+      const gtcTtsDiff = gtcTtsCard.diff !== undefined ? gtcTtsCard.diff : -0.0104;
 
       // 3. GTC Ca 1 TTS
       const gtcCa1Trend = trendMap['%GTC TTS (Ca1 thuần)'] || trendMap['%GTC Full hàng (Ca1 thuần)'] || {};
-      const gtcCa1Val = gtcCa1Trend[latestWeek.toLowerCase()] !== undefined ? gtcCa1Trend[latestWeek.toLowerCase()] : 0.758;
-      const gtcCa1Diff = gtcCa1Trend.diff !== undefined ? gtcCa1Trend.diff : 0.0181;
+      const gtcCa1Val = gtcCa1Trend[latestWeek.toLowerCase()] !== undefined ? gtcCa1Trend[latestWeek.toLowerCase()] : 0.7307;
+      const gtcCa1Diff = gtcCa1Trend.diff !== undefined ? gtcCa1Trend.diff : -0.0171;
 
       // 4. Gán vận hành
       const ganOverview = D.gan?.overview || [];
@@ -1027,20 +1028,23 @@
       const ganVal = ganFullRow[latestWeek.toLowerCase()] !== undefined ? ganFullRow[latestWeek.toLowerCase()] : (ganFullRow.w37 || ganFullRow.w36 || 0.8355);
       const ganDiff = ganFullRow.diff !== undefined ? ganFullRow.diff : 0.0144;
       const ganTtsVal = ganTtsRow[latestWeek.toLowerCase()] !== undefined ? ganTtsRow[latestWeek.toLowerCase()] : (ganTtsRow.w37 || ganTtsRow.w36 || 0.8343);
+      const ganTtsDiff = ganTtsRow.diff !== undefined ? ganTtsRow.diff : 0.0142;
 
       // 5. ODR
       const odrCard = cardMap['odr_full'] || {};
       const odrTrendTts = trendMap['%ODR TTS'] || {};
-      const odrVal = odrCard.val !== undefined ? odrCard.val : 0.9288;
-      const odrDiff = odrCard.diff !== undefined ? odrCard.diff : 0.0071;
-      const odrTtsVal = odrTrendTts[latestWeek.toLowerCase()] !== undefined ? odrTrendTts[latestWeek.toLowerCase()] : 0.9243;
+      const odrVal = odrCard.val !== undefined ? odrCard.val : 0.9334;
+      const odrDiff = odrCard.diff !== undefined ? odrCard.diff : 0.0046;
+      const odrTtsVal = odrTrendTts[latestWeek.toLowerCase()] !== undefined ? odrTrendTts[latestWeek.toLowerCase()] : 0.9392;
+      const odrTtsDiff = odrTrendTts.diff !== undefined ? odrTrendTts.diff : 0.0070;
 
       // 6. LTC
       const ltcCard = cardMap['ltc_full'] || {};
       const ltcTrendTts = trendMap['%LTC TTS'] || {};
-      const ltcVal = ltcCard.val !== undefined ? ltcCard.val : 0.905;
-      const ltcDiff = ltcCard.diff !== undefined ? ltcCard.diff : -0.0064;
-      const ltcTtsVal = ltcTrendTts[latestWeek.toLowerCase()] !== undefined ? ltcTrendTts[latestWeek.toLowerCase()] : 0.9419;
+      const ltcVal = ltcCard.val !== undefined ? ltcCard.val : 0.9029;
+      const ltcDiff = ltcCard.diff !== undefined ? ltcCard.diff : -0.0021;
+      const ltcTtsVal = ltcTrendTts[latestWeek.toLowerCase()] !== undefined ? ltcTrendTts[latestWeek.toLowerCase()] : 0.9355;
+      const ltcTtsDiff = ltcTrendTts.diff !== undefined ? ltcTrendTts.diff : -0.0064;
 
       // 7. Rớt LC
       const rotCard = cardMap['rot_lc'] || {};
@@ -1084,8 +1088,8 @@
           id: 'gtc_pair',
           title: `%GTC Tổng (${latestWeek})`,
           mainVal: fPct(gtcVal),
-          mainUnit: 'Full Hàng',
-          subVal: `${fPct(gtcTtsVal)} (TTS)`,
+          mainUnit: `Full Hàng (${gtcDiff >= 0 ? '▲ +' : '▼ '}${(Math.abs(gtcDiff)*100).toFixed(1)}%p)`,
+          subVal: `TTS: ${fPct(gtcTtsVal)} (${gtcTtsDiff >= 0 ? '▲ +' : '▼ '}${(Math.abs(gtcTtsDiff)*100).toFixed(1)}%p)`,
           diff: gtcDiff,
           isHigherBetter: true,
           colorCls: 'kpi-amber',
@@ -1106,8 +1110,8 @@
           id: 'gan_pair',
           title: `Tỷ Lệ Gán Vận Hành (${latestWeek})`,
           mainVal: fPct(ganVal),
-          mainUnit: 'Full Hàng',
-          subVal: `${fPct(ganTtsVal)} (TTS) | Target ≥ 90.0%`,
+          mainUnit: `Full Hàng (${ganDiff >= 0 ? '▲ +' : '▼ '}${(Math.abs(ganDiff)*100).toFixed(1)}%p)`,
+          subVal: `TTS: ${fPct(ganTtsVal)} (${ganTtsDiff >= 0 ? '▲ +' : '▼ '}${(Math.abs(ganTtsDiff)*100).toFixed(1)}%p) | Target ≥ 90.0%`,
           diff: ganDiff,
           isHigherBetter: true,
           colorCls: 'kpi-purple',
@@ -1117,8 +1121,8 @@
           id: 'odr_pair',
           title: `%ODR (Giao Đúng Hẹn SLA - ${latestWeek})`,
           mainVal: fPct(odrVal),
-          mainUnit: 'Full Hàng',
-          subVal: `${fPct(odrTtsVal)} (TTS)`,
+          mainUnit: `Full Hàng (${odrDiff >= 0 ? '▲ +' : '▼ '}${(Math.abs(odrDiff)*100).toFixed(1)}%p)`,
+          subVal: `TTS: ${fPct(odrTtsVal)} (${odrTtsDiff >= 0 ? '▲ +' : '▼ '}${(Math.abs(odrTtsDiff)*100).toFixed(1)}%p)`,
           diff: odrDiff,
           isHigherBetter: true,
           colorCls: 'kpi-green',
@@ -1128,8 +1132,8 @@
           id: 'ltc_pair',
           title: `%LTC (Lấy Thành Công - ${latestWeek})`,
           mainVal: fPct(ltcVal),
-          mainUnit: 'Full Hàng',
-          subVal: `${fPct(ltcTtsVal)} (TTS)`,
+          mainUnit: `Full Hàng (${ltcDiff >= 0 ? '▲ +' : '▼ '}${(Math.abs(ltcDiff)*100).toFixed(1)}%p)`,
+          subVal: `TTS: ${fPct(ltcTtsVal)} (${ltcTtsDiff >= 0 ? '▲ +' : '▼ '}${(Math.abs(ltcTtsDiff)*100).toFixed(1)}%p) | Target ≥ 90.0%`,
           diff: ltcDiff,
           isHigherBetter: true,
           colorCls: 'kpi-green',

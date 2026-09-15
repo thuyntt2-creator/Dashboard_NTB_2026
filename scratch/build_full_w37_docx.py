@@ -158,7 +158,7 @@ add_callout_box(doc, [
      "Kính chào Ban Giám Đốc và toàn thể anh chị em Quản lý Vận hành (AM) vùng Nam Trung Bộ. Em xin phép trình bày báo cáo tuần W37 (kết thúc ngày 13/09/2026). Tuần 37 là tuần bản lề với 4 điểm nhấn mang tính bước ngoặt:\n\n"
      "• 1. Sản lượng phục hồi ngoạn mục sau chuỗi 5 tuần suy giảm: Toàn vùng Full hàng cán mốc 357.249 đơn, tăng vọt +49.412 đơn (+16,1% WoW) nhờ hiệu ứng Mega Campaign 9.9 và sự bùng nổ của nhóm hàng nông sản/mùa vụ. Phân khúc TikTok Shop (TTS) đạt 68.719 đơn (+8,9% WoW), chiếm tỷ trọng 19,2% tổng sản lượng.\n"
      "• 2. Vận tải Middle-mile (Tuyến đường dài KTC & Luân chuyển) đạt đỉnh hiệu quả cao nhất năm: Tỷ lệ lấp đầy tải xe đường dài (TLLĐ KTC) bứt phá lên 54,8% (+6,7%p WoW với 551 chuyến xe), số xe chạy rỗng dưới 30% giảm mạnh chỉ còn 80 xe. Tỷ lệ Rớt Luân Chuyển giảm sâu về mức kỷ lục 1,80% (-0,45%p WoW), tiệm cận chuẩn xuất sắc toàn quốc ≤1,5%.\n"
-     "• 3. Chất lượng giao hàng Đúng Hẹn (%ODR) giữ vững phong độ: ODR Full hàng toàn vùng đạt 93,34% (+0,46%p WoW, TTS đạt 93,92%), duy trì sắc xanh SLA ≥92% tuần thứ hai liên tiếp. 4/5 tỉnh và 14/18 AM đạt chuẩn xanh cam kết.\n"
+     "• 3. Chất lượng giao hàng Đúng Hẹn (%ODR) giữ vững phong độ: ODR Full hàng toàn vùng đạt 93,9% (+0,97%p WoW, phân khúc TTS đạt 92,8%, +0,42%p WoW), duy trì sắc xanh SLA ≥92% tuần thứ hai liên tiếp. Cả 5/5 tỉnh và 16/18 AM đều cải thiện chất lượng đúng hẹn.\n"
      "• 4. Nghịch lý quản trị Last-mile & Điểm nghẽn cổ chai: Dù tuyến giữa rất mượt, nhưng tỷ lệ Giao Thành Công (%GTC Tổng) của vùng lại đi ngang ở mức 57,78% (giảm nhẹ -0,36%p). Nguyên nhân gốc rễ: Toàn vùng đang bị đè nặng bởi 11 bưu cục cảnh báo bất ổn (backlog tồn đọng lên tới 13.038 đơn, 1.570 đơn >5 ngày). Nếu không giải quyết dứt điểm 11 bưu cục này, lượng hàng tăng trưởng sẽ trở thành gánh nặng tồn kho đè sập chất lượng dịch vụ của toàn vùng.",
      (15, 76, 129), True)
 ], fill_hex="FFF7ED", border_hex="F97316")
@@ -202,27 +202,26 @@ add_callout_box(doc, [
      (15, 76, 129), True)
 ], fill_hex="F8FAFC", border_hex="2563EB")
 
-# ==================== IV. CHẤT LƯỢNG ĐÚNG HẸN %ODR (FULL HÀNG & TIKTOK SHOP) ====================
-add_section_header(doc, "⏱️ [IV. CHẤT LƯỢNG ĐÚNG HẸN %ODR (FULL HÀNG 93.34% & TIKTOK SHOP 93.92% MỚI CẬP NHẬT)]")
+# ==================== IV. CHẤT LƯỢNG ĐÚNG HẸN %ODR (FULL HÀNG 93.9% & TIKTOK SHOP 92.8%) ====================
+add_section_header(doc, "⏱️ [IV. CHẤT LƯỢNG ĐÚNG HẸN %ODR (FULL HÀNG 93.9% & TIKTOK SHOP 92.8% CHUẨN XÁC)]")
 
 add_callout_box(doc, [
-    ("🗣️ PHÂN TÍCH CHỈ SỐ %ODR VỪA CẬP NHẬT & INSIGHT NỘI TẠI:\n",
-     "Kính thưa Ban Giám Đốc, theo dữ liệu chuẩn mới nhất vừa cập nhật:\n\n"
-     "1. ODR FULL HÀNG TOÀN VÙNG: Đạt 93,34% (W36: 92,88%, tăng +0,46%p WoW). Vùng Nam Trung Bộ tiếp tục bảo vệ vững chắc chuẩn chất lượng xanh SLA ≥92%.\n"
-     "• Xếp hạng 5 Tỉnh Full hàng: Ninh Thuận dẫn đầu với 96,47% (+0,49%p); Bình Thuận đạt 96,21%; Khánh Hòa đạt 94,56% (+0,42%p); Đắk Nông đạt 90,50% (+1,40%p); Lâm Đồng thấp nhất vùng với 90,25% (+0,74%p, chưa đạt chuẩn xanh SLA).\n"
-     "• Top AM xuất sắc nhất về ODR: AM Thái Thị Thanh Thư (97,52%), AM Nguyễn Ngọc Khánh (96,76%), AM Cao Thị Thanh Thủy (96,70%), AM Nguyễn Duy Long (96,67%), AM Nguyễn Lê Nguyên Vũ (96,28%).\n"
-     "• Điểm sáng bứt phá ngoạn mục: AM Trương Quang Linh tăng thần tốc +21,30%p (từ 60,40% lên 81,70%) — nỗ lực vực dậy chất lượng rất đáng ghi nhận tại khu vực khó khăn Đắk Nông.\n\n"
-     "2. ODR PHÂN KHÚC TIKTOK SHOP (MỚI CẬP NHẬT): Đạt 93,92% (W36: 93,22%, tăng +0,70%p WoW) — cao hơn ODR Full hàng 0,58%p.\n"
-     "• Xếp hạng 5 Tỉnh ODR TTS: Ninh Thuận xuất sắc quán quân (96,94%, tăng +0,52%p); Bình Thuận (96,25%); Khánh Hòa (95,06%, tăng +0,30%p); Đắk Nông (91,05%, tăng mạnh +1,95%p); Lâm Đồng (90,58%, tăng +1,33%p).\n"
-     "• Top AM ODR TTS dẫn đầu: AM Thái Thị Thanh Thư (97,69%), AM Nguyễn Duy Long (96,98%), AM Cao Thị Thanh Thủy (96,97%), AM Nguyễn Ngọc Khánh (96,93%), AM Nguyễn Lê Nguyên Vũ (96,28%).\n"
-     "• Bứt phá ODR TTS: AM Trương Quang Linh tăng vọt +21,30%p (lên 81,70%), AM Lê Văn Trường tăng +3,99%p (từ 85,04% lên 89,03%), AM Nguyễn Thanh Long tăng +2,96%p (từ 90,25% lên 93,21%).\n\n"
+    ("🗣️ PHÂN TÍCH CHỈ SỐ %ODR CHUẨN XÁC & INSIGHT NỘI TẠI:\n",
+     "Kính thưa Ban Giám Đốc, đối với chỉ số cốt lõi Giao Đúng Hẹn (%ODR) tuần W37:\n\n"
+     "1. ODR FULL HÀNG TOÀN VÙNG: Đạt 93,9% (chính xác 93,85%, tăng +0,97%p WoW so với mức 92,88% của W36). Vùng Nam Trung Bộ tiếp tục giữ vững chuẩn chất lượng xanh SLA ≥92% tuần thứ hai liên tiếp.\n"
+     "• Xếp hạng 5 Tỉnh Full hàng: Ninh Thuận dẫn đầu xuất sắc với 96,47% (+0,49%p); Bình Thuận đạt 96,21%; Khánh Hòa đạt 94,56% (+0,42%p); Đắk Nông đạt 90,50% (+1,40%p); Lâm Đồng đạt 90,25% (+0,74%p, chưa chạm chuẩn xanh 92%).\n"
+     "• Top AM xuất sắc nhất về ODR Full hàng: AM Thái Thị Thanh Thư (97,52%), AM Nguyễn Ngọc Khánh (96,76%), AM Cao Thị Thanh Thủy (96,70%), AM Nguyễn Duy Long (96,67%), AM Nguyễn Lê Nguyên Vũ (96,28%).\n"
+     "• Điểm sáng bứt phá ODR Full hàng: AM Trương Quang Linh tăng vọt +21,30%p (từ 60,40% lên 81,70%); AM Hồng Bích Nga tăng +7,41%p (từ 69,34% lên 76,75%); AM Nguyễn Thanh Long tăng +2,96%p (lên 93,21%).\n\n"
+     "2. ODR PHÂN KHÚC TIKTOK SHOP (TTS): Đạt 92,8% (chính xác 92,85%, tăng +0,42%p WoW so với mức 92,43% của W36). Toàn vùng giữ chuẩn SLA cam kết cùng sàn TikTok (≥92%).\n"
+     "• Xếp hạng 5 Tỉnh ODR TTS: Ninh Thuận tiếp tục quán quân với 96,60% (+0,72%p); Bình Thuận đạt 95,91%; Khánh Hòa đạt 93,73%; Đắk Nông đạt 90,31% (+1,73%p); Lâm Đồng đạt 88,89% (+1,14%p).\n"
+     "• Top AM ODR TTS dẫn đầu: AM Nguyễn Ngọc Khánh (97,07%), AM Thái Thị Thanh Thư (96,83%), AM Nguyễn Duy Long (96,73%), AM Cao Thị Thanh Thủy (96,71%), AM Nguyễn Lê Nguyên Vũ (95,33%).\n"
+     "• Điểm sáng bứt phá ODR TTS: AM Trương Quang Linh tăng thần tốc +18,37%p (từ 66,52% lên 84,89% với 470 đơn); AM Lê Văn Trường tăng +5,80%p (từ 82,33% lên 88,13% với 4.711 đơn); AM Hồng Bích Nga tăng +5,14%p (lên 78,80%); AM Nguyễn Thanh Long tăng +4,24%p (lên 92,00%).\n\n"
      "⚠️ CẢNH BÁO ĐỎ ODR — BÁO ĐỘNG TỤT DỐC:\n"
-     "• AM Trầm Hữu Tiến: Rơi tự do xuống mức báo động 71,54% (giảm sâu -4,09%p WoW ở cả Full hàng và TTS). Đây là chuỗi lao dốc 4 tuần liên tiếp (W34: 82,7% -> W35: 79,5% -> W36: 75,6% -> W37: 71,5%). Đứt gãy nghiêm trọng kỷ luật phát hàng tại Đức Trọng 1 và Di Linh.\n"
-     "• AM Lê Minh Lợi: Chỉ đạt 73,51% (mặc dù tăng +2,52%p).\n\n"
-     "🔍 INSIGHT NGHỊCH LÝ ODR TTS vs %GTC TTS:\n"
-     "• Hiện tượng Ưu tiên phân luồng (Priority Bias): Bưu tá tập trung tối đa nguồn lực giao hàng TikTok Shop để chạy chỉ tiêu đúng hẹn (ODR TTS đạt tới 93,92%) nhằm tránh bị TikTok phạt SLA và trừ điểm bưu cục.\n"
-     "• Nghịch lý 'Đúng hẹn cao nhưng Thành công thấp': Mặc dù ODR TTS đạt 93,92%, nhưng tỷ lệ Giao Thành Công (%GTC TTS) lại sụt giảm xuống chỉ còn 55,91% (-1,04%p WoW). Bản chất: Khách hàng mua qua livestream đặt hàng ngẫu hứng nên phát sinh tỷ lệ 'Hẹn giao lại', 'Thuê bao không nghe máy' hoặc 'Bom hàng tại chỗ' rất lớn. Nếu bưu tá chỉ đến phát đúng giờ rồi bấm quay đầu thì ODR vẫn cao nhưng tỷ lệ thành công thực tế bị rơi rụng.\n"
-     "• Giải pháp hành động: Bắt buộc 100% bưu tá thực hiện quy trình 'Pre-call' gọi điện xác nhận trước khi rời bưu cục, tập trung phát ca chiều tối (17h - 20h) khi khách hàng TikTok đã có mặt tại nhà.",
+     "• AM Trầm Hữu Tiến: Rơi tự do xuống mức báo động ở cả hai phân khúc (Full hàng chỉ đạt 71,54%, TTS chỉ đạt 70,49%, giảm -3,85%p WoW). Đây là chuỗi lao dốc 4 tuần liên tiếp (W34: 82,7% -> W35: 79,5% -> W36: 75,6% -> W37: 71,5% / 70,5%). Kỷ luật phát hàng tại cụm Đức Trọng 1 và Di Linh đang bị đứt gãy nghiêm trọng.\n"
+     "• AM Lê Minh Lợi: Full hàng đạt 73,51%, TTS đạt 70,87% (rớt chuẩn xanh xa).\n\n"
+     "🔍 INSIGHT BẢN CHẤT VẬN HÀNH ODR:\n"
+     "• Sự khác biệt giữa Full hàng (93,9%) và TikTok Shop (92,8%): Đơn hàng TTS chịu áp lực thời gian phát nghiêm ngặt và tỷ lệ bưu tá không kết nối được người mua cao hơn trong ca 1, dẫn tới ODR TTS thấp hơn Full hàng 1,0%p.\n"
+     "• Nghịch lý ODR vs Hàng Tồn Aging: Toàn vùng giữ ODR ở mức cao (93,9%) nhờ bưu tá dồn toàn lực giao nhanh các đơn mới về trong ngày. Nhưng cái giá phải trả là bỏ rơi các đơn hàng khó, địa chỉ xa, khiến tồn Aging >5 ngày tích tụ tại Lâm Đồng (930 đơn) và Đắk Nông (546 đơn). Chúng ta cần nghiêm cấm hành vi chạy theo ODR đơn mới mà bỏ mặc hàng tồn kho!",
      (5, 150, 105), True)
 ], fill_hex="F0FDF4", border_hex="10B981")
 
