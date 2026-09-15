@@ -288,7 +288,7 @@ window.DASHBOARD_DATA = {
       },
       {
         "type": "warning",
-        "text": "Trọng điểm cứu trợ khẩn cấp: Toàn vùng đang chịu tải bởi 11 bưu cục cảnh báo bất ổn với tổng backlog 13,038 đơn (1,570 đơn >5 ngày). Nguy cơ vỡ kho cao nhất tại Cam Linh (backlog 2,187 đơn), Xuân Hương Đà Lạt (backlog 1,738 đơn) và Đức Trọng 1 (backlog 1,127 đơn)."
+        "text": "Trọng điểm cứu trợ khẩn cấp: Toàn vùng đang chịu tải bởi 13 bưu cục cảnh báo bất ổn với tổng backlog 19,020 đơn (1,774 đơn >5 ngày). Nguy cơ vỡ kho cao nhất tại Cam Linh (backlog 2,433 đơn), Tây Nha Trang (backlog 2,295 đơn), Xuân Hương Đà Lạt (backlog 2,165 đơn), Đơn Dương (backlog 2,038 đơn) và Di Linh (backlog 1,970 đơn)."
       }
     ]
   },
@@ -9077,7 +9077,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 6,
       "total_trucks": 32,
-      "last_updated": "08:58 - 15/09/2026"
+      "last_updated": "09:33 - 15/09/2026"
     },
     "surge_fixed": {
       "fixed_cost": 962.84,
@@ -9099,7 +9099,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 419.5,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, NAK",
+        "primary_ncc": "NAK, Mạnh Cường",
         "truck_count": 12
       },
       {
@@ -9125,7 +9125,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 154.98,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
+        "primary_ncc": "Tốt và Rẻ, Trâm Hoá",
         "truck_count": 4
       },
       {
@@ -9193,7 +9193,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 7,
-        "active_ktcs": "KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Đức Trọng"
+        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Đức Trọng, KTC Nam Nha Trang"
       },
       {
         "ncc": "Mạnh Cường (BCCK)",
@@ -9206,7 +9206,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Nam Nha Trang, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Bắc Nha Trang, KTC Nam Nha Trang"
       },
       {
         "ncc": "Công Định",
@@ -26503,14 +26503,14 @@ window.DASHBOARD_DATA = {
       "tinh": "Đắk Nông",
       "am": "Trương Quang Linh",
       "gtc_w36": 15.2,
-      "gtc_w37": 18.4,
-      "diff": 3.2,
+      "gtc_w37": 18.1,
+      "diff": 2.8,
       "gtc_best": 59.9,
       "warn_type": "Cảnh báo GTC < 45%",
-      "days_warn": 99,
-      "backlog": 1077,
-      "backlog_5d": 454,
-      "clear_days": 4
+      "days_warn": 100,
+      "backlog": 1224,
+      "backlog_5d": 490,
+      "clear_days": 5
     },
     {
       "id": "22389000",
@@ -26518,14 +26518,29 @@ window.DASHBOARD_DATA = {
       "tinh": "Lâm Đồng",
       "am": "Trầm Hữu Tiến",
       "gtc_w36": 25.0,
-      "gtc_w37": 20.0,
-      "diff": -5.0,
+      "gtc_w37": 20.1,
+      "diff": -4.9,
       "gtc_best": 60.4,
       "warn_type": "Cảnh báo GTC < 45%",
-      "days_warn": 83,
-      "backlog": 1127,
-      "backlog_5d": 287,
+      "days_warn": 84,
+      "backlog": 1223,
+      "backlog_5d": 281,
       "clear_days": 5
+    },
+    {
+      "id": "20269000",
+      "bc": "(DNO) Kiến Đức",
+      "tinh": "Đắk Nông",
+      "am": "Hồng Bích Nga",
+      "gtc_w36": 19.4,
+      "gtc_w37": 29.9,
+      "diff": 10.5,
+      "gtc_best": 63.3,
+      "warn_type": "Cảnh báo GTC < 45%",
+      "days_warn": 80,
+      "backlog": 1035,
+      "backlog_5d": 78,
+      "clear_days": 4
     },
     {
       "id": "21126000",
@@ -26537,25 +26552,10 @@ window.DASHBOARD_DATA = {
       "diff": -21.4,
       "gtc_best": 65.1,
       "warn_type": "Cảnh báo GTC < 45%",
-      "days_warn": 4,
-      "backlog": 1738,
-      "backlog_5d": 274,
-      "clear_days": 7
-    },
-    {
-      "id": "20269000",
-      "bc": "(DNO) Kiến Đức",
-      "tinh": "Đắk Nông",
-      "am": "Hồng Bích Nga",
-      "gtc_w36": 19.4,
-      "gtc_w37": 30.5,
-      "diff": 11.2,
-      "gtc_best": 63.3,
-      "warn_type": "Cảnh báo GTC < 45%",
-      "days_warn": 79,
-      "backlog": 786,
-      "backlog_5d": 97,
-      "clear_days": 3
+      "days_warn": 5,
+      "backlog": 2165,
+      "backlog_5d": 310,
+      "clear_days": 9
     },
     {
       "id": "22830000",
@@ -26563,14 +26563,14 @@ window.DASHBOARD_DATA = {
       "tinh": "Khánh Hòa",
       "am": "Nguyễn Thanh Long",
       "gtc_w36": 49.9,
-      "gtc_w37": 33.9,
-      "diff": -16.0,
+      "gtc_w37": 30.7,
+      "diff": -19.2,
       "gtc_best": 49.9,
       "warn_type": "Cảnh báo GTC < 45%",
-      "days_warn": 107,
-      "backlog": 2187,
-      "backlog_5d": 129,
-      "clear_days": 9
+      "days_warn": 108,
+      "backlog": 2433,
+      "backlog_5d": 152,
+      "clear_days": 10
     },
     {
       "id": "20320000",
@@ -26578,14 +26578,14 @@ window.DASHBOARD_DATA = {
       "tinh": "Khánh Hòa",
       "am": "Phan Đình Duy",
       "gtc_w36": 51.3,
-      "gtc_w37": 36.1,
-      "diff": -15.2,
+      "gtc_w37": 33.3,
+      "diff": -18.0,
       "gtc_best": 68.6,
       "warn_type": "Cảnh báo GTC < 45%",
-      "days_warn": 4,
-      "backlog": 1915,
-      "backlog_5d": 26,
-      "clear_days": 8
+      "days_warn": 5,
+      "backlog": 2295,
+      "backlog_5d": 17,
+      "clear_days": 9
     },
     {
       "id": "22051000",
@@ -26593,29 +26593,14 @@ window.DASHBOARD_DATA = {
       "tinh": "Lâm Đồng",
       "am": "Lê Minh Lợi",
       "gtc_w36": 32.8,
-      "gtc_w37": 37.0,
-      "diff": 4.2,
-      "gtc_best": 64.4,
+      "gtc_w37": 36.5,
+      "diff": 3.7,
+      "gtc_best": 64.3,
       "warn_type": "Cảnh báo GTC < 45%",
-      "days_warn": 107,
-      "backlog": 1049,
-      "backlog_5d": 60,
+      "days_warn": 108,
+      "backlog": 992,
+      "backlog_5d": 28,
       "clear_days": 4
-    },
-    {
-      "id": "20590000",
-      "bc": "(DNO) Tuy Đức",
-      "tinh": "Đắk Nông",
-      "am": "Trần Thị Nhung",
-      "gtc_w36": 39.8,
-      "gtc_w37": 38.9,
-      "diff": -0.9,
-      "gtc_best": 64.7,
-      "warn_type": "Cảnh báo GTC < 45%",
-      "days_warn": 20,
-      "backlog": 515,
-      "backlog_5d": 20,
-      "clear_days": 2
     },
     {
       "id": "20942000",
@@ -26623,14 +26608,29 @@ window.DASHBOARD_DATA = {
       "tinh": "Lâm Đồng",
       "am": "Trầm Hữu Tiến",
       "gtc_w36": 46.8,
-      "gtc_w37": 39.3,
-      "diff": -7.5,
+      "gtc_w37": 40.0,
+      "diff": -6.8,
       "gtc_best": 58.9,
       "warn_type": "Cảnh báo GTC < 45%",
-      "days_warn": 56,
-      "backlog": 1704,
+      "days_warn": 57,
+      "backlog": 1970,
       "backlog_5d": 219,
-      "clear_days": 7
+      "clear_days": 8
+    },
+    {
+      "id": "20590000",
+      "bc": "(DNO) Tuy Đức",
+      "tinh": "Đắk Nông",
+      "am": "Trần Thị Nhung",
+      "gtc_w36": 39.8,
+      "gtc_w37": 41.2,
+      "diff": 1.4,
+      "gtc_best": 64.7,
+      "warn_type": "Cảnh báo GTC < 45%",
+      "days_warn": 21,
+      "backlog": 640,
+      "backlog_5d": 16,
+      "clear_days": 3
     },
     {
       "id": "22425000",
@@ -26638,13 +26638,13 @@ window.DASHBOARD_DATA = {
       "tinh": "Lâm Đồng",
       "am": "Huỳnh Thị Kim Chi",
       "gtc_w36": 49.7,
-      "gtc_w37": 42.9,
-      "diff": -6.8,
-      "gtc_best": 50.1,
+      "gtc_w37": 44.5,
+      "diff": -5.1,
+      "gtc_best": 51.0,
       "warn_type": "Cảnh báo GTC < 45%",
-      "days_warn": 102,
-      "backlog": 706,
-      "backlog_5d": 39,
+      "days_warn": 103,
+      "backlog": 798,
+      "backlog_5d": 32,
       "clear_days": 3
     },
     {
@@ -26653,14 +26653,44 @@ window.DASHBOARD_DATA = {
       "tinh": "Đắk Nông",
       "am": "Huỳnh Thúc Duân",
       "gtc_w36": 39.4,
-      "gtc_w37": 45.6,
-      "diff": 6.3,
+      "gtc_w37": 45.1,
+      "diff": 5.7,
       "gtc_best": 71.5,
       "warn_type": "Cảnh báo GTC < 70% lịch sử tốt nhất",
-      "days_warn": 32,
-      "backlog": 234,
-      "backlog_5d": 32,
+      "days_warn": 33,
+      "backlog": 347,
+      "backlog_5d": 36,
       "clear_days": 1
+    },
+    {
+      "id": "21377000",
+      "bc": "(LDO) Đơn Dương",
+      "tinh": "Lâm Đồng",
+      "am": "Lê Văn Trường",
+      "gtc_w36": 35.5,
+      "gtc_w37": 45.3,
+      "diff": 9.7,
+      "gtc_best": 65.8,
+      "warn_type": "Cảnh báo GTC < 70% lịch sử tốt nhất",
+      "days_warn": 62,
+      "backlog": 2038,
+      "backlog_5d": 89,
+      "clear_days": 8
+    },
+    {
+      "id": "21537000",
+      "bc": "(LDO) Lâm Viên - Đà Lạt 2",
+      "tinh": "Lâm Đồng",
+      "am": "Lê Văn Trường",
+      "gtc_w36": 50.9,
+      "gtc_w37": 46.2,
+      "diff": -4.7,
+      "gtc_best": 71.5,
+      "warn_type": "Cảnh báo GTC < 70% lịch sử tốt nhất",
+      "days_warn": 66,
+      "backlog": 860,
+      "backlog_5d": 8,
+      "clear_days": 3
     }
   ],
   "ktc": {

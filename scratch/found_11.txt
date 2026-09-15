@@ -1,0 +1,12 @@
+173: <button class="tab-item" data-tab="tab-bc-canhbao" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(249, 115, 22, 0.12) 100%); border: 1.5px solid #ef4444; color: #dc2626; font-weight: 800; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2);">
+174: <i data-lucide="alert-triangle" style="color: #dc2626;"></i> 15. BC Cảnh Báo (11 BC)
+342: <!-- CẢNH BÁO BẤT ỔN: BẢNG 11 BƯU CỤC TRONG NHÓM CẢNH BÁO -->
+350: <span class="badge-tag badge-tag-red" style="font-weight: 800; font-size: 12px;">🚨 11 Bưu Cục Cảnh Báo</span>
+351: <button onclick="window.switchTabDirect('tab-bc-canhbao')" class="btn btn-sm btn-secondary" style="font-size: 11.5px; padding: 4px 10px; cursor: pointer;">
+843: <span class="badge-tag badge-tag-red" style="font-weight: 800; font-size: 12px;">🚨 11 Bưu Cục Cảnh Báo</span>
+1938: <!-- TAB 11: BÁO CÁO KTC & VẬN TẢI (BACKLOG, LEADTIME & TỶ LỆ LẤP ĐẦY XE) -->
+2317: <i data-lucide="alert-triangle" style="width: 14px; height: 14px; color: #dc2626;"></i> 🚨 11 Bưu Cục Cảnh Báo
+3265: ĐIỀU HÀNH TRỌNG ĐIỂM: 11 BƯU CỤC TRONG DIỆN CẢNH BÁO BẤT ỔN (%GTC &lt; 45% HOẶC &lt; 70% LỊCH SỬ)
+3283: <div class="kpi-tile-value" style="color: #dc2626;">11 <small>bưu cục</small></div>
+3308: BẢNG CHI TIẾT: 11 BƯU CỤC TRONG DIỆN CẢNH BÁO BẤT ỔN — SO SÁNH W36 vs W37 &amp; SỐ NGÀY NẰM TRONG DANH SÁCH
+3311: <span class="badge-tag badge-tag-red" style="font-weight: 800; font-size: 12px;">🚨 11 Bưu Cục</span>

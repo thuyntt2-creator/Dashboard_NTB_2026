@@ -1,0 +1,52 @@
+{
+  "Đơn Dương": [
+    {
+      "warehouse_name": "(LDO) Đơn Dương",
+      "am_name": "Lê Văn Trường"
+    }
+  ],
+  "Lâm Viên": [
+    {
+      "warehouse_name": "(LDO) Lâm Viên - Đà Lạt 2",
+      "am_name": "Lê Văn Trường"
+    },
+    {
+      "warehouse_name": "(LDO) Lâm Viên - Đà Lạt 1",
+      "am_name": "Lê Văn Trường"
+    }
+  ],
+  "Quảng Tín": [
+    {
+      "warehouse_name": "(DNO) Quảng Tín",
+      "am_name": "Trương Quang Linh"
+    }
+  ],
+  "Đức Trọng": [
+    {
+      "warehouse_name": "(LDO) Đức Trọng 2",
+      "am_name": "Nguyễn Thị Tuyết Thơ"
+    },
+    {
+      "warehouse_name": "(LDO) Đức Trọng 1",
+      "am_name": "Trầm Hữu Tiến"
+    }
+  ],
+  "Tân Hà": [
+    {
+      "warehouse_name": "(LDO) Tân Hà Lâm Hà",
+      "am_name": "Huỳnh Thị Kim Chi"
+    }
+  ],
+  "Nhân Cơ": [
+    {
+      "warehouse_name": "(DNO) Nhân Cơ",
+      "am_name": "Huỳnh Thúc Duân"
+    }
+  ],
+  "Tuy Đức": [
+    {
+      "warehouse_name": "(DNO) Tuy Đức",
+      "am_name": "Trần Thị Nhung"
+    }
+  ]
+}

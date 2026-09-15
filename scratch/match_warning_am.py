@@ -37,17 +37,20 @@ for item in items:
 # Manual check for any remaining
 fallback_am = {
     "(DNO) Quảng Tín": "Trương Quang Linh",
-    "(LDO) Đức Trọng 1": "Nguyễn Hữu Tiến",
+    "(LDO) Đức Trọng 1": "Trầm Hữu Tiến",
     "(LDO) Xuân Hương - Đà Lạt": "Lê Văn Trường",
     "(DNO) Kiến Đức": "Hồng Bích Nga",
     "(KHO) Cam Linh": "Nguyễn Thanh Long",
     "(KHO) Tây Nha Trang": "Phan Đình Duy",
-    "(LDO) Lang Biang - Đà Lạt 1": "Trần Tấn Lợi",
-    "(DNO) Tuy Đức": "Huỳnh Thúc Duân",
+    "(LDO) Lang Biang - Đà Lạt 1": "Lê Minh Lợi",
+    "(DNO) Tuy Đức": "Trần Thị Nhung",
     "(LDO) Di Linh": "Trầm Hữu Tiến",
-    "(LDO) Tân Hà Lâm Hà": "Lê Thị Kim Chi",
-    "(DNO) Nhân Cơ": "Huỳnh Thúc Duân"
+    "(LDO) Tân Hà Lâm Hà": "Huỳnh Thị Kim Chi",
+    "(DNO) Nhân Cơ": "Huỳnh Thúc Duân",
+    "(LDO) Đơn Dương": "Lê Văn Trường",
+    "(LDO) Lâm Viên - Đà Lạt 2": "Lê Văn Trường"
 }
+
 
 for item in items:
     if not item.get('am') or item['am'] == '':
@@ -56,5 +59,5 @@ for item in items:
 with open('scratch/bc_canh_bao_final.json', 'w', encoding='utf-8') as f:
     json.dump(items, f, ensure_ascii=False, indent=2)
 
-print("Finished matching AMs! Sample item:")
-print(json.dumps(items[0], ensure_ascii=False, indent=2))
+print("Finished matching AMs! Total items:", len(items))
+
