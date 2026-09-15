@@ -1031,12 +1031,15 @@
       const ganTtsDiff = ganTtsRow.diff !== undefined ? ganTtsRow.diff : 0.0142;
 
       // 5. ODR
+      const odrOverview = D.odr?.overview || [];
+      const odrFullRow = odrOverview.find(r => r.label === 'Full hàng') || {};
+      const odrTtsRow = odrOverview.find(r => r.label === 'TTS') || {};
       const odrCard = cardMap['odr_full'] || {};
       const odrTrendTts = trendMap['%ODR TTS'] || {};
-      const odrVal = odrCard.val !== undefined ? odrCard.val : 0.9334;
-      const odrDiff = odrCard.diff !== undefined ? odrCard.diff : 0.0046;
-      const odrTtsVal = odrTrendTts[latestWeek.toLowerCase()] !== undefined ? odrTrendTts[latestWeek.toLowerCase()] : 0.9392;
-      const odrTtsDiff = odrTrendTts.diff !== undefined ? odrTrendTts.diff : 0.0070;
+      const odrVal = odrFullRow.w37 !== undefined ? odrFullRow.w37 : (odrCard.val !== undefined ? odrCard.val : 0.9385);
+      const odrDiff = odrFullRow.diff !== undefined ? odrFullRow.diff : (odrCard.diff !== undefined ? odrCard.diff : 0.0097);
+      const odrTtsVal = odrTtsRow.w37 !== undefined ? odrTtsRow.w37 : (odrTrendTts[latestWeek.toLowerCase()] !== undefined ? odrTrendTts[latestWeek.toLowerCase()] : 0.9285);
+      const odrTtsDiff = odrTtsRow.diff !== undefined ? odrTtsRow.diff : (odrTrendTts.diff !== undefined ? odrTrendTts.diff : 0.0042);
 
       // 6. LTC
       const ltcCard = cardMap['ltc_full'] || {};
@@ -1059,10 +1062,13 @@
       // 9. FD Hoàn Trả (Failed Delivery)
       const fdData = D.fd || {};
       const fdSum = fdData.summary || {};
-      const fdRateFull = fdSum.rate_full !== undefined ? fdSum.rate_full : 0.0754;
-      const fdRateTts = fdSum.rate_tts !== undefined ? fdSum.rate_tts : 0.068;
-      const fdRetFull = fdSum.ret_full || 22954;
-      const fdDiff = -0.001; // So với W35 (~7.6%)
+      const fdRateFull = fdSum.rate_full !== undefined ? fdSum.rate_full : 0.0673;
+      const fdRateFullPrev = fdSum.rate_full_prev !== undefined ? fdSum.rate_full_prev : 0.0754;
+      const fdRateTts = fdSum.rate_tts !== undefined ? fdSum.rate_tts : 0.0610;
+      const fdRateTtsPrev = fdSum.rate_tts_prev !== undefined ? fdSum.rate_tts_prev : 0.0680;
+      const fdRetFull = fdSum.ret_full || 24518;
+      const fdDiffFull = fdSum.diff_full !== undefined ? fdSum.diff_full : (fdRateFull - fdRateFullPrev);
+      const fdDiffTts = fdSum.diff_tts !== undefined ? fdSum.diff_tts : (fdRateTts - fdRateTtsPrev);
 
       // 10. TLTĐ (Tỷ Lệ Lấp Đầy Thùng/Xe KTC)
       const ktcData = D.ktc || {};
@@ -1154,9 +1160,9 @@
           id: 'fd_pair',
           title: `%FD Hoàn Trả (${latestWeek})`,
           mainVal: fPct(fdRateFull),
-          mainUnit: 'Full Hàng',
-          subVal: `${fPct(fdRateTts)} (TTS) | ${fNum(fdRetFull)} đ hoàn (${prevWeek}: ${fPct(fdSum.rate_full_prev || 0.0754)})`,
-          diff: fdDiff,
+          mainUnit: `Full Hàng (${prevWeek}: ${fPct(fdRateFullPrev)} | ▼ ${(Math.abs(fdDiffFull)*100).toFixed(1)}%p)`,
+          subVal: `TTS: ${fPct(fdRateTts)} (${prevWeek}: ${fPct(fdRateTtsPrev)} | ▼ ${(Math.abs(fdDiffTts)*100).toFixed(1)}%p) · ${fNum(fdRetFull)} đ hoàn`,
+          diff: fdDiffFull,
           isHigherBetter: false,
           colorCls: 'kpi-purple',
           icon: 'rotate-ccw'
@@ -4527,11 +4533,11 @@
             order: 0,
             datalabels: { display: false }
           },
-          // ---- Toàn Vùng W36 reference line ----
+          // ---- Toàn Vùng W37 reference line ----
           {
             type: 'line',
-            label: 'Toàn Vùng W37: 76.9% (Chưa Đạt)',
-            data: ams.map(() => 76.9),
+            label: 'Toàn Vùng W37: 78.1% (Chưa Đạt)',
+            data: ams.map(() => 78.1),
             borderColor: '#0284c7',
             borderWidth: 2,
             borderDash: [4, 4],
