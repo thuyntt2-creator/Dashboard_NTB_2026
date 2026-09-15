@@ -129,53 +129,107 @@ if os.path.exists('sheet_stuck.csv'):
         df_stuck = pd.read_csv('sheet_stuck.csv', encoding='utf-8')
     except Exception:
         df_stuck = pd.read_csv('sheet_stuck.csv', encoding='latin1')
-    order_col = [c for c in df_stuck.columns if 'đơn hàng' in c.lower() or 'order' in c.lower() or 'mã' in c.lower()]
-    order_col = order_col[0] if order_col else df_stuck.columns[0]
+    
     total_stuck = len(df_stuck)
     
-    stuck_am = df_stuck.groupby('am_name').agg(
-        vol=(order_col, 'count'),
-        tinh=('province_name', lambda x: x.mode()[0] if len(x) > 0 else '')
-    ).reset_index()
-    stuck_am['pct'] = (stuck_am['vol'] / total_stuck * 100).round(1)
-    stuck_am = stuck_am.sort_values('vol', ascending=False)
+    # Regional Totals
+    vc_all = df_stuck['Thoi gian ton dong'].value_counts().to_dict() if 'Thoi gian ton dong' in df_stuck.columns else {}
+    tot_u24 = vc_all.get('0_6', 0) + vc_all.get('6_12', 0) + vc_all.get('12_24', 0)
+    tot_24_36 = vc_all.get('24_36', 0)
+    tot_36_72 = vc_all.get('36_48', 0) + vc_all.get('48_72', 0)
+    tot_72_120 = vc_all.get('72_96', 0) + vc_all.get('96_120', 0)
+    tot_120_plus = vc_all.get('120_192', 0) + vc_all.get('192', 0)
+    tot_treo_24 = tot_24_36 + tot_36_72 + tot_72_120 + tot_120_plus
+    tot_treo_36 = tot_36_72 + tot_72_120 + tot_120_plus
 
-    stuck_bc = df_stuck.groupby(['warehouse_name', 'province_name', 'am_name']).agg(
-        vol=(order_col, 'count')
-    ).reset_index()
-    stuck_bc['pct'] = (stuck_bc['vol'] / total_stuck * 100).round(1)
-    stuck_bc = stuck_bc.sort_values('vol', ascending=False)
+    # By AM
+    am_stats = []
+    for am, g in df_stuck.groupby('am_name'):
+        vc = g['Thoi gian ton dong'].value_counts().to_dict() if 'Thoi gian ton dong' in g.columns else {}
+        u24 = vc.get('0_6', 0) + vc.get('6_12', 0) + vc.get('12_24', 0)
+        h24 = vc.get('24_36', 0)
+        h36 = vc.get('36_48', 0) + vc.get('48_72', 0)
+        h72 = vc.get('72_96', 0) + vc.get('96_120', 0)
+        h120 = vc.get('120_192', 0) + vc.get('192', 0)
+        treo24 = h24 + h36 + h72 + h120
+        treo36 = h36 + h72 + h120
+        tinh = g['province_name'].mode()[0] if len(g['province_name']) > 0 else ''
+        vol = len(g)
+        am_stats.append({
+            'am': am,
+            'tinh': tinh,
+            'vol': vol,
+            'pct': round(vol / total_stuck * 100, 1) if total_stuck else 0,
+            'u_24': u24,
+            'h_24_36': h24,
+            'h_36_72': h36,
+            'h_72_120': h72,
+            'h_120_plus': h120,
+            'h_120_192': vc.get('120_192', 0),
+            'h_192_plus': vc.get('192', 0),
+            'treo_24': treo24,
+            'treo_36': treo36
+        })
+    am_stats = sorted(am_stats, key=lambda x: x['vol'], reverse=True)
+
+    # By BC
+    bc_stats = []
+    for (bc, tinh, am), g in df_stuck.groupby(['warehouse_name', 'province_name', 'am_name']):
+        vc = g['Thoi gian ton dong'].value_counts().to_dict() if 'Thoi gian ton dong' in g.columns else {}
+        u24 = vc.get('0_6', 0) + vc.get('6_12', 0) + vc.get('12_24', 0)
+        h24 = vc.get('24_36', 0)
+        h36 = vc.get('36_48', 0) + vc.get('48_72', 0)
+        h72 = vc.get('72_96', 0) + vc.get('96_120', 0)
+        h120 = vc.get('120_192', 0) + vc.get('192', 0)
+        treo24 = h24 + h36 + h72 + h120
+        treo36 = h36 + h72 + h120
+        vol = len(g)
+        bc_stats.append({
+            'bc': bc,
+            'tinh': tinh,
+            'am': am,
+            'vol': vol,
+            'pct': round(vol / total_stuck * 100, 1) if total_stuck else 0,
+            'u_24': u24,
+            'h_24_36': h24,
+            'h_36_72': h36,
+            'h_72_120': h72,
+            'h_120_plus': h120,
+            'h_120_192': vc.get('120_192', 0),
+            'h_192_plus': vc.get('192', 0),
+            'treo_24': treo24,
+            'treo_36': treo36
+        })
+    bc_stats = sorted(bc_stats, key=lambda x: x['vol'], reverse=True)
+
+    # By Tinh
+    tinh_stats = []
+    for tinh, g in df_stuck.groupby('province_name'):
+        vol = len(g)
+        tinh_stats.append({
+            'tinh': tinh,
+            'vol': vol,
+            'pct': round(vol / total_stuck * 100, 1) if total_stuck else 0
+        })
+    tinh_stats = sorted(tinh_stats, key=lambda x: x['vol'], reverse=True)
 
     d['treo_lc'] = {
-        'total': int(total_stuck),
-        'top_am': [
-            {
-                'am': str(r['am_name']),
-                'tinh': str(r['tinh']),
-                'vol': int(r['vol']),
-                'pct': float(r['pct'])
-            }
-            for _, r in stuck_am.iterrows()
-        ],
-        'top_bc': [
-            {
-                'bc': str(r['warehouse_name']),
-                'tinh': str(r['province_name']),
-                'am': str(r['am_name']),
-                'vol': int(r['vol']),
-                'pct': float(r['pct'])
-            }
-            for _, r in stuck_bc.iterrows()
-        ],
-        'tinh': [
-            {
-                'tinh': str(t),
-                'vol': int(c),
-                'pct': float(round(c / total_stuck * 100, 1))
-            }
-            for t, c in df_stuck['province_name'].value_counts().items()
-        ]
+        'total': total_stuck,
+        'total_u24': tot_u24,
+        'total_24_36': tot_24_36,
+        'total_36_72': tot_36_72,
+        'total_72_120': tot_72_120,
+        'total_120_plus': tot_120_plus,
+        'total_treo_24': tot_treo_24,
+        'total_treo_36': tot_treo_36,
+        'top_am': am_stats,
+        'top_bc': bc_stats,
+        'tinh': tinh_stats
     }
+
+    os.makedirs('scratch', exist_ok=True)
+    with open('scratch/treo_lc_calculated.json', 'w', encoding='utf-8') as f_calc:
+        json.dump(d['treo_lc'], f_calc, ensure_ascii=False, indent=2)
 
 with open('data.json', 'w', encoding='utf-8') as f:
     json.dump(d, f, ensure_ascii=False, indent=2)

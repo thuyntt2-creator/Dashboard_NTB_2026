@@ -1,0 +1,48 @@
+{
+  "total": 4649,
+  "total_u24": null,
+  "total_24_36": null,
+  "top_am_sample": [
+    {
+      "am": "Lê Văn Trường",
+      "tinh": "Lâm Đồng",
+      "vol": 534,
+      "pct": 11.5
+    },
+    {
+      "am": "Trần Thị Nhung",
+      "tinh": "Đắk Nông",
+      "vol": 428,
+      "pct": 9.2
+    },
+    {
+      "am": "Nguyễn Duy Long",
+      "tinh": "Ninh Thuận",
+      "vol": 423,
+      "pct": 9.1
+    }
+  ],
+  "top_bc_sample": [
+    {
+      "bc": "(KHO) Cam Linh",
+      "tinh": "Khánh Hòa",
+      "am": "Nguyễn Thanh Long",
+      "vol": 201,
+      "pct": 4.3
+    },
+    {
+      "bc": "(KHO) Bắc Nha Trang",
+      "tinh": "Khánh Hòa",
+      "am": "Thái Thị Thanh Thư",
+      "vol": 181,
+      "pct": 3.9
+    },
+    {
+      "bc": "(KHO) Tây Nha Trang",
+      "tinh": "Khánh Hòa",
+      "am": "Phan Đình Duy",
+      "vol": 167,
+      "pct": 3.6
+    }
+  ]
+}

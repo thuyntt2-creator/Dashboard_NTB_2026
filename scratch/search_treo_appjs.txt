@@ -1,0 +1,71 @@
+4873: // TAB 10: AGING (>5 NGÀY) & TREO LUÂN CHUYỂN (LC)
+4878: const btnTreo = document.getElementById('btn-aging-treo');
+4881: [btnAging, btnTreo, btnCompare].forEach(b => {
+4891: } else if (seg === 'treo_lc' && btnTreo) {
+4892: btnTreo.classList.add('btn-primary', 'active');
+4893: btnTreo.classList.remove('btn-secondary');
+4974: } else if (seg === 'treo_lc' && D.treo_lc) {
+4976: if (v1) v1.innerHTML = `${fNum(D.treo_lc.total)} <small>đơn</small>`;
+4977: if (m1) m1.innerHTML = `<span class="diff-tag diff-up-bad">Treo ≥24h: ${fNum(D.treo_lc.total_treo_24
+4979: const topAM = D.treo_lc.top_am[0] || {};
+4982: if (m2) m2.innerHTML = `<span class="diff-tag diff-up-bad">Treo ≥24h: ${fNum(topAM.treo_24 || 0)} đ 
+4984: const topBC = D.treo_lc.top_bc[0] || {};
+4985: if (t3) t3.textContent = 'Top 1 BC Treo LC Nhiều Nhất';
+4989: const topTinh = D.treo_lc.tinh[0] || {};
+4990: if (t4) t4.textContent = 'Tỉnh Treo LC Nhiều Nhất';
+4994: if (chartTitle) chartTitle.textContent = 'BIỂU ĐỒ TOP AM NHIỀU ĐƠN TREO LUÂN CHUYỂN (LC) VÀ MIỀN TỶ 
+4995: if (tblAmTitle) tblAmTitle.textContent = 'BẢNG 1: TOP AM NHIỀU ĐƠN TREO LUÂN CHUYỂN NHẤT (SORT GIẢM 
+4996: if (tblBcTitle) tblBcTitle.textContent = 'BẢNG 2: TOP BƯU CỤC (BC) TREO LUÂN CHUYỂN NHIỀU NHẤT';
+4998: if (chartTitle) chartTitle.textContent = 'BIỂU ĐỒ ĐỐI CHIẾU SONG SONG: ĐƠN AGING vs ĐƠN TREO LUÂN CH
+4999: if (tblAmTitle) tblAmTitle.textContent = 'BẢNG 1: ĐỐI CHIẾU SỐ LIỆU TỒN AGING vs TREO LC THEO AM';
+5296: const isTreo = seg === 'treo_lc';
+5318: } else if (isTreo) {
+5323: <th class="num" style="background: #0284c7; color: #ffffff; font-weight:700;">Dưới 24h</th>
+5328: <th class="num" style="background: #fef08a; color: #92400e; font-weight:800;">Treo ≥24h</th>
+5339: <th class="num" style="background: var(--color-blue-bg); color: var(--color-blue);">Treo LC</th>
+5347: let rawList = isTreo ? (D.treo_lc?.top_am || []) : (D.aging?.top_am || []);
+5351: rawList = (D.treo_lc?.top_am || []).map(t => {
+5357: vol_treo: t.vol || 0,
+5387: } else if (isTreo) {
+5388: const u24 = row.u_24 !== undefined ? row.u_24 : (row.vol - (row.treo_24 || 0));
+5393: const treo24 = row.treo_24 !== undefined ? row.treo_24 : (h24 + h36 + h72 + h120);
+5404: <td class="num bold" style="background: #fef3c7; color: #b45309; font-weight:800;">${fNum(treo24)}</
+5415: <td class="num bold" style="color: var(--color-blue);">${fNum(row.vol_treo)}</td>
+5416: <td class="center"><span class="badge-tag badge-tag-blue">Aging ${row.vol} | Treo ${row.vol_treo}</s
+5434: } else if (isTreo && D.treo_lc) {
+5439: <td class="num bold" style="font-size: 13.5px; color: #0284c7;">${fNum(D.treo_lc.total_u24 || 4024)}
+5440: <td class="num bold" style="font-size: 13.5px; color: #d97706;">${fNum(D.treo_lc.total_24_36 || 242)
+5441: <td class="num bold" style="font-size: 13.5px; color: #ea580c;">${fNum(D.treo_lc.total_36_72 || 290)
+5442: <td class="num bold" style="font-size: 13.5px; color: #dc2626;">${fNum(D.treo_lc.total_72_120 || 70)
+5443: <td class="num bold" style="font-size: 13.5px; color: #991b1b;">${fNum(D.treo_lc.total_120_plus || 2
+5444: <td class="num bold" style="background: #fef3c7; color: #b45309; font-size:14px; font-weight:900;">$
+5445: <td class="num bold" style="background: #f59e0b; color: #000000; font-size:14.5px;">${fNum(D.treo_lc
+5469: } else if (isTreo) {
+5474: <th class="num" style="background: #0284c7; color: #ffffff; font-weight:700;">Dưới 24h</th>
+5479: <th class="num" style="background: #fef08a; color: #92400e; font-weight:800;">Treo ≥24h</th>
+5490: <th class="num" style="background: var(--color-blue-bg); color: var(--color-blue); font-weight:800;"
+5499: let rawBCList = isTreo ? (D.treo_lc?.top_bc || []) : (D.aging?.top_bc || []);
+5525: } else if (isTreo) {
+5526: const u24 = row.u_24 !== undefined ? row.u_24 : (row.vol - (row.treo_24 || 0));
+5531: const treo24 = row.treo_24 !== undefined ? row.treo_24 : (h24 + h36 + h72 + h120);
+5542: <td class="num bold" style="background: #fef3c7; color: #b45309; font-weight:800;">${fNum(treo24)}</
+5580: } else if (seg === 'treo_lc' && D.treo_lc) {
+5581: dataList = (D.treo_lc.top_am || []).slice(0, 15).map(r => ({
+5587: } else if (seg === 'compare' && D.aging && D.treo_lc) {
+5590: dataList = (D.treo_lc.top_am || []).slice(0, 15).map(r => ({
+5593: vol_treo: r.vol,
+5615: label: 'Đơn Treo Luân Chuyển',
+5616: data: dataList.map(d => d.vol_treo),
+5643: label: seg === 'aging' ? 'Số Đơn Aging >5 Ngày' : 'Số Đơn Treo Luân Chuyển',
+5674: title: { display: true, text: seg === 'compare' ? 'Số Đơn Aging' : 'Số Lượng Đơn Tồn / Treo', font: 
+5691: title: { display: true, text: 'Số Đơn Treo LC', font: { weight: '700', size: 11, color: '#3b82f6' } 
+5911: const deadlineBadge = r.deadline.includes('24h')
+5912: ? '<span class="badge-tag badge-tag-red" style="font-weight:800;">⚡ Gấp trong 24h</span>'
+6959: const treo = r.treo_36h || 0;
+6960: const treoClass = treo > 0 ? 'style="background:var(--color-red-bg);color:#b91c1c;font-weight:800;"'
+6976: <td class="num bold" ${treoClass}>${fNum(treo)}</td>
+6991: const treo = r.treo_36h || 0;
+6992: const treoClass = treo > 0 ? 'style="background:var(--color-red-bg);color:#b91c1c;font-weight:800;"'
+7009: <td class="num bold" ${treoClass}>${fNum(treo)}</td>
+7084: <td class="num" style="color:#ef4444;">${fNum(r.ton_24h || 0)}</td>
+7085: <td class="num bold" style="background:var(--color-red-bg);color:${r.pct_24h > 1 ? '#b91c1c' : '#065
