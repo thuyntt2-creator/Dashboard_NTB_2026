@@ -159,7 +159,7 @@ add_callout_box(doc, [
      "• 1. Sản lượng phục hồi ngoạn mục sau chuỗi 5 tuần suy giảm: Toàn vùng Full hàng cán mốc 357.249 đơn, tăng vọt +49.412 đơn (+16,1% WoW) nhờ hiệu ứng Mega Campaign 9.9 và sự bùng nổ của nhóm hàng nông sản/mùa vụ. Phân khúc TikTok Shop (TTS) đạt 68.719 đơn (+8,9% WoW), chiếm tỷ trọng 19,2% tổng sản lượng.\n"
      "• 2. Vận tải Middle-mile (Tuyến đường dài KTC & Luân chuyển) đạt đỉnh hiệu quả cao nhất năm: Tỷ lệ lấp đầy tải xe đường dài (TLLĐ KTC) bứt phá lên 54,8% (+6,7%p WoW với 551 chuyến xe), số xe chạy rỗng dưới 30% giảm mạnh chỉ còn 80 xe. Tỷ lệ Rớt Luân Chuyển giảm sâu về mức kỷ lục 1,80% (-0,45%p WoW), tiệm cận chuẩn xuất sắc toàn quốc ≤1,5%.\n"
      "• 3. Chất lượng giao hàng Đúng Hẹn (%ODR) giữ vững phong độ: ODR Full hàng toàn vùng đạt 93,9% (+0,97%p WoW, phân khúc TTS đạt 92,8%, +0,42%p WoW), duy trì sắc xanh SLA ≥92% tuần thứ hai liên tiếp. Cả 5/5 tỉnh và 16/18 AM đều cải thiện chất lượng đúng hẹn.\n"
-     "• 4. Nghịch lý quản trị Last-mile & Điểm nghẽn cổ chai: Dù tuyến giữa rất mượt, nhưng tỷ lệ Giao Thành Công (%GTC Tổng) của vùng lại đi ngang ở mức 57,78% (giảm nhẹ -0,36%p). Nguyên nhân gốc rễ: Toàn vùng đang bị đè nặng bởi 11 bưu cục cảnh báo bất ổn (backlog tồn đọng lên tới 13.038 đơn, 1.570 đơn >5 ngày). Nếu không giải quyết dứt điểm 11 bưu cục này, lượng hàng tăng trưởng sẽ trở thành gánh nặng tồn kho đè sập chất lượng dịch vụ của toàn vùng.",
+     "• 4. Nghịch lý quản trị Last-mile & Điểm nghẽn cổ chai: Dù tuyến giữa rất mượt, nhưng tỷ lệ Giao Thành Công (%GTC Tổng) của vùng lại đi ngang ở mức 57,78% (giảm nhẹ -0,36%p). Nguyên nhân gốc rễ: Toàn vùng đang bị đè nặng bởi 13 bưu cục cảnh báo bất ổn (backlog tồn đọng lên tới 19.020 đơn, trong đó 1.774 đơn >5 ngày). Nếu không giải quyết dứt điểm 13 bưu cục này, lượng hàng tăng trưởng sẽ trở thành gánh nặng tồn kho đè sập chất lượng dịch vụ của toàn vùng.",
      (15, 76, 129), True)
 ], fill_hex="FFF7ED", border_hex="F97316")
 
@@ -256,29 +256,32 @@ add_callout_box(doc, [
      (220, 38, 38), True)
 ], fill_hex="FEF2F2", border_hex="EF4444")
 
-# ==================== VII. 11 BƯU CỤC CẢNH BÁO BẤT ỔN ====================
-add_section_header(doc, "🚨 [VII. TRỌNG ĐIỂM CỨU TRỢ: 11 BƯU CỤC CẢNH BÁO BẤT ỔN (%GTC < 45% HOẶC < 70% KỶ LỤC)]", (185, 28, 28))
+# ==================== VII. 13 BƯU CỤC CẢNH BÁO BẤT ỔN ====================
+add_section_header(doc, "🚨 [VII. TRỌNG ĐIỂM CỨU TRỢ: 13 BƯU CỤC CẢNH BÁO BẤT ỔN (%GTC < 45% HOẶC < 70% KỶ LỤC)]", (185, 28, 28))
 
 add_callout_box(doc, [
-    ("🗣️ MỆNH LỆNH ĐIỀU HÀNH & KẾ HOẠCH TÁC CHIẾN CỨU HỘ 11 BƯU CỤC:\n",
-     "Kính thưa Ban Giám Đốc, đây là phần quan trọng nhất của buổi họp hôm nay. Theo dữ liệu trích xuất từ bảng Bất Ổn Vận Hành, toàn vùng có 11 bưu cục bị đưa vào danh sách cảnh báo đặc biệt với tổng tồn đọng backlog lên tới 13.038 đơn (trong đó 1.570 đơn tồn >5 ngày). Đây chính là nguyên nhân trực tiếp kéo tụt tỷ lệ %GTC của toàn vùng.\n\n"
-     "DANH SÁCH 11 BƯU CỤC & TÌNH TRẠNG LÂM SÀNG:\n"
-     "1. (DNO) Quảng Tín (AM Trương Quang Linh): %GTC W37 đạt 18.4% (mốc tốt nhất 59.9%). Báo động đỏ: Nằm cảnh báo liên tục 99 ngày, backlog 1.077 đơn (454 đơn >5 ngày). Cần 4 ngày giải cứu.\n"
-     "2. (LDO) Đức Trọng 1 (AM Trầm Hữu Tiến): %GTC W37 tụt xuống 20.0% (giảm -5.0% WoW, tốt nhất 60.4%). Nằm cảnh báo 83 ngày, backlog 1.127 đơn (287 đơn >5 ngày). Cần 5 ngày giải cứu.\n"
-     "3. (LDO) Xuân Hương - Đà Lạt (AM Lê Văn Trường): %GTC W37 rơi tự do -21.4% WoW xuống còn 30.2% (tốt nhất 65.1%). Rơi vào cảnh báo 4 ngày, backlog tăng vọt lên 1.738 đơn (274 đơn >5 ngày). Nguy cơ vỡ trận kho trung tâm Đà Lạt.\n"
-     "4. (DNO) Kiến Đức (AM Hồng Bích Nga): %GTC W37 đạt 30.5% (tăng +11.2% từ 19.4%, tốt nhất 63.3%). Nằm cảnh báo 79 ngày, backlog 786 đơn (97 đơn >5 ngày).\n"
-     "5. (KHO) Cam Linh (AM Nguyễn Thanh Long): %GTC W37 giảm sốc -16.0% WoW xuống 33.9%. Bưu cục nằm cảnh báo lâu kỷ lục 107 ngày, backlog khủng nhất vùng với 2.187 đơn (129 đơn >5 ngày). Cần 9 ngày dọn kho.\n"
-     "6. (KHO) Tây Nha Trang (AM Phan Đình Duy): %GTC W37 giảm -15.2% WoW xuống 36.1% (tốt nhất 68.6%). Cảnh báo 4 ngày, backlog 1.915 đơn (26 đơn >5 ngày).\n"
-     "7. (LDO) Lang Biang - Đà Lạt 1 (AM Lê Minh Lợi): %GTC W37 đạt 37.0% (tốt nhất 64.4%). Nằm cảnh báo 107 ngày, backlog 1.049 đơn (60 đơn >5 ngày).\n"
-     "8. (DNO) Tuy Đức (AM Trần Thị Nhung): %GTC W37 đạt 38.9% (tốt nhất 64.7%). Nằm cảnh báo 20 ngày, backlog 515 đơn (20 đơn >5 ngày).\n"
-     "9. (LDO) Di Linh (AM Trầm Hữu Tiến): %GTC W37 đạt 39.3% (giảm -7.5% WoW, tốt nhất 58.9%). Nằm cảnh báo 56 ngày, backlog 1.704 đơn (219 đơn >5 ngày). Cần 7 ngày dọn kho.\n"
-     "10. (LDO) Tân Hà Lâm Hà (AM Huỳnh Thị Kim Chi): %GTC W37 đạt 42.9% (giảm -6.8% WoW, tốt nhất 50.1%). Nằm cảnh báo 102 ngày, backlog 706 đơn (39 đơn >5 ngày).\n"
-     "11. (DNO) Nhân Cơ (AM Huỳnh Thúc Duân): %GTC W37 đạt 45.6% (tăng +6.3% WoW, tốt nhất 71.5%). Nằm cảnh báo 32 ngày, backlog 234 đơn (32 đơn >5 ngày).\n\n"
+    ("🗣️ MỆNH LỆNH ĐIỀU HÀNH & KẾ HOẠCH TÁC CHIẾN CỨU HỘ 13 BƯU CỤC:\n",
+     "Kính thưa Ban Giám Đốc, đây là phần quan trọng nhất của buổi họp hôm nay. Theo dữ liệu trích xuất từ bảng Bất Ổn Vận Hành, toàn vùng có 13 bưu cục bị đưa vào danh sách cảnh báo đặc biệt (10 BC có %GTC < 45%, 3 BC có %GTC < 70% mốc kỷ lục) với tổng tồn đọng backlog lên tới 19.020 đơn (trong đó 1.774 đơn tồn >5 ngày). Đây chính là nguyên nhân trực tiếp kéo tụt tỷ lệ %GTC của toàn vùng.\n\n"
+     "DANH SÁCH 13 BƯU CỤC & TÌNH TRẠNG LÂM SÀNG:\n"
+     "1. (DNO) Quảng Tín (AM Trương Quang Linh): %GTC W37 đạt 18.1% (W36: 15.2%, mốc tốt nhất 59.9%). Báo động đỏ: Nằm cảnh báo 100 ngày, backlog 1.224 đơn (490 đơn >5 ngày). Cần 5 ngày giải cứu.\n"
+     "2. (LDO) Đức Trọng 1 (AM Trầm Hữu Tiến): %GTC W37 tụt xuống 20.1% (W36: 25.0%, giảm -4.9% WoW, tốt nhất 60.4%). Nằm cảnh báo 84 ngày, backlog 1.223 đơn (281 đơn >5 ngày). Cần 5 ngày giải cứu.\n"
+     "3. (DNO) Kiến Đức (AM Hồng Bích Nga): %GTC W37 đạt 29.9% (W36: 19.4%, tăng +10.5%, tốt nhất 63.3%). Nằm cảnh báo 80 ngày, backlog 1.035 đơn (78 đơn >5 ngày). Cần 4 ngày giải cứu.\n"
+     "4. (LDO) Xuân Hương - Đà Lạt (AM Lê Văn Trường): %GTC W37 rơi tự do -21.4% WoW xuống còn 30.2% (W36: 51.6%, tốt nhất 65.1%). Mới rơi vào cảnh báo 5 ngày, backlog tăng vọt lên 2.165 đơn (310 đơn >5 ngày). Nguy cơ vỡ trận kho trung tâm Đà Lạt. Cần 9 ngày dọn kho.\n"
+     "5. (KHO) Cam Linh (AM Nguyễn Thanh Long): %GTC W37 giảm sốc -19.2% WoW xuống 30.7% (W36: 49.9%). Bưu cục nằm cảnh báo lâu kỷ lục 108 ngày, backlog khủng nhất vùng với 2.433 đơn (152 đơn >5 ngày). Cần 10 ngày dọn kho.\n"
+     "6. (KHO) Tây Nha Trang (AM Phan Đình Duy): %GTC W37 giảm -18.0% WoW xuống 33.3% (W36: 51.3%, tốt nhất 68.6%). Cảnh báo 5 ngày, backlog 2.295 đơn (17 đơn >5 ngày). Cần 9 ngày dọn kho.\n"
+     "7. (LDO) Lang Biang - Đà Lạt 1 (AM Lê Minh Lợi): %GTC W37 đạt 36.5% (W36: 32.8%, tốt nhất 64.3%). Nằm cảnh báo 108 ngày, backlog 992 đơn (28 đơn >5 ngày). Cần 4 ngày dọn kho.\n"
+     "8. (LDO) Di Linh (AM Trầm Hữu Tiến): %GTC W37 đạt 40.0% (W36: 46.8%, giảm -6.8% WoW, tốt nhất 58.9%). Nằm cảnh báo 57 ngày, backlog 1.970 đơn (219 đơn >5 ngày). Cần 8 ngày dọn kho.\n"
+     "9. (DNO) Tuy Đức (AM Trần Thị Nhung): %GTC W37 đạt 41.2% (W36: 39.8%, tốt nhất 64.7%). Nằm cảnh báo 21 ngày, backlog 640 đơn (16 đơn >5 ngày).\n"
+     "10. (LDO) Tân Hà Lâm Hà (AM Huỳnh Thị Kim Chi): %GTC W37 đạt 44.5% (W36: 49.7%, giảm -5.1% WoW, tốt nhất 51.0%). Nằm cảnh báo 103 ngày, backlog 798 đơn (32 đơn >5 ngày).\n"
+     "11. (DNO) Nhân Cơ (AM Huỳnh Thúc Duân): %GTC W37 đạt 45.1% (W36: 39.4%, tốt nhất 71.5%). Cảnh báo <70% kỷ lục, nằm cảnh báo 33 ngày, backlog 347 đơn (36 đơn >5 ngày).\n"
+     "12. (LDO) Đơn Dương (AM Lê Văn Trường): %GTC W37 đạt 45.3% (W36: 35.5%, tốt nhất 65.8%). Cảnh báo <70% kỷ lục, nằm cảnh báo 62 ngày, backlog lên tới 2.038 đơn (89 đơn >5 ngày). Cần 8 ngày dọn kho.\n"
+     "13. (LDO) Lâm Viên - Đà Lạt 2 (AM Lê Văn Trường): %GTC W37 đạt 46.2% (W36: 50.9%, tốt nhất 71.5%). Cảnh báo <70% kỷ lục, nằm cảnh báo 66 ngày, backlog 860 đơn (8 đơn >5 ngày).\n\n"
      "🎯 QUYẾT SÁCH HÀNH ĐỘNG CỦA BAN GIÁM ĐỐC:\n"
-     "Không thể để tình trạng 'nằm cảnh báo triền miên 80 - 100 ngày' tiếp tục diễn ra. Em đề xuất BGĐ ban hành ngay 3 quyết sách cứng rắn:\n"
-     "• Quyết sách 1: Kích hoạt Taskforce Cứu hộ Phản ứng Nhanh: Điều động ngay 15 bưu tá cứng từ các bưu cục xanh lân cận và văn phòng tỉnh sang chi viện trực tiếp cho Cam Linh (Khánh Hòa), Xuân Hương (Lâm Đồng) và Đức Trọng 1 (Lâm Đồng).\n"
-     "• Quyết sách 2: Cắt cử xe tải gom dỡ thẳng: Thiết lập tuyến xe chuyên dụng gom hàng trả và dọn hàng aging từ Xuân Hương và Di Linh về thẳng Kho KTC trung tâm, không để hàng nằm chờ tại kho bưu cục.\n"
-     "• Quyết sách 3: Rà soát trách nhiệm quản trị của AM: Yêu cầu AM Trầm Hữu Tiến và AM Nguyễn Thanh Long báo cáo kế hoạch cam kết ngày giải tỏa (Cam Linh cần 9 ngày, Đức Trọng cần 5 ngày, Di Linh cần 7 ngày). Nếu sau W38 không kéo được %GTC lên trên 45%, đề xuất tái cơ cấu địa bàn phụ trách!",
+     "Không thể để tình trạng 'nằm cảnh báo triền miên 80 - 100 ngày' tiếp tục diễn ra. Em đề xuất BGĐ ban hành ngay 4 quyết sách cứng rắn:\n"
+     "• Quyết sách 1: Kích hoạt Taskforce Cứu hộ Phản ứng Nhanh: Điều động ngay 20 bưu tá cứng từ các bưu cục xanh lân cận và văn phòng tỉnh sang chi viện trực tiếp cho cụm điểm nóng nhất: Cam Linh (2.433 đơn), Tây Nha Trang (2.295 đơn), Xuân Hương (2.165 đơn), Đơn Dương (2.038 đơn), Di Linh (1.970 đơn) và Đức Trọng 1 (1.223 đơn).\n"
+     "• Quyết sách 2: Cắt cử xe tải gom dỡ thẳng: Thiết lập tuyến xe chuyên dụng gom hàng trả và dọn hàng aging từ Xuân Hương, Đơn Dương và Di Linh về thẳng Kho KTC trung tâm, không để hàng nằm chờ tại kho bưu cục.\n"
+     "• Quyết sách 3: Khóa trần điều tiết hàng về: Áp ngưỡng tải tại Cam Linh và Xuân Hương đến khi tồn dưới 800 đơn.\n"
+     "• Quyết sách 4: Rà soát trách nhiệm quản trị của AM: Yêu cầu AM Trầm Hữu Tiến, AM Lê Văn Trường và AM Nguyễn Thanh Long báo cáo kế hoạch cam kết ngày giải tỏa dứt điểm. Nếu sau W38 không kéo được %GTC lên trên 45%, đề xuất tái cơ cấu địa bàn phụ trách!",
      (185, 28, 28), True)
 ], fill_hex="FEF2F2", border_hex="DC2626")
 
@@ -298,23 +301,31 @@ add_section_header(doc, "🏁 [IX. LỜI KẾT THUYẾT TRÌNH & 3 TRỌNG TÂM 
 add_callout_box(doc, [
     ("🗣️ LỜI KẾT ĐANH THÉP & CAM KẾT HÀNH ĐỘNG:\n",
      "\"Kính thưa Ban Giám Đốc và các anh chị AM,\n\n"
-     "Tuần W37 đã chứng minh sức bật mạnh mẽ của vùng Nam Trung Bộ với sản lượng bùng nổ +16,1% (357.249 đơn), hiệu quả vận tải đường dài KTC đạt kỷ lục 54,8% và rớt luân chuyển giảm sâu về 1,80%. Tuy nhiên, bức tranh vận hành chưa thể trọn vẹn nếu chúng ta vẫn để '11 bưu cục cảnh báo' làm xói mòn uy tín thương hiệu và đè nặng lên tỷ lệ GTC toàn mạng.\n\n"
+     "Tuần W37 đã chứng minh sức bật mạnh mẽ của vùng Nam Trung Bộ với sản lượng bùng nổ +16,1% (357.249 đơn), hiệu quả vận tải đường dài KTC đạt kỷ lục 54,8% và rớt luân chuyển giảm sâu về 1,80%. Tuy nhiên, bức tranh vận hành chưa thể trọn vẹn nếu chúng ta vẫn để '13 bưu cục cảnh báo' làm xói mòn uy tín thương hiệu và đè nặng lên tỷ lệ GTC toàn mạng.\n\n"
      "Bước sang tuần W38, toàn vùng cam kết thực hiện quyết liệt 3 mục tiêu sống còn:\n"
-     "1. Giải tỏa dứt điểm 13.038 đơn backlog tại 11 bưu cục cảnh báo bất ổn (ưu tiên số 1: Cam Linh, Xuân Hương Đà Lạt, Đức Trọng 1, Di Linh).\n"
-     "2. Xóa sạch 1.638 đơn tồn Aging >5 ngày trong 72 giờ tới, đưa tỷ lệ phát sinh bồi hoàn về 0.\n"
+     "1. Giải tỏa dứt điểm 19.020 đơn backlog tại 13 bưu cục cảnh báo bất ổn (ưu tiên số 1: Cam Linh, Tây Nha Trang, Xuân Hương Đà Lạt, Đơn Dương, Di Linh, Đức Trọng 1).\n"
+     "2. Xóa sạch 1.774 đơn tồn Aging >5 ngày trong 72 giờ tới, đưa tỷ lệ phát sinh bồi hoàn về 0.\n"
      "3. Đưa %ODR toàn vùng vượt mốc 94%, kéo tỷ lệ %GTC Tổng phục hồi lên trên 60%.\n\n"
      "Em xin chân thành cảm ơn Ban Giám Đốc và các anh chị đã chú ý lắng nghe. Kính mời Ban Giám Đốc cho ý kiến chỉ đạo và phê duyệt phương án điều động lực lượng tác chiến!\"",
      (15, 76, 129), True)
 ], fill_hex="F0FDF4", border_hex="10B981")
 
 # Save file Word
-out_file1 = r'C:\Users\lap4all\Desktop\New folder\KICH_BAN_THUYET_TRINH_W37_NTB.docx'
+out_file1 = r'C:\Users\lap4all\Desktop\New folder\KICH_BAN_THUYET_TRINH_W37_NAM_TRUNG_BO.docx'
 doc.save(out_file1)
 print(f"SUCCESS: Saved file to {out_file1}")
 
-out_file2 = r'C:\Users\lap4all\Desktop\New folder\KICH_BAN_THUYET_TRINH_W37_CHUAN_SO_LIEU.docx'
+out_file2 = r'C:\Users\lap4all\Desktop\New folder\KICH_BAN_THUYET_TRINH_W37_NTB.docx'
 try:
     doc.save(out_file2)
     print(f"SUCCESS: Also saved {out_file2}")
 except Exception as e:
     print(f"Note: {e}")
+
+out_file3 = r'C:\Users\lap4all\Desktop\New folder\KICH_BAN_THUYET_TRINH_W37_CHUAN_SO_LIEU.docx'
+try:
+    doc.save(out_file3)
+    print(f"SUCCESS: Also saved {out_file3}")
+except Exception as e:
+    print(f"Note: {e}")
+
