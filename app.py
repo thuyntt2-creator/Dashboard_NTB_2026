@@ -4831,10 +4831,22 @@ def showcase_slide():
     root_dir = os.path.dirname(os.path.abspath(__file__))
     return send_from_directory(root_dir, 'showcase_presentation.html')
 
+@app.route('/kich-ban')
+@app.route('/script')
+@app.route('/kich-ban-w37')
+def meeting_script():
+    root_dir = os.path.dirname(os.path.abspath(__file__))
+    response = send_from_directory(root_dir, 'KICH_BAN_THUYET_TRINH_W37_NAM_TRUNG_BO.html')
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    return response
+
 @app.route('/styles.css')
 @app.route('/app.js')
 @app.route('/data.js')
 @app.route('/data.json')
+@app.route('/KICH_BAN_THUYET_TRINH_W37_NAM_TRUNG_BO_MOI_NHAT.docx')
+@app.route('/KICH_BAN_THUYET_TRINH_W37_FULL_OPR_TTS.docx')
+@app.route('/KICH_BAN_THUYET_TRINH_W37_NAM_TRUNG_BO.docx')
 def serve_meeting_assets():
     root_dir = os.path.dirname(os.path.abspath(__file__))
     req_file = request.path.lstrip('/')

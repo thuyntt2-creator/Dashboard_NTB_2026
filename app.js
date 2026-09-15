@@ -2048,6 +2048,39 @@
     if (!D.gtc_tong) return;
     renderBcCanhBaoTable();
 
+    // Dynamically update GTC Tong executive banner summary
+    const bannerSumEl = document.getElementById('gtc-tong-banner-summary');
+    if (bannerSumEl) {
+      const fullOv = (D.gtc_tong.overview || []).find(o => o.label && o.label.includes('Full')) || {};
+      const ttsOv = (D.gtc_tong.overview || []).find(o => o.label && o.label.includes('TTS')) || {};
+      const latestKey = D.meta?.latest_week ? D.meta.latest_week.toLowerCase() : 'w37';
+      const prevKey = D.meta?.prev_week ? D.meta.prev_week.toLowerCase() : 'w36';
+
+      const fullVal = (fullOv[latestKey] || 0.5778) * 100;
+      const fullDiff = (fullOv.diff !== undefined ? fullOv.diff : ((fullOv[latestKey] || 0) - (fullOv[prevKey] || 0))) * 100;
+      const ttsVal = (ttsOv[latestKey] || 0.5591) * 100;
+      const ttsDiff = (ttsOv.diff !== undefined ? ttsOv.diff : ((ttsOv[latestKey] || 0) - (ttsOv[prevKey] || 0))) * 100;
+
+      const rawFull = D.gtc_tong.am_full || D.gtc_tong.am || [];
+      const amsSorted = [...rawFull].sort((a, b) => (b[latestKey] || 0) - (a[latestKey] || 0));
+      const top3 = amsSorted.slice(0, 4).map(a => `<strong>${a.am} (${((a[latestKey] || 0) * 100).toFixed(1)}%)</strong>`).join(', ');
+
+      const amsGrowth = [...rawFull].sort((a, b) => ((b.diff !== undefined ? b.diff : ((b[latestKey]||0)-(b[prevKey]||0)))) - ((a.diff !== undefined ? a.diff : ((a[latestKey]||0)-(a[prevKey]||0)))));
+      const topGrow = amsGrowth.slice(0, 4).map(a => {
+        const d = (a.diff !== undefined ? a.diff : ((a[latestKey]||0)-(a[prevKey]||0))) * 100;
+        return `<strong>${a.am}</strong> tăng ${d > 0 ? '+' : ''}${d.toFixed(1)}% (lên ${((a[latestKey]||0)*100).toFixed(1)}%)`;
+      }).join('; ');
+
+      const bottomAms = amsSorted.filter(a => (a[latestKey] || 0) < 0.5).reverse().slice(0, 5).map(a => `<strong>${a.am} (${((a[latestKey]||0)*100).toFixed(1)}%)</strong>`).join(', ');
+
+      bannerSumEl.innerHTML = `
+        • <strong>%GTC Tổng Toàn Vùng:</strong> Full hàng đạt <strong>${fullVal.toFixed(2)}%</strong> (${fullDiff > 0 ? '+' : ''}${fullDiff.toFixed(2)}% WoW); Phân khúc TTS đạt <strong>${ttsVal.toFixed(2)}%</strong> (${ttsDiff > 0 ? '+' : ''}${ttsDiff.toFixed(2)}% WoW).<br>
+        • <strong>Top AM dẫn đầu:</strong> ${top3}.<br>
+        • <strong>Bứt phá tăng trưởng WoW:</strong> ${topGrow}.<br>
+        • <strong>Nhóm AM cần cải thiện GTC:</strong> ${bottomAms}.
+      `;
+    }
+
     // Helper evaluation badge for %GTC (Target >= 60%)
     function getGtcEvalBadge(v) {
       const val = v || 0;

@@ -225,8 +225,39 @@ add_callout_box(doc, [
      (5, 150, 105), True)
 ], fill_hex="F0FDF4", border_hex="10B981")
 
-# ==================== V. MIDDLE-MILE: VẬN TẢI KTC & RỚT LUÂN CHUYỂN ====================
-add_section_header(doc, "🚛 [V. ĐỘT PHÁ MIDDLE-MILE: TLLĐ KTC ĐẠT 54.8%, RỚT LUÂN CHUYỂN GIẢM VỀ 1.80%]")
+# ==================== V. CHỈ SỐ %OPR TIKTOK SHOP (78.10%) ====================
+add_section_header(doc, "⚡ [V. HIỆU SUẤT %OPR TIKTOK SHOP (78.10%): ĐỘT PHÁ CA NGÀY 87.8% & BÀI TOÁN TẮC NGHẼN CA ĐÊM 67.9%]")
+
+add_callout_box(doc, [
+    ("🗣️ PHÂN TÍCH TỶ LỆ LẤY HÀNG ĐÚNG GIỜ TIKTOK SHOP (%OPR) & INSIGHT NỘI TẠI:\n",
+     "Kính thưa Ban Giám Đốc, phân khúc TikTok Shop (TTS) tiếp tục là động lực tăng trưởng quan trọng nhất của vùng. Tuy nhiên, tiêu chuẩn vận hành của sàn TikTok cực kỳ khắt khe ở chỉ số %OPR (Order Pickup Rate — Tỷ lệ lấy hàng đúng giờ SLA):\n\n"
+     "• 1. Bức tranh chung toàn vùng W37: Toàn vùng đạt 78,10% (tăng nhẹ +1,26%p WoW so với W36 trên tổng số 8.771 đơn TTS phát sinh lấy hàng). Tuy nhiên, chỉ số này đang che giấu một nghịch lý phân hóa sâu sắc giữa 2 ca lấy hàng:\n"
+     "  - Ca Ngày (Day): Vận hành xuất sắc đạt 87,80% (trên 4.492 đơn). 4/5 tỉnh đạt trên 89% (Ninh Thuận 95,2%, Bình Thuận 92,6%, Đắk Nông 90,6%, Khánh Hòa 89,1%). Bưu tá ca ngày lấy hàng rất chủ động và đúng hẹn.\n"
+     "  - Ca Đêm (Night / Ca tối): Đạt mức báo động 67,91% (trên 4.279 đơn). Đây chính là 'tử huyệt' kéo sập chỉ số OPR của toàn vùng!\n\n"
+     "• 2. Phân hóa 5 Tỉnh thành:\n"
+     "  - Ninh Thuận dẫn đầu toàn vùng: Đạt 89,03% (+3,13%p WoW, Ca Ngày 95,25%, Ca Đêm 79,62% — tỉnh duy nhất giữ được ca đêm sát 80%, tổng 1.468 đơn).\n"
+     "  - Bình Thuận giữ phong độ tốt: Đạt 84,32% (Ca Ngày 92,58%, Ca Đêm 74,28%, tổng 2.455 đơn).\n"
+     "  - Khánh Hòa bứt phá tăng trưởng: Đạt 79,04% (tăng mạnh +6,59%p WoW, Ca Đêm tăng vọt +21,1%p từ 51,7% lên 72,80%, tổng 2.591 đơn).\n"
+     "  - Lâm Đồng thụt lùi đáng lo ngại: Chỉ đạt 66,01% (giảm -2,92%p WoW). Đáng báo động nhất là Ca Đêm chỉ đạt 52,72% (nghĩa là cứ 2 đơn ca tối thì có 1 đơn trễ hẹn lấy, tổng 1.971 đơn).\n"
+     "  - Đắk Nông — 'Hố đen' Ca Đêm: Mặc dù Ca Ngày đạt rất cao 90,57%, nhưng Ca Đêm chỉ đạt 15,56% (dù đã tăng +11,1%p so với 4,5% tuần trước). Tỷ lệ chung chỉ đạt 43,36%.\n\n"
+     "• 3. Đánh giá chi tiết 18 AM:\n"
+     "  - Top AM dẫn đầu OPR TTS: AM Nguyễn Lê Nguyên Vũ (89,6%), AM Cao Thị Thanh Thủy (88,4%), AM Thái Thị Thanh Thư (88,3% — Ca Đêm xuất sắc 88,1% trên 1.798 đơn), AM Nguyễn Duy Long (87,5%), AM Nguyễn Ngọc Khánh (85,0% — tăng +12,5%p).\n"
+     "  - Top AM tăng trưởng OPR bứt phá: AM Trần Thị Nhung (+15,5%p), AM Nguyễn Thị Tuyết Thơ (+14,8%p), AM Thái Thị Thanh Thư (+13,6%p), AM Nguyễn Ngọc Khánh (+12,5%p).\n"
+     "  - Cảnh báo đỏ AM có tỷ lệ Ca Đêm tê liệt:\n"
+     "    + AM Lê Văn Trường: Tổng OPR chỉ đạt 42,2%, riêng Ca Đêm chỉ đạt 3,7% (149 đơn ca đêm hầu như trễ toàn bộ!).\n"
+     "    + AM Huỳnh Thúc Duân: Ca Ngày đạt 94,7% nhưng Ca Đêm 0,0% (14 đơn trễ 100%).\n"
+     "    + AM Nguyễn Hoàng Phi: Ca Ngày đạt 96,3% nhưng Ca Đêm chỉ đạt 22,6%.\n"
+     "    + AM Trần Thị Nhung: Ca Đêm chỉ đạt 24,1%.\n\n"
+     "🔍 INSIGHT BẢN CHẤT & NGUYÊN NHÂN GỐC RỄ OPR TIKTOK SHOP:\n"
+     "• Nguyên nhân cốt lõi: Lịch livestream của các Shop TTS thường diễn ra vào khung giờ 19h - 23h. Khi shop bấm 'Ready to Ship' vào lúc 21h - 22h, hầu hết bưu cục tại Lâm Đồng, Đắk Nông đã đóng cửa, không phân công tài xế trực ca đêm hoặc không có xe tải gom trung chuyển ca 3 về Hub. Đến sáng hôm sau mới đi lấy thì đơn hàng đã quá SLA cam kết trên hệ thống TikTok!\n"
+     "• Quyết sách giải cứu OPR TTS trong tuần W38:\n"
+     "  1. Thiết lập Ca Trực Lấy Hàng Khung Giờ Vàng (20h - 22h30): Bắt buộc các bưu cục tại TP. Đà Lạt, TP. Gia Nghĩa và TP. Nha Trang phải bố trí tối thiểu 2 bưu tá trực ca đêm chuyên trách gom đơn TTS cho các Top Shop.\n"
+     "  2. Kết nối chuyến xe gom đêm KTC: Tận dụng các chuyến xe KTC chạy đêm lúc 23h để đưa thẳng hàng TTS vừa lấy về Hub phân loại, đảm bảo quét mã thành công trong đêm!",
+     (2, 132, 199), True)
+], fill_hex="F0F9FF", border_hex="0284C7")
+
+# ==================== VI. MIDDLE-MILE: VẬN TẢI KTC & RỚT LUÂN CHUYỂN ====================
+add_section_header(doc, "🚛 [VI. ĐỘT PHÁ MIDDLE-MILE: TLLĐ KTC ĐẠT 54.8%, RỚT LUÂN CHUYỂN GIẢM VỀ 1.80%]")
 
 add_callout_box(doc, [
     ("🗣️ PHÂN TÍCH HIỆU SUẤT VẬN TẢI & TỐI ƯU CHI PHÍ:\n",
@@ -239,8 +270,8 @@ add_callout_box(doc, [
      (5, 150, 105), True)
 ], fill_hex="F0FDF4", border_hex="10B981")
 
-# ==================== VI. TỶ LỆ HOÀN TRẢ %FD & AGING TỒN ĐỌNG ====================
-add_section_header(doc, "🔄 [VI. CHẤT LƯỢNG HOÀN TRẢ %FD (6.73%) & CẢNH BÁO HÀNG TỒN AGING (>5 NGÀY)]")
+# ==================== VII. TỶ LỆ HOÀN TRẢ %FD & AGING TỒN ĐỌNG ====================
+add_section_header(doc, "🔄 [VII. CHẤT LƯỢNG HOÀN TRẢ %FD (6.73%) & CẢNH BÁO HÀNG TỒN AGING (>5 NGÀY)]")
 
 add_callout_box(doc, [
     ("🗣️ PHÂN TÍCH RỦI RO HOÀN TRẢ & TỒN LÂU NGÀY:\n",
@@ -256,8 +287,8 @@ add_callout_box(doc, [
      (220, 38, 38), True)
 ], fill_hex="FEF2F2", border_hex="EF4444")
 
-# ==================== VII. 13 BƯU CỤC CẢNH BÁO BẤT ỔN ====================
-add_section_header(doc, "🚨 [VII. TRỌNG ĐIỂM CỨU TRỢ: 13 BƯU CỤC CẢNH BÁO BẤT ỔN (%GTC < 45% HOẶC < 70% KỶ LỤC)]", (185, 28, 28))
+# ==================== VIII. 13 BƯU CỤC CẢNH BÁO BẤT ỔN ====================
+add_section_header(doc, "🚨 [VIII. TRỌNG ĐIỂM CỨU TRỢ: 13 BƯU CỤC CẢNH BÁO BẤT ỔN (%GTC < 45% HOẶC < 70% KỶ LỤC)]", (185, 28, 28))
 
 add_callout_box(doc, [
     ("🗣️ MỆNH LỆNH ĐIỀU HÀNH & KẾ HOẠCH TÁC CHIẾN CỨU HỘ 13 BƯU CỤC:\n",
@@ -285,8 +316,8 @@ add_callout_box(doc, [
      (185, 28, 28), True)
 ], fill_hex="FEF2F2", border_hex="DC2626")
 
-# ==================== VIII. KINH DOANH & PHÁT TRIỂN KHÁCH HÀNG ====================
-add_section_header(doc, "📈 [VIII. KINH DOANH: PHÁT TRIỂN SHOP MỚI F30 & NGĂN CHẶN RỜI BỎ CHURN]")
+# ==================== IX. KINH DOANH & PHÁT TRIỂN KHÁCH HÀNG ====================
+add_section_header(doc, "📈 [IX. KINH DOANH: PHÁT TRIỂN SHOP MỚI F30 & NGĂN CHẶN RỜI BỎ CHURN]")
 
 add_callout_box(doc, [
     ("🗣️ CHIẾN LƯỢC KINH DOANH & KHÁCH HÀNG:\n",
@@ -295,8 +326,8 @@ add_callout_box(doc, [
      (15, 76, 129), True)
 ], fill_hex="FFF7ED", border_hex="F97316")
 
-# ==================== IX. LỜI KẾT & KẾ HOẠCH TUẦN W38 ====================
-add_section_header(doc, "🏁 [IX. LỜI KẾT THUYẾT TRÌNH & 3 TRỌNG TÂM HÀNH ĐỘNG TUẦN W38]")
+# ==================== X. LỜI KẾT & KẾ HOẠCH TUẦN W38 ====================
+add_section_header(doc, "🏁 [X. LỜI KẾT THUYẾT TRÌNH & 3 TRỌNG TÂM HÀNH ĐỘNG TUẦN W38]")
 
 add_callout_box(doc, [
     ("🗣️ LỜI KẾT ĐANH THÉP & CAM KẾT HÀNH ĐỘNG:\n",
@@ -311,21 +342,18 @@ add_callout_box(doc, [
 ], fill_hex="F0FDF4", border_hex="10B981")
 
 # Save file Word
-out_file1 = r'C:\Users\lap4all\Desktop\New folder\KICH_BAN_THUYET_TRINH_W37_NAM_TRUNG_BO.docx'
-doc.save(out_file1)
-print(f"SUCCESS: Saved file to {out_file1}")
+out_files = [
+    r'C:\Users\lap4all\Desktop\New folder\KICH_BAN_THUYET_TRINH_W37_NAM_TRUNG_BO_MOI_NHAT.docx',
+    r'C:\Users\lap4all\Desktop\New folder\KICH_BAN_THUYET_TRINH_W37_FULL_OPR_TTS.docx',
+    r'C:\Users\lap4all\Desktop\New folder\KICH_BAN_THUYET_TRINH_W37_NAM_TRUNG_BO.docx',
+    r'C:\Users\lap4all\Desktop\New folder\KICH_BAN_THUYET_TRINH_W37_NTB.docx',
+    r'C:\Users\lap4all\Desktop\New folder\KICH_BAN_THUYET_TRINH_W37_CHUAN_SO_LIEU.docx'
+]
 
-out_file2 = r'C:\Users\lap4all\Desktop\New folder\KICH_BAN_THUYET_TRINH_W37_NTB.docx'
-try:
-    doc.save(out_file2)
-    print(f"SUCCESS: Also saved {out_file2}")
-except Exception as e:
-    print(f"Note: {e}")
-
-out_file3 = r'C:\Users\lap4all\Desktop\New folder\KICH_BAN_THUYET_TRINH_W37_CHUAN_SO_LIEU.docx'
-try:
-    doc.save(out_file3)
-    print(f"SUCCESS: Also saved {out_file3}")
-except Exception as e:
-    print(f"Note: {e}")
+for out_f in out_files:
+    try:
+        doc.save(out_f)
+        print(f"SUCCESS: Saved {os.path.basename(out_f)}")
+    except Exception as e:
+        print(f"Note (file may be open in Word): Could not save {os.path.basename(out_f)} - {e}")
 
