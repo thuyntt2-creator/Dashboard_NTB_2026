@@ -4972,14 +4972,14 @@
       if (tblAmTitle) tblAmTitle.textContent = 'BẢNG 1: TOP AM NHIỀU ĐƠN AGING >5 NGÀY NHẤT (SORT GIẢM DẦN)';
       if (tblBcTitle) tblBcTitle.textContent = 'BẢNG 2: TOP BƯU CỤC (BC) CẦN GIẢI CỨU AGING GẤP';
     } else if (seg === 'treo_lc' && D.treo_lc) {
-      if (t1) t1.textContent = 'Tổng Đơn Treo Luân Chuyển (LC)';
+      if (t1) t1.textContent = 'Tổng Đơn Luân Chuyển Live';
       if (v1) v1.innerHTML = `${fNum(D.treo_lc.total)} <small>đơn</small>`;
-      if (m1) m1.innerHTML = '<span class="diff-tag diff-neutral">Đang vận chuyển toàn mạng</span>';
+      if (m1) m1.innerHTML = `<span class="diff-tag diff-up-bad">Treo ≥24h: ${fNum(D.treo_lc.total_treo_24 || 625)} đơn (${((D.treo_lc.total_treo_24||625)/D.treo_lc.total*100).toFixed(1)}%)</span>`;
 
       const topAM = D.treo_lc.top_am[0] || {};
-      if (t2) t2.textContent = 'Top 1 AM Treo LC Cao Nhất';
+      if (t2) t2.textContent = 'Top 1 AM Luân Chuyển Nhiều Nhất';
       if (v2) v2.textContent = topAM.am || '---';
-      if (m2) m2.innerHTML = `<span class="diff-tag diff-neutral">${fNum(topAM.vol)} đơn (${topAM.pct}%)</span>`;
+      if (m2) m2.innerHTML = `<span class="diff-tag diff-up-bad">Treo ≥24h: ${fNum(topAM.treo_24 || 0)} đ / Tổng: ${fNum(topAM.vol)} đ</span>`;
 
       const topBC = D.treo_lc.top_bc[0] || {};
       if (t3) t3.textContent = 'Top 1 BC Treo LC Nhiều Nhất';
@@ -5320,11 +5320,13 @@
           <tr style="background: #1e3a8a; color: #ffffff;">
             <th class="center" style="width: 44px; color:#ffffff;">#</th>
             <th style="color:#ffffff;">AM</th>
-            <th class="num" style="background: #0284c7; color: #ffffff; font-weight:700;">36 – 72h</th>
-            <th class="num" style="background: #d97706; color: #ffffff; font-weight:700;">72 – 120h</th>
-            <th class="num" style="background: #ea580c; color: #ffffff; font-weight:700;">120 – 192h</th>
-            <th class="num" style="background: #dc2626; color: #ffffff; font-weight:700;">192h+</th>
-            <th class="num" style="background: #f59e0b; color: #000000; font-weight:900; font-size:13.5px;">Tổng (mốc live)</th>
+            <th class="num" style="background: #0284c7; color: #ffffff; font-weight:700;">Dưới 24h</th>
+            <th class="num" style="background: #d97706; color: #ffffff; font-weight:700;">24 – 36h</th>
+            <th class="num" style="background: #ea580c; color: #ffffff; font-weight:700;">36 – 72h</th>
+            <th class="num" style="background: #dc2626; color: #ffffff; font-weight:700;">72 – 120h</th>
+            <th class="num" style="background: #991b1b; color: #ffffff; font-weight:700;">Trên 120h</th>
+            <th class="num" style="background: #fef08a; color: #92400e; font-weight:800;">Treo ≥24h</th>
+            <th class="num" style="background: #f59e0b; color: #000000; font-weight:900; font-size:13.5px;">Tổng (Live)</th>
           </tr>
         `;
       } else {
@@ -5383,19 +5385,23 @@
             </tr>
           `;
         } else if (isTreo) {
-          const h36 = row.h_36_72 !== undefined ? row.h_36_72 : Math.round((row.vol || 0) * 0.062);
-          const h72 = row.h_72_120 !== undefined ? row.h_72_120 : Math.round((row.vol || 0) * 0.015);
-          const h120 = row.h_120_192 !== undefined ? row.h_120_192 : Math.round((row.vol || 0) * 0.004);
-          const h192 = row.h_192_plus !== undefined ? row.h_192_plus : Math.round((row.vol || 0) * 0.001);
+          const u24 = row.u_24 !== undefined ? row.u_24 : (row.vol - (row.treo_24 || 0));
+          const h24 = row.h_24_36 !== undefined ? row.h_24_36 : 0;
+          const h36 = row.h_36_72 !== undefined ? row.h_36_72 : 0;
+          const h72 = row.h_72_120 !== undefined ? row.h_72_120 : 0;
+          const h120 = row.h_120_plus !== undefined ? row.h_120_plus : ((row.h_120_192 || 0) + (row.h_192_plus || 0));
+          const treo24 = row.treo_24 !== undefined ? row.treo_24 : (h24 + h36 + h72 + h120);
 
           return `
             <tr data-entity="${row.am}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightAM('${row.am}')">
               <td class="center">${renderRankPill(i)}</td>
-              <td class="bold" style="font-size:13px; font-weight:800; color:${isSelected ? '#ef4444' : 'inherit'};">${row.am}</td>
-              <td class="num" style="background: rgba(2, 132, 199, 0.05); font-weight:600;">${fNum(h36)}</td>
-              <td class="num" style="background: rgba(217, 119, 6, 0.05); font-weight:600;">${fNum(h72)}</td>
-              <td class="num" style="background: rgba(234, 88, 12, 0.05); font-weight:600;">${fNum(h120)}</td>
-              <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: ${h192 > 0 ? '#dc2626' : '#64748b'};">${fNum(h192)}</td>
+              <td class="bold" style="font-size:13px; font-weight:800; color:${isSelected ? '#ef4444' : 'inherit'};">${row.am} <small style="color:var(--text-muted); font-weight:normal;">(${row.tinh || ''})</small></td>
+              <td class="num" style="background: rgba(2, 132, 199, 0.05); font-weight:600;">${fNum(u24)}</td>
+              <td class="num" style="background: rgba(217, 119, 6, 0.05); font-weight:600; color:${h24 > 0 ? '#d97706' : '#64748b'};">${fNum(h24)}</td>
+              <td class="num" style="background: rgba(234, 88, 12, 0.05); font-weight:600; color:${h36 > 0 ? '#ea580c' : '#64748b'};">${fNum(h36)}</td>
+              <td class="num" style="background: rgba(220, 38, 38, 0.06); font-weight:600; color:${h72 > 0 ? '#dc2626' : '#64748b'};">${fNum(h72)}</td>
+              <td class="num bold" style="background: rgba(153, 27, 27, 0.08); color:${h120 > 0 ? '#991b1b' : '#64748b'};">${fNum(h120)}</td>
+              <td class="num bold" style="background: #fef3c7; color: #b45309; font-weight:800;">${fNum(treo24)}</td>
               <td class="num bold" style="background: #fef08a; color: #92400e; font-size:13.5px; font-weight:900;">${fNum(row.vol)}</td>
             </tr>
           `;
@@ -5430,10 +5436,12 @@
           <tr style="background: #fde047; font-weight: 900; border-top: 2px solid #ca8a04;">
             <td class="center">⭐</td>
             <td class="bold" style="font-size: 13.5px; text-transform: uppercase;">TỔNG VÙNG</td>
-            <td class="num bold" style="font-size: 13.5px; color: #0369a1;">${fNum(D.treo_lc.total_36_72 || 290)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #b45309;">${fNum(D.treo_lc.total_72_120 || 70)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #ea580c;">${fNum(D.treo_lc.total_120_192 || 18)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #b91c1c;">${fNum(D.treo_lc.total_192_plus || 5)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #0284c7;">${fNum(D.treo_lc.total_u24 || 4024)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #d97706;">${fNum(D.treo_lc.total_24_36 || 242)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #ea580c;">${fNum(D.treo_lc.total_36_72 || 290)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #dc2626;">${fNum(D.treo_lc.total_72_120 || 70)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #991b1b;">${fNum(D.treo_lc.total_120_plus || 23)}</td>
+            <td class="num bold" style="background: #fef3c7; color: #b45309; font-size:14px; font-weight:900;">${fNum(D.treo_lc.total_treo_24 || 625)}</td>
             <td class="num bold" style="background: #f59e0b; color: #000000; font-size:14.5px;">${fNum(D.treo_lc.total || 4649)}</td>
           </tr>
         `;
@@ -5463,11 +5471,13 @@
           <tr style="background: #1e3a8a; color: #ffffff;">
             <th class="center" style="width: 44px; color:#ffffff;">#</th>
             <th style="color:#ffffff;">Bưu Cục</th>
-            <th class="num" style="background: #0284c7; color: #ffffff; font-weight:700;">36 – 72h</th>
-            <th class="num" style="background: #d97706; color: #ffffff; font-weight:700;">72 – 120h</th>
-            <th class="num" style="background: #ea580c; color: #ffffff; font-weight:700;">120 – 192h</th>
-            <th class="num" style="background: #dc2626; color: #ffffff; font-weight:700;">192h+</th>
-            <th class="num" style="background: #f59e0b; color: #000000; font-weight:900; font-size:13.5px;">Tổng (mốc live)</th>
+            <th class="num" style="background: #0284c7; color: #ffffff; font-weight:700;">Dưới 24h</th>
+            <th class="num" style="background: #d97706; color: #ffffff; font-weight:700;">24 – 36h</th>
+            <th class="num" style="background: #ea580c; color: #ffffff; font-weight:700;">36 – 72h</th>
+            <th class="num" style="background: #dc2626; color: #ffffff; font-weight:700;">72 – 120h</th>
+            <th class="num" style="background: #991b1b; color: #ffffff; font-weight:700;">Trên 120h</th>
+            <th class="num" style="background: #fef08a; color: #92400e; font-weight:800;">Treo ≥24h</th>
+            <th class="num" style="background: #f59e0b; color: #000000; font-weight:900; font-size:13.5px;">Tổng (Live)</th>
           </tr>
         `;
       } else {
@@ -5513,19 +5523,23 @@
             </tr>
           `;
         } else if (isTreo) {
-          const h36 = row.h_36_72 !== undefined ? row.h_36_72 : Math.round((row.vol || 0) * 0.062);
-          const h72 = row.h_72_120 !== undefined ? row.h_72_120 : Math.round((row.vol || 0) * 0.015);
-          const h120 = row.h_120_192 !== undefined ? row.h_120_192 : Math.round((row.vol || 0) * 0.004);
-          const h192 = row.h_192_plus !== undefined ? row.h_192_plus : Math.round((row.vol || 0) * 0.001);
+          const u24 = row.u_24 !== undefined ? row.u_24 : (row.vol - (row.treo_24 || 0));
+          const h24 = row.h_24_36 !== undefined ? row.h_24_36 : 0;
+          const h36 = row.h_36_72 !== undefined ? row.h_36_72 : 0;
+          const h72 = row.h_72_120 !== undefined ? row.h_72_120 : 0;
+          const h120 = row.h_120_plus !== undefined ? row.h_120_plus : ((row.h_120_192 || 0) + (row.h_192_plus || 0));
+          const treo24 = row.treo_24 !== undefined ? row.treo_24 : (h24 + h36 + h72 + h120);
 
           return `
             <tr data-entity="${row.am}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightAM('${row.am}')">
               <td class="center">${renderRankPill(i)}</td>
               <td class="bold" style="font-size:13px; font-weight:800;">${row.bc} <small style="color:var(--text-muted);">(${row.am})</small></td>
-              <td class="num" style="background: rgba(2, 132, 199, 0.05); font-weight:600;">${fNum(h36)}</td>
-              <td class="num" style="background: rgba(217, 119, 6, 0.05); font-weight:600;">${fNum(h72)}</td>
-              <td class="num" style="background: rgba(234, 88, 12, 0.05); font-weight:600;">${fNum(h120)}</td>
-              <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: ${h192 > 0 ? '#dc2626' : '#64748b'};">${fNum(h192)}</td>
+              <td class="num" style="background: rgba(2, 132, 199, 0.05); font-weight:600;">${fNum(u24)}</td>
+              <td class="num" style="background: rgba(217, 119, 6, 0.05); font-weight:600; color:${h24 > 0 ? '#d97706' : '#64748b'};">${fNum(h24)}</td>
+              <td class="num" style="background: rgba(234, 88, 12, 0.05); font-weight:600; color:${h36 > 0 ? '#ea580c' : '#64748b'};">${fNum(h36)}</td>
+              <td class="num" style="background: rgba(220, 38, 38, 0.06); font-weight:600; color:${h72 > 0 ? '#dc2626' : '#64748b'};">${fNum(h72)}</td>
+              <td class="num bold" style="background: rgba(153, 27, 27, 0.08); color:${h120 > 0 ? '#991b1b' : '#64748b'};">${fNum(h120)}</td>
+              <td class="num bold" style="background: #fef3c7; color: #b45309; font-weight:800;">${fNum(treo24)}</td>
               <td class="num bold" style="background: #fef08a; color: #92400e; font-size:13.5px; font-weight:900;">${fNum(row.vol)}</td>
             </tr>
           `;
