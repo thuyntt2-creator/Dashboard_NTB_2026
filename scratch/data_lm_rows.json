@@ -1,0 +1,92 @@
+[
+  [
+    "Mã bưu cục",
+    "Mã đơn hàng",
+    "Loại đơn",
+    "Khách hàng",
+    "Phường/xã",
+    "Trạng thái",
+    "Thời gian tồn đọng"
+  ],
+  [
+    "1896",
+    "GYYYDE4Q",
+    "Lấy",
+    "OTHER",
+    "Xã Ma Đa Guôi, Huyện Đạ Huoai",
+    "Chưa có chuyến đi trong ngày",
+    "0_6"
+  ],
+  [
+    "1896",
+    "GYYYD9VW",
+    "Lấy",
+    "OTHER",
+    "Xã Hà Lâm, Huyện Đạ Huoai",
+    "Chưa có chuyến đi trong ngày",
+    "0_6"
+  ],
+  [
+    "1896",
+    "GYYYN7X9",
+    "Lấy",
+    "OTHER",
+    "Xã Hà Lâm, Huyện Đạ Huoai",
+    "Chưa có chuyến đi trong ngày",
+    "0_6"
+  ],
+  [
+    "1896",
+    "GYY8GAYC",
+    "Giao",
+    "OTHER",
+    "Xã Đạ Oai, Huyện Đạ Huoai",
+    "Chưa có chuyến đi trong ngày",
+    "0_6"
+  ],
+  [
+    "1896",
+    "GYY86NDH",
+    "Giao",
+    "OTHER",
+    "Thị trấn Đạ M'ri, Huyện Đạ Huoai",
+    "Chưa có chuyến đi trong ngày",
+    "0_6"
+  ],
+  [
+    "1896",
+    "VNGH80170689401",
+    "Lấy",
+    "TTS",
+    "Thị trấn Đạ M'ri, Huyện Đạ Huoai",
+    "Chưa có chuyến đi trong ngày",
+    "0_6"
+  ],
+  [
+    "1896",
+    "VNGH80634569310",
+    "Lấy",
+    "TTS",
+    "Thị trấn Đạ M'ri, Huyện Đạ Huoai",
+    "Chưa có chuyến đi trong ngày",
+    "0_6"
+  ],
+  [
+    "1896",
+    "GYYY9D8H",
+    "Lấy",
+    "OTHER",
+    "Xã Hà Lâm, Huyện Đạ Huoai",
+    "Chưa có chuyến đi trong ngày",
+    "0_6"
+  ],
+  [
+    "1896",
+    "GYYYUXGD",
+    "Lấy",
+    "OTHER",
+    "Thị trấn Ma Đa Guôi, Huyện Đạ Huoai",
+    "Đã có chuyến đi trong ngày",
+    "0_6"
+  ]
+]
