@@ -9077,7 +9077,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 6,
       "total_trucks": 33,
-      "last_updated": "17:48 - 16/09/2026"
+      "last_updated": "18:22 - 16/09/2026"
     },
     "surge_fixed": {
       "fixed_cost": 980.25,
@@ -9125,7 +9125,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 154.98,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Tốt và Rẻ, Trâm Hoá",
+        "primary_ncc": "Trâm Hoá, Tốt và Rẻ",
         "truck_count": 4
       },
       {
@@ -9151,7 +9151,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 70.81,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 8
       },
       {
@@ -9164,7 +9164,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 68.94,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 5
       }
     ],
@@ -9180,7 +9180,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 12,
-        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
+        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
       },
       {
         "ncc": "Mạnh Cường",
@@ -9193,7 +9193,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Nam Nha Trang, KTC Đức Trọng, KTC Khánh Hòa"
+        "active_ktcs": "KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Đức Trọng, KTC Khánh Hòa"
       },
       {
         "ncc": "Công Định",
@@ -11434,7 +11434,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "796.723 đ",
         "cost": 796723.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E26090981HEJNA4",
         "ontime": "100,00%"
       },
       {
@@ -11449,7 +11449,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "796.723 đ",
         "cost": 796723.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2609100ET8UMNK",
         "ontime": "100,00%"
       },
       {
@@ -11899,7 +11899,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "946.648 đ",
         "cost": 946648.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260909ECJNPP42",
         "ontime": "100,00%"
       },
       {
@@ -11914,7 +11914,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "946.648 đ",
         "cost": 946648.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260910542T8A8S",
         "ontime": "100,00%"
       },
       {
