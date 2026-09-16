@@ -8,7 +8,7 @@
     "ncc_count": 7,
     "ktc_count": 6,
     "total_trucks": 33,
-    "last_updated": "13:44 - 16/09/2026"
+    "last_updated": "14:19 - 16/09/2026"
   },
   "surge_fixed": {
     "fixed_cost": 980.25,
@@ -43,7 +43,7 @@
       "fixed_cost": 181.54,
       "surge_cost": 0.0,
       "surge_pct": 0.0,
-      "primary_ncc": "Công Định, NAK",
+      "primary_ncc": "NAK, Công Định",
       "truck_count": 8
     },
     {
@@ -56,7 +56,7 @@
       "fixed_cost": 154.98,
       "surge_cost": 0.0,
       "surge_pct": 0.0,
-      "primary_ncc": "Tốt và Rẻ, Trâm Hoá",
+      "primary_ncc": "Lâm Ngọc Thành, Tốt và Rẻ",
       "truck_count": 4
     },
     {
@@ -124,7 +124,7 @@
       "surge_cost": 0.0,
       "surge_pct": 0.0,
       "truck_count": 6,
-      "active_ktcs": "KTC Khánh Hòa, KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Đức Trọng"
+      "active_ktcs": "KTC Khánh Hòa, KTC Nam Nha Trang, KTC Đức Trọng, KTC Bắc Nha Trang"
     },
     {
       "ncc": "Công Định",
@@ -12172,8 +12172,8 @@
       "route": "Kho CK Bắc Nha Trang đến các điểm giao nội khu vực KV1-Khánh Hòa 4",
       "ktc": "KTC Bắc Nha Trang",
       "type": "Cố định",
-      "cost_str": "2.113.846 đ",
-      "cost": 2113846.0,
+      "cost_str": "4.227.692 đ",
+      "cost": 4227692.0,
       "trips_equivalent": 30,
       "trip_code": "HĐ_BCCK_2",
       "ontime": "100%"
@@ -12232,8 +12232,8 @@
       "route": "Kho CK Bắc Nha Trang đến các điểm giao nội khu vực KV1-Khánh Hòa 4",
       "ktc": "KTC Bắc Nha Trang",
       "type": "Cố định",
-      "cost_str": "24.275.134 đ",
-      "cost": 24275134.0,
+      "cost_str": "22.161.288 đ",
+      "cost": 22161288.0,
       "trips_equivalent": 30,
       "trip_code": "HĐ_BCCK_6",
       "ontime": "100%"
