@@ -1,5 +1,35 @@
-Tỉnh,Quận/ huyện,Phường/xã cần tắt,"ID phường/xã
-(MÀU ĐỎ LÀ ĐANG OFF)","Bưu Cục
-Vùng để trống cột bất kỳ từ cột B-> T
-Nhập sai format
-=> KHÔNG REVIEW",HRBP Regions xác nhận,Kết quả (KA) update,% Cap Down (KA),Thời gian tắt (KA),Thời gian mở (KA)
+Tỉnh,Quận/ huyện,Phường/xã cần tắt,ID phường/xã,Bưu Cục,AM,Kết quả (KA) update,Thời gian tắt (KA),Thời gian mở (KA)
+Khánh Hòa,Thành phố Nha Trang,Phường Ngọc Hiệp,410102,(KHO) Tây Nha Trang,Phan Đình Duy,DUYỆT,09/15/2026,1/10/2026
+Khánh Hòa,Thành phố Nha Trang,Phường Phương Sơn,410109,(KHO) Tây Nha Trang,Phan Đình Duy,DUYỆT,09/15/2026,1/10/2026
+Khánh Hòa,Thành phố Nha Trang,Xã Vĩnh Hiệp,410121,(KHO) Tây Nha Trang,Phan Đình Duy,DUYỆT,09/15/2026,1/10/2026
+Khánh Hòa,Thành phố Nha Trang,Xã Vĩnh Ngọc,410123,(KHO) Tây Nha Trang,Phan Đình Duy,DUYỆT,09/15/2026,1/10/2026
+Lâm Đồng,Huyện Di Linh,Xã Gia Hiệp,420407,(LDO) Di Linh,Nguyễn Lê Nguyên Vũ,DUYỆT,09/15/2026,10/1/2026
+Lâm Đồng,Huyện Di Linh,Xã Tam Bố,420415,(LDO) Di Linh,Nguyễn Lê Nguyên Vũ,DUYỆT,09/15/2026,10/1/2026
+Lâm Đồng,Huyện Di Linh,Xã Tân Lâm,420417,(LDO) Di Linh,Nguyễn Lê Nguyên Vũ,DUYỆT,09/15/2026,10/1/2026
+Lâm Đồng,Huyện Di Linh,Xã Tân Thượng,420419,(LDO) Di Linh,Nguyễn Lê Nguyên Vũ,DUYỆT,09/15/2026,10/1/2026
+Lâm Đồng,Huyện Di Linh,Xã Đinh Trang Thượng,420405,(LDO) Di Linh,Nguyễn Lê Nguyên Vũ,DUYỆT,09/15/2026,10/1/2026
+Lâm Đồng,Thành phố Đà Lạt,Phường 3,420106,(LDO) Xuân Hương - Đà Lạt,Lê Văn Trường,DUYỆT,09/15/2026,1/10/2026
+Lâm Đồng,Thành phố Đà Lạt,Phường 4,420107,(LDO) Xuân Hương - Đà Lạt,Lê Văn Trường,DUYỆT,09/15/2026,1/10/2026
+Lâm Đồng,Thành phố Đà Lạt,Phường 4,420116,(LDO) Xuân Hương - Đà Lạt,Lê Văn Trường,DUYỆT,09/15/2026,10/1/2026
+Lâm Đồng,Huyện Đơn Dương,Thị trấn D'Ran,420501,(LDO) Đơn Dương,Lê Văn Trường,DUYỆT,09/15/2026,10/1/2026
+Lâm Đồng,Huyện Đơn Dương,Thị trấn Thạnh Mỹ,420502,(LDO) Đơn Dương,Lê Văn Trường,DUYỆT,09/04/2026,10/12/2026
+Lâm Đồng,Huyện Đơn Dương,Xã Ka Đô,420504,(LDO) Đơn Dương,Lê Văn Trường,DUYỆT,9/4/2026,10/12/2026
+Lâm Đồng,Huyện Đơn Dương,Xã Lạc Lâm,420506,(LDO) Đơn Dương,Lê Văn Trường,DUYỆT,9/4/2026,10/12/2026
+Lâm Đồng,Huyện Đơn Dương,Xã Lạc Xuân,420507,(LDO) Đơn Dương,Lê Văn Trường,DUYỆT,9/15/2026,10/01/2026
+Lâm Đồng,Huyện Đơn Dương,Xã Tu Tra,420510,(LDO) Đơn Dương,Lê Văn Trường,DUYỆT,9/4/2026,12/10/2026
+Lâm Đồng,Huyện Đơn Dương,Xã Đạ Ròn,420503,(LDO) Đơn Dương,Lê Văn Trường,DUYỆT,9/4/2026,10/12/2026
+Lâm Đồng,Huyện Đức Trọng,Xã Phú Hội,420311,(LDO) Đức Trọng 1,Nguyễn Lê Nguyên Vũ,DUYỆT,16/09/2026,01/10/2026
+Lâm Đồng,Huyện Đức Trọng,Thị trấn Liên Nghĩa,420301,(LDO) Đức Trọng 2,Nguyễn Thị Tuyết Thơ,DUYỆT,16/09/2026,01/10/2026
+Đắk Nông,Thành phố Gia Nghĩa,Phường Nghĩa Phú,630102,(DNO) Bắc Gia Nghĩa,Huỳnh Thúc Duân,DUYỆT,07/09/2026,12/10/2026
+Đắk Nông,Thành phố Gia Nghĩa,Phường Nghĩa Thành,630104,(DNO) Bắc Gia Nghĩa,Huỳnh Thúc Duân,DUYỆT,07/09/2026,12/10/2026
+Đắk Nông,Thành phố Gia Nghĩa,Xã Quảng Thành,630108,(DNO) Bắc Gia Nghĩa,Huỳnh Thúc Duân,DUYỆT,07/09/2026,12/10/2026
+Đắk Nông,Thành phố Gia Nghĩa,Xã Đăk R'Moan,630107,(DNO) Bắc Gia Nghĩa,Huỳnh Thúc Duân,DUYỆT,07/09/2026,12/10/2026
+Đắk Nông,Huyện Đắk Glong,Xã Đắk Ha,630701,(DNO) Quảng Sơn,Trần Thị Nhung,DUYỆT,07/09/2026,12/10/2026
+Đắk Nông,Huyện Đắk R lấp,Xã Hưng Bình,630206,(DNO) Quảng Tín,Trương Quang Linh,DUYỆT,16/09/2026,01/10/2026
+Đắk Nông,Huyện Đắk R lấp,Xã Quảng Tín,630211,(DNO) Quảng Tín,Trương Quang Linh,DUYỆT,16/09/2026,01/10/2026
+Đắk Nông,Huyện Đắk R lấp,Xã Đắk Ru,630202,(DNO) Quảng Tín,Trương Quang Linh,DUYỆT,16/09/2026,01/10/2026
+Đắk Nông,Huyện Đắk R lấp,Xã Đắk Sin,630203,(DNO) Quảng Tín,Trương Quang Linh,DUYỆT,16/09/2026,01/10/2026
+Đắk Nông,Thành phố Gia Nghĩa,Phường Nghĩa Trung,630105,(DNO) Đông Gia Nghĩa,Huỳnh Thúc Duân,DUYỆT,9/4/2026,10/12/2026
+Đắk Nông,Thành phố Gia Nghĩa,Phường Nghĩa Tân,630103,(DNO) Đông Gia Nghĩa,Huỳnh Thúc Duân,DUYỆT,07/09/2026,12/10/2026
+Đắk Nông,Thành phố Gia Nghĩa,Phường Nghĩa Đức,630101,(DNO) Đông Gia Nghĩa,Huỳnh Thúc Duân,DUYỆT,9/4/2026,10/12/2026
+Đắk Nông,Thành phố Gia Nghĩa,Xã Đắk Nia,630106,(DNO) Đông Gia Nghĩa,Huỳnh Thúc Duân,DUYỆT,9/4/2026,10/12/2026

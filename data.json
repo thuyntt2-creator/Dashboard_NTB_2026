@@ -9077,7 +9077,7 @@
       "ncc_count": 7,
       "ktc_count": 6,
       "total_trucks": 33,
-      "last_updated": "18:22 - 16/09/2026"
+      "last_updated": "18:57 - 16/09/2026"
     },
     "surge_fixed": {
       "fixed_cost": 980.25,
@@ -9112,7 +9112,7 @@
         "fixed_cost": 181.54,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Công Định, NAK",
+        "primary_ncc": "NAK, Công Định",
         "truck_count": 8
       },
       {
@@ -9125,7 +9125,7 @@
         "fixed_cost": 154.98,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Trâm Hoá, Tốt và Rẻ",
+        "primary_ncc": "Lâm Ngọc Thành, Trâm Hoá",
         "truck_count": 4
       },
       {
@@ -9151,7 +9151,7 @@
         "fixed_cost": 70.81,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 8
       },
       {
@@ -9164,7 +9164,7 @@
         "fixed_cost": 68.94,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 5
       }
     ],
@@ -9180,7 +9180,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 12,
-        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
+        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
       },
       {
         "ncc": "Mạnh Cường",
@@ -9193,7 +9193,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Đức Trọng, KTC Khánh Hòa"
+        "active_ktcs": "KTC Nam Nha Trang, KTC Khánh Hòa, KTC Đức Trọng, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Công Định",
@@ -9219,7 +9219,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Nam Nha Trang"
+        "active_ktcs": "KTC Nam Nha Trang, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Lâm Ngọc Thành",
@@ -11464,7 +11464,7 @@
         "cost_str": "796.723 đ",
         "cost": 796723.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260911BYDBVJZM",
         "ontime": "100,00%"
       },
       {
@@ -11479,7 +11479,7 @@
         "cost_str": "796.723 đ",
         "cost": 796723.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2609129VO13K1W",
         "ontime": "100,00%"
       },
       {
@@ -11494,7 +11494,7 @@
         "cost_str": "796.723 đ",
         "cost": 796723.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260913UYH1KGHK",
         "ontime": "100,00%"
       },
       {
@@ -11929,7 +11929,7 @@
         "cost_str": "946.648 đ",
         "cost": 946648.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260911B7NBSIC4",
         "ontime": "100,00%"
       },
       {
@@ -11944,7 +11944,7 @@
         "cost_str": "946.648 đ",
         "cost": 946648.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260912NAYQ7R3U",
         "ontime": "100,00%"
       },
       {
@@ -11959,7 +11959,7 @@
         "cost_str": "946.648 đ",
         "cost": 946648.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2609139381I3U5",
         "ontime": "100,00%"
       },
       {
