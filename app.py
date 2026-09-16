@@ -3397,27 +3397,26 @@ def process_off_spe(am=None, province=None, post_office=None):
             }
         
         # Find columns dynamically
-        col_tinh = next((c for c in df_raw.columns if "tỉnh" in c.lower() or "tinh" in c.lower() or "province" in c.lower()), None)
-        col_quan = next((c for c in df_raw.columns if "quận" in c.lower() or "huyện" in c.lower() or "quan" in c.lower() or "huyen" in c.lower() or "district" in c.lower()), None)
-        col_phuong = next((c for c in df_raw.columns if "phường" in c.lower() or "xã" in c.lower() or "phuong" in c.lower() or "xa" in c.lower() or "ward" in c.lower()), None)
-        col_bc = next((c for c in df_raw.columns if "bưu cục" in c.lower() or "buu cuc" in c.lower() or "post" in c.lower() or "bc" in c.lower()), None)
-        col_ketqua = next((c for c in df_raw.columns if "kết quả" in c.lower() or "ket qua" in c.lower() or "update" in c.lower()), None)
-        col_capdown = next((c for c in df_raw.columns if "cap" in c.lower() or "down" in c.lower() or "%" in c.lower()), None)
-        col_time_off = next((c for c in df_raw.columns if "thời gian tắt" in c.lower() or "thoi gian tat" in c.lower() or "tg tắt" in c.lower() or "tg tat" in c.lower()), None)
-        col_time_on = next((c for c in df_raw.columns if "thời gian mở" in c.lower() or "thoi gian mo" in c.lower() or "tg mở" in c.lower() or "tg mo" in c.lower()), None)
-        col_note = next((c for c in df_raw.columns if "note" in c.lower() or "ghi chú" in c.lower() or "ghi chu" in c.lower()), None)
+        col_tinh = next((c for c in df_raw.columns if any(k in c.lower() for k in ["tỉnh", "tinh", "province"])), None)
+        col_quan = next((c for c in df_raw.columns if any(k in c.lower() for k in ["quận", "huyện", "quan", "huyen", "district"])), None)
+        col_phuong = next((c for c in df_raw.columns if any(k in c.lower() for k in ["phường", "xã", "phuong", "xa"]) and "id" not in c.lower()), None)
+        col_id = next((c for c in df_raw.columns if any(k in c.lower() for k in ["id phường/xã", "id phuong/xa", "ward_code", "mã xã", "ma xa"]) or ("id" in c.lower() and any(k in c.lower() for k in ["phường", "xã", "ward"])) or c.strip().lower() in ["id", "id xã", "id xa"]), None)
+        col_bc = next((c for c in df_raw.columns if any(k in c.lower() for k in ["bưu cục", "buu cuc", "post"]) or c.strip().lower() == "bc"), None)
+        col_am = next((c for c in df_raw.columns if c.strip().lower() in ["am", "am phụ trách", "am phu trach"]), None)
+        col_ketqua = next((c for c in df_raw.columns if any(k in c.lower() for k in ["kết quả", "ket qua", "update", "trạng thái", "trang thai"])), None)
+        col_capdown = next((c for c in df_raw.columns if ("cap" in c.lower() or "down" in c.lower()) and "am" not in c.lower() and "time" not in c.lower()), None)
+        col_time_off = next((c for c in df_raw.columns if any(k in c.lower() for k in ["thời gian tắt", "thoi gian tat", "tg tắt", "tg tat"])), None)
+        col_time_on = next((c for c in df_raw.columns if any(k in c.lower() for k in ["thời gian mở", "thoi gian mo", "tg mở", "tg mo"])), None)
+        col_note = next((c for c in df_raw.columns if any(k in c.lower() for k in ["note", "ghi chú", "ghi chu", "phân loại", "phan loai"]) and "thời gian" not in c.lower() and "am" not in c.lower()), None)
         
-        # Fallback to indices if columns not found dynamically
+        # Fallback to positional indices only if essential columns are missing
         cols = list(df_raw.columns)
         if not col_tinh and len(cols) > 0: col_tinh = cols[0]
         if not col_quan and len(cols) > 1: col_quan = cols[1]
         if not col_phuong and len(cols) > 2: col_phuong = cols[2]
-        if not col_bc and len(cols) > 3: col_bc = cols[3]
-        if not col_ketqua and len(cols) > 4: col_ketqua = cols[4]
-        if not col_capdown and len(cols) > 5: col_capdown = cols[5]
-        if not col_time_off and len(cols) > 6: col_time_off = cols[6]
-        if not col_time_on and len(cols) > 7: col_time_on = cols[7]
-        if not col_note and len(cols) > 8: col_note = cols[8]
+        if not col_id and len(cols) > 3 and any(k in str(cols[3]).lower() for k in ["id", "mã", "ma"]): col_id = cols[3]
+        if not col_bc and len(cols) > 4: col_bc = cols[4]
+        if not col_am and len(cols) > 5 and "am" in str(cols[5]).lower(): col_am = cols[5]
         
         df_table = df_raw.dropna(subset=[col_tinh, col_bc], how='all')
         
@@ -3443,16 +3442,22 @@ def process_off_spe(am=None, province=None, post_office=None):
             phuong_val = str(r[col_phuong]).strip() if col_phuong and pd.notna(r[col_phuong]) else ""
             bc_val = str(r[col_bc]).strip() if col_bc and pd.notna(r[col_bc]) else ""
             
+            ward_id_val = str(r[col_id]).strip() if col_id and pd.notna(r[col_id]) else ""
+            if ward_id_val.endswith(".0"):
+                ward_id_val = ward_id_val[:-2]
+            if ward_id_val.lower() in ["nan", "none"]:
+                ward_id_val = ""
+            
             # Status:
-            # - Column E has "duyệt" => Đang OFF
-            # - Column E empty => Đang chờ duyệt
+            # - Column has "duyệt" => Đang OFF
+            # - Empty / other => Đang chờ duyệt
             kq_raw = r[col_ketqua] if col_ketqua else ""
             kq_val = str(kq_raw).strip().lower() if pd.notna(kq_raw) else ""
             
             if pd.isna(kq_raw) or not kq_val:
                 status_val = "Đang chờ duyệt"
                 total_pending += 1
-            elif "duyệt" in kq_val:
+            elif "duyệt" in kq_val or "duyet" in kq_val or "off" in kq_val:
                 status_val = "Đang OFF"
                 total_off += 1
             else:
@@ -3461,34 +3466,41 @@ def process_off_spe(am=None, province=None, post_office=None):
                 
             capdown_val = ""
             if col_capdown and pd.notna(r[col_capdown]):
+                val_str = str(r[col_capdown]).strip()
                 try:
-                    val_float = float(r[col_capdown])
+                    val_float = float(val_str)
                     if val_float <= 1.0:
                         capdown_val = f"{int(val_float * 100)}%"
                     else:
                         capdown_val = f"{int(val_float)}%"
-                except:
-                    capdown_val = str(r[col_capdown]).strip()
+                except Exception:
+                    if "%" in val_str:
+                        capdown_val = val_str
                     
             time_off_val = clean_date_str(r[col_time_off]) if col_time_off else ""
             time_on_val = clean_date_str(r[col_time_on]) if col_time_on else ""
             note_val = str(r[col_note]).strip() if col_note and pd.notna(r[col_note]) else ""
+            if note_val.lower() in ["nan", "none"]:
+                note_val = ""
             
-            # Lookup AM name for bc_val
-            bc_clean = bc_val.lower().strip()
-            am_val = am_mapping.get(bc_clean, "")
-            if not am_val:
-                for cc_po, cc_am in am_mapping.items():
-                    if cc_po in bc_clean or bc_clean in cc_po:
-                        am_val = cc_am
-                        break
-            if not am_val:
-                am_val = "Không xác định"
+            # AM identification: prefer sheet's AM column, fallback to co_cau mapping
+            am_val = str(r[col_am]).strip() if col_am and pd.notna(r[col_am]) else ""
+            if not am_val or am_val.lower() in ["nan", "none"]:
+                bc_clean = bc_val.lower().strip()
+                am_val = am_mapping.get(bc_clean, "")
+                if not am_val:
+                    for cc_po, cc_am in am_mapping.items():
+                        if cc_po in bc_clean or bc_clean in cc_po:
+                            am_val = cc_am
+                            break
+            if not am_val or am_val.lower() in ["nan", "none"]:
+                am_val = "Chưa phân công"
             
             processed_records.append({
                 "province": tinh_val,
                 "district": quan_val,
                 "ward": phuong_val,
+                "ward_id": ward_id_val,
                 "post_office": bc_val,
                 "am": am_val,
                 "status": status_val,

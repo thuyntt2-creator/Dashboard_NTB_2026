@@ -3206,7 +3206,7 @@
 
                     <!-- Filter & Search bar for OFF SPE -->
                     <div class="filters-panel" style="display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 20px; padding: 16px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: 8px;">
-                        <div class="filter-group" style="min-width: 150px;">
+                        <div class="filter-group" style="min-width: 140px;">
                             <label>Trạng thái</label>
                             <select id="filter-off-spe-status" class="select-input" onchange="filterOffSpeTable()">
                                 <option value="">-- Tất cả Trạng thái --</option>
@@ -3214,7 +3214,7 @@
                                 <option value="Đang chờ duyệt">Đang chờ duyệt</option>
                             </select>
                         </div>
-                        <div class="filter-group" style="min-width: 150px;">
+                        <div class="filter-group" style="min-width: 140px;">
                             <label>Mở lại ngày mai</label>
                             <select id="filter-off-spe-tomorrow" class="select-input" onchange="filterOffSpeTable()">
                                 <option value="">-- Tất cả --</option>
@@ -3227,15 +3227,21 @@
                                 <option value="">-- Tất cả Tỉnh --</option>
                             </select>
                         </div>
-                        <div class="filter-group" style="min-width: 180px;">
+                        <div class="filter-group" style="min-width: 160px;">
                             <label>Bưu cục</label>
                             <select id="filter-off-spe-po" class="select-input" onchange="filterOffSpeTable()">
                                 <option value="">-- Tất cả Bưu cục --</option>
                             </select>
                         </div>
-                        <div class="filter-group" style="flex-grow: 1; min-width: 180px;">
+                        <div class="filter-group" style="min-width: 160px;">
+                            <label>AM phụ trách</label>
+                            <select id="filter-off-spe-am" class="select-input" onchange="filterOffSpeTable()">
+                                <option value="">-- Tất cả AM --</option>
+                            </select>
+                        </div>
+                        <div class="filter-group" style="flex-grow: 1; min-width: 200px;">
                             <label>Tìm kiếm nhanh</label>
-                            <input type="text" id="search-off-spe" class="text-input" placeholder="Tìm kiếm quận/huyện, phường/xã, bưu cục..." oninput="filterOffSpeTable()">
+                            <input type="text" id="search-off-spe" class="text-input" placeholder="Tìm kiếm quận/huyện, phường/xã, mã ID, bưu cục, AM..." oninput="filterOffSpeTable()">
                         </div>
                     </div>
 
@@ -3244,16 +3250,16 @@
                         <table class="custom-table" id="table-off-spe">
                             <thead>
                                 <tr>
-                                    <th style="text-align: center; width: 50px;">STT</th>
+                                    <th style="text-align: center; width: 45px;">STT</th>
                                     <th style="text-align: left;">Tỉnh</th>
                                     <th style="text-align: left;">Quận / Huyện</th>
                                     <th style="text-align: left;">Phường / Xã cần tắt</th>
+                                    <th style="text-align: center; width: 90px;">Mã ID</th>
                                     <th style="text-align: left;">Bưu cục</th>
+                                    <th style="text-align: left;">AM phụ trách</th>
                                     <th style="text-align: center;">Trạng thái</th>
-                                    <th style="text-align: center;">% Cap Down (KA)</th>
                                     <th style="text-align: center;">Thời gian tắt</th>
                                     <th style="text-align: center;">Thời gian mở</th>
-                                    <th style="text-align: left;">Ghi chú</th>
                                 </tr>
                             </thead>
                             <tbody id="table-off-spe-body">
@@ -10379,6 +10385,21 @@
                 poSelect.value = currentVal;
             }
 
+            // Populate AM Dropdown Filter in OFF SPE Tab
+            const amSelect = document.getElementById('filter-off-spe-am');
+            if (amSelect && data.records && !data.error) {
+                const currentVal = amSelect.value;
+                amSelect.innerHTML = '<option value="">-- Tất cả AM --</option>';
+                const ams = [...new Set(data.records.map(r => r.am).filter(Boolean))].sort();
+                ams.forEach(a => {
+                    const opt = document.createElement('option');
+                    opt.value = a;
+                    opt.innerText = a;
+                    amSelect.appendChild(opt);
+                });
+                amSelect.value = currentVal;
+            }
+
             filterOffSpeTable();
         }
 
@@ -10396,6 +10417,7 @@
             const statusFilter = document.getElementById('filter-off-spe-status').value;
             const provFilter = document.getElementById('filter-off-spe-province').value;
             const poFilter = document.getElementById('filter-off-spe-po').value;
+            const amFilter = document.getElementById('filter-off-spe-am') ? document.getElementById('filter-off-spe-am').value : '';
             const tomorrowFilter = document.getElementById('filter-off-spe-tomorrow').value;
 
             const today = new Date();
@@ -10408,9 +10430,12 @@
 
             const filtered = (data.records || []).filter(row => {
                 const matchesSearch = !searchVal || 
+                    (row.province && row.province.toLowerCase().includes(searchVal)) ||
                     (row.district && row.district.toLowerCase().includes(searchVal)) ||
                     (row.ward && row.ward.toLowerCase().includes(searchVal)) ||
-                    (row.post_office && row.post_office.toLowerCase().includes(searchVal));
+                    (row.ward_id && row.ward_id.toLowerCase().includes(searchVal)) ||
+                    (row.post_office && row.post_office.toLowerCase().includes(searchVal)) ||
+                    (row.am && row.am.toLowerCase().includes(searchVal));
 
                 const matchesStatus = !statusFilter || row.status === statusFilter;
 
@@ -10422,11 +10447,12 @@
 
                 const matchesProv = !provFilter || row.province === provFilter;
                 const matchesPo = !poFilter || row.post_office === poFilter;
+                const matchesAm = !amFilter || row.am === amFilter;
 
-                return matchesSearch && matchesStatus && matchesTomorrow && matchesProv && matchesPo;
+                return matchesSearch && matchesStatus && matchesTomorrow && matchesProv && matchesPo && matchesAm;
             });
 
-            const isFilterApplied = searchVal || statusFilter || provFilter || poFilter || (tomorrowFilter === 'tomorrow');
+            const isFilterApplied = searchVal || statusFilter || provFilter || poFilter || amFilter || (tomorrowFilter === 'tomorrow');
             if (filtered.length === 0) {
                 if (!isFilterApplied && (!data.records || data.records.length === 0)) {
                     tbody.innerHTML = `<tr>
@@ -10464,13 +10490,13 @@
                     <td style="text-align: center; font-weight: 600; color: var(--text-secondary);">${idx + 1}</td>
                     <td style="font-weight: 600; color: var(--text-primary);">${escapeHTML(row.province || '')}</td>
                     <td>${escapeHTML(row.district || '')}</td>
-                    <td>${escapeHTML(row.ward || '')}</td>
+                    <td style="font-weight: 600;">${escapeHTML(row.ward || '')}</td>
+                    <td style="text-align: center;"><code style="background: rgba(255, 255, 255, 0.08); padding: 2px 6px; border-radius: 4px; font-size: 11.5px; font-weight: 700; color: var(--color-ghn-blue);">${escapeHTML(row.ward_id || '-')}</code></td>
                     <td>${escapeHTML(row.post_office || '')}</td>
+                    <td style="font-weight: 600; color: #3b82f6;"><i class="fa-solid fa-user-tie" style="font-size: 11px; margin-right: 4px;"></i>${escapeHTML(row.am || 'Chưa phân công')}</td>
                     <td style="text-align: center;">${statusBadge}</td>
-                    <td style="text-align: center; font-weight: 700; color: var(--text-secondary);">${escapeHTML(row.pct_cap_down || '')}</td>
-                    <td style="text-align: center; font-family: monospace;">${escapeHTML(row.off_time || '')}</td>
-                    <td style="text-align: center; font-family: monospace;">${escapeHTML(row.on_time || '')}</td>
-                    <td style="color: var(--text-muted); max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${escapeHTML(row.note || '')}">${escapeHTML(row.note || '')}</td>
+                    <td style="text-align: center; font-family: monospace; font-size: 12px;">${escapeHTML(row.off_time || '')}</td>
+                    <td style="text-align: center; font-family: monospace; font-size: 12px; font-weight: 700; color: var(--color-warning);">${escapeHTML(row.on_time || '')}</td>
                 `;
                 tbody.appendChild(tr);
             });
