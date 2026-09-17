@@ -9077,7 +9077,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 6,
       "total_trucks": 33,
-      "last_updated": "07:06 - 17/09/2026"
+      "last_updated": "07:41 - 17/09/2026"
     },
     "surge_fixed": {
       "fixed_cost": 980.25,
@@ -9099,7 +9099,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 419.5,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, NAK",
         "truck_count": 12
       },
       {
@@ -9151,7 +9151,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 70.81,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 8
       },
       {
@@ -9164,7 +9164,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 68.94,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 5
       }
     ],
@@ -9180,7 +9180,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 12,
-        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
+        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
       },
       {
         "ncc": "Mạnh Cường",
@@ -9193,7 +9193,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang, KTC Đức Trọng, KTC Nam Nha Trang"
+        "active_ktcs": "KTC Nam Nha Trang, KTC Khánh Hòa, KTC Bắc Nha Trang, KTC Đức Trọng"
       },
       {
         "ncc": "Công Định",
@@ -9219,7 +9219,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Nam Nha Trang, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Bắc Nha Trang, KTC Nam Nha Trang"
       },
       {
         "ncc": "Lâm Ngọc Thành",

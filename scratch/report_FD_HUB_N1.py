@@ -1,29 +1,35 @@
 # -*- coding: utf-8 -*-
 """
-NTB FD Analysis – Báo Cáo FD Tổng N-1 (HUB)
+NTB FD Analysis – Báo Cáo FD Tổng HUB (Ngày N so sánh với N-1)
 ========================================================================
 Mô tả:
-  1. Tự động đọc dữ liệu N-1 từ Google Sheets (có fallback đọc trực tiếp từ Master FD sheet
-     nếu sheet `RAW FD N-1 (HUB)` bị kẹt ở trạng thái 'Loading...').
+  1. Tự động đọc dữ liệu từ Google Sheets:
+     - Sheet `RAW FD N-1 (HUB)` hoặc fallback đọc trực tiếp từ Master FD sheet `FD`.
   2. Lọc bỏ các bưu cục / kho không có tên AM (kho giao hàng nặng không do AM quản lý).
-  3. Kiểm tra dữ liệu mới/cũ: Nếu dữ liệu trùng 100% với lần chạy trước -> Báo 'data chưa cập nhật' và bỏ qua.
+  3. Tự động xác định Ngày mới nhất (N) và Ngày liền kề trước đó (N-1):
+     - Tính %FD (N), %FD (N-1), và độ chênh lệch vs N-1 (▲ tăng / ▼ giảm).
+  4. Kiểm tra trùng lặp: Nếu dữ liệu ngày N trùng 100% lần chạy trước -> Báo 'data chưa cập nhật' và bỏ qua.
      (Có hỗ trợ tham số '--force', '-f', hoặc 'force' để bắt buộc chạy lại).
-  4. Tính toán & Xuất Google Sheet `Snapshot – FD N-1 (HUB)`:
-     - Bảng 1: Bảng Tổng Quan Vùng NTB
-     - Bảng 2: Top 10 Bưu Cục %FD cao nhất
-     - Bảng 3: Báo cáo %FD theo từng AM (Sort %FD ↓)
-     - Bảng 4: BẢNG TẤT CẢ BƯU CỤC QUẢN LÝ (FULL LIST)
-  5. Tạo 2 ảnh báo cáo sắc nét (Top 10 BC & Xếp hạng AM) chữ to rõ ràng, tiêu đề sạch sẽ chuẩn chỉnh (không lỗi ô vuông).
-  6. Gửi GỘP CẢ 2 ẢNH TRONG 1 TIN NHẮN GTalk kèm link MVĐ hoàn trả.
+  5. Tính toán & Xuất Google Sheet `Snapshot – FD N-1 (HUB)`:
+     - Bảng 1: Bảng Tổng Quan Vùng NTB (Có so sánh %FD N vs N-1)
+     - Bảng 2: Top 10 Bưu Cục %FD cao nhất (Có %FD N, %FD N-1, vs N-1)
+     - Bảng 3: Báo cáo %FD theo từng AM (Sort %FD N ↓, Có %FD N, %FD N-1, vs N-1)
+     - Bảng 4: BẢNG TẤT CẢ BƯU CỤC QUẢN LÝ (FULL LIST có so sánh vs N-1)
+  6. Tạo 2 ảnh báo cáo sắc nét chuẩn chỉnh:
+     - Ảnh 1: Top 10 Bưu cục có %FD cao nhất (chữ to, rõ ràng, cột so sánh N vs N-1 trực quan).
+     - Ảnh 2: Xếp hạng AM theo %FD (đầy đủ các cột so sánh).
+  7. Gửi GỘP CẢ 2 ẢNH TRONG 1 TIN NHẮN GTalk kèm link MVĐ hoàn trả.
 """
 
 import sys, os
-sys.stdout.reconfigure(encoding='utf-8')
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
 
 import json
 import time
 from PIL import Image
 import pandas as pd
+import numpy as np
 import gspread
 from google.oauth2.service_account import Credentials
 from google.oauth2.credentials import Credentials as UserCredentials
@@ -75,7 +81,7 @@ def get_gspread_client(spreadsheet_id=SPREADSHEET_ID):
                     gc.open_by_key(spreadsheet_id)
                 print(f"  🔑 Authenticated with Service Account: {cred_path}")
                 return gc
-            except Exception as e:
+            except Exception:
                 pass
 
     auth_user_candidates = [
@@ -93,7 +99,7 @@ def get_gspread_client(spreadsheet_id=SPREADSHEET_ID):
                     gc.open_by_key(spreadsheet_id)
                 print(f"  🔑 Authenticated with Authorized User: {auth_user_file}")
                 return gc
-            except Exception as e:
+            except Exception:
                 pass
 
     raise PermissionError("Không thể xác thực Google Sheets API")
@@ -114,6 +120,7 @@ CLR = {
     'badFont'  : {'red': 0.753, 'green': 0.000, 'blue': 0.000},
     'white'    : {'red': 1.000, 'green': 1.000, 'blue': 1.000},
     'black'    : {'red': 0.000, 'green': 0.000, 'blue': 0.000},
+    'gray'     : {'red': 0.500, 'green': 0.500, 'blue': 0.500},
 }
 
 def rgb(clr_key):
@@ -149,14 +156,25 @@ def cell_data(value, bg=None, bold=False, fg=None, fmt=None, halign='LEFT'):
 def fd_cell(val, alt=False):
     bg_alt = 'altRow' if alt else None
     if val is None or (isinstance(val, float) and pd.isna(val)):
-        return cell_data('', bg=bg_alt, halign='CENTER')
+        return cell_data('-', bg=bg_alt, halign='CENTER')
     v = round(val / 100, 4)
     if val <= 4.5:
-        return cell_data(v, bg='good', fg='goodFont', fmt='0.0%', halign='CENTER')
+        return cell_data(v, bg='good', fg='goodFont', fmt='0.00%', halign='CENTER')
     elif val < 6.0:
-        return cell_data(v, bg='warn', fg='warnFont', fmt='0.0%', halign='CENTER')
+        return cell_data(v, bg='warn', fg='warnFont', fmt='0.00%', halign='CENTER')
     else:
-        return cell_data(v, bg='bad',  fg='badFont',  fmt='0.0%', halign='CENTER')
+        return cell_data(v, bg='bad',  fg='badFont',  fmt='0.00%', halign='CENTER')
+
+def delta_cell(diff, alt=False):
+    bg_alt = 'altRow' if alt else None
+    if diff is None or (isinstance(diff, float) and pd.isna(diff)) or abs(diff) < 0.005:
+        return cell_data('-', bg=bg_alt, fg='gray', halign='CENTER')
+    if diff > 0:
+        bg = 'bad' if diff >= 2.0 else bg_alt
+        return cell_data(f"▲ +{diff:.2f}%", bg=bg, bold=True, fg='badFont', halign='CENTER')
+    else:
+        bg = 'good' if diff <= -2.0 else bg_alt
+        return cell_data(f"▼ {diff:.2f}%", bg=bg, bold=True, fg='goodFont', halign='CENTER')
 
 def batch_update_sheet(sh, rows_data):
     max_cols = max(len(r) for r in rows_data)
@@ -207,7 +225,7 @@ def ensure_sheet(spreadsheet, name):
 #  DATA STATE CHECKING (DUPLICATE DATA PROTECTION)
 # ============================================================
 def check_data_updated(overview, force=False):
-    current_sig = f"{overview['Total_don']:.0f}_{overview['Don_return']:.0f}_{overview['Total_bcu']}_{overview['Total_am']}"
+    current_sig = f"{overview.get('Date_N', '')}_{overview['Total_don']:.0f}_{overview['Don_return']:.0f}_{overview['Total_bcu']}_{overview['Total_am']}"
     if not force and os.path.exists(STATE_FILE):
         try:
             with open(STATE_FILE, 'r', encoding='utf-8') as f:
@@ -226,7 +244,7 @@ def save_data_state(sig):
         print(f"⚠️ Không lưu được state file: {e}")
 
 # ============================================================
-#  DATA PROCESSING WITH FALLBACK
+#  DATA PROCESSING WITH FALLBACK & N vs N-1 COMPARISON
 # ============================================================
 def load_cocau_am(spreadsheet):
     """Lấy mapping Bưu cục -> AM từ CoCauVung"""
@@ -257,16 +275,19 @@ def load_and_process_hub_n1(gc, spreadsheet):
     if not is_loading:
         print(f"  ✅ Đã đọc dữ liệu trực tiếp từ sheet '{ws_name}' ({len(data)} dòng)")
         header = data[0]
-        col_id_idx, col_name_idx, col_total_idx, col_ret_idx, col_am_idx = None, None, None, None, None
+        col_date_idx, col_id_idx, col_name_idx, col_total_idx, col_ret_idx, col_am_idx = None, None, None, None, None, None
 
         for idx, cname in enumerate(header):
             cn = str(cname).strip().lower()
-            if 'id bưu cục' in cn or cn == 'id': col_id_idx = idx
+            if 'delivery_date' in cn or 'date' in cn or 'ngày' in cn: col_date_idx = idx
+            elif 'id bưu cục' in cn or cn == 'id': col_id_idx = idx
             elif 'tên bưu cục' in cn or cn == 'bưu cục': col_name_idx = idx
             elif 'total đơn' in cn or cn == 'total': col_total_idx = idx
             elif 'return' in cn or 'trả' in cn: col_ret_idx = idx
             elif cn == 'am': col_am_idx = idx
 
+        # Fallback index nếu tiêu đề không nhận diện được
+        if col_date_idx is None: col_date_idx = 0
         if col_id_idx is None: col_id_idx = 2
         if col_name_idx is None: col_name_idx = 3
         if col_total_idx is None: col_total_idx = 5
@@ -276,16 +297,17 @@ def load_and_process_hub_n1(gc, spreadsheet):
         if col_total_idx == col_ret_idx:
             raise ValueError(f"Lỗi: Cột Total đơn và Đơn return bị trùng index ({col_total_idx})! Header={header}")
 
-        print(f"  Col mapping: ID={col_id_idx}, BC={col_name_idx}, Total={col_total_idx}, Return={col_ret_idx}, AM={col_am_idx}")
+        print(f"  Col mapping: Date={col_date_idx}, ID={col_id_idx}, BC={col_name_idx}, Total={col_total_idx}, Return={col_ret_idx}, AM={col_am_idx}")
 
         for row in data[1:]:
-            if len(row) <= max(col_name_idx, col_am_idx, col_total_idx, col_ret_idx):
+            if len(row) <= max(col_name_idx, col_total_idx, col_ret_idx):
                 continue
+            d_raw   = str(row[col_date_idx]).strip() if col_date_idx < len(row) else ''
             bc_id   = str(row[col_id_idx]).strip() if col_id_idx < len(row) else ''
             bc_name = str(row[col_name_idx]).strip() if col_name_idx < len(row) else ''
             am_name = str(row[col_am_idx]).strip() if col_am_idx < len(row) else ''
 
-            if not am_name and bc_name in bc_to_am:
+            if (not am_name or am_name == 'None') and bc_name in bc_to_am:
                 am_name = bc_to_am[bc_name]
 
             tot_str = str(row[col_total_idx]).replace(',', '').strip() if col_total_idx < len(row) else '0'
@@ -298,6 +320,7 @@ def load_and_process_hub_n1(gc, spreadsheet):
             except: ret_val = 0.0
 
             parsed_rows.append({
+                'Date_raw': d_raw,
                 'ID': bc_id,
                 'BC': bc_name,
                 'AM': am_name,
@@ -322,17 +345,6 @@ def load_and_process_hub_n1(gc, spreadsheet):
         ret_col    = next((col_map[k] for k in col_map if 'return' in k or 'trả' in k), df_fd.columns[6])
 
         df_ntb = df_fd[df_fd[region_col] == 'NTB'].copy()
-        df_ntb = df_ntb[~df_ntb[bc_col].astype(str).str.lower().str.contains('kho giao hàng', na=False)]
-        
-        if date_col in df_ntb.columns and not df_ntb.empty:
-            dates = df_ntb[date_col].dropna().unique()
-            if len(dates) > 1:
-                try:
-                    df_ntb['dt_parsed'] = pd.to_datetime(df_ntb[date_col], errors='coerce')
-                    latest_dt = df_ntb['dt_parsed'].max()
-                    df_ntb = df_ntb[df_ntb['dt_parsed'] == latest_dt].copy()
-                except Exception:
-                    df_ntb = df_ntb[df_ntb[date_col] == dates[-1]].copy()
 
         for _, row in df_ntb.iterrows():
             bc_name = str(row[bc_col]).strip()
@@ -348,6 +360,7 @@ def load_and_process_hub_n1(gc, spreadsheet):
             except: ret_val = 0.0
 
             parsed_rows.append({
+                'Date_raw': str(row[date_col]).strip(),
                 'ID': str(row[id_col]).strip(),
                 'BC': bc_name,
                 'AM': am_name,
@@ -358,45 +371,102 @@ def load_and_process_hub_n1(gc, spreadsheet):
     df = pd.DataFrame(parsed_rows)
 
     # Filter: CHỈ LẤY BƯU CỤC CÓ AM (loại bỏ kho giao hàng nặng không có AM)
-    df_valid = df[df['AM'] != ''].copy()
+    df_valid = df[(df['AM'] != '') & (df['AM'] != 'None') & (~df['BC'].str.lower().str.contains('kho giao hàng'))].copy()
     print(f"   - Tổng dòng raw: {len(df)}")
-    print(f"   - Dòng có AM (hợp lệ): {len(df_valid)}")
-    print(f"   - Dòng không có AM (đã loại bỏ): {len(df) - len(df_valid)}")
+    print(f"   - Dòng có AM hợp lệ: {len(df_valid)}")
+    print(f"   - Dòng đã loại bỏ: {len(df) - len(df_valid)}")
 
-    # 1. Aggregation by Bưu cục
-    bc_df = df_valid.groupby(['ID', 'BC', 'AM']).agg({
+    # Parse date
+    df_valid['dt'] = pd.to_datetime(df_valid['Date_raw'], errors='coerce')
+    available_dates = sorted(df_valid['dt'].dropna().unique())
+    print(f"   - Các ngày có trong dữ liệu: {[pd.Timestamp(d).strftime('%d/%m/%Y') for d in available_dates]}")
+
+    if len(available_dates) >= 2:
+        date_N = pd.Timestamp(available_dates[-1])
+        date_N1 = pd.Timestamp(available_dates[-2])
+    elif len(available_dates) == 1:
+        date_N = pd.Timestamp(available_dates[0])
+        date_N1 = None
+    else:
+        raise ValueError("Không tìm thấy ngày hợp lệ nào trong dữ liệu!")
+
+    print(f"   📅 Ngày báo cáo N: {date_N.strftime('%d/%m/%Y')}")
+    print(f"   📅 Ngày so sánh N-1: {date_N1.strftime('%d/%m/%Y') if date_N1 else 'N/A'}")
+
+    # 1. TÍNH TOÁN NGÀY N
+    df_N = df_valid[df_valid['dt'] == date_N].copy()
+    bc_N = df_N.groupby(['ID', 'BC', 'AM']).agg({
         'Total': 'sum',
         'Return': 'sum'
     }).reset_index()
 
-    tot_don_ntb = bc_df['Total'].sum()
-    tot_ret_ntb = bc_df['Return'].sum()
-    fd_ntb = (tot_ret_ntb / tot_don_ntb * 100) if tot_don_ntb > 0 else 0.0
+    tot_don_N = bc_N['Total'].sum()
+    tot_ret_N = bc_N['Return'].sum()
+    fd_N = (tot_ret_N / tot_don_N * 100) if tot_don_N > 0 else 0.0
 
-    bc_df['%FD'] = (bc_df['Return'] / bc_df['Total'] * 100).round(2)
-    bc_df['Tỷ trọng return'] = (bc_df['Return'] / tot_ret_ntb * 100).round(2) if tot_ret_ntb > 0 else 0.0
-    bc_df['Tỷ trọng sản lượng'] = (bc_df['Total'] / tot_don_ntb * 100).round(2) if tot_don_ntb > 0 else 0.0
+    bc_N['%FD_N'] = (bc_N['Return'] / bc_N['Total'] * 100).round(2)
+    bc_N['Tỷ trọng return'] = (bc_N['Return'] / tot_ret_N * 100).round(2) if tot_ret_N > 0 else 0.0
+    bc_N['Tỷ trọng sản lượng'] = (bc_N['Total'] / tot_don_N * 100).round(2) if tot_don_N > 0 else 0.0
 
-    # Tất cả Bưu Cục (Sort %FD ↓)
-    all_bc_df = bc_df.sort_values('%FD', ascending=False).reset_index(drop=True)
-    # Top 10 Bưu Cục
+    # 2. TÍNH TOÁN NGÀY N-1 (ĐỂ SO SÁNH)
+    if date_N1 is not None:
+        df_N1 = df_valid[df_valid['dt'] == date_N1].copy()
+        bc_N1 = df_N1.groupby(['ID', 'BC']).agg({
+            'Total': 'sum',
+            'Return': 'sum'
+        }).reset_index()
+        tot_don_N1 = bc_N1['Total'].sum()
+        tot_ret_N1 = bc_N1['Return'].sum()
+        fd_N1 = (tot_ret_N1 / tot_don_N1 * 100) if tot_don_N1 > 0 else 0.0
+        bc_N1['%FD_N1'] = (bc_N1['Return'] / bc_N1['Total'] * 100).round(2)
+
+        # Merge N và N-1 cho bưu cục
+        bc_merged = pd.merge(bc_N, bc_N1[['ID', 'BC', '%FD_N1']], on=['ID', 'BC'], how='left')
+        bc_merged['vs_N1'] = (bc_merged['%FD_N'] - bc_merged['%FD_N1']).round(2)
+    else:
+        tot_don_N1 = 0.0
+        tot_ret_N1 = 0.0
+        fd_N1 = 0.0
+        bc_merged = bc_N.copy()
+        bc_merged['%FD_N1'] = np.nan
+        bc_merged['vs_N1'] = np.nan
+
+    # Sort Bưu cục theo %FD N giảm dần
+    all_bc_df = bc_merged.sort_values('%FD_N', ascending=False).reset_index(drop=True)
     top10_bc = all_bc_df.head(10).copy()
 
-    # 2. Aggregation by AM
-    am_df = df_valid.groupby('AM').agg({
+    # 3. TÍNH TOÁN THEO AM
+    am_N = df_N.groupby('AM').agg({
         'Total': 'sum',
         'Return': 'sum'
     }).reset_index()
-    am_df['%FD'] = (am_df['Return'] / am_df['Total'] * 100).round(2)
-    am_df['Tỷ trọng return'] = (am_df['Return'] / tot_ret_ntb * 100).round(2) if tot_ret_ntb > 0 else 0.0
-    am_df['Tỷ trọng sản lượng'] = (am_df['Total'] / tot_don_ntb * 100).round(2) if tot_don_ntb > 0 else 0.0
-    am_df = am_df.sort_values('%FD', ascending=False).reset_index(drop=True)
+    am_N['%FD_N'] = (am_N['Return'] / am_N['Total'] * 100).round(2)
+    am_N['Tỷ trọng return'] = (am_N['Return'] / tot_ret_N * 100).round(2) if tot_ret_N > 0 else 0.0
+    am_N['Tỷ trọng sản lượng'] = (am_N['Total'] / tot_don_N * 100).round(2) if tot_don_N > 0 else 0.0
+
+    if date_N1 is not None:
+        am_N1 = df_N1.groupby('AM').agg({'Total': 'sum', 'Return': 'sum'}).reset_index()
+        am_N1['%FD_N1'] = (am_N1['Return'] / am_N1['Total'] * 100).round(2)
+        am_merged = pd.merge(am_N, am_N1[['AM', '%FD_N1']], on='AM', how='left')
+        am_merged['vs_N1'] = (am_merged['%FD_N'] - am_merged['%FD_N1']).round(2)
+    else:
+        am_merged = am_N.copy()
+        am_merged['%FD_N1'] = np.nan
+        am_merged['vs_N1'] = np.nan
+
+    am_df = am_merged.sort_values('%FD_N', ascending=False).reset_index(drop=True)
 
     overview = {
-        'Total_don': tot_don_ntb,
-        'Don_return': tot_ret_ntb,
-        'FD_pct': fd_ntb,
-        'Total_bcu': len(bc_df),
+        'Date_N': date_N.strftime('%d/%m/%Y'),
+        'Date_N1': date_N1.strftime('%d/%m/%Y') if date_N1 else 'N/A',
+        'Total_don': tot_don_N,
+        'Don_return': tot_ret_N,
+        'FD_pct': fd_N,
+        'Total_don_N1': tot_don_N1,
+        'Don_return_N1': tot_ret_N1,
+        'FD_pct_N1': fd_N1,
+        'FD_pct_diff': (fd_N - fd_N1) if date_N1 else 0.0,
+        'Total_bcu': len(bc_N),
         'Total_am': len(am_df)
     }
 
@@ -409,41 +479,54 @@ def write_hub_n1_snapshot(sh, overview, top10_bc, am_df, all_bc_df):
     print(f'📝 Đang ghi dữ liệu vào sheet: {sh.title}...')
     sh.clear()
 
+    date_n  = overview.get('Date_N', '')
+    date_n1 = overview.get('Date_N1', '')
     rows_data = []
 
     # ── Header Banner ──
+    banner_title = f"BÁO CÁO %FD HUB NGÀY {date_n} (vs N-1: {date_n1}) – VÙNG NTB"
     rows_data.append([
-        cell_data('BÁO CÁO %FD HUB (N-1) – VÙNG NTB', bg='darkBlue', bold=True, fg='white', halign='LEFT'),
-        *[cell_data('', bg='darkBlue')] * 6
+        cell_data(banner_title, bg='darkBlue', bold=True, fg='white', halign='LEFT'),
+        *[cell_data('', bg='darkBlue')] * 8
     ])
-    rows_data.append([cell_data('')] * 7)
+    rows_data.append([cell_data('')] * 9)
 
     # ── Bảng 1: Tổng Quan Vùng ──
     rows_data.append([
-        cell_data('1. BẢNG TỔNG QUAN VÙNG NTB (N-1)', bg='lightBlue', bold=True, halign='LEFT'),
-        *[cell_data('', bg='lightBlue')] * 6
+        cell_data(f'1. BẢNG TỔNG QUAN VÙNG NTB (NGÀY {date_n})', bg='lightBlue', bold=True, halign='LEFT'),
+        *[cell_data('', bg='lightBlue')] * 8
     ])
     rows_data.append([
         cell_data('Chỉ Số Tổng Quan', bg='midBlue', bold=True, fg='white', halign='CENTER'),
         cell_data('Giá Trị',          bg='midBlue', bold=True, fg='white', halign='CENTER'),
         cell_data('Ghi Chú',          bg='midBlue', bold=True, fg='white', halign='CENTER'),
-        *[cell_data('')] * 4
+        *[cell_data('')] * 6
     ])
 
     rows_data.append([
-        cell_data('Tổng Đơn Có Gán Giao (Total)', bg='altRow', bold=True, halign='LEFT'),
+        cell_data(f'Tổng Đơn Gán Giao Ngày {date_n}', bg='altRow', bold=True, halign='LEFT'),
         cell_data(round(overview['Total_don']), bg='altRow', bold=True, fmt='#,##0', halign='CENTER'),
         cell_data('Tổng đơn từ các bưu cục có quản lý AM', bg='altRow', halign='LEFT'),
     ])
     rows_data.append([
-        cell_data('Tổng Đơn Return (Chuyển Trả)', halign='LEFT'),
+        cell_data(f'Tổng Đơn Return Ngày {date_n}', halign='LEFT'),
         cell_data(round(overview['Don_return']), bold=True, fmt='#,##0', halign='CENTER'),
-        cell_data('Tổng đơn bị trả về', halign='LEFT'),
+        cell_data('Tổng đơn chuyển hoàn trả', halign='LEFT'),
     ])
     rows_data.append([
-        cell_data('%FD Tổng Vùng NTB', bg='yellow', bold=True, halign='LEFT'),
+        cell_data(f'%FD Tổng Vùng (Ngày {date_n})', bg='yellow', bold=True, halign='LEFT'),
         cell_data(round(overview['FD_pct'] / 100, 4), bg='yellow', bold=True, fmt='0.00%', halign='CENTER'),
         cell_data('Tỷ lệ đơn trả = Đơn return / Total đơn', bg='yellow', halign='LEFT'),
+    ])
+    rows_data.append([
+        cell_data(f'%FD Tổng Vùng (Ngày {date_n1})', bg='altRow', halign='LEFT'),
+        cell_data(round(overview['FD_pct_N1'] / 100, 4), bg='altRow', fmt='0.00%', halign='CENTER'),
+        cell_data(f'Tỷ lệ đơn trả ngày liền trước ({date_n1})', bg='altRow', halign='LEFT'),
+    ])
+    rows_data.append([
+        cell_data('Biến Động %FD vs N-1', halign='LEFT'),
+        delta_cell(overview['FD_pct_diff']),
+        cell_data('▲ Tăng tỷ lệ trả (xấu hơn) | ▼ Giảm tỷ lệ trả (tốt hơn)', halign='LEFT'),
     ])
     rows_data.append([
         cell_data('Số Bưu Cục Quản Lý', bg='altRow', halign='LEFT'),
@@ -451,102 +534,123 @@ def write_hub_n1_snapshot(sh, overview, top10_bc, am_df, all_bc_df):
         cell_data(f"Tổng số {overview['Total_am']} AM phụ trách", bg='altRow', halign='LEFT'),
     ])
 
-    rows_data.append([cell_data('')] * 7)
+    rows_data.append([cell_data('')] * 9)
 
     # ── Bảng 2: Top 10 Bưu Cục %FD Cao Nhất ──
     rows_data.append([
-        cell_data('2. TOP 10 BƯU CỤC CÓ %FD CAO NHẤT (N-1)', bg='lightBlue', bold=True, halign='LEFT'),
-        *[cell_data('', bg='lightBlue')] * 6
+        cell_data(f'2. TOP 10 BƯU CỤC CÓ %FD CAO NHẤT (NGÀY {date_n})', bg='lightBlue', bold=True, halign='LEFT'),
+        *[cell_data('', bg='lightBlue')] * 8
     ])
     rows_data.append([
-        cell_data('STT',              bg='midBlue', bold=True, fg='white', halign='CENTER'),
-        cell_data('Tên Bưu Cục',      bg='midBlue', bold=True, fg='white', halign='CENTER'),
-        cell_data('AM Phụ Trách',     bg='midBlue', bold=True, fg='white', halign='CENTER'),
-        cell_data('Total Đơn',        bg='midBlue', bold=True, fg='white', halign='CENTER'),
-        cell_data('Đơn Return',       bg='midBlue', bold=True, fg='white', halign='CENTER'),
-        cell_data('%FD (Return)',     bg='midBlue', bold=True, fg='white', halign='CENTER'),
-        cell_data('Tỷ Trọng Return',  bg='orange',  bold=True, fg='white', halign='CENTER'),
+        cell_data('STT',                  bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data('Tên Bưu Cục',          bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data('AM Phụ Trách',         bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data('Total Đơn',            bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data('Đơn Return',           bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data(f'%FD (N)\n{date_n}',   bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data(f'%FD (N-1)\n{date_n1}', bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data('vs N-1',               bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data('Tỷ Trọng Return',      bg='orange',  bold=True, fg='white', halign='CENTER'),
     ])
 
     for i, r in top10_bc.iterrows():
         alt = i % 2 == 1
         bg = 'altRow' if alt else None
+        fd_n1_val = r.get('%FD_N1')
+        fd_n1_cell = cell_data(round(fd_n1_val / 100, 4), bg=bg, fmt='0.00%', halign='CENTER') if pd.notna(fd_n1_val) else cell_data('-', bg=bg, halign='CENTER')
+
         rows_data.append([
             cell_data(i + 1, bg=bg, halign='CENTER'),
             cell_data(r['BC'], bg=bg, bold=True, halign='LEFT'),
             cell_data(r['AM'], bg=bg, halign='LEFT'),
             cell_data(round(r['Total']), bg=bg, fmt='#,##0', halign='CENTER'),
             cell_data(round(r['Return']), bg=bg, fmt='#,##0', halign='CENTER'),
-            fd_cell(r['%FD'], alt=alt),
+            fd_cell(r['%FD_N'], alt=alt),
+            fd_n1_cell,
+            delta_cell(r.get('vs_N1'), alt=alt),
             cell_data(round(r['Tỷ trọng return'] / 100, 4), bg='yellow', fmt='0.00%', halign='CENTER'),
         ])
 
-    rows_data.append([cell_data('')] * 7)
+    rows_data.append([cell_data('')] * 9)
 
     # ── Bảng 3: %FD Theo AM ──
     rows_data.append([
-        cell_data('3. XẾP HẠNG %FD THEO CÁC AM (SORT %FD ↓)', bg='lightBlue', bold=True, halign='LEFT'),
-        *[cell_data('', bg='lightBlue')] * 6
+        cell_data(f'3. XẾP HẠNG %FD THEO CÁC AM (SORT %FD N ↓)', bg='lightBlue', bold=True, halign='LEFT'),
+        *[cell_data('', bg='lightBlue')] * 8
     ])
     rows_data.append([
-        cell_data('STT',                 bg='midBlue', bold=True, fg='white', halign='CENTER'),
-        cell_data('AM Phụ Trách',        bg='midBlue', bold=True, fg='white', halign='CENTER'),
-        cell_data('Total Đơn',           bg='midBlue', bold=True, fg='white', halign='CENTER'),
-        cell_data('Đơn Return',          bg='midBlue', bold=True, fg='white', halign='CENTER'),
-        cell_data('%FD (Return)',        bg='midBlue', bold=True, fg='white', halign='CENTER'),
-        cell_data('Tỷ Trọng Return',     bg='orange',  bold=True, fg='white', halign='CENTER'),
-        cell_data('Tỷ Trọng Sản Lượng',  bg='orange',  bold=True, fg='white', halign='CENTER'),
+        cell_data('STT',                  bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data('AM Phụ Trách',         bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data('Total Đơn',            bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data('Đơn Return',           bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data(f'%FD (N)\n{date_n}',   bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data(f'%FD (N-1)\n{date_n1}', bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data('vs N-1',               bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data('Tỷ Trọng Return',      bg='orange',  bold=True, fg='white', halign='CENTER'),
+        cell_data('Tỷ Trọng Sản Lượng',   bg='orange',  bold=True, fg='white', halign='CENTER'),
     ])
 
     for i, r in am_df.iterrows():
         alt = i % 2 == 1
         bg = 'altRow' if alt else None
+        fd_n1_val = r.get('%FD_N1')
+        fd_n1_cell = cell_data(round(fd_n1_val / 100, 4), bg=bg, fmt='0.00%', halign='CENTER') if pd.notna(fd_n1_val) else cell_data('-', bg=bg, halign='CENTER')
+
         rows_data.append([
             cell_data(i + 1, bg=bg, halign='CENTER'),
             cell_data(r['AM'], bg=bg, bold=True, halign='LEFT'),
             cell_data(round(r['Total']), bg=bg, fmt='#,##0', halign='CENTER'),
             cell_data(round(r['Return']), bg=bg, fmt='#,##0', halign='CENTER'),
-            fd_cell(r['%FD'], alt=alt),
+            fd_cell(r['%FD_N'], alt=alt),
+            fd_n1_cell,
+            delta_cell(r.get('vs_N1'), alt=alt),
             cell_data(round(r['Tỷ trọng return'] / 100, 4), bg='yellow', fmt='0.00%', halign='CENTER'),
             cell_data(round(r['Tỷ trọng sản lượng'] / 100, 4), bg=bg, fmt='0.00%', halign='CENTER'),
         ])
 
-    rows_data.append([cell_data('')] * 7)
+    rows_data.append([cell_data('')] * 9)
 
     # ── Bảng 4: BẢNG FULL TẤT CẢ BƯU CỤC ──
     rows_data.append([
-        cell_data('4. DANH SÁCH TẤT CẢ BƯU CỤC (SORT %FD ↓)', bg='lightBlue', bold=True, halign='LEFT'),
-        *[cell_data('', bg='lightBlue')] * 6
+        cell_data(f'4. DANH SÁCH TẤT CẢ BƯU CỤC (SORT %FD N ↓)', bg='lightBlue', bold=True, halign='LEFT'),
+        *[cell_data('', bg='lightBlue')] * 8
     ])
     rows_data.append([
-        cell_data('STT',              bg='midBlue', bold=True, fg='white', halign='CENTER'),
-        cell_data('Tên Bưu Cục',      bg='midBlue', bold=True, fg='white', halign='CENTER'),
-        cell_data('AM Phụ Trách',     bg='midBlue', bold=True, fg='white', halign='CENTER'),
-        cell_data('Total Đơn',        bg='midBlue', bold=True, fg='white', halign='CENTER'),
-        cell_data('Đơn Return',       bg='midBlue', bold=True, fg='white', halign='CENTER'),
-        cell_data('%FD (Return)',     bg='midBlue', bold=True, fg='white', halign='CENTER'),
-        cell_data('Tỷ Trọng Return',  bg='orange',  bold=True, fg='white', halign='CENTER'),
+        cell_data('STT',                  bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data('Tên Bưu Cục',          bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data('AM Phụ Trách',         bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data('Total Đơn',            bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data('Đơn Return',           bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data(f'%FD (N)\n{date_n}',   bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data(f'%FD (N-1)\n{date_n1}', bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data('vs N-1',               bg='midBlue', bold=True, fg='white', halign='CENTER'),
+        cell_data('Tỷ Trọng Return',      bg='orange',  bold=True, fg='white', halign='CENTER'),
     ])
 
     for i, r in all_bc_df.iterrows():
         alt = i % 2 == 1
         bg = 'altRow' if alt else None
+        fd_n1_val = r.get('%FD_N1')
+        fd_n1_cell = cell_data(round(fd_n1_val / 100, 4), bg=bg, fmt='0.00%', halign='CENTER') if pd.notna(fd_n1_val) else cell_data('-', bg=bg, halign='CENTER')
+
         rows_data.append([
             cell_data(i + 1, bg=bg, halign='CENTER'),
             cell_data(r['BC'], bg=bg, bold=True, halign='LEFT'),
             cell_data(r['AM'], bg=bg, halign='LEFT'),
             cell_data(round(r['Total']), bg=bg, fmt='#,##0', halign='CENTER'),
             cell_data(round(r['Return']), bg=bg, fmt='#,##0', halign='CENTER'),
-            fd_cell(r['%FD'], alt=alt),
+            fd_cell(r['%FD_N'], alt=alt),
+            fd_n1_cell,
+            delta_cell(r.get('vs_N1'), alt=alt),
             cell_data(round(r['Tỷ trọng return'] / 100, 4), bg='yellow', fmt='0.00%', halign='CENTER'),
         ])
 
     batch_update_sheet(sh, rows_data)
-    set_col_widths(sh, [50, 320, 220, 120, 120, 120, 140])
+    set_col_widths(sh, [50, 290, 180, 110, 110, 100, 100, 100, 130])
     print('  ✅ Đã ghi thành công vào Google Sheet!')
 
 # ============================================================
-#  MATPLOTLIB REPORT IMAGE GENERATION (NO EMOJIS FOR CLEAN TITLES)
+#  MATPLOTLIB REPORT IMAGE GENERATION (NO EMOJIS, SHARP & CLEAN)
 # ============================================================
 def fd_color(val):
     if val is None or pd.isna(val): return '#FFFFFF'
@@ -560,50 +664,82 @@ def fd_textcolor(val):
     elif val < 6.0: return '#7F6000'
     else: return '#C00000'
 
-def render_image_top10(overview, top10_bc, date_str=""):
-    """Ảnh 1: Top 10 Bưu Cục %FD Cao Nhất (Tiêu đề sạch, chữ to rõ)"""
+def delta_text_and_colors(diff):
+    if diff is None or pd.isna(diff) or abs(diff) < 0.005:
+        return "-", '#FFFFFF', '#000000'
+    elif diff > 0:
+        txt = f"▲ +{diff:.2f}%"
+        bg = '#FFE0E0' if diff >= 2.0 else '#FFFFFF'
+        fg = '#C00000'
+        return txt, bg, fg
+    else:
+        txt = f"▼ {diff:.2f}%"
+        bg = '#D9EAD3' if diff <= -2.0 else '#FFFFFF'
+        fg = '#274E13'
+        return txt, bg, fg
+
+def render_image_top10(overview, top10_bc):
+    """Ảnh 1: Top 10 Bưu Cục %FD Cao Nhất (Có %FD N, %FD N-1, vs N-1)"""
     print("🎨 Đang vẽ Ảnh 1 (Top 10 Bưu Cục)...")
-    fig_h = 10.5
-    fig = plt.figure(figsize=(16, fig_h), dpi=200)
+    fig_h = 11.0
+    fig = plt.figure(figsize=(17, fig_h), dpi=200)
 
-    title_date = f" {date_str}" if date_str else " (N-1)"
-    fig.suptitle(f'BÁO CÁO %FD HUB{title_date} – VÙNG NTB\n(Total Đơn: {overview["Total_don"]:,.0f}  |  Đơn Return: {overview["Don_return"]:,.0f}  |  %FD Tổng Vùng: {overview["FD_pct"]:.2f}%)',
-                 fontsize=22, fontweight='bold', color='#1F4E79', y=0.95)
+    date_n = overview.get('Date_N', '')
+    date_n1 = overview.get('Date_N1', '')
+    diff_vung = overview.get('FD_pct_diff', 0.0)
+    diff_vung_str = f"▲ +{diff_vung:.2f}%" if diff_vung > 0 else (f"▼ {diff_vung:.2f}%" if diff_vung < 0 else "-")
 
-    ax = fig.add_axes([0.03, 0.05, 0.94, 0.78])
+    title_main = f"BÁO CÁO %FD HUB NGÀY {date_n} (vs N-1: {date_n1}) – VÙNG NTB"
+    subtitle = f"(Total Đơn: {overview['Total_don']:,.0f}  |  Đơn Return: {overview['Don_return']:,.0f}  |  %FD Tổng Vùng: {overview['FD_pct']:.2f}% [{diff_vung_str} vs N-1])"
+
+    fig.suptitle(f"{title_main}\n{subtitle}", fontsize=20, fontweight='bold', color='#1F4E79', y=0.97)
+
+    ax = fig.add_axes([0.02, 0.04, 0.96, 0.79])
     ax.axis('off')
-    ax.set_title('TOP 10 BƯU CỤC CÓ %FD CAO NHẤT', fontsize=20, fontweight='bold', loc='left', pad=18, color='#1F4E79')
+    ax.set_title('TOP 10 BƯU CỤC CÓ %FD CAO NHẤT', fontsize=18, fontweight='bold', loc='left', pad=14, color='#1F4E79')
 
-    cols = ['STT', 'BC', 'AM', 'Total', 'Return', '%FD', 'Tỷ trọng return']
-    labels = ['STT', 'Tên Bưu Cục', 'AM Phụ Trách', 'Total Đơn', 'Đơn Return', '%FD', 'Tỷ Trọng Return']
-    col_w = [0.06, 0.34, 0.22, 0.11, 0.11, 0.10, 0.12]
+    labels = ['STT', 'Tên Bưu Cục', 'AM Phụ Trách', 'Total Đơn', 'Đơn Return', '%FD (N)', f'%FD (N-1)\n{date_n1}', 'vs N-1', 'Tỷ Trọng\nReturn']
+    col_w = [0.05, 0.25, 0.16, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09]
 
     cell_text = [labels]
-    cell_color = [['#1F4E79'] * len(cols)]
-    text_color = [['white'] * len(cols)]
+    cell_color = [['#1F4E79'] * len(labels)]
+    text_color = [['white'] * len(labels)]
 
     for idx, r in top10_bc.iterrows():
+        alt = (idx % 2 == 1)
+        base_bg = '#F5F9FF' if alt else '#FFFFFF'
+
+        d_txt, d_bg, d_fg = delta_text_and_colors(r.get('vs_N1'))
+        if d_bg == '#FFFFFF' and alt:
+            d_bg = '#F5F9FF'
+
+        fd_n1_val = r.get('%FD_N1')
+        fd_n1_str = f"{fd_n1_val:.2f}%" if pd.notna(fd_n1_val) else "-"
+
         texts = [
             str(idx + 1),
             str(r['BC']),
             str(r['AM']),
             f"{r['Total']:,.0f}",
             f"{r['Return']:,.0f}",
-            f"{r['%FD']:.2f}%",
+            f"{r['%FD_N']:.2f}%",
+            fd_n1_str,
+            d_txt,
             f"{r['Tỷ trọng return']:.2f}%"
         ]
         colors = [
-            '#F5F9FF' if idx % 2 == 1 else '#FFFFFF',
-            '#F5F9FF' if idx % 2 == 1 else '#FFFFFF',
-            '#F5F9FF' if idx % 2 == 1 else '#FFFFFF',
-            '#F5F9FF' if idx % 2 == 1 else '#FFFFFF',
-            '#F5F9FF' if idx % 2 == 1 else '#FFFFFF',
-            fd_color(r['%FD']),
+            base_bg, base_bg, base_bg, base_bg, base_bg,
+            fd_color(r['%FD_N']),
+            base_bg,
+            d_bg,
             '#FFE69C'
         ]
         tcolors = [
             '#000000', '#000000', '#000000', '#000000', '#000000',
-            fd_textcolor(r['%FD']), '#000000'
+            fd_textcolor(r['%FD_N']),
+            '#000000',
+            d_fg,
+            '#000000'
         ]
         cell_text.append(texts)
         cell_color.append(colors)
@@ -611,14 +747,14 @@ def render_image_top10(overview, top10_bc, date_str=""):
 
     tbl = ax.table(cellText=cell_text, cellColours=cell_color, cellLoc='center', loc='upper left', colWidths=col_w, bbox=[0, 0, 1, 1])
     tbl.auto_set_font_size(False)
-    tbl.set_fontsize(16)
+    tbl.set_fontsize(14)
 
     for (r, c), cell in tbl.get_celld().items():
         cell.set_edgecolor('#BFBFBF')
         cell.set_linewidth(1.2)
         cell.set_text_props(color=text_color[r][c])
         if r == 0:
-            cell.set_text_props(weight='bold', color='white', fontsize=17)
+            cell.set_text_props(weight='bold', color='white', fontsize=15)
         if c == 1:
             cell.set_text_props(ha='left', weight='bold' if r > 0 else 'bold')
             cell._loc = 'left'
@@ -632,51 +768,71 @@ def render_image_top10(overview, top10_bc, date_str=""):
     buf.seek(0)
     return buf
 
-def render_image_am(overview, am_df, date_str=""):
-    """Ảnh 2: Xếp hạng %FD theo AM (Tiêu đề sạch, chữ to rõ)"""
+def render_image_am(overview, am_df):
+    """Ảnh 2: Xếp hạng %FD theo AM (Có %FD N, %FD N-1, vs N-1)"""
     print("🎨 Đang vẽ Ảnh 2 (Xếp Hạng AM)...")
     n_am = len(am_df)
-    fig_h = max(11, n_am * 0.65 + 3.0)
-    fig = plt.figure(figsize=(16, fig_h), dpi=200)
+    fig_h = max(11.5, n_am * 0.65 + 3.2)
+    fig = plt.figure(figsize=(17, fig_h), dpi=200)
 
-    title_date = f" {date_str}" if date_str else " (N-1)"
-    fig.suptitle(f'BÁO CÁO %FD HUB{title_date} – VÙNG NTB\n(Total Đơn: {overview["Total_don"]:,.0f}  |  Đơn Return: {overview["Don_return"]:,.0f}  |  %FD Tổng Vùng: {overview["FD_pct"]:.2f}%)',
-                 fontsize=22, fontweight='bold', color='#1F4E79', y=0.96)
+    date_n = overview.get('Date_N', '')
+    date_n1 = overview.get('Date_N1', '')
+    diff_vung = overview.get('FD_pct_diff', 0.0)
+    diff_vung_str = f"▲ +{diff_vung:.2f}%" if diff_vung > 0 else (f"▼ {diff_vung:.2f}%" if diff_vung < 0 else "-")
 
-    ax = fig.add_axes([0.03, 0.04, 0.94, 0.82])
+    title_main = f"BÁO CÁO %FD HUB NGÀY {date_n} (vs N-1: {date_n1}) – VÙNG NTB"
+    subtitle = f"(Total Đơn: {overview['Total_don']:,.0f}  |  Đơn Return: {overview['Don_return']:,.0f}  |  %FD Tổng Vùng: {overview['FD_pct']:.2f}% [{diff_vung_str} vs N-1])"
+
+    fig.suptitle(f"{title_main}\n{subtitle}", fontsize=20, fontweight='bold', color='#1F4E79', y=0.975)
+
+    ax = fig.add_axes([0.02, 0.03, 0.96, 0.81])
     ax.axis('off')
-    ax.set_title('XẾP HẠNG %FD THEO CÁC AM', fontsize=20, fontweight='bold', loc='left', pad=18, color='#1F4E79')
+    ax.set_title('XẾP HẠNG %FD THEO CÁC AM', fontsize=18, fontweight='bold', loc='left', pad=14, color='#1F4E79')
 
-    cols = ['STT', 'AM', 'Total', 'Return', '%FD', 'Tỷ trọng return', 'Tỷ trọng sản lượng']
-    labels = ['STT', 'AM Phụ Trách', 'Total Đơn', 'Đơn Return', '%FD (Return)', 'Tỷ Trọng Return', 'Tỷ Trọng Sản Lượng']
-    col_w = [0.06, 0.28, 0.13, 0.13, 0.13, 0.14, 0.15]
+    labels = ['STT', 'AM Phụ Trách', 'Total Đơn', 'Đơn Return', '%FD (N)', f'%FD (N-1)\n{date_n1}', 'vs N-1', 'Tỷ Trọng\nReturn', 'Tỷ Trọng\nSản Lượng']
+    col_w = [0.05, 0.22, 0.09, 0.09, 0.09, 0.09, 0.09, 0.14, 0.14]
 
     cell_text = [labels]
-    cell_color = [['#1F4E79'] * len(cols)]
-    text_color = [['white'] * len(cols)]
+    cell_color = [['#1F4E79'] * len(labels)]
+    text_color = [['white'] * len(labels)]
 
     for idx, r in am_df.iterrows():
+        alt = (idx % 2 == 1)
+        base_bg = '#F5F9FF' if alt else '#FFFFFF'
+
+        d_txt, d_bg, d_fg = delta_text_and_colors(r.get('vs_N1'))
+        if d_bg == '#FFFFFF' and alt:
+            d_bg = '#F5F9FF'
+
+        fd_n1_val = r.get('%FD_N1')
+        fd_n1_str = f"{fd_n1_val:.2f}%" if pd.notna(fd_n1_val) else "-"
+
         texts = [
             str(idx + 1),
             str(r['AM']),
             f"{r['Total']:,.0f}",
             f"{r['Return']:,.0f}",
-            f"{r['%FD']:.2f}%",
+            f"{r['%FD_N']:.2f}%",
+            fd_n1_str,
+            d_txt,
             f"{r['Tỷ trọng return']:.2f}%",
             f"{r['Tỷ trọng sản lượng']:.2f}%"
         ]
         colors = [
-            '#F5F9FF' if idx % 2 == 1 else '#FFFFFF',
-            '#F5F9FF' if idx % 2 == 1 else '#FFFFFF',
-            '#F5F9FF' if idx % 2 == 1 else '#FFFFFF',
-            '#F5F9FF' if idx % 2 == 1 else '#FFFFFF',
-            fd_color(r['%FD']),
+            base_bg, base_bg, base_bg, base_bg,
+            fd_color(r['%FD_N']),
+            base_bg,
+            d_bg,
             '#FFE69C',
-            '#F5F9FF' if idx % 2 == 1 else '#FFFFFF'
+            base_bg
         ]
         tcolors = [
             '#000000', '#000000', '#000000', '#000000',
-            fd_textcolor(r['%FD']), '#000000', '#000000'
+            fd_textcolor(r['%FD_N']),
+            '#000000',
+            d_fg,
+            '#000000',
+            '#000000'
         ]
         cell_text.append(texts)
         cell_color.append(colors)
@@ -684,14 +840,14 @@ def render_image_am(overview, am_df, date_str=""):
 
     tbl = ax.table(cellText=cell_text, cellColours=cell_color, cellLoc='center', loc='upper left', colWidths=col_w, bbox=[0, 0, 1, 1])
     tbl.auto_set_font_size(False)
-    tbl.set_fontsize(15)
+    tbl.set_fontsize(14)
 
     for (r, c), cell in tbl.get_celld().items():
         cell.set_edgecolor('#BFBFBF')
         cell.set_linewidth(1.2)
         cell.set_text_props(color=text_color[r][c])
         if r == 0:
-            cell.set_text_props(weight='bold', color='white', fontsize=16)
+            cell.set_text_props(weight='bold', color='white', fontsize=15)
         if c == 1:
             cell.set_text_props(ha='left', weight='bold' if r > 0 else 'bold')
             cell._loc = 'left'
@@ -827,14 +983,8 @@ def send_photos_gtalk_multi(image_bufs, filenames, caption=""):
 #  MAIN EXECUTION
 # ============================================================
 def main():
-    # Nhận diện tham số force (--force, -f, force) linh hoạt
-    args_lower = [arg.lower() for arg in sys.argv[1:]]
-    force_run = any(f in args_lower for f in ['--force', '-f', 'force'])
-
-    print("🚀 BẮT ĐẦU PHÂN TÍCH RAW FD N-1 (HUB)...")
-    if force_run:
-        print("⚡ Chế độ FORCE RUN được kích hoạt: Bắt buộc ghi lại dữ liệu và gửi báo cáo!")
-
+    force_run = ('--force' in sys.argv) or ('-f' in sys.argv) or ('force' in sys.argv)
+    print("🚀 BẮT ĐẦU PHÂN TÍCH RAW FD (HUB) - SO SÁNH N vs N-1...")
     gc = get_gspread_client(SPREADSHEET_ID)
     spreadsheet = gc.open_by_key(SPREADSHEET_ID)
     print(f"✅ Đã kết nối Google Sheet: '{spreadsheet.title}'")
@@ -846,21 +996,24 @@ def main():
     is_new_data, sig = check_data_updated(overview, force=force_run)
     if not is_new_data:
         print("\n" + "="*60)
-        print("⚠️ THÔNG BÁO: Dữ liệu raw N-1 chưa cập nhật mới (giống 100% lần chạy trước).")
+        print("⚠️ THÔNG BÁO: Dữ liệu ngày N chưa cập nhật mới (giống 100% lần chạy trước).")
         print("   -> Bỏ qua ghi Sheet và không gửi báo cáo GTalk.")
-        print("   (Mẹo: Dùng tham số '--force', '-f' hoặc 'force' để bắt buộc gửi báo cáo).")
+        print("   (Mẹo: Thêm tham số '--force' nếu muốn bắt buộc gửi báo cáo).")
         print("="*60 + "\n")
         return
 
     # Print Summary to Console
+    diff_str = f"▲ +{overview['FD_pct_diff']:.2f}%" if overview['FD_pct_diff'] > 0 else (f"▼ {overview['FD_pct_diff']:.2f}%" if overview['FD_pct_diff'] < 0 else "-")
     print("\n" + "="*60)
-    print("📊 BÁO CÁO KẾT QUẢ TỔNG QUAN N-1")
+    print(f"📊 BÁO CÁO KẾT QUẢ TỔNG QUAN NGÀY {overview['Date_N']} (vs N-1: {overview['Date_N1']})")
     print("="*60)
-    print(f" • Tổng đơn có gán giao:  {overview['Total_don']:,.0f}")
-    print(f" • Tổng đơn return:       {overview['Don_return']:,.0f}")
-    print(f" • %FD Tổng Vùng NTB:      {overview['FD_pct']:.2f}%")
-    print(f" • Số bưu cục quản lý:    {overview['Total_bcu']}")
-    print(f" • Số AM phụ trách:       {overview['Total_am']}")
+    print(f" • Tổng đơn có gán giao (N):  {overview['Total_don']:,.0f}")
+    print(f" • Tổng đơn return (N):       {overview['Don_return']:,.0f}")
+    print(f" • %FD Tổng Vùng (N):          {overview['FD_pct']:.2f}%")
+    print(f" • %FD Tổng Vùng (N-1):        {overview['FD_pct_N1']:.2f}%")
+    print(f" • Biến động vs N-1:          {diff_str}")
+    print(f" • Số bưu cục quản lý:        {overview['Total_bcu']}")
+    print(f" • Số AM phụ trách:           {overview['Total_am']}")
     print("="*60 + "\n")
 
     # Ensure Sheet & Write Results
@@ -870,20 +1023,21 @@ def main():
 
     # Render Images & Send Reports
     try:
-        date_n1_str = (datetime.now() - timedelta(days=1)).strftime('%d/%m/%Y')
+        date_n  = overview['Date_N']
+        date_n1 = overview['Date_N1']
         mvd_link = "https://docs.google.com/spreadsheets/d/15Z-aMM6OFfiWUXd2Zwz6BFNq_Y0KWwHiVDqxkioHufM/edit?gid=704022680#gid=704022680"
         caption = (
-            f"<b>BÁO CÁO %FD HUB {date_n1_str} – VÙNG NTB</b>\n\n"
-            f"Tổng đơn giao: {overview['Total_don']:,.0f}\n"
-            f"Đơn return: {overview['Don_return']:,.0f}\n"
-            f"%FD Tổng Vùng: {overview['FD_pct']:.2f}%\n\n"
+            f"<b>BÁO CÁO %FD HUB NGÀY {date_n} (vs N-1: {date_n1}) – VÙNG NTB</b>\n\n"
+            f"Tổng đơn giao (N): {overview['Total_don']:,.0f}\n"
+            f"Đơn return (N): {overview['Don_return']:,.0f}\n"
+            f"%FD Tổng Vùng (N): {overview['FD_pct']:.2f}% (vs N-1: {overview['FD_pct_N1']:.2f}% | {diff_str})\n\n"
             f"🔗 Chi tiết link MVĐ hoàn trả theo AM:\n"
             f"{mvd_link}"
         )
 
         # Render 2 Images
-        buf_top10 = render_image_top10(overview, top10_bc, date_n1_str)
-        buf_am    = render_image_am(overview, am_df, date_n1_str)
+        buf_top10 = render_image_top10(overview, top10_bc)
+        buf_am    = render_image_am(overview, am_df)
 
         # Send Telegram (if configured)
         buf_top10.seek(0)
@@ -894,7 +1048,7 @@ def main():
         buf_am.seek(0)
         send_photos_gtalk_multi(
             [buf_top10, buf_am],
-            ["report_top10.png", "report_am_ranking.png"],
+            ["report_top10_hub.png", "report_am_hub.png"],
             caption=caption
         )
 
