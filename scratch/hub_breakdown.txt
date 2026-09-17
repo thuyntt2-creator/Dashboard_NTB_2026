@@ -1,0 +1,17 @@
+: 52 chars
+I. TỔNG QUAN CHỈ SỐ : 318 chars
+NHÓM 1: GTC 7 NGÀY <: 34 chars
+1. [22394000] (DNO) : 352 chars
+2. [22389000] (LDO) : 334 chars
+3. [22830000] (KHO) : 359 chars
+4. [20269000] (DNO) : 347 chars
+5. [20320000] (KHO) : 340 chars
+6. [21126000] (LDO) : 357 chars
+7. [22051000] (LDO) : 359 chars
+8. [21377000] (LDO) : 357 chars
+9. [21537000] (LDO) : 342 chars
+10. [20942000] (LDO): 353 chars
+11. [20590000] (DNO): 330 chars
+NHÓM 2: GTC < 70% LỊ: 43 chars
+1. [20269003] (DNO) : 328 chars
+III. ĐỀ XUẤT HÀNH ĐỘ: 292 chars

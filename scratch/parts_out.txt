@@ -1,0 +1,19 @@
+Total parts: 18
+Part 1 (50): BÁO CÁO VẬN HÀNH & BƯU CỤC BẤT
+Part 2 (287): I. TỔNG QUAN CHỈ SỐ VÙNG NTB
+Part 3 (27): II. CHI TIẾT BƯU CỤC BẤT ỔN
+Part 4 (32): NHÓM 1: GTC 7 NGÀY < 45% (11 B
+Part 5 (289): 1. [22394000] (DNO) Quảng Tín 
+Part 6 (289): 2. [22389000] (LDO) Đức Trọng 
+Part 7 (298): 3. [22830000] (KHO) Cam Linh (
+Part 8 (293): 4. [20269000] (DNO) Kiến Đức (
+Part 9 (308): 5. [20320000] (KHO) Tây Nha Tr
+Part 10 (309): 6. [21126000] (LDO) Xuân Hương
+Part 11 (324): 7. [22051000] (LDO) Lang Biang
+Part 12 (306): 8. [21377000] (LDO) Đơn Dương 
+Part 13 (312): 9. [21537000] (LDO) Lâm Viên -
+Part 14 (322): 10. [20942000] (LDO) Di Linh (
+Part 15 (316): 11. [20590000] (DNO) Tuy Đức (
+Part 16 (41): NHÓM 2: GTC < 70% LỊCH SỬ TỐT 
+Part 17 (317): 1. [20269003] (DNO) Nhân Cơ (N
+Part 18 (291): III. ĐỀ XUẤT HÀNH ĐỘNG CẤP VÙN
