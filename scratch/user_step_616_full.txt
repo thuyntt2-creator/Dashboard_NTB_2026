@@ -1,0 +1,196 @@
+<USER_REQUEST>
+
+I. TỔNG QUAN CHỈ SỐ VÙNG NTB
+• Sản lượng: 79,707 đơn (+2.4% | +1,831 đơn)
+• %GTC tổng: 58.0% (+1.8%)
+• %GTC TTS: 56.4% (+1.9%) | Ca 1: 71.92% (+0.92%)
+• %FD: 9.1% (▲ 2.27% so với N-1)
+• %ODR TTS: 93.1% (+1.5%)
+• %OPR: 85.47% (+8.36%)
+• Bưu cục bất ổn: 12/85 BC (14.1%)
+  - Nhóm 1 (GTC 7 ngày < 45%): 11 BC
+  - Nhóm 2 (GTC < 70% Lịch sử): 01 BC
+
+II. CHI TIẾT BƯU CỤC BẤT ỔN
+
+🔴 NHÓM 1: GTC 7 NGÀY < 45% (11 BC)
+
+1. [22394000] (DNO) Quảng Tín (Đắk Nông)
+• Tỷ lệ: GTC 7D: 16.9% | N-1: 19.1% | Vol: 1,921 đơn | FD: 49.0% | ODR TTS: 63.3%
+• Nhân sự: 4/8 NV (-4 NV) | Gán 18/09: 36% (686/1,921) | Năng suất N-1: 58 đơn/NV | Thu nhập TB: 551,898đ/NV
+• Nguyên nhân: Thiếu 50% quân số (khuyết 4/8 NV) làm vỡ tuyến giao, dẫn đến 401 đơn cũ đọng >5 ngày (tồn 85%) và bưu tá báo hoàn ảo né phạt (FD 49.0%)
+• Giải pháp: Chi viện ngay 2 NV từ cụm lân cận (Đắk Mil/Gia Nghĩa); lập tổ phản ứng nhanh xử lý dứt điểm 401 đơn tồn >5 ngày
+
+2. [22389000] (LDO) Đức Trọng 1 (Lâm Đồng)
+• Tỷ lệ: GTC 7D: 23.2% | N-1: 23.7% | Vol: 992 đơn | FD: 17.2% | ODR TTS: 40.0%
+• Nhân sự: 5/8 NV (-3 NV) | Gán 18/09: 42% (415/992) | Năng suất N-1: 70 đơn/NV | Thu nhập TB: 249,883đ/NV
+• Nguyên nhân: Vỡ lộ trình giao khiến tỷ lệ đúng hẹn (Ontime) chạm đáy (40.0%), cộng thêm thiếu 3/8 NV làm đọng 209 đơn backlog >5 ngày không người giao
+• Giải pháp: Tái cấu trúc lại lộ trình giao theo cụm dân cư để gỡ SLA Ontime; dọn sạch 209 đơn tồn >5 ngày và tuyển bù 3 NV
+
+3. [22830000] (KHO) Cam Linh (Khánh Hòa)
+• Tỷ lệ: GTC 7D: 26.3% | N-1: 24.1% | Vol: 2,167 đơn | FD: 21.4% | ODR TTS: 28.0%
+• Nhân sự: 14/19 NV (-5 NV) | Gán 18/09: 65% (1,406/2,167) | Năng suất N-1: 115 đơn/NV | Thu nhập TB: 409,679đ/NV
+• Nguyên nhân: Vỡ lộ trình giao khiến tỷ lệ đúng hẹn (Ontime) chạm đáy (28.0%), cộng thêm thiếu 5/19 NV làm đọng 263 đơn backlog >5 ngày không người giao
+• Giải pháp: Tái cấu trúc lại lộ trình giao theo cụm dân cư để gỡ SLA Ontime; dọn sạch 263 đơn tồn >5 ngày và tuyển bù 5 NV
+
+4. [20269000] (DNO) Kiến Đức (Đắk Nông)
+• Tỷ lệ: GTC 7D: 27.2% | N-1: 23.7% | Vol: 2,166 đơn | FD: 17.4% | ODR TTS: 52.6%
+• Nhân sự: 6/10 NV (-3 NV) | Gán 18/09: 11% (245/2,166) | Năng suất N-1: 100 đơn/NV | Thu nhập TB: 665,111đ/NV
+• Nguyên nhân: Tắc nghẽn khâu khai thác chia chọn đầu ngày (mới gán 11% trên 2,166 đơn) khiến bưu tá trễ giờ xuất tuyến, kéo theo đọng 97 đơn cũ và hoàn FD 17.4%
+• Giải pháp: AM trực tiếp xuống kho đôn đốc chia chọn, gán hết 1,921 đơn còn lại trước 12h; phúc tra đơn hoàn FD 17.4%
+
+5. [20320000] (KHO) Tây Nha Trang (Khánh Hòa)
+• Tỷ lệ: GTC 7D: 30.1% | N-1: 30.0% | Vol: 793 đơn | FD: 6.0% | ODR TTS: 24.6%
+• Nhân sự: 6/12 NV (-6 NV) | Gán 18/09: 88% (699/793) | Năng suất N-1: 138 đơn/NV | Thu nhập TB: 554,589đ/NV
+• Nguyên nhân: Bưu tá quá tải cực hạn (ôm 138 đơn/NV, gấp đôi định mức) cộng với kho đọng 1,776 đơn tồn lớn (68% tổng tải), bưu tá không thể kham hết trong ngày
+• Giải pháp: Khoán chuyến phụ/thuê xe ngoài giảm tải ngay (chặn trần 110 đơn/NV); tập trung giải phóng 1,776 đơn tồn kho cũ
+
+6. [21126000] (LDO) Xuân Hương - Đà Lạt (Lâm Đồng)
+• Tỷ lệ: GTC 7D: 34.3% | N-1: 48.6% | Vol: 1,379 đơn | FD: 18.4% | ODR TTS: 50.9%
+• Nhân sự: 10/12 NV (-2 NV) | Gán 18/09: 41% (560/1,379) | Năng suất N-1: 84 đơn/NV | Thu nhập TB: 400,370đ/NV
+• Nguyên nhân: Hụt sâu 2/12 nhân sự tại địa bàn du lịch/khách sạn trọng điểm, khiến GTC N-1 rơi về 48.6% và dồn ứ 218 đơn tồn cũ >5 ngày
+• Giải pháp: Điều động 2 NV từ bưu cục thừa tải chi viện; khoán phụ tuyến du lịch/khách sạn để giải phóng 218 đơn tồn cũ
+
+7. [22051000] (LDO) Lang Biang - Đà Lạt 1 (Lâm Đồng)
+• Tỷ lệ: GTC 7D: 35.2% | N-1: 29.4% | Vol: 1,074 đơn | FD: 12.8% | ODR TTS: 75.0%
+• Nhân sự: 8/12 NV (-4 NV) | Gán 18/09: 34% (368/1,074) | Năng suất N-1: 104 đơn/NV | Thu nhập TB: 431,376đ/NV
+• Nguyên nhân: Hụt sâu 4/12 nhân sự tại địa bàn du lịch/khách sạn trọng điểm, khiến GTC N-1 rơi về 29.4% và dồn ứ 49 đơn tồn cũ >5 ngày
+• Giải pháp: Điều động 2 NV từ bưu cục thừa tải chi viện; khoán phụ tuyến du lịch/khách sạn để giải phóng 49 đơn tồn cũ
+
+8. [21377000] (LDO) Đơn Dương (Lâm Đồng)
+• Tỷ lệ: GTC 7D: 35.9% | N-1: 33.3% | Vol: 2,680 đơn | FD: 9.7% | ODR TTS: 71.1%
+• Nhân sự: 9/12 NV (-3 NV) | Gán 18/09: 13% (338/2,680) | Năng suất N-1: 93 đơn/NV | Thu nhập TB: 503,880đ/NV
+• Nguyên nhân: Tắc nghẽn khâu khai thác chia chọn đầu ngày (mới gán 13% trên 2,680 đơn) khiến bưu tá trễ giờ xuất tuyến, kéo theo đọng 204 đơn cũ và hoàn FD 9.7%
+• Giải pháp: AM trực tiếp xuống kho đôn đốc chia chọn, gán hết 2,342 đơn còn lại trước 12h; phúc tra đơn hoàn FD 9.7%
+
+9. [21537000] (LDO) Lâm Viên - Đà Lạt 2 (Lâm Đồng)
+• Tỷ lệ: GTC 7D: 38.5% | N-1: 39.0% | Vol: 584 đơn | FD: 15.0% | ODR TTS: 49.2%
+• Nhân sự: 5/9 NV (-4 NV) | Gán 18/09: 88% (511/584) | Năng suất N-1: 172 đơn/NV | Thu nhập TB: 542,052đ/NV
+• Nguyên nhân: Bưu tá quá tải cực hạn (ôm 172 đơn/NV, gấp đôi định mức) cộng với kho đọng 439 đơn tồn lớn (59% tổng tải), bưu tá không thể kham hết trong ngày
+• Giải pháp: Khoán chuyến phụ/thuê xe ngoài giảm tải ngay (chặn trần 110 đơn/NV); tập trung giải phóng 439 đơn tồn kho cũ
+
+10. [20942000] (LDO) Di Linh (Lâm Đồng)
+• Tỷ lệ: GTC 7D: 38.8% | N-1: 18.8% | Vol: 1,659 đơn | FD: 22.1% | ODR TTS: 71.9%
+• Nhân sự: 14/16 NV (-2 NV) | Gán 18/09: 73% (1,203/1,659) | Năng suất N-1: 107 đơn/NV | Thu nhập TB: 250,130đ/NV
+• Nguyên nhân: Bưu tá có tâm lý né đơn khó, chỉ ưu tiên phát hàng mới và bỏ quên 156 đơn tồn cũ (>5 ngày) đọng lại trong kho (tồn chiếm 57%)
+• Giải pháp: Cô lập và lập tổ xử lý ngay 156 đơn đọng >5 ngày; cấm bưu tá chỉ chọn giao đơn mới bỏ đơn tồn
+
+11. [20590000] (DNO) Tuy Đức (Đắk Nông)
+• Tỷ lệ: GTC 7D: 41.4% | N-1: 38.5% | Vol: 707 đơn | FD: 12.9% | ODR TTS: 54.7%
+• Nhân sự: 6/6 NV | Gán 18/09: 61% (430/707) | Năng suất N-1: 79 đơn/NV | Thu nhập TB: 436,689đ/NV
+• Nguyên nhân: Nhân sự đủ 100% (6/6 NV) nhưng kỷ luật giao tuyến yếu: hoàn FD vọt lên 12.9% và Ontime chỉ 54.7% do bưu tá cập nhật lý do ảo hoặc né tuyến xa
+• Giải pháp: AM siết kỷ luật quy trình giao: gọi phúc tra 100% đơn hoàn (FD 12.9%), chấn chỉnh bưu tá cập nhật lý do ảo, không xin thêm quân
+
+🟡 NHÓM 2: GTC < 70% LỊCH SỬ TỐT NHẤT (1 BC)
+
+1. [20269003] (DNO) Nhân Cơ (Đắk Nông)
+• Tỷ lệ: GTC 7D: 50.0% | N-1: 65.0% | Vol: 565 đơn | FD: 3.7% | ODR TTS: 70.8%
+• Nhân sự: 6/7 NV (-1 NV) | Gán 18/09: 59% (331/565) | Năng suất N-1: 77 đơn/NV | Thu nhập TB: 414,620đ/NV
+• Nguyên nhân: Tồn kho chiếm tỷ trọng quá lớn (36%, 138 đơn) nhưng chưa được ưu tiên xuất tuyến xử lý trước, gây gối đầu và nghẽn luân chuyển hàng
+• Giải pháp: Ưu tiên xuất tuyến giải phóng dứt điểm 138 đơn tồn kho trong ca sáng trước khi giao hàng mới
+
+III. ĐỀ XUẤT HÀNH ĐỘNG CẤP VÙNG
+1. Tuyển dụng (HRBP & AM): Ưu tiên tuyển và nhận việc gấp cho các BC thiếu từ 3 NVPTTT trở lên (Quảng Tín, Cam Linh, Xuân Hương, Đức Trọng); linh hoạt điều động chi viện nội cụm.
+2. Gán đơn & Điều phối (Kho & AM): Không gán dồn quá 110 đơn/NV; chốt tiến độ gán ca 1 tối thiểu đạt 85% trước 08h30 để bưu tá kịp xuất tuyến.
+3. Kiểm soát chất lượng (Audit & AM): AM trực tiếp xác minh 100% cuộc gọi đơn không thành công (FD TTS), ngăn chặn tình trạng ảo tỷ lệ và gối đầu hàng.
+
+
+hôm nay họp mấy bưu cục, bạn chắt lọc lấy ý mấy bưu cục giúp mình nha
+
+Di Linh
+Hôm qua có 4 shipper thì 3 người là nhân sự mới chưa thạo việc. Sáng có xe tải tăng cường lúc 09:30, shipper mới ở lại phụ nhân viên xử lý xuống hàng đến tận 11:30 mới xuất kho; chiều gặp mưa lớn nên ngừng chạy, chỉ ngồi gọi điện cho khách dẫn đến tỷ lệ giao cực thấp (cả kho mười mấy người chỉ giao được ~300 đơn)
+Nhân viên xử lý cũ (Duyên) đã nghỉ, nhân viên xử lý mới chưa biết điều tiết luồng hàng, thiếu phối hợp với AM
+Tiến (AM cũ) hôm qua không có mặt ở Di Linh mà ở Đức Trọng, sáng nay gọi không liên lạc được
+Chỉ đạo (sếp): Yêu cầu Tú thông báo toàn bộ nhân viên cắt trách nhiệm của AM Tiến tại Di Linh và Đức Trọng, bàn giao toàn bộ cho AM Vũ tiếp quản. Tiến phải chịu trách nhiệm toàn bộ đơn hàng trước khi bàn giao, kiểm kê xong sẽ cắt ID và chuyển Tiến về team Support
+
+Đức Trọng 1
+
+Sáng nay có 5/7 nhân sự đi làm. Có 2 bạn nghỉ phép dài ngày (1 bạn đưa mẹ đi viện Sài Gòn hẹn 20 ngày sau mới làm lại; 1 bạn về quê hẹn 22 ngày sau mới làm lại)
+Chỉ đạo (sếp): Phê bình gay gắt khâu duyệt nghỉ phép tùy tiện, kéo dài 5-7 ngày không kiểm soát. Tú chấn chỉnh lại quy định: chỉ duyệt nghỉ tối đa 1 ngày, không giải quyết cùng lúc 2 người nghỉ/ngày và phải có minh chứng rõ ràng nếu có việc gấp
+Tối qua treo toàn bộ chuyến đi của nhân viên. Nhân viên xử lý (Thắng) làm việc kém, Đạt HR báo hôm nay có 1 ứng viên lên phỏng vấn thay thế
+Vũ đang trực tiếp kiểm kê, sau khi kiểm kê và chốt số liệu với Tiến sẽ tiến hành cắt ID
+AM Duy
+Tây Nha Trang
+Sáng nay bổ sung 1 nhân sự mới và 1 bạn hỗ trợ từ kho Diên An (AM Phi) về, nâng tổng nhân sự lên 9 người. Đã gán trên 1.200 đơn, trong kho đang tồn khoảng 1.800 đơn
+Dự kiến rút 1 bạn mới tuyển ở Diên Điền về để điều chuyển tiếp vào Tây Nha Trang
+Cam kết: Trong tuần này và tuần sau sẽ giải phóng sạch hàng tồn, đơn nội tỉnh >120h hiện không có do được rà soát xử lý hàng ngày
+Shipper mới hiện chỉ dám gán 140-180 đơn/ngày, chưa thể ép tải
+Chỉ đạo (sếp): Nhắc nhở tập trung xử lý dứt điểm trước mùa mưa bão, ngập lụt cuối năm
+
+Đông Ninh Hòa
+
+Hôm qua có 2 nhân sự xin nghỉ (1 bạn đưa vợ đi khám thai ở Nha Trang, 1 bạn bị ốm), hôm nay đã đi làm lại bình thường
+Đang điều 1 bạn từ Diên Điền về tăng cường, khi ổn định sẽ rút 1 bạn từ Đông Ninh Hòa sang chi viện tiếp cho Tây Nha Trang
+AM Nga
+Kiến Đức
+Khủng hoảng nhân sự: Hôm qua có 2 nhân sự nghỉ ngang (Thanh Yên nghỉ tuyến Thôn; chị Dung nghỉ ngang). Anh Điệp sau khi được gán hàng, chạy giao vài đơn cũng bỏ về báo nghỉ luôn do bức xúc việc giấy tờ nghỉ việc và thủ tục giảm trừ BHXH gửi về kho bị chậm trễ/thất lạc
+Đơn hàng tồn được chuyển về kho Quảng Tín cho shipper Huy hỗ trợ giao. Sáng nay ra được 1 ID mới (đã từng chạy tuyến Nghĩa Thắng cho bên khác) nên gán luôn 60 đơn, tổng kho 6 nhân sự đang tiếp tục gán hàng
+Kiểm kê: Hôm nay bật kiểm kê toàn diện lại kho Kiến Đức và tiến hành cắt sạch các ID không còn làm việc
+
+Bảo Lâm 1 & Bảo Lâm 3
+
+Bảo Lâm 1: Tiếp tục rà soát kỷ luật gán và chạy ca 2, không để tình trạng dồn ứ đơn
+Bảo Lâm 3: Duy trì gán hàng và kiểm soát chặt các tuyến giao nhận trong ngày
+AM Linh
+Quảng Tín
+Tuyển dụng: Hôm nay có 2 ứng viên xin việc ở khu vực Đắk Ru, hẹn 13:00 chiều nay phỏng vấn
+Hàng tồn >120h cơ bản đã clear gần xong, chỉ còn khoảng 20-30 đơn đang lọc xử lý nốt
+Đơn tồn >192h không còn (hôm qua sót 2 đơn do lỗi nhả mã đã gửi email xử lý đền bù/tích mất cho AM Học Phước - sếp chỉ đạo đơn trên 5 ngày lập tức tích mất đền bù dứt điểm)
+Tiến độ gán hàng sáng nay: Gán được 289 đơn/7 người (gồm 1 CTV gọi điện, 1 CTV tiền mặt và 5 nhân viên chính thức) - riêng CTV gọi điện gán 141 đơn, 6 người còn lại mới gán hơn 100 đơn (do anh Chiến và các bạn đang chạy hàng cồng kềnh phụ chở hàng về kho)
+Chỉ đạo (sếp): Phê bình 10:00 sáng mà tốc độ gán quá chậm, yêu cầu đẩy nhanh tiến độ
+Đã truyền thông cho nhân viên nắm rõ chính sách thưởng năng suất và chính sách bưu cục bất ổn
+AM Chi
+Tân Hà - Lâm Hà
+Số liệu cải thiện hơn tuần trước, đã ra khỏi danh sách cảnh báo; đơn tồn nội tỉnh chỉ còn 23 đơn đang xử lý nốt
+Sáng nay khóa 1 ID tuyến Tân Hà nên kho còn 6 nhân sự. AM Chi phải họp chia nhỏ tuyến Tân Hà ra cho các nhân viên khác cover dặm thêm (dẫn đến tiến độ gán hơi chậm); 5 nhân sự còn lại đã xuất kho với 450 đơn. Tuyến Phúc Thọ vẫn duy trì chạy xe giao
+Còn tồn khoảng 325 đơn, xử lý xong sẽ còn dư tầm 200 đơn ở Tân Hà và Phúc Thọ. Dự kiến tỷ lệ hôm nay sẽ bị giảm do nhân sự nhận tuyến mới chưa quen đường
+Tuyển dụng: Nguồn data từ HR (chị Thảo) rất yếu (chỉ có 1 data phỏng vấn online hẹn lên kho nhưng chưa tới)
+Chỉ đạo (sếp): Nghiêm khắc chấn chỉnh tình trạng để shipper gối đầu đơn liên tục tại Tân Hà, yêu cầu AM Chi trực tiếp có mặt tại kho giám sát, làm việc với nhân viên xử lý để chấm dứt ngay việc gối đầu đơn
+Tình hình điểm danh & chỉ đạo chung cuối buổi
+
+Lý do vắng họp của các AM khác
+
+AM Nhung: Bận họp bưu cục
+AM Thanh Long: Đưa ba đi khám bệnh
+AM Duân: Có lịch hẹn làm việc với chủ nhà (mặt bằng)
+AM Lợi: Bị CSGT/công an giữ xe
+AM Trường: Chưa liên lạc được
+
+Vấn đề tuyển dụng (HR)
+
+Đánh giá nguồn data tuyển dụng khu vực Lâm Đồng của chị Thảo rất kém, cần sắp xếp làm việc lại
+Nhóm tuyển dụng hiện chỉ có 1 bạn, duyệt phương án tuyển thêm 2 Intern vào tuần sau (không tốn headcount)
+Chỉ đạo (sếp): Tuyển thoải mái, tập trung tối đa kéo data cho Lâm Đồng và Khánh Hòa (Nha Trang)
+
+Chương trình đào tạo & nâng cao năng lực AM
+
+Phối hợp L&D xây dựng lộ trình chuẩn hóa cho 12-13 AM mới, tập trung 3 cốt lõi: (1) Kiểm soát hàng hóa/SLA/hạn chế gối đầu đơn (nắm trong 7-10 ngày); (2) Nắm rõ tuyến và địa bàn phụ trách; (3) Kiểm soát nhân sự và 3 công cụ quản lý định biên (hoàn thành trong 1-1.5 tháng)
+Sau khi có lộ trình, sếp sẽ đi kiểm tra đột xuất không báo trước
+
+Cơ chế Senior AM (bắt đầu từ 01/10)
+
+Chọn 2 Senior AM luân phiên mỗi 3 tháng (1 bạn phụ trách Vận hành, 1 bạn phụ trách Kinh doanh) để nâng cao năng lực quản lý, áp dụng mức phụ cấp trách nhiệm khoảng 3 triệu VNĐ/tháng (tương đương phụ cấp SOS)
+
+Vận hành hệ thống
+
+Dữ liệu AG/đơn >15 ngày đang bị lỗi từ phía BI toàn hệ thống, đang chờ đội BI khắc phục
+Sếp nhắc nhở các buổi họp sau bật bot ghi chép tự động đẩy vào Sổ tay, không ngồi ghi chép thủ công mất thời gian
+
+TỔNG KẾT CAM KẾT CHÍNH
+
+AM Vũ: Tiếp quản Di Linh và Đức Trọng 1 từ AM Tiến sau kiểm kê, tiến hành cắt ID
+AM Duy: Tây Nha Trang giải phóng sạch hàng tồn trong tuần này và tuần sau
+AM @Hồng Bích Nga: Kiến Đức bật kiểm kê toàn diện và cắt sạch ID không còn làm việc trong hôm nay
+AM Linh: Quảng Tín đẩy nhanh tốc độ gán hàng, xử lý dứt điểm 20-30 đơn tồn >120h
+AM @Huỳnh Thị Kim Chi: Tân Hà - Lâm Hà trực tiếp giám sát tại kho, chấm dứt ngay việc gối đầu đơn
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-18T10:45:22+07:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\lap4all\Desktop\New folder\report_BC_canh_bao_gtalk.py (LANGUAGE_PYTHON)
+Cursor is on line: 1049
+Other open documents:
+- c:\Users\lap4all\Desktop\New folder\report_BC_canh_bao_gtalk.py (LANGUAGE_PYTHON)
+- c:\Users\lap4all\Desktop\New folder\liet_ke_don_lc_tren_8_ngay.py (LANGUAGE_PYTHON)
+</ADDITIONAL_METADATA>

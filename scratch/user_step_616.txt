@@ -1,0 +1,64 @@
+<USER_REQUEST>
+
+I. TỔNG QUAN CHỈ SỐ VÙNG NTB
+• Sản lượng: 79,707 đơn (+2.4% | +1,831 đơn)
+• %GTC tổng: 58.0% (+1.8%)
+• %GTC TTS: 56.4% (+1.9%) | Ca 1: 71.92% (+0.92%)
+• %FD: 9.1% (▲ 2.27% so với N-1)
+• %ODR TTS: 93.1% (+1.5%)
+• %OPR: 85.47% (+8.36%)
+• Bưu cục bất ổn: 12/85 BC (14.1%)
+  - Nhóm 1 (GTC 7 ngày < 45%): 11 BC
+  - Nhóm 2 (GTC < 70% Lịch sử): 01 BC
+
+II. CHI TIẾT BƯU CỤC BẤT ỔN
+
+🔴 NHÓM 1: GTC 7 NGÀY < 45% (11 BC)
+
+1. [22394000] (DNO) Quảng Tín (Đắk Nông)
+• Tỷ lệ: GTC 7D: 16.9% | N-1: 19.1% | Vol: 1,921 đơn | FD: 49.0% | ODR TTS: 63.3%
+• Nhân sự: 4/8 NV (-4 NV) | Gán 18/09: 36% (686/1,921) | Năng suất N-1: 58 đơn/NV | Thu nhập TB: 551,898đ/NV
+• Nguyên nhân: Thiếu 50% quân số (khuyết 4/8 NV) làm vỡ tuyến giao, dẫn đến 401 đơn cũ đọng >5 ngày (tồn 85%) và bưu tá báo hoàn ảo né phạt (FD 49.0%)
+• Giải pháp: Chi viện ngay 2 NV từ cụm lân cận (Đắk Mil/Gia Nghĩa); lập tổ phản ứng nhanh xử lý dứt điểm 401 đơn tồn >5 ngày
+
+2. [22389000] (LDO) Đức Trọng 1 (Lâm Đồng)
+• Tỷ lệ: GTC 7D: 23.2% | N-1: 23.7% | Vol: 992 đơn | FD: 17.2% | ODR TTS: 40.0%
+• Nhân sự: 5/8 NV (-3 NV) | Gán 18/09: 42% (415/992) | Năng suất N-1: 70 đơn/NV | Thu nhập TB: 249,883đ/NV
+• Nguyên nhân: Vỡ lộ trình giao khiến tỷ lệ đúng hẹn (Ontime) chạm đáy (40.0%), cộng thêm thiếu 3/8 NV làm đọng 209 đơn backlog >5 ngày không người giao
+• Giải pháp: Tái cấu trúc lại lộ trình giao theo cụm dân cư để gỡ SLA Ontime; dọn sạch 209 đơn tồn >5 ngày và tuyển bù 3 NV
+
+3. [22830000] (KHO) Cam Linh (Khánh Hòa)
+• Tỷ lệ: GTC 7D: 26.3% | N-1: 24.1% | Vol: 2,167 đơn | FD: 21.4% | ODR TTS: 28.0%
+• Nhân sự: 14/19 NV (-5 NV) | Gán 18/09: 65% (1,406/2,167) | Năng suất N-1: 115 đơn/NV | Thu nhập TB: 409,679đ/NV
+• Nguyên nhân: Vỡ lộ trình
+<truncated 13680 bytes>
+ẩn hóa cho 12-13 AM mới, tập trung 3 cốt lõi: (1) Kiểm soát hàng hóa/SLA/hạn chế gối đầu đơn (nắm trong 7-10 ngày); (2) Nắm rõ tuyến và địa bàn phụ trách; (3) Kiểm soát nhân sự và 3 công cụ quản lý định biên (hoàn thành trong 1-1.5 tháng)
+Sau khi có lộ trình, sếp sẽ đi kiểm tra đột xuất không báo trước
+
+Cơ chế Senior AM (bắt đầu từ 01/10)
+
+Chọn 2 Senior AM luân phiên mỗi 3 tháng (1 bạn phụ trách Vận hành, 1 bạn phụ trách Kinh doanh) để nâng cao năng lực quản lý, áp dụng mức phụ cấp trách nhiệm khoảng 3 triệu VNĐ/tháng (tương đương phụ cấp SOS)
+
+Vận hành hệ thống
+
+Dữ liệu AG/đơn >15 ngày đang bị lỗi từ phía BI toàn hệ thống, đang chờ đội BI khắc phục
+Sếp nhắc nhở các buổi họp sau bật bot ghi chép tự động đẩy vào Sổ tay, không ngồi ghi chép thủ công mất thời gian
+
+TỔNG KẾT CAM KẾT CHÍNH
+
+AM Vũ: Tiếp quản Di Linh và Đức Trọng 1 từ AM Tiến sau kiểm kê, tiến hành cắt ID
+AM Duy: Tây Nha Trang giải phóng sạch hàng tồn trong tuần này và tuần sau
+AM @Hồng Bích Nga: Kiến Đức bật kiểm kê toàn diện và cắt sạch ID không còn làm việc trong hôm nay
+AM Linh: Quảng Tín đẩy nhanh tốc độ gán hàng, xử lý dứt điểm 20-30 đơn tồn >120h
+AM @Huỳnh Thị Kim Chi: Tân Hà - Lâm Hà trực tiếp giám sát tại kho, chấm dứt ngay việc gối đầu đơn
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-18T10:45:22+07:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\lap4all\Desktop\New folder\report_BC_canh_bao_gtalk.py (LANGUAGE_PYTHON)
+Cursor is on line: 1049
+Other open documents:
+- c:\Users\lap4all\Desktop\New folder\report_BC_canh_bao_gtalk.py (LANGUAGE_PYTHON)
+- c:\Users\lap4all\Desktop\New folder\liet_ke_don_lc_tren_8_ngay.py (LANGUAGE_PYTHON)
+</ADDITIONAL_METADATA>
