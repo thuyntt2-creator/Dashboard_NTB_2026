@@ -9077,7 +9077,7 @@
       "ncc_count": 7,
       "ktc_count": 6,
       "total_trucks": 30,
-      "last_updated": "10:22 - 19/09/2026"
+      "last_updated": "14:34 - 19/09/2026"
     },
     "surge_fixed": {
       "fixed_cost": 976.32,
@@ -9099,7 +9099,7 @@
         "fixed_cost": 398.49,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, NAK",
         "truck_count": 9
       },
       {
@@ -9112,7 +9112,7 @@
         "fixed_cost": 197.48,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Công Định",
+        "primary_ncc": "Công Định, NAK",
         "truck_count": 8
       },
       {
@@ -9125,7 +9125,7 @@
         "fixed_cost": 155.95,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Trâm Hoá, Tốt và Rẻ",
+        "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
         "truck_count": 4
       },
       {
@@ -9151,7 +9151,7 @@
         "fixed_cost": 70.81,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 8
       },
       {
@@ -9164,7 +9164,7 @@
         "fixed_cost": 68.94,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 5
       }
     ],
@@ -9193,7 +9193,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Khánh Hòa, KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Đức Trọng"
+        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Nam Nha Trang, KTC Đức Trọng"
       },
       {
         "ncc": "Công Định",
@@ -19354,7 +19354,7 @@
         "cost_str": "233.016 đ",
         "cost": 233016.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260915GZV4Q8MA",
         "ontime": ""
       },
       {
@@ -19369,7 +19369,7 @@
         "cost_str": "233.016 đ",
         "cost": 233016.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2609166CO8CGIM",
         "ontime": ""
       },
       {
@@ -19384,7 +19384,7 @@
         "cost_str": "233.016 đ",
         "cost": 233016.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260917ROOAFV2E",
         "ontime": ""
       },
       {
@@ -20719,7 +20719,7 @@
         "cost_str": "1.603.005 đ",
         "cost": 1603005.3,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260916OFDVB3GF",
         "ontime": ""
       },
       {
@@ -20734,7 +20734,7 @@
         "cost_str": "1.603.005 đ",
         "cost": 1603005.3,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2609174L6PUDHP",
         "ontime": ""
       },
       {
@@ -20749,7 +20749,7 @@
         "cost_str": "1.603.005 đ",
         "cost": 1603005.3,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260918I16O40N4",
         "ontime": ""
       },
       {
@@ -21184,7 +21184,7 @@
         "cost_str": "488.376 đ",
         "cost": 488376.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260917TGMZLSPB",
         "ontime": ""
       },
       {
@@ -21199,7 +21199,7 @@
         "cost_str": "488.376 đ",
         "cost": 488376.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E26091852EBS659",
         "ontime": ""
       },
       {
@@ -21214,7 +21214,7 @@
         "cost_str": "488.376 đ",
         "cost": 488376.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260919SH9SCEIQ",
         "ontime": ""
       },
       {
