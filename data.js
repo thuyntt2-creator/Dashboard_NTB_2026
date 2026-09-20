@@ -9069,18 +9069,18 @@ window.DASHBOARD_DATA = {
   },
   "transport_costs": {
     "region": {
-      "total_cost": 976.32,
-      "total_cost_formatted": "976.323.799 đ",
+      "total_cost": 975.27,
+      "total_cost_formatted": "975.266.877 đ",
       "total_trips": 1013,
       "avg_cost_per_trip": 0.96,
-      "avg_cost_per_trip_formatted": "963.794 đ/chuyến",
+      "avg_cost_per_trip_formatted": "962.751 đ/chuyến",
       "ncc_count": 7,
       "ktc_count": 6,
       "total_trucks": 30,
-      "last_updated": "15:46 - 19/09/2026"
+      "last_updated": "07:25 - 20/09/2026"
     },
     "surge_fixed": {
-      "fixed_cost": 976.32,
+      "fixed_cost": 975.27,
       "fixed_cost_pct": 100.0,
       "fixed_trips": 1013,
       "surge_cost": 0.0,
@@ -9125,7 +9125,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 155.95,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Trâm Hoá, Tốt và Rẻ",
+        "primary_ncc": "Trâm Hoá, Lâm Ngọc Thành",
         "truck_count": 4
       },
       {
@@ -9156,12 +9156,12 @@ window.DASHBOARD_DATA = {
       },
       {
         "ktc": "KTC Nam Nha Trang",
-        "total_cost": 68.94,
-        "total_cost_raw": 68940546.80000003,
+        "total_cost": 67.88,
+        "total_cost_raw": 67883624.80000003,
         "total_trips": 178,
-        "cost_per_trip": 0.39,
-        "cost_per_trip_raw": 387306.4426966294,
-        "fixed_cost": 68.94,
+        "cost_per_trip": 0.38,
+        "cost_per_trip_raw": 381368.67865168554,
+        "fixed_cost": 67.88,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
@@ -9210,12 +9210,12 @@ window.DASHBOARD_DATA = {
       },
       {
         "ncc": "Mạnh Cường (BCCK)",
-        "total_cost": 92.53,
-        "total_cost_raw": 92531901.0,
+        "total_cost": 91.47,
+        "total_cost_raw": 91474979.0,
         "total_trips": 210,
         "cost_per_trip": 0.44,
-        "cost_per_trip_raw": 440628.1,
-        "fixed_cost": 92.53,
+        "cost_per_trip_raw": 435595.1380952381,
+        "fixed_cost": 91.47,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
@@ -21376,8 +21376,8 @@ window.DASHBOARD_DATA = {
         "route": "Kho CK Nam Nha Trang đến các điểm giao nội khu vực KV1-Khánh Hòa 1",
         "ktc": "KTC Nam Nha Trang",
         "type": "Cố định",
-        "cost_str": "24.104.662 đ",
-        "cost": 24104662.0,
+        "cost_str": "23.047.740 đ",
+        "cost": 23047740.0,
         "trips_equivalent": 30,
         "trip_code": "HĐ_BCCK_5",
         "ontime": "100%"
