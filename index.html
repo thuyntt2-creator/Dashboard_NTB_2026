@@ -164,14 +164,17 @@
           <button class="tab-item" data-tab="tab-aging">
             <i data-lucide="alert-octagon"></i> 12. Aging & Treo LC
           </button>
+          <button class="tab-item" data-tab="tab-control">
+            <i data-lucide="qr-code"></i> 13. QR Code & Tiền Mặt
+          </button>
           <button class="tab-item" data-tab="tab-truythu">
-            <i data-lucide="shield-alert"></i> 13. Báo Cáo Truy Thu
+            <i data-lucide="shield-alert"></i> 14. Báo Cáo Truy Thu (2 Tuần)
           </button>
           <button class="tab-item" data-tab="tab-commercial">
-            <i data-lucide="trending-up"></i> 14. Kinh Doanh & F30
+            <i data-lucide="trending-up"></i> 15. Kinh Doanh & F30
           </button>
           <button class="tab-item" data-tab="tab-bc-canhbao" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(249, 115, 22, 0.12) 100%); border: 1.5px solid #ef4444; color: #dc2626; font-weight: 800; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2);">
-            <i data-lucide="alert-triangle" style="color: #dc2626;"></i> 15. BC Cảnh Báo (13 BC)
+            <i data-lucide="alert-triangle" style="color: #dc2626;"></i> 16. BC Cảnh Báo (13 BC)
           </button>
         </div>
 
@@ -2444,9 +2447,9 @@
     </div>
 
     <!-- ==================================================================== -->
-    <!-- TAB 11: COD TIỀN MẶT (4 SHEET GOOGLE SHEETS) -->
+    <!-- TAB 13: QR CODE & COD TIỀN MẶT (4 SHEET GOOGLE SHEETS) -->
     <!-- ==================================================================== -->
-    <div id="tab-control" class="tab-view" style="display: none !important;">
+    <div id="tab-control" class="tab-view">
       
       <!-- Action Banner -->
       <div class="exec-banner" style="border-left-color: var(--color-blue);">
@@ -2658,16 +2661,10 @@
           </div>
         </div>
       </div>
-              <tbody></tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
     </div>
 
     <!-- ==================================================================== -->
-    <!-- TAB 12: BÁO CÁO TRUY THU (OE-IA) -->
+    <!-- TAB 14: BÁO CÁO TRUY THU (SO SÁNH 2 TUẦN) -->
     <!-- ==================================================================== -->
     <div id="tab-truythu" class="tab-view">
       
@@ -2678,58 +2675,56 @@
             <i data-lucide="shield-alert" style="width: 24px; height: 24px;"></i>
           </div>
           <div class="exec-banner-text">
-            <h3>BÁO CÁO TRUY THU KHỐI LƯỢNG & TICKET VI PHẠM (OE-IA) | VÙNG NAM TRUNG BỘ</h3>
+            <h3 id="truythu-banner-title">BÁO CÁO TRUY THU – SO SÁNH BIẾN ĐỘNG 2 TUẦN (TUẦN N-1 vs TUẦN N) | VÙNG NAM TRUNG BỘ</h3>
             <p id="truythu-banner-p">
-              • <strong>Tổng quan toàn vùng W37:</strong> Tổng cộng <strong>5,033 bản ghi</strong> truy thu với số tiền ban đầu <strong>510.1 triệu VNĐ</strong> (Điều chỉnh: -335.4 triệu ➔ Cần truy thu thêm: <strong>174.7 triệu VNĐ</strong>).<br>
-              • <strong>Top AM nhiều Ticket:</strong> Anh Trần Văn Phước (1,342 ticket | 52.8 Tr), anh Lê Văn Trường (512 ticket | 31.4 Tr), anh Lê Thanh Nhựt (498 ticket | 22.1 Tr).<br>
-              • <strong>Top BC Giao cần thu thêm:</strong> (DNO) Kiến Đức, (LDO) Tân Hà Lâm Hà, (DNO) Quảng Tín.
+              Đang tải dữ liệu so sánh 2 tuần...
             </p>
           </div>
         </div>
         <div class="exec-banner-actions">
           <span id="truythu-banner-badge" class="badge-tag badge-tag-red" style="font-size: 12px; padding: 6px 12px;">
-            5,033 Bản Ghi | Cần Thu 174.7 Tr
+            -- Bản Ghi | Cần Thu -- Tr
           </span>
         </div>
       </div>
 
-      <!-- 4 KPI Cards -->
+      <!-- 4 KPI Comparison Tiles -->
       <div class="kpi-strip" style="margin-bottom: 20px;">
         <div class="kpi-tile kpi-blue">
-          <div class="kpi-tile-header">Tổng Đơn Truy Thu</div>
-          <div class="kpi-tile-value" id="truythu-kpi-records">5,033 <small>đơn</small></div>
-          <div class="kpi-tile-meta"><span class="diff-tag diff-neutral">Toàn bộ 5 tỉnh NTB</span></div>
+          <div class="kpi-tile-header" id="kpi-tt-rec-title">Tổng Đơn / Ticket Tuần N</div>
+          <div class="kpi-tile-value" id="truythu-kpi-records">-- <small>đơn</small></div>
+          <div class="kpi-tile-meta" id="truythu-kpi-records-meta"><span class="diff-tag diff-neutral">--</span></div>
         </div>
         <div class="kpi-tile kpi-amber">
-          <div class="kpi-tile-header">Tổng Tiền Ban Đầu</div>
-          <div class="kpi-tile-value" id="truythu-kpi-bandau">510.1 <small>Tr ₫</small></div>
-          <div class="kpi-tile-meta"><span class="diff-tag diff-neutral">Giá trị trước điều chỉnh</span></div>
+          <div class="kpi-tile-header" id="kpi-tt-bd-title">Tổng Tiền Ban Đầu Tuần N</div>
+          <div class="kpi-tile-value" id="truythu-kpi-bandau">-- <small>Tr ₫</small></div>
+          <div class="kpi-tile-meta" id="truythu-kpi-bandau-meta"><span class="diff-tag diff-neutral">--</span></div>
         </div>
         <div class="kpi-tile kpi-green">
-          <div class="kpi-tile-header">Tổng Tiền Điều Chỉnh</div>
-          <div class="kpi-tile-value" id="truythu-kpi-dieuchinh">-335.4 <small>Tr ₫</small></div>
-          <div class="kpi-tile-meta"><span class="diff-tag diff-down-good">Đã khấu trừ điều chỉnh</span></div>
+          <div class="kpi-tile-header" id="kpi-tt-dc-title">Tổng Điều Chỉnh Tuần N</div>
+          <div class="kpi-tile-value" id="truythu-kpi-dieuchinh">-- <small>Tr ₫</small></div>
+          <div class="kpi-tile-meta" id="truythu-kpi-dieuchinh-meta"><span class="diff-tag diff-down-good">--</span></div>
         </div>
         <div class="kpi-tile kpi-red">
-          <div class="kpi-tile-header">Cần Truy Thu Thêm</div>
-          <div class="kpi-tile-value" id="truythu-kpi-canthu">174.7 <small>Tr ₫</small></div>
-          <div class="kpi-tile-meta"><span class="diff-tag diff-up-bad">Số tiền thực tế phải thu</span></div>
+          <div class="kpi-tile-header" id="kpi-tt-ct-title">Cần Truy Thu Thêm Tuần N</div>
+          <div class="kpi-tile-value" id="truythu-kpi-canthu">-- <small>Tr ₫</small></div>
+          <div class="kpi-tile-meta" id="truythu-kpi-canthu-meta"><span class="diff-tag diff-up-bad">--</span></div>
         </div>
       </div>
 
       <!-- Segment Selector: 4 Truy Thu Views -->
       <div class="view-mode-bar" style="margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; background: var(--bg-surface); padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
         <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-          <span style="font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">CHỌN GÓC NHÌN TRUY THU:</span>
+          <span style="font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">CHỌN GÓC NHÌN SO SÁNH 2 TUẦN:</span>
           <div class="btn-group" id="truythu-segment-group">
             <button class="btn btn-sm btn-primary active" id="btn-tt-loai" onclick="setTruyThuSegment('loai')">
-              <i data-lucide="pie-chart" style="width: 14px; height: 14px;"></i> 📊 1. Phân Tích Theo Loại
-            </button>
-            <button class="btn btn-sm btn-secondary" id="btn-tt-bcgiao" onclick="setTruyThuSegment('bcgiao')">
-              <i data-lucide="truck" style="width: 14px; height: 14px;"></i> 🏆 2. Top BC Giao
+              <i data-lucide="pie-chart" style="width: 14px; height: 14px;"></i> 📊 1. So Sánh Loại Vi Phạm (2 Tuần)
             </button>
             <button class="btn btn-sm btn-secondary" id="btn-tt-amticket" onclick="setTruyThuSegment('amticket')">
-              <i data-lucide="users" style="width: 14px; height: 14px;"></i> 👤 3. Top AM Theo Ticket
+              <i data-lucide="users" style="width: 14px; height: 14px;"></i> 👥 2. So Sánh AM Phụ Trách (2 Tuần)
+            </button>
+            <button class="btn btn-sm btn-secondary" id="btn-tt-bcgiao" onclick="setTruyThuSegment('bcgiao')">
+              <i data-lucide="truck" style="width: 14px; height: 14px;"></i> 🏢 3. Top Bưu Cục & Tỉnh (2 Tuần)
             </button>
             <button class="btn btn-sm btn-secondary" id="btn-tt-bcticket" onclick="setTruyThuSegment('bcticket')">
               <i data-lucide="map-pin" style="width: 14px; height: 14px;"></i> 📍 4. BC Theo Ticket
@@ -2745,7 +2740,7 @@
             <div class="report-card-header">
               <div class="report-card-title">
                 <i data-lucide="table" style="color: var(--color-blue);"></i>
-                BẢNG PHÂN TÍCH THEO LOẠI TRUY THU
+                BẢNG SO SÁNH CÁC LOẠI TRUY THU (TUẦN N-1 vs TUẦN N)
               </div>
             </div>
             <div class="report-card-body">
@@ -2754,13 +2749,14 @@
                   <thead>
                     <tr style="background: #1e3a8a; color: #ffffff;">
                       <th style="color:#ffffff;">Loại Truy Thu</th>
-                      <th class="num" style="color:#ffffff;">Số Đơn</th>
-                      <th class="num" style="color:#ffffff;">Tiền Ban Đầu (VNĐ)</th>
-                      <th class="num" style="color:#ffffff;">Điều Chỉnh (VNĐ)</th>
-                      <th class="num" style="background: #dc2626; color:#ffffff; font-weight:800;">Cần Thu Thêm (VNĐ)</th>
-                      <th class="num" style="color:#ffffff;">% Tiền</th>
-                      <th class="num" style="color:#ffffff;">% Đơn</th>
-                      <th style="color:#ffffff;">Ghi Chú</th>
+                      <th class="num" style="color:#ffffff;" id="th-tt-loai-dp">Đơn N-1</th>
+                      <th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;" id="th-tt-loai-dc">Đơn N</th>
+                      <th class="num" style="color:#ffffff;">Biến Động Đơn</th>
+                      <th class="num" style="color:#ffffff;" id="th-tt-loai-cp">Cần Thu N-1</th>
+                      <th class="num" style="background: #dc2626; color:#ffffff; font-weight:800;" id="th-tt-loai-cc">Cần Thu N</th>
+                      <th class="num" style="color:#ffffff;">Biến Động (Tr ₫)</th>
+                      <th class="num" style="color:#ffffff;">% Biến Động</th>
+                      <th class="center" style="color:#ffffff;">Đánh Giá</th>
                     </tr>
                   </thead>
                   <tbody></tbody>
@@ -2772,12 +2768,13 @@
           <div class="report-card">
             <div class="report-card-header">
               <div class="report-card-title">
-                <i data-lucide="pie-chart" style="color: var(--color-red);"></i>
-                CƠ CẤU SỐ TIỀN CẦN TRUY THU THEO LOẠI VI PHẠM
+                <i data-lucide="bar-chart-3" style="color: var(--color-red);"></i>
+                SO SÁNH TIỀN CẦN TRUY THU THEO LOẠI VI PHẠM (TUẦN N-1 vs TUẦN N)
               </div>
+              <span class="badge-tag badge-tag-red">Cột Xám: Tuần N-1 | Cột Đỏ: Tuần N</span>
             </div>
             <div class="report-card-body">
-              <div class="chart-box" style="height: 380px;">
+              <div class="chart-box" style="height: 420px;">
                 <canvas id="chart-truythu-loai-bar"></canvas>
               </div>
             </div>
@@ -2785,16 +2782,44 @@
         </div>
       </div>
 
-      <!-- PANEL 2: TOP BC GIAO -->
+      <!-- PANEL 2: TOP BC GIAO & TỈNH -->
       <div id="truythu-panel-bcgiao" class="truythu-panel" style="display: none;">
+        <!-- So sánh theo Tỉnh -->
+        <div class="report-card" style="margin-bottom: 20px;">
+          <div class="report-card-header">
+            <div class="report-card-title">
+              <i data-lucide="map" style="color: var(--color-blue);"></i>
+              SO SÁNH TRUY THU THEO 5 TỈNH THÀNH (TUẦN N-1 vs TUẦN N)
+            </div>
+          </div>
+          <div class="report-card-body">
+            <div class="bi-table-wrap">
+              <table class="bi-table" id="table-truythu-by-province">
+                <thead>
+                  <tr style="background: #1e3a8a; color: #ffffff;">
+                    <th style="color:#ffffff;">Tỉnh / Thành Phố</th>
+                    <th class="num" style="color:#ffffff;">Đơn Tuần N-1</th>
+                    <th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Đơn Tuần N</th>
+                    <th class="num" style="color:#ffffff;">Biến Động Đơn</th>
+                    <th class="num" style="color:#ffffff;">Cần Thu N-1 (Tr ₫)</th>
+                    <th class="num" style="background: #dc2626; color:#ffffff; font-weight:800;">Cần Thu N (Tr ₫)</th>
+                    <th class="num" style="color:#ffffff;">Biến Động Tiền (Tr ₫)</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
         <!-- Chart Top 15 BC Giao -->
         <div class="report-card" style="margin-bottom: 20px;">
           <div class="report-card-header">
             <div class="report-card-title">
               <i data-lucide="bar-chart-3" style="color: var(--ghn-orange);"></i>
-              BIỂU ĐỒ TOP 15 BƯU CỤC GIAO – SỐ TIỀN CẦN THU (TRIỆU ₫), SỐ ĐƠN & % TỶ TRỌNG
+              BIỂU ĐỒ TOP 15 BƯU CỤC GIAO CẦN TRUY THU CAO NHẤT (TUẦN N-1 vs TUẦN N)
             </div>
-            <span class="badge-tag badge-tag-blue">Cột Cam: Tiền Cần Thu (Tr ₫) | Đường Xanh: Số Đơn | Nhãn: % Tỷ Trọng</span>
+            <span class="badge-tag badge-tag-blue">Cột Xám: N-1 (Tr ₫) | Cột Cam: Tuần N (Tr ₫)</span>
           </div>
           <div class="report-card-body">
             <div class="chart-box" style="height: 340px;">
@@ -2808,7 +2833,7 @@
           <div class="report-card-header">
             <div class="report-card-title">
               <i data-lucide="award" style="color: var(--ghn-orange);"></i>
-              CHI TIẾT 25 BƯU CỤC GIAO CÓ SỐ TIỀN CẦN TRUY THU NHIỀU NHẤT (LOẠI TRỪ LC & BẮN KIỂM)
+              TOP 25 BƯU CỤC GIAO CÓ SỐ TIỀN CẦN TRUY THU NHIỀU NHẤT (SO SÁNH 2 TUẦN)
             </div>
           </div>
           <div class="report-card-body">
@@ -2820,11 +2845,13 @@
                     <th style="color:#ffffff;">Bưu Cục Giao</th>
                     <th style="color:#ffffff;">AM Phụ Trách</th>
                     <th style="color:#ffffff;">Tỉnh / TP</th>
-                    <th class="num" style="color:#ffffff;">Số Đơn</th>
-                    <th class="num" style="color:#ffffff;">Tiền Ban Đầu (VNĐ)</th>
-                    <th class="num" style="color:#ffffff;">Điều Chỉnh (VNĐ)</th>
-                    <th class="num" style="background: #dc2626; color:#ffffff; font-weight:900;">Cần Thu Thêm (VNĐ)</th>
-                    <th class="num" style="color:#ffffff;">% Tỷ Trọng</th>
+                    <th class="num" style="color:#ffffff;">Đơn N-1</th>
+                    <th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Đơn N</th>
+                    <th class="num" style="color:#ffffff;">Biến Động Đơn</th>
+                    <th class="num" style="color:#ffffff;">Cần Thu N-1 (Tr ₫)</th>
+                    <th class="num" style="background: #dc2626; color:#ffffff; font-weight:900;">Cần Thu N (Tr ₫)</th>
+                    <th class="num" style="color:#ffffff;">Biến Động (Tr ₫)</th>
+                    <th class="num" style="color:#ffffff;">% Biến Động</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -2834,19 +2861,19 @@
         </div>
       </div>
 
-      <!-- PANEL 3: TOP AM THEO TICKET -->
+      <!-- PANEL 3: TOP AM THEO TICKET & TIỀN -->
       <div id="truythu-panel-amticket" class="truythu-panel" style="display: none;">
         <!-- Chart AM Dual Axis -->
         <div class="report-card" style="margin-bottom: 20px;">
           <div class="report-card-header">
             <div class="report-card-title">
               <i data-lucide="bar-chart-2" style="color: var(--color-blue);"></i>
-              BIỂU ĐỒ SO SÁNH SỐ LƯỢNG TICKET & SỐ TIỀN CẦN THU THÊM THEO AM
+              BIỂU ĐỒ SO SÁNH TIỀN CẦN THU VÀ SỐ TICKET THEO AM (TUẦN N-1 vs TUẦN N)
             </div>
-            <span class="badge-tag badge-tag-blue">Cột Xanh: Số Ticket | Đường Cam: Tiền Cần Thu (Tr ₫)</span>
+            <span class="badge-tag badge-tag-blue">Cột Xám: Tiền N-1 | Cột Đỏ: Tiền N | Đường: Ticket N</span>
           </div>
           <div class="report-card-body">
-            <div class="chart-box" style="height: 350px;">
+            <div class="chart-box" style="height: 380px;">
               <canvas id="chart-truythu-am-dual"></canvas>
             </div>
           </div>
@@ -2857,9 +2884,9 @@
           <div class="report-card-header">
             <div class="report-card-title">
               <i data-lucide="users" style="color: var(--color-blue);"></i>
-              XẾP HẠNG TOÀN BỘ AM THEO SỐ LƯỢNG TICKET VI PHẠM
+              BẢNG SO SÁNH TRUY THU THEO AM (TUẦN N-1 vs TUẦN N)
             </div>
-            <span class="badge-tag badge-tag-amber">Dữ Liệu Vận Hành AM</span>
+            <span class="badge-tag badge-tag-amber">Xếp hạng theo Tiền Cần Thu Tuần N</span>
           </div>
           <div class="report-card-body">
             <div class="bi-table-wrap">
@@ -2868,11 +2895,15 @@
                   <tr style="background: #1e3a8a; color: #ffffff;">
                     <th class="center" style="width: 44px; color:#ffffff;">#</th>
                     <th style="color:#ffffff;">AM Phụ Trách</th>
-                    <th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Số Lượng Ticket</th>
-                    <th class="num" style="color:#ffffff;">% Ticket</th>
-                    <th class="num" style="color:#ffffff;">Tiền Ban Đầu (VNĐ)</th>
-                    <th class="num" style="background: #dc2626; color:#ffffff; font-weight:900;">Cần Thu Thêm (VNĐ)</th>
-                    <th class="num" style="color:#ffffff;">% Tiền</th>
+                    <th class="num" style="color:#ffffff;">Ticket N-1</th>
+                    <th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Ticket N</th>
+                    <th class="num" style="color:#ffffff;">Biến Động Ticket</th>
+                    <th class="num" style="color:#ffffff;">Cần Thu N-1 (Tr ₫)</th>
+                    <th class="num" style="background: #dc2626; color:#ffffff; font-weight:900;">Cần Thu N (Tr ₫)</th>
+                    <th class="num" style="color:#ffffff;">Biến Động (Tr ₫)</th>
+                    <th class="num" style="color:#ffffff;">% Biến Động</th>
+                    <th class="center" style="color:#ffffff;">Mức Độ</th>
+                    <th style="color:#ffffff;">Bưu Cục Trọng Điểm</th>
                   </tr>
                 </thead>
                 <tbody></tbody>

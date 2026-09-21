@@ -6055,80 +6055,196 @@
 
   function renderTruyThuTab() {
     const report = D.truy_thu_report || {};
+    const summary = report.summary || {};
+    const prevLabel = summary.prev_label || 'Tuần N-1';
+    const currLabel = summary.curr_label || 'Tuần N';
 
-    // 0. UPDATE DYNAMIC KPI CARDS & BANNER
-    if (report.total_records) {
-      const elRecords = document.getElementById('truythu-kpi-records');
-      if (elRecords) elRecords.innerHTML = `${fNum(report.total_records)} <small>đơn</small>`;
-      const elBanDau = document.getElementById('truythu-kpi-bandau');
-      if (elBanDau) elBanDau.innerHTML = `${(report.total_ban_dau / 1e6).toFixed(1)} <small>Tr ₫</small>`;
-      const elDieuChinh = document.getElementById('truythu-kpi-dieuchinh');
-      if (elDieuChinh) elDieuChinh.innerHTML = `${(report.total_dieu_chinh / 1e6).toFixed(1)} <small>Tr ₫</small>`;
-      const elCanThu = document.getElementById('truythu-kpi-canthu');
-      if (elCanThu) elCanThu.innerHTML = `${(report.total_can_thu / 1e6).toFixed(1)} <small>Tr ₫</small>`;
-      const elBadge = document.getElementById('truythu-banner-badge');
-      if (elBadge) elBadge.textContent = `${fNum(report.total_records)} Bản Ghi | Cần Thu ${(report.total_can_thu / 1e6).toFixed(1)} Tr`;
+    // Update Banner
+    const bannerTitle = document.getElementById('truythu-banner-title');
+    if (bannerTitle) {
+      bannerTitle.textContent = `BÁO CÁO TRUY THU – SO SÁNH BIẾN ĐỘNG 2 TUẦN (${prevLabel} vs ${currLabel}) | VÙNG NAM TRUNG BỘ`;
     }
+    const bannerP = document.getElementById('truythu-banner-p');
+    if (bannerP && summary.banner_desc) {
+      bannerP.innerHTML = summary.banner_desc;
+    }
+    const bannerBadge = document.getElementById('truythu-banner-badge');
+    if (bannerBadge && summary.total_records_curr) {
+      bannerBadge.textContent = `${currLabel.split(' ')[0]}: ${fNum(summary.total_records_curr)} Bản Ghi | Cần Thu ${(summary.can_thu_curr / 1e6).toFixed(1)} Tr`;
+    }
+
+    // 4 KPI Comparison Tiles
+    if (summary.total_records_curr !== undefined) {
+      const elRec = document.getElementById('truythu-kpi-records');
+      const elRecMeta = document.getElementById('truythu-kpi-records-meta');
+      const elRecTitle = document.getElementById('kpi-tt-rec-title');
+      if (elRecTitle) elRecTitle.textContent = `Tổng Đơn / Ticket (${currLabel.split(' ')[0]})`;
+      if (elRec) elRec.innerHTML = `${fNum(summary.total_records_curr)} <small>đơn</small>`;
+      if (elRecMeta) {
+        const sign = summary.diff_records >= 0 ? '+' : '';
+        const isBad = summary.diff_records > 0;
+        elRecMeta.innerHTML = `<span class="diff-tag ${isBad ? 'diff-up-bad' : 'diff-down-good'}">${prevLabel.split(' ')[0]}: ${fNum(summary.total_records_prev)} (${sign}${fNum(summary.diff_records)} | ${summary.diff_records_pct})</span>`;
+      }
+
+      const elBd = document.getElementById('truythu-kpi-bandau');
+      const elBdMeta = document.getElementById('truythu-kpi-bandau-meta');
+      const elBdTitle = document.getElementById('kpi-tt-bd-title');
+      if (elBdTitle) elBdTitle.textContent = `Tổng Tiền Ban Đầu (${currLabel.split(' ')[0]})`;
+      if (elBd) elBd.innerHTML = `${(summary.ban_dau_curr / 1e6).toFixed(1)} <small>Tr ₫</small>`;
+      if (elBdMeta) {
+        const sign = summary.diff_ban_dau >= 0 ? '+' : '';
+        const isBad = summary.diff_ban_dau > 0;
+        elBdMeta.innerHTML = `<span class="diff-tag ${isBad ? 'diff-up-bad' : 'diff-neutral'}">${prevLabel.split(' ')[0]}: ${(summary.ban_dau_prev / 1e6).toFixed(1)} Tr (${sign}${(summary.diff_ban_dau / 1e6).toFixed(1)} Tr | ${summary.diff_ban_dau_pct})</span>`;
+      }
+
+      const elDc = document.getElementById('truythu-kpi-dieuchinh');
+      const elDcMeta = document.getElementById('truythu-kpi-dieuchinh-meta');
+      const elDcTitle = document.getElementById('kpi-tt-dc-title');
+      if (elDcTitle) elDcTitle.textContent = `Tổng Điều Chỉnh (${currLabel.split(' ')[0]})`;
+      if (elDc) elDc.innerHTML = `${(summary.dieu_chinh_curr / 1e6).toFixed(1)} <small>Tr ₫</small>`;
+      if (elDcMeta) {
+        const sign = summary.diff_dieu_chinh >= 0 ? '+' : '';
+        elDcMeta.innerHTML = `<span class="diff-tag diff-down-good">${prevLabel.split(' ')[0]}: ${(summary.dieu_chinh_prev / 1e6).toFixed(1)} Tr (${sign}${(summary.diff_dieu_chinh / 1e6).toFixed(1)} Tr)</span>`;
+      }
+
+      const elCt = document.getElementById('truythu-kpi-canthu');
+      const elCtMeta = document.getElementById('truythu-kpi-canthu-meta');
+      const elCtTitle = document.getElementById('kpi-tt-ct-title');
+      if (elCtTitle) elCtTitle.textContent = `Cần Truy Thu Thêm (${currLabel.split(' ')[0]})`;
+      if (elCt) elCt.innerHTML = `${(summary.can_thu_curr / 1e6).toFixed(1)} <small>Tr ₫</small>`;
+      if (elCtMeta) {
+        const sign = summary.diff_can_thu >= 0 ? '+' : '';
+        const isBad = summary.diff_can_thu > 0;
+        elCtMeta.innerHTML = `<span class="diff-tag ${isBad ? 'diff-up-bad' : 'diff-down-good'}">▲ Tăng ${sign}${(summary.diff_can_thu / 1e6).toFixed(1)} Tr (${summary.diff_can_thu_pct} so với N-1)</span>`;
+      }
+    }
+
+    // Dynamic Table Headers
+    const thLoaiDp = document.getElementById('th-tt-loai-dp');
+    const thLoaiDc = document.getElementById('th-tt-loai-dc');
+    const thLoaiCp = document.getElementById('th-tt-loai-cp');
+    const thLoaiCc = document.getElementById('th-tt-loai-cc');
+    if (thLoaiDp) thLoaiDp.textContent = `Đơn (${prevLabel.split(' ')[0]})`;
+    if (thLoaiDc) thLoaiDc.textContent = `Đơn (${currLabel.split(' ')[0]})`;
+    if (thLoaiCp) thLoaiCp.textContent = `Cần Thu (${prevLabel.split(' ')[0]})`;
+    if (thLoaiCc) thLoaiCc.textContent = `Cần Thu (${currLabel.split(' ')[0]})`;
 
     // 1. PANEL 1: THEO LOẠI TRUY THU
     const tblLoai = document.querySelector('#table-truythu-by-loai tbody');
     if (tblLoai && report.by_loai) {
       tblLoai.innerHTML = report.by_loai.map(r => {
-        let noteBadge = r.ghi_chu ? `<span class="badge-tag badge-tag-red" style="font-size:11px;">${r.ghi_chu}</span>` : '—';
+        const diffSign = r.diff_can_thu > 0 ? '+' : '';
+        const diffDonSign = r.diff_don > 0 ? '+' : '';
+        const isSpike = r.diff_can_thu >= 10e6;
+        let evalHtml = '—';
+        if (r.eval.includes('Tăng mạnh')) {
+          evalHtml = `<span class="badge-tag badge-tag-red" style="font-size:11px; font-weight:800;">🔴 Tăng mạnh</span>`;
+        } else if (r.eval.includes('Cảnh báo')) {
+          evalHtml = `<span class="badge-tag badge-tag-amber" style="font-size:11px;">⚠️ Tăng</span>`;
+        } else if (r.eval.includes('Giảm')) {
+          evalHtml = `<span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Giảm</span>`;
+        } else {
+          evalHtml = `<span class="badge-tag badge-tag-blue" style="font-size:11px;">${r.eval}</span>`;
+        }
+        if (r.ghi_chu) {
+          evalHtml += `<div style="font-size:10.5px; color:var(--text-muted); margin-top:2px;">${r.ghi_chu}</div>`;
+        }
+
         return `
-          <tr>
+          <tr style="${isSpike ? 'background: rgba(239, 68, 68, 0.05);' : ''}">
             <td class="bold" style="font-size:13px; font-weight:800;">${r.loai}</td>
-            <td class="num bold">${fNum(r.don)}</td>
-            <td class="num">${fMoney(r.ban_dau)}</td>
-            <td class="num bold" style="color: ${r.dieu_chinh < 0 ? '#dc2626' : (r.dieu_chinh > 0 ? '#16a34a' : 'inherit')};">${fMoney(r.dieu_chinh)}</td>
-            <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: #dc2626; font-size:13px; font-weight:900;">${fMoney(r.can_thu)}</td>
-            <td class="num bold" style="color: #dc2626;">${r.pct_tien}%</td>
-            <td class="num">${r.pct_don}%</td>
-            <td>${noteBadge}</td>
+            <td class="num">${fNum(r.don_prev)}</td>
+            <td class="num bold" style="background: rgba(2, 132, 199, 0.08); color: #0284c7; font-weight:900;">${fNum(r.don_curr)}</td>
+            <td class="num bold" style="color: ${r.diff_don > 0 ? '#dc2626' : (r.diff_don < 0 ? '#16a34a' : 'inherit')};">${diffDonSign}${fNum(r.diff_don)} (${r.pct_don_diff})</td>
+            <td class="num">${(r.can_thu_prev / 1e6).toFixed(1)} Tr</td>
+            <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: #dc2626; font-size:13px; font-weight:900;">${(r.can_thu_curr / 1e6).toFixed(1)} Tr</td>
+            <td class="num bold" style="color: ${r.diff_can_thu > 0 ? '#dc2626' : (r.diff_can_thu < 0 ? '#16a34a' : 'inherit')};">${diffSign}${(r.diff_can_thu / 1e6).toFixed(1)} Tr</td>
+            <td class="num bold" style="color: ${r.diff_can_thu > 0 ? '#dc2626' : (r.diff_can_thu < 0 ? '#16a34a' : 'inherit')};">${r.pct_can_thu_diff}</td>
+            <td class="center">${evalHtml}</td>
           </tr>
         `;
       }).join('');
     }
 
-    // 2. PANEL 2: TOP BC GIAO
+    // 2. PANEL 2: TOP BC GIAO & SO SÁNH TỈNH
+    const tblProv = document.querySelector('#table-truythu-by-province tbody');
+    if (tblProv && report.by_province) {
+      tblProv.innerHTML = report.by_province.map(r => {
+        const diffSign = r.diff_can_thu > 0 ? '+' : '';
+        const diffDonSign = r.diff_don > 0 ? '+' : '';
+        return `
+          <tr>
+            <td class="bold" style="font-size:13px; font-weight:800; color: var(--color-blue);">${r.tinh}</td>
+            <td class="num">${fNum(r.don_prev)}</td>
+            <td class="num bold" style="background: rgba(2, 132, 199, 0.08); color: #0284c7; font-weight:900;">${fNum(r.don_curr)}</td>
+            <td class="num bold" style="color: ${r.diff_don > 0 ? '#dc2626' : '#16a34a'};">${diffDonSign}${fNum(r.diff_don)}</td>
+            <td class="num">${(r.can_thu_prev / 1e6).toFixed(1)} Tr</td>
+            <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: #dc2626; font-size:13px; font-weight:900;">${(r.can_thu_curr / 1e6).toFixed(1)} Tr</td>
+            <td class="num bold" style="color: ${r.diff_can_thu > 0 ? '#dc2626' : '#16a34a'};">${diffSign}${(r.diff_can_thu / 1e6).toFixed(1)} Tr</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
     const tblBcGiao = document.querySelector('#table-truythu-top-bc-giao tbody');
-    if (tblBcGiao && report.top_bc_giao) {
+    if (tblBcGiao && report.top_bc) {
       const selectedAM = state.selectedAM;
-      tblBcGiao.innerHTML = report.top_bc_giao.map((r, i) => {
+      tblBcGiao.innerHTML = report.top_bc.map((r, i) => {
         const isSelected = selectedAM && selectedAM === r.am;
         const rowClass = isSelected ? 'presenter-laser-box' : '';
+        const diffSign = r.diff_can_thu > 0 ? '+' : '';
+        const diffDonSign = r.diff_don > 0 ? '+' : '';
         return `
           <tr data-entity="${r.am}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightAM('${r.am}')">
             <td class="center">${renderRankPill(i)}</td>
             <td class="bold" style="font-size:13px; font-weight:800;">${r.bc}</td>
             <td class="bold" style="color: var(--color-blue);">${r.am}</td>
             <td>${r.tinh}</td>
-            <td class="num bold">${fNum(r.don)}</td>
-            <td class="num">${fMoney(r.ban_dau)}</td>
-            <td class="num bold" style="color: ${r.dieu_chinh < 0 ? '#dc2626' : '#16a34a'};">${fMoney(r.dieu_chinh)}</td>
-            <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: #dc2626; font-size:13.5px; font-weight:900;">${fMoney(r.can_thu)}</td>
-            <td class="num bold">${r.pct}%</td>
+            <td class="num">${fNum(r.don_prev)}</td>
+            <td class="num bold" style="background: rgba(2, 132, 199, 0.08); color: #0284c7; font-weight:900;">${fNum(r.don_curr)}</td>
+            <td class="num bold" style="color: ${r.diff_don > 0 ? '#dc2626' : '#16a34a'};">${diffDonSign}${fNum(r.diff_don)}</td>
+            <td class="num">${(r.can_thu_prev / 1e6).toFixed(1)} Tr</td>
+            <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: #dc2626; font-size:13px; font-weight:900;">${(r.can_thu_curr / 1e6).toFixed(1)} Tr</td>
+            <td class="num bold" style="color: ${r.diff_can_thu > 0 ? '#dc2626' : '#16a34a'};">${diffSign}${(r.diff_can_thu / 1e6).toFixed(1)} Tr</td>
+            <td class="num bold">${r.pct_can_thu_diff}</td>
           </tr>
         `;
       }).join('');
     }
 
-    // 3. PANEL 3: TOP AM THEO TICKET
+    // 3. PANEL 3: TOP AM THEO TICKET & TIỀN
     const tblAm = document.querySelector('#table-truythu-top-am tbody');
-    if (tblAm && report.top_am_ticket) {
+    if (tblAm && report.by_am) {
       const selectedAM = state.selectedAM;
-      tblAm.innerHTML = report.top_am_ticket.map((r, i) => {
+      tblAm.innerHTML = report.by_am.map((r, i) => {
         const isSelected = selectedAM === r.am;
         const rowClass = isSelected ? 'presenter-laser-box' : '';
+        const diffSign = r.diff_can_thu > 0 ? '+' : '';
+        const diffTkSign = r.diff_ticket > 0 ? '+' : '';
+        let levelBadge = '—';
+        if (r.level.includes('Rất cao')) {
+          levelBadge = `<span class="badge-tag badge-tag-red" style="font-size:11px; font-weight:800;">🔴 Rất cao</span>`;
+        } else if (r.level.includes('kiểm soát')) {
+          levelBadge = `<span class="badge-tag badge-tag-amber" style="font-size:11px;">🟡 Cần kiểm soát</span>`;
+        } else if (r.level.includes('ticket')) {
+          levelBadge = `<span class="badge-tag badge-tag-amber" style="font-size:11px;">⚠️ Nhiều ticket</span>`;
+        } else {
+          levelBadge = `<span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Tốt</span>`;
+        }
+
         return `
           <tr data-entity="${r.am}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightAM('${r.am}')">
             <td class="center">${renderRankPill(i)}</td>
             <td class="bold" style="font-size:13px; font-weight:800; color:${isSelected ? '#ef4444' : 'inherit'};">${r.am}</td>
-            <td class="num bold" style="background: rgba(2, 132, 199, 0.08); color: #0369a1; font-size:13.5px; font-weight:900;">${fNum(r.ticket)}</td>
-            <td class="num bold">${r.pct_ticket}%</td>
-            <td class="num">${fMoney(r.ban_dau)}</td>
-            <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: #dc2626; font-size:13.5px; font-weight:900;">${fMoney(r.can_thu)}</td>
-            <td class="num bold" style="color: #dc2626;">${r.pct_tien}%</td>
+            <td class="num">${fNum(r.ticket_prev)}</td>
+            <td class="num bold" style="background: rgba(2, 132, 199, 0.08); color: #0369a1; font-size:13.5px; font-weight:900;">${fNum(r.ticket_curr)}</td>
+            <td class="num bold" style="color: ${r.diff_ticket > 0 ? '#dc2626' : '#16a34a'};">${diffTkSign}${fNum(r.diff_ticket)} (${r.pct_ticket_diff})</td>
+            <td class="num">${(r.can_thu_prev / 1e6).toFixed(1)} Tr</td>
+            <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: #dc2626; font-size:13.5px; font-weight:900;">${(r.can_thu_curr / 1e6).toFixed(1)} Tr</td>
+            <td class="num bold" style="color: ${r.diff_can_thu > 0 ? '#dc2626' : '#16a34a'};">${diffSign}${(r.diff_can_thu / 1e6).toFixed(1)} Tr</td>
+            <td class="num bold">${r.pct_can_thu_diff}</td>
+            <td class="center">${levelBadge}</td>
+            <td style="font-size: 11.5px; color: var(--text-muted);">${r.top_bc_culprit}</td>
           </tr>
         `;
       }).join('');
@@ -6136,9 +6252,10 @@
 
     // 4. PANEL 4: TOP BC THEO TICKET
     const tblBcTk = document.querySelector('#table-truythu-bc-ticket tbody');
-    if (tblBcTk && report.top_bc_ticket) {
+    if (tblBcTk && report.top_bc) {
       const selectedAM = state.selectedAM;
-      tblBcTk.innerHTML = report.top_bc_ticket.map((r, i) => {
+      const sortedByTicket = [...report.top_bc].sort((a, b) => b.don_curr - a.don_curr);
+      tblBcTk.innerHTML = sortedByTicket.map((r, i) => {
         const isSelected = selectedAM && selectedAM === r.am;
         const rowClass = isSelected ? 'presenter-laser-box' : '';
         return `
@@ -6147,9 +6264,9 @@
             <td class="bold" style="font-size:13px; font-weight:800;">${r.bc}</td>
             <td class="bold" style="color: var(--color-blue);">${r.am}</td>
             <td>${r.tinh}</td>
-            <td class="num bold" style="background: rgba(2, 132, 199, 0.08); color: #0369a1; font-size:13.5px; font-weight:900;">${fNum(r.ticket)}</td>
-            <td class="num bold">${r.pct_ticket}%</td>
-            <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: #dc2626; font-size:13.5px; font-weight:900;">${fMoney(r.can_thu)}</td>
+            <td class="num bold" style="background: rgba(2, 132, 199, 0.08); color: #0369a1; font-size:13.5px; font-weight:900;">${fNum(r.don_curr)}</td>
+            <td class="num bold">${((r.don_curr / (summary.total_records_curr || 1)) * 100).toFixed(1)}%</td>
+            <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: #dc2626; font-size:13.5px; font-weight:900;">${(r.can_thu_curr / 1e6).toFixed(1)} Tr ₫</td>
           </tr>
         `;
       }).join('');
@@ -6162,28 +6279,51 @@
     if (charts.truyThuLoaiBar) charts.truyThuLoaiBar.destroy();
 
     const report = D.truy_thu_report || {};
-    const types = (report.by_loai || []).slice(0, 6);
-    if (types.length === 0) return;
+    const summary = report.summary || {};
+    const prevLabel = summary.prev_label ? summary.prev_label.split(' ')[0] : 'Tuần N-1';
+    const currLabel = summary.curr_label ? summary.curr_label.split(' ')[0] : 'Tuần N';
+
+    const top8 = (report.by_loai || []).slice(0, 8);
+    if (top8.length === 0) return;
 
     charts.truyThuLoaiBar = new Chart(ctx, {
-      type: 'doughnut',
+      type: 'bar',
       data: {
-        labels: types.map(d => d.loai),
+        labels: top8.map(d => d.loai.length > 22 ? d.loai.substring(0, 20) + '...' : d.loai),
         datasets: [
           {
-            data: types.map(d => Math.round((d.can_thu || 0) / 1e6)),
-            backgroundColor: ['#ef4444', '#f59e0b', '#3b82f6', '#8b5cf6', '#10b981', '#64748b']
+            label: `${prevLabel} (Tr ₫)`,
+            data: top8.map(d => Number(((d.can_thu_prev || 0) / 1e6).toFixed(1))),
+            backgroundColor: '#94a3b8',
+            borderRadius: 4
+          },
+          {
+            label: `${currLabel} (Tr ₫)`,
+            data: top8.map(d => Number(((d.can_thu_curr || 0) / 1e6).toFixed(1))),
+            backgroundColor: '#ef4444',
+            borderRadius: 4
           }
         ]
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        layout: { padding: { top: 25, bottom: 8 } },
+        scales: {
+          y: {
+            min: 0,
+            ticks: { callback: v => fNum(v) + ' Tr' },
+            title: { display: true, text: 'Tiền Cần Thu (Triệu VNĐ)', font: { weight: '700', size: 11 } }
+          },
+          x: {
+            ticks: { maxRotation: 40, minRotation: 20, font: { size: 10.5, weight: '700' } }
+          }
+        },
         plugins: {
-          legend: { position: 'bottom' },
+          legend: { position: 'top' },
           tooltip: {
             callbacks: {
-              label: c => ` ${c.label}: ${fNum(c.parsed)} Triệu VNĐ (${types[c.dataIndex].pct_tien}%)`
+              label: c => ` ${c.dataset.label}: ${fNum(c.parsed.y)} Triệu VNĐ`
             }
           }
         }
@@ -6197,94 +6337,53 @@
     if (charts.truyThuBcGiaoBar) charts.truyThuBcGiaoBar.destroy();
 
     const report = D.truy_thu_report || {};
-    const top15 = (report.top_bc_giao || []).slice(0, 15);
-    if (top15.length === 0) return;
+    const summary = report.summary || {};
+    const prevLabel = summary.prev_label ? summary.prev_label.split(' ')[0] : 'Tuần N-1';
+    const currLabel = summary.curr_label ? summary.curr_label.split(' ')[0] : 'Tuần N';
 
-    const selectedAM = state.selectedAM;
+    const top12 = (report.top_bc || []).slice(0, 12);
+    if (top12.length === 0) return;
 
     charts.truyThuBcGiaoBar = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: top15.map(d => d.bc),
+        labels: top12.map(d => d.bc.replace('(KHO) ', '').replace('(LDO) ', '').replace('(DNO) ', '').replace('(BTH) ', '')),
         datasets: [
           {
-            type: 'bar',
-            label: 'Cần Truy Thu Thêm (Triệu ₫)',
-            data: top15.map(d => Math.round((d.can_thu || 0) / 1e6)),
-            backgroundColor: top15.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#ea580c'),
-            borderColor: top15.map(d => selectedAM && selectedAM === d.am ? '#b91c1c' : 'transparent'),
-            borderWidth: top15.map(d => selectedAM && selectedAM === d.am ? 2 : 0),
-            borderRadius: 4,
-            yAxisID: 'y',
-            datalabels: {
-              anchor: 'end',
-              align: 'top',
-              color: '#c2410c',
-              font: { weight: '800', size: 10 },
-              formatter: (v, ctx) => `${v} Tr (${top15[ctx.dataIndex].pct}%)`
-            }
+            label: `${prevLabel} (Tr ₫)`,
+            data: top12.map(d => Number(((d.can_thu_prev || 0) / 1e6).toFixed(1))),
+            backgroundColor: '#94a3b8',
+            borderRadius: 4
           },
           {
-            type: 'line',
-            label: 'Số Đơn Vi Phạm (đơn)',
-            data: top15.map(d => d.don),
-            borderColor: '#0284c7',
-            backgroundColor: '#0284c7',
-            borderWidth: 2.5,
-            tension: 0.2,
-            pointRadius: 4.5,
-            pointHoverRadius: 6.5,
-            yAxisID: 'y1',
-            datalabels: {
-              anchor: 'start',
-              align: 'bottom',
-              color: '#0369a1',
-              font: { weight: '700', size: 9.5 },
-              formatter: v => `${fNum(v)} đ`
-            }
+            label: `${currLabel} (Tr ₫)`,
+            data: top12.map(d => Number(((d.can_thu_curr || 0) / 1e6).toFixed(1))),
+            backgroundColor: '#f97316',
+            borderRadius: 4
           }
         ]
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        layout: { padding: { top: 28, bottom: 8 } },
+        layout: { padding: { top: 25, bottom: 8 } },
         scales: {
           y: {
-            type: 'linear',
-            position: 'left',
             min: 0,
-            ticks: { callback: v => v + ' Tr' },
-            title: { display: true, text: 'Số Tiền Cần Thu (Triệu VNĐ)', font: { weight: '700', size: 11 }, color: '#ea580c' },
-            grid: { color: 'rgba(0,0,0,0.06)' }
-          },
-          y1: {
-            type: 'linear',
-            position: 'right',
-            min: 0,
-            title: { display: true, text: 'Số Đơn Vi Phạm (đơn)', font: { weight: '700', size: 11 }, color: '#0284c7' },
-            grid: { drawOnChartArea: false }
+            ticks: { callback: v => fNum(v) + ' Tr' },
+            title: { display: true, text: 'Tiền Cần Thu (Triệu VNĐ)', font: { weight: '700', size: 11 } }
           },
           x: {
-            ticks: { maxRotation: 45, minRotation: 25, font: { size: 10, weight: '700' } },
-            grid: { display: false }
+            ticks: { maxRotation: 40, minRotation: 20, font: { size: 10.5, weight: '700' } }
           }
         },
         plugins: {
           legend: { position: 'top' },
           tooltip: {
             callbacks: {
-              title: c => ` 📍 ${top15[c[0].dataIndex].bc} — AM: ${top15[c[0].dataIndex].am} (${top15[c[0].dataIndex].tinh})`,
-              label: c => {
-                if (c.dataset.type === 'line') return ` 📦 Số đơn vi phạm: ${fNum(c.parsed.y)} đơn`;
-                return ` 💰 Cần thu thêm: ${fNum(c.parsed.y)} Triệu VNĐ (${fMoney(top15[c.dataIndex].can_thu)}) | Tỷ trọng: ${top15[c.dataIndex].pct}% toàn vùng`;
-              }
+              title: c => ` ${top12[c[0].dataIndex].bc} (AM: ${top12[c[0].dataIndex].am})`,
+              label: c => ` ${c.dataset.label}: ${fNum(c.parsed.y)} Triệu VNĐ`
             }
-          }
-        },
-        onClick: (event, elements) => {
-          if (elements.length > 0) {
-            selectAndHighlightAM(top15[elements[0].index].am);
           }
         }
       }
@@ -6297,36 +6396,43 @@
     if (charts.truyThuAmDual) charts.truyThuAmDual.destroy();
 
     const report = D.truy_thu_report || {};
-    const topAMs = (report.top_am_ticket || []).slice(0, 15);
-    if (topAMs.length === 0) return;
+    const summary = report.summary || {};
+    const prevLabel = summary.prev_label ? summary.prev_label.split(' ')[0] : 'Tuần N-1';
+    const currLabel = summary.curr_label ? summary.curr_label.split(' ')[0] : 'Tuần N';
 
-    const selectedAM = state.selectedAM;
+    const top10 = (report.by_am || []).slice(0, 10);
+    if (top10.length === 0) return;
 
     charts.truyThuAmDual = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: topAMs.map(d => d.am),
+        labels: top10.map(d => d.am),
         datasets: [
           {
             type: 'bar',
-            label: 'Số Lượng Ticket Vi Phạm',
-            data: topAMs.map(d => d.ticket),
-            backgroundColor: topAMs.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#0284c7'),
-            borderColor: topAMs.map(d => selectedAM && selectedAM === d.am ? '#b91c1c' : 'transparent'),
-            borderWidth: topAMs.map(d => selectedAM && selectedAM === d.am ? 2 : 0),
+            label: `Tiền Cần Thu ${prevLabel} (Tr ₫)`,
+            data: top10.map(d => Number(((d.can_thu_prev || 0) / 1e6).toFixed(1))),
+            backgroundColor: '#94a3b8',
+            borderRadius: 4,
+            yAxisID: 'y'
+          },
+          {
+            type: 'bar',
+            label: `Tiền Cần Thu ${currLabel} (Tr ₫)`,
+            data: top10.map(d => Number(((d.can_thu_curr || 0) / 1e6).toFixed(1))),
+            backgroundColor: '#ea580c',
             borderRadius: 4,
             yAxisID: 'y'
           },
           {
             type: 'line',
-            label: 'Tiền Cần Thu Thêm (Triệu ₫)',
-            data: topAMs.map(d => Math.round((d.can_thu || 0) / 1e6)),
-            borderColor: '#ea580c',
-            backgroundColor: '#ea580c',
-            borderWidth: 3,
+            label: `Số Ticket ${currLabel}`,
+            data: top10.map(d => d.ticket_curr),
+            borderColor: '#0284c7',
+            backgroundColor: '#0284c7',
+            borderWidth: 2.5,
             tension: 0.2,
-            pointRadius: 5,
-            pointHoverRadius: 7,
+            pointRadius: 4.5,
             yAxisID: 'y1'
           }
         ]
@@ -6334,25 +6440,25 @@
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        layout: { padding: { top: 20, bottom: 8 } },
+        layout: { padding: { top: 25, bottom: 8 } },
         scales: {
           y: {
             type: 'linear',
             position: 'left',
             min: 0,
-            title: { display: true, text: 'Số Lượng Ticket', font: { weight: '700', size: 11 }, color: '#0284c7' },
+            ticks: { callback: v => fNum(v) + ' Tr' },
+            title: { display: true, text: 'Tiền Cần Thu (Triệu VNĐ)', font: { weight: '700', size: 11 }, color: '#ea580c' },
             grid: { color: 'rgba(0,0,0,0.06)' }
           },
           y1: {
             type: 'linear',
             position: 'right',
             min: 0,
-            title: { display: true, text: 'Tiền Cần Thu (Triệu VNĐ)', font: { weight: '700', size: 11 }, color: '#ea580c' },
+            title: { display: true, text: 'Số Lượng Ticket Vi Phạm', font: { weight: '700', size: 11 }, color: '#0284c7' },
             grid: { drawOnChartArea: false }
           },
           x: {
-            ticks: { maxRotation: 45, minRotation: 25, font: { size: 11, weight: '700' } },
-            grid: { display: false }
+            ticks: { maxRotation: 40, minRotation: 20, font: { size: 10.5, weight: '700' } }
           }
         },
         plugins: {
@@ -6360,15 +6466,15 @@
           tooltip: {
             callbacks: {
               label: c => {
-                if (c.dataset.type === 'line') return ` Cần thu thêm: ${fNum(c.parsed.y)} Triệu VNĐ (${fMoney(topAMs[c.dataIndex].can_thu)})`;
-                return ` Số Ticket: ${fNum(c.parsed.y)} ticket (${topAMs[c.dataIndex].pct_ticket}%)`;
+                if (c.dataset.type === 'line') return ` Số Ticket (${currLabel}): ${fNum(c.parsed.y)} ticket`;
+                return ` ${c.dataset.label}: ${fNum(c.parsed.y)} Triệu VNĐ`;
               }
             }
           }
         },
         onClick: (event, elements) => {
           if (elements.length > 0) {
-            selectAndHighlightAM(topAMs[elements[0].index].am);
+            selectAndHighlightAM(top10[elements[0].index].am);
           }
         }
       }
@@ -6381,7 +6487,7 @@
     if (charts.truyThuBcTicketBar) charts.truyThuBcTicketBar.destroy();
 
     const report = D.truy_thu_report || {};
-    const top15 = (report.top_bc_ticket || []).slice(0, 15);
+    const top15 = [...(report.top_bc || [])].sort((a, b) => b.don_curr - a.don_curr).slice(0, 15);
     if (top15.length === 0) return;
 
     const selectedAM = state.selectedAM;
@@ -6389,11 +6495,11 @@
     charts.truyThuBcTicketBar = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: top15.map(d => d.bc),
+        labels: top15.map(d => d.bc.replace('(KHO) ', '').replace('(LDO) ', '').replace('(DNO) ', '').replace('(BTH) ', '')),
         datasets: [
           {
-            label: 'Số Lượng Ticket',
-            data: top15.map(d => d.ticket),
+            label: 'Số Lượng Ticket Tuần N',
+            data: top15.map(d => d.don_curr),
             backgroundColor: top15.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#dc2626'),
             borderColor: top15.map(d => selectedAM && selectedAM === d.am ? '#991b1b' : 'transparent'),
             borderWidth: top15.map(d => selectedAM && selectedAM === d.am ? 2 : 0),
@@ -6408,7 +6514,7 @@
         scales: {
           y: {
             min: 0,
-            title: { display: true, text: 'Số Ticket Vi Phạm', font: { weight: '700', size: 11 } },
+            title: { display: true, text: 'Số Ticket Vi Phạm (Tuần N)', font: { weight: '700', size: 11 } },
             grid: { color: 'rgba(0,0,0,0.06)' }
           },
           x: {
@@ -6421,7 +6527,7 @@
           tooltip: {
             callbacks: {
               title: c => ` ${top15[c[0].dataIndex].bc} (AM: ${top15[c[0].dataIndex].am})`,
-              label: c => ` Số Ticket: ${fNum(c.parsed.y)} ticket (${top15[c.dataIndex].pct_ticket}% toàn vùng)`
+              label: c => ` Số Ticket: ${fNum(c.parsed.y)} ticket`
             }
           }
         },

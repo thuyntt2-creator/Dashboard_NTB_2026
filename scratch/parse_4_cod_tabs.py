@@ -25,16 +25,16 @@ if len(rows1) >= 4 and len(rows1[3]) >= 3:
     curr_period = rows1[3][2].strip()
 
 metrics_list = []
-if len(rows1) >= 8:
-    for r in rows1[4:8]:
-        if len(r) >= 6:
+if len(rows1) >= 5:
+    for r in rows1[4:]:
+        if len(r) >= 6 and r[0].strip():
             metrics_list.append({
-                "chi_so": r[0],
-                "prev": r[1],
-                "curr": r[2],
-                "diff_val": r[3],
-                "diff_pct": r[4],
-                "eval": r[5]
+                "chi_so": r[0].strip(),
+                "prev": r[1].strip(),
+                "curr": r[2].strip(),
+                "diff_val": r[3].strip(),
+                "diff_pct": r[4].strip(),
+                "eval": r[5].strip()
             })
 
 # 2. TAB 2: AM So Sánh 2 Tuần
