@@ -1,0 +1,368 @@
+================ BANNER 1 (Line 215) ================
+<div class="exec-banner">
+        <div class="exec-banner-content">
+          <div class="exec-banner-icon">
+            <i data-lucide="alert-circle" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="exec-banner-text">
+            <h3 id="banner-overview-title">TỔNG HỢP TRỌNG TÂM HỌP TUẦN W38 — VÙNG NAM TRUNG BỘ</h3>
+            <p id="banner-overview-summary">
+              • <strong>Sản lượng Giao Full Hàng:</strong> Đạt <strong>345,994 đơn</strong> (Tuần W38 kết thúc 20/09/2026, -11,255 đơn / -3.2% WoW so với W37: 357,249 đơn).<br>
+              • <strong>Sản lượng TikTok Shop (TTS):</strong> Đạt <strong>69,274 đơn</strong> (tăng <strong>+555 đơn / +0.8% WoW</strong> so với W37), chiếm 20.0% tổng sản lượng toàn vùng.<br>
+              • <strong>Chất lượng vận hành:</strong> %ODR Full hàng đạt <strong>91.2%</strong>, %ODR TTS đạt <strong>90.8%</strong>, %LTC đạt <strong>90.4%</strong>. Tỷ lệ Rớt LC <strong>3.32%</strong>. Tỷ lệ %FD Hoàn Trả <strong>6.28%</strong>.<br>
+              • <strong>Truy Thu & COD W38:</strong> Tiền Cần Truy Thu phát sinh <strong>282.4 Tr ₫</strong> (tăng +241.0 Tr ₫ WoW), Tỷ lệ tiền mặt COD đạt <strong>43.1%</strong> (tăng +3.0%p WoW).
+            </p>
+          </div>
+        </div>
+        <div class="exec-banner-actions">
+          <span class="badge-tag badge-tag-amber" style="font-size: 12px; padding: 6px 12px;">
+            <i data-lucide="target"></i> Mục tiêu W38: GTC ≥ 60%
+          </span>
+        </div>
+      </div>
+
+
+================ BANNER 2 (Line 406) ================
+<div class="exec-banner" style="border-left-color: var(--color-blue);">
+        <div class="exec-banner-content">
+          <div class="exec-banner-icon" style="background: rgba(37, 99, 235, 0.2); color: var(--color-blue);">
+            <i data-lucide="package" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="exec-banner-text">
+            <h3 id="banner-volume-title">PHÂN TÍCH SẢN LƯỢNG GIAO TOÀN VÙNG, 5 TỈNH THÀNH & 18 AM</h3>
+            <p id="banner-volume-summary">
+              • <strong>Sản lượng Toàn Mạng (W37):</strong> Full hàng đạt <strong>357,249 đơn</strong> (tăng <strong>+49,412 đơn / +16.1% WoW</strong> so với W36). Phân khúc TikTok Shop (TTS) đạt <strong>68,719 đơn</strong> (tăng <strong>+5,597 đơn / +8.9% WoW</strong>), chiếm tỷ trọng <strong>19.2%</strong> tổng sản lượng vùng.<br>
+              • <strong>Theo 5 Tỉnh:</strong> Cả 5 tỉnh đều tăng trưởng sản lượng tuần W37 — Bình Thuận (107.5k đơn), Khánh Hòa (89.1k đơn), Lâm Đồng (92.5k đơn), Ninh Thuận (42.4k đơn), Đắk Nông (25.7k đơn).<br>
+              • <strong>Biến động AM:</strong> AM Thái Thị Thanh Thư dẫn đầu tăng trưởng (+6,990 đơn Full), tiếp theo là Nguyễn Duy Long (+6,938 đơn), Lê Văn Trường (+5,814 đơn).
+            </p>
+          </div>
+        </div>
+        <div class="exec-banner-actions">
+          <span class="badge-tag badge-tag-blue" id="banner-volume-badge" style="font-size: 12px; padding: 6px 12px;">
+            Full: 357.2k đơn | TTS: 68.7k đơn
+          </span>
+        </div>
+      </div>
+
+
+================ BANNER 3 (Line 613) ================
+<div class="exec-banner" style="border-left-color: var(--color-blue);">
+        <div class="exec-banner-content">
+          <div class="exec-banner-icon" style="background: rgba(37, 99, 235, 0.2); color: var(--color-blue);">
+            <i data-lucide="check-circle-2" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="exec-banner-text">
+            <h3>PHÂN TÍCH HIỆU SUẤT %GTC TỔNG TOÀN MẠNG THEO 18 AM & 5 TỈNH</h3>
+            <p id="gtc-tong-banner-summary">
+              • <strong>%GTC Tổng Toàn Vùng:</strong> Full hàng đạt <strong>57.78%</strong> (-0.36% WoW); Phân khúc TTS đạt <strong>55.91%</strong> (-1.04% WoW).<br>
+              • <strong>Top AM dẫn đầu:</strong> <strong>Nguyễn Ngọc Khánh (74.9%)</strong>, <strong>Cao Thị Thanh Thủy (68.7%)</strong>, <strong>Nguyễn Thị Tuyết Thơ (68.4%)</strong>, <strong>Nguyễn Duy Long (67.8%)</strong>.<br>
+              • <strong>Bứt phá tăng trưởng WoW:</strong> <strong>Huỳnh Thúc Duân</strong> tăng mạnh nhất +6.4% (lên 48.1%); <strong>Lê Minh Lợi</strong> tăng +4.2% (lên 37.0%); <strong>Nguyễn Ngọc Khánh</strong> tăng +3.2% (lên 74.9%); <strong>Trương Quang Linh</strong> tăng +3.1% (lên 18.4%).<br>
+              • <strong>Nhóm AM cần cải thiện GTC:</strong> <strong>Trương Quang Linh (18.4%)</strong>, <strong>Trầm Hữu Tiến (30.0%)</strong>, <strong>Lê Minh Lợi (37.0%)</strong>, <strong>Nguyễn Thanh Long (46.9%)</strong>, <strong>Lê Văn Trường (47.8%)</strong>.
+            </p>
+          </div>
+        </div>
+        <div class="exec-banner-actions">
+          <span class="badge-tag badge-tag-blue" style="font-size: 12px; padding: 6px 12px;">
+            Target %GTC Tổng ≥ 60.0%
+          </span>
+        </div>
+      </div>
+
+
+================ BANNER 4 (Line 892) ================
+<div class="exec-banner" style="border-left-color: var(--color-amber);">
+        <div class="exec-banner-content">
+          <div class="exec-banner-icon" style="background: rgba(245, 158, 11, 0.2); color: var(--color-amber);">
+            <i data-lucide="award" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="exec-banner-text">
+            <h3>PHÂN TÍCH CHUYÊN SÂU %GTC CA 1 TIKTOK SHOP (TARGET SLA ≥ 76.0%)</h3>
+            <p id="banner-gtc-ca1-summary">
+              • <strong>Toàn Vùng TTS Ca 1:</strong> Đạt <strong>73.07%</strong> (giảm <strong>-1.71%p WoW</strong> so với 74.78% W36). Có <strong>7/18 AM</strong> đạt chuẩn xanh SLA ≥76.0%.<br>
+              • <strong>Top AM Dẫn Đầu Vùng (≥76%):</strong> <strong>Nguyễn Ngọc Khánh (86.5%)</strong>, <strong>Nguyễn Lê Nguyên Vũ (83.8%)</strong>, <strong>Nguyễn Duy Long (82.5%)</strong>, <strong>Cao Thị Thanh Thủy (81.8%)</strong>, <strong>Nguyễn Thị Tuyết Thơ (81.5%)</strong>, <strong>Lê Thanh Nhựt (80.8%)</strong>, <strong>Thái Thị Thanh Thư (80.0%)</strong>.<br>
+              • <strong>Bứt Phá Tăng Trưởng Ca 1:</strong> <strong>Trương Quang Linh</strong> tăng mạnh nhất <strong>+11.4%p</strong> (từ 32.6% lên <strong>43.9%</strong>); <strong>Huỳnh Thúc Duân</strong> tăng <strong>+7.3%p</strong> (lên <strong>62.1%</strong>); <strong>Lê Minh Lợi</strong> (+4.6%p lên <strong>49.5%</strong>).<br>
+              • <strong>Nhóm AM Cần Thúc Đẩy Ca 1:</strong> <strong>Nguyễn Thanh Long (57.8% / giảm sâu -12.9%p)</strong>, <strong>Phan Đình Duy (65.2% / giảm -7.3%p)</strong>, <strong>Lê Văn Trường (59.8% / giảm -4.3%p)</strong>, <strong>Trầm Hữu Tiến (41.0% / giảm -2.4%p)</strong>.
+            </p>
+          </div>
+        </div>
+        <div class="exec-banner-actions">
+          <span class="badge-tag badge-tag-amber" style="font-size: 12px; padding: 6px 12px;">
+            Target Chuẩn Xanh ≥ 76.0%
+          </span>
+        </div>
+      </div>
+
+
+================ BANNER 5 (Line 988) ================
+<div class="exec-banner" style="border-left-color: var(--color-purple);">
+        <div class="exec-banner-content">
+          <div class="exec-banner-icon" style="background: rgba(168, 85, 247, 0.2); color: var(--color-purple);">
+            <i data-lucide="user-check" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="exec-banner-text">
+            <h3>TỶ LỆ GÁN VẬN HÀNH TOÀN MẠNG THEO CA 1, CA 2 & GÁN TỔNG (TARGET ≥ 90.0%)</h3>
+            <p>
+              • <strong>Gán Tổng (Ca1+Ca2+Tồn):</strong> Full hàng đạt <strong>82.8%</strong> (-0.7%p WoW); TTS đạt <strong>82.4%</strong> (-1.0%p WoW so với 83.4% W36).<br>
+              • <strong>Gán Ca 1 + Tồn:</strong> Full hàng đạt <strong>89.0%</strong> (-0.3%p WoW); TTS đạt <strong>88.4%</strong> (-0.6%p WoW so với 89.0% W36).<br>
+              • <strong>Gán Ca 2:</strong> Full hàng đạt <strong>55.7%</strong> (-4.5%p WoW); TTS đạt <strong>51.9%</strong> (-5.8%p WoW so với 57.7% W36).<br>
+              • <strong>Điểm nhấn 18 AM:</strong> Top Gán Tổng cao nhất: <strong>Nguyễn Thị Tuyết Thơ (95.3%)</strong>, <strong>Thái Thị Thanh Thư (94.2%)</strong>, <strong>Nguyễn Ngọc Khánh (93.6%)</strong>, <strong>Nguyễn Duy Long (91.0%)</strong>, <strong>Cao Thị Thanh Thủy (90.7%)</strong>. Cần thúc đẩy: <strong>Trương Quang Linh (38.2%)</strong>, <strong>Trầm Hữu Tiến (59.9%)</strong>, <strong>Lê Văn Trường (68.3%)</strong>.
+            </p>
+          </div>
+        </div>
+        <div class="exec-banner-actions">
+          <span class="badge-tag badge-tag-purple" style="font-size: 12px; padding: 6px 12px;">
+            Target Gán Tổng ≥ 90.0%
+          </span>
+        </div>
+      </div>
+
+
+================ BANNER 6 (Line 1138) ================
+<div class="exec-banner" style="border-left-color: var(--color-green);">
+        <div class="exec-banner-content">
+          <div class="exec-banner-icon" style="background: rgba(16, 185, 129, 0.2); color: var(--color-green);">
+            <i data-lucide="clock" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="exec-banner-text">
+            <h3>PHÂN TÍCH HIỆU SUẤT %ODR (GIAO ĐÚNG HẸN SLA) TOÀN VÙNG (TARGET ≥ 92.0%)</h3>
+            <p>
+              • <strong>Toàn Vùng W37:</strong> Full Hàng đạt <strong>93.9%</strong> (+1.0%p WoW so với W36: 92.9%) và TTS đạt <strong>92.8%</strong> (+0.4%p WoW so với W36: 92.4%). Cả Full Hàng và TikTok Shop đều duy trì vững trên chuẩn xanh SLA ≥ 92.0%.<br>
+              • <strong>Top AM Xuất Sắc:</strong> <strong>Thái Thị Thanh Thư (97.5%)</strong>, <strong>Nguyễn Ngọc Khánh (96.8%)</strong>, <strong>Cao Thị Thanh Thủy (96.7%)</strong>, <strong>Nguyễn Duy Long (96.7%)</strong>, <strong>Nguyễn Lê Nguyên Vũ (96.3%)</strong>.<br>
+              • <strong>Điểm Nhấn Bứt Phá & Lưu Ý:</strong> <strong>Trương Quang Linh</strong> bứt phá ngoạn mục (<strong>+21.3%p</strong> lên <strong>81.7%</strong>); <strong>Trầm Hữu Tiến (71.5%)</strong>, <strong>Lê Minh Lợi (73.5%)</strong>, <strong>Lê Văn Trường (86.5%)</strong> cần tập trung xả tồn tránh trễ SLA.
+            </p>
+          </div>
+        </div>
+        <div class="exec-banner-actions">
+          <span class="badge-tag badge-tag-green" style="font-size: 12px; padding: 6px 12px;">
+            Target ODR ≥ 92.0%
+          </span>
+        </div>
+      </div>
+
+
+================ BANNER 7 (Line 1362) ================
+<div class="exec-banner" style="border-left-color: var(--color-blue);">
+        <div class="exec-banner-content">
+          <div class="exec-banner-icon" style="background: rgba(37, 99, 235, 0.2); color: var(--color-blue);">
+            <i data-lucide="archive" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="exec-banner-text">
+            <h3>PHÂN TÍCH CHỈ SỐ %LTC (LẤY THÀNH CÔNG) THEO 18 AM & 5 TỈNH (TARGET ≥ 90.0%)</h3>
+            <p>
+              • <strong>Toàn Vùng:</strong> Đạt <strong>90.5%</strong>. Duy trì vượt chuẩn SLA ≥90.0%.<br>
+              • <strong>Top AM Dẫn Đầu:</strong> <strong>Nguyễn Lê Nguyên Vũ (96.4%)</strong>, <strong>Phan Đình Duy (95.8%)</strong>.<br>
+              • <strong>Bứt Phá Lấy Hàng:</strong> Nhiều AM giữ vững phong độ lấy hàng chuẩn giờ cam kết.
+            </p>
+          </div>
+        </div>
+        <div class="exec-banner-actions">
+          <span class="badge-tag badge-tag-blue" style="font-size: 12px; padding: 6px 12px;">
+            Target LTC ≥ 90.0%
+          </span>
+        </div>
+      </div>
+
+
+================ BANNER 8 (Line 1470) ================
+<div class="exec-banner" style="border-left-color: #ef4444;">
+        <div class="exec-banner-content">
+          <div class="exec-banner-icon" style="background: rgba(239, 68, 68, 0.15); color: #ef4444;">
+            <i data-lucide="sun-moon" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="exec-banner-text">
+            <h3>PHÂN TÍCH CHỈ SỐ %OPR TIKTOK SHOP TOÀN VÙNG (TARGET KPI ≥ 80.0%)</h3>
+            <p>
+              • <strong>Toàn Vùng (Tổng):</strong> Đạt <strong>78.1%</strong> (+1.2%p WoW so với W36: 76.9%) — Tiệm cận sát mục tiêu KPI ≥ 80.0% (chỉ còn cách -1.9%p).<br>
+              • <strong>Top AM Chưa Đạt KPI gây rớt đơn OPR nhiều nhất:</strong> <strong>Hồng Bích Nga (65.1% / rớt 297 đơn - 15.5%)</strong>, <strong>Nguyễn Hoàng Phi (51.2% / rớt 236 đơn - 12.3%)</strong>, <strong>Lê Văn Trường (42.2% / rớt 193 đơn - 10.0%)</strong>, <strong>Nguyễn Thị Tuyết Thơ (69.0% / rớt 144 đơn - 7.5%)</strong>, <strong>Lê Thanh Nhựt (79.2% / rớt 142 đơn - 7.4%)</strong>, <strong>Trần Thị Nhung (34.3% / rớt 92 đơn - 4.8%)</strong>.<br>
+              • <strong>Nhóm Đạt KPI Vững Chắc (≥80.0%):</strong> <strong>Nguyễn Lê Nguyên Vũ (89.6%)</strong>, <strong>Cao Thị Thanh Thủy (88.4%)</strong>, <strong>Thái Thị Thanh Thư (88.3% — bứt phá ngoạn mục +13.6%p)</strong>, <strong>Nguyễn Duy Long (87.5%)</strong>, <strong>Nguyễn Ngọc Khánh (85.0%)</strong>, <strong>Huỳnh Thị Kim Chi (80.0%)</strong>.<br>
+              • <strong>Khung Giờ Ngày vs Đêm:</strong> Ca Ngày (9h–19h) đạt <strong>87.8%</strong> (3.944/4.492 đơn đạt); Ca Đêm (19h–9h) đạt <strong>67.9%</strong> (tăng vọt <strong>+6.5%p WoW</strong> so với 61.4% W36; số đơn trễ giảm xuống còn 1.373 đơn).
+            </p>
+          </div>
+        </div>
+        <div class="exec-banner-actions">
+          <span class="badge-tag badge-tag-red" style="font-size: 12px; padding: 6px 12px; font-weight:800;">
+            Target OPR KPI ≥ 80.0%
+          </span>
+        </div>
+      </div>
+
+
+================ BANNER 9 (Line 1621) ================
+<div class="exec-banner" style="border-left-color: var(--color-red); margin-bottom: 20px;">
+        <div class="exec-banner-content">
+          <div class="exec-banner-icon" style="background: rgba(239, 68, 68, 0.15); color: #ef4444;">
+            <i data-lucide="alert-triangle" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="exec-banner-text">
+            <h3>PHÂN TÍCH TỶ TRỌNG RỚT ĐƠN LUÂN CHUYỂN THEO AM & TỈNH THÀNH (W38)</h3>
+            <p>
+              • <strong>Tổng đơn rớt toàn vùng W37:</strong> Tỷ lệ rớt đạt <strong>1.80%</strong> (giảm <strong>-0.45% WoW</strong> so với 2.25% W36, xu hướng cải thiện tích cực).<br>
+              • <strong>Top 4 AM chiếm 77.0% lượng rớt toàn vùng:</strong> <strong>Hồng Bích Nga (63 đơn - 32.1%)</strong>, <strong>Nguyễn Duy Long (35 đơn - 17.9%)</strong>, <strong>Trần Thị Nhung (31 đơn - 15.8%)</strong>, <strong>Huỳnh Thúc Duân (22 đơn - 11.2%)</strong>. Riêng 4 AM này đã chiếm tới 151 / 196 đơn rớt của cả Vùng NTB.<br>
+              • <strong>Theo Tỉnh thành:</strong> <strong>Lâm Đồng</strong> chiếm <strong>40.8%</strong> (80 đơn) và <strong>Đắk Nông</strong> chiếm <strong>28.6%</strong> (56 đơn) tổng đơn rớt toàn vùng.
+            </p>
+          </div>
+        </div>
+        <div class="exec-banner-actions">
+          <span class="badge-tag badge-tag-red" style="font-size: 12px; padding: 6px 12px;">
+            Tổng rớt: 252 đơn
+          </span>
+        </div>
+      </div>
+
+
+================ BANNER 10 (Line 1763) ================
+<div class="exec-banner" style="border-left-color: #8b5cf6;">
+        <div class="exec-banner-content">
+          <div class="exec-banner-icon" style="background: rgba(139, 92, 246, 0.15); color: #8b5cf6;">
+            <i data-lucide="rotate-ccw" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="exec-banner-text">
+            <h3>BÁO CÁO TỶ LỆ %FD (RETURN / HOÀN TRẢ) — VÙNG NAM TRUNG BỘ (W37)</h3>
+            <p>
+              Chu kỳ W37 (07/09 – 13/09/2026) &nbsp;|&nbsp; So sánh biến động WoW với tuần trước (W36) &nbsp;|&nbsp; Tách riêng Full Hàng và TikTok Shop
+            </p>
+          </div>
+        </div>
+        <div class="exec-banner-meta">
+          <span class="badge-tag badge-tag-purple" style="font-weight: 800;">Target Toàn Vùng ≤ 6.0%</span>
+          <span class="badge-tag badge-tag-blue">84 Bưu Cục / 18 AM</span>
+        </div>
+      </div>
+
+
+================ BANNER 11 (Line 1945) ================
+<div class="exec-banner" style="border-left-color: #0284c7;">
+        <div class="exec-banner-content">
+          <div class="exec-banner-icon" style="background: rgba(2, 132, 199, 0.15); color: #0284c7;">
+            <i data-lucide="truck" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="exec-banner-text">
+            <h2 style="margin: 0; font-size: 16px; font-weight: 800; color: var(--text-main);">
+              BÁO CÁO ĐIỀU HÀNH KTC & VẬN TẢI — VÙNG NAM TRUNG BỘ (W37)
+            </h2>
+            <p style="margin: 4px 0 0 0; font-size: 12.5px; color: var(--text-muted); line-height: 1.5;">
+              • <strong>Backlog KTC:</strong> Toàn mạng ghi nhận <strong>16,207 đơn</strong> luân chuyển, trong đó <strong>381 đơn treo trên 36h</strong> chưa đóng kiện (tập trung tại KTC Khánh Hòa do AM Nguyễn Tiến Lực quản lý).<br>
+              • <strong>Leadtime KTC/KCT:</strong> Thời gian nhận xuất trung bình đạt <strong>3.31h</strong> (P50: 2.24h, P95: 7.09h); Tỷ lệ tồn >12h đạt <strong>2.1%</strong> (662 đơn), tồn >24h chỉ <strong>0.1%</strong> (46 đơn).<br>
+              • <strong>Tỷ Lệ Lấp Đầy Thùng / Xe:</strong> Daily (06/09) đạt <strong>56.2%</strong> (+0.7%p vs 05/09; 82 chuyến). Tổng hợp Tuần W37 đạt <strong>54.8%</strong> (551 chuyến, 80 chuyến &lt;30% – tăng <strong>+6.7%p WoW</strong> so với W36: 48.1%).
+            </p>
+          </div>
+        </div>
+        <div class="exec-banner-meta">
+          <span class="badge-tag badge-tag-blue" style="font-weight: 800;">5 KTC/KCT Trọng Điểm</span>
+          <span class="badge-tag badge-tag-amber">Cập nhật lúc 21:24</span>
+        </div>
+      </div>
+
+
+================ BANNER 12 (Line 2284) ================
+<div class="exec-banner" style="border-left-color: var(--color-red);">
+        <div class="exec-banner-content">
+          <div class="exec-banner-icon" style="background: rgba(239, 68, 68, 0.2); color: var(--color-red);">
+            <i data-lucide="alert-octagon" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="exec-banner-text">
+            <h3 id="aging-banner-title">ĐIỀU HÀNH XỬ LÝ HÀNG AGING TỒN ĐỌNG & TREO LUÂN CHUYỂN</h3>
+            <p id="aging-banner-desc">
+              • <strong>Aging Tồn Kho (>3 ngày):</strong> Toàn vùng ghi nhận <strong>4.373 đơn</strong> (5–8 ngày: 1.535 đ / 35,1%; 8–15 ngày: 1.280 đ / 29,3%; >15 ngày: <strong>1.558 đ / 35,6%</strong>). Đắk Nông (1.207 đ) và Lâm Đồng (1.181 đ) chiếm 54,6% tổng lượng Aging toàn vùng.<br>
+              • <strong>Top AM Tồn Aging nhiều nhất:</strong> Lê Văn Trường (610 đ / 26,1%), Trương Quang Linh (562 đ / 24,0%), Hồng Bích Nga (529 đ / 22,6%), Trầm Hữu Tiến (259 đ / 11,1%).<br>
+              • <strong>Hàng Treo Luân Chuyển (>3 ngày):</strong> Ghi nhận <strong>1.417 đơn</strong> tại 25 bưu cục. Top 3 điểm nghẽn lớn nhất: BC Kiến Đức (168 đ), BC Tân Hà Lâm Hà (124 đ), BC Quảng Tín (98 đ).
+            </p>
+          </div>
+        </div>
+        <div class="exec-banner-actions">
+          <span class="badge-tag badge-tag-red" id="aging-badge-summary" style="font-size: 12px; padding: 6px 12px;">
+            Aging: 4.373 đơn | Treo LC: 1.417 đơn (25 Bưu Cục)
+          </span>
+        </div>
+      </div>
+
+
+================ BANNER 13 (Line 2455) ================
+<div class="exec-banner" style="border-left-color: var(--color-blue);">
+        <div class="exec-banner-content">
+          <div class="exec-banner-icon" style="background: rgba(2, 132, 199, 0.2); color: #0284c7;">
+            <i data-lucide="wallet" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="exec-banner-text">
+            <h3 id="cod-banner-title">BÁO CÁO COD – SO SÁNH BIẾN ĐỘNG 2 TUẦN | VÙNG NTB</h3>
+            <p id="cod-summary-banner-desc">
+              Đang tải dữ liệu COD...
+            </p>
+          </div>
+        </div>
+        <div class="exec-banner-actions">
+          <span class="badge-tag badge-tag-amber" id="cod-summary-banner-badge" style="font-size: 12px; padding: 6px 12px;">
+            Tổng COD: -- Tr | % TM: --%
+          </span>
+        </div>
+      </div>
+
+
+================ BANNER 14 (Line 2672) ================
+<div class="exec-banner" style="border-left-color: var(--color-red);">
+        <div class="exec-banner-content">
+          <div class="exec-banner-icon" style="background: rgba(239, 68, 68, 0.2); color: var(--color-red);">
+            <i data-lucide="shield-alert" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="exec-banner-text">
+            <h3 id="truythu-banner-title">BÁO CÁO TRUY THU – SO SÁNH BIẾN ĐỘNG 2 TUẦN (TUẦN N-1 vs TUẦN N) | VÙNG NAM TRUNG BỘ</h3>
+            <p id="truythu-banner-p">
+              Đang tải dữ liệu so sánh 2 tuần...
+            </p>
+          </div>
+        </div>
+        <div class="exec-banner-actions">
+          <span id="truythu-banner-badge" class="badge-tag badge-tag-red" style="font-size: 12px; padding: 6px 12px;">
+            -- Bản Ghi | Cần Thu -- Tr
+          </span>
+        </div>
+      </div>
+
+
+================ BANNER 15 (Line 2972) ================
+<div class="exec-banner" style="border-left-color: var(--color-green);">
+        <div class="exec-banner-content">
+          <div class="exec-banner-icon" style="background: rgba(16, 185, 129, 0.2); color: var(--color-green);">
+            <i data-lucide="trending-up" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="exec-banner-text">
+            <h3>PHÂN TÍCH DOANH THU KINH DOANH & TĂNG TRƯỞNG KHÁCH HÀNG MỚI (F30) | VÙNG NAM TRUNG BỘ</h3>
+            <p>
+              • <strong>Doanh Thu Toàn Vùng W37 (6–12/9):</strong> Đạt <strong>947.4 triệu VNĐ</strong> (Kỳ 30/8–5/9: 1,073.2 triệu ➔ Giảm <strong>-125.8 triệu VNĐ / -11.7%</strong>).<br>
+              • <strong>Top AM Doanh Thu Lớn Nhất:</strong> Anh Phan Đình Duy (421.9 Tr - 44.5%), chị Thái Thị Thanh Thư (105.0 Tr - 11.1%), anh Nguyễn Duy Long (85.6 Tr - 9.0%), anh Nguyễn Lê Nguyên Vũ (47.7 Tr - 5.0%).<br>
+              • <strong>Khách Hàng Mới (F30):</strong> Đạt <strong>93 shop mới</strong> (Kỳ trước: 95 shop ➔ Giảm <strong>-2 shop / -2.1%</strong> | Doanh thu F30: <strong>6.2 triệu ₫</strong>). Top KH mới: Thái Thị Thanh Thư (18 shop), Phan Đình Duy (16 shop), Nguyễn Duy Long (14 shop).
+            </p>
+          </div>
+        </div>
+        <div class="exec-banner-actions">
+          <span class="badge-tag badge-tag-green" style="font-size: 12px; padding: 6px 12px;">
+            Doanh Thu: 947.4 Tr (-11.7%) | 93 Shop F30
+          </span>
+        </div>
+      </div>
+
+
+================ BANNER 16 (Line 3288) ================
+<div class="exec-banner" style="border-left: 5px solid #dc2626; border-top: 1px solid #fee2e2; border-right: 1px solid #fee2e2; border-bottom: 1px solid #fee2e2; background: #ffffff; box-shadow: 0 4px 14px rgba(220, 38, 38, 0.08); border-radius: 10px; padding: 18px 24px; margin-bottom: 20px;">
+        <div class="exec-banner-content" style="display: flex; align-items: flex-start; gap: 16px;">
+          <div class="exec-banner-icon" style="background: #fef2f2; color: #dc2626; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid #fecaca;">
+            <i data-lucide="alert-triangle" style="width: 24px; height: 24px;"></i>
+          </div>
+          <div class="exec-banner-text" style="flex: 1;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+              <h3 style="color: #991b1b; font-size: 16px; font-weight: 800; margin: 0; display: flex; align-items: center; gap: 8px;">
+                ĐIỀU HÀNH TRỌNG ĐIỂM: 13 BƯU CỤC TRONG DIỆN CẢNH BÁO BẤT ỔN (%GTC &lt; 45% HOẶC &lt; 70% LỊCH SỬ)
+              </h3>
+              <a href="https://docs.google.com/spreadsheets/d/1lmQv8KwHJzDFs_RMz64ydu4SOmG3M1YAzILNFGtzFec/edit?gid=250113221#gid=250113221" target="_blank" class="btn btn-sm" style="background: #dc2626; color: #ffffff; font-weight: 700; padding: 6px 14px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border-radius: 6px; font-size: 12px; box-shadow: 0 2px 6px rgba(220,38,38,0.25);">
+                <i data-lucide="external-link" style="width: 13px; height: 13px;"></i> Mở Google Sheets Gốc
+              </a>
+            </div>
+            <p style="color: #1e293b; font-size: 13px; line-height: 1.65; margin: 0;">
+              • <strong style="color: #b45309;">Tiêu chí phân loại cảnh báo:</strong> (1) %GTC 7 ngày gần nhất &lt; 45% (10 bưu cục), hoặc (2) %GTC &lt; 70% so với mốc kỷ lục tốt nhất lịch sử của bưu cục (3 bưu cục).<br>
+              • <strong style="color: #b91c1c;">Top điểm nóng nguy hiểm cần giải cứu khẩn cấp:</strong> <strong>(DNO) Quảng Tín</strong> (%GTC: <strong>18.1%</strong> | Cảnh báo <strong>100 ngày</strong> | Backlog <strong>1.224</strong> đơn | &gt;5N: <strong>490</strong> đơn), <strong>(LDO) Đức Trọng 1</strong> (<strong>20.1%</strong> | Cảnh báo <strong>84 ngày</strong> | Backlog <strong>1.223</strong> đơn), <strong>(DNO) Kiến Đức</strong> (<strong>29.9%</strong> | Cảnh báo <strong>80 ngày</strong> | Backlog <strong>1.035</strong> đơn), <strong>(LDO) Xuân Hương - Đà Lạt</strong> (<strong>30.2%</strong> / <strong>-21.4% WoW</strong> | Backlog <strong>2.165</strong> đơn | &gt;5N: <strong>310</strong> đơn), <strong>(KHO) Cam Linh</strong> (<strong>30.7%</strong> | Cảnh báo <strong>108 ngày</strong> | Backlog <strong>2.433</strong> đơn).
+            </p>
+          </div>
+        </div>
+      </div>
+
+

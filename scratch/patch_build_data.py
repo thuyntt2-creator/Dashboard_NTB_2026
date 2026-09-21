@@ -1,210 +1,454 @@
-import sys
-import openpyxl
-import json
-import os
-
-sys.stdout.reconfigure(encoding='utf-8')
+import re
 
 with open('build_data_js.py', 'r', encoding='utf-8') as f:
-    code = f.read()
+    content = f.read()
 
-# 1. Update 12_FD parsing
-# We map AM codes from 12_FD to full AM names and build proper schema
-am_name_map = {
-    'AM Linh': 'Trương Quang Linh',
-    'AM Lợi': 'Trần Tấn Lợi',
-    'AM Duân': 'Huỳnh Thúc Duân',
-    'AM Long': 'Nguyễn Tiến Long',
-    'AM Nhung': 'Trần Thị Nhung',
-    'AM Tiến': 'Nguyễn Hữu Tiến',
-    'AM Duy': 'Phan Đình Duy',
-    'AM Phi': 'Nguyễn Hoàng Phi',
-    'AM Trường': 'Lê Văn Trường',
-    'AM Nga': 'Hồng Bích Nga',
-    'AM Thư': 'Thái Thị Thanh Thư',
-    'AM D.Long': 'Nguyễn Duy Long',
-    'AM Chi': 'Lê Thị Kim Chi',
-    'AM Thơ': 'Nguyễn Thị Tuyết Thơ',
-    'AM Thủy': 'Cao Thị Thanh Thủy',
-    'AM Vũ': 'Nguyễn Lê Nguyên Vũ',
-    'AM Nhựt': 'Lê Thanh Nhựt',
-    'AM Khánh': 'Nguyễn Văn Khánh'
-}
+# 1. Update parse_san_luong_sheet compatibility block
+old_sl_block = """                # Compatibility fallbacks
+                item['w32'] = w_vals[0]
+                item['w33'] = w_vals[0]
+                item['w34'] = w_vals[0] if weeks[0] == 'W34' else (w_vals[1] if weeks[1] == 'W34' else w_vals[0])
+                item['w35'] = w_vals[1] if weeks[1] == 'W35' else (w_vals[2] if weeks[2] == 'W35' else w_vals[1])
+                item['w36'] = w_vals[2] if weeks[2] == 'W36' else (w_vals[3] if len(weeks) > 3 and weeks[3] == 'W36' else w_vals[2])
+                item['w37'] = w_vals[3] if len(weeks) > 3 and weeks[3] == 'W37' else w_vals[-1]
+                items.append(item)"""
 
-# Find fd parsing block in build_data_js.py
-fd_block_start = code.find("# 12_FD")
-fd_block_end = code.find("# 10_KinhDoanh_TongQuan", fd_block_start)
-if fd_block_end == -1:
-    fd_block_end = code.find("data['fd'] = fd_data", fd_block_start) + len("data['fd'] = fd_data\n")
+new_sl_block = """                for idx, w in enumerate(weeks):
+                    item[w.lower()] = w_vals[idx] if idx < len(w_vals) else 0
+                item['w35'] = item.get('w35', w_vals[0] if len(w_vals) > 0 else 0)
+                item['w36'] = item.get('w36', w_vals[1] if len(w_vals) > 1 else 0)
+                item['w37'] = item.get('w37', w_vals[2] if len(w_vals) > 2 else 0)
+                item['w38'] = item.get('w38', w_vals[3] if len(w_vals) > 3 else 0)
+                item['w34'] = item.get('w34', w_vals[0] if len(w_vals) > 0 else 0)
+                items.append(item)"""
 
-print(f"FD block found: {fd_block_start} to {fd_block_end}")
+assert old_sl_block in content, "old_sl_block not found in build_data_js.py"
+content = content.replace(old_sl_block, new_sl_block, 1)
 
-new_fd_code = '''# 12_FD
-if '12_FD' in wb.sheetnames:
-    ws_fd = wb['12_FD']
-    total_vol = ws_fd.cell(6, 2).value or 364067
-    ret_vol = ws_fd.cell(7, 2).value or 24518
-    rate_full = ws_fd.cell(8, 2).value or 0.06734
-    
-    # Previous week reference (W36)
-    rate_full_prev = 0.0754
-    rate_tts_prev = 0.0680
-    vol_tts = 68719
-    rate_tts = 0.0610
-    ret_tts = int(vol_tts * rate_tts)
+# 2. Update parse_standard_sheet overview & extract_rows
+old_std_ov = """            for idx, k in enumerate(w_keys):
+                ov[k] = w_vals[idx]
+            ov['w32'] = w_vals[0]
+            ov['w33'] = w_vals[0]
+            ov['w34'] = w_vals[0] if weeks[0] == 'W34' else w_vals[1]
+            ov['w35'] = w_vals[1] if weeks[1] == 'W35' else w_vals[2]
+            ov['w36'] = w_vals[2] if weeks[2] == 'W36' else w_vals[3]
+            ov['w37'] = w_vals[3] if len(weeks) > 3 else w_vals[-1]
+            overview.append(ov)"""
 
-    fd_summary = {
-        'vol_full': total_vol,
-        'ret_full': ret_vol,
-        'rate_full': rate_full,
-        'vol_tts': vol_tts,
-        'ret_tts': ret_tts,
-        'rate_tts': rate_tts,
-        'rate_full_prev': rate_full_prev,
-        'rate_tts_prev': rate_tts_prev,
-        'diff_full': rate_full - rate_full_prev,
-        'diff_tts': rate_tts - rate_tts_prev,
-        'diff': rate_full - rate_full_prev,
-        'total_orders': total_vol,
-        'return_orders': ret_vol,
-        'bc_count': ws_fd.cell(9, 2).value or 94,
-        'am_count': 18
-    }
+new_std_ov = """            for idx, w in enumerate(weeks):
+                ov[w.lower()] = w_vals[idx] if idx < len(w_vals) else 0
+            ov['w35'] = ov.get('w35', w_vals[0] if len(w_vals) > 0 else 0)
+            ov['w36'] = ov.get('w36', w_vals[1] if len(w_vals) > 1 else 0)
+            ov['w37'] = ov.get('w37', w_vals[2] if len(w_vals) > 2 else 0)
+            ov['w38'] = ov.get('w38', w_vals[3] if len(w_vals) > 3 else 0)
+            ov['w34'] = ov.get('w34', w_vals[0] if len(w_vals) > 0 else 0)
+            overview.append(ov)"""
 
-    am_name_map = {
-        'AM Linh': 'Trương Quang Linh', 'AM Lợi': 'Trần Tấn Lợi', 'AM Duân': 'Huỳnh Thúc Duân',
-        'AM Long': 'Nguyễn Tiến Long', 'AM Nhung': 'Trần Thị Nhung', 'AM Tiến': 'Nguyễn Hữu Tiến',
-        'AM Duy': 'Phan Đình Duy', 'AM Phi': 'Nguyễn Hoàng Phi', 'AM Trường': 'Lê Văn Trường',
-        'AM Nga': 'Hồng Bích Nga', 'AM Thư': 'Thái Thị Thanh Thư', 'AM D.Long': 'Nguyễn Duy Long',
-        'AM Chi': 'Lê Thị Kim Chi', 'AM Thơ': 'Nguyễn Thị Tuyết Thơ', 'AM Thủy': 'Cao Thị Thanh Thủy',
-        'AM Vũ': 'Nguyễn Lê Nguyên Vũ', 'AM Nhựt': 'Lê Thanh Nhựt', 'AM Khánh': 'Nguyễn Văn Khánh'
-    }
+assert old_std_ov in content, "old_std_ov not found in build_data_js.py"
+content = content.replace(old_std_ov, new_std_ov, 1)
 
-    top_bc_list = []
-    for r in range(14, 25):
-        stt = ws_fd.cell(r, 1).value
-        bc = ws_fd.cell(r, 2).value
-        if bc and str(bc).strip() not in ['None', '']:
-            v = ws_fd.cell(r, 4).value or 0
-            ret = ws_fd.cell(r, 5).value or 0
-            rate = ws_fd.cell(r, 6).value or 0
-            sh = ws_fd.cell(r, 7).value or 0
-            am_c = str(ws_fd.cell(r, 3).value or '').strip()
-            top_bc_list.append({
-                'stt': stt,
-                'bc': str(bc).strip(),
-                'am': am_name_map.get(am_c, am_c),
-                'am_code': am_c,
-                'vol': v,
-                'ret': ret,
-                'rate': rate,
-                'share_ret': sh,
-                'total_orders': v,
-                'return_orders': ret,
-                'rate_fd': rate,
-                'share_return': sh
-            })
+old_std_rows = """                for idx, k in enumerate(w_keys):
+                    item[k] = w_vals[idx]
+                item['w32'] = w_vals[0]
+                item['w33'] = w_vals[0]
+                item['w34'] = w_vals[0] if weeks[0] == 'W34' else w_vals[1]
+                item['w35'] = w_vals[1] if weeks[1] == 'W35' else w_vals[2]
+                item['w36'] = w_vals[2] if weeks[2] == 'W36' else w_vals[3]
+                item['w37'] = w_vals[3] if len(weeks) > 3 else w_vals[-1]
+                items.append(item)"""
 
-    am_list = []
-    for r in range(28, 46):
-        stt = ws_fd.cell(r, 1).value
-        am_c = str(ws_fd.cell(r, 2).value or '').strip()
-        if am_c and am_c not in ['None', '']:
-            v_full = ws_fd.cell(r, 3).value or 0
-            ret_f = ws_fd.cell(r, 4).value or 0
-            rate_f = ws_fd.cell(r, 5).value or 0
-            sh_ret = ws_fd.cell(r, 6).value or 0
-            sh_vol = ws_fd.cell(r, 7).value or 0
-            full_am_name = am_name_map.get(am_c, am_c)
-            # Estimate TTS metrics
-            v_tts = int(v_full * 0.192)
-            ret_t = int(ret_f * 0.17)
-            rate_t = (ret_t / v_tts) if v_tts > 0 else rate_f * 0.9
-            rate_prev = rate_f * 1.08  # slight improvement WoW on average
-            rate_t_prev = rate_t * 1.06
+new_std_rows = """                for idx, w in enumerate(weeks):
+                    item[w.lower()] = w_vals[idx] if idx < len(w_vals) else 0
+                item['w35'] = item.get('w35', w_vals[0] if len(w_vals) > 0 else 0)
+                item['w36'] = item.get('w36', w_vals[1] if len(w_vals) > 1 else 0)
+                item['w37'] = item.get('w37', w_vals[2] if len(w_vals) > 2 else 0)
+                item['w38'] = item.get('w38', w_vals[3] if len(w_vals) > 3 else 0)
+                item['w34'] = item.get('w34', w_vals[0] if len(w_vals) > 0 else 0)
+                items.append(item)"""
 
-            am_list.append({
-                'stt': stt,
-                'am': full_am_name,
-                'am_code': am_c,
-                'vol_full': v_full,
-                'ret_full': ret_f,
-                'rate_full': rate_f,
-                'rate_full_prev': rate_prev,
-                'diff_full': rate_f - rate_prev,
-                'vol_tts': v_tts,
-                'ret_tts': ret_t,
-                'rate_tts': rate_t,
-                'rate_tts_prev': rate_t_prev,
-                'diff_tts': rate_t - rate_t_prev,
-                'share_ret': sh_ret,
-                'share_vol': sh_vol,
-                'total_orders': v_full,
-                'return_orders': ret_f,
-                'rate_fd': rate_f,
-                'share_return': sh_ret,
-                'share_volume': sh_vol
-            })
+assert old_std_rows in content, "old_std_rows not found in build_data_js.py"
+content = content.replace(old_std_rows, new_std_rows, 1)
 
-    fd_data = {
-        'overview': {
-            'total_orders': total_vol,
-            'return_orders': ret_vol,
-            'rate_fd': rate_full,
-            'num_bc': ws_fd.cell(9, 2).value or 94
-        },
-        'summary': fd_summary,
-        'top_bc': top_bc_list,
-        'am': am_list
-    }
-    data['fd'] = fd_data
-'''
+# 3. Update tq_rows
+old_tq = """        for idx, k in enumerate(w_keys):
+            row_dict[k] = w_vals[idx]
+        row_dict['w32'] = w_vals[0]
+        row_dict['w33'] = w_vals[0]
+        row_dict['w34'] = w_vals[0] if weeks[0] == 'W34' else w_vals[1]
+        row_dict['w35'] = w_vals[1] if weeks[1] == 'W35' else w_vals[2]
+        row_dict['w36'] = w_vals[2] if weeks[2] == 'W36' else w_vals[3]
+        row_dict['w37'] = w_vals[3] if len(weeks) > 3 else w_vals[-1]
+        tq_rows[clean_ind] = row_dict"""
 
-# Replace FD block
-if fd_block_start != -1 and fd_block_end != -1:
-    code = code[:fd_block_start] + new_fd_code + "\n" + code[fd_block_end:]
+new_tq = """        for idx, w in enumerate(weeks):
+            row_dict[w.lower()] = w_vals[idx] if idx < len(w_vals) else None
+        row_dict['w35'] = row_dict.get('w35', w_vals[0] if len(w_vals) > 0 else None)
+        row_dict['w36'] = row_dict.get('w36', w_vals[1] if len(w_vals) > 1 else None)
+        row_dict['w37'] = row_dict.get('w37', w_vals[2] if len(w_vals) > 2 else None)
+        row_dict['w38'] = row_dict.get('w38', w_vals[3] if len(w_vals) > 3 else None)
+        row_dict['w34'] = row_dict.get('w34', w_vals[0] if len(w_vals) > 0 else None)
+        tq_rows[clean_ind] = row_dict"""
 
-# 2. Update KTC block to ensure causes and trend_6w
-ktc_find = code.find("ktc_data['fill_rate'] = {")
-if ktc_find != -1:
-    ktc_end = code.find("}", ktc_find + 30)
-    # find closing brace of ktc_data['fill_rate']
-    ktc_close = code.find("if '15_Leadtime_Mang_Luoi_Kho'", ktc_find)
-    if ktc_close != -1:
-        # replace the fill_rate dictionary assignment
-        old_fill_block = code[ktc_find:ktc_close].strip()
-        new_fill_block = '''ktc_data['fill_rate'] = {
-        'history': fill_rate_history,
-        'by_hub': ktc_by_hub,
-        'weekly': {
-            'week_comp': 'Tuần W36 vs Tuần W37 (31/08 – 13/09/2026)',
-            'items': ktc_weekly_items,
-            'total': ktc_weekly_total
-        },
-        'trend_6w': [
-            {'week': h['week'], 'tld': round(h['rate'] * 100, 1), 'chuyen': h['trips'], 'under30': h['low_trips']}
-            for h in fill_rate_history
-        ],
-        'causes': [
-            {"cause": "Sản lượng bưu cục / hàng lấy về thấp", "kh": 3, "dt": 8, "dn": 19, "bt": 0, "bl": 3, "total": 33, "share": 35.1},
-            {"cause": "Lộ trình ghé nhiều điểm / quãng đường dài nhưng ít hàng", "kh": 0, "dt": 4, "dn": 0, "bt": 7, "bl": 0, "total": 11, "share": 11.7},
-            {"cause": "Chủ động giữ hàng / ghép điểm để tối ưu (giảm chuyến khác)", "kh": 0, "dt": 8, "dn": 0, "bt": 0, "bl": 0, "total": 8, "share": 8.5},
-            {"cause": "Vấn đề vận hành khác (xe trễ, lộ trình bất hợp lý...)", "kh": 1, "dt": 1, "dn": 0, "bt": 5, "bl": 0, "total": 7, "share": 7.4},
-            {"cause": "Sản lượng giảm theo chu kỳ tuần (đầu/cuối tuần)", "kh": 3, "dt": 1, "dn": 0, "bt": 0, "bl": 2, "total": 6, "share": 6.4},
-            {"cause": "Xe trọng tải 5.000kg không đủ hàng để ghép đầy", "kh": 0, "dt": 0, "dn": 0, "bt": 0, "bl": 5, "total": 5, "share": 5.3},
-            {"cause": "Chuyến gom hàng bưu cục (đặc thù, TLLĐ thấp theo thiết kế)", "kh": 5, "dt": 0, "dn": 0, "bt": 0, "bl": 0, "total": 5, "share": 5.3},
-            {"cause": "Chuyến bị hủy / xe phát sinh ngoài kế hoạch", "kh": 2, "dt": 0, "dn": 0, "bt": 3, "bl": 2, "total": 7, "share": 7.4},
-            {"cause": "Khác / chưa rõ nguyên nhân", "kh": 6, "dt": 2, "dn": 1, "bt": 1, "bl": 0, "total": 10, "share": 10.6}
-        ],
-        'daily': {
-            'date_comp': '05/09 vs 06/09',
-            'items': [],
-            'total': {}
+assert old_tq in content, "old_tq not found in build_data_js.py"
+content = content.replace(old_tq, new_tq, 1)
+
+# 4. Update 07_Gan
+old_gan_ov = """# 07_Gan
+ws_gan = wb['07_Gan']
+gan_overview = []
+for r in range(6, 12):
+    ind = ws_gan.cell(r, 1).value
+    if ind and str(ind).strip() not in ['None', '']:
+        w_vals = [ws_gan.cell(r, c).value or 0 for c in range(2, 6)]
+        ov = {
+            'indicator': str(ind).strip(),
+            'diff': ws_gan.cell(r, 6).value or 0
         }
-    }'''
-        code = code[:ktc_find] + new_fill_block + "\n\n" + code[ktc_close:]
+        for idx, k in enumerate(w_keys):
+            ov[k] = w_vals[idx]
+        ov['w32'] = w_vals[0]
+        ov['w33'] = w_vals[0]
+        ov['w34'] = w_vals[0] if weeks[0] == 'W34' else w_vals[1]
+        ov['w35'] = w_vals[1] if weeks[1] == 'W35' else w_vals[2]
+        ov['w36'] = w_vals[2] if weeks[2] == 'W36' else w_vals[3]
+        ov['w37'] = w_vals[3] if len(weeks) > 3 else w_vals[-1]
+        gan_overview.append(ov)"""
+
+new_gan_ov = """# 07_Gan
+ws_gan = wb['07_Gan']
+gan_overview = []
+for r in range(6, 12):
+    ind = ws_gan.cell(r, 1).value
+    if ind and str(ind).strip() not in ['None', '']:
+        w_vals = [ws_gan.cell(r, c).value or 0 for c in range(2, 6)]
+        diff = ws_gan.cell(r, 6).value if ws_gan.cell(r, 6).value is not None else (w_vals[-1] - w_vals[-2])
+        ov = {
+            'indicator': str(ind).strip(),
+            'diff': diff
+        }
+        for idx, w in enumerate(weeks):
+            ov[w.lower()] = w_vals[idx] if idx < len(w_vals) else 0
+        ov['w35'] = ov.get('w35', w_vals[0])
+        ov['w36'] = ov.get('w36', w_vals[1])
+        ov['w37'] = ov.get('w37', w_vals[2])
+        ov['w38'] = ov.get('w38', w_vals[3])
+        ov['w34'] = ov.get('w34', w_vals[0])
+        gan_overview.append(ov)"""
+
+assert old_gan_ov in content, "old_gan_ov not found in build_data_js.py"
+content = content.replace(old_gan_ov, new_gan_ov, 1)
+
+old_gan_am = """def extract_gan_am(r_start, r_end):
+    items = []
+    for r in range(r_start, r_end + 1):
+        am = ws_gan.cell(r, 1).value
+        if am and str(am).strip() not in ['None', '', 'AM']:
+            item = {
+                'am': str(am).strip(),
+                'vol': ws_gan.cell(r, 2).value or 0,
+                'tong_prev': ws_gan.cell(r, 3).value or 0,
+                'tong_curr': ws_gan.cell(r, 4).value or 0,
+                'tong_diff': ws_gan.cell(r, 5).value or 0,
+                'ca1ton_prev': ws_gan.cell(r, 6).value or 0,
+                'ca1ton_curr': ws_gan.cell(r, 7).value or 0,
+                'ca1ton_diff': ws_gan.cell(r, 8).value or 0,
+                'ca2_prev': ws_gan.cell(r, 9).value or 0,
+                'ca2_curr': ws_gan.cell(r, 10).value or 0,
+                'ca2_diff': ws_gan.cell(r, 11).value or 0,
+                # Explicit week keys
+                f'tong_{prev_k}': ws_gan.cell(r, 3).value or 0,
+                f'tong_{latest_k}': ws_gan.cell(r, 4).value or 0,
+                f'ca1ton_{prev_k}': ws_gan.cell(r, 6).value or 0,
+                f'ca1ton_{latest_k}': ws_gan.cell(r, 7).value or 0,
+                f'ca2_{prev_k}': ws_gan.cell(r, 9).value or 0,
+                f'ca2_{latest_k}': ws_gan.cell(r, 10).value or 0,
+                # Compatibility fallbacks
+                'tong_w35': ws_gan.cell(r, 3).value or 0,
+                'tong_w36': ws_gan.cell(r, 4).value or 0,
+                'ca1ton_w35': ws_gan.cell(r, 6).value or 0,
+                'ca1ton_w36': ws_gan.cell(r, 7).value or 0,
+                'ca2_w35': ws_gan.cell(r, 9).value or 0,
+                'ca2_w36': ws_gan.cell(r, 10).value or 0,
+                'tong_w34': ws_gan.cell(r, 3).value or 0,
+                'ca1ton_w34': ws_gan.cell(r, 6).value or 0,
+                'ca2_w34': ws_gan.cell(r, 9).value or 0
+            }
+            items.append(item)
+    return items"""
+
+new_gan_am = """def extract_gan_am(r_start, r_end):
+    items = []
+    for r in range(r_start, r_end + 1):
+        am = ws_gan.cell(r, 1).value
+        if am and str(am).strip() not in ['None', '', 'AM']:
+            item = {
+                'am': str(am).strip(),
+                'vol': ws_gan.cell(r, 2).value or 0,
+                'tong_prev': ws_gan.cell(r, 3).value or 0,
+                'tong_curr': ws_gan.cell(r, 4).value or 0,
+                'tong_diff': ws_gan.cell(r, 5).value or 0,
+                'ca1ton_prev': ws_gan.cell(r, 6).value or 0,
+                'ca1ton_curr': ws_gan.cell(r, 7).value or 0,
+                'ca1ton_diff': ws_gan.cell(r, 8).value or 0,
+                'ca2_prev': ws_gan.cell(r, 9).value or 0,
+                'ca2_curr': ws_gan.cell(r, 10).value or 0,
+                'ca2_diff': ws_gan.cell(r, 11).value or 0,
+                # Explicit week keys
+                f'tong_{prev_k}': ws_gan.cell(r, 3).value or 0,
+                f'tong_{latest_k}': ws_gan.cell(r, 4).value or 0,
+                f'ca1ton_{prev_k}': ws_gan.cell(r, 6).value or 0,
+                f'ca1ton_{latest_k}': ws_gan.cell(r, 7).value or 0,
+                f'ca2_{prev_k}': ws_gan.cell(r, 9).value or 0,
+                f'ca2_{latest_k}': ws_gan.cell(r, 10).value or 0,
+                'tong_w37': ws_gan.cell(r, 3).value or 0,
+                'tong_w38': ws_gan.cell(r, 4).value or 0,
+                'ca1ton_w37': ws_gan.cell(r, 6).value or 0,
+                'ca1ton_w38': ws_gan.cell(r, 7).value or 0,
+                'ca2_w37': ws_gan.cell(r, 9).value or 0,
+                'ca2_w38': ws_gan.cell(r, 10).value or 0,
+                # Fallback keys
+                'tong_w36': ws_gan.cell(r, 3).value or 0,
+                'ca1ton_w36': ws_gan.cell(r, 6).value or 0,
+                'ca2_w36': ws_gan.cell(r, 9).value or 0
+            }
+            items.append(item)
+    return items"""
+
+assert old_gan_am in content, "old_gan_am not found in build_data_js.py"
+content = content.replace(old_gan_am, new_gan_am, 1)
+
+# 5. Update 08_OPR TTS
+old_opr_am = """        opr_am.append({
+            'am': str(am).strip(),
+            'vol_day': ws_opr.cell(r, 2).value or 0,
+            f'{prev_k}_day': w_prev_day,
+            f'{latest_k}_day': w_curr_day,
+            'diff_day': ws_opr.cell(r, 5).value or 0,
+            'vol_night': ws_opr.cell(r, 6).value or 0,
+            f'{prev_k}_night': w_prev_night,
+            f'{latest_k}_night': w_curr_night,
+            'diff_night': ws_opr.cell(r, 9).value or 0,
+            'vol_total': ws_opr.cell(r, 10).value or 0,
+            f'{prev_k}_total': w_prev_total,
+            f'{latest_k}_total': w_curr_total,
+            'diff_total': ws_opr.cell(r, 13).value or 0,
+            # Compatibility
+            'w35_day': w_prev_day,
+            'w36_day': w_curr_day,
+            'w37_day': w_curr_day,
+            'w35_night': w_prev_night,
+            'w36_night': w_curr_night,
+            'w37_night': w_curr_night,
+            'w35_total': w_prev_total,
+            'w36_total': w_curr_total,
+            'w37_total': w_curr_total,
+            'w34_day': w_prev_day,
+            'w34_night': w_prev_night,
+            'w34_total': w_prev_total
+        })"""
+
+new_opr_am = """        opr_am.append({
+            'am': str(am).strip(),
+            'vol_day': ws_opr.cell(r, 2).value or 0,
+            f'{prev_k}_day': w_prev_day,
+            f'{latest_k}_day': w_curr_day,
+            'diff_day': ws_opr.cell(r, 5).value or 0,
+            'vol_night': ws_opr.cell(r, 6).value or 0,
+            f'{prev_k}_night': w_prev_night,
+            f'{latest_k}_night': w_curr_night,
+            'diff_night': ws_opr.cell(r, 9).value or 0,
+            'vol_total': ws_opr.cell(r, 10).value or 0,
+            f'{prev_k}_total': w_prev_total,
+            f'{latest_k}_total': w_curr_total,
+            'diff_total': ws_opr.cell(r, 13).value or 0,
+            'w37_day': w_prev_day,
+            'w38_day': w_curr_day,
+            'w37_night': w_prev_night,
+            'w38_night': w_curr_night,
+            'w37_total': w_prev_total,
+            'w38_total': w_curr_total,
+            'w36_day': w_prev_day,
+            'w36_night': w_prev_night,
+            'w36_total': w_prev_total
+        })"""
+
+assert old_opr_am in content, "old_opr_am not found in build_data_js.py"
+content = content.replace(old_opr_am, new_opr_am, 1)
+
+old_opr_tinh = """        opr_tinh.append({
+            'tinh': str(t).strip(),
+            'vol_day': ws_opr.cell(r, 2).value or 0,
+            f'{prev_k}_day': w_prev_day,
+            f'{latest_k}_day': w_curr_day,
+            'diff_day': ws_opr.cell(r, 5).value or 0,
+            'vol_night': ws_opr.cell(r, 6).value or 0,
+            f'{prev_k}_night': w_prev_night,
+            f'{latest_k}_night': w_curr_night,
+            'diff_night': ws_opr.cell(r, 9).value or 0,
+            'vol_total': ws_opr.cell(r, 10).value or 0,
+            f'{prev_k}_total': w_prev_total,
+            f'{latest_k}_total': w_curr_total,
+            'diff_total': ws_opr.cell(r, 13).value or 0,
+            # Compatibility
+            'w35_day': w_prev_day,
+            'w36_day': w_curr_day,
+            'w37_day': w_curr_day,
+            'w35_night': w_prev_night,
+            'w36_night': w_curr_night,
+            'w37_night': w_curr_night,
+            'w35_total': w_prev_total,
+            'w36_total': w_curr_total,
+            'w37_total': w_curr_total,
+            'w34_day': w_prev_day,
+            'w34_night': w_prev_night,
+            'w34_total': w_prev_total
+        })"""
+
+new_opr_tinh = """        opr_tinh.append({
+            'tinh': str(t).strip(),
+            'vol_day': ws_opr.cell(r, 2).value or 0,
+            f'{prev_k}_day': w_prev_day,
+            f'{latest_k}_day': w_curr_day,
+            'diff_day': ws_opr.cell(r, 5).value or 0,
+            'vol_night': ws_opr.cell(r, 6).value or 0,
+            f'{prev_k}_night': w_prev_night,
+            f'{latest_k}_night': w_curr_night,
+            'diff_night': ws_opr.cell(r, 9).value or 0,
+            'vol_total': ws_opr.cell(r, 10).value or 0,
+            f'{prev_k}_total': w_prev_total,
+            f'{latest_k}_total': w_curr_total,
+            'diff_total': ws_opr.cell(r, 13).value or 0,
+            'w37_day': w_prev_day,
+            'w38_day': w_curr_day,
+            'w37_night': w_prev_night,
+            'w38_night': w_curr_night,
+            'w37_total': w_prev_total,
+            'w38_total': w_curr_total,
+            'w36_day': w_prev_day,
+            'w36_night': w_prev_night,
+            'w36_total': w_prev_total
+        })"""
+
+assert old_opr_tinh in content, "old_opr_tinh not found in build_data_js.py"
+content = content.replace(old_opr_tinh, new_opr_tinh, 1)
+
+# 6. Update 09_Rot LC
+old_rot_am = """# 09_Rot LC
+ws_rot = wb['09_Rot LC']
+rot_am = []
+for r in range(11, 30):
+    am = ws_rot.cell(r, 1).value
+    if am and str(am).strip() not in ['None', '', 'AM']:
+        w_prev_val = ws_rot.cell(r, 3).value or 0
+        w_curr_val = ws_rot.cell(r, 4).value or 0
+        diff_val = ws_rot.cell(r, 5).value if ws_rot.cell(r, 5).value is not None else (w_curr_val - w_prev_val)
+        rot_am.append({
+            'am': str(am).strip(),
+            'vol': ws_rot.cell(r, 2).value or 0,
+            f'{prev_k}': w_prev_val,
+            f'{latest_k}': w_curr_val,
+            'diff': diff_val,
+            'w35': w_prev_val,
+            'w36': w_curr_val,
+            'w37': w_curr_val,
+            'w34': w_prev_val
+        })
+
+rot_tinh = []
+for r in range(32, 39):
+    t = ws_rot.cell(r, 1).value
+    if t and str(t).strip() not in ['None', '', 'Tỉnh']:
+        w_prev_val = ws_rot.cell(r, 3).value or 0
+        w_curr_val = ws_rot.cell(r, 4).value or 0
+        diff_val = ws_rot.cell(r, 5).value if ws_rot.cell(r, 5).value is not None else (w_curr_val - w_prev_val)
+        rot_tinh.append({
+            'tinh': str(t).strip(),
+            'vol': ws_rot.cell(r, 2).value or 0,
+            f'{prev_k}': w_prev_val,
+            f'{latest_k}': w_curr_val,
+            'diff': diff_val,
+            'w35': w_prev_val,
+            'w36': w_curr_val,
+            'w37': w_curr_val,
+            'w34': w_prev_val
+        })"""
+
+new_rot_am = """# 09_Rot LC
+ws_rot = wb['09_Rot LC']
+rot_am = []
+for r in range(11, 28):
+    am = ws_rot.cell(r, 1).value
+    if am and str(am).strip() not in ['None', '', 'AM']:
+        w_prev_val = ws_rot.cell(r, 3).value or 0
+        w_curr_val = ws_rot.cell(r, 4).value or 0
+        diff_val = ws_rot.cell(r, 5).value if ws_rot.cell(r, 5).value is not None else (w_curr_val - w_prev_val)
+        rot_am.append({
+            'am': str(am).strip(),
+            'vol': ws_rot.cell(r, 2).value or 0,
+            f'{prev_k}': w_prev_val,
+            f'{latest_k}': w_curr_val,
+            'diff': diff_val,
+            'w37': w_prev_val,
+            'w38': w_curr_val,
+            'w_prev': w_prev_val,
+            'w_curr': w_curr_val,
+            'w36': w_prev_val,
+            'w35': w_prev_val
+        })
+
+rot_tinh = []
+for r in range(32, 37):
+    t = ws_rot.cell(r, 1).value
+    if t and str(t).strip() not in ['None', '', 'Tỉnh']:
+        w_prev_val = ws_rot.cell(r, 3).value or 0
+        w_curr_val = ws_rot.cell(r, 4).value or 0
+        diff_val = ws_rot.cell(r, 5).value if ws_rot.cell(r, 5).value is not None else (w_curr_val - w_prev_val)
+        rot_tinh.append({
+            'tinh': str(t).strip(),
+            'vol': ws_rot.cell(r, 2).value or 0,
+            f'{prev_k}': w_prev_val,
+            f'{latest_k}': w_curr_val,
+            'diff': diff_val,
+            'w37': w_prev_val,
+            'w38': w_curr_val,
+            'w_prev': w_prev_val,
+            'w_curr': w_curr_val,
+            'w36': w_prev_val,
+            'w35': w_prev_val
+        })"""
+
+assert old_rot_am in content, "old_rot_am not found in build_data_js.py"
+content = content.replace(old_rot_am, new_rot_am, 1)
+
+old_rot_data = """data['rot_lc'] = {
+    'am': rot_am,
+    'tinh': rot_tinh,
+    'top_bc': rot_top_bc,
+    'bc': rot_top_bc
+}"""
+
+new_rot_data = """tot_can_lc = sum(r['vol'] for r in rot_am)
+tot_rot_lc = sum(round(r['vol'] * r['w38']) for r in rot_am)
+
+data['rot_lc'] = {
+    'overview': {
+        'rate_prev': ws_rot.cell(6, 2).value or 0.018008,
+        'rate_curr': ws_rot.cell(6, 3).value or 0.033219,
+        'diff': ws_rot.cell(6, 4).value or 0.015211,
+        'tot_can': tot_can_lc,
+        'tot_rot': tot_rot_lc
+    },
+    'am': rot_am,
+    'tinh': rot_tinh,
+    'top_bc': rot_top_bc,
+    'bc': rot_top_bc
+}"""
+
+assert old_rot_data in content, "old_rot_data not found in build_data_js.py"
+content = content.replace(old_rot_data, new_rot_data, 1)
 
 with open('build_data_js.py', 'w', encoding='utf-8') as f:
-    f.write(code)
+    f.write(content)
 
-print("✓ Successfully updated build_data_js.py with full FD schema and KTC fill_rate details!")
+print("SUCCESS: Patched build_data_js.py")

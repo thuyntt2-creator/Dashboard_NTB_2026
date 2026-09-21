@@ -1,180 +1,185 @@
-import os
-import json
-import codecs
-import subprocess
-import sys
+import re
 
-sys.stdout.reconfigure(encoding='utf-8')
+with open('index.html', 'r', encoding='utf-8') as f:
+    html = f.read()
 
-brain_dir = r"C:\Users\lap4all\.gemini\antigravity-ide\brain"
-conv_ids = [
-    '92726133-7314-4954-9f94-c885d0c26df2',
-    '8c4a74de-9016-4159-9f42-08c9862c9b0d',
-    '12824642-463c-46a9-9dc4-473af4f03ce9',
-    '9372904b-335a-4bb3-83f3-9f8d90d80b91',
-    '0d711590-0357-43ee-a937-04cabf62a0ba'
+# Replace static thead headers for each table
+
+replacements = [
+    # 1. table-vol-tinh-full (Screenshot 1)
+    (
+        r'(<table class="bi-table" id="table-vol-tinh-full">[\s\S]*?<thead>[\s\S]*?)<th>W34</th>\s*<th>W35</th>\s*<th>W36</th>\s*<th>W37</th>',
+        r'\1<th>W35</th>\n                  <th>W36</th>\n                  <th>W37</th>\n                  <th>W38</th>'
+    ),
+    # 2. table-vol-tinh-tts (Screenshot 1)
+    (
+        r'(<table class="bi-table" id="table-vol-tinh-tts">[\s\S]*?<thead>[\s\S]*?)<th>W34</th>\s*<th>W35</th>\s*<th>W36</th>\s*<th>W37</th>',
+        r'\1<th>W35</th>\n                  <th>W36</th>\n                  <th>W37</th>\n                  <th>W38</th>'
+    ),
+    # 3. table-gtc-tinh-full (Screenshot 2)
+    (
+        r'(<table class="bi-table" id="table-gtc-tinh-full">[\s\S]*?<thead>[\s\S]*?)<th>W34</th>\s*<th>W35</th>\s*<th>W36</th>\s*<th[^>]*>%GTC W37</th>',
+        r'\1<th>W35</th>\n                  <th>W36</th>\n                  <th>W37</th>\n                  <th class="num" style="background: var(--color-blue-bg); font-weight:800; font-size:13.5px;">%GTC W38</th>'
+    ),
+    # 4. table-gtc-tinh-tts (Screenshot 2)
+    (
+        r'(<table class="bi-table" id="table-gtc-tinh-tts">[\s\S]*?<thead>[\s\S]*?)<th>W34</th>\s*<th>W35</th>\s*<th>W36</th>\s*<th[^>]*>%GTC W37</th>',
+        r'\1<th>W35</th>\n                  <th>W36</th>\n                  <th>W37</th>\n                  <th class="num" style="background: var(--color-amber-bg); color:#ea580c; font-weight:800; font-size:13.5px;">%GTC W38</th>'
+    ),
+    # 5. table-gtc-tts-ca1-detailed (Screenshot 3)
+    (
+        r'(<table class="bi-table" id="table-gtc-tts-ca1-detailed">[\s\S]*?<thead>[\s\S]*?)<th>%GTC TTS Ca 1 \(W36\)</th>\s*<th[^>]*>%GTC TTS Ca 1 \(W37\)</th>',
+        r'\1<th>%GTC TTS Ca 1 (W37)</th>\n                  <th class="num" style="background: var(--color-amber-bg); color:#ea580c; font-weight:800;">%GTC TTS Ca 1 (W38)</th>'
+    ),
+    # 6. table-gan-overview-region (Screenshot 4)
+    (
+        r'(<table class="bi-table" id="table-gan-overview-region">[\s\S]*?<thead>[\s\S]*?)<th>W34</th>\s*<th>W35</th>\s*<th>W36</th>\s*<th>W37</th>\s*<th>Δ W37/W36</th>',
+        r'\1<th>W35</th>\n                  <th>W36</th>\n                  <th>W37</th>\n                  <th>W38</th>\n                  <th>Δ W38/W37</th>'
+    ),
+    # 7. table-odr-tinh-full (Screenshot 5)
+    (
+        r'(<table class="bi-table" id="table-odr-tinh-full">[\s\S]*?<thead>[\s\S]*?)<th>W34</th>\s*<th>W35</th>\s*<th>W36</th>\s*<th[^>]*>%ODR W37</th>',
+        r'\1<th>W35</th>\n                  <th>W36</th>\n                  <th>W37</th>\n                  <th class="num" style="background: var(--color-blue-bg); font-weight:800; font-size:13.5px;">%ODR W38</th>'
+    ),
+    # 8. table-odr-tinh-tts (Screenshot 5)
+    (
+        r'(<table class="bi-table" id="table-odr-tinh-tts">[\s\S]*?<thead>[\s\S]*?)<th>W34</th>\s*<th>W35</th>\s*<th>W36</th>\s*<th[^>]*>%ODR W37</th>',
+        r'\1<th>W35</th>\n                  <th>W36</th>\n                  <th>W37</th>\n                  <th class="num" style="background: var(--color-amber-bg); color:#ea580c; font-weight:800; font-size:13.5px;">%ODR W38</th>'
+    ),
+    # 9. table-overview-kpi-data
+    (
+        r'(<table class="bi-table" id="table-overview-kpi-data">[\s\S]*?<thead>[\s\S]*?)<th>W34</th>\s*<th>W35</th>\s*<th>W36</th>\s*<th[^>]*>W37 \(Kỳ N\)</th>',
+        r'\1<th>W35</th>\n                  <th>W36</th>\n                  <th>W37</th>\n                  <th class="num" style="background: var(--color-blue-bg); font-weight:800; color: var(--color-primary);">W38 (Kỳ N)</th>'
+    ),
+    # 10. table-ltc-detailed & table-ltc-tinh-detailed
+    (
+        r'(<table class="bi-table" id="table-ltc-detailed">[\s\S]*?<thead>[\s\S]*?)<th>W34</th>\s*<th>W35</th>\s*<th>W36</th>\s*<th[^>]*>%LTC W37</th>',
+        r'\1<th>W35</th>\n                  <th>W36</th>\n                  <th>W37</th>\n                  <th class="num" style="background: var(--color-blue-bg); font-weight:800;">%LTC W38</th>'
+    ),
+    (
+        r'(<table class="bi-table" id="table-ltc-tinh-detailed">[\s\S]*?<thead>[\s\S]*?)<th>W34</th>\s*<th>W35</th>\s*<th>W36</th>\s*<th[^>]*>%LTC W37</th>',
+        r'\1<th>W35</th>\n                  <th>W36</th>\n                  <th>W37</th>\n                  <th class="num" style="background: var(--color-blue-bg); font-weight:800;">%LTC W38</th>'
+    ),
+    # 11. table-rot-am-detailed & table-rot-tinh-detailed (Tab 9)
+    (
+        r'(<table class="bi-table" id="table-rot-am-detailed">[\s\S]*?<thead>[\s\S]*?)<th>% Rớt W36</th>\s*<th[^>]*>% Rớt W37</th>',
+        r'\1<th>% Rớt W37</th>\n                  <th class="num" style="background: var(--color-red-bg); font-weight:800; color:#b91c1c;">% Rớt W38</th>'
+    ),
+    (
+        r'(<table class="bi-table" id="table-rot-tinh-detailed">[\s\S]*?<thead>[\s\S]*?)<th>% Rớt W36</th>\s*<th[^>]*>% Rớt W37</th>',
+        r'\1<th>% Rớt W37</th>\n                  <th class="num" style="background: var(--color-red-bg); font-weight:800; color:#b91c1c;">% Rớt W38</th>'
+    ),
+    # 12. table-rot-lc-top-bc
+    (
+        r'(<table class="bi-table" id="table-rot-lc-top-bc">[\s\S]*?<thead>[\s\S]*?<th[^>]*>)% Rớt LC \(W37\)(</th>)',
+        r'\1% Rớt LC (W38)\2'
+    ),
+    # 13. table-vol-full-detailed & table-vol-tts-detailed
+    (
+        r'(<table class="bi-table" id="table-vol-full-detailed">[\s\S]*?<thead>[\s\S]*?)<th>Full W36</th>\s*<th[^>]*>Full W37</th>',
+        r'\1<th>Full W37</th>\n                  <th class="num" style="background: var(--color-blue-bg); font-weight:800; font-size:13.5px;">Full W38</th>'
+    ),
+    (
+        r'(<table class="bi-table" id="table-vol-tts-detailed">[\s\S]*?<thead>[\s\S]*?)<th>TTS W36</th>\s*<th[^>]*>TTS W37</th>',
+        r'\1<th>TTS W37</th>\n                  <th class="num" style="background: var(--color-amber-bg); color:#ea580c; font-weight:800; font-size:13.5px;">TTS W38</th>'
+    ),
+    # 14. table-gtc-full-detailed & table-gtc-tts-detailed
+    (
+        r'(<table class="bi-table" id="table-gtc-full-detailed">[\s\S]*?<thead>[\s\S]*?)<th>W36</th>\s*<th[^>]*>W37</th>',
+        r'\1<th>W37</th>\n                  <th class="num" style="background: var(--color-blue-bg); font-weight:800; font-size:13.5px;">W38</th>'
+    ),
+    (
+        r'(<table class="bi-table" id="table-gtc-tts-detailed">[\s\S]*?<thead>[\s\S]*?)<th>TTS W36</th>\s*<th[^>]*>TTS W37</th>',
+        r'\1<th>TTS W37</th>\n                  <th class="num" style="background: var(--color-amber-bg); color:#ea580c; font-weight:800; font-size:13.5px;">TTS W38</th>'
+    ),
+    # 15. table-odr-full-detailed & table-odr-tts-detailed
+    (
+        r'(<table class="bi-table" id="table-odr-full-detailed">[\s\S]*?<thead>[\s\S]*?)<th>W36</th>\s*<th[^>]*>W37</th>',
+        r'\1<th>W37</th>\n                  <th class="num" style="background: var(--color-blue-bg); font-weight:800; font-size:13.5px;">W38</th>'
+    ),
+    (
+        r'(<table class="bi-table" id="table-odr-tts-detailed">[\s\S]*?<thead>[\s\S]*?)<th>TTS W36</th>\s*<th[^>]*>TTS W37</th>',
+        r'\1<th>TTS W37</th>\n                  <th class="num" style="background: var(--color-amber-bg); color:#ea580c; font-weight:800; font-size:13.5px;">TTS W38</th>'
+    ),
+    # 16. table-gan-ca1-detailed & table-gan-ca2-detailed
+    (
+        r'(<table class="bi-table" id="table-gan-ca1-detailed">[\s\S]*?<thead>[\s\S]*?)<th>Ca 1\+Tồn W36</th>\s*<th[^>]*>Ca 1\+Tồn W37</th>',
+        r'\1<th>Ca 1+Tồn W37</th>\n                  <th class="num" style="background: var(--color-blue-bg); font-weight:800;">Ca 1+Tồn W38</th>'
+    ),
+    (
+        r'(<table class="bi-table" id="table-gan-ca2-detailed">[\s\S]*?<thead>[\s\S]*?)<th>Tổng W36</th>\s*<th[^>]*>Gán Tổng W37</th>',
+        r'\1<th>Tổng W37</th>\n                  <th class="num" style="background: var(--color-blue-bg); font-weight:800;">Gán Tổng W38</th>'
+    ),
+    # 17. table-opr-day-detailed & table-opr-night-detailed & table-opr-tts-data
+    (
+        r'(<table class="bi-table" id="table-opr-day-detailed">[\s\S]*?<thead>[\s\S]*?)<th>W36</th>\s*<th[^>]*>%OPR W37</th>',
+        r'\1<th>W37</th>\n                  <th class="num" style="background: var(--color-amber-bg); font-weight:800; color:#ea580c;">%OPR W38</th>'
+    ),
+    (
+        r'(<table class="bi-table" id="table-opr-night-detailed">[\s\S]*?<thead>[\s\S]*?)<th>W36</th>\s*<th[^>]*>%OPR W37</th>',
+        r'\1<th>W37</th>\n                  <th class="num" style="background: var(--color-amber-bg); font-weight:800; color:#ea580c;">%OPR W38</th>'
+    ),
+    (
+        r'(<table class="bi-table" id="table-opr-tts-data">[\s\S]*?<thead>[\s\S]*?)%OPR 9h–19h \(W36\)([\s\S]*?)%OPR 9h–19h \(W37\)([\s\S]*?)%OPR 19h–9h \(W36\)([\s\S]*?)%OPR 19h–9h \(W37\)',
+        r'\1%OPR 9h–19h (W37)\2%OPR 9h–19h (W38)\3%OPR 19h–9h (W37)\4%OPR 19h–9h (W38)'
+    ),
+    # 18. table-fd-am-detailed
+    (
+        r'(<table class="bi-table" id="table-fd-am-detailed">[\s\S]*?<thead>[\s\S]*?)<th>Full W36</th>\s*<th>Full W37</th>([\s\S]*?)<th>TTS W36</th>\s*<th>TTS W37</th>',
+        r'\1<th>Full W37</th>\n                  <th>Full W38</th>\2<th>TTS W37</th>\n                  <th>TTS W38</th>'
+    ),
+    # 19. table-kd-churn-top10
+    (
+        r'(<table class="bi-table" id="table-kd-churn-top10">[\s\S]*?<thead>[\s\S]*?)<th>Kỳ Trước \(W36\)</th>\s*<th>Kỳ Này \(W37\)</th>',
+        r'\1<th>Kỳ Trước (W37)</th>\n                  <th>Kỳ Này (W38)</th>'
+    ),
+    # 20. table-bc-canh-bao-overview & table-bc-canh-bao & table-bc-canhbao-tab
+    (
+        r'<th>%GTC W36</th>\s*<th>%GTC W37</th>',
+        r'<th>%GTC W37</th>\n                  <th>%GTC W38</th>'
+    )
 ]
 
-def clean_log_value(val):
-    if val is None:
-        return ""
-    if not isinstance(val, str):
-        return str(val)
-    # Strip wrapping double quotes from serialized string
-    if val.startswith('"') and val.endswith('"') and len(val) >= 2:
-        val = val[1:-1]
-    # Decode backslash escapes safely
-    try:
-        return codecs.escape_decode(bytes(val, 'utf-8'))[0].decode('utf-8').replace('\r\n', '\n')
-    except Exception:
-        return val.replace('\\n', '\n').replace('\\t', '\t').replace('\\"', '"').replace("\\'", "'").replace('\\\\', '\\')
-
-all_edits = []
-
-for c_idx, cid in enumerate(conv_ids):
-    tpath = os.path.join(brain_dir, cid, ".system_generated", "logs", "transcript.jsonl")
-    if not os.path.exists(tpath):
-        continue
-    
-    with open(tpath, 'r', encoding='utf-8') as f:
-        for line in f:
-            try:
-                data = json.loads(line)
-                step = data.get('step_index')
-                tc_list = data.get('tool_calls', [])
-                for tc in tc_list:
-                    name = tc.get('name')
-                    args = tc.get('args', {})
-                    if name in ['replace_file_content', 'multi_replace_file_content']:
-                        tgt = args.get('TargetFile', '')
-                        if 'index.html' in tgt or 'app.py' in tgt:
-                            file_type = 'index.html' if 'index.html' in tgt else 'app.py'
-                            all_edits.append({
-                                'conv_idx': c_idx,
-                                'conv_id': cid,
-                                'step': step,
-                                'tool': name,
-                                'file_type': file_type,
-                                'args': args
-                            })
-            except Exception as e:
-                pass
-
-# Sort edits by conv_idx and step_index
-all_edits.sort(key=lambda x: (x['conv_idx'], x['step']))
-
-# Fetch base files from git directly
-app_content = subprocess.check_output(['git', 'show', '3cdad023:app.py']).decode('utf-8').replace('\r\n', '\n')
-index_content = subprocess.check_output(['git', 'show', '3cdad023:templates/index.html']).decode('utf-8').replace('\r\n', '\n')
-
-print(f"Loaded base files directly from Git. App len: {len(app_content)}, Index len: {len(index_content)}")
-
-applied_count = 0
-failed_count = 0
-
-for edit in all_edits:
-    cid = edit['conv_id'][:8]
-    step = edit['step']
-    tool = edit['tool']
-    ftype = edit['file_type']
-    args = edit['args']
-    desc = args.get('Description', 'no desc')
-    
-    current_content = app_content if ftype == 'app.py' else index_content
-    
-    if tool == 'replace_file_content':
-        target = clean_log_value(args.get('TargetContent'))
-        replacement = clean_log_value(args.get('ReplacementContent'))
-        
-        # Check if target is truncated
-        is_truncated = False
-        if (target and '<truncated' in target) or (replacement and '<truncated' in replacement):
-            is_truncated = True
-            
-        if is_truncated:
-            print(f"[{cid} S{step}] Skip truncated edit for {ftype}. Desc: {desc[:50]}")
-            failed_count += 1
-            continue
-            
-        if not target:
-            print(f"[{cid} S{step}] Skip empty TargetContent for {ftype}")
-            continue
-            
-        if target in current_content:
-            current_content = current_content.replace(target, replacement)
-            applied_count += 1
-        else:
-            target_stripped = target.strip()
-            if target_stripped and target_stripped in current_content:
-                idx = current_content.find(target_stripped)
-                current_content = current_content[:idx] + replacement + current_content[idx + len(target_stripped):]
-                applied_count += 1
-            else:
-                print(f"[{cid} S{step}] Failed replace_file_content to {ftype}. Desc: {desc[:50]}")
-                failed_count += 1
-                
-    elif tool == 'multi_replace_file_content':
-        chunks = args.get('ReplacementChunks', [])
-        if isinstance(chunks, str):
-            try:
-                chunks = json.loads(chunks)
-            except Exception:
-                pass
-        
-        if not isinstance(chunks, list):
-            print(f"[{cid} S{step}] Multi replace chunks is not list")
-            failed_count += 1
-            continue
-            
-        is_truncated = False
-        for chunk in chunks:
-            target = clean_log_value(chunk.get('TargetContent'))
-            replacement = clean_log_value(chunk.get('ReplacementContent'))
-            if (target and '<truncated' in target) or (replacement and '<truncated' in replacement):
-                is_truncated = True
-                break
-                
-        if is_truncated:
-            print(f"[{cid} S{step}] Skip truncated multi edit for {ftype}. Desc: {desc[:50]}")
-            failed_count += 1
-            continue
-            
-        success = True
-        temp_content = current_content
-        for chunk_idx, chunk in enumerate(chunks):
-            target = clean_log_value(chunk.get('TargetContent'))
-            replacement = clean_log_value(chunk.get('ReplacementContent'))
-            
-            if not target:
-                continue
-                
-            if target in temp_content:
-                temp_content = temp_content.replace(target, replacement)
-            else:
-                target_stripped = target.strip()
-                if target_stripped and target_stripped in temp_content:
-                    idx = temp_content.find(target_stripped)
-                    temp_content = temp_content[:idx] + replacement + temp_content[idx + len(target_stripped):]
-                else:
-                    success = False
-                    
-        if success:
-            current_content = temp_content
-            applied_count += 1
-        else:
-            print(f"[{cid} S{step}] Failed multi_replace_file_content to {ftype}. Desc: {desc[:50]}")
-            failed_count += 1
-            
-    if ftype == 'app.py':
-        app_content = current_content
+for pattern, repl in replacements:
+    new_html = re.sub(pattern, repl, html)
+    if new_html != html:
+        html = new_html
+        print(f"Applied replacement: {pattern[:60]}...")
     else:
-        index_content = current_content
+        print(f"No match for: {pattern[:60]}...")
 
-print(f"Done patching. Applied: {applied_count}, Failed: {failed_count}")
-print(f"Patched App len: {len(app_content)}, Patched Index len: {len(index_content)}")
+# 21. Titles and banners
+html = html.replace(
+    'TỔNG QUAN VÙNG NTB — TỶ LỆ % GÁN (4 TUẦN W34 – W37)',
+    'TỔNG QUAN VÙNG NTB — TỶ LỆ % GÁN (4 TUẦN W35 – W38)'
+)
 
-with open(r"scratch\app.py.patched", "w", encoding="utf-8") as f:
-    f.write(app_content)
+html = html.replace(
+    'PHÂN TÍCH TỶ TRỌNG RỚT ĐƠN LUÂN CHUYỂN THEO AM & TỈNH THÀNH (W37)',
+    'PHÂN TÍCH TỶ TRỌNG RỚT ĐƠN LUÂN CHUYỂN THEO AM & TỈNH THÀNH (W38)'
+)
 
-with open(r"scratch\index.html.patched", "w", encoding="utf-8") as f:
-    f.write(index_content)
+html = html.replace(
+    'Tổng đơn rớt toàn vùng W37: Tỷ lệ rớt đạt 1.80% (giảm -0.45%p WoW',
+    'Tổng đơn rớt toàn vùng W38: Tỷ lệ rớt đạt 3.32% (tăng +1.52%p WoW so với 1.80% ở W37, tổng 252 đơn rớt / 7,586 đơn cần LC'
+)
+
+html = html.replace(
+    'Tổng rớt: 196 đơn',
+    'Tổng rớt: 252 đơn'
+)
+
+html = html.replace(
+    '% RỚT LUÂN CHUYỂN THEO 18 AM PHỤ TRÁCH (W37)',
+    '% RỚT LUÂN CHUYỂN THEO 18 AM PHỤ TRÁCH (W38)'
+)
+
+html = html.replace(
+    'DANH SÁCH TOP 20 BƯU CỤC CÓ TỶ LỆ RỚT LUÂN CHUYỂN CAO NHẤT (W37)',
+    'DANH SÁCH TOP 20 BƯU CỤC CÓ TỶ LỆ RỚT LUÂN CHUYỂN CAO NHẤT (W38)'
+)
+
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(html)
+
+print("SUCCESS: index.html updated with W38 headers!")

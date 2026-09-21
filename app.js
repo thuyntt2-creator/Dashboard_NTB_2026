@@ -413,6 +413,64 @@
     if (thChurnPrev) thChurnPrev.textContent = `Kỳ Trước (${prevW})`;
     if (thChurnCurr) thChurnCurr.textContent = `Kỳ Này (${currW})`;
 
+    // Additional Table Headers Dynamic Sync
+    const thVolTinhFull = document.querySelectorAll('#table-vol-tinh-full thead th');
+    if (thVolTinhFull.length >= 7) {
+      thVolTinhFull[2].textContent = w1;
+      thVolTinhFull[3].textContent = w2;
+      thVolTinhFull[4].textContent = w3;
+      thVolTinhFull[5].textContent = currW;
+    }
+    const thVolTinhTts = document.querySelectorAll('#table-vol-tinh-tts thead th');
+    if (thVolTinhTts.length >= 7) {
+      thVolTinhTts[2].textContent = w1;
+      thVolTinhTts[3].textContent = w2;
+      thVolTinhTts[4].textContent = w3;
+      thVolTinhTts[5].textContent = currW;
+    }
+
+    const thGtcTinhFull = document.querySelectorAll('#table-gtc-tinh-full thead th');
+    if (thGtcTinhFull.length >= 7) {
+      thGtcTinhFull[3].textContent = w1;
+      thGtcTinhFull[4].textContent = w2;
+      thGtcTinhFull[5].textContent = w3;
+      thGtcTinhFull[6].textContent = `%GTC ${currW}`;
+    }
+    const thGtcTinhTts = document.querySelectorAll('#table-gtc-tinh-tts thead th');
+    if (thGtcTinhTts.length >= 7) {
+      thGtcTinhTts[3].textContent = w1;
+      thGtcTinhTts[4].textContent = w2;
+      thGtcTinhTts[5].textContent = w3;
+      thGtcTinhTts[6].textContent = `%GTC ${currW}`;
+    }
+
+    const thOdrTinhFull = document.querySelectorAll('#table-odr-tinh-full thead th');
+    if (thOdrTinhFull.length >= 7) {
+      thOdrTinhFull[3].textContent = w1;
+      thOdrTinhFull[4].textContent = w2;
+      thOdrTinhFull[5].textContent = w3;
+      thOdrTinhFull[6].textContent = `%ODR ${currW}`;
+    }
+    const thOdrTinhTts = document.querySelectorAll('#table-odr-tinh-tts thead th');
+    if (thOdrTinhTts.length >= 7) {
+      thOdrTinhTts[3].textContent = w1;
+      thOdrTinhTts[4].textContent = w2;
+      thOdrTinhTts[5].textContent = w3;
+      thOdrTinhTts[6].textContent = `%ODR ${currW}`;
+    }
+
+    const thGanOv = document.querySelectorAll('#table-gan-overview-region thead th');
+    if (thGanOv.length >= 6) {
+      thGanOv[1].textContent = w1;
+      thGanOv[2].textContent = w2;
+      thGanOv[3].textContent = w3;
+      thGanOv[4].textContent = currW;
+      thGanOv[5].textContent = `Δ ${currW}/${prevW}`;
+    }
+
+    const thRotBc = document.querySelector('#table-rot-lc-top-bc thead th:nth-child(6)');
+    if (thRotBc) thRotBc.textContent = `% Rớt LC (${currW})`;
+
     // 15. Dynamic Card Titles and Headers with regex replacement
     document.querySelectorAll('.report-card-title, .exec-banner-text h2, .exec-banner-text h3').forEach(el => {
       if (el.textContent.includes('SO SÁNH TỶ LỆ GÁN 18 AM:')) {
@@ -1678,16 +1736,21 @@
     // 4. BẢNG 3B: SẢN LƯỢNG 5 TỈNH THÀNH (TIKTOK SHOP)
     const tblBodyTinhTTS = document.querySelector('#table-vol-tinh-tts tbody');
     if (tblBodyTinhTTS && D.san_luong) {
+      const wKeys = (D.meta?.weeks || ['W35', 'W36', 'W37', 'W38']).map(w => w.toLowerCase());
       const rawTinhTTS = D.san_luong.tinh_tts || [];
-      const totalTtsVol = rawTinhTTS.reduce((sum, r) => sum + (r.w36 !== undefined ? r.w36 : (r.w35 || r.vol || 0)), 0);
+      const totalTtsVol = rawTinhTTS.reduce((sum, r) => {
+        const v = r[wKeys[3]] !== undefined ? r[wKeys[3]] : (r.w38 !== undefined ? r.w38 : (r.vol || 0));
+        return sum + v;
+      }, 0);
 
       const listTinhTTS = [...rawTinhTTS].map(r => {
-        const ttsVol = r.w36 !== undefined ? r.w36 : (r.w35 || r.vol || 0);
+        const ttsVol = r[wKeys[3]] !== undefined ? r[wKeys[3]] : (r.w38 !== undefined ? r.w38 : (r.vol || 0));
+        const prevTtsVol = r[wKeys[2]] !== undefined ? r[wKeys[2]] : (r.w37 !== undefined ? r.w37 : 0);
         const rate = totalTtsVol > 0 ? (ttsVol / totalTtsVol) : 0;
         return {
           ...r,
           rate_tts: rate,
-          diff_val: r.diff !== undefined ? r.diff : (ttsVol - (r.w35 || r.w34 || 0))
+          diff_val: r.diff !== undefined ? r.diff : (ttsVol - prevTtsVol)
         };
       }).sort((a, b) => b.diff_val - a.diff_val);
 
@@ -2728,12 +2791,12 @@
   };
 
   function getGtcCa1TtsData() {
-    const prevKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2].toLowerCase() : 'w36';
-    const currKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1].toLowerCase() : 'w37';
+    const prevKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2].toLowerCase() : 'w37';
+    const currKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1].toLowerCase() : 'w38';
     const rawList = (D.gtc_ca1_thuan && D.gtc_ca1_thuan.am_tts) || (D.gtc_ca1_ton && D.gtc_ca1_ton.am_tts) || (D.gtc_tong && D.gtc_tong.am_tts) || [];
     return rawList.map(r => {
-      const prev_val = r[currKey] !== undefined ? (r[prevKey] || 0) : (r.w36 !== undefined ? r.w36 : (r.w35 || 0));
-      const curr_val = r[currKey] !== undefined ? (r[currKey] || 0) : (r.w37 !== undefined ? r.w37 : (r.w36 || 0));
+      const prev_val = r[currKey] !== undefined ? (r[prevKey] || 0) : (r.w37 !== undefined ? r.w37 : (r.w36 || 0));
+      const curr_val = r[currKey] !== undefined ? (r[currKey] || 0) : (r.w38 !== undefined ? r.w38 : (r.w37 || 0));
       const prev_pct = prev_val * 100;
       const curr_pct = curr_val * 100;
       const diff_val = (r.diff !== undefined) ? r.diff : (curr_val - prev_val);
@@ -2778,6 +2841,7 @@
           </tr>
         `;
       }).join('');
+      tblBody.innerHTML = rowsHtml;
     }
   }
 
@@ -2993,8 +3057,8 @@
     const tblBodyCa1 = document.querySelector('#table-gan-ca1-detailed tbody');
     if (tblBodyCa1) {
       let listCa1 = [...D.gan.am].map(r => {
-        const curr = r.ca1ton_w37 !== undefined ? r.ca1ton_w37 : (r.ca1ton_curr !== undefined ? r.ca1ton_curr : r.ca1ton_w36);
-        const prev = r.ca1ton_w36 !== undefined ? r.ca1ton_w36 : (r.ca1ton_prev !== undefined ? r.ca1ton_prev : r.ca1ton_w35);
+        const curr = r.ca1ton_w38 !== undefined ? r.ca1ton_w38 : (r.ca1ton_curr !== undefined ? r.ca1ton_curr : (r.ca1ton_w37 || 0));
+        const prev = r.ca1ton_w37 !== undefined ? r.ca1ton_w37 : (r.ca1ton_prev !== undefined ? r.ca1ton_prev : (r.ca1ton_w36 || 0));
         return {
           ...r,
           curr_val: curr,
@@ -3030,8 +3094,8 @@
     const tblBodyCa2 = document.querySelector('#table-gan-ca2-detailed tbody');
     if (tblBodyCa2) {
       let listCa2 = [...D.gan.am].map(r => {
-        const curr = r.tong_w37 !== undefined ? r.tong_w37 : (r.tong_curr !== undefined ? r.tong_curr : r.tong_w36);
-        const prev = r.tong_w36 !== undefined ? r.tong_w36 : (r.tong_prev !== undefined ? r.tong_prev : r.tong_w35);
+        const curr = r.tong_w38 !== undefined ? r.tong_w38 : (r.tong_curr !== undefined ? r.tong_curr : (r.tong_w37 || 0));
+        const prev = r.tong_w37 !== undefined ? r.tong_w37 : (r.tong_prev !== undefined ? r.tong_prev : (r.tong_w36 || 0));
         return {
           ...r,
           curr_val: curr,
@@ -4107,31 +4171,31 @@
       return '<span class="badge-tag badge-tag-red">🔴 Chưa Đạt KPI (<80%)</span>';
     }
 
-    // Tính % OPR TTS tổng toàn vùng (weighted)
+    // Tính % OPR TTS tổng toàn vùng (weighted) cho W38 vs W37
     const _ams = D.opr_tts.am;
     const _totalVol = _ams.reduce((s, r) => s + (r.vol_day||0) + (r.vol_night||0), 0);
     const _volDay = _ams.reduce((s, r) => s + (r.vol_day || 0), 0);
     const _volNight = _ams.reduce((s, r) => s + (r.vol_night || 0), 0);
-    const _vung36Day = _volDay > 0 ? _ams.reduce((s, r) => s + (r.vol_day || 0) * (r.w37_day !== undefined ? r.w37_day : (r.w36_day || 0)), 0) / _volDay : 0;
-    const _vung36Night = _volNight > 0 ? _ams.reduce((s, r) => s + (r.vol_night || 0) * (r.w37_night !== undefined ? r.w37_night : (r.w36_night || 0)), 0) / _volNight : 0;
-    const _wtd36 = _ams.reduce((s, r) => {
+    const _vungCurrDay = _volDay > 0 ? _ams.reduce((s, r) => s + (r.vol_day || 0) * (r.w38_day !== undefined ? r.w38_day : (r.w37_day || 0)), 0) / _volDay : 0;
+    const _vungCurrNight = _volNight > 0 ? _ams.reduce((s, r) => s + (r.vol_night || 0) * (r.w38_night !== undefined ? r.w38_night : (r.w37_night || 0)), 0) / _volNight : 0;
+    const _wtdCurr = _ams.reduce((s, r) => {
       const vol = (r.vol_day||0) + (r.vol_night||0);
-      const curD = r.w37_day !== undefined ? r.w37_day : (r.w36_day || 0);
-      const curN = r.w37_night !== undefined ? r.w37_night : (r.w36_night || 0);
-      const o36 = vol > 0 ? ((r.vol_day||0)*curD + (r.vol_night||0)*curN) / vol : 0;
-      return s + vol * o36;
+      const curD = r.w38_day !== undefined ? r.w38_day : (r.w37_day || 0);
+      const curN = r.w38_night !== undefined ? r.w38_night : (r.w37_night || 0);
+      const o = vol > 0 ? ((r.vol_day||0)*curD + (r.vol_night||0)*curN) / vol : 0;
+      return s + vol * o;
     }, 0);
-    const _wtd35 = _ams.reduce((s, r) => {
+    const _wtdPrev = _ams.reduce((s, r) => {
       const vol = (r.vol_day||0) + (r.vol_night||0);
-      const prvD = r.w36_day !== undefined ? r.w36_day : (r.w35_day || 0);
-      const prvN = r.w36_night !== undefined ? r.w36_night : (r.w35_night || 0);
-      const o35 = vol > 0 ? ((r.vol_day||0)*prvD + (r.vol_night||0)*prvN) / vol : 0;
-      return s + vol * o35;
+      const prvD = r.w37_day !== undefined ? r.w37_day : (r.w36_day || 0);
+      const prvN = r.w37_night !== undefined ? r.w37_night : (r.w36_night || 0);
+      const o = vol > 0 ? ((r.vol_day||0)*prvD + (r.vol_night||0)*prvN) / vol : 0;
+      return s + vol * o;
     }, 0);
-    const _vung36 = _totalVol > 0 ? _wtd36 / _totalVol : 0;
-    const _vung35 = _totalVol > 0 ? _wtd35 / _totalVol : 0;
-    const _diff = _vung36 - _vung35;
-    const _kpiOk = _vung36 >= 0.80;
+    const _vungCurr = _totalVol > 0 ? _wtdCurr / _totalVol : 0;
+    const _vungPrev = _totalVol > 0 ? _wtdPrev / _totalVol : 0;
+    const _diff = _vungCurr - _vungPrev;
+    const _kpiOk = _vungCurr >= 0.80;
     const _vungEl = document.getElementById('opr-tts-vung-total');
     if (_vungEl) {
       const diffTxt = (_diff >= 0 ? '▲ +' : '▼ ') + Math.abs(_diff * 100).toFixed(1) + '%p WoW';
@@ -4140,25 +4204,25 @@
         ? '<span class="badge-tag badge-tag-green" style="font-size:13px; font-weight:800; padding:6px 14px;">✅ Đạt KPI (≥80%)</span>'
         : '<span class="badge-tag badge-tag-red" style="font-size:13px; font-weight:800; padding:6px 14px;">❌ Chưa Đạt KPI (<80%)</span>';
       _vungEl.innerHTML = `
-        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; padding:14px 20px; background:linear-gradient(135deg, rgba(239,68,68,0.06), rgba(245,158,11,0.06)); border:1.5px solid rgba(239,68,68,0.25); border-radius:12px; margin-bottom:16px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; padding:14px 20px; background:linear-gradient(135deg, rgba(16,185,129,0.06), rgba(37,99,235,0.06)); border:1.5px solid rgba(16,185,129,0.25); border-radius:12px; margin-bottom:16px;">
           <div style="display:flex; align-items:center; gap:16px;">
             <div style="font-size:32px; font-weight:900; color:${_kpiOk ? '#10b981' : '#ef4444'}; font-family:var(--font-mono, monospace); line-height:1;">
-              ${(_vung36*100).toFixed(1)}%
+              ${(_vungCurr*100).toFixed(1)}%
             </div>
             <div>
               <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-main, #1e293b);">
-                OPR TTS Toàn Vùng W37 (Tổng Ngày + Đêm)
+                OPR TTS Toàn Vùng W38 (Tổng Ngày + Đêm)
               </div>
               <div style="font-size:12px; font-weight:700; color:${diffColor}; margin-top:2px;">
-                ${diffTxt} (W36: ${(_vung35*100).toFixed(1)}%) &nbsp;•&nbsp; 
-                <span style="color:#64748b;">Mục tiêu KPI: ≥ 80.0% (Cách KPI: -${((0.80 - _vung36)*100).toFixed(1)}%p)</span>
+                ${diffTxt} (W37: ${(_vungPrev*100).toFixed(1)}%) &nbsp;•&nbsp; 
+                <span style="color:#10b981; font-weight:800;">🏆 Đã vượt chuẩn KPI ≥ 80.0%</span>
               </div>
             </div>
           </div>
           <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
             <div style="display:flex; gap:8px;">
-              <span class="badge-tag badge-tag-amber" style="font-size:11px; padding:5px 10px;">☀️ Ca Ngày: <strong>${(_vung36Day*100).toFixed(1)}%</strong></span>
-              <span class="badge-tag badge-tag-purple" style="font-size:11px; padding:5px 10px;">🌙 Ca Đêm: <strong>${(_vung36Night*100).toFixed(1)}%</strong></span>
+              <span class="badge-tag badge-tag-amber" style="font-size:11px; padding:5px 10px;">☀️ Ca Ngày: <strong>${(_vungCurrDay*100).toFixed(1)}%</strong></span>
+              <span class="badge-tag badge-tag-purple" style="font-size:11px; padding:5px 10px;">🌙 Ca Đêm: <strong>${(_vungCurrNight*100).toFixed(1)}%</strong></span>
             </div>
             ${kpiBadge}
           </div>
@@ -4169,30 +4233,30 @@
     // Render danh sách AM chưa đạt KPI OPR TTS (< 80.0%)
     const _failedContainer = document.getElementById('opr-failed-ams-container');
     if (_failedContainer) {
-      // Tính tổng đơn trễ OPR toàn vùng
+      // Tính tổng đơn trễ OPR toàn vùng W38
       const totalFailRegion = _ams.reduce((s, r) => {
         const vTot = r.vol_total || r.total_vol || ((r.vol_day || 0) + (r.vol_night || 0));
-        const oTot = (r.vol_day === 0 && r.vol_night === 0) ? 0 : (r.w37_total !== undefined ? r.w37_total : (r.w36_total || 0));
+        const oTot = (r.vol_day === 0 && r.vol_night === 0) ? 0 : (r.w38_total !== undefined ? r.w38_total : (r.w37_total || 0));
         return s + (vTot > 0 ? Math.round(vTot * (1 - (oTot > 1 ? 0 : oTot))) : 0);
       }, 0);
 
       // Sắp xếp các AM chưa đạt tổng (< 80%) và có đơn (> 0) theo số lượng đơn rớt OPR giảm dần
       const failedTotal = _ams.filter(r => {
         const vTot = r.vol_total || r.total_vol || ((r.vol_day || 0) + (r.vol_night || 0));
-        const oTot = r.w37_total !== undefined ? r.w37_total : (r.w36_total || 0);
+        const oTot = r.w38_total !== undefined ? r.w38_total : (r.w37_total || 0);
         return vTot > 0 && oTot < 0.80;
       }).map(r => {
         const vTot = r.vol_total || r.total_vol || ((r.vol_day || 0) + (r.vol_night || 0));
-        const oTot = r.w37_total !== undefined ? r.w37_total : (r.w36_total || 0);
+        const oTot = r.w38_total !== undefined ? r.w38_total : (r.w37_total || 0);
         const failTot = vTot > 0 ? Math.round(vTot * (1 - (oTot > 1 ? 0 : oTot))) : 0;
         const rateFail = totalFailRegion > 0 ? (failTot / totalFailRegion) : 0;
         return { ...r, fail_total: failTot, rate_fail: rateFail };
       }).sort((a, b) => b.fail_total - a.fail_total);
 
-      const failedDay = _ams.filter(r => (r.vol_day || 0) > 0 && (r.w37_day !== undefined ? r.w37_day : (r.w36_day || 0)) < 0.80)
-                            .sort((a, b) => (a.w37_day || a.w36_day || 0) - (b.w37_day || b.w36_day || 0));
-      const failedNight = _ams.filter(r => (r.vol_night || 0) > 0 && (r.w37_night !== undefined ? r.w37_night : (r.w36_night || 0)) < 0.80)
-                              .sort((a, b) => (a.w37_night || a.w36_night || 0) - (b.w37_night || b.w36_night || 0));
+      const failedDay = _ams.filter(r => (r.vol_day || 0) > 0 && (r.w38_day !== undefined ? r.w38_day : (r.w37_day || 0)) < 0.80)
+                            .sort((a, b) => (a.w38_day || a.w37_day || 0) - (b.w38_day || b.w37_day || 0));
+      const failedNight = _ams.filter(r => (r.vol_night || 0) > 0 && (r.w38_night !== undefined ? r.w38_night : (r.w37_night || 0)) < 0.80)
+                              .sort((a, b) => (a.w38_night || a.w37_night || 0) - (b.w38_night || b.w37_night || 0));
 
       _failedContainer.innerHTML = `
         <div style="background:var(--bg-surface, #ffffff); border:1.5px solid rgba(239, 68, 68, 0.35); border-left:5px solid #ef4444; border-radius:12px; padding:16px 20px; box-shadow:0 3px 12px rgba(239,68,68,0.06); margin-bottom:16px;">
@@ -4220,11 +4284,11 @@
 
           <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(285px, 1fr)); gap:12px;">
             ${failedTotal.map(r => {
-              const val = (((r.w37_total !== undefined ? r.w37_total : r.w36_total) || 0) * 100);
+              const val = (((r.w38_total !== undefined ? r.w38_total : r.w37_total) || 0) * 100);
               const gap = (80 - val).toFixed(1);
-              const rawDay = (r.vol_day === 0) ? 0 : (r.w37_day !== undefined ? r.w37_day : (r.w36_day || 0));
+              const rawDay = (r.vol_day === 0) ? 0 : (r.w38_day !== undefined ? r.w38_day : (r.w37_day || 0));
               const dayVal = (rawDay * 100).toFixed(1);
-              const rawNight = (r.vol_night === 0) ? 0 : (r.w37_night !== undefined ? r.w37_night : (r.w36_night || 0));
+              const rawNight = (r.vol_night === 0) ? 0 : (r.w38_night !== undefined ? r.w38_night : (r.w37_night || 0));
               const nightVal = (rawNight * 100).toFixed(1);
               const diffTot = r.diff_total !== undefined ? (r.diff_total * 100) : 0;
               const diffBadge = diffTot !== 0 ? `<span style="font-size:11px; font-weight:800; color:${diffTot > 0 ? '#10b981' : '#ef4444'};">${diffTot > 0 ? '▲ +' : '▼ '}${Math.abs(diffTot).toFixed(1)}%p</span>` : '';
@@ -4269,8 +4333,8 @@
     const tblBodyDay = document.querySelector('#table-opr-day-detailed tbody');
     if (tblBodyDay) {
       let listDay = [...D.opr_tts.am].map(r => {
-        const curr = r.w37_day !== undefined ? r.w37_day : (r.w36_day || 0);
-        const prev = r.w36_day !== undefined ? r.w36_day : (r.w35_day || 0);
+        const curr = r.w38_day !== undefined ? r.w38_day : (r.w37_day || 0);
+        const prev = r.w37_day !== undefined ? r.w37_day : (r.w36_day || 0);
         return {
           ...r,
           curr_val: curr,
@@ -4304,8 +4368,8 @@
     const tblBodyNight = document.querySelector('#table-opr-night-detailed tbody');
     if (tblBodyNight) {
       let listNight = [...D.opr_tts.am].map(r => {
-        const curr = r.w37_night !== undefined ? r.w37_night : (r.w36_night || 0);
-        const prev = r.w36_night !== undefined ? r.w36_night : (r.w35_night || 0);
+        const curr = r.w38_night !== undefined ? r.w38_night : (r.w37_night || 0);
+        const prev = r.w37_night !== undefined ? r.w37_night : (r.w36_night || 0);
         return {
           ...r,
           curr_val: curr,
@@ -4345,13 +4409,13 @@
 
       const totalFailRegion = D.opr_tts.am.reduce((s, r) => {
         const vTot = r.vol_total || r.total_vol || ((r.vol_day || 0) + (r.vol_night || 0));
-        const oTot = (r.vol_day === 0 && r.vol_night === 0) ? 0 : (r.w37_total !== undefined ? r.w37_total : (r.w36_total || 0));
+        const oTot = (r.vol_day === 0 && r.vol_night === 0) ? 0 : (r.w38_total !== undefined ? r.w38_total : (r.w37_total || 0));
         return s + (vTot > 0 ? Math.round(vTot * (1 - (oTot > 1 ? 0 : oTot))) : 0);
       }, 0);
 
       const sorted = list.map(row => {
         const vTot = row.vol_total || row.total_vol || ((row.vol_day || 0) + (row.vol_night || 0));
-        const oTot = (row.vol_day === 0 && row.vol_night === 0) ? 0 : (row.w37_total !== undefined ? row.w37_total : (row.w36_total || 0));
+        const oTot = (row.vol_day === 0 && row.vol_night === 0) ? 0 : (row.w38_total !== undefined ? row.w38_total : (row.w37_total || 0));
         const failTot = vTot > 0 ? Math.round(vTot * (1 - (oTot > 1 ? 0 : oTot))) : 0;
         const rateFail = totalFailRegion > 0 ? (failTot / totalFailRegion) : 0;
         return { ...row, fail_total: failTot, rate_fail: rateFail, total_calc_vol: vTot };
@@ -4360,10 +4424,10 @@
       tblBody.innerHTML = sorted.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
         const rowClass = isSelected ? 'presenter-laser-box' : '';
-        const rawDay = (row.vol_day === 0 || (row.w36_day || 0) > 1) ? 0 : (row.w36_day !== undefined ? row.w36_day : row.w35_day);
-        const prevDay = row.w36_day !== undefined ? row.w35_day : row.w34_day;
-        const rawNight = (row.vol_night === 0 || (row.w36_night || 0) > 1) ? 0 : (row.w36_night !== undefined ? row.w36_night : row.w35_night);
-        const prevNight = row.w36_night !== undefined ? row.w35_night : row.w34_night;
+        const rawDay = (row.vol_day === 0 || (row.w38_day || 0) > 1) ? 0 : (row.w38_day !== undefined ? row.w38_day : row.w37_day);
+        const prevDay = row.w37_day !== undefined ? row.w37_day : row.w36_day;
+        const rawNight = (row.vol_night === 0 || (row.w38_night || 0) > 1) ? 0 : (row.w38_night !== undefined ? row.w38_night : row.w37_night);
+        const prevNight = row.w37_night !== undefined ? row.w37_night : row.w36_night;
         const heatDay = getHeatmapClass(rawDay, 'opr');
         const heatNight = getHeatmapClass(rawNight, 'opr');
         const diffDay = renderDeltaBadge(row.diff_day, true, true);
@@ -4395,16 +4459,16 @@
     if (!ctx || !D.opr_tts || !D.opr_tts.am) return;
     if (charts.oprGrouped) charts.oprGrouped.destroy();
 
-    const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W36';
+    const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W38';
     const selectedAM = state.selectedAM;
     // Sắp xếp cải thiện tốt nhất giảm dần (diff_total descending)
     const ams = [...D.opr_tts.am].sort((a, b) => {
-      const diffA = a.diff_total !== undefined ? a.diff_total : ((a.w36_total || a.w35_total || 0) - (a.w35_total || a.w34_total || 0));
-      const diffB = b.diff_total !== undefined ? b.diff_total : ((b.w36_total || b.w35_total || 0) - (b.w35_total || b.w34_total || 0));
+      const diffA = a.diff_total !== undefined ? a.diff_total : ((a.w38_total || 0) - (a.w37_total || 0));
+      const diffB = b.diff_total !== undefined ? b.diff_total : ((b.w38_total || 0) - (b.w37_total || 0));
       return diffB - diffA;
     });
 
-    const diffVals = ams.map(d => Number(((d.diff_total !== undefined ? d.diff_total : ((d.w36_total || d.w35_total || 0) - (d.w35_total || d.w34_total || 0))) * 100).toFixed(1)));
+    const diffVals = ams.map(d => Number(((d.diff_total !== undefined ? d.diff_total : ((d.w38_total || 0) - (d.w37_total || 0))) * 100).toFixed(1)));
     const minD = Math.min(...diffVals, 0);
     const maxD = Math.max(...diffVals, 0);
 
@@ -4436,7 +4500,7 @@
             label: `%OPR 9h–19h ${currLabel} (Ca Ngày)`,
             data: ams.map(d => {
               if (!d.vol_day || d.vol_day === 0) return 0;
-              const val = d.w37_day !== undefined ? d.w37_day : (d.w36_day || 0);
+              const val = d.w38_day !== undefined ? d.w38_day : (d.w37_day || 0);
               return Number(((val > 1 ? 0 : val) * 100).toFixed(1));
             }),
             backgroundColor: ams.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#2563eb'),
@@ -4459,7 +4523,7 @@
             label: `%OPR 19h–9h ${currLabel} (Ca Đêm)`,
             data: ams.map(d => {
               if (!d.vol_night || d.vol_night === 0) return 0;
-              const val = d.w37_night !== undefined ? d.w37_night : (d.w36_night || 0);
+              const val = d.w38_night !== undefined ? d.w38_night : (d.w37_night || 0);
               return Number(((val > 1 ? 0 : val) * 100).toFixed(1));
             }),
             backgroundColor: ams.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#ea580c'),
@@ -4482,7 +4546,7 @@
             label: `%OPR Tất cả ${currLabel} (Toàn Ngày)`,
             data: ams.map(d => {
               if ((!d.vol_day || d.vol_day === 0) && (!d.vol_night || d.vol_night === 0)) return 0;
-              const val = d.w37_total !== undefined ? d.w37_total : (d.w36_total || 0);
+              const val = d.w38_total !== undefined ? d.w38_total : (d.w37_total || 0);
               return Number(((val > 1 ? 0 : val) * 100).toFixed(1));
             }),
             borderColor: '#15803d',
@@ -4556,7 +4620,7 @@
             type: 'line',
             label: 'KPI ≥ 80.0% (Mục Tiêu)',
             data: ams.map(() => 80),
-            borderColor: '#dc2626',
+            borderColor: '#10b981',
             borderWidth: 2.5,
             borderDash: [6, 4],
             pointRadius: 0,
@@ -4570,7 +4634,7 @@
           // ---- Toàn Vùng W37 reference line ----
           {
             type: 'line',
-            label: 'Toàn Vùng W37: 78.1% (Chưa Đạt)',
+            label: 'Toàn Vùng W38: 83.0% (Đạt KPI)',
             data: ams.map(() => 78.1),
             borderColor: '#0284c7',
             borderWidth: 2,
@@ -4662,17 +4726,20 @@
   function renderTransportTab() {
     if (!D.rot_lc) return;
 
+    const prevKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2].toLowerCase() : 'w37';
+    const currKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1].toLowerCase() : 'w38';
+
     // 1. BẢNG 1: 18 AM
     const tblBodyAM = document.querySelector('#table-rot-am-detailed tbody');
     if (tblBodyAM && D.rot_lc.am) {
       const totalRotAM = D.rot_lc.am.reduce((s, r) => {
-        const wCurr = r.w37 !== undefined ? (r.w37 || 0) : (r.w36 || 0);
+        const wCurr = r[currKey] !== undefined ? (r[currKey] || 0) : (r.w38 !== undefined ? r.w38 : (r.w37 || 0));
         return s + Math.round((r.vol || 0) * wCurr);
       }, 0);
 
       let listAM = [...D.rot_lc.am].map(r => {
-        const wPrev = r.w36 !== undefined ? (r.w36 || 0) : (r.w35 || 0);
-        const wCurr = r.w37 !== undefined ? (r.w37 || 0) : (r.w36 || 0);
+        const wPrev = r[prevKey] !== undefined ? (r[prevKey] || 0) : (r.w37 !== undefined ? r.w37 : (r.w36 || 0));
+        const wCurr = r[currKey] !== undefined ? (r[currKey] || 0) : (r.w38 !== undefined ? r.w38 : (r.w37 || 0));
         const diff_val = r.diff !== undefined ? r.diff : (wCurr - wPrev);
         const vol_rot = Math.round((r.vol || 0) * wCurr);
         const rate_rot = totalRotAM > 0 ? (vol_rot / totalRotAM) : 0;
@@ -4715,13 +4782,13 @@
     const tblBodyTinh = document.querySelector('#table-rot-tinh-detailed tbody');
     if (tblBodyTinh && D.rot_lc.tinh) {
       const totalRotTinh = D.rot_lc.tinh.reduce((s, r) => {
-        const wCurr = r.w37 !== undefined ? (r.w37 || 0) : (r.w36 || 0);
+        const wCurr = r[currKey] !== undefined ? (r[currKey] || 0) : (r.w38 !== undefined ? r.w38 : (r.w37 || 0));
         return s + Math.round((r.vol || 0) * wCurr);
       }, 0);
 
       let listTinh = [...D.rot_lc.tinh].map(r => {
-        const wPrev = r.w36 !== undefined ? (r.w36 || 0) : (r.w35 || 0);
-        const wCurr = r.w37 !== undefined ? (r.w37 || 0) : (r.w36 || 0);
+        const wPrev = r[prevKey] !== undefined ? (r[prevKey] || 0) : (r.w37 !== undefined ? r.w37 : (r.w36 || 0));
+        const wCurr = r[currKey] !== undefined ? (r[currKey] || 0) : (r.w38 !== undefined ? r.w38 : (r.w37 || 0));
         const diff_val = r.diff !== undefined ? r.diff : (wCurr - wPrev);
         const vol_rot = Math.round((r.vol || 0) * wCurr);
         const rate_rot = totalRotTinh > 0 ? (vol_rot / totalRotTinh) : 0;
@@ -4796,15 +4863,15 @@
     if (!ctx || !D.rot_lc || !D.rot_lc.am) return;
     if (charts.rotLcBar) charts.rotLcBar.destroy();
 
-    const prevKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2].toLowerCase() : 'w35';
-    const currKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1].toLowerCase() : 'w36';
-    const prevLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2] : 'W35';
-    const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W36';
+    const prevKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2].toLowerCase() : 'w37';
+    const currKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1].toLowerCase() : 'w38';
+    const prevLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2] : 'W37';
+    const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W38';
 
     const selectedAM = state.selectedAM;
     const sorted = [...D.rot_lc.am].map(r => {
-      const prev_val = r[currKey] !== undefined ? (r[prevKey] || 0) : (r.w34 || 0);
-      const curr_val = r[currKey] !== undefined ? (r[currKey] || 0) : (r.w35 || 0);
+      const prev_val = r[currKey] !== undefined ? (r[prevKey] || 0) : (r.w37 || 0);
+      const curr_val = r[currKey] !== undefined ? (r[currKey] || 0) : (r.w38 || 0);
       const diff_val = r.diff !== undefined ? r.diff : (curr_val - prev_val);
       return {
         ...r,
@@ -4812,7 +4879,7 @@
         w35_pct: Number((curr_val * 100).toFixed(2)),
         diff_pct: Number((diff_val * 100).toFixed(2))
       };
-    }).sort((a, b) => a.diff_pct - b.diff_pct); // Sort từ cải thiện giảm rớt tốt nhất đến tăng rớt
+    }).sort((a, b) => a.diff_pct - b.diff_pct);
 
     charts.rotLcBar = new Chart(ctx, {
       type: 'bar',
