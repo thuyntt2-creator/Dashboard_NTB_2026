@@ -4864,6 +4864,7 @@ def meeting_script():
 @app.route('/data.js')
 @app.route('/data.json')
 @app.route('/download-doc')
+@app.route('/KICH_BAN_THUYET_TRINH_W38_INSIGHT_CHUYEN_SAU_CHINH_SUA.docx')
 @app.route('/KICH_BAN_THUYET_TRINH_W38_INSIGHT_CHUYEN_SAU.docx')
 @app.route('/KICH_BAN_THUYET_TRINH_W38_NAM_TRUNG_BO.docx')
 @app.route('/KICH_BAN_THUYET_TRINH_W37_NAM_TRUNG_BO_MOI_NHAT.docx')
@@ -4873,7 +4874,7 @@ def serve_meeting_assets():
     root_dir = os.path.dirname(os.path.abspath(__file__))
     req_file = request.path.lstrip('/')
     if req_file == 'download-doc':
-        req_file = 'KICH_BAN_THUYET_TRINH_W38_INSIGHT_CHUYEN_SAU.docx'
+        req_file = 'KICH_BAN_THUYET_TRINH_W38_NAM_TRUNG_BO.docx'
     response = send_from_directory(root_dir, req_file, as_attachment=True if req_file.endswith('.docx') else False)
     response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
     response.headers['Pragma'] = 'no-cache'

@@ -455,14 +455,16 @@ def build_w38_natural_doc():
     out_docx2 = "KICH_BAN_THUYET_TRINH_W38_NAM_TRUNG_BO.docx"
     out_docx3 = "KICH_BAN_THUYET_TRINH_W38_INSIGHT_CHUYEN_SAU_CHINH_SUA.docx"
     
+    # Save out_docx2 first
     doc.save(out_docx2)
     print(f"Saved: {out_docx2} ({os.path.getsize(out_docx2)} bytes)")
     
+    # Try saving out_docx1
     try:
         doc.save(out_docx1)
         print(f"Saved: {out_docx1} ({os.path.getsize(out_docx1)} bytes)")
     except Exception as e:
-        print(f"Warning: {out_docx1} is currently open in Word ({e}). Saving to {out_docx3}")
+        print(f"File {out_docx1} is open in Word. Saved to {out_docx3} instead.")
         doc.save(out_docx3)
         print(f"Saved: {out_docx3} ({os.path.getsize(out_docx3)} bytes)")
 

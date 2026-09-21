@@ -1132,10 +1132,10 @@
       // 10. TLTĐ (Tỷ Lệ Lấp Đầy Thùng/Xe KTC)
       const ktcData = D.ktc || {};
       const ktcWeekly = ktcData.fill_rate?.weekly?.total || {};
-      const tltdVal = (ktcWeekly.tld_curr !== undefined ? ktcWeekly.tld_curr : (ktcWeekly['tld_' + latestWeek.toLowerCase()] || 54.8)) / 100;
-      const tltdPrev = (ktcWeekly.tld_prev !== undefined ? ktcWeekly.tld_prev : (ktcWeekly['tld_' + prevWeek.toLowerCase()] || 48.1)) / 100;
+      const tltdVal = (ktcWeekly.tld_curr !== undefined ? ktcWeekly.tld_curr : (ktcWeekly['tld_' + latestWeek.toLowerCase()] || 51.0)) / 100;
+      const tltdPrev = (ktcWeekly.tld_prev !== undefined ? ktcWeekly.tld_prev : (ktcWeekly['tld_' + prevWeek.toLowerCase()] || 54.8)) / 100;
       const tltdDiff = ktcWeekly.diff_tld !== undefined ? (ktcWeekly.diff_tld / 100) : (tltdVal - tltdPrev);
-      const tltdUnder30 = ktcWeekly.under_30 !== undefined ? ktcWeekly.under_30 : 80;
+      const tltdUnder30 = ktcWeekly.under_30 !== undefined ? ktcWeekly.under_30 : 76;
 
       const pairedCards = [
         {
@@ -7212,12 +7212,12 @@
 
     // Update KTC KPI Card 4 (TLLĐ Xe Bình Quân)
     const ktcWeeklyTot = D.ktc.fill_rate?.weekly?.total || {};
-    const currW = D.meta?.latest_week || 'W37';
-    const prevW = D.meta?.prev_week || 'W36';
-    const tldVal = ktcWeeklyTot.tld_curr !== undefined ? ktcWeeklyTot.tld_curr : 54.8;
-    const tldPrev = ktcWeeklyTot.tld_prev !== undefined ? ktcWeeklyTot.tld_prev : 48.1;
-    const diffTld = ktcWeeklyTot.diff_tld !== undefined ? ktcWeeklyTot.diff_tld : 6.7;
-    const under30 = ktcWeeklyTot.under_30 !== undefined ? ktcWeeklyTot.under_30 : 80;
+    const currW = D.meta?.latest_week || 'W38';
+    const prevW = D.meta?.prev_week || 'W37';
+    const tldVal = ktcWeeklyTot.tld_curr !== undefined ? ktcWeeklyTot.tld_curr : 51.0;
+    const tldPrev = ktcWeeklyTot.tld_prev !== undefined ? ktcWeeklyTot.tld_prev : 54.8;
+    const diffTld = ktcWeeklyTot.diff_tld !== undefined ? ktcWeeklyTot.diff_tld : -3.8;
+    const under30 = ktcWeeklyTot.under_30 !== undefined ? ktcWeeklyTot.under_30 : 76;
 
     const ktcTile4 = document.querySelector('#tab-ktc .kpi-strip .kpi-tile:nth-child(4)');
     if (ktcTile4) {
@@ -7461,8 +7461,8 @@
 
     } else {
       // Weekly: compare prevW vs currW
-      const currW = D.meta?.latest_week || 'W37';
-      const prevW = D.meta?.prev_week || 'W36';
+      const currW = D.meta?.latest_week || 'W38';
+      const prevW = D.meta?.prev_week || 'W37';
       thead.innerHTML = `<tr>
         <th class="center" style="width:44px;">#</th>
         <th>KTC / Kho</th>
