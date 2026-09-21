@@ -43,6 +43,7 @@
   let D = window.DASHBOARD_DATA || window.DATA || {};
   window.DASHBOARD_DATA = D;
   window.DATA = D;
+  window.D = D;
   const charts = {};
 
   // App State - LIGHT THEME BY DEFAULT & 12 DEDICATED SECTIONS
@@ -244,7 +245,7 @@
   }
 
   function updateDynamicWeekLabels() {
-    if (!window.D || !D.meta) return;
+    if (!D || !D.meta) return;
     const currW = D.meta.latest_week || 'W37';
     const prevW = D.meta.prev_week || 'W36';
     const weeks = D.meta.weeks || ['W34', 'W35', 'W36', 'W37'];
