@@ -1,17 +1,17 @@
-from playwright.sync_api import sync_playwright
-import time
+import asyncio
+from playwright.async_api import async_playwright
 
-def main():
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        page = browser.new_page(viewport={"width": 1536, "height": 900})
-        page.goto('http://127.0.0.1:3000/hop', wait_until='networkidle')
-        time.sleep(2)
+async def main():
+    async with async_playwright() as p:
+        browser = await p.chromium.launch()
+        page = await browser.new_page(viewport={"width": 1400, "height": 900})
+        await page.goto("http://127.0.0.1:3000/hop", wait_until="networkidle")
+        await page.wait_for_timeout(2000)
         
-        # Screenshot of the executive banner and KPI tiles
-        page.screenshot(path='scratch/verify_kpi_cards_w36.png', clip={"x": 0, "y": 60, "width": 1536, "height": 550})
-        print("Captured scratch/verify_kpi_cards_w36.png successfully!")
-        browser.close()
+        # Take screenshot of overview kpi tiles
+        tiles = page.locator("#overview-kpi-tiles")
+        await tiles.screenshot(path="scratch/kpi_tiles_screenshot.png")
+        print("Screenshot saved to scratch/kpi_tiles_screenshot.png")
+        await browser.close()
 
-if __name__ == '__main__':
-    main()
+asyncio.run(main())
