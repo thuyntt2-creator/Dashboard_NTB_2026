@@ -1089,16 +1089,16 @@
       const ganTtsVal = ganTtsRow[latestWeek.toLowerCase()] !== undefined ? ganTtsRow[latestWeek.toLowerCase()] : (ganTtsRow.w37 || ganTtsRow.w36 || 0.8343);
       const ganTtsDiff = ganTtsRow.diff !== undefined ? ganTtsRow.diff : 0.0142;
 
-      // 5. ODR
+            // 5. ODR
       const odrOverview = D.odr?.overview || [];
       const odrFullRow = odrOverview.find(r => r.label === 'Full hàng') || {};
       const odrTtsRow = odrOverview.find(r => r.label === 'TTS') || {};
       const odrCard = cardMap['odr_full'] || {};
       const odrTrendTts = trendMap['%ODR TTS'] || {};
-      const odrVal = odrFullRow.w37 !== undefined ? odrFullRow.w37 : (odrCard.val !== undefined ? odrCard.val : 0.9385);
-      const odrDiff = odrFullRow.diff !== undefined ? odrFullRow.diff : (odrCard.diff !== undefined ? odrCard.diff : 0.0097);
-      const odrTtsVal = odrTtsRow.w37 !== undefined ? odrTtsRow.w37 : (odrTrendTts[latestWeek.toLowerCase()] !== undefined ? odrTrendTts[latestWeek.toLowerCase()] : 0.9285);
-      const odrTtsDiff = odrTtsRow.diff !== undefined ? odrTtsRow.diff : (odrTrendTts.diff !== undefined ? odrTrendTts.diff : 0.0042);
+      const odrVal = odrFullRow[latestWeek.toLowerCase()] !== undefined ? odrFullRow[latestWeek.toLowerCase()] : (odrFullRow.w38 !== undefined ? odrFullRow.w38 : (odrCard.val !== undefined ? odrCard.val : 0.9124));
+      const odrDiff = odrFullRow.diff !== undefined ? odrFullRow.diff : (odrCard.diff !== undefined ? odrCard.diff : -0.0210);
+      const odrTtsVal = odrTtsRow[latestWeek.toLowerCase()] !== undefined ? odrTtsRow[latestWeek.toLowerCase()] : (odrTtsRow.w38 !== undefined ? odrTtsRow.w38 : (odrTrendTts[latestWeek.toLowerCase()] !== undefined ? odrTrendTts[latestWeek.toLowerCase()] : 0.9154));
+      const odrTtsDiff = odrTtsRow.diff !== undefined ? odrTtsRow.diff : (odrTrendTts.diff !== undefined ? odrTrendTts.diff : -0.0131);
 
       // 6. LTC
       const ltcCard = cardMap['ltc_full'] || {};
@@ -1190,7 +1190,7 @@
           subVal: `TTS: ${fPct(odrTtsVal)} (${odrTtsDiff >= 0 ? '▲ +' : '▼ '}${(Math.abs(odrTtsDiff)*100).toFixed(1)}%p)`,
           diff: odrDiff,
           isHigherBetter: true,
-          colorCls: 'kpi-green',
+          colorCls: (odrVal >= 0.92) ? 'kpi-green' : 'kpi-red',
           icon: 'clock'
         },
         {
