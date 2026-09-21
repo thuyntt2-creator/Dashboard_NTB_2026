@@ -6205,51 +6205,17 @@
     if (thLoaiCc) thLoaiCc.textContent = `Cần Thu (${currShort})`;
 
     // 1. PANEL 1: THEO LOẠI TRUY THU
-    const tblLoai = document.querySelector('#table-truythu-by-loai tbody');
-    if (tblLoai && report.by_loai) {
-      tblLoai.innerHTML = report.by_loai.map(r => {
-        const diffSign = r.diff_can_thu > 0 ? '+' : '';
-        const diffDonSign = r.diff_don > 0 ? '+' : '';
-        const isSpike = r.diff_can_thu >= 10e6;
-        let evalHtml = '—';
-        const ev = r.eval || '';
-        if (ev.includes('Tăng mạnh')) {
-          evalHtml = `<span class="badge-tag badge-tag-red" style="font-size:11px; font-weight:800;">🔴 Tăng mạnh</span>`;
-        } else if (ev.includes('Cảnh báo')) {
-          evalHtml = `<span class="badge-tag badge-tag-amber" style="font-size:11px;">⚠️ Tăng</span>`;
-        } else if (ev.includes('Giảm')) {
-          evalHtml = `<span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Giảm</span>`;
-        } else if (ev) {
-          evalHtml = `<span class="badge-tag badge-tag-blue" style="font-size:11px;">${ev}</span>`;
-        }
-        if (r.ghi_chu) {
-          evalHtml += `<div style="font-size:10.5px; color:var(--text-muted); margin-top:2px;">${r.ghi_chu}</div>`;
-        }
-
-        return `
-          <tr style="${isSpike ? 'background: rgba(239, 68, 68, 0.05);' : ''}">
-            <td class="bold" style="font-size:13px; font-weight:800;">${r.loai}</td>
-            <td class="num">${fNum(r.don_prev)}</td>
-            <td class="num bold" style="background: rgba(2, 132, 199, 0.08); color: #0284c7; font-weight:900;">${fNum(r.don_curr)}</td>
-            <td class="num bold" style="color: ${r.diff_don > 0 ? '#dc2626' : (r.diff_don < 0 ? '#16a34a' : 'inherit')};">${diffDonSign}${fNum(r.diff_don)} (${r.pct_don_diff})</td>
-            <td class="num">${(r.can_thu_prev / 1e6).toFixed(1)} Tr</td>
-            <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: #dc2626; font-size:13px; font-weight:900;">${(r.can_thu_curr / 1e6).toFixed(1)} Tr</td>
-            <td class="num bold" style="color: ${r.diff_can_thu > 0 ? '#dc2626' : (r.diff_can_thu < 0 ? '#16a34a' : 'inherit')};">${diffSign}${(r.diff_can_thu / 1e6).toFixed(1)} Tr</td>
-            <td class="num bold" style="color: ${r.diff_can_thu > 0 ? '#dc2626' : (r.diff_can_thu < 0 ? '#16a34a' : 'inherit')};">${r.pct_can_thu_diff}</td>
-            <td class="center">${evalHtml}</td>
-          </tr>
-        `;
-      }).join('');
-    }
+    renderTruyThuLoaiTable();
 
     // 2. PANEL 2: TOP BC GIAO & SO SÁNH TỈNH
     const tblProv = document.querySelector('#table-truythu-by-province tbody');
     if (tblProv && report.by_province) {
-      tblProv.innerHTML = report.by_province.map(r => {
+      tblProv.innerHTML = report.by_province.map((r, i) => {
         const diffSign = r.diff_can_thu > 0 ? '+' : '';
         const diffDonSign = r.diff_don > 0 ? '+' : '';
         return `
           <tr>
+            <td class="center">${renderRankPill(i)}</td>
             <td class="bold" style="font-size:13px; font-weight:800; color: var(--color-blue);">${r.tinh}</td>
             <td class="num">${fNum(r.don_prev)}</td>
             <td class="num bold" style="background: rgba(2, 132, 199, 0.08); color: #0284c7; font-weight:900;">${fNum(r.don_curr)}</td>
@@ -6350,6 +6316,80 @@
     }
   }
 
+  function sortTruyThuLoai(by) {
+    state.truythuLoaiSort = by;
+    ['tien', 'don', 'diff'].forEach(k => {
+      const btn = document.getElementById('btn-sort-tt-' + k);
+      if (btn) {
+        if (k === by) {
+          btn.className = 'btn btn-xs btn-primary';
+          btn.style.fontWeight = '700';
+        } else {
+          btn.className = 'btn btn-xs btn-secondary';
+          btn.style.fontWeight = 'normal';
+        }
+      }
+    });
+    renderTruyThuLoaiTable();
+    renderTruyThuLoaiBar();
+  }
+  window.sortTruyThuLoai = sortTruyThuLoai;
+
+  function renderTruyThuLoaiTable() {
+    const tblLoai = document.querySelector('#table-truythu-by-loai tbody');
+    const report = D.truy_thu_report || {};
+    if (!tblLoai || !report.by_loai) return;
+
+    let items = [...report.by_loai];
+    const sortBy = state.truythuLoaiSort || 'tien';
+    if (sortBy === 'tien') {
+      items.sort((a, b) => (b.can_thu_curr || 0) - (a.can_thu_curr || 0));
+    } else if (sortBy === 'don') {
+      items.sort((a, b) => (b.don_curr || 0) - (a.don_curr || 0));
+    } else if (sortBy === 'diff') {
+      items.sort((a, b) => (b.diff_can_thu || 0) - (a.diff_can_thu || 0));
+    } else if (sortBy === 'diff_don') {
+      items.sort((a, b) => (b.diff_don || 0) - (a.diff_don || 0));
+    } else if (sortBy === 'name') {
+      items.sort((a, b) => a.loai.localeCompare(b.loai));
+    }
+
+    tblLoai.innerHTML = items.map((r, i) => {
+      const diffSign = r.diff_can_thu > 0 ? '+' : '';
+      const diffDonSign = r.diff_don > 0 ? '+' : '';
+      const isSpike = r.diff_can_thu >= 10e6;
+      let evalHtml = '—';
+      const ev = r.eval || '';
+      if (ev.includes('Tăng mạnh')) {
+        evalHtml = `<span class="badge-tag badge-tag-red" style="font-size:11px; font-weight:800;">🔴 Tăng mạnh</span>`;
+      } else if (ev.includes('Cảnh báo')) {
+        evalHtml = `<span class="badge-tag badge-tag-amber" style="font-size:11px;">⚠️ Tăng</span>`;
+      } else if (ev.includes('Giảm')) {
+        evalHtml = `<span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Giảm</span>`;
+      } else if (ev) {
+        evalHtml = `<span class="badge-tag badge-tag-blue" style="font-size:11px;">${ev}</span>`;
+      }
+      if (r.ghi_chu) {
+        evalHtml += `<div style="font-size:10.5px; color:var(--text-muted); margin-top:2px;">${r.ghi_chu}</div>`;
+      }
+
+      return `
+        <tr style="${isSpike ? 'background: rgba(239, 68, 68, 0.05);' : ''}">
+          <td class="center">${renderRankPill(i)}</td>
+          <td class="bold" style="font-size:13px; font-weight:800;">${r.loai}</td>
+          <td class="num">${fNum(r.don_prev)}</td>
+          <td class="num bold" style="background: rgba(2, 132, 199, 0.08); color: #0284c7; font-weight:900;">${fNum(r.don_curr)}</td>
+          <td class="num bold" style="color: ${r.diff_don > 0 ? '#dc2626' : (r.diff_don < 0 ? '#16a34a' : 'inherit')};">${diffDonSign}${fNum(r.diff_don)} (${r.pct_don_diff})</td>
+          <td class="num">${(r.can_thu_prev / 1e6).toFixed(1)} Tr</td>
+          <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: #dc2626; font-size:13px; font-weight:900;">${(r.can_thu_curr / 1e6).toFixed(1)} Tr</td>
+          <td class="num bold" style="color: ${r.diff_can_thu > 0 ? '#dc2626' : (r.diff_can_thu < 0 ? '#16a34a' : 'inherit')};">${diffSign}${(r.diff_can_thu / 1e6).toFixed(1)} Tr</td>
+          <td class="num bold" style="color: ${r.diff_can_thu > 0 ? '#dc2626' : (r.diff_can_thu < 0 ? '#16a34a' : 'inherit')};">${r.pct_can_thu_diff}</td>
+          <td class="center">${evalHtml}</td>
+        </tr>
+      `;
+    }).join('');
+  }
+
   function renderTruyThuLoaiBar() {
     const ctx = document.getElementById('chart-truythu-loai-bar');
     if (!ctx) return;
@@ -6360,7 +6400,17 @@
     const prevLabel = summary.prev_label && summary.prev_label.includes('(') ? summary.prev_label.split('(')[0].trim() : (summary.prev_label || 'Tuần N-1');
     const currLabel = summary.curr_label && summary.curr_label.includes('(') ? summary.curr_label.split('(')[0].trim() : (summary.curr_label || 'Tuần N');
 
-    const top8 = (report.by_loai || []).slice(0, 8);
+    let items = [...(report.by_loai || [])];
+    const sortBy = state.truythuLoaiSort || 'tien';
+    if (sortBy === 'tien') {
+      items.sort((a, b) => (b.can_thu_curr || 0) - (a.can_thu_curr || 0));
+    } else if (sortBy === 'don') {
+      items.sort((a, b) => (b.don_curr || 0) - (a.don_curr || 0));
+    } else if (sortBy === 'diff') {
+      items.sort((a, b) => (b.diff_can_thu || 0) - (a.diff_can_thu || 0));
+    }
+
+    const top8 = items.slice(0, 8);
     if (top8.length === 0) return;
 
     charts.truyThuLoaiBar = new Chart(ctx, {

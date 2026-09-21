@@ -2739,10 +2739,16 @@
       <div id="truythu-panel-loai" class="truythu-panel">
         <div class="grid-row-2">
           <div class="report-card">
-            <div class="report-card-header">
+            <div class="report-card-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
               <div class="report-card-title">
                 <i data-lucide="table" style="color: var(--color-blue);"></i>
-                BẢNG SO SÁNH CÁC LOẠI TRUY THU (TUẦN W37 vs TUẦN W38)
+                BẢNG XẾP HẠNG CÁC LOẠI TRUY THU (TUẦN W37 vs TUẦN W38)
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span style="font-size: 11px; font-weight: 700; color: var(--text-muted);">Xếp hạng theo:</span>
+                <button class="btn btn-xs btn-primary" id="btn-sort-tt-tien" onclick="sortTruyThuLoai('tien')" style="font-size: 11.5px; padding: 4px 10px; font-weight: 700;">💰 Tiền Cần Thu</button>
+                <button class="btn btn-xs btn-secondary" id="btn-sort-tt-don" onclick="sortTruyThuLoai('don')" style="font-size: 11.5px; padding: 4px 10px;">📦 Số Lượng Đơn</button>
+                <button class="btn btn-xs btn-secondary" id="btn-sort-tt-diff" onclick="sortTruyThuLoai('diff')" style="font-size: 11.5px; padding: 4px 10px;">📈 Mức Tăng Tiền (Δ)</button>
               </div>
             </div>
             <div class="report-card-body">
@@ -2750,12 +2756,13 @@
                 <table class="bi-table" id="table-truythu-by-loai">
                   <thead>
                     <tr style="background: #1e3a8a; color: #ffffff;">
+                      <th class="center" style="width: 44px; color:#ffffff;">#</th>
                       <th style="color:#ffffff;">Loại Truy Thu</th>
                       <th class="num" style="color:#ffffff;" id="th-tt-loai-dp">Đơn W37</th>
                       <th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;" id="th-tt-loai-dc">Đơn W38</th>
                       <th class="num" style="color:#ffffff;">Biến Động Đơn</th>
-                      <th class="num" style="color:#ffffff;" id="th-tt-loai-cp">Cần Thu N-1</th>
-                      <th class="num" style="background: #dc2626; color:#ffffff; font-weight:800;" id="th-tt-loai-cc">Cần Thu N</th>
+                      <th class="num" style="color:#ffffff;" id="th-tt-loai-cp">Cần Thu W37 (Tr ₫)</th>
+                      <th class="num" style="background: #dc2626; color:#ffffff; font-weight:800;" id="th-tt-loai-cc">Cần Thu W38 (Tr ₫)</th>
                       <th class="num" style="color:#ffffff;">Biến Động (Tr ₫)</th>
                       <th class="num" style="color:#ffffff;">% Biến Động</th>
                       <th class="center" style="color:#ffffff;">Đánh Giá</th>
@@ -2799,6 +2806,7 @@
               <table class="bi-table" id="table-truythu-by-province">
                 <thead>
                   <tr style="background: #1e3a8a; color: #ffffff;">
+                    <th class="center" style="width: 44px; color:#ffffff;">#</th>
                     <th style="color:#ffffff;">Tỉnh / Thành Phố</th>
                     <th class="num" style="color:#ffffff;">Đơn Tuần W37</th>
                     <th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Đơn Tuần W38</th>
@@ -3432,8 +3440,8 @@
   </div>
 
   <!-- Scripts -->
-  <script src="data.js?v=1789415001"></script>
-  <script src="app.js?v=1789415001"></script>
+  <script src="data.js?v=1789420002"></script>
+  <script src="app.js?v=1789420003"></script>
 
 </body>
 </html>
