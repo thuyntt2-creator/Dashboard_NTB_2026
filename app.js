@@ -6058,6 +6058,8 @@
     const summary = report.summary || {};
     const prevLabel = summary.prev_label || 'Tuần N-1';
     const currLabel = summary.curr_label || 'Tuần N';
+    const prevShort = summary.prev_label && summary.prev_label.includes('(') ? summary.prev_label.split('(')[0].trim() : (summary.prev_label || 'Tuần N-1');
+    const currShort = summary.curr_label && summary.curr_label.includes('(') ? summary.curr_label.split('(')[0].trim() : (summary.curr_label || 'Tuần N');
 
     // Update Banner
     const bannerTitle = document.getElementById('truythu-banner-title');
@@ -6070,7 +6072,7 @@
     }
     const bannerBadge = document.getElementById('truythu-banner-badge');
     if (bannerBadge && summary.total_records_curr) {
-      bannerBadge.textContent = `${currLabel.split(' ')[0]}: ${fNum(summary.total_records_curr)} Bản Ghi | Cần Thu ${(summary.can_thu_curr / 1e6).toFixed(1)} Tr`;
+      bannerBadge.textContent = `${currShort}: ${fNum(summary.total_records_curr)} Bản Ghi | Cần Thu ${(summary.can_thu_curr / 1e6).toFixed(1)} Tr`;
     }
 
     // 4 KPI Comparison Tiles
@@ -6078,44 +6080,44 @@
       const elRec = document.getElementById('truythu-kpi-records');
       const elRecMeta = document.getElementById('truythu-kpi-records-meta');
       const elRecTitle = document.getElementById('kpi-tt-rec-title');
-      if (elRecTitle) elRecTitle.textContent = `Tổng Đơn / Ticket (${currLabel.split(' ')[0]})`;
+      if (elRecTitle) elRecTitle.textContent = `Tổng Đơn / Ticket (${currShort})`;
       if (elRec) elRec.innerHTML = `${fNum(summary.total_records_curr)} <small>đơn</small>`;
       if (elRecMeta) {
         const sign = summary.diff_records >= 0 ? '+' : '';
         const isBad = summary.diff_records > 0;
-        elRecMeta.innerHTML = `<span class="diff-tag ${isBad ? 'diff-up-bad' : 'diff-down-good'}">${prevLabel.split(' ')[0]}: ${fNum(summary.total_records_prev)} (${sign}${fNum(summary.diff_records)} | ${summary.diff_records_pct})</span>`;
+        elRecMeta.innerHTML = `<span class="diff-tag ${isBad ? 'diff-up-bad' : 'diff-down-good'}">${prevShort}: ${fNum(summary.total_records_prev)} (${sign}${fNum(summary.diff_records)} | ${summary.diff_records_pct})</span>`;
       }
 
       const elBd = document.getElementById('truythu-kpi-bandau');
       const elBdMeta = document.getElementById('truythu-kpi-bandau-meta');
       const elBdTitle = document.getElementById('kpi-tt-bd-title');
-      if (elBdTitle) elBdTitle.textContent = `Tổng Tiền Ban Đầu (${currLabel.split(' ')[0]})`;
+      if (elBdTitle) elBdTitle.textContent = `Tổng Tiền Ban Đầu (${currShort})`;
       if (elBd) elBd.innerHTML = `${(summary.ban_dau_curr / 1e6).toFixed(1)} <small>Tr ₫</small>`;
       if (elBdMeta) {
         const sign = summary.diff_ban_dau >= 0 ? '+' : '';
         const isBad = summary.diff_ban_dau > 0;
-        elBdMeta.innerHTML = `<span class="diff-tag ${isBad ? 'diff-up-bad' : 'diff-neutral'}">${prevLabel.split(' ')[0]}: ${(summary.ban_dau_prev / 1e6).toFixed(1)} Tr (${sign}${(summary.diff_ban_dau / 1e6).toFixed(1)} Tr | ${summary.diff_ban_dau_pct})</span>`;
+        elBdMeta.innerHTML = `<span class="diff-tag ${isBad ? 'diff-up-bad' : 'diff-neutral'}">${prevShort}: ${(summary.ban_dau_prev / 1e6).toFixed(1)} Tr (${sign}${(summary.diff_ban_dau / 1e6).toFixed(1)} Tr | ${summary.diff_ban_dau_pct})</span>`;
       }
 
       const elDc = document.getElementById('truythu-kpi-dieuchinh');
       const elDcMeta = document.getElementById('truythu-kpi-dieuchinh-meta');
       const elDcTitle = document.getElementById('kpi-tt-dc-title');
-      if (elDcTitle) elDcTitle.textContent = `Tổng Điều Chỉnh (${currLabel.split(' ')[0]})`;
+      if (elDcTitle) elDcTitle.textContent = `Tổng Điều Chỉnh (${currShort})`;
       if (elDc) elDc.innerHTML = `${(summary.dieu_chinh_curr / 1e6).toFixed(1)} <small>Tr ₫</small>`;
       if (elDcMeta) {
         const sign = summary.diff_dieu_chinh >= 0 ? '+' : '';
-        elDcMeta.innerHTML = `<span class="diff-tag diff-down-good">${prevLabel.split(' ')[0]}: ${(summary.dieu_chinh_prev / 1e6).toFixed(1)} Tr (${sign}${(summary.diff_dieu_chinh / 1e6).toFixed(1)} Tr)</span>`;
+        elDcMeta.innerHTML = `<span class="diff-tag diff-down-good">${prevShort}: ${(summary.dieu_chinh_prev / 1e6).toFixed(1)} Tr (${sign}${(summary.diff_dieu_chinh / 1e6).toFixed(1)} Tr)</span>`;
       }
 
       const elCt = document.getElementById('truythu-kpi-canthu');
       const elCtMeta = document.getElementById('truythu-kpi-canthu-meta');
       const elCtTitle = document.getElementById('kpi-tt-ct-title');
-      if (elCtTitle) elCtTitle.textContent = `Cần Truy Thu Thêm (${currLabel.split(' ')[0]})`;
+      if (elCtTitle) elCtTitle.textContent = `Cần Truy Thu Thêm (${currShort})`;
       if (elCt) elCt.innerHTML = `${(summary.can_thu_curr / 1e6).toFixed(1)} <small>Tr ₫</small>`;
       if (elCtMeta) {
         const sign = summary.diff_can_thu >= 0 ? '+' : '';
         const isBad = summary.diff_can_thu > 0;
-        elCtMeta.innerHTML = `<span class="diff-tag ${isBad ? 'diff-up-bad' : 'diff-down-good'}">▲ Tăng ${sign}${(summary.diff_can_thu / 1e6).toFixed(1)} Tr (${summary.diff_can_thu_pct} so với N-1)</span>`;
+        elCtMeta.innerHTML = `<span class="diff-tag ${isBad ? 'diff-up-bad' : 'diff-down-good'}">▲ Tăng ${sign}${(summary.diff_can_thu / 1e6).toFixed(1)} Tr (${summary.diff_can_thu_pct} so với ${prevShort})</span>`;
       }
     }
 
@@ -6124,10 +6126,10 @@
     const thLoaiDc = document.getElementById('th-tt-loai-dc');
     const thLoaiCp = document.getElementById('th-tt-loai-cp');
     const thLoaiCc = document.getElementById('th-tt-loai-cc');
-    if (thLoaiDp) thLoaiDp.textContent = `Đơn (${prevLabel.split(' ')[0]})`;
-    if (thLoaiDc) thLoaiDc.textContent = `Đơn (${currLabel.split(' ')[0]})`;
-    if (thLoaiCp) thLoaiCp.textContent = `Cần Thu (${prevLabel.split(' ')[0]})`;
-    if (thLoaiCc) thLoaiCc.textContent = `Cần Thu (${currLabel.split(' ')[0]})`;
+    if (thLoaiDp) thLoaiDp.textContent = `Đơn (${prevShort})`;
+    if (thLoaiDc) thLoaiDc.textContent = `Đơn (${currShort})`;
+    if (thLoaiCp) thLoaiCp.textContent = `Cần Thu (${prevShort})`;
+    if (thLoaiCc) thLoaiCc.textContent = `Cần Thu (${currShort})`;
 
     // 1. PANEL 1: THEO LOẠI TRUY THU
     const tblLoai = document.querySelector('#table-truythu-by-loai tbody');
@@ -6137,14 +6139,15 @@
         const diffDonSign = r.diff_don > 0 ? '+' : '';
         const isSpike = r.diff_can_thu >= 10e6;
         let evalHtml = '—';
-        if (r.eval.includes('Tăng mạnh')) {
+        const ev = r.eval || '';
+        if (ev.includes('Tăng mạnh')) {
           evalHtml = `<span class="badge-tag badge-tag-red" style="font-size:11px; font-weight:800;">🔴 Tăng mạnh</span>`;
-        } else if (r.eval.includes('Cảnh báo')) {
+        } else if (ev.includes('Cảnh báo')) {
           evalHtml = `<span class="badge-tag badge-tag-amber" style="font-size:11px;">⚠️ Tăng</span>`;
-        } else if (r.eval.includes('Giảm')) {
+        } else if (ev.includes('Giảm')) {
           evalHtml = `<span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Giảm</span>`;
-        } else {
-          evalHtml = `<span class="badge-tag badge-tag-blue" style="font-size:11px;">${r.eval}</span>`;
+        } else if (ev) {
+          evalHtml = `<span class="badge-tag badge-tag-blue" style="font-size:11px;">${ev}</span>`;
         }
         if (r.ghi_chu) {
           evalHtml += `<div style="font-size:10.5px; color:var(--text-muted); margin-top:2px;">${r.ghi_chu}</div>`;
@@ -6222,13 +6225,14 @@
         const diffSign = r.diff_can_thu > 0 ? '+' : '';
         const diffTkSign = r.diff_ticket > 0 ? '+' : '';
         let levelBadge = '—';
-        if (r.level.includes('Rất cao')) {
+        const lv = r.level || '';
+        if (lv.includes('Rất cao')) {
           levelBadge = `<span class="badge-tag badge-tag-red" style="font-size:11px; font-weight:800;">🔴 Rất cao</span>`;
-        } else if (r.level.includes('kiểm soát')) {
+        } else if (lv.includes('kiểm soát')) {
           levelBadge = `<span class="badge-tag badge-tag-amber" style="font-size:11px;">🟡 Cần kiểm soát</span>`;
-        } else if (r.level.includes('ticket')) {
+        } else if (lv.includes('ticket')) {
           levelBadge = `<span class="badge-tag badge-tag-amber" style="font-size:11px;">⚠️ Nhiều ticket</span>`;
-        } else {
+        } else if (lv) {
           levelBadge = `<span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Tốt</span>`;
         }
 
@@ -6280,8 +6284,8 @@
 
     const report = D.truy_thu_report || {};
     const summary = report.summary || {};
-    const prevLabel = summary.prev_label ? summary.prev_label.split(' ')[0] : 'Tuần N-1';
-    const currLabel = summary.curr_label ? summary.curr_label.split(' ')[0] : 'Tuần N';
+    const prevLabel = summary.prev_label && summary.prev_label.includes('(') ? summary.prev_label.split('(')[0].trim() : (summary.prev_label || 'Tuần N-1');
+    const currLabel = summary.curr_label && summary.curr_label.includes('(') ? summary.curr_label.split('(')[0].trim() : (summary.curr_label || 'Tuần N');
 
     const top8 = (report.by_loai || []).slice(0, 8);
     if (top8.length === 0) return;
@@ -6338,8 +6342,8 @@
 
     const report = D.truy_thu_report || {};
     const summary = report.summary || {};
-    const prevLabel = summary.prev_label ? summary.prev_label.split(' ')[0] : 'Tuần N-1';
-    const currLabel = summary.curr_label ? summary.curr_label.split(' ')[0] : 'Tuần N';
+    const prevLabel = summary.prev_label && summary.prev_label.includes('(') ? summary.prev_label.split('(')[0].trim() : (summary.prev_label || 'Tuần N-1');
+    const currLabel = summary.curr_label && summary.curr_label.includes('(') ? summary.curr_label.split('(')[0].trim() : (summary.curr_label || 'Tuần N');
 
     const top12 = (report.top_bc || []).slice(0, 12);
     if (top12.length === 0) return;
@@ -6397,8 +6401,8 @@
 
     const report = D.truy_thu_report || {};
     const summary = report.summary || {};
-    const prevLabel = summary.prev_label ? summary.prev_label.split(' ')[0] : 'Tuần N-1';
-    const currLabel = summary.curr_label ? summary.curr_label.split(' ')[0] : 'Tuần N';
+    const prevLabel = summary.prev_label && summary.prev_label.includes('(') ? summary.prev_label.split('(')[0].trim() : (summary.prev_label || 'Tuần N-1');
+    const currLabel = summary.curr_label && summary.curr_label.includes('(') ? summary.curr_label.split('(')[0].trim() : (summary.curr_label || 'Tuần N');
 
     const top10 = (report.by_am || []).slice(0, 10);
     if (top10.length === 0) return;
@@ -6570,10 +6574,6 @@
         </tr>
       `;
     }).join('');
-
-    tblBodies.forEach(tblBody => {
-      tblBody.innerHTML = rowsHtml;
-    });
   }
 
 
@@ -6661,10 +6661,6 @@
         </tr>
       `;
     }).join('');
-
-    tblBodies.forEach(tblBody => {
-      tblBody.innerHTML = rowsHtml;
-    });
   }
 
   function renderKdNhomAWarningTable() {
@@ -6705,10 +6701,6 @@
         </tr>
       `;
     }).join('');
-
-    tblBodies.forEach(tblBody => {
-      tblBody.innerHTML = rowsHtml;
-    });
   }
 
   function renderCommercialTab() {
