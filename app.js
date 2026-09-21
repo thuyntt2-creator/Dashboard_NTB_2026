@@ -1089,7 +1089,7 @@
       const ganTtsVal = ganTtsRow[latestWeek.toLowerCase()] !== undefined ? ganTtsRow[latestWeek.toLowerCase()] : (ganTtsRow.w37 || ganTtsRow.w36 || 0.8343);
       const ganTtsDiff = ganTtsRow.diff !== undefined ? ganTtsRow.diff : 0.0142;
 
-            // 5. ODR
+                  // 5. ODR
       const odrOverview = D.odr?.overview || [];
       const odrFullRow = odrOverview.find(r => r.label === 'Full hàng') || {};
       const odrTtsRow = odrOverview.find(r => r.label === 'TTS') || {};
@@ -1234,7 +1234,7 @@
           subVal: `${prevWeek}: ${fPct(tltdPrev)} | ${tltdUnder30} xe <30%`,
           diff: tltdDiff,
           isHigherBetter: true,
-          colorCls: 'kpi-teal',
+          colorCls: tltdDiff >= 0 ? 'kpi-teal' : 'kpi-amber',
           icon: 'truck'
         }
       ];
@@ -5243,6 +5243,9 @@
         else if (row.rate >= 0.10) badge = '<span class="badge-tag badge-tag-red">🔴 Nghiêm Trọng (10–15%)</span>';
         else if (row.rate >= 0.08) badge = '<span class="badge-tag badge-tag-amber">🟡 Cảnh Báo (8–10%)</span>';
 
+        const diffVal = row.diff !== undefined ? row.diff : ((row.rate || 0) - (row.rate_prev || 0));
+        const diffBadge = renderDeltaBadge(diffVal, false, true);
+
         return `
           <tr data-entity="${row.bc}">
             <td class="center bold">${row.stt || (i + 1)}</td>
@@ -5250,7 +5253,9 @@
             <td class="bold" style="font-size:12.5px; color:${isSelected ? '#ef4444' : 'inherit'};">${row.am || '---'}</td>
             <td class="num">${fNum(row.vol)}</td>
             <td class="num bold" style="color:#ef4444;">${fNum(row.ret)}</td>
+            <td class="num">${row.rate_prev !== undefined ? fPct(row.rate_prev) : '---'}</td>
             <td class="num bold ${heatClass}">${fPct(row.rate)}</td>
+            <td class="num bold">${diffBadge}</td>
             <td class="num bold" style="color:var(--text-muted);">${fPct(row.share_ret)}</td>
             <td class="center">${badge}</td>
           </tr>
@@ -7118,24 +7123,29 @@
     if (ktcTile4) {
       const headerSpan = ktcTile4.querySelector('.kpi-tile-header span');
       if (headerSpan) headerSpan.textContent = `TLLĐ Xe Bình Quân (${currW})`;
+      const isGood = diffTld >= 0;
+      const diffSign = isGood ? '▲ +' : '▼ -';
+      const badgeCls = isGood ? 'badge-tag-green' : 'badge-tag-amber';
+      const valColor = tldVal >= 55 ? '#10b981' : (tldVal >= 50 ? '#0284c7' : '#ea580c');
       const valEl = ktcTile4.querySelector('.kpi-tile-value');
       if (valEl) {
-        valEl.style.color = '#10b981';
+        valEl.style.color = valColor;
         valEl.innerHTML = `${tldVal.toFixed(1)}% <small style="color: var(--text-muted); font-size: 13px; font-weight: 600;">(${prevW}: ${tldPrev.toFixed(1)}%)</small>`;
       }
       const metaEl = ktcTile4.querySelector('.kpi-tile-meta');
       if (metaEl) {
         metaEl.innerHTML = `
-          <span class="badge-tag badge-tag-green">▲ +${Math.abs(diffTld).toFixed(1)}%p WoW</span>
+          <span class="badge-tag ${badgeCls}">${diffSign}${Math.abs(diffTld).toFixed(1)}%p WoW</span>
           <span style="color: var(--text-muted); font-size: 11.5px;">${under30} chuyến &lt;30%</span>
         `;
       }
     }
 
-    const frBadge = document.querySelector('#ktc-subview-fillrate .badge-tag-amber');
+    const frBadge = document.querySelector('#ktc-subview-fillrate .badge-tag-amber') || document.querySelector('#ktc-subview-fillrate .badge-tag');
     if (frBadge) {
-      frBadge.className = 'badge-tag badge-tag-green';
-      frBadge.textContent = `${prevW}: ${tldPrev.toFixed(1)}% → ${currW}: ${tldVal.toFixed(1)}% (▲ +${Math.abs(diffTld).toFixed(1)}%p)`;
+      const isGood = diffTld >= 0;
+      frBadge.className = isGood ? 'badge-tag badge-tag-green' : 'badge-tag badge-tag-amber';
+      frBadge.textContent = `${prevW}: ${tldPrev.toFixed(1)}% → ${currW}: ${tldVal.toFixed(1)}% (${isGood ? '▲ +' : '▼ -'}${Math.abs(diffTld).toFixed(1)}%p)`;
     }
 
     renderKtcBacklog();

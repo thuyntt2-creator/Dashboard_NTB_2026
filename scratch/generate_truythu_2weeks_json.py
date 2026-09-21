@@ -103,8 +103,8 @@ diff_ct = ct_c - ct_p
 diff_ct_pct = round(diff_ct / ct_p * 100, 1) if ct_p else 0
 
 summary = {
-    "prev_label": "Tuần N-1 (07/09 - 13/09)",
-    "curr_label": "Tuần N (14/09 - 20/09)",
+    "prev_label": "Tuần W37 (07/09 - 13/09)",
+    "curr_label": "Tuần W38 (14/09 - 20/09)",
     "total_records_prev": rec_p,
     "total_records_curr": rec_c,
     "diff_records": diff_rec,
@@ -121,10 +121,10 @@ summary = {
     "diff_can_thu": diff_ct,
     "diff_can_thu_pct": f"{diff_ct_pct:+0.1f}%",
     "banner_desc": (
-        f"• <strong>Tổng quan so sánh 2 tuần:</strong> Tuần N phát sinh <strong>{rec_c:,} bản ghi</strong> "
+        f"• <strong>Tổng quan so sánh 2 tuần:</strong> Tuần W38 phát sinh <strong>{rec_c:,} bản ghi</strong> "
         f"(tăng {diff_rec:+,} đơn, {diff_rec_pct:+0.1f}%) với số tiền ban đầu <strong>{bd_c/1e6:,.1f} Tr ₫</strong> "
         f"({diff_bd_pct:+0.1f}%). Cần truy thu thêm <strong>{ct_c/1e6:,.1f} Tr ₫</strong> "
-        f"(tăng {diff_ct/1e6:+,.1f} Tr ₫, {diff_ct_pct:+0.1f}% so với {ct_p/1e6:,.1f} Tr ₫ Tuần N-1).<br>"
+        f"(tăng {diff_ct/1e6:+,.1f} Tr ₫, {diff_ct_pct:+0.1f}% so với {ct_p/1e6:,.1f} Tr ₫ Tuần W37).<br>"
         "• <strong>Nguyên nhân đột biến:</strong> Phát sinh các vụ <em>Liên đới chiếm dụng</em> (107.6 Tr ₫), "
         "<em>Tick mất hàng</em> (52.0 Tr ₫, tăng +125 đơn), và <em>Kiện thiếu đơn</em> (30.7 Tr ₫).<br>"
         "• <strong>Top AM biến động tiền lớn nhất:</strong> Chị Thái Thị Thanh Thư (+79.9 Tr ₫ do Bắc Nha Trang), "
