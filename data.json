@@ -9070,14 +9070,14 @@
   "transport_costs": {
     "region": {
       "total_cost": 990.12,
-      "total_cost_formatted": "990.116.286 đ",
+      "total_cost_formatted": "990.115.271 đ",
       "total_trips": 1032,
       "avg_cost_per_trip": 0.96,
-      "avg_cost_per_trip_formatted": "959.415 đ/chuyến",
+      "avg_cost_per_trip_formatted": "959.414 đ/chuyến",
       "ncc_count": 7,
       "ktc_count": 6,
       "total_trucks": 28,
-      "last_updated": "14:19 - 21/09/2026"
+      "last_updated": "14:54 - 21/09/2026"
     },
     "surge_fixed": {
       "fixed_cost": 990.12,
@@ -9099,20 +9099,20 @@
         "fixed_cost": 385.2,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, NAK",
         "truck_count": 7
       },
       {
         "ktc": "KTC Bảo Lộc",
         "total_cost": 225.72,
-        "total_cost_raw": 225720360.0,
+        "total_cost_raw": 225719345.0,
         "total_trips": 204,
         "cost_per_trip": 1.11,
-        "cost_per_trip_raw": 1106472.3529411764,
+        "cost_per_trip_raw": 1106467.3774509805,
         "fixed_cost": 225.72,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Công Định",
+        "primary_ncc": "Công Định, NAK",
         "truck_count": 9
       },
       {
@@ -9125,7 +9125,7 @@
         "fixed_cost": 155.95,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Lâm Ngọc Thành, Trâm Hoá",
+        "primary_ncc": "Trâm Hoá, Lâm Ngọc Thành",
         "truck_count": 4
       },
       {
@@ -9172,10 +9172,10 @@
       {
         "ncc": "NAK",
         "total_cost": 412.09,
-        "total_cost_raw": 412090907.0,
+        "total_cost_raw": 412089892.0,
         "total_trips": 296,
         "cost_per_trip": 1.39,
-        "cost_per_trip_raw": 1392199.0101351351,
+        "cost_per_trip_raw": 1392195.5810810812,
         "fixed_cost": 412.09,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
@@ -9193,7 +9193,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Nam Nha Trang, KTC Đức Trọng"
+        "active_ktcs": "KTC Nam Nha Trang, KTC Đức Trọng, KTC Khánh Hòa, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Công Định",
@@ -9219,7 +9219,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Nam Nha Trang"
+        "active_ktcs": "KTC Nam Nha Trang, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Lâm Ngọc Thành",
@@ -16381,8 +16381,8 @@
         "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Đạ Huoai -> (LDO) Đạ Tẻh -> (LDO) Cát Tiên -> (LDO) Đạ Tẻh -> (LDO) ĐG Bảo Lâm 5 -> Kho Chuyển Tiếp Bảo Lộc",
         "ktc": "KTC Bảo Lộc",
         "type": "Cố định",
-        "cost_str": "2.037.518 đ",
-        "cost": 2037518.0,
+        "cost_str": "2.036.503 đ",
+        "cost": 2036503.0,
         "trips_equivalent": 1,
         "trip_code": "E26091561EO4TJX",
         "ontime": "1"
@@ -17764,7 +17764,7 @@
         "cost_str": "956.610 đ",
         "cost": 956610.0,
         "trips_equivalent": 1,
-        "trip_code": "E260914HCYHGO42",
+        "trip_code": "E2609158HYVGU72",
         "ontime": "1"
       },
       {
@@ -17779,7 +17779,7 @@
         "cost_str": "956.610 đ",
         "cost": 956610.0,
         "trips_equivalent": 1,
-        "trip_code": "E2609158HYVGU72",
+        "trip_code": "",
         "ontime": "1"
       },
       {
