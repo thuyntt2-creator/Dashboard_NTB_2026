@@ -6830,6 +6830,56 @@
     renderKdChurnTable();
     renderKdNhomATable();
     renderKdNhomAWarningTable();
+
+    // 0. Dynamic KPI cards and header
+    if (D.kinh_doanh && D.kinh_doanh.total) {
+      const tot = D.kinh_doanh.total;
+      const elRev = document.getElementById('kd-kpi-rev-val');
+      const elRevMeta = document.getElementById('kd-kpi-rev-meta');
+      const elVol = document.getElementById('kd-kpi-vol-val');
+      const elVolMeta = document.getElementById('kd-kpi-vol-meta');
+      
+      if (elRev) elRev.innerHTML = `${(tot.rev_curr / 1e6).toFixed(1)} <small>Tr ₫</small>`;
+      if (elRevMeta) {
+        const diffTr = (tot.diff_rev / 1e6).toFixed(1);
+        const sign = tot.diff_rev >= 0 ? '+' : '';
+        const tagClass = tot.diff_rev >= 0 ? 'diff-up-good' : 'diff-down-bad';
+        const icon = tot.diff_rev >= 0 ? '▲' : '▼';
+        elRevMeta.innerHTML = `<span class="diff-tag ${tagClass}">${icon} ${sign}${diffTr} Tr (${sign}${tot.pct_diff_rev}%)</span>`;
+      }
+      if (elVol) elVol.innerHTML = `${fNum(tot.vol_curr)} <small>đơn</small>`;
+      if (elVolMeta) {
+        const sign = tot.diff_vol >= 0 ? '+' : '';
+        const tagClass = tot.diff_vol >= 0 ? 'diff-up-good' : 'diff-down-bad';
+        const icon = tot.diff_vol >= 0 ? '▲' : '▼';
+        const pctVol = tot.vol_prev ? ((tot.diff_vol / tot.vol_prev) * 100).toFixed(1) : '0.0';
+        elVolMeta.innerHTML = `<span class="diff-tag ${tagClass}">${icon} ${sign}${fNum(tot.diff_vol)} đơn (${sign}${pctVol}%)</span>`;
+      }
+    }
+    if (D.f30 && D.f30.total) {
+      const fTot = D.f30.total;
+      const elF30 = document.getElementById('kd-kpi-f30-val');
+      const elF30Meta = document.getElementById('kd-kpi-f30-meta');
+      const elF30Rev = document.getElementById('kd-kpi-f30rev-val');
+      const elF30RevMeta = document.getElementById('kd-kpi-f30rev-meta');
+      
+      if (elF30) elF30.innerHTML = `${fTot.kh_curr} <small>Shop</small>`;
+      if (elF30Meta) {
+        const sign = fTot.diff_kh >= 0 ? '+' : '';
+        const tagClass = fTot.diff_kh >= 0 ? 'diff-up-good' : 'diff-down-bad';
+        const icon = fTot.diff_kh >= 0 ? '▲' : '▼';
+        elF30Meta.innerHTML = `<span class="diff-tag ${tagClass}">${icon} ${sign}${fTot.diff_kh} shop (${sign}${fTot.pct_diff_kh}%)</span>`;
+      }
+      if (elF30Rev) elF30Rev.innerHTML = `${(fTot.rev_curr / 1e6).toFixed(1)} <small>Tr ₫</small>`;
+      if (elF30RevMeta) {
+        const diffTr = (fTot.diff_rev / 1e6).toFixed(1);
+        const sign = fTot.diff_rev >= 0 ? '+' : '';
+        const tagClass = fTot.diff_rev >= 0 ? 'diff-up-good' : 'diff-down-bad';
+        const icon = fTot.diff_rev >= 0 ? '▲' : '▼';
+        elF30RevMeta.innerHTML = `<span class="diff-tag ${tagClass}">${icon} ${sign}${diffTr} Tr (${sign}${fTot.pct_diff_rev}%)</span>`;
+      }
+    }
+
     // 1. Doanh Thu Theo AM Table
     const tblKd = document.querySelector('#table-kd-doanh-thu-data tbody');
     if (tblKd && D.kinh_doanh && D.kinh_doanh.am) {
@@ -6898,13 +6948,13 @@
         labels: sorted.map(d => d.am),
         datasets: [
           {
-            label: 'Kỳ 6–12/9 (W37) (Triệu VNĐ)',
+            label: 'Kỳ trước (W37) (Triệu VNĐ)',
             data: sorted.map(d => Math.round((d.rev_prev || 0) / 1e6)),
             backgroundColor: '#cbd5e1',
             borderRadius: 4
           },
           {
-            label: 'Kỳ 6–12/9 (W37) (Triệu VNĐ)',
+            label: 'Kỳ này (W38) (Triệu VNĐ)',
             data: sorted.map(d => Math.round((d.rev_curr || 0) / 1e6)),
             backgroundColor: sorted.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#10b981'),
             borderColor: sorted.map(d => selectedAM && selectedAM === d.am ? '#b91c1c' : 'transparent'),
@@ -7056,13 +7106,13 @@
         labels: sorted.map(d => d.am),
         datasets: [
           {
-            label: 'Shop F30 Kỳ Trước',
+            label: 'Shop F30 Kỳ Trước (W37)',
             data: sorted.map(d => d.kh_prev || 0),
             backgroundColor: '#cbd5e1',
             borderRadius: 4
           },
           {
-            label: 'Shop F30 Kỳ Này',
+            label: 'Shop F30 Kỳ Này (W38)',
             data: sorted.map(d => d.kh_curr || 0),
             backgroundColor: sorted.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#7c3aed'),
             borderColor: sorted.map(d => selectedAM && selectedAM === d.am ? '#b91c1c' : 'transparent'),
