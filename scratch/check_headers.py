@@ -1,13 +1,10 @@
-import sys, re
-sys.stdout.reconfigure(encoding='utf-8')
+import re, sys
 
-content = open('index.html', encoding='utf-8').read()
-tables = re.findall(r'<table[^>]*id=["\']([^"\']+)["\'][^>]*>([\s\S]*?)</table>', content)
-for tid, tbl in tables:
-    m = re.search(r'<thead>([\s\S]*?)</thead>', tbl)
-    if m:
-        th = m.group(1)
-        if any(w in th for w in ['W34', 'W35', 'W36', 'W37']):
-            ths = re.findall(r'<th[^>]*>(.*?)</th>', th, re.DOTALL)
-            clean_ths = [re.sub(r'<[^>]+>', '', t).strip() for t in ths]
-            print(f"{tid}: {' | '.join(clean_ths)}")
+with open('KICH_BAN_THUYET_TRINH_W38_NAM_TRUNG_BO.html', 'r', encoding='utf-8') as f:
+    text = f.read()
+
+headers = re.findall(r'<div class="card-header">(.*?)</div>', text, re.DOTALL)
+for i, h in enumerate(headers):
+    # remove tags
+    clean_h = re.sub(r'<[^>]+>', '', h).strip()
+    print(f'{i}: {clean_h}')

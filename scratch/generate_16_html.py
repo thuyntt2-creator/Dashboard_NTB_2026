@@ -269,7 +269,7 @@ def docx_to_html(docx_path, html_path):
     sections_html = []
     
     for i, t in enumerate(doc.tables):
-        sec_idx = 4 + i * 2
+        sec_idx = 4 + i
         sec_title = doc.paragraphs[sec_idx].text if sec_idx < len(doc.paragraphs) else f"Phần {i+1}"
         cell = t.rows[0].cells[0]
         paragraphs = [p.text for p in cell.paragraphs if p.text.strip()]
