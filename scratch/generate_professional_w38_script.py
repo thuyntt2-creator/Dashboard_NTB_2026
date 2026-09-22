@@ -92,17 +92,17 @@ def build_w38_professional_script():
             "• Đi sâu bóc tách vai trò điều hành của 18 Quản lý Vận hành (AM):",
             "- Top AM gánh vác sản lượng giao lớn nhất vùng (xương sống mạng lưới): Quán quân sản lượng toàn vùng tuần này là AM Nguyễn Duy Long (Bình Thuận) dẫn đầu với 43.018 đơn (chiếm 12,4% toàn vùng); bám sát phía sau là AM Thái Thị Thanh Thư (32.538 đơn), AM Lê Thanh Nhựt (30.600 đơn), AM Lê Văn Trường (28.919 đơn), và AM Nguyễn Ngọc Khánh (28.325 đơn). Nhóm 5 AM đầu tàu này đang gánh vác tới 163.382 đơn, chiếm gần một nửa (47,2%) tổng sản lượng giao của toàn vùng.",
             "- Điểm sáng tăng trưởng sản lượng WoW: Toàn vùng ghi nhận duy nhất 5 AM có sản lượng tăng trưởng dương tuần này. Trong đó, dẫn đầu bứt phá là AM Thái Thị Thanh Thư tăng mạnh nhất toàn mạng +2.729 đơn Full (+9,16% WoW, đạt 32.538 đơn); tiếp theo là AM Phan Đình Duy tăng +900 đơn (+3,75% WoW, đạt 24.931 đơn); AM Nguyễn Lê Nguyên Vũ tăng +491 đơn (đạt 13.500 đơn); AM Nguyễn Thanh Long tăng +163 đơn (đạt 14.127 đơn); và AM Nguyễn Thị Tuyết Thơ tăng nhẹ +11 đơn (đạt 9.670 đơn).",
-            "- Cảnh báo các AM suy giảm sản lượng cần rà soát thị trường: Có tới 13/18 AM ghi nhận sản lượng suy giảm so với tuần W37. Về số lượng giảm tuyệt đối, giảm nhiều nhất là AM Nguyễn Duy Long (-2.575 đơn), AM Lê Văn Trường (-2.299 đơn), AM Nguyễn Ngọc Khánh (-2.092 đơn), AM Trần Thị Nhung (-1.762 đơn, đạt 25.621 đơn) và AM Lê Thanh Nhựt (-1.637 đơn). Đặc biệt, cảnh báo sụt giảm sâu theo tỷ lệ tại địa bàn đồi dốc Đắk Nông: AM Huỳnh Thúc Duân sụt giảm tới -18,1% WoW (-1.104 đơn, chỉ còn 4.984 đơn); AM Trương Quang Linh giảm -11,2% (chỉ còn 1.857 đơn); và AM Lê Minh Lợi giảm -11,5% (còn 3.178 đơn) — các AM này cần phối hợp ngay với khối Kinh doanh kiểm tra nguy cơ bị rơi rụng khách hàng lớn vào tay đối thủ."
+            "- Nhóm các AM suy giảm sản lượng theo nhịp thị trường: Tuần W38 ghi nhận 13/18 AM có sản lượng giảm nhẹ sau đợt cao điểm mua sắm đầu tháng. Trong đó, lượng giảm tập trung chủ yếu ở 3 AM gánh tải lớn nhất vùng là AM Nguyễn Duy Long (-2.575 đơn), AM Lê Văn Trường (-2.299 đơn), và AM Nguyễn Ngọc Khánh (-2.092 đơn) — riêng 3 AM này đã chiếm hơn 60% tổng lượng đơn sụt giảm của cả vùng (-11.255 đơn)."
         ],
         insights=[
             "Khánh Hòa bứt phá trở thành tỉnh dẫn đầu sản lượng nhờ sự tăng tốc mạnh mẽ của các tuyến nội thị Nha Trang do AM Phan Đình Duy và AM Nguyễn Ngọc Khánh phụ trách.",
             "Kênh TikTok Shop tăng trưởng dương trên diện rộng chứng minh nhu cầu mua sắm livestream tại Nam Trung Bộ không hề hạ nhiệt."
         ],
         warnings=[
-            "AM Huỳnh Thúc Duân và AM Trương Quang Linh (Đắk Nông) sụt giảm sản lượng trên 12%, cần kiểm tra nguy cơ mất khách hàng lớn vào tay các đơn vị vận chuyển đối thủ."
+            "Sức mua thị trường sau đợt cao điểm có dấu hiệu chững lại ở 13/18 cụm bưu cục, trong đó 3 AM đầu tàu (Long, Trường, Khánh) giảm gần 7.000 đơn cần theo dõi sát nhu cầu gửi hàng của các shop lớn."
         ],
         actions=[
-            "Các AM Đắk Nông và Ninh Thuận chủ động phối hợp cùng khối Kinh doanh tiếp cận các nhà vườn nông sản, shop đặc sản địa phương để bù đắp sản lượng thiếu hụt."
+            "Khối Vận hành phối hợp chặt chẽ cùng khối Kinh doanh đẩy mạnh tiếp cận các khách hàng doanh nghiệp, nhà vườn và shop online để kích cầu sản lượng cho tuần W39."
         ]
     )
 
