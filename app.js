@@ -1094,11 +1094,12 @@
       const odrFullRow = odrOverview.find(r => r.label === 'Full hàng') || {};
       const odrTtsRow = odrOverview.find(r => r.label === 'TTS') || {};
       const odrCard = cardMap['odr_full'] || {};
+      const odrTrendFull = trendMap['%ODR Full hàng'] || {};
       const odrTrendTts = trendMap['%ODR TTS'] || {};
-      const odrVal = odrFullRow[latestWeek.toLowerCase()] !== undefined ? odrFullRow[latestWeek.toLowerCase()] : (odrFullRow.w38 !== undefined ? odrFullRow.w38 : (odrCard.val !== undefined ? odrCard.val : 0.9124));
-      const odrDiff = odrFullRow.diff !== undefined ? odrFullRow.diff : (odrCard.diff !== undefined ? odrCard.diff : -0.0210);
-      const odrTtsVal = odrTtsRow[latestWeek.toLowerCase()] !== undefined ? odrTtsRow[latestWeek.toLowerCase()] : (odrTtsRow.w38 !== undefined ? odrTtsRow.w38 : (odrTrendTts[latestWeek.toLowerCase()] !== undefined ? odrTrendTts[latestWeek.toLowerCase()] : 0.9154));
-      const odrTtsDiff = odrTtsRow.diff !== undefined ? odrTtsRow.diff : (odrTrendTts.diff !== undefined ? odrTrendTts.diff : -0.0131);
+      const odrVal = odrCard.val !== undefined ? odrCard.val : (odrFullRow[latestWeek.toLowerCase()] !== undefined ? odrFullRow[latestWeek.toLowerCase()] : 0.9124);
+      const odrDiff = odrCard.diff !== undefined ? odrCard.diff : (odrTrendFull.diff !== undefined ? odrTrendFull.diff : -0.0210);
+      const odrTtsVal = odrTrendTts[latestWeek.toLowerCase()] !== undefined ? odrTrendTts[latestWeek.toLowerCase()] : (odrTtsRow[latestWeek.toLowerCase()] !== undefined ? odrTtsRow[latestWeek.toLowerCase()] : 0.9154);
+      const odrTtsDiff = odrTrendTts.diff !== undefined ? odrTrendTts.diff : (odrTtsRow.diff !== undefined ? odrTtsRow.diff : -0.0131);
 
       // 6. LTC
       const ltcCard = cardMap['ltc_full'] || {};
