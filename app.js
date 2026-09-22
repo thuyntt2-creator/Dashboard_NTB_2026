@@ -4554,13 +4554,13 @@
             borderWidth: 3.5,
             tension: 0.25,
             pointBackgroundColor: ams.map(d => {
-              const val = ((d.w36_total !== undefined ? d.w36_total : 0) * 100);
+              const val = ((d.w38_total !== undefined ? d.w38_total : (d.w37_total || 0)) * 100);
               return val < 80 ? '#dc2626' : '#16a34a';
             }),
             pointBorderColor: '#ffffff',
             pointBorderWidth: 2,
             pointRadius: ams.map(d => {
-              const val = ((d.w36_total !== undefined ? d.w36_total : 0) * 100);
+              const val = ((d.w38_total !== undefined ? d.w38_total : (d.w37_total || 0)) * 100);
               return val < 80 ? 6.5 : 4.5;
             }),
             pointHoverRadius: 9,
@@ -4571,15 +4571,15 @@
               align: 'bottom',
               offset: 4,
               color: ams.map(d => {
-                const val = ((d.w36_total !== undefined ? d.w36_total : 0) * 100);
+                const val = ((d.w38_total !== undefined ? d.w38_total : (d.w37_total || 0)) * 100);
                 return val < 80 ? '#b91c1c' : '#166534';
               }),
               backgroundColor: ams.map(d => {
-                const val = ((d.w36_total !== undefined ? d.w36_total : 0) * 100);
+                const val = ((d.w38_total !== undefined ? d.w38_total : (d.w37_total || 0)) * 100);
                 return val < 80 ? 'rgba(254, 226, 226, 0.96)' : 'rgba(240, 253, 244, 0.96)';
               }),
               borderColor: ams.map(d => {
-                const val = ((d.w36_total !== undefined ? d.w36_total : 0) * 100);
+                const val = ((d.w38_total !== undefined ? d.w38_total : (d.w37_total || 0)) * 100);
                 return val < 80 ? '#fca5a5' : '#86efac';
               }),
               borderWidth: 1,
