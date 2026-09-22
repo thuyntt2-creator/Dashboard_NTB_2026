@@ -104,25 +104,8 @@ html_parts.append("""<!DOCTYPE html>
         .callout-insight { background: #eff6ff; border-left: 4px solid #3b82f6; color: #1e40af; }
         .callout-warning { background: #fef2f2; border-left: 4px solid #ef4444; color: #991b1b; }
         .callout-action { background: #f0fdf4; border-left: 4px solid #22c55e; color: #166534; }
-        .callout-title { font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+        .callout-title { font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 16px 0;
-            font-size: 13.5px;
-        }
-        th, td {
-            border: 1px solid #cbd5e1;
-            padding: 8px 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #f1f5f9;
-            font-weight: 700;
-            color: #1e293b;
-        }
-        tr:nth-child(even) { background-color: #f8fafc; }
         .top-btn {
             position: fixed;
             bottom: 24px;
@@ -142,55 +125,108 @@ html_parts.append("""<!DOCTYPE html>
     <div class="container">
 """)
 
-# Convert doc paragraphs
-current_section_card = False
-for p in doc.paragraphs:
-    text = p.text.strip()
+def process_paragraph(text, in_callout_type=None):
+    text = text.strip()
     if not text:
-        continue
+        return None, in_callout_type
     
-    # Check headers
+    # Headers
     if text.startswith("CÔNG TY CỔ PHẦN GIAO HÀNG NHANH"):
-        html_parts.append(f'<div class="header-box"><div class="header-sub">{html.escape(text)}</div>')
-        continue
+        return f'<div class="header-box"><div class="header-sub">{html.escape(text)}</div>', None
     if text.startswith("BÁO CÁO VẬN HÀNH & KINH DOANH TUẦN W38"):
-        html_parts.append(f'<div class="header-title">{html.escape(text)}</div>')
-        continue
+        return f'<div class="header-title">{html.escape(text)}</div>', None
     if text.startswith("(Chu kỳ dữ liệu:"):
-        html_parts.append(f'<div class="header-date">{html.escape(text)}</div>')
-        continue
+        return f'<div class="header-date">{html.escape(text)}</div>', None
     if text.startswith("KỊCH BẢN THUYẾT TRÌNH ĐIỀU HÀNH 16 CHUYÊN ĐỀ"):
-        html_parts.append(f'<div class="header-tag">{html.escape(text)}</div></div>')
-        continue
+        return f'<div class="header-tag">{html.escape(text)}</div></div>', None
 
-    if text.startswith("📊 [") or text.startswith("📦 [") or text.startswith("🎯 [") or text.startswith("🔥 [") or text.startswith("📋 [") or text.startswith("⏱️ [") or text.startswith("🚚 [") or text.startswith("🌙 [") or text.startswith("🚨 [") or text.startswith("🔄 [") or text.startswith("🚛 [") or text.startswith("💰 [") or text.startswith("🛡️ [") or text.startswith("📈 [") or text.startswith("⚠️ ["):
-        if current_section_card:
-            html_parts.append('</div>')
-        html_parts.append('<div class="section-card">')
-        html_parts.append(f'<div class="section-title">{html.escape(text)}</div>')
-        current_section_card = True
-        continue
+    if any(text.startswith(icon + " [") for icon in ["📊", "📦", "🎯", "🔥", "📋", "⏱️", "🚚", "🌙", "🚨", "🔄", "🚛", "💰", "🛡️", "📈", "⚠️"]):
+        return f'<div class="section-title">{html.escape(text)}</div>', None
 
     if text.startswith("🗣️"):
-        html_parts.append(f'<div class="speech-heading">{html.escape(text)}</div>')
-        continue
+        return f'<div class="speech-heading">{html.escape(text)}</div>', None
 
-    if text.startswith("💡 INSIGHT"):
-        html_parts.append(f'<div class="callout callout-insight"><div class="callout-title"><i class="fa-solid fa-lightbulb"></i> {html.escape(text)}</div>')
-        continue
-    if text.startswith("⚠️ CẢNH BÁO"):
-        html_parts.append(f'<div class="callout callout-warning"><div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> {html.escape(text)}</div>')
-        continue
-    if text.startswith("🎯 HÀNH ĐỘNG"):
-        html_parts.append(f'<div class="callout callout-action"><div class="callout-title"><i class="fa-solid fa-crosshairs"></i> {html.escape(text)}</div>')
-        continue
+    if "INSIGHT" in text and ("🔍" in text or "💡" in text):
+        return f'<div class="callout callout-insight"><div class="callout-title"><i class="fa-solid fa-lightbulb"></i> {html.escape(text)}</div>', 'insight'
+    if "CẢNH BÁO" in text and "⚠️" in text:
+        return f'<div class="callout callout-warning"><div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> {html.escape(text)}</div>', 'warning'
+    if ("QUYẾT SÁCH" in text or "HÀNH ĐỘNG" in text) and ("🎯" in text or "⚡" in text):
+        return f'<div class="callout callout-action"><div class="callout-title"><i class="fa-solid fa-crosshairs"></i> {html.escape(text)}</div>', 'action'
     
-    # End of callout check
-    if text.startswith("• ") or text.startswith("- "):
-        html_parts.append(f'<div class="bullet-point">{html.escape(text)}</div>')
+    if text.startswith("• ") or text.startswith("- ") or text.startswith("+ "):
+        return f'<div class="bullet-point">{html.escape(text)}</div>', in_callout_type
     else:
-        html_parts.append(f'<p>{html.escape(text)}</p>')
+        return f'<p>{html.escape(text)}</p>', in_callout_type
 
+current_section_card = False
+active_callout = None
+
+for child in doc.element.body:
+    if child.tag.endswith('p'):
+        p = docx.text.paragraph.Paragraph(child, doc)
+        text = p.text.strip()
+        if not text:
+            continue
+        
+        # Check if new section
+        if any(text.startswith(icon + " [") for icon in ["📊", "📦", "🎯", "🔥", "📋", "⏱️", "🚚", "🌙", "🚨", "🔄", "🚛", "💰", "🛡️", "📈", "⚠️"]):
+            if active_callout:
+                html_parts.append('</div>')
+                active_callout = None
+            if current_section_card:
+                html_parts.append('</div>')
+            html_parts.append('<div class="section-card">')
+            current_section_card = True
+
+        frag, c_type = process_paragraph(text, active_callout)
+        if frag:
+            html_parts.append(frag)
+            if c_type and c_type != active_callout:
+                if active_callout:
+                    html_parts.insert(len(html_parts)-1, '</div>')
+                active_callout = c_type
+
+    elif child.tag.endswith('tbl'):
+        t = docx.table.Table(child, doc)
+        for row in t.rows:
+            for cell in row.cells:
+                for p in cell.paragraphs:
+                    text = p.text.strip()
+                    if not text:
+                        continue
+                    
+                    if "INSIGHT" in text and ("🔍" in text or "💡" in text):
+                        if active_callout:
+                            html_parts.append('</div>')
+                        active_callout = 'insight'
+                        frag = f'<div class="callout callout-insight"><div class="callout-title"><i class="fa-solid fa-lightbulb"></i> {html.escape(text)}</div>'
+                        html_parts.append(frag)
+                        continue
+                    elif "CẢNH BÁO" in text and "⚠️" in text:
+                        if active_callout:
+                            html_parts.append('</div>')
+                        active_callout = 'warning'
+                        frag = f'<div class="callout callout-warning"><div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> {html.escape(text)}</div>'
+                        html_parts.append(frag)
+                        continue
+                    elif ("QUYẾT SÁCH" in text or "HÀNH ĐỘNG" in text) and ("🎯" in text or "⚡" in text):
+                        if active_callout:
+                            html_parts.append('</div>')
+                        active_callout = 'action'
+                        frag = f'<div class="callout callout-action"><div class="callout-title"><i class="fa-solid fa-crosshairs"></i> {html.escape(text)}</div>'
+                        html_parts.append(frag)
+                        continue
+
+                    frag, _ = process_paragraph(text, active_callout)
+                    if frag:
+                        html_parts.append(frag)
+
+        if active_callout:
+            html_parts.append('</div>')
+            active_callout = None
+
+if active_callout:
+    html_parts.append('</div>')
 if current_section_card:
     html_parts.append('</div>')
 

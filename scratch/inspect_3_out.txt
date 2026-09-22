@@ -1,0 +1,71 @@
+=== 1. ROT LC TOP BC DETAILS ===
+{'stt': 1, 'bc': '(DNO) Quảng Sơn', 'am': 'Trần Thị Nhung', 'vol_can_lc': 1, 'vol_rot_lc': 1, 'pct_rot': 1}
+{'stt': 2, 'bc': '(NTH) Thuận Nam', 'am': 'Nguyễn Duy Long', 'vol_can_lc': 4, 'vol_rot_lc': 4, 'pct_rot': 1}
+{'stt': 3, 'bc': '(LDO) Lang Biang - Đà Lạt 1', 'am': 'Lê Minh Lợi', 'vol_can_lc': 2, 'vol_rot_lc': 2, 'pct_rot': 1}
+{'stt': 4, 'bc': '(LDO) Đinh Văn Lâm Hà', 'am': 'Huỳnh Thị Kim Chi', 'vol_can_lc': 1, 'vol_rot_lc': 1, 'pct_rot': 1}
+{'stt': 5, 'bc': '(DNO) Kiến Đức', 'am': 'Hồng Bích Nga', 'vol_can_lc': 7, 'vol_rot_lc': 3, 'pct_rot': 0.4285714285714285}
+{'stt': 6, 'bc': '(DNO) Đông Gia Nghĩa', 'am': 'Huỳnh Thúc Duân', 'vol_can_lc': 26, 'vol_rot_lc': 11, 'pct_rot': 0.4230769230769231}
+{'stt': 7, 'bc': '(DNO) ĐL Nam Gia Nghĩa 2', 'am': 'Huỳnh Thúc Duân', 'vol_can_lc': 5, 'vol_rot_lc': 2, 'pct_rot': 0.4}
+{'stt': 8, 'bc': '(DNO) Đức Lập', 'am': 'Trần Thị Nhung', 'vol_can_lc': 115, 'vol_rot_lc': 32, 'pct_rot': 0.2782608695652174}
+{'stt': 9, 'bc': '(DNO) Bắc Gia Nghĩa', 'am': 'Huỳnh Thúc Duân', 'vol_can_lc': 39, 'vol_rot_lc': 8, 'pct_rot': 0.2051282051282051}
+{'stt': 10, 'bc': '(BTH) Mũi Né', 'am': 'Nguyễn Ngọc Khánh', 'vol_can_lc': 5, 'vol_rot_lc': 1, 'pct_rot': 0.2}
+
+=== 1. ROT LC AM DETAILS ===
+Huỳnh Thị Kim Chi Vol: 2 W37: 0 W38: 0.5 Diff: 0.5
+Huỳnh Thúc Duân Vol: 101 W37: 0.006493506493506494 W38: 0.2079207920792079 Diff: 0.2014272855857014
+Trần Thị Nhung Vol: 167 W37: 0.05921052631578947 W38: 0.1976047904191617 Diff: 0.1383942641033722
+Thái Thị Thanh Thư Vol: 1108 W37: 0.02153361344537815 W38: 0.07129963898916968 Diff: 0.04976602554379152
+Hồng Bích Nga Vol: 601 W37: 0.0183752417794971 W38: 0.04492512479201331 Diff: 0.02654988301251621
+Nguyễn Hoàng Phi Vol: 670 W37: 0.001886792452830189 W38: 0.02835820895522388 Diff: 0.02647141650239369
+Nguyễn Thị Tuyết Thơ Vol: 326 W37: 0 W38: 0.02147239263803681 Diff: 0.02147239263803681
+Lê Văn Trường Vol: 495 W37: 0.0213903743315508 W38: 0.04242424242424243 Diff: 0.02103386809269163
+Phan Đình Duy Vol: 141 W37: 0.00980392156862745 W38: 0.02836879432624113 Diff: 0.01856487275761368
+Lê Thanh Nhựt Vol: 698 W37: 0.00558659217877095 W38: 0.0171919770773639 Diff: 0.01160538489859295
+
+=== 2. TRUY THU BY AM ===
+{'am': 'Thái Thị Thanh Thư', 'ticket_prev': 133, 'ticket_curr': 95, 'diff_ticket': -38, 'pct_ticket_diff': '-28.6%', 'can_thu_prev': 1773382.0, 'can_thu_curr': 81660686.0, 'diff_can_thu': 79887304.0, 'pct_can_thu_diff': '+4504.8%', 'level': '🔴 Rất cao (≥40 Tr)', 'top_bc_culprit': '(KHO) Bắc Nha Trang (76.1 Tr)'}
+{'am': 'Trần Văn Phước', 'ticket_prev': 482, 'ticket_curr': 678, 'diff_ticket': 196, 'pct_ticket_diff': '+40.7%', 'can_thu_prev': 5063833.0, 'can_thu_curr': 49649059.0, 'diff_can_thu': 44585226.0, 'pct_can_thu_diff': '+880.5%', 'level': '🔴 Rất cao (≥40 Tr)', 'top_bc_culprit': '(DNO) Quảng Tín (24.9 Tr)'}
+{'am': 'Huỳnh Thị Kim Chi', 'ticket_prev': 60, 'ticket_curr': 87, 'diff_ticket': 27, 'pct_ticket_diff': '+45.0%', 'can_thu_prev': 3687544.0, 'can_thu_curr': 45105158.0, 'diff_can_thu': 41417614.0, 'pct_can_thu_diff': '+1123.2%', 'level': '🔴 Rất cao (≥40 Tr)', 'top_bc_culprit': '(LDO) Đam Rông 3 (33.3 Tr)'}
+{'am': 'Nguyễn Ngọc Khánh', 'ticket_prev': 133, 'ticket_curr': 128, 'diff_ticket': -5, 'pct_ticket_diff': '-3.8%', 'can_thu_prev': 9132813.0, 'can_thu_curr': 35200624.0, 'diff_can_thu': 26067811.0, 'pct_can_thu_diff': '+285.4%', 'level': '🟡 Cần kiểm soát (15-40 Tr)', 'top_bc_culprit': 'Kho Chuyển Tiếp Bình Thuận (31.6 Tr)'}
+{'am': 'Lê Văn Trường', 'ticket_prev': 252, 'ticket_curr': 805, 'diff_ticket': 553, 'pct_ticket_diff': '+219.4%', 'can_thu_prev': 9171000.0, 'can_thu_curr': 25524546.0, 'diff_can_thu': 16353546.0, 'pct_can_thu_diff': '+178.3%', 'level': '🟡 Cần kiểm soát (15-40 Tr)', 'top_bc_culprit': '(LDO) Đơn Dương (16.7 Tr)'}
+{'am': 'Phan Đình Duy', 'ticket_prev': 123, 'ticket_curr': 153, 'diff_ticket': 30, 'pct_ticket_diff': '+24.4%', 'can_thu_prev': 633285.0, 'can_thu_curr': 14935413.0, 'diff_can_thu': 14302128.0, 'pct_can_thu_diff': '+2258.4%', 'level': '🟢 Tốt', 'top_bc_culprit': '(KHO) Tây Nha Trang (14.1 Tr)'}
+{'am': 'Nguyễn Thanh Long', 'ticket_prev': 111, 'ticket_curr': 251, 'diff_ticket': 140, 'pct_ticket_diff': '+126.1%', 'can_thu_prev': 5887259.0, 'can_thu_curr': 9327635.0, 'diff_can_thu': 3440376.0, 'pct_can_thu_diff': '+58.4%', 'level': '🟢 Tốt', 'top_bc_culprit': '(KHO) Cam Linh (5.3 Tr)'}
+{'am': 'Huỳnh Thúc Duân', 'ticket_prev': 67, 'ticket_curr': 81, 'diff_ticket': 14, 'pct_ticket_diff': '+20.9%', 'can_thu_prev': 0.0, 'can_thu_curr': 4997222.0, 'diff_can_thu': 4997222.0, 'pct_can_thu_diff': '+100%', 'level': '🟢 Tốt', 'top_bc_culprit': '(DNO) Đông Gia Nghĩa (5.0 Tr)'}
+{'am': 'Chưa gán', 'ticket_prev': 124, 'ticket_curr': 208, 'diff_ticket': 84, 'pct_ticket_diff': '+67.7%', 'can_thu_prev': 852072.0, 'can_thu_curr': 4961121.0, 'diff_can_thu': 4109049.0, 'pct_can_thu_diff': '+482.2%', 'level': '🟢 Tốt', 'top_bc_culprit': 'Kho Trung Chuyển Khánh Hòa (2.4 Tr)'}
+{'am': 'Trầm Hữu Tiến', 'ticket_prev': 495, 'ticket_curr': 317, 'diff_ticket': -178, 'pct_ticket_diff': '-36.0%', 'can_thu_prev': 2348102.0, 'can_thu_curr': 4960265.0, 'diff_can_thu': 2612163.0, 'pct_can_thu_diff': '+111.2%', 'level': '🟢 Tốt', 'top_bc_culprit': '(LDO) Đức Trọng 1 (2.6 Tr)'}
+
+=== 2. TRUY THU TOP BC ===
+{'bc': '(KHO) Bắc Nha Trang', 'am': 'Thái Thị Thanh Thư', 'tinh': 'Khánh Hòa', 'don_prev': 87, 'don_curr': 46, 'diff_don': -41, 'can_thu_prev': 1129478.0, 'can_thu_curr': 76142463.0, 'diff_can_thu': 75012985.0, 'pct_can_thu_diff': '+6641.4%'}
+{'bc': '(LDO) Đam Rông 3', 'am': 'Huỳnh Thị Kim Chi', 'tinh': 'Lâm Đồng', 'don_prev': 22, 'don_curr': 18, 'diff_don': -4, 'can_thu_prev': 2754510.0, 'can_thu_curr': 33285712.0, 'diff_can_thu': 30531202.0, 'pct_can_thu_diff': '+1108.4%'}
+{'bc': 'Kho Chuyển Tiếp Bình Thuận', 'am': 'Nguyễn Ngọc Khánh', 'tinh': 'Khác', 'don_prev': 55, 'don_curr': 90, 'diff_don': 35, 'can_thu_prev': 8838565.0, 'can_thu_curr': 31635215.0, 'diff_can_thu': 22796650.0, 'pct_can_thu_diff': '+257.9%'}
+{'bc': '(DNO) Quảng Tín', 'am': 'Trần Văn Phước', 'tinh': 'Đắk Nông', 'don_prev': 226, 'don_curr': 468, 'diff_don': 242, 'can_thu_prev': 299175.0, 'can_thu_curr': 24945986.0, 'diff_can_thu': 24646811.0, 'pct_can_thu_diff': '+8238.3%'}
+{'bc': '(DNO) Kiến Đức', 'am': 'Trần Văn Phước', 'tinh': 'Đắk Nông', 'don_prev': 171, 'don_curr': 110, 'diff_don': -61, 'can_thu_prev': 635749.0, 'can_thu_curr': 24232053.0, 'diff_can_thu': 23596304.0, 'pct_can_thu_diff': '+3711.6%'}
+{'bc': '(LDO) Đơn Dương', 'am': 'Lê Văn Trường', 'tinh': 'Lâm Đồng', 'don_prev': 131, 'don_curr': 468, 'diff_don': 337, 'can_thu_prev': 8100959.0, 'can_thu_curr': 16659662.0, 'diff_can_thu': 8558703.0, 'pct_can_thu_diff': '+105.7%'}
+{'bc': '(KHO) Tây Nha Trang', 'am': 'Phan Đình Duy', 'tinh': 'Khánh Hòa', 'don_prev': 50, 'don_curr': 103, 'diff_don': 53, 'can_thu_prev': 632438.0, 'can_thu_curr': 14067961.0, 'diff_can_thu': 13435523.0, 'pct_can_thu_diff': '+2124.4%'}
+{'bc': '(LDO) Tân Hà Lâm Hà', 'am': 'Huỳnh Thị Kim Chi', 'tinh': 'Lâm Đồng', 'don_prev': 25, 'don_curr': 45, 'diff_don': 20, 'can_thu_prev': 1512.0, 'can_thu_curr': 11808165.0, 'diff_can_thu': 11806653.0, 'pct_can_thu_diff': '+780863.3%'}
+{'bc': '(KHO) Cam Linh', 'am': 'Nguyễn Thanh Long', 'tinh': 'Khánh Hòa', 'don_prev': 105, 'don_curr': 246, 'diff_don': 141, 'can_thu_prev': 5886600.0, 'can_thu_curr': 5285062.0, 'diff_can_thu': -601538.0, 'pct_can_thu_diff': '-10.2%'}
+{'bc': '(DNO) Đông Gia Nghĩa', 'am': 'Huỳnh Thúc Duân', 'tinh': 'Đắk Nông', 'don_prev': 45, 'don_curr': 49, 'diff_don': 4, 'can_thu_prev': 0.0, 'can_thu_curr': 4978764.0, 'diff_can_thu': 4978764.0, 'pct_can_thu_diff': '+100%'}
+
+=== 3. KINH DOANH AM ===
+Phan Đình Duy: Rev=506,646,806 (43.4%), Diff=7,918,003
+Thái Thị Thanh Thư: Rev=98,294,064 (8.4%), Diff=-105,385
+Nguyễn Duy Long: Rev=97,311,466 (8.3%), Diff=2,072,772
+Huỳnh Thúc Duân: Rev=66,693,940 (5.7%), Diff=15,835,990
+Hồng Bích Nga: Rev=52,375,650 (4.5%), Diff=2,292,347
+Lê Thanh Nhựt: Rev=50,968,861 (4.4%), Diff=-3,865,622
+Huỳnh Thị Kim Chi: Rev=37,799,324 (3.2%), Diff=-9,199,665
+Trần Thị Nhung: Rev=31,207,319 (2.7%), Diff=-1,191,059
+Nguyễn Đỗ Minh Nghĩa: Rev=30,789,996 (2.6%), Diff=3,293,005
+Lê Văn Trường: Rev=26,722,491 (2.3%), Diff=385,059
+
+=== 3. KINH DOANH KHÁCH HÀNG NHÓM A (TOP SHOPS) ===
+None | AM: Phan Đình Duy | BC: None | MTD: 0 | % sv M-1: None
+None | AM: Thái Thị Thanh Thư | BC: None | MTD: 0 | % sv M-1: None
+None | AM: Huỳnh Thúc Duân | BC: None | MTD: 0 | % sv M-1: None
+None | AM: Lê Văn Trường | BC: None | MTD: 0 | % sv M-1: None
+None | AM: Lê Thanh Nhựt | BC: None | MTD: 0 | % sv M-1: None
+None | AM: Nguyễn Lê Nguyên Vũ | BC: None | MTD: 0 | % sv M-1: None
+None | AM: Nguyễn Duy Long | BC: None | MTD: 0 | % sv M-1: None
+None | AM: Hồng Bích Nga | BC: None | MTD: 0 | % sv M-1: None
+None | AM: Phan Đình Duy | BC: None | MTD: 0 | % sv M-1: None
+None | AM: Huỳnh Thúc Duân | BC: None | MTD: 0 | % sv M-1: None

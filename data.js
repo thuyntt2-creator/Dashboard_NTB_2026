@@ -7943,6 +7943,8 @@ window.DASHBOARD_DATA = {
         "vol": 2032,
         "ret": 770,
         "rate": 0.3789370078740157,
+        "rate_prev": 0.33523537803138376,
+        "diff": 0.04370162984263193,
         "share_ret": 0.02902265274584448,
         "total_orders": 2032,
         "return_orders": 770,
@@ -7957,6 +7959,8 @@ window.DASHBOARD_DATA = {
         "vol": 3079,
         "ret": 625,
         "rate": 0.2029879831113998,
+        "rate_prev": 0.16263861245379585,
+        "diff": 0.04034937065760394,
         "share_ret": 0.02355734800799065,
         "total_orders": 3079,
         "return_orders": 625,
@@ -7971,6 +7975,8 @@ window.DASHBOARD_DATA = {
         "vol": 5825,
         "ret": 988,
         "rate": 0.1696137339055794,
+        "rate_prev": 0.14955786236063054,
+        "diff": 0.020055871544948867,
         "share_ret": 0.03723945573103162,
         "total_orders": 5825,
         "return_orders": 988,
@@ -7985,6 +7991,8 @@ window.DASHBOARD_DATA = {
         "vol": 2209,
         "ret": 343,
         "rate": 0.155273879583522,
+        "rate_prev": 0.1735569422776911,
+        "diff": -0.0182830626941691,
         "share_ret": 0.01292827258678527,
         "total_orders": 2209,
         "return_orders": 343,
@@ -7999,6 +8007,8 @@ window.DASHBOARD_DATA = {
         "vol": 2179,
         "ret": 318,
         "rate": 0.145938503900872,
+        "rate_prev": 0.12322274881516587,
+        "diff": 0.02271575508570614,
         "share_ret": 0.01198597866646564,
         "total_orders": 2179,
         "return_orders": 318,
@@ -8013,6 +8023,8 @@ window.DASHBOARD_DATA = {
         "vol": 1930,
         "ret": 280,
         "rate": 0.1450777202072539,
+        "rate_prev": 0.13417982155113248,
+        "diff": 0.010897898656121424,
         "share_ret": 0.01055369190757981,
         "total_orders": 1930,
         "return_orders": 280,
@@ -8027,6 +8039,8 @@ window.DASHBOARD_DATA = {
         "vol": 2140,
         "ret": 266,
         "rate": 0.1242990654205608,
+        "rate_prev": 0.11413043478260869,
+        "diff": 0.010168630637952106,
         "share_ret": 0.01002600731220082,
         "total_orders": 2140,
         "return_orders": 266,
@@ -8041,6 +8055,8 @@ window.DASHBOARD_DATA = {
         "vol": 6068,
         "ret": 733,
         "rate": 0.1207976268951879,
+        "rate_prev": 0.06373475347878371,
+        "diff": 0.05706287341640419,
         "share_ret": 0.02762805774377144,
         "total_orders": 6068,
         "return_orders": 733,
@@ -8055,6 +8071,8 @@ window.DASHBOARD_DATA = {
         "vol": 1870,
         "ret": 219,
         "rate": 0.1171122994652406,
+        "rate_prev": 0.09733700642791551,
+        "diff": 0.019775293037325087,
         "share_ret": 0.008254494741999924,
         "total_orders": 1870,
         "return_orders": 219,
@@ -8069,6 +8087,8 @@ window.DASHBOARD_DATA = {
         "vol": 1941,
         "ret": 215,
         "rate": 0.1107676455435343,
+        "rate_prev": 0.0908703071672355,
+        "diff": 0.019897338376298798,
         "share_ret": 0.008103727714748784,
         "total_orders": 1941,
         "return_orders": 215,
@@ -8485,7 +8505,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 6,
       "total_trucks": 28,
-      "last_updated": "11:49 - 22/09/2026"
+      "last_updated": "12:25 - 22/09/2026"
     },
     "surge_fixed": {
       "fixed_cost": 990.12,
@@ -8507,7 +8527,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 385.2,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, NAK",
+        "primary_ncc": "NAK, Mạnh Cường",
         "truck_count": 7
       },
       {
@@ -8520,7 +8540,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 225.72,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Công Định, NAK",
+        "primary_ncc": "NAK, Công Định",
         "truck_count": 9
       },
       {
@@ -8533,7 +8553,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 155.95,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Lâm Ngọc Thành, Tốt và Rẻ",
+        "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
         "truck_count": 4
       },
       {
@@ -8601,7 +8621,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Nam Nha Trang, KTC Khánh Hòa, KTC Đức Trọng, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Bắc Nha Trang, KTC Nam Nha Trang, KTC Đức Trọng, KTC Khánh Hòa"
       },
       {
         "ncc": "Công Định",
@@ -8627,7 +8647,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Nam Nha Trang, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Bắc Nha Trang, KTC Nam Nha Trang"
       },
       {
         "ncc": "Lâm Ngọc Thành",
@@ -17667,8 +17687,8 @@ window.DASHBOARD_DATA = {
         "cost_str": "2.021.701 đ",
         "cost": 2021701.4,
         "trips_equivalent": 1,
-        "trip_code": "",
-        "ontime": ""
+        "trip_code": "E260916CAUPKWNS",
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -17682,8 +17702,8 @@ window.DASHBOARD_DATA = {
         "cost_str": "2.021.701 đ",
         "cost": 2021701.4,
         "trips_equivalent": 1,
-        "trip_code": "",
-        "ontime": ""
+        "trip_code": "E260917E0U8C6G3",
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -17697,8 +17717,8 @@ window.DASHBOARD_DATA = {
         "cost_str": "2.021.701 đ",
         "cost": 2021701.4,
         "trips_equivalent": 1,
-        "trip_code": "",
-        "ontime": ""
+        "trip_code": "E260918DWIZQ7DZ",
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -17712,7 +17732,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "2.021.701 đ",
         "cost": 2021701.4,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260919RVUAPVUS",
         "ontime": ""
       },
       {
@@ -17727,7 +17747,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "2.021.701 đ",
         "cost": 2021701.4,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260920WRJ8MWX6",
         "ontime": ""
       },
       {
@@ -17742,7 +17762,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "2.021.701 đ",
         "cost": 2021701.4,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260921KJ3TW6AR",
         "ontime": ""
       },
       {

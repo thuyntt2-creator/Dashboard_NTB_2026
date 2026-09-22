@@ -315,30 +315,43 @@ def build_w38_professional_script():
     add_speech_section(
         doc,
         sec_title="🚨 [IX. PHÂN TÍCH TỶ TRỌNG RỚT ĐƠN LUÂN CHUYỂN THEO AM & TỈNH THÀNH (W38)]",
-        speech_heading="🗣️ CẢNH BÁO NGUY HIỂM: TỶ LỆ RỚT LUÂN CHUYỂN BÙNG PHÁT LÊN 3.42% VỚI 1.417 ĐƠN:",
+        speech_heading="🗣️ CẢNH BÁO BẤT THƯỜNG: TỶ LỆ RỚT LUÂN CHUYỂN TĂNG LÊN 3.32% VỚI 252 ĐƠN BỊ BỎ LẠI:",
         paragraphs_text=[
-            "Kính thưa Ban Giám Đốc, trái ngược với thành tích OPR, chỉ số rớt đơn luân chuyển tuần W38 đang gióng lên một hồi chuông cảnh báo đỏ cực kỳ nguy hiểm:",
-            "• Thực trạng bùng phát: Tỷ lệ rớt đơn luân chuyển toàn vùng đã nhảy vọt từ 1,80% tuần W37 lên tới 3,42% trong tuần W38 (+1,62%p WoW), với tổng cộng 1.417 đơn hàng bị rớt lại không thể luân chuyển theo đúng hành trình.",
-            "• Đánh giá địa bàn 5 Tỉnh thành:",
-            "- Lâm Đồng là ổ dịch rớt đơn lớn nhất toàn vùng, chiếm tới 58% tổng số đơn rớt với 822 đơn (tỷ lệ rớt 4,85%).",
-            "- Đắk Nông đứng thứ hai với 285 đơn rớt (tỷ lệ 3,92%).",
-            "- Khánh Hòa có 178 đơn rớt; Bình Thuận 96 đơn và Ninh Thuận 36 đơn.",
-            "• Điểm danh các AM để xảy ra rớt đơn nghiêm trọng:",
-            "- AM Lê Văn Trường (Lâm Đồng) đứng đầu bảng với 540 đơn rớt (chủ yếu tập trung tại bưu cục Đà Lạt và Đức Trọng).",
-            "- AM Trầm Hữu Tiến để rớt 182 đơn tại khu vực Di Linh.",
-            "- AM Trương Quang Linh để rớt 115 đơn tại Đắk Nông.",
-            "• Nguyên nhân cốt lõi: Tài xế xe tải trung chuyển và nhân viên kho bưu cục không chịu quét mã bao/kiện bàn giao điện tử mà chỉ đếm bao giấy; khi xe chạy thì hàng chục bao hàng bị bỏ quên lại góc sàn kho mà không ai hay biết!"
+            "Kính thưa Ban Giám Đốc, trái ngược với nỗ lực cải thiện OPR, chỉ số rớt đơn luân chuyển tuần W38 đang gióng lên hồi chuông cảnh báo đỏ trên diện rộng:",
+            "• Tổng quan toàn vùng tuần W38: Tỷ lệ rớt đơn luân chuyển toàn vùng đã tăng từ 1,80% tuần W37 lên mức 3,32% trong tuần W38 (+1,52%p WoW), tương ứng với 252 đơn hàng bị rớt lại trên tổng số 7.586 đơn cần luân chuyển trong tuần.",
+            "• Đánh giá chi tiết địa bàn 5 Tỉnh thành:",
+            "- Đắk Nông: BÁO ĐỘNG ĐỎ KỶ LỤC TOÀN VÙNG khi tỷ lệ rớt luân chuyển bùng phát lên tới 20,73% (tăng vọt +16,57%p WoW so với mức chỉ 4,17% của W37, với 57 đơn rớt / 275 đơn cần LC) — đồng nghĩa với việc cứ 5 đơn cần luân chuyển ra khỏi bưu cục thì có hơn 1 đơn bị bỏ rơi lại!",
+            "- Khánh Hòa: Là tỉnh để xảy ra số lượng đơn rớt lớn nhất toàn mạng lưới với 102 đơn rớt (tỷ lệ 5,09%, tăng +3,34%p WoW trên 2.005 đơn cần LC) do áp lực gom hàng lớn tại các bưu cục ven vịnh và trung tâm.",
+            "- Lâm Đồng: Để rớt 58 đơn (tỷ lệ 3,32%, tăng +1,28%p WoW trên 1.748 đơn cần LC).",
+            "- Ninh Thuận: Rớt 16 đơn (tỷ lệ 1,14% / 1.390 đơn).",
+            "- Bình Thuận: Kiểm soát luân chuyển tốt nhất khu vực ven biển với 19 đơn rớt (tỷ lệ chỉ 0,88% trên 2.168 đơn cần LC).",
+            "• Điểm danh đích danh từng Quản lý Vận hành (AM) có tỷ lệ rớt cao và lượng đơn rớt lớn:",
+            "- AM Huỳnh Thúc Duân (Đắk Nông): Tỷ lệ rớt luân chuyển cao kỷ lục toàn mạng lưới lên tới 20,79% (tăng sốc +20,14%p WoW so với tuần W37 chỉ 0,65%), để rớt 21 đơn trên 101 đơn cần LC.",
+            "- AM Trần Thị Nhung (Đắk Nông): Tỷ lệ rớt luân chuyển đạt 19,76% (tăng vọt +13,84%p WoW so với W37 5,92%), để rớt 33 đơn trên 167 đơn cần LC.",
+            "- AM Thái Thị Thanh Thư (Khánh Hòa): Tỷ lệ rớt 7,13% (tăng +4,98%p WoW so với W37 2,15%), đặc biệt đây là AM để RỚT SỐ LƯỢNG ĐƠN LỚN NHẤT TOÀN VÙNG với 79 đơn rớt / 1.108 đơn cần LC (chiếm hơn 31% tổng số đơn rớt của cả vùng Nam Trung Bộ!).",
+            "- AM Hồng Bích Nga (Đắk Nông): Tỷ lệ rớt 4,49% (tăng +2,65%p WoW, để rớt 27 đơn / 601 đơn cần LC).",
+            "- AM Lê Văn Trường (Lâm Đồng): Tỷ lệ rớt 4,24% (tăng +2,10%p WoW, để rớt 21 đơn / 495 đơn cần LC).",
+            "- AM Nguyễn Hoàng Phi: Tỷ lệ rớt 2,84% (để rớt 19 đơn / 670 đơn cần LC).",
+            "• Bóc tách danh sách Top Bưu cục điểm nóng để xảy ra rớt đơn nặng nề nhất:",
+            "- Bưu cục (DNO) Đức Lập (phụ trách bởi AM Trần Thị Nhung): BÁO ĐỘNG ĐỎ TOÀN MẠNG khi một mình bưu cục này để rớt tới 32 đơn hàng (tỷ lệ rớt 27,83% trên 115 đơn cần LC) — chiếm tới 12,7% tổng đơn rớt của toàn vùng!",
+            "- Bưu cục (DNO) Đông Gia Nghĩa (phụ trách bởi AM Huỳnh Thúc Duân): Để rớt 11 đơn (tỷ lệ rớt lên tới 42,31% trên 26 đơn cần LC).",
+            "- Bưu cục (DNO) Bắc Gia Nghĩa (phụ trách bởi AM Huỳnh Thúc Duân): Để rớt 8 đơn (tỷ lệ rớt 20,51% trên 39 đơn cần LC).",
+            "- Bưu cục (NTH) Thuận Nam (phụ trách bởi AM Nguyễn Duy Long): Để rớt 4 đơn (tỷ lệ rớt 100% / 4 đơn).",
+            "- Bưu cục (DNO) Kiến Đức (phụ trách bởi AM Hồng Bích Nga): Để rớt 3 đơn (tỷ lệ rớt 42,86% / 7 đơn cần LC).",
+            "- Bưu cục (DNO) ĐL Nam Gia Nghĩa 2 (phụ trách bởi AM Huỳnh Thúc Duân): Để rớt 2 đơn (tỷ lệ rớt 40,0% / 5 đơn).",
+            "- Bưu cục (LDO) Lang Biang - Đà Lạt 1 (phụ trách bởi AM Lê Minh Lợi): Để rớt 2 đơn (tỷ lệ rớt 100% / 2 đơn).",
+            "- Các bưu cục rớt 1 đơn nhưng tỷ lệ 100%: (DNO) Quảng Sơn (AM Trần Thị Nhung), (LDO) Đinh Văn Lâm Hà (AM Huỳnh Thị Kim Chi), (BTH) Mũi Né (AM Nguyễn Ngọc Khánh - rớt 1/5 đơn, 20%)."
         ],
         insights=[
-            "Hành vi thao tác ẩu: Tình trạng 'chạy đua với thời gian' của tài xế dẫn tới việc bỏ qua bước quét bàn giao thực tế trên hệ thống app lái xe.",
-            "Đơn rớt luân chuyển đồng nghĩa với việc leadtime toàn trình của đơn hàng bị kéo dài thêm ít nhất 24 đến 48 giờ, biến đơn đúng hẹn thành đơn trễ hạn."
+            "Hành vi tác nghiệp cẩu thả tại bưu cục: Nhân viên kho không quét mã bao/kiện điện tử để bàn giao cho tài xế xe tải KTC theo đúng quy trình; đóng chuyến trễ giờ cắt dẫn tới việc xe tải KTC tuyến buộc phải xuất bến bỏ lại các kiện hàng nằm lăn lóc tại sàn kho.",
+            "Tập trung cục bộ nguy hiểm: 3 AM gồm Thái Thị Thanh Thư (79 đơn), Trần Thị Nhung (33 đơn) và Hồng Bích Nga (27 đơn) cộng lại đã chiếm tới hơn 55% tổng lượng đơn rớt của toàn mạng."
         ],
         warnings=[
-            "1.417 đơn rớt luân chuyển nếu không được quét bù và đẩy đi ngay trong sáng nay sẽ chuyển hóa thành 1.417 đơn trễ hẹn ODR và đối mặt nguy cơ khách hủy đơn."
+            "252 đơn rớt luân chuyển này sẽ tự động biến thành 252 đơn vi phạm ODR giao trễ hạn, kéo tụt nghiêm trọng chỉ số cam kết SLA của tỉnh Đắk Nông và Khánh Hòa."
         ],
         actions=[
-            "Áp dụng chế tài nghiêm khắc: Phạt 50.000đ/đơn rớt luân chuyển đối với tài xế và nhân viên kho chịu trách nhiệm ca giao nhận.",
-            "Bắt buộc 100% chuyến xe phải hoàn tất biên bản bàn giao điện tử (quét mã seal và mã bao) trước khi bấm xác nhận xe lăn bánh."
+            "Quy trách nhiệm trực tiếp cho AM Huỳnh Thúc Duân và AM Trần Thị Nhung: Phải trực tiếp có mặt tại Bưu cục Đức Lập, Đông Gia Nghĩa và Bắc Gia Nghĩa kiểm soát 100% giờ đóng bao và quét bàn giao điện tử với lái xe KTC trước 19h30 hàng ngày.",
+            "Phạt 50.000đ/đơn rớt luân chuyển đối với Trưởng bưu cục và tài xế nếu để phát sinh đơn rớt luân chuyển không lý do chính đáng trong tuần W39."
         ]
     )
 
@@ -348,18 +361,23 @@ def build_w38_professional_script():
     add_speech_section(
         doc,
         sec_title="🔄 [X. BÁO CÁO TỶ LỆ %FD (RETURN / HOÀN TRẢ) — VÙNG NAM TRUNG BỘ (W38)]",
-        speech_heading="🗣️ PHÂN TÍCH TỶ LỆ HOÀN TRẢ (%FD) VÀ BÁO ĐỘNG ĐỎ BƯU CỤC HOÀN CAO BẤT THƯỜNG:",
+        speech_heading="🗣️ PHÂN TÍCH TỶ LỆ HOÀN TRẢ (%FD) VÀ SO SÁNH BIẾN ĐỘNG WOW TẠI CÁC BƯU CỤC NÓNG:",
         paragraphs_text=[
-            "Kính thưa Ban Giám Đốc, về tỷ lệ Hoàn Trả (%FD) — chỉ số bào mòn trực tiếp biên lợi nhuận của công ty:",
-            "• Tổng quan toàn mạng: Tuần W38, tỷ lệ %FD toàn vùng giữ ở mức 6,85% (tăng nhẹ +0,12%p WoW so với mức 6,73% của W37). Tổng số đơn hoàn trả về cho người gửi trong tuần là 23.700 đơn trên 345.994 đơn phát sinh.",
-            "• Phân hóa 5 Tỉnh thành:",
-            "- Bình Thuận và Ninh Thuận kiểm soát hoàn trả tốt nhất vùng với tỷ lệ FD chỉ đạt lần lượt 5,82% và 6,10%.",
+            "Kính thưa Ban Giám Đốc, về tỷ lệ Hoàn Trả (%FD) — chỉ số trực tiếp bào mòn biên lợi nhuận của vùng:",
+            "• Tổng quan toàn mạng tuần W38: Tỷ lệ %FD Full hàng toàn vùng giữ ở mức 6,73% (giảm nhẹ -0,81%p WoW so với mức 7,54% của W37). Riêng kênh TikTok Shop đạt 6,10% (giảm -0,70%p WoW). Tổng số đơn hoàn trả ghi nhận 24.518 đơn trên toàn bộ mạng lưới giao.",
+            "• Phân hóa theo 5 Tỉnh thành:",
+            "- Bình Thuận và Ninh Thuận kiểm soát hoàn trả tốt nhất khu vực với tỷ lệ FD chỉ lần lượt 5,82% và 6,10%.",
             "- Khánh Hòa giữ ở mức 6,65%.",
-            "- Hai tỉnh Tây Nguyên tiếp tục là vùng trũng rủi ro: Lâm Đồng đạt 7,54% (7.218 đơn hoàn) và Đắk Nông ghi nhận mức hoàn trả cao nhất vùng lên tới 8,12% (2.830 đơn hoàn).",
-            "• Báo động đỏ các bưu cục có tỷ lệ hoàn trả trên 10%:",
-            "- Bưu cục Quảng Tín (AM Trương Quang Linh): Tỷ lệ hoàn trả lên tới 12,4% (cứ 8 đơn giao đi thì có 1 đơn bị trả về).",
-            "- Bưu cục Lang Biang (AM Lê Minh Lợi): Tỷ lệ hoàn trả 11,2%.",
-            "- Bưu cục Đam Rông (AM Lê Văn Trường): Tỷ lệ hoàn trả 10,8%."
+            "- Hai tỉnh Tây Nguyên tiếp tục là vùng trũng rủi ro: Lâm Đồng đạt 7,54% và Đắk Nông ghi nhận mức hoàn trả cao nhất vùng lên tới 8,12%.",
+            "• So sánh biến động WoW tại Top 10 Bưu cục có tỷ lệ hoàn trả cao nhất mạng lưới:",
+            "- Bưu cục (DNO) Quảng Tín (AM Trương Quang Linh): BÁO ĐỘNG ĐỎ cao nhất toàn vùng khi %FD lên tới 37,89% (770 đơn hoàn / 2.032 đơn giao), tăng mạnh +4,37%p WoW so với tuần W37 (33,52%) — cứ gần 2,5 đơn giao đi thì có 1 đơn bị trả về!",
+            "- Bưu cục (LDO) Lang Biang - Đà Lạt 1 (AM Trần Tấn Lợi): %FD đạt 20,30% (625 đơn hoàn / 3.079 đơn), tăng vọt +4,03%p WoW so với W37 (16,26%).",
+            "- Bưu cục (KHO) Cam Linh (AM Nguyễn Tiến Long): %FD đạt 16,96% (988 đơn hoàn / 5.825 đơn), tăng +2,01%p WoW so với W37 (14,96%).",
+            "- Bưu cục (LDO) Đức Trọng 1 (AM Nguyễn Lê Nguyên Vũ): %FD đạt 14,59% (318 đơn hoàn), tăng +2,27%p WoW so với W37 (12,32%).",
+            "- Bưu cục (DNO) Đông Gia Nghĩa (AM Huỳnh Thúc Duân): %FD đạt 14,51% (280 đơn hoàn), tăng +1,09%p WoW so với W37 (13,42%).",
+            "- Bưu cục (DNO) Tuy Đức (AM Trần Thị Nhung): %FD đạt 12,43% (266 đơn hoàn), tăng +1,02%p WoW so với W37 (11,41%).",
+            "- Bưu cục (LDO) Di Linh (AM Nguyễn Lê Nguyên Vũ): %FD bùng phát tăng đột biến +5,71%p WoW (từ 6,37% tuần W37 nhảy vọt lên 12,08% tuần W38 với 733 đơn hoàn).",
+            "- Điểm sáng cải thiện: Bưu cục (DNO) Kiến Đức (AM Hồng Bích Nga) ghi nhận %FD giảm -1,83%p WoW (từ 17,36% xuống 15,53%, 343 đơn hoàn)."
         ],
         insights=[
             "Nguyên nhân gốc rễ: Tại các khu vực nông thôn và đồi dốc, bưu tá ngại đi giao lại lần 2 đối với các địa chỉ xa, vội vàng cập nhật trạng thái 'Khách không nhận' hoặc 'Không liên lạc được' để ép đơn chuyển hoàn.",
@@ -408,26 +426,39 @@ def build_w38_professional_script():
     add_speech_section(
         doc,
         sec_title="📦 [XII. ĐIỀU HÀNH XỬ LÝ HÀNG AGING TỒN ĐỌNG & TREO LUÂN CHUYỂN (W38)]",
-        speech_heading="🗣️ CHI TIẾT 1.638 ĐƠN HÀNG AGING TỒN >5 NGÀY VÀ ĐỊA BÀN ĐỌNG HÀNG NGUY HIỂM:",
+        speech_heading="🗣️ CẬP NHẬT DỮ LIỆU MỚI: BÓC TÁCH 1.306 ĐƠN AGING LƯU KHO VÀ 4.590 ĐƠN TREO LUÂN CHUYỂN TOÀN VÙNG:",
         paragraphs_text=[
-            "Kính thưa Ban Giám Đốc, về tình trạng hàng tồn kho lâu ngày (Aging >5 ngày) — nguy cơ tiềm ẩn mất mát và đền bù hàng hóa:",
-            "• Thực trạng tồn đọng: Toàn vùng Nam Trung Bộ hiện đang ghi nhận đúng 1.638 đơn hàng tồn đọng trên 5 ngày chưa thể hoàn tất giao hoặc chuyển hoàn.",
-            "• Địa bàn tập trung rủi ro tồn aging:",
-            "- Lâm Đồng là điểm nóng nhức nhối nhất, chiếm tới 57% lượng hàng tồn toàn vùng với 930 đơn (tập trung chủ yếu tại bưu cục Đà Lạt, Đức Trọng và Đơn Dương do AM Lê Văn Trường và AM Trầm Hữu Tiến phụ trách).",
-            "- Đắk Nông chiếm 33% với 546 đơn (tập trung tại cụm bưu cục Đắk Mil, Gia Nghĩa và Quảng Tín của AM Trương Quang Linh và AM Huỳnh Thúc Duân).",
-            "- Ba tỉnh đồng bằng duyên hải kiểm soát rất tốt, chỉ chiếm 10% còn lại: Khánh Hòa có 92 đơn, Bình Thuận có 48 đơn và Ninh Thuận chỉ có 22 đơn.",
-            "• Đánh giá tính chất đơn tồn: Có tới 420 đơn đã nằm sàn trên 10 ngày do bị thất lạc nhãn hoặc chờ người gửi xác nhận chuyển hoàn."
+            "Kính thưa Ban Giám Đốc, theo số liệu đối soát mới nhất sáng nay về hàng tồn kho lâu ngày (Aging ≥ 5 ngày) và Treo luân chuyển trên toàn mạng lưới Nam Trung Bộ:",
+            "• BỨC TRANH HÀNG AGING LƯU KHO (TỔNG 1.306 ĐƠN TỒN ≥ 5 NGÀY):",
+            "- Phân bổ theo 5 Tỉnh thành: Hai tỉnh Tây Nguyên chiếm tới 82,4% tổng lượng hàng aging toàn vùng! Trong đó, Lâm Đồng là điểm nóng lớn nhất với 724 đơn (chiếm 55,4% toàn vùng); Đắk Nông chiếm 353 đơn (27,0%); Khánh Hòa chiếm 211 đơn (16,2%); trong khi Bình Thuận chỉ có 12 đơn (0,9%) và Ninh Thuận kiểm soát cực tốt chỉ có 6 đơn (0,5%).",
+            "- Phân nhóm thời gian tồn đọng:",
+            "  + Nhóm 5 – 8 ngày: 1.048 đơn (chiếm 80,2% tổng aging) — đây là nhóm hàng có thể giải phóng nhanh nếu bưu cục tập trung lực lượng giao dứt điểm trong 24h tới.",
+            "  + Nhóm 8 – 15 ngày: 244 đơn (chiếm 18,7%) — nhóm vướng mắc địa chỉ khó hoặc đang lưu bưu cục chờ khách nhận.",
+            "  + Nhóm báo động đỏ trên 15 ngày (> 15 ngày): 14 đơn (chiếm 1,1%) — nguy cơ thất thoát, bể vỡ hoặc đền bù rất cao, bắt buộc lập biên bản xử lý dứt điểm.",
+            "- Top 5 AM có lượng hàng Aging đọng nhiều nhất:",
+            "  1. AM Lê Văn Trường: 351 đơn (chiếm 26,9% toàn vùng, đứng đầu danh sách tồn đọng).",
+            "  2. AM Hồng Bích Nga: 234 đơn (chiếm 17,9%).",
+            "  3. AM Nguyễn Lê Nguyên Vũ: 224 đơn (chiếm 17,2%).",
+            "  4. AM Nguyễn Thanh Long: 158 đơn (chiếm 12,1%).",
+            "  5. AM Trương Quang Linh: 82 đơn (chiếm 6,3%).",
+            "• BỨC TRANH TREO LUÂN CHUYỂN (TỔNG 4.590 ĐƠN TRÊN TOÀN HỆ THỐNG):",
+            "- Phân bổ trạng thái luân chuyển:",
+            "  + Luân chuyển đúng hạn (< 24h): 4.006 đơn (chiếm 87,3%) — đang di chuyển bình thường theo đúng nhịp luân chuyển chuẩn.",
+            "  + Tổng đơn Treo luân chuyển quá hạn (> 24h): 584 đơn (chiếm 12,7% tổng luồng hàng).",
+            "  + Bóc tách thời gian treo quá hạn: Chớm trễ 24h – 36h có 241 đơn (5,3%); Treo nguy hiểm 36h – 72h có 212 đơn (4,6%); Treo nghiêm trọng 72h – 120h (3 – 5 ngày) có 74 đơn (1,6%); và đặc biệt có 57 đơn treo báo động đỏ trên 5 ngày (> 120h), trong đó có 21 đơn treo trên 8 ngày chưa cập bến!",
+            "- Địa bàn tập trung đơn treo luân chuyển: Lâm Đồng chiếm 1.630 đơn (35,5%); Khánh Hòa chiếm 1.370 đơn (29,8%); Đắk Nông chiếm 734 đơn (16,0%); Bình Thuận chiếm 509 đơn (11,1%) và Ninh Thuận chiếm 347 đơn (7,6%).",
+            "- Top AM có lượng đơn treo luân chuyển cao nhất: AM Lê Văn Trường (596 đơn — đứng đầu toàn vùng cả về aging lẫn treo luân chuyển), AM Thái Thị Thanh Thư (427 đơn), AM Nguyễn Duy Long (393 đơn), AM Phan Đình Duy (377 đơn), và AM Trần Thị Nhung (354 đơn)."
         ],
         insights=[
-            "Hàng tồn aging là hệ quả của thói quen 'để dành' đơn khó của bưu tá: Các đơn địa chỉ xa xôi, đồi núi hẻo lánh thường bị bưu tá bỏ lại góc bưu cục ngày này qua ngày khác.",
-            "Bưu cục thiếu quy trình kiểm kê định kỳ hàng ngày: Hàng trăm đơn nằm khuất sau các giá kệ mà Trưởng bưu cục không nắm được danh sách cụ thể."
+            "Hàng aging và hàng treo luân chuyển có sự tương đồng rõ rệt về địa bàn: Lâm Đồng và Đắk Nông là 2 điểm nghẽn lớn nhất, phản ánh khâu kiểm soát tồn và nhịp xe gom giữa các bưu cục đồi núi về kho trung tâm chưa được chuẩn hóa.",
+            "AM Lê Văn Trường đang là mắt xích nghẽn nặng nề nhất khi phụ trách tới 351 đơn aging và 596 đơn treo luân chuyển, cần có sự hỗ trợ can thiệp trực tiếp từ Giám đốc Vận hành."
         ],
         warnings=[
-            "Hàng tồn >5 ngày có nguy cơ hư hỏng bao bì, biến chất sản phẩm (đặc biệt là mỹ phẩm, thực phẩm khô) dẫn tới khiếu nại bồi thường giá trị cao từ khách hàng."
+            "14 đơn aging > 15 ngày và 57 đơn treo luân chuyển > 5 ngày nếu không truy vết xử lý ngay trong 48h tới chắc chắn sẽ chuyển hóa thành đơn đền bù thất thoát với tổng giá trị thiệt hại ước tính trên 35 triệu đồng."
         ],
         actions=[
-            "Tổng tổng kiểm kê kho bưu cục: Yêu cầu toàn bộ 18 AM thực hiện kiểm đếm 100% kho bưu cục vào 20h00 tối thứ Ba.",
-            "Thành lập đội đặc nhiệm xả hàng tồn: Bố trí bưu tá chuyên trách giải tỏa dứt điểm 1.638 đơn aging trong vòng 48 giờ tới."
+            "Thiết lập 'Tổ đặc nhiệm giải cứu hàng Aging' tại Lâm Đồng: Yêu cầu 4 AM (Trường, Nga, Vũ, Long) trong ngày hôm nay phải tổ chức rà soát trực tiếp 100% kho bãi, phân loại và giao dứt điểm 1.048 đơn nhóm 5–8 ngày.",
+            "Đội KTC kích hoạt chiến dịch 'Xả treo luân chuyển': Truy vết toàn bộ 57 đơn treo > 5 ngày và 212 đơn treo 36–72h, xác định chính xác vị trí thất lạc tại kho trung chuyển để hoàn tất bàn giao trong ngày 23/09."
         ]
     )
 
@@ -465,25 +496,37 @@ def build_w38_professional_script():
     add_speech_section(
         doc,
         sec_title="🛡️ [XIV. BÁO CÁO TRUY THU – BIẾN ĐỘNG 2 TUẦN (W37 vs W38) & CẢNH BÁO BẤT THƯỜNG]",
-        speech_heading="🗣️ BÁO ĐỘNG ĐỎ TRUY THU: BÙNG PHÁT 282.4 TRIỆU ĐỒNG (+241.0 TRIỆU WoW):",
+        speech_heading="🗣️ BÁO ĐỘNG ĐỎ TRUY THU: BÙNG NỔ 282.4 TRIỆU ĐỒNG (+241.0 TRIỆU WoW — TĂNG +582%):",
         paragraphs_text=[
-            "Kính thưa Ban Giám Đốc, đây là nội dung báo động đỏ tài chính nghiêm trọng nhất của buổi họp ngày hôm nay:",
-            "• Biến động bất thường: Số tiền cần truy thu do chênh lệch cân nặng và kích thước hàng hóa tuần W38 đã bùng phát đột biến lên tới 282,4 triệu đồng (tăng vọt thêm +241,0 triệu đồng, tương đương mức tăng khủng khiếp +582% WoW so với con số chỉ 41,4 triệu đồng của tuần W37!).",
-            "• Bóc tách nguyên nhân bùng nổ truy thu:",
-            "- 78% số tiền truy thu (tương đương hơn 220 triệu đồng) phát sinh từ các bưu cục tiếp nhận hàng hóa tại khu vực Khánh Hòa và Bình Thuận.",
-            "- Sai phạm chủ yếu nằm ở các mặt hàng cồng kềnh, nông sản khô, đồ hải sản đóng thùng xốp: Nhân viên tiếp nhận tại quầy ghi nhận trọng lượng theo cân nặng thực tế (chỉ 2 - 3kg) nhưng bỏ qua không đo kích thước ba chiều để quy đổi trọng lượng thể tích (thể tích thực tế lên tới 8 - 12kg!).",
-            "- Khi hàng hóa về tới Trung tâm phân loại (SOC) liên tỉnh, hệ thống cân đo tự động bằng tia laser quét lại và phát hiện chênh lệch cước phí khổng lồ, dẫn tới việc bị hệ thống tự động phạt truy thu."
+            "Kính thưa Ban Giám Đốc, đây là nội dung báo động đỏ tài chính và kiểm soát thất thoát nghiêm trọng nhất của tuần W38:",
+            "• Biến động bùng nổ toàn mạng: Số tiền CẦN TRUY THU THỰC TẾ tuần W38 đã bùng phát lên mức kỷ lục 282,4 triệu đồng (chính xác 282.441.700 VNĐ), tăng vọt thêm +241,0 triệu đồng (tương ứng mức tăng sốc +581,7% WoW so với con số chỉ 41,4 triệu đồng của tuần W37!). Tổng số bản ghi/ticket phạt phát sinh lên tới 3.074 ticket (tăng +744 ticket, +31,9% WoW).",
+            "• Cơ cấu 4 nguyên nhân truy thu chính toàn vùng:",
+            "- 1. Liên đới chiếm dụng: 107,6 triệu đồng (chiếm 38,1% tổng tiền truy thu toàn vùng).",
+            "- 2. Tick mất hàng: 52,0 triệu đồng (chiếm 18,4%, tăng thêm +125 ticket vi phạm).",
+            "- 3. Kiện thiếu đơn: 30,7 triệu đồng (chiếm 10,9%).",
+            "- 4. Giao sai quy trình tác nghiệp: 18,4 triệu đồng (chiếm 6,5%).",
+            "• Điểm danh đích danh Top 5 Quản lý Vận hành (AM) bị truy thu nặng nề nhất (Chiếm tới 84,1% tổng tiền truy thu toàn vùng):",
+            "1. AM Thái Thị Thanh Thư (Khánh Hòa) — BÁO ĐỘNG ĐỎ SỐ 1: Bị truy thu lên tới 81,7 triệu đồng (81.660.686 VNĐ), tăng đột biến +79,9 triệu đồng (+4.505% WoW so với tuần W37 chỉ 1,8 triệu đồng!). Điểm danh bưu cục thủ phạm: Tập trung tới 93,2% số tiền truy thu của AM Thư nằm tại Bưu cục (KHO) Bắc Nha Trang với 76,1 triệu đồng (tăng vọt +75,0 triệu đồng WoW)!",
+            "2. AM Trần Văn Phước (Đắk Nông) — BÁO ĐỘNG ĐỎ SỐ 2: Bị truy thu 49,6 triệu đồng (49.649.059 VNĐ, tăng vọt +44,6 triệu đồng, +880,5% WoW, phát sinh tới 678 ticket). Điểm danh 2 bưu cục nóng: Bưu cục (DNO) Quảng Tín bị truy thu 24,9 triệu đồng (tăng +24,6 triệu WoW với 468 ticket) và Bưu cục (DNO) Kiến Đức bị truy thu 24,2 triệu đồng (tăng +23,6 triệu WoW với 110 ticket)!",
+            "3. AM Huỳnh Thị Kim Chi (Lâm Đồng) — BÁO ĐỘNG ĐỎ SỐ 3: Bị truy thu 45,1 triệu đồng (45.105.158 VNĐ, tăng +41,4 triệu đồng, +1.123% WoW). Điểm danh 2 bưu cục thủ phạm: Bưu cục (LDO) Đam Rông 3 bị truy thu 33,3 triệu đồng (tăng +30,5 triệu WoW) và Bưu cục (LDO) Tân Hà Lâm Hà bị truy thu 11,8 triệu đồng (tăng +11,8 triệu WoW)!",
+            "4. AM Nguyễn Ngọc Khánh (Bình Thuận): Bị truy thu 35,2 triệu đồng (35.200.624 VNĐ, tăng +26,1 triệu đồng, +285,4% WoW). Điểm danh đơn vị nóng: Kho Chuyển Tiếp Bình Thuận bị truy thu 31,6 triệu đồng (tăng +22,8 triệu WoW với 90 ticket)!",
+            "5. AM Lê Văn Trường (Lâm Đồng): Bị truy thu 25,5 triệu đồng (25.524.546 VNĐ, tăng +16,4 triệu đồng WoW). Đáng báo động đây là AM CÓ SỐ LƯỢNG TICKET PHẠT NHIỀU NHẤT TOÀN VÙNG với 805 ticket (+553 ticket WoW), trong đó tâm điểm là Bưu cục (LDO) Đơn Dương bị truy thu 16,7 triệu đồng (468 ticket, tăng +8,6 triệu WoW)!",
+            "• Nhóm các AM kiểm soát truy thu tốt hơn (dưới 15 triệu đồng):",
+            "- AM Phan Đình Duy: 14,9 triệu đồng (chủ yếu tại Bưu cục Tây Nha Trang 14,1 triệu).",
+            "- AM Nguyễn Thanh Long: 9,3 triệu đồng (Bưu cục Cam Linh 5,3 triệu, đã giảm -600k WoW).",
+            "- AM Huỳnh Thúc Duân: 5,0 triệu đồng (Bưu cục Đông Gia Nghĩa 5,0 triệu).",
+            "- AM Trầm Hữu Tiến: 5,0 triệu đồng (Bưu cục Đức Trọng 1 2,6 triệu)."
         ],
         insights=[
-            "Tình trạng nhân viên bưu cục 'thỏa hiệp' hoặc nể nang các shop quen, cố tình không đo kích thước để giúp shop giảm bớt tiền cước phí gửi hàng.",
-            "Một số cân điện tử và thước đo tại bưu cục bị hỏng hóc hoặc thiếu hụt dụng cụ đo đạc dẫn tới việc nhân viên ước lượng bằng mắt thường."
+            "Lỗ hổng buông lỏng kiểm soát cân đo và nhận hàng: Tại Bưu cục Bắc Nha Trang (76,1 Tr), Đam Rông 3 (33,3 Tr), KCT Bình Thuận (31,6 Tr), Quảng Tín (24,9 Tr), Kiến Đức (24,2 Tr) và Đơn Dương (16,7 Tr), nhân viên tiếp nhận hàng hóa bỏ qua hoàn toàn việc đo kích thước 3 chiều của thùng hàng quy đổi thể tích hoặc bao che cho shop quen gửi hàng cồng kềnh với cước hàng nhẹ.",
+            "Tình trạng liên đới chiếm dụng và mất kiện hàng tăng vọt 107,6 triệu đồng cho thấy kỷ luật bàn giao ca và kiểm kê bưu cục đang bị buông lỏng nghiêm trọng."
         ],
         warnings=[
-            "Số tiền 282,4 triệu đồng truy thu nếu không thu hồi được từ người gửi sẽ bị trừ trực tiếp vào quỹ lương và tiền thưởng KPIs của toàn bộ nhân viên bưu cục liên quan."
+            "282,4 triệu đồng truy thu nếu không được thu hồi từ người gửi sẽ bị chế tài trừ trực tiếp vào quỹ lương và tiền thưởng của các AM và bưu cục có liên quan."
         ],
         actions=[
-            "Thành lập tổ kiểm tra cân đo đột xuất: Ban Giám Đốc chỉ đạo Phòng Kiểm soát Vận hành thanh tra ngẫu nhiên các kiện hàng tại quầy tiếp nhận.",
-            "Truy cứu trách nhiệm cá nhân: Nhân viên nào cố tình gian lận kích thước để bưu cục bị phạt truy thu sẽ phải bồi thường 100% số tiền chênh lệch và xem xét kỷ luật sa thải."
+            "Yêu cầu 5 AM nhóm đầu (Thanh Thư, Văn Phước, Kim Chi, Ngọc Khánh, Văn Trường) lập tức xuống thanh tra trực tiếp tại 6 bưu cục điểm nóng kể trên trong vòng 24 giờ tới.",
+            "Kích hoạt quy trình: 100% kiện hàng cồng kềnh thùng xốp, hàng nông sản tại Bắc Nha Trang, Đam Rông 3, Quảng Tín bắt buộc phải chụp ảnh có kèm thước đo 3 chiều tải lên hệ thống trước khi in nhãn xuất kho."
         ]
     )
 
@@ -493,27 +536,46 @@ def build_w38_professional_script():
     add_speech_section(
         doc,
         sec_title="📈 [XV. PHÂN TÍCH DOANH THU KINH DOANH & TĂNG TRƯỞNG KHÁCH HÀNG MỚI (F30) (W38)]",
-        speech_heading="🗣️ DOANH THU KINH DOANH 1.168 TỶ ĐỒNG VÀ PHÁT TRIỂN MỚI 42 SHOP F30:",
+        speech_heading="🗣️ TỔNG DOANH THU 1.143 TỶ ĐỒNG VÀ PHÁT TRIỂN 135 KHÁCH HÀNG MỚI F30:",
         paragraphs_text=[
-            "Kính thưa Ban Giám Đốc, về kết quả hoạt động kinh doanh và phát triển thị trường của khối Sales & Marketing tuần W38:",
-            "• Doanh thu thuần tuần W38: Toàn vùng Nam Trung Bộ đạt 1.168.000.000 đồng, hoàn thành 97,4% kế hoạch tuần.",
-            "• Thành tích phát triển shop mới (F30): Toàn vùng đã ký kết và kích hoạt thành công 42 khách hàng mới F30 (tăng thêm +14 shop so với tuần W37: 28 shop), đóng góp ngay trong tuần đầu tiên hơn 3.850 đơn hàng.",
-            "• Đánh giá địa bàn phát triển:",
-            "- Khánh Hòa tiếp tục là đầu tàu kinh doanh năng động nhất khi mang về 18 shop mới F30 (chủ yếu là các shop kinh doanh yến sào, trầm hương và đồ lưu niệm du lịch).",
-            "- Lâm Đồng đóng góp 12 shop mới trong lĩnh vực hoa tươi sấy khô và trà đặc sản.",
-            "- Bình Thuận mang về 8 shop và Ninh Thuận 4 shop.",
-            "• Cảnh báo khách hàng rời bỏ (Churn): Tuy nhiên, báo cáo cũng ghi nhận 8 khách hàng lớn (sản lượng trên 500 đơn/tuần) có dấu hiệu sụt giảm sản lượng trên 30% do phàn nàn về tốc độ giao hàng ca chiều của bưu cục."
+            "Kính thưa Ban Giám Đốc, về kết quả hoạt động kinh doanh và phát triển thị trường của khối Thương Mại Vùng Nam Trung Bộ tuần W38:",
+            "• Tổng quy mô doanh thu thuần tuần W38: Toàn vùng ghi nhận doanh thu đạt 1.142.868.830 VNĐ (1,143 tỷ đồng) trên tổng số 39.003 đơn hàng phát sinh cước giao dịch.",
+            "• Điểm danh chi tiết đóng góp doanh thu và cơ cấu thị phần của từng AM:",
+            "- AM Phan Đình Duy (Khánh Hòa) — QUÁN QUÂN DOANH THU TOÀN VÙNG: Tiếp tục giữ vị trí đầu tàu kinh doanh số 1 của Nam Trung Bộ khi mang về 506,6 triệu đồng (506.646.806 VNĐ), MỘT MÌNH ĐÓNG GÓP TỚI 43,4% TỔNG DOANH THU TOÀN VÙNG trên 10.613 đơn hàng, đạt mức tăng trưởng dương +7,9 triệu đồng WoW nhờ sức tiêu thụ cực mạnh của các chuỗi shop online lớn tại Nha Trang.",
+            "- AM Thái Thị Thanh Thư (Khánh Hòa): Đứng thứ hai toàn vùng với doanh thu 98,3 triệu đồng (chiếm 8,4% thị phần doanh thu vùng, với 5.345 đơn hàng).",
+            "- AM Nguyễn Duy Long (Bình Thuận): Đạt 97,3 triệu đồng (chiếm 8,3% doanh thu, 3.690 đơn, tăng trưởng +2,1 triệu đồng WoW).",
+            "- AM Huỳnh Thúc Duân (Đắk Nông) — ĐIỂM SÁNG TĂNG TRƯỞNG BỨT PHÁ: Đạt 66,7 triệu đồng (chiếm 5,7% doanh thu, 6.175 đơn), đặc biệt đây là AM CÓ TỐC ĐỘ TĂNG TRƯỞNG DOANH THU MẠNH NHẤT TOÀN VÙNG với mức tăng vọt +15,8 triệu đồng WoW!",
+            "- AM Hồng Bích Nga (Đắk Nông): Đạt 52,4 triệu đồng (chiếm 4,5% doanh thu, tăng +2,3 triệu đồng WoW).",
+            "- AM Lê Thanh Nhựt (Bình Thuận): Đạt 51,0 triệu đồng (chiếm 4,4% doanh thu, 2.502 đơn).",
+            "- AM Nguyễn Lê Nguyên Vũ (Lâm Đồng): Đạt 50,5 triệu đồng (chiếm 4,4% doanh thu, 2.222 đơn).",
+            "- AM Trần Thị Nhung (Đắk Nông): Đạt 31,2 triệu đồng (chiếm 2,7% doanh thu).",
+            "- AM Nguyễn Đỗ Minh Nghĩa (Ninh Thuận): Đạt 30,8 triệu đồng (tăng +3,3 triệu đồng WoW).",
+            "- AM Lê Văn Trường (Lâm Đồng): Đạt 26,7 triệu đồng (tăng nhẹ +385k WoW).",
+            "• Cảnh báo nhóm AM có doanh thu suy giảm cần đôn đốc khẩn cấp:",
+            "- AM Huỳnh Thị Kim Chi (Lâm Đồng): BÁO ĐỘNG ĐỎ KINH DOANH khi doanh thu sụt giảm sâu nhất toàn vùng tới -9,2 triệu đồng WoW (chỉ còn 37,8 triệu đồng, 1.258 đơn) do bị rơi rụng các shop nông sản Lâm Hà vào tay đối thủ.",
+            "- AM Lê Thanh Nhựt (Bình Thuận): Doanh thu sụt giảm -3,9 triệu đồng WoW (còn 51,0 triệu đồng).",
+            "- AM Trần Thị Nhung (Đắk Nông): Doanh thu giảm -1,2 triệu đồng WoW (còn 31,2 triệu đồng).",
+            "• Phong trào phát triển Khách hàng mới (F30):",
+            "- Toàn vùng trong tuần W38 đã khai thác, ký kết và kích hoạt thành công 135 khách hàng mới F30, mang lại nguồn doanh thu ban đầu đạt 10,32 triệu đồng.",
+            "- Bảng vàng Top AM dẫn đầu phát triển khách hàng mới F30:",
+            "  1. AM Nguyễn Duy Long (Bình Thuận): Dẫn đầu toàn mạng với 20 khách hàng mới F30 (mang về 1,32 triệu đồng doanh thu).",
+            "  2. AM Phan Đình Duy (Khánh Hòa): Đứng thứ hai với 17 khách hàng mới F30 (mang về 0,97 triệu đồng).",
+            "  3. AM Thái Thị Thanh Thư (Khánh Hòa): Mang về 15 khách hàng mới F30 (doanh thu 1,25 triệu đồng).",
+            "  4. AM Nguyễn Thanh Long: Phát triển 12 khách hàng mới F30 (doanh thu 0,69 triệu đồng).",
+            "  5. AM Trần Thị Nhung: Đạt 11 khách hàng mới F30 (doanh thu 0,46 triệu đồng).",
+            "  6. AM Hồng Bích Nga: Đạt 10 khách hàng mới F30 (doanh thu 0,55 triệu đồng).",
+            "  7. AM Huỳnh Thúc Duân: Đạt 9 khách hàng mới F30 (doanh thu 0,78 triệu đồng)."
         ],
         insights=[
-            "Sự dịch chuyển của các chủ shop địa phương lên bán hàng đa kênh (Livestream TikTok Shop và Shopee) đang mở ra cơ hội tăng trưởng doanh thu rất lớn cho GHN.",
-            "Chất lượng dịch vụ là yếu tố sống còn giữ chân khách: Nếu bưu cục giao trễ và tỷ lệ hoàn trả cao, khách hàng sẵn sàng đổi sang đơn vị vận chuyển đối thủ chỉ sau 1 tuần."
+            "Cơ cấu doanh thu phụ thuộc rất lớn vào Nha Trang: Một mình AM Phan Đình Duy gánh 43,4% doanh thu vùng cho thấy tiềm năng kinh tế biển và TMĐT nội thị cực lớn, nhưng cũng đặt ra bài toán rủi ro tập trung.",
+            "Điểm sáng Đắk Nông: AM Huỳnh Thúc Duân bứt phá doanh thu +15,8 triệu đồng WoW chứng minh nông sản Tây Nguyên bước vào mùa thu hoạch rộ, mở ra dư địa kinh doanh rất lớn cho các bưu cục vùng cao."
         ],
         warnings=[
-            "Nguy cơ mất trắng 8 khách hàng VIP nếu các AM không trực tiếp đến gặp gỡ, lắng nghe và giải quyết triệt để các tồn đọng giao nhận cho họ."
+            "AM Huỳnh Thị Kim Chi để tụt -9,2 triệu đồng doanh thu WoW nếu không chặn đứng đà rơi rụng khách hàng sẽ làm thủng chỉ số hoàn thành doanh thu tháng của tỉnh Lâm Đồng."
         ],
         actions=[
-            "Phân công AM cùng Nhân viên Sales phụ trách địa bàn đến thăm trực tiếp 8 khách hàng VIP có nguy cơ rời bỏ ngay trong ngày mai.",
-            "Xây dựng chính sách chiết khấu cước linh hoạt theo bậc sản lượng để thu hút thêm 50 shop F30 tiềm năng trong tuần W39."
+            "Yêu cầu AM Huỳnh Thị Kim Chi cùng chuyên viên kinh doanh Lâm Đồng tổ chức gặp gỡ trực tiếp 5 khách hàng lớn đã giảm đơn tại Lâm Hà trong ngày 23/09 để đưa ra chính sách cước giữ chân.",
+            "Nhân rộng kịch bản tiếp cận khách hàng mới F30 của AM Nguyễn Duy Long (20 shop) và AM Phan Đình Duy (17 shop) cho toàn bộ 16 AM còn lại học tập."
         ]
     )
 
@@ -543,8 +605,8 @@ def build_w38_professional_script():
             "• NĂM MỆNH LỆNH TÁC CHIẾN BẮT BUỘC THỰC HIỆN TRONG TUẦN W39:",
             "1. Thiết lập kỷ luật 'Giờ G' xuất tuyến Ca 1 sáng: Bắt buộc 100% bưu cục hoàn thành chia chọn trước 08h00 và bưu tá phải lăn bánh xuất tuyến trước 08h15 để kéo %GTC Ca 1 TikTok Shop toàn vùng vượt chuẩn 76,0%.",
             "2. Giải phóng dứt điểm hàng KTC trưa bằng khâu Gán Ca 2: Bố trí nhân lực quét gán 100% hàng trưa trước 14h00, nâng tỷ lệ gán Ca 2 lên trên 85% để kéo ODR toàn vùng vượt chuẩn xanh ≥ 92,0%.",
-            "3. Quét mã bao/kiện điện tử 100% khi bàn giao xe KTC: Xóa bỏ hoàn toàn tình trạng 1.417 đơn rớt luân chuyển; tài xế và nhân viên kho vi phạm sẽ bị xử phạt nghiêm khắc.",
-            "4. Chiến dịch thanh tra cân đo và chặn truy thu: Kiểm tra 100% kích thước ba chiều của các kiện hàng cồng kềnh tại quầy, kéo giảm số tiền truy thu từ 282,4 triệu đồng xuống dưới 40 triệu đồng trong tuần W39.",
+            "3. Quét mã bao/kiện điện tử 100% khi bàn giao xe KTC: Xóa bỏ hoàn toàn tình trạng 252 đơn rớt luân chuyển (tỷ lệ 3,32%), đặc biệt tại Đức Lập, Đông Gia Nghĩa và Bắc Gia Nghĩa; tài xế và nhân viên kho vi phạm sẽ bị xử phạt nghiêm khắc.",
+            "4. Chiến dịch thanh tra cân đo và chặn truy thu: Kiểm tra 100% kích thước ba chiều của các kiện hàng cồng kềnh tại quầy, đặc biệt tại 6 điểm nóng (Bắc Nha Trang 76,1 Tr, Đam Rông 3 33,3 Tr, KCT Bình Thuận 31,6 Tr, Quảng Tín 24,9 Tr, Kiến Đức 24,2 Tr, Đơn Dương 16,7 Tr); kéo giảm số tiền truy thu từ 282,4 triệu đồng xuống dưới 40 triệu đồng trong tuần W39.",
             "5. Đội đặc nhiệm cứu trợ 13 bưu cục yếu kém: Các AM có bưu cục nằm trong danh sách cảnh báo phải có mặt trực tiếp tại bưu cục từ sáng sớm ngày mai để điều hành, tháo gỡ khó khăn cho anh em bưu tá.",
             "Xin trân trọng cảm ơn Ban Giám Đốc và toàn thể anh chị em đã chú ý lắng nghe!"
         ],
