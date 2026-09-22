@@ -269,30 +269,43 @@ def build_w38_professional_script():
     add_speech_section(
         doc,
         sec_title="🌙 [VIII. PHÂN TÍCH CHỈ SỐ %OPR TIKTOK SHOP TOÀN VÙNG (TARGET KPI ≥ 80.0%) (W38)]",
-        speech_heading="🗣️ MỔ XẺ CHUYÊN SÂU %OPR TIKTOK SHOP: LỆCH PHA GAY GẮT GIỮA CA NGÀY (89.9%) VÀ CA ĐÊM (70.6%):",
+        speech_heading="🗣️ ĐÁNH GIÁ CHUYÊN SÂU %OPR TỔNG TIKTOK SHOP: TOÀN VÙNG ĐẠT 83.0% (VƯỢT CHUẨN), 9 AM ĐẠT XANH & 6 AM CHƯA ĐẠT:",
         paragraphs_text=[
-            "Kính thưa Ban Giám Đốc, về chỉ số %OPR TikTok Shop — tỷ lệ xử lý và xuất luân chuyển đúng hẹn theo 2 khung giờ tạo đơn (Target KPI tối thiểu ≥ 80,0%):",
-            "• Bức tranh phân hóa gay gắt giữa 2 khung giờ xử lý trên toàn vùng:",
-            "- Khung giờ Ngày (9h – 19h): Toàn vùng vận hành rất xuất sắc, đạt tỷ lệ bình quân 89,9% (vượt xa chuẩn xanh 80%). Có tới 14/16 AM đạt chuẩn xanh ≥ 80%, trong đó dẫn đầu là AM Cao Thị Thanh Thủy (96,7%), AM Nguyễn Đỗ Minh Nghĩa (96,2%), AM Nguyễn Hoàng Phi (96,2%), AM Nguyễn Lê Nguyên Vũ (96,3%), AM Thái Thị Thanh Thư (93,8%), AM Phan Đình Duy (93,8%) và AM Nguyễn Duy Long (92,1%). Chỉ có 2 AM chưa đạt chuẩn ngày là AM Lê Văn Trường (78,1%) và AM Nguyễn Thị Tuyết Thơ (68,1%).",
-            "- Khung giờ Đêm (19h – 9h) — TỬ HUYỆT VẬN HÀNH: Toàn vùng chỉ đạt vỏn vẹn 70,6% (cách rất xa chuẩn KPI 80,0%), sụt giảm gần 20%p so với ban ngày do các bưu cục thiếu nhân lực trực chia chọn đêm và xe gom đêm chạy chưa khớp nhịp!",
-            "• Đánh giá địa bàn 5 Tỉnh thành:",
-            "- Ninh Thuận và Bình Thuận làm chủ toàn diện cả ngày lẫn đêm: Ninh Thuận đạt Ngày 92,0% / Đêm 87,0%; Bình Thuận đạt Ngày 92,1% / Đêm 84,7% — cả 2 tỉnh đều xanh chuẩn SLA.",
-            "- Khánh Hòa: Ngày xuất sắc đạt 94,8% (+4,6%p WoW), Đêm tiệm cận đạt 77,8% (+7,6%p WoW).",
-            "- Hai tỉnh Tây Nguyên báo động đỏ sụp gãy ca đêm: Lâm Đồng ban ngày đạt 82,8% nhưng ca đêm rơi xuống 46,1% (-5,6%p WoW); đặc biệt Đắk Nông ban ngày đạt 82,2% nhưng ca đêm chạm đáy thảm hại chỉ 21,9%!",
-            "• Đi sâu bóc tách hiệu quả điều hành của các Quản lý Vận hành (AM):",
-            "- Top 5 AM xuất sắc làm chủ cả ca ngày và ca đêm (chuẩn xanh ≥ 80%): Dẫn đầu toàn mạng là AM Thái Thị Thanh Thư (Ngày 93,8% / Đêm 92,1%); AM Nguyễn Duy Long (Ngày 92,1% / Đêm 86,8%); AM Cao Thị Thanh Thủy (Ngày 96,7% / Đêm 85,6%); AM Lê Thanh Nhựt (Ngày 89,8% / Đêm 85,6%); và AM Hồng Bích Nga (Ngày 87,9% / Đêm 84,1%).",
-            "- Nhóm báo động đỏ tê liệt hoàn toàn ca đêm (< 30%): Đứng đầu danh sách yếu kém là AM Huỳnh Thúc Duân ca đêm chỉ đạt 14,3%; AM Trần Thị Nhung ca đêm chỉ đạt 24,1%; AM Lê Văn Trường ca đêm chỉ đạt 24,6%; AM Nguyễn Thị Tuyết Thơ ca đêm chỉ đạt 29,2%; và AM Nguyễn Đỗ Minh Nghĩa ca đêm chỉ đạt 46,6% (dù ban ngày đạt tới 96,2%)."
+            "Kính thưa Ban Giám Đốc, về chỉ số %OPR Tổng TikTok Shop — tỷ lệ xử lý và xuất luân chuyển đúng cam kết toàn trình (Target KPI toàn mạng ≥ 80,0%):",
+            "• Tín hiệu khởi sắc toàn vùng W38: Tổng sản lượng xử lý OPR đạt 6.534 đơn. Tỷ lệ %OPR Tổng toàn vùng đạt 83,0%, bứt phá tăng mạnh +4,8%p WoW so với tuần W37 (78,2%), chính thức đưa Nam Trung Bộ vượt qua ngưỡng chuẩn xanh 80,0%.",
+            "• Phân hóa theo địa bàn 5 Tỉnh thành:",
+            "- 3 Tỉnh xuất sắc đạt chuẩn KPI (≥ 80%): Dẫn đầu là Ninh Thuận đạt 90,6% (+1,1%p WoW, 1.270 đơn); Bình Thuận đạt 89,0% (+3,6%p WoW, 1.876 đơn); và Khánh Hòa bứt phá ấn tượng đạt 87,3% (+9,4%p WoW, 1.691 đơn).",
+            "- 2 Tỉnh chưa đạt chuẩn: Lâm Đồng đạt 70,3% (1.436 đơn, dù tăng +4,0%p WoW nhưng vẫn dưới vạch đích gần 10%p); đặc biệt Đắk Nông báo động đỏ khi chỉ đạt vỏn vẹn 45,2% (261 đơn), thấp nhất toàn mạng.",
+            "• Bóc tách chi tiết hiệu quả điều hành theo 15 Quản lý Vận hành (AM):",
+            "- Nhóm 9 AM XUẤT SẮC ĐẠT CHUẨN XANH (≥ 80,0%):",
+            "  1. AM Thái Thị Thanh Thư: Quán quân OPR toàn vùng đạt 93,0% (+5,1%p WoW, 917 đơn).",
+            "  2. AM Cao Thị Thanh Thủy: Đạt 91,4% (+0,8%p WoW, 800 đơn).",
+            "  3. AM Nguyễn Duy Long: Đạt 90,6% (+2,7%p WoW, gánh sản lượng OPR lớn nhất vùng với 1.392 đơn).",
+            "  4. AM Nguyễn Lê Nguyên Vũ: Đạt 89,7% (78 đơn).",
+            "  5. AM Lê Thanh Nhựt: Đạt 88,0% (+9,8%p WoW, 624 đơn).",
+            "  6. AM Hồng Bích Nga: Bứt phá tăng vọt +20,5%p WoW, vươn lên đạt 86,9% (466 đơn).",
+            "  7. AM Phan Đình Duy: Đạt 85,8% (+12,5%p WoW, 148 đơn).",
+            "  8. AM Nguyễn Ngọc Khánh: Đạt 84,8% (330 đơn).",
+            "  9. AM Nguyễn Hoàng Phi: Em xin biểu dương AM Phi tuần qua có bước nhảy vọt thần tốc nhất vùng khi tăng tới +29,9%p WoW (từ 50,4% tuần W37 nhảy vọt lên 80,4% tuần W38), chính thức đưa toàn bộ 570 đơn vượt chuẩn xanh!",
+            "- Nhóm 6 AM CHƯA ĐẠT CHUẨN KPI (< 80,0%) CẦN CHẤN CHỈNH NGAY:",
+            "  1. AM Nguyễn Đỗ Minh Nghĩa: Đạt 78,7% (-9,7%p WoW, 164 đơn) — suýt soát chạm vạch 80%, cần siết lại nhịp gom hàng cuối ngày.",
+            "  2. AM Nguyễn Thanh Long: Đạt 69,6% (+10,1%p WoW, 56 đơn).",
+            "  3. AM Huỳnh Thúc Duân: Đạt 64,2% (+13,8%p WoW, 81 đơn) — phụ trách Đắk Nông, tiến độ cải thiện còn quá chậm.",
+            "  4. AM Nguyễn Thị Tuyết Thơ: Đạt 55,5% (274 đơn) — BÁO ĐỘNG ĐỎ tụt dốc sâu nhất toàn vùng khi rơi thẳng đứng -15,7%p WoW (W37 đang đạt 71,1%).",
+            "  5. AM Lê Văn Trường: Đạt 54,9% (+14,8%p WoW, 459 đơn) — dù có tăng trưởng nhưng tỷ lệ đơn trễ hạn vẫn chiếm tới 45,1% sản lượng phụ trách.",
+            "  6. AM Trần Thị Nhung: Chạm đáy yếu kém toàn vùng khi chỉ đạt vỏn vẹn 37,9% (174 đơn), hơn 62% lượng hàng TikTok Shop phát sinh bị trễ hạn xuất luân chuyển!"
         ],
         insights=[
-            "Khâu xử lý đêm (19h – 9h) là mắt xích yếu nhất trong chuỗi vận hành TikTok Shop: Bưu cục buông lỏng nhân sự trực ca tối từ 19h00 đến 21h00, dồn toàn bộ hàng lấy đêm sang sáng hôm sau mới quét đóng bao, khiến đơn bị sàn TikTok phạt trễ hạn nghiêm trọng.",
-            "Sự chênh lệch giữa ca ngày (89,9%) và ca đêm (70,6%) lên tới gần 20%p chứng minh quy trình ca đêm chưa được chuẩn hóa tại các bưu cục Lâm Đồng và Đắk Nông."
+            "Toàn vùng đã có bước chuyển biến rất lớn khi 9/15 AM (chiếm 60% nhân sự) và 3/5 tỉnh thành đã làm chủ chỉ số OPR vượt chuẩn 80%.",
+            "Tuy nhiên, sự yếu kém tập trung nghiêm trọng ở 3 AM nhóm cuối gồm Tuyết Thơ (55,5%), Văn Trường (54,9%) và Trần Thị Nhung (37,9%) đang kéo tụt chỉ số chung của cả 2 tỉnh Lâm Đồng và Đắk Nông."
         ],
         warnings=[
-            "Đơn hàng TikTok Shop phát sinh ca tối - đêm nếu không đóng bao xuất luân chuyển trước 21h00 sẽ bị trượt khung giờ cam kết OPR của sàn, khiến shop bị đánh tụt thứ hạng hiển thị và GHN bị sàn phạt vi phạm SLA."
+            "AM Nguyễn Thị Tuyết Thơ đang có dấu hiệu buông lỏng quy trình xử lý TikTok Shop khi để tụt dốc -15,7%p WoW; nếu không can thiệp ngay trong tuần W39, nguy cơ cao các shop lớn trên địa bàn sẽ bị sàn hạn chế lưu lượng hiển thị.",
+            "AM Trần Thị Nhung và AM Lê Văn Trường để tỷ lệ vi phạm SLA OPR vượt quá 45%, gây rủi ro phạt tài chính trực tiếp từ sàn TikTok."
         ],
         actions=[
-            "Thiết lập ca trực xử lý đêm bắt buộc (18h30 – 21h00) tại 100% bưu cục của 5 AM yếu kém (Duân, Nhung, Trường, Thơ, Nghĩa): Bắt buộc quét đóng bao và bàn giao toàn bộ hàng lấy đêm cho xe gom KTC trước 21h00.",
-            "Đội điều xe KTC chốt lại lịch trình xe gom đêm: Đúng 20h30 xe phải cập bến bưu cục và rời bưu cục trước 21h15 để đưa hàng về kho trung tâm trong đêm."
+            "Yêu cầu 3 AM yếu nhất (Tuyết Thơ, Văn Trường, Trần Thị Nhung) rà soát lại ngay quy trình chia chọn và quét xuất hàng tại bưu cục, chấm dứt tình trạng dồn ứ hàng không đóng bao xuất luân chuyển kịp giờ.",
+            "Thiết lập KPI giám sát giờ vàng: Trước 20h30 hàng ngày, các bưu cục của 6 AM chưa đạt chuẩn bắt buộc phải hoàn thành 100% khâu đóng bao và bàn giao cho xe tải KTC luân chuyển về Hub."
         ]
     )
 
