@@ -3,6 +3,8 @@ import json
 import os
 import sys
 
+sys.stdout.reconfigure(encoding='utf-8')
+
 # 1. PROCESS FD WITH WOW COMPARISONS FOR BƯU CỤC
 print("=== 1. PROCESSING FD FOR BƯU CỤC WITH WOW ===")
 df_fd = pd.read_csv('sheet_FD.csv')
@@ -31,8 +33,8 @@ def get_w37_rate(bc_name):
 bc_w38_sorted = bc_w38.sort_values('rate_w38', ascending=False).reset_index(drop=True)
 
 am_name_map = {
-    'AM Linh': 'Trương Quang Linh', 'AM Lợi': 'Trần Tấn Lợi', 'AM Duân': 'Huỳnh Thúc Duân',
-    'AM Long': 'Nguyễn Tiến Long', 'AM Nhung': 'Trần Thị Nhung', 'AM Tiến': 'Trầm Hữu Tiến',
+    'AM Linh': 'Trương Quang Linh', 'AM Lợi': 'Lê Minh Lợi', 'AM Duân': 'Huỳnh Thúc Duân',
+    'AM Long': 'Nguyễn Thanh Long', 'AM Nhung': 'Trần Thị Nhung', 'AM Tiến': 'Trầm Hữu Tiến',
     'AM Duy': 'Phan Đình Duy', 'AM Phi': 'Nguyễn Hoàng Phi', 'AM Trường': 'Lê Văn Trường',
     'AM Nga': 'Hồng Bích Nga', 'AM Thư': 'Thái Thị Thanh Thư', 'AM D.Long': 'Nguyễn Duy Long',
     'AM Chi': 'Huỳnh Thị Kim Chi', 'AM Thơ': 'Nguyễn Thị Tuyết Thơ', 'AM Thủy': 'Cao Thị Thanh Thủy',
