@@ -186,9 +186,9 @@ def build_w38_professional_script():
             "• Nhận diện 'Tử huyệt' lớn nhất nằm ở khâu Gán Ca 2 buổi chiều:",
             "- Tỷ lệ gán Ca 2 toàn vùng chỉ đạt vỏn vẹn 56,8% Full hàng và 53,4% TTS — cách rất xa so với ngưỡng chuẩn yêu cầu là 90,0%!",
             "- Thực trạng diễn ra tại các bưu cục: Khi chuyến xe KTC trưa cập bến lúc 13h00 – 13h30, gần một nửa số lượng đơn hàng không được quét gán cho bưu tá mang đi phát lượt chiều mà bị để nằm im trên sàn thao tác cho đến sáng hôm sau. Điều này đồng nghĩa với việc chúng ta tự nguyện chấp nhận trễ hẹn cam kết SLA với khách hàng thêm trọn vẹn 24 giờ!",
-            "• Đánh giá hiệu quả điều hành của các AM:",
-            "- Khen ngợi 4 AM duy trì kỷ luật gán tổng xuất sắc trên 90%: AM Cao Thị Thanh Thủy (93,0%), AM Nguyễn Duy Long (91,2%), AM Nguyễn Ngọc Khánh (91,0%), và AM Thái Thị Thanh Thư (90,5%).",
-            "- Ngược lại, phê bình nghiêm khắc các AM buông lỏng hoàn toàn khâu gán ca chiều: AM Trương Quang Linh (gán tổng chỉ đạt 41,5%), AM Huỳnh Thúc Duân (72,5%), và AM Hồng Bích Nga (71,4%)."
+            "• Đánh giá chi tiết kỷ luật gán giao của 18 Quản lý Vận hành (AM):",
+            "- Nhóm AM làm chủ ca chiều và giữ vững kỷ luật gán tổng (chuẩn xanh ≥ 90%): Toàn vùng có 7 AM đạt chuẩn xanh Gán Tổng, dẫn đầu là AM Thái Thị Thanh Thư (gán tổng 96,0%, gán Ca 2 đạt 88,5%); AM Nguyễn Ngọc Khánh (gán tổng 93,6%, Ca 2 đạt 85,3%); AM Cao Thị Thanh Thủy (gán tổng 93,0%, Ca 2 đạt 81,2%); AM Nguyễn Hoàng Phi (gán tổng 92,7%, Ca 2 đạt 80,4%); cùng AM Nguyễn Thị Tuyết Thơ (92,4%), AM Nguyễn Đỗ Minh Nghĩa (92,1%) và AM Nguyễn Duy Long (91,4%). Đặc biệt, AM Lê Minh Lợi đạt tỷ lệ gán Ca 2 tuyệt đối 100,0%.",
+            "- Nhóm báo động đỏ buông lỏng hoàn toàn gán Ca 2 buổi chiều (dưới 35%): Tê liệt nặng nề nhất là AM Trương Quang Linh khi tỷ lệ gán Ca 2 chạm đáy chỉ đạt vỏn vẹn 5,5% (gán tổng thấp nhất vùng 55,5%); tiếp theo là AM Huỳnh Thúc Duân có tỷ lệ gán Ca 2 chỉ đạt 14,2% (dù gán sáng đạt 81,7%); AM Nguyễn Đỗ Minh Nghĩa gán Ca 2 chỉ đạt 22,7% (dù sáng đạt 98,6%); AM Nguyễn Lê Nguyên Vũ gán Ca 2 chỉ 22,8% (gán tổng 65,3%); AM Trần Thị Nhung gán Ca 2 chỉ đạt 31,0%; AM Hồng Bích Nga đạt 34,1% (gán tổng 71,4%); và AM Lê Văn Trường đạt 35,5% (gán tổng 61,8%). Tình trạng 'đầu voi đuôi chuột' — sáng đi tuyến rầm rộ nhưng chiều bỏ mặc hàng KTC trưa — chính là tử huyệt bẻ gãy chỉ số SLA của các AM này!"
         ],
         insights=[
             "Gán Ca 2 đạt thấp dưới 57% là nguyên nhân trực tiếp kéo tụt tỷ lệ %ODR của toàn vùng từ 93% xuống còn 91,2%.",
@@ -269,26 +269,30 @@ def build_w38_professional_script():
     add_speech_section(
         doc,
         sec_title="🌙 [VIII. PHÂN TÍCH CHỈ SỐ %OPR TIKTOK SHOP TOÀN VÙNG (TARGET KPI ≥ 80.0%) (W38)]",
-        speech_heading="🗣️ BỨT PHÁ NGOẠN MỤC %OPR TIKTOK SHOP: CHÍNH THỨC VƯỢT MỐC 90% (ĐẠT 90.13%):",
+        speech_heading="🗣️ MỔ XẺ CHUYÊN SÂU %OPR TIKTOK SHOP: LỆCH PHA GAY GẮT GIỮA CA NGÀY (89.9%) VÀ CA ĐÊM (70.6%):",
         paragraphs_text=[
-            "Kính thưa Ban Giám Đốc, một kỳ tích vận hành đáng tự hào của tuần W38 là chỉ số %OPR (Tỷ lệ xử lý đơn TikTok Shop lấy đêm và xuất luân chuyển đúng hẹn):",
-            "• Bứt phá lịch sử: Toàn vùng Nam Trung Bộ đã chính thức vượt đỉnh ngoạn mục, đạt 90,13% (tăng thần tốc +6,23%p WoW so với mức 83,90% của tuần W37). Đây là lần đầu tiên trong năm 2026 vùng NTB chạm mốc OPR trên 90%, vượt xa mục tiêu cam kết cùng sàn là 80,0%!",
-            "• Đánh giá 5 Tỉnh thành:",
-            "- Cả 5 tỉnh thành đều đồng loạt nhuộm sắc xanh chuẩn SLA: Khánh Hòa dẫn đầu với 92,8% (+4,5%p WoW); Bình Thuận đạt 91,5%; Ninh Thuận đạt 90,8%; Lâm Đồng bứt phá mạnh nhất từ 81,2% lên 88,9% (+7,7%p WoW); và Đắk Nông đạt 87,4%.",
-            "• Đánh giá 18 AM:",
-            "- Vinh danh 3 AM xuất sắc nhất: AM Nguyễn Ngọc Khánh (94,5%), AM Phan Đình Duy (93,8%), và AM Cao Thị Thanh Thủy (93,2%).",
-            "- Đặc biệt biểu dương AM Lê Văn Trường tại Lâm Đồng đã giải quyết triệt để bài toán nghẽn hàng đêm tại Đà Lạt, kéo chỉ số OPR của cụm từ 78,5% nhảy vọt lên 88,2%."
+            "Kính thưa Ban Giám Đốc, về chỉ số %OPR TikTok Shop — tỷ lệ xử lý và xuất luân chuyển đúng hẹn theo 2 khung giờ tạo đơn (Target KPI tối thiểu ≥ 80,0%):",
+            "• Bức tranh phân hóa gay gắt giữa 2 khung giờ xử lý trên toàn vùng:",
+            "- Khung giờ Ngày (9h – 19h): Toàn vùng vận hành rất xuất sắc, đạt tỷ lệ bình quân 89,9% (vượt xa chuẩn xanh 80%). Có tới 14/16 AM đạt chuẩn xanh ≥ 80%, trong đó dẫn đầu là AM Cao Thị Thanh Thủy (96,7%), AM Nguyễn Đỗ Minh Nghĩa (96,2%), AM Nguyễn Hoàng Phi (96,2%), AM Nguyễn Lê Nguyên Vũ (96,3%), AM Thái Thị Thanh Thư (93,8%), AM Phan Đình Duy (93,8%) và AM Nguyễn Duy Long (92,1%). Chỉ có 2 AM chưa đạt chuẩn ngày là AM Lê Văn Trường (78,1%) và AM Nguyễn Thị Tuyết Thơ (68,1%).",
+            "- Khung giờ Đêm (19h – 9h) — TỬ HUYỆT VẬN HÀNH: Toàn vùng chỉ đạt vỏn vẹn 70,6% (cách rất xa chuẩn KPI 80,0%), sụt giảm gần 20%p so với ban ngày do các bưu cục thiếu nhân lực trực chia chọn đêm và xe gom đêm chạy chưa khớp nhịp!",
+            "• Đánh giá địa bàn 5 Tỉnh thành:",
+            "- Ninh Thuận và Bình Thuận làm chủ toàn diện cả ngày lẫn đêm: Ninh Thuận đạt Ngày 92,0% / Đêm 87,0%; Bình Thuận đạt Ngày 92,1% / Đêm 84,7% — cả 2 tỉnh đều xanh chuẩn SLA.",
+            "- Khánh Hòa: Ngày xuất sắc đạt 94,8% (+4,6%p WoW), Đêm tiệm cận đạt 77,8% (+7,6%p WoW).",
+            "- Hai tỉnh Tây Nguyên báo động đỏ sụp gãy ca đêm: Lâm Đồng ban ngày đạt 82,8% nhưng ca đêm rơi xuống 46,1% (-5,6%p WoW); đặc biệt Đắk Nông ban ngày đạt 82,2% nhưng ca đêm chạm đáy thảm hại chỉ 21,9%!",
+            "• Đi sâu bóc tách hiệu quả điều hành của các Quản lý Vận hành (AM):",
+            "- Top 5 AM xuất sắc làm chủ cả ca ngày và ca đêm (chuẩn xanh ≥ 80%): Dẫn đầu toàn mạng là AM Thái Thị Thanh Thư (Ngày 93,8% / Đêm 92,1%); AM Nguyễn Duy Long (Ngày 92,1% / Đêm 86,8%); AM Cao Thị Thanh Thủy (Ngày 96,7% / Đêm 85,6%); AM Lê Thanh Nhựt (Ngày 89,8% / Đêm 85,6%); và AM Hồng Bích Nga (Ngày 87,9% / Đêm 84,1%).",
+            "- Nhóm báo động đỏ tê liệt hoàn toàn ca đêm (< 30%): Đứng đầu danh sách yếu kém là AM Huỳnh Thúc Duân ca đêm chỉ đạt 14,3%; AM Trần Thị Nhung ca đêm chỉ đạt 24,1%; AM Lê Văn Trường ca đêm chỉ đạt 24,6%; AM Nguyễn Thị Tuyết Thơ ca đêm chỉ đạt 29,2%; và AM Nguyễn Đỗ Minh Nghĩa ca đêm chỉ đạt 46,6% (dù ban ngày đạt tới 96,2%)."
         ],
         insights=[
-            "Sự thay đổi mang tính bước ngoặt: Các bưu cục đã thiết lập ca trực xử lý đêm (18h00 – 21h00) để quét phân loại và đóng bao niêm phong ngay khi bưu tá lấy hàng về.",
-            "Xe tải trung chuyển tuyến đêm chạy đúng boong giờ (20h30) đã giải phóng 100% hàng TikTok Shop về Kho trung chuyển liên tỉnh trong đêm."
+            "Khâu xử lý đêm (19h – 9h) là mắt xích yếu nhất trong chuỗi vận hành TikTok Shop: Bưu cục buông lỏng nhân sự trực ca tối từ 19h00 đến 21h00, dồn toàn bộ hàng lấy đêm sang sáng hôm sau mới quét đóng bao, khiến đơn bị sàn TikTok phạt trễ hạn nghiêm trọng.",
+            "Sự chênh lệch giữa ca ngày (89,9%) và ca đêm (70,6%) lên tới gần 20%p chứng minh quy trình ca đêm chưa được chuẩn hóa tại các bưu cục Lâm Đồng và Đắk Nông."
         ],
         warnings=[
-            "Tuyệt đối không được chủ quan thỏa mãn: Chỉ cần một chuyến xe tải gom đêm bị trễ 30 phút là toàn bộ chỉ số OPR của cả tỉnh sẽ bị đánh tụt 10% ngay lập tức."
+            "Đơn hàng TikTok Shop phát sinh ca tối - đêm nếu không đóng bao xuất luân chuyển trước 21h00 sẽ bị trượt khung giờ cam kết OPR của sàn, khiến shop bị đánh tụt thứ hạng hiển thị và GHN bị sàn phạt vi phạm SLA."
         ],
         actions=[
-            "Chuẩn hóa quy trình trực đêm thành quy định bắt buộc áp dụng lâu dài cho toàn bộ 18 AM.",
-            "Khen thưởng đột xuất cho đội ngũ chia chọn đêm tại các bưu cục trọng điểm Nha Trang, Đà Lạt và Phan Thiết."
+            "Thiết lập ca trực xử lý đêm bắt buộc (18h30 – 21h00) tại 100% bưu cục của 5 AM yếu kém (Duân, Nhung, Trường, Thơ, Nghĩa): Bắt buộc quét đóng bao và bàn giao toàn bộ hàng lấy đêm cho xe gom KTC trước 21h00.",
+            "Đội điều xe KTC chốt lại lịch trình xe gom đêm: Đúng 20h30 xe phải cập bến bưu cục và rời bưu cục trước 21h15 để đưa hàng về kho trung tâm trong đêm."
         ]
     )
 

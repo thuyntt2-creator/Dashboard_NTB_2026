@@ -3228,14 +3228,15 @@
     if (!ctx || !D.gan || !D.gan.am) return;
     if (charts.ganBar) charts.ganBar.destroy();
 
-    const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W36';
+    const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W38';
+    const prevLabel = D.meta?.weeks && D.meta.weeks.length >= 2 ? D.meta.weeks[D.meta.weeks.length - 2] : 'W37';
     const selectedAM = state.selectedAM;
     const sorted = [...D.gan.am].map(r => {
-      const prev_val = r.tong_w36 !== undefined ? r.tong_w36 : (r.tong_prev !== undefined ? r.tong_prev : (r.tong_w35 || 0));
-      const curr_val = r.tong_w37 !== undefined ? r.tong_w37 : (r.tong_curr !== undefined ? r.tong_curr : (r.tong_w36 || 0));
-      const diff_val = r.tong_diff !== undefined ? r.tong_diff : (curr_val - prev_val);
-      const ca1 = r.ca1ton_w37 !== undefined ? r.ca1ton_w37 : (r.ca1ton_curr !== undefined ? r.ca1ton_curr : (r.ca1ton_w36 || 0));
-      const ca2 = r.ca2_w37 !== undefined ? r.ca2_w37 : (r.ca2_curr !== undefined ? r.ca2_curr : (r.ca2_w36 || 0));
+      const prev_val = r.tong_w37 !== undefined ? r.tong_w37 : (r.tong_prev !== undefined ? r.tong_prev : (r.tong_w36 || 0));
+      const curr_val = r.tong_w38 !== undefined ? r.tong_w38 : (r.tong_curr !== undefined ? r.tong_curr : (r.tong_w37 || 0));
+      const diff_val = curr_val - prev_val;
+      const ca1 = r.ca1ton_w38 !== undefined ? r.ca1ton_w38 : (r.ca1ton_curr !== undefined ? r.ca1ton_curr : (r.ca1ton_w37 || 0));
+      const ca2 = r.ca2_w38 !== undefined ? r.ca2_w38 : (r.ca2_curr !== undefined ? r.ca2_curr : (r.ca2_w37 || 0));
       return {
         ...r,
         ca1_pct: Number((ca1 * 100).toFixed(1)),
@@ -3244,7 +3245,7 @@
         tong_pct: Number((curr_val * 100).toFixed(1)),
         diff_pct: Number((diff_val * 100).toFixed(1))
       };
-    }).sort((a, b) => b.diff_pct - a.diff_pct); // Sort theo biến động WoW
+    }).sort((a, b) => b.diff_pct - a.diff_pct); // Sort theo biến động WoW (W38 vs W37)
 
     charts.ganBar = new Chart(ctx, {
       type: 'bar',
