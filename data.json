@@ -8505,7 +8505,7 @@
       "ncc_count": 7,
       "ktc_count": 6,
       "total_trucks": 27,
-      "last_updated": "16:03 - 25/09/2026"
+      "last_updated": "16:38 - 25/09/2026"
     },
     "surge_fixed": {
       "fixed_cost": 989.75,
@@ -8553,7 +8553,7 @@
         "fixed_cost": 156.13,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Lâm Ngọc Thành, Tốt và Rẻ",
+        "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
         "truck_count": 4
       },
       {
@@ -8608,7 +8608,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
+        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
       },
       {
         "ncc": "Mạnh Cường",
@@ -8621,7 +8621,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Đức Trọng, KTC Khánh Hòa"
+        "active_ktcs": "KTC Đức Trọng, KTC Bắc Nha Trang, KTC Nam Nha Trang, KTC Khánh Hòa"
       },
       {
         "ncc": "Công Định",
@@ -8647,7 +8647,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
+        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Lâm Ngọc Thành",
@@ -17672,7 +17672,7 @@
         "cost_str": "956.610 đ",
         "cost": 956610.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260921AXGCM5EJ",
         "ontime": "1"
       },
       {
@@ -17687,7 +17687,7 @@
         "cost_str": "956.610 đ",
         "cost": 956610.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2609221TRWA4N3",
         "ontime": "1"
       },
       {
@@ -17702,7 +17702,7 @@
         "cost_str": "956.610 đ",
         "cost": 956610.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260923MYYF9P5O",
         "ontime": "1"
       },
       {
