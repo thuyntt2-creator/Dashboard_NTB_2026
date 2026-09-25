@@ -8497,18 +8497,18 @@
   },
   "transport_costs": {
     "region": {
-      "total_cost": 989.73,
-      "total_cost_formatted": "989.731.207 đ",
+      "total_cost": 989.75,
+      "total_cost_formatted": "989.745.252 đ",
       "total_trips": 1058,
       "avg_cost_per_trip": 0.94,
-      "avg_cost_per_trip_formatted": "935.474 đ/chuyến",
+      "avg_cost_per_trip_formatted": "935.487 đ/chuyến",
       "ncc_count": 7,
       "ktc_count": 6,
       "total_trucks": 27,
-      "last_updated": "12:32 - 25/09/2026"
+      "last_updated": "13:07 - 25/09/2026"
     },
     "surge_fixed": {
-      "fixed_cost": 989.73,
+      "fixed_cost": 989.75,
       "fixed_cost_pct": 100.0,
       "fixed_trips": 1058,
       "surge_cost": 0.0,
@@ -8527,7 +8527,7 @@
         "fixed_cost": 376.95,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, NAK",
+        "primary_ncc": "NAK, Mạnh Cường",
         "truck_count": 6
       },
       {
@@ -8540,7 +8540,7 @@
         "fixed_cost": 233.66,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Công Định, NAK",
+        "primary_ncc": "NAK, Công Định",
         "truck_count": 9
       },
       {
@@ -8553,7 +8553,7 @@
         "fixed_cost": 156.13,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Trâm Hoá, Tốt và Rẻ",
+        "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
         "truck_count": 4
       },
       {
@@ -8571,25 +8571,25 @@
       },
       {
         "ktc": "KTC Bắc Nha Trang",
-        "total_cost": 70.76,
-        "total_cost_raw": 70763368.6,
-        "total_trips": 185,
+        "total_cost": 69.8,
+        "total_cost_raw": 69800661.4,
+        "total_trips": 183,
         "cost_per_trip": 0.38,
-        "cost_per_trip_raw": 382504.6951351351,
-        "fixed_cost": 70.76,
+        "cost_per_trip_raw": 381424.3792349727,
+        "fixed_cost": 69.8,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
-        "truck_count": 8
+        "truck_count": 7
       },
       {
         "ktc": "KTC Nam Nha Trang",
-        "total_cost": 36.37,
-        "total_cost_raw": 36371563.20000003,
-        "total_trips": 118,
+        "total_cost": 37.35,
+        "total_cost_raw": 37348315.20000003,
+        "total_trips": 120,
         "cost_per_trip": 0.31,
-        "cost_per_trip_raw": 308233.5864406782,
-        "fixed_cost": 36.37,
+        "cost_per_trip_raw": 311235.96000000025,
+        "fixed_cost": 37.35,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "primary_ncc": "Mạnh Cường",
@@ -8608,20 +8608,20 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
+        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
       },
       {
         "ncc": "Mạnh Cường",
-        "total_cost": 197.74,
-        "total_cost_raw": 197737499.6000001,
+        "total_cost": 197.75,
+        "total_cost_raw": 197751544.40000013,
         "total_trips": 246,
         "cost_per_trip": 0.8,
-        "cost_per_trip_raw": 803810.9739837403,
-        "fixed_cost": 197.74,
+        "cost_per_trip_raw": 803868.0666666672,
+        "fixed_cost": 197.75,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Đức Trọng"
+        "active_ktcs": "KTC Khánh Hòa, KTC Đức Trọng, KTC Nam Nha Trang, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Công Định",
@@ -18167,7 +18167,7 @@
         "cost_str": "2.021.701 đ",
         "cost": 2021701.4,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260922AGLJ46LA",
         "ontime": ""
       },
       {
@@ -18182,7 +18182,7 @@
         "cost_str": "2.021.701 đ",
         "cost": 2021701.4,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260923U55VNK7F",
         "ontime": ""
       },
       {
@@ -19112,7 +19112,7 @@
         "cost_str": "228.547 đ",
         "cost": 228547.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2609243YUQ8D0Y",
         "ontime": ""
       },
       {
@@ -19562,7 +19562,7 @@
         "cost_str": "233.016 đ",
         "cost": 233016.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2609226OJTM1L1",
         "ontime": ""
       },
       {
@@ -19577,7 +19577,7 @@
         "cost_str": "233.016 đ",
         "cost": 233016.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2609232RO34ACH",
         "ontime": ""
       },
       {
@@ -21386,13 +21386,13 @@
         "date_iso": "2026-09-24",
         "truck": "79H-02628",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) CK Bắc Nha Trang -> (KHO) Diên Khánh 2 -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
-        "ktc": "KTC Bắc Nha Trang",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Nam Nha Trang 3 -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
+        "ktc": "KTC Nam Nha Trang",
         "type": "Cố định",
-        "cost_str": "481.354 đ",
-        "cost": 481353.6,
+        "cost_str": "488.376 đ",
+        "cost": 488376.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E26092362TAQBBG",
         "ontime": ""
       },
       {
@@ -21401,13 +21401,13 @@
         "date_iso": "2026-09-25",
         "truck": "79H-02628",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) CK Bắc Nha Trang -> (KHO) Diên Khánh 2 -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
-        "ktc": "KTC Bắc Nha Trang",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Nam Nha Trang 3 -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
+        "ktc": "KTC Nam Nha Trang",
         "type": "Cố định",
-        "cost_str": "481.354 đ",
-        "cost": 481353.6,
+        "cost_str": "488.376 đ",
+        "cost": 488376.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2609241U63N273",
         "ontime": ""
       },
       {
