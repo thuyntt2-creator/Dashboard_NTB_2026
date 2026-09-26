@@ -8505,7 +8505,7 @@
       "ncc_count": 7,
       "ktc_count": 6,
       "total_trucks": 27,
-      "last_updated": "07:44 - 26/09/2026"
+      "last_updated": "08:20 - 26/09/2026"
     },
     "surge_fixed": {
       "fixed_cost": 988.63,
@@ -8540,7 +8540,7 @@
         "fixed_cost": 233.66,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Công Định",
+        "primary_ncc": "Công Định, NAK",
         "truck_count": 9
       },
       {
@@ -8553,7 +8553,7 @@
         "fixed_cost": 156.07,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Lâm Ngọc Thành, Trâm Hoá",
+        "primary_ncc": "Lâm Ngọc Thành, Tốt và Rẻ",
         "truck_count": 4
       },
       {
@@ -8566,7 +8566,7 @@
         "fixed_cost": 115.87,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 4
       },
       {
@@ -8579,7 +8579,7 @@
         "fixed_cost": 68.74,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 7
       },
       {
@@ -8621,7 +8621,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Đức Trọng, KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Khánh Hòa"
+        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang, KTC Nam Nha Trang, KTC Đức Trọng"
       },
       {
         "ncc": "Công Định",
@@ -8647,7 +8647,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
+        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Lâm Ngọc Thành",
@@ -18168,7 +18168,7 @@
         "cost": 2021701.4,
         "trips_equivalent": 1,
         "trip_code": "E260922AGLJ46LA",
-        "ontime": ""
+        "ontime": "80,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -18183,7 +18183,7 @@
         "cost": 2021701.4,
         "trips_equivalent": 1,
         "trip_code": "E260923U55VNK7F",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -19098,7 +19098,7 @@
         "cost": 228547.2,
         "trips_equivalent": 1,
         "trip_code": "E260923RRJ9JQ3J",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -19113,7 +19113,7 @@
         "cost": 228547.2,
         "trips_equivalent": 1,
         "trip_code": "E2609243YUQ8D0Y",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -19563,7 +19563,7 @@
         "cost": 233016.0,
         "trips_equivalent": 1,
         "trip_code": "E2609226OJTM1L1",
-        "ontime": ""
+        "ontime": "75,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -19578,7 +19578,7 @@
         "cost": 233016.0,
         "trips_equivalent": 1,
         "trip_code": "E2609232RO34ACH",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -19908,7 +19908,7 @@
         "cost": 298132.8,
         "trips_equivalent": 1,
         "trip_code": "E260916AGKXYE5T",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -20028,7 +20028,7 @@
         "cost": 291110.4,
         "trips_equivalent": 1,
         "trip_code": "E260923G0E6OZSH",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -21393,7 +21393,7 @@
         "cost": 488376.0,
         "trips_equivalent": 1,
         "trip_code": "E26092362TAQBBG",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -21408,7 +21408,7 @@
         "cost": 488376.0,
         "trips_equivalent": 1,
         "trip_code": "E2609241U63N273",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường (BCCK)",
