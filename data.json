@@ -8505,7 +8505,7 @@
       "ncc_count": 7,
       "ktc_count": 6,
       "total_trucks": 27,
-      "last_updated": "10:05 - 26/09/2026"
+      "last_updated": "10:40 - 26/09/2026"
     },
     "surge_fixed": {
       "fixed_cost": 973.0,
@@ -8553,7 +8553,7 @@
         "fixed_cost": 156.14,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Lâm Ngọc Thành, Tốt và Rẻ",
+        "primary_ncc": "Tốt và Rẻ, Trâm Hoá",
         "truck_count": 4
       },
       {
@@ -8566,7 +8566,7 @@
         "fixed_cost": 115.87,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 4
       },
       {
@@ -8579,7 +8579,7 @@
         "fixed_cost": 68.74,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 7
       },
       {
@@ -8621,7 +8621,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Khánh Hòa, KTC Đức Trọng, KTC Bắc Nha Trang, KTC Nam Nha Trang"
+        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Nam Nha Trang, KTC Đức Trọng"
       },
       {
         "ncc": "Công Định",
@@ -8647,7 +8647,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
       },
       {
         "ncc": "Lâm Ngọc Thành",
@@ -11822,7 +11822,7 @@
         "cost_str": "820.344 đ",
         "cost": 820344.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2609234L0XVUIC",
         "ontime": "100,00%"
       },
       {
@@ -11837,7 +11837,7 @@
         "cost_str": "820.344 đ",
         "cost": 820344.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260924SD217ZYJ",
         "ontime": "100,00%"
       },
       {
@@ -12287,7 +12287,7 @@
         "cost_str": "946.648 đ",
         "cost": 946648.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2609230IQ9J0YQ",
         "ontime": "100,00%"
       },
       {
@@ -12302,7 +12302,7 @@
         "cost_str": "946.648 đ",
         "cost": 946648.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260924E4NYCQT7",
         "ontime": "100,00%"
       },
       {
