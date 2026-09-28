@@ -4866,6 +4866,7 @@ def meeting_script():
 @app.route('/data.js')
 @app.route('/data.json')
 @app.route('/download-doc')
+@app.route('/KICH_BAN_CANH_BAO_BUU_CUC_W38_VS_W39.docx')
 @app.route('/KICH_BAN_THUYET_TRINH_MOI_NHAT.docx')
 @app.route('/KICH_BAN_THUYET_TRINH_W39_INSIGHT_CHUYEN_SAU_CHINH_SUA.docx')
 @app.route('/KICH_BAN_THUYET_TRINH_W39_INSIGHT_CHUYEN_SAU.docx')
@@ -4912,6 +4913,33 @@ def api_sync_sheets_oauth():
             "success": True,
             "message": "Đã đồng bộ thành công toàn bộ số liệu từ Google Sheets qua OAuth 2.0 và cập nhật dữ liệu tuần mới!",
             "log": res1.stdout[-500:] if res1.stdout else ""
+        })
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+@app.route('/api/sync-realtime-aging-treo', methods=['GET', 'POST'])
+def api_sync_realtime_aging_treo():
+    try:
+        import subprocess
+        root_dir = os.path.dirname(os.path.abspath(__file__))
+        script_path = os.path.join(root_dir, 'sync_realtime_aging_treo.py')
+        res = subprocess.run([sys.executable, script_path], cwd=root_dir, capture_output=True, text=True, timeout=90)
+        
+        data_json_path = os.path.join(root_dir, 'data.json')
+        aging_data = {}
+        treo_data = {}
+        if os.path.exists(data_json_path):
+            with open(data_json_path, 'r', encoding='utf-8') as f:
+                dj = json.load(f)
+                aging_data = dj.get('aging', {})
+                treo_data = dj.get('treo_lc', {})
+
+        return jsonify({
+            "success": res.returncode == 0,
+            "message": "Đã cập nhật real-time dữ liệu Aging & Treo Luân Chuyển thành công!",
+            "aging": aging_data,
+            "treo_lc": treo_data,
+            "log": res.stdout[-300:] if res.stdout else ""
         })
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500

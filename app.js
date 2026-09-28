@@ -5042,6 +5042,47 @@
     if (window.lucide) lucide.createIcons();
   };
 
+  window.syncRealtimeAgingTreo = async function() {
+    const btn = document.getElementById('btn-sync-realtime-aging');
+    const originalHtml = btn ? btn.innerHTML : '';
+    if (btn) {
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner" style="display:inline-block; width:12px; height:12px; border:2px solid #fff; border-top-color:transparent; border-radius:50%; animation:spin 0.6s linear infinite; margin-right:4px;"></span> Đang lấy data live...';
+    }
+
+    try {
+      const res = await fetch('/api/sync-realtime-aging-treo', { method: 'POST' });
+      const result = await res.json();
+      if (result.success) {
+        if (result.aging) D.aging = result.aging;
+        if (result.treo_lc) D.treo_lc = result.treo_lc;
+        
+        const badge = document.getElementById('aging-badge-summary');
+        if (badge && D.aging && D.treo_lc) {
+          badge.textContent = `Aging: ${fNum(D.aging.total)} đơn | Treo LC: ${fNum(D.treo_lc.total)} đơn`;
+        }
+
+        renderAgingTab();
+        renderAgingChart();
+        if (typeof showToast === 'function') {
+          showToast('Đã cập nhật real-time Aging & Treo Luân Chuyển thành công!', 'success');
+        } else {
+          alert('Đã cập nhật real-time Aging & Treo Luân Chuyển thành công!');
+        }
+      } else {
+        alert(result.error || 'Lỗi cập nhật real-time');
+      }
+    } catch (err) {
+      alert('Lỗi kết nối khi đồng bộ real-time: ' + err.message);
+    } finally {
+      if (btn) {
+        btn.disabled = false;
+        btn.innerHTML = originalHtml;
+        if (window.lucide) lucide.createIcons();
+      }
+    }
+  };
+
   window.setAgingHighlight = function(hl) {
     state.agingHighlight = hl;
     state.selectedAM = null;

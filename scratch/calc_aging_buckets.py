@@ -131,9 +131,10 @@ if os.path.exists('sheet_stuck.csv'):
         df_stuck = pd.read_csv('sheet_stuck.csv', encoding='latin1')
     
     total_stuck = len(df_stuck)
+    col_stuck_time = next((c for c in df_stuck.columns if 'thời gian' in c.lower() or 'thoi gian' in c.lower() or 'tồn' in c.lower() or 'ton' in c.lower()), 'Thời gian tồn đọng')
     
     # Regional Totals
-    vc_all = df_stuck['Thoi gian ton dong'].value_counts().to_dict() if 'Thoi gian ton dong' in df_stuck.columns else {}
+    vc_all = df_stuck[col_stuck_time].value_counts().to_dict() if col_stuck_time in df_stuck.columns else {}
     tot_u24 = vc_all.get('0_6', 0) + vc_all.get('6_12', 0) + vc_all.get('12_24', 0)
     tot_24_36 = vc_all.get('24_36', 0)
     tot_36_72 = vc_all.get('36_48', 0) + vc_all.get('48_72', 0)
@@ -145,7 +146,7 @@ if os.path.exists('sheet_stuck.csv'):
     # By AM
     am_stats = []
     for am, g in df_stuck.groupby('am_name'):
-        vc = g['Thoi gian ton dong'].value_counts().to_dict() if 'Thoi gian ton dong' in g.columns else {}
+        vc = g[col_stuck_time].value_counts().to_dict() if col_stuck_time in g.columns else {}
         u24 = vc.get('0_6', 0) + vc.get('6_12', 0) + vc.get('12_24', 0)
         h24 = vc.get('24_36', 0)
         h36 = vc.get('36_48', 0) + vc.get('48_72', 0)
@@ -175,7 +176,7 @@ if os.path.exists('sheet_stuck.csv'):
     # By BC
     bc_stats = []
     for (bc, tinh, am), g in df_stuck.groupby(['warehouse_name', 'province_name', 'am_name']):
-        vc = g['Thoi gian ton dong'].value_counts().to_dict() if 'Thoi gian ton dong' in g.columns else {}
+        vc = g[col_stuck_time].value_counts().to_dict() if col_stuck_time in g.columns else {}
         u24 = vc.get('0_6', 0) + vc.get('6_12', 0) + vc.get('12_24', 0)
         h24 = vc.get('24_36', 0)
         h36 = vc.get('36_48', 0) + vc.get('48_72', 0)
