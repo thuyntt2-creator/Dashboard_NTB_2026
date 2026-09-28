@@ -8,7 +8,7 @@ import os
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-print("🚀 Running process_truy_thu_report.py (W37 vs W38 2-Week Comparison)...")
+print("🚀 Running process_truy_thu_report.py (Dynamic 2-Week Comparison)...")
 
 raw_path = 'sheet_truythu.csv'
 if not os.path.exists(raw_path):
@@ -27,8 +27,7 @@ def parse_ghn_date(val):
     val = val.strip()
     m = re.search(r'(\d{1,2})\s+thg\s+(\d{1,2}),?\s+(\d{4})', val)
     if m:
-        d, mth, y = int(m.group(1)), int(m.group(2)), int(m.group(3))
-        return datetime(y, mth, d)
+        return datetime(int(m.group(3)), int(m.group(2)), int(m.group(1)))
     m2 = re.search(r'(\d{4})-(\d{2})-(\d{2})', val)
     if m2:
         return datetime(int(m2.group(1)), int(m2.group(2)), int(m2.group(3)))
@@ -49,9 +48,34 @@ tt['dieu_chinh'] = tt['Điều chỉnh (+|-)'].apply(parse_vn)
 tt['da_thu'] = tt['Đã truy thu'].apply(parse_vn)
 tt['can_thu'] = tt['Cần truy thu thêm'].apply(parse_vn)
 
-# Filter 2 weeks
-w_prev = tt[(tt['date'] >= datetime(2026, 9, 7)) & (tt['date'] <= datetime(2026, 9, 13))].copy()
-w_curr = tt[(tt['date'] >= datetime(2026, 9, 14)) & (tt['date'] <= datetime(2026, 9, 20))].copy()
+# Determine weeks dynamically from data.json or arguments
+latest_week = 'W39'
+prev_week = 'W38'
+if os.path.exists('data.json'):
+    try:
+        with open('data.json', 'r', encoding='utf-8') as f:
+            dj = json.load(f)
+            meta = dj.get('meta', {})
+            latest_week = meta.get('latest_week', latest_week)
+            prev_week = meta.get('prev_week', prev_week)
+    except Exception:
+        pass
+
+curr_num = int(re.search(r'\d+', latest_week).group()) if re.search(r'\d+', latest_week) else 39
+prev_num = int(re.search(r'\d+', prev_week).group()) if re.search(r'\d+', prev_week) else (curr_num - 1)
+
+curr_start = datetime.fromisocalendar(2026, curr_num, 1)
+curr_end = datetime.fromisocalendar(2026, curr_num, 7)
+prev_start = datetime.fromisocalendar(2026, prev_num, 1)
+prev_end = datetime.fromisocalendar(2026, prev_num, 7)
+
+prev_label = f"Tuần {prev_week} ({prev_start.strftime('%d/%m')} - {prev_end.strftime('%d/%m')})"
+curr_label = f"Tuần {latest_week} ({curr_start.strftime('%d/%m')} - {curr_end.strftime('%d/%m')})"
+
+w_prev = tt[(tt['date'] >= prev_start) & (tt['date'] <= prev_end)].copy()
+w_curr = tt[(tt['date'] >= curr_start) & (tt['date'] <= curr_end)].copy()
+
+print(f"Comparing {prev_label} ({len(w_prev)} records) vs {curr_label} ({len(w_curr)} records)")
 
 # AM and Province Mapping
 am_rows = tt[tt['Chức vụ'].astype(str).str.contains('Area Manager', na=False)].copy()
@@ -110,36 +134,6 @@ ct_c = float(w_curr['can_thu'].sum())
 diff_ct = ct_c - ct_p
 diff_ct_pct = round(diff_ct / ct_p * 100, 1) if ct_p else 0
 
-summary = {
-    "prev_label": "Tuần W37 (07/09 - 13/09)",
-    "curr_label": "Tuần W38 (14/09 - 20/09)",
-    "total_records_prev": rec_p,
-    "total_records_curr": rec_c,
-    "diff_records": diff_rec,
-    "diff_records_pct": f"{diff_rec_pct:+0.1f}%",
-    "ban_dau_prev": bd_p,
-    "ban_dau_curr": bd_c,
-    "diff_ban_dau": diff_bd,
-    "diff_ban_dau_pct": f"{diff_bd_pct:+0.1f}%",
-    "dieu_chinh_prev": dc_p,
-    "dieu_chinh_curr": dc_c,
-    "diff_dieu_chinh": diff_dc,
-    "can_thu_prev": ct_p,
-    "can_thu_curr": ct_c,
-    "diff_can_thu": diff_ct,
-    "diff_can_thu_pct": f"{diff_ct_pct:+0.1f}%",
-    "banner_desc": (
-        f"• <strong>Tổng quan so sánh 2 tuần:</strong> Tuần W38 phát sinh <strong>{rec_c:,} bản ghi</strong> "
-        f"(tăng {diff_rec:+,} đơn, {diff_rec_pct:+0.1f}%) với số tiền ban đầu <strong>{bd_c/1e6:,.1f} Tr ₫</strong> "
-        f"({diff_bd_pct:+0.1f}%). Cần truy thu thêm <strong>{ct_c/1e6:,.1f} Tr ₫</strong> "
-        f"(tăng {diff_ct/1e6:+,.1f} Tr ₫, {diff_ct_pct:+0.1f}% so với {ct_p/1e6:,.1f} Tr ₫ Tuần W37).<br>"
-        "• <strong>Nguyên nhân đột biến:</strong> Phát sinh các vụ <em>Liên đới chiếm dụng</em> (107.6 Tr ₫), "
-        "<em>Tick mất hàng</em> (52.0 Tr ₫, tăng +125 đơn), và <em>Kiện thiếu đơn</em> (30.7 Tr ₫).<br>"
-        "• <strong>Top AM biến động tiền lớn nhất:</strong> Chị Thái Thị Thanh Thư (+79.9 Tr ₫ do Bắc Nha Trang), "
-        "anh Trần Văn Phước (+44.6 Tr ₫ | 678 ticket), chị Huỳnh Thị Kim Chi (+41.4 Tr ₫), anh Nguyễn Ngọc Khánh (+26.1 Tr ₫)."
-    )
-}
-
 # 2. Comparison by Loại
 loai_p = w_prev.groupby('Loại truy thu').agg(don_p=('Mã truy thu', 'count'), bd_p=('ban_dau', 'sum'), ct_p=('can_thu', 'sum'))
 loai_c = w_curr.groupby('Loại truy thu').agg(don_c=('Mã truy thu', 'count'), bd_c=('ban_dau', 'sum'), ct_c=('can_thu', 'sum'))
@@ -147,6 +141,11 @@ loai_cmp = pd.concat([loai_p, loai_c], axis=1).fillna(0)
 loai_cmp['diff_don'] = loai_cmp['don_c'] - loai_cmp['don_p']
 loai_cmp['diff_ct'] = loai_cmp['ct_c'] - loai_cmp['ct_p']
 loai_cmp = loai_cmp.sort_values('ct_c', ascending=False)
+
+top_loai_strs = []
+for idx, r in loai_cmp.head(3).iterrows():
+    top_loai_strs.append(f"<em>{idx}</em> ({r['ct_c']/1e6:.1f} Tr ₫ | {int(r['don_c']):,} đơn)")
+top_loai_desc = ", ".join(top_loai_strs)
 
 by_loai_list = []
 for idx, r in loai_cmp.iterrows():
@@ -172,14 +171,14 @@ for idx, r in loai_cmp.iterrows():
         eval_badge = "🟢 0 ₫"
 
     note = ""
-    if loai_name == 'Liên đới chiếm dụng':
-        note = "Vụ việc Bắc Nha Trang"
-    elif loai_name == 'Tick mất hàng':
-        note = "Tăng vọt +125 đơn mất hàng"
-    elif loai_name == 'Kiện hàng bị thiếu đơn':
-        note = "Tăng +96 đơn"
-    elif 'Backlog' in loai_name:
+    if 'Backlog' in loai_name:
         note = "Tồn đọng vận hành"
+    elif 'hư hỏng' in loai_name.lower():
+        note = "Hư hỏng hàng hóa"
+    elif 'chiếm dụng' in loai_name.lower():
+        note = "Chiếm dụng tiền hàng"
+    elif 'thiếu' in loai_name.lower() or 'mất' in loai_name.lower():
+        note = "Thất thoát / mất hàng"
 
     by_loai_list.append({
         "loai": loai_name,
@@ -202,6 +201,12 @@ am_cmp = pd.concat([am_p, am_c], axis=1).fillna(0)
 am_cmp['diff_tk'] = am_cmp['tk_c'] - am_cmp['tk_p']
 am_cmp['diff_ct'] = am_cmp['ct_c'] - am_cmp['ct_p']
 am_cmp = am_cmp.sort_values('ct_c', ascending=False)
+
+top_am_strs = []
+for idx, r in am_cmp.head(5).iterrows():
+    if idx != 'Chưa gán':
+        top_am_strs.append(f"<strong>{idx}</strong> ({r['ct_c']/1e6:.1f} Tr ₫ | {int(r['tk_c']):,} ticket)")
+top_am_desc = ", ".join(top_am_strs[:4])
 
 am_top_bc = {}
 for am_name, grp in w_curr.groupby('AM'):
@@ -293,6 +298,36 @@ for _, r in bc_cmp.head(30).iterrows():
         "pct_can_thu_diff": f"{round((diff_ct_val / ct_p_val * 100), 1):+0.1f}%" if ct_p_val > 0 else ("+100%" if ct_c_val > 0 else "0%")
     })
 
+banner_desc = (
+    f"• <strong>Tổng quan so sánh 2 tuần:</strong> {latest_week} phát sinh <strong>{rec_c:,} bản ghi</strong> "
+    f"(tăng {diff_rec:+,} đơn, {diff_rec_pct:+0.1f}%) với số tiền ban đầu <strong>{bd_c/1e6:,.1f} Tr ₫</strong> "
+    f"({diff_bd_pct:+0.1f}%). Cần truy thu thêm <strong>{ct_c/1e6:,.1f} Tr ₫</strong> "
+    f"(tăng {diff_ct/1e6:+,.1f} Tr ₫ so với {ct_p/1e6:,.1f} Tr ₫ {prev_week}).<br>"
+    f"• <strong>Các loại truy thu trọng điểm:</strong> {top_loai_desc}.<br>"
+    f"• <strong>Top AM có số tiền truy thu lớn nhất:</strong> {top_am_desc}."
+)
+
+summary = {
+    "prev_label": prev_label,
+    "curr_label": curr_label,
+    "total_records_prev": rec_p,
+    "total_records_curr": rec_c,
+    "diff_records": diff_rec,
+    "diff_records_pct": f"{diff_rec_pct:+0.1f}%",
+    "ban_dau_prev": bd_p,
+    "ban_dau_curr": bd_c,
+    "diff_ban_dau": diff_bd,
+    "diff_ban_dau_pct": f"{diff_bd_pct:+0.1f}%",
+    "dieu_chinh_prev": dc_p,
+    "dieu_chinh_curr": dc_c,
+    "diff_dieu_chinh": diff_dc,
+    "can_thu_prev": ct_p,
+    "can_thu_curr": ct_c,
+    "diff_can_thu": diff_ct,
+    "diff_can_thu_pct": f"{diff_ct_pct:+0.1f}%",
+    "banner_desc": banner_desc
+}
+
 # Save into data.json and data.js
 with open('data.json', 'r', encoding='utf-8') as f:
     d = json.load(f)
@@ -313,7 +348,7 @@ with open('data.json', 'w', encoding='utf-8') as f:
     json.dump(d, f, ensure_ascii=False, indent=2)
 
 with open('data.js', 'w', encoding='utf-8') as f:
-    f.write('window.DASHBOARD_DATA = ' + json.dumps(d, ensure_ascii=False, indent=2) + ';\n')
+    f.write('window.DATA = ' + json.dumps(d, ensure_ascii=False, indent=2) + ';\n')
 
 print("✅ SUCCESS: Saved 2-Week Truy Thu Comparison into data.json and data.js!")
 print(f"Summary: {summary['prev_label']} vs {summary['curr_label']}")
