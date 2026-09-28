@@ -417,9 +417,9 @@
     if (thRotTinhCurr) thRotTinhCurr.textContent = `% Rớt ${currW}`;
 
     // 12. Tab 10: %FD Hoàn Trả
-    const fdBannerDesc = document.querySelector('#tab-fd .exec-banner-desc');
+    const fdBannerDesc = document.querySelector('#tab-fd .exec-banner-desc, #banner-fd-summary');
     if (fdBannerDesc) {
-      fdBannerDesc.textContent = `Dữ liệu chu kỳ ${currW} (${dateRange}) | So sánh biến động WoW với tuần trước (${prevW}) | Tách riêng Full Hàng và TikTok Shop`;
+      fdBannerDesc.textContent = `Chu kỳ ${currW} (${dateRange}) | So sánh biến động WoW với tuần trước (${prevW}) | Tách riêng Full Hàng và TikTok Shop`;
     }
     const spanFdFull = document.querySelector('#tab-fd .kpi-strip .kpi-tile:nth-child(2) .kpi-tile-header span');
     if (spanFdFull) spanFdFull.textContent = `%FD Return Full Hàng (${prevW} vs ${currW})`;
