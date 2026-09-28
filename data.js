@@ -9456,7 +9456,7 @@ window.DATA = {
       "ncc_count": 7,
       "ktc_count": 6,
       "total_trucks": 31,
-      "last_updated": "18:56 - 28/09/2026"
+      "last_updated": "19:31 - 28/09/2026"
     },
     "surge_fixed": {
       "fixed_cost": 1042.92,
@@ -9478,7 +9478,7 @@ window.DATA = {
         "fixed_cost": 364.36,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, NAK",
         "truck_count": 6
       },
       {
@@ -9504,7 +9504,7 @@ window.DATA = {
         "fixed_cost": 156.05,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Lâm Ngọc Thành, Trâm Hoá",
+        "primary_ncc": "Tốt và Rẻ, Trâm Hoá",
         "truck_count": 4
       },
       {
@@ -9517,7 +9517,7 @@ window.DATA = {
         "fixed_cost": 149.4,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 8
       },
       {
@@ -9530,7 +9530,7 @@ window.DATA = {
         "fixed_cost": 74.94,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 10
       },
       {
@@ -9572,7 +9572,7 @@ window.DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Đức Trọng, KTC Bắc Nha Trang, KTC Nam Nha Trang, KTC Khánh Hòa"
+        "active_ktcs": "KTC Đức Trọng, KTC Khánh Hòa, KTC Bắc Nha Trang, KTC Nam Nha Trang"
       },
       {
         "ncc": "Công Định",
@@ -9598,7 +9598,7 @@ window.DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 10,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
+        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Lâm Ngọc Thành",
