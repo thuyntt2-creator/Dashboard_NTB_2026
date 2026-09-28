@@ -1,5 +1,131 @@
 BÁO CÁO NĂNG SUẤT BƯU CỤC - REAL TIME,,,,,,,,,,,DanhSachBC
 Chọn Bưu Cục:,TẤT CẢ,,,Thấp (<80%),Đạt (80-84.9%),OK (>=85%),,,,,TẤT CẢ
-,,,,,,,,,,,#N/A
-Bưu Cục,AM,Mã NV,Nhân Viên,Gán Giao,Giao TC,%GTC,LTC,Đánh Giá,,,
-#N/A,,,,,,0.00%,,#N/A,,,
+,,,,,,,,,,,(BTH) Đức Linh
+Bưu Cục,AM,Mã NV,Nhân Viên,Gán Giao,Giao TC,%GTC,LTC,Đánh Giá,,,(BTH) Hàm Thắng
+(BTH) Hàm Thuận,Lê Thanh Nhựt,3049789,Trần Minh Thành,0,0,0.00%,0,Thấp,,,(BTH) Hàm Thuận
+(BTH) Hàm Thuận,Lê Thanh Nhựt,3026579,Võ Xuân Tình,0,0,0.00%,0,Thấp,,,(BTH) Liên Hương
+(BTH) Hàm Thắng,Nguyễn Ngọc Khánh,3102115,Nguyễn Hoàng Duy,0,0,0.00%,0,Thấp,,,(BTH) Lương Sơn
+(BTH) Hàm Thắng,Nguyễn Ngọc Khánh,3095601,Ngô Văn Phúc,10,1,10.00%,0,Thấp,,,(BTH) Phan Rí Cửa
+(BTH) Liên Hương,Nguyễn Duy Long,3161711,Võ Trung Hiếu,5,0,0.00%,0,Thấp,,,(BTH) Phú Quý
+(BTH) Lương Sơn,Nguyễn Ngọc Khánh,3160974,Trương Tấn Quàng,5,0,0.00%,0,Thấp,,,(BTH) Phú Thủy
+(BTH) Lương Sơn,Nguyễn Ngọc Khánh,3163565,Đặng Minh Tuấn,37,0,0.00%,0,Thấp,,,(BTH) Phước Hội
+(BTH) Phan Rí Cửa,Nguyễn Duy Long,3156726,Lê Văn Bình,9,0,0.00%,0,Thấp,,,(BTH) Tân Hải
+(BTH) Phan Rí Cửa,Nguyễn Duy Long,3047453,Nguyễn Thị Hồng Nhung,19,0,0.00%,1,Thấp,,,(BTH) Tuyên Quang
+(BTH) Phan Rí Cửa,Nguyễn Duy Long,3151021,Nhữ Minh Nhật,13,0,0.00%,0,Thấp,,,(DNO) Đông Gia Nghĩa
+(BTH) Phú Quý,Nguyễn Ngọc Khánh,3181375,Phạm Thị Tươi,4,0,0.00%,0,Thấp,,,(DNO) Đức An
+(BTH) Phú Quý,Nguyễn Ngọc Khánh,3181434,Đặng Thị Phít,1,0,0.00%,0,Thấp,,,(DNO) Đức Lập
+(BTH) Phú Thủy,Nguyễn Ngọc Khánh,2040690,Huỳnh Tấn Ngọc,0,0,0.00%,0,Thấp,,,(DNO) Kiến Đức
+(BTH) Phú Thủy,Nguyễn Ngọc Khánh,200149,Nguyễn Hùng Cường,0,0,0.00%,0,Thấp,,,(DNO) Krông Nô
+(BTH) Phú Thủy,Nguyễn Ngọc Khánh,3006900,Phan Duy Thông,0,0,0.00%,0,Thấp,,,(DNO) Nhân Cơ
+(BTH) Phú Thủy,Nguyễn Ngọc Khánh,3088824,Trần Nam,0,0,0.00%,0,Thấp,,,(DNO) Quảng Sơn
+(BTH) Phước Hội,Cao Thị Thanh Thủy,200968,Huỳnh Thanh Đông,0,0,0.00%,0,Thấp,,,(DNO) Trường Xuân
+(BTH) Phước Hội,Cao Thị Thanh Thủy,3091485,Lê Bảo Thái Huy,12,0,0.00%,0,Thấp,,,(KHO) Bắc Nha Trang
+(BTH) Phước Hội,Cao Thị Thanh Thủy,3091298,Lê Hữu Tuấn,0,0,0.00%,0,Thấp,,,(KHO) Cam Lâm 2
+(BTH) Phước Hội,Cao Thị Thanh Thủy,3169527,Nguyễn Duy Sơn,0,0,0.00%,0,Thấp,,,(KHO) Diên Thọ
+(BTH) Phước Hội,Cao Thị Thanh Thủy,3082736,Nguyễn Hùng Dũng,0,0,0.00%,0,Thấp,,,(KHO) Đông Ninh Hòa
+(BTH) Phước Hội,Cao Thị Thanh Thủy,3168167,Nguyễn Nhật Tảo,0,0,0.00%,0,Thấp,,,(KHO) Khánh Vĩnh
+(BTH) Phước Hội,Cao Thị Thanh Thủy,3060646,Phạm Ngọc Phi,0,0,0.00%,0,Thấp,,,(KHO) Nam Nha Trang 1
+(BTH) Phước Hội,Cao Thị Thanh Thủy,3163723,Võ Duy Phương,0,0,0.00%,0,Thấp,,,(KHO) Nam Nha Trang 3
+(BTH) Tuyên Quang,Lê Thanh Nhựt,3104184,Nguyễn Thị Thùy Dân,11,0,0.00%,0,Thấp,,,(KHO) Nam Nha Trang 5
+(BTH) Tân Hải,Cao Thị Thanh Thủy,3121866,Cao Văn An,19,0,0.00%,0,Thấp,,,(KHO) Nha Trang
+(BTH) Tân Hải,Cao Thị Thanh Thủy,3181173,Lê Vũ,0,0,0.00%,0,Thấp,,,(KHO) Ninh Hòa 1
+(BTH) Tân Hải,Cao Thị Thanh Thủy,3182441,Nguyễn Công Huy,0,0,0.00%,0,Thấp,,,(LDO) 1 Bảo Lộc
+(BTH) Tân Hải,Cao Thị Thanh Thủy,3083221,Nguyễn Hữu Vũ Trường Thọ,2,0,0.00%,0,Thấp,,,(LDO) 3 Bảo Lộc
+(BTH) Tân Hải,Cao Thị Thanh Thủy,3063944,Nguyễn Minh Phong,11,0,0.00%,0,Thấp,,,(LDO) B'Lao
+(BTH) Tân Hải,Cao Thị Thanh Thủy,3099952,Thái Ngọc Tâm,10,0,0.00%,0,Thấp,,,(LDO) Đạ Huoai
+(BTH) Tân Hải,Cao Thị Thanh Thủy,3058898,Trương Đình Hải,3,0,0.00%,0,Thấp,,,(LDO) Đạ Tẻh
+(BTH) Đức Linh,Lê Thanh Nhựt,3185299,Hoàng Quốc Vũ,12,0,0.00%,0,Thấp,,,(LDO) Đam Rông 3
+(BTH) Đức Linh,Lê Thanh Nhựt,3187109,Huỳnh Xuân Hy,7,0,0.00%,0,Thấp,,,(LDO) Di Linh
+(BTH) Đức Linh,Lê Thanh Nhựt,3178120,Lưu Văn An,0,0,0.00%,0,Thấp,,,(LDO) Đinh Văn Lâm Hà
+(BTH) Đức Linh,Lê Thanh Nhựt,3007539,Mai Thiên Châu,0,0,0.00%,6,Thấp,,,(LDO) Đơn Dương
+(BTH) Đức Linh,Lê Thanh Nhựt,3042058,Nguyễn Chí Cường,0,0,0.00%,0,Thấp,,,(LDO) Đức Trọng 2
+(BTH) Đức Linh,Lê Thanh Nhựt,3183020,Nguyễn Hoàng Phong,0,0,0.00%,0,Thấp,,,(LDO) Lang Biang - Đà Lạt 2
+(BTH) Đức Linh,Lê Thanh Nhựt,3058787,Nguyễn Nhật Sinh,0,0,0.00%,0,Thấp,,,(LDO) Tân Hà Lâm Hà
+(BTH) Đức Linh,Lê Thanh Nhựt,3052418,Nguyễn Đại Phước,18,0,0.00%,1,Thấp,,,(LDO) Xuân Trường - Đà Lạt
+(BTH) Đức Linh,Lê Thanh Nhựt,3107726,Ngô Văn Minh Thức,14,0,0.00%,0,Thấp,,,(NTH) Bảo An
+(BTH) Đức Linh,Lê Thanh Nhựt,3170728,Phùng Ngọc Lâm,13,0,0.00%,0,Thấp,,,(NTH) Ninh Chử
+(BTH) Đức Linh,Lê Thanh Nhựt,3134451,Trần Ngọc Hải,0,0,0.00%,0,Thấp,,,(NTH) Ninh Sơn
+(BTH) Đức Linh,Lê Thanh Nhựt,3181299,Trần Quốc Bảo,0,0,0.00%,0,Thấp,,,(NTH) Phan Rang
+(BTH) Đức Linh,Lê Thanh Nhựt,3055985,Đỗ Hữu Danh,0,0,0.00%,0,Thấp,,,(NTH) Phước Dinh
+(DNO) Kiến Đức,Hồng Bích Nga,3092436,Bùi Trọng Quyền,32,0,0.00%,0,Thấp,,,
+(DNO) Kiến Đức,Hồng Bích Nga,3096066,Nguyễn Thị Duyên,4,0,0.00%,0,Thấp,,,
+(DNO) Kiến Đức,Hồng Bích Nga,3186622,Phạm Văn Quang,60,0,0.00%,0,Thấp,,,
+(DNO) Kiến Đức,Hồng Bích Nga,3187107,Phạm Văn Được,52,0,0.00%,0,Thấp,,,
+(DNO) Krông Nô,Trần Thị Nhung,3021373,Lâm Đình Khôi,48,0,0.00%,0,Thấp,,,
+(DNO) Krông Nô,Trần Thị Nhung,254511,Lê Khắc Khôi,39,0,0.00%,0,Thấp,,,
+(DNO) Krông Nô,Trần Thị Nhung,3166923,Trần Văn Huy,27,0,0.00%,0,Thấp,,,
+(DNO) Krông Nô,Trần Thị Nhung,3184598,Đoàn Nguyên Vũ,26,0,0.00%,0,Thấp,,,
+(DNO) Nhân Cơ,Huỳnh Thúc Duân,3130766,Lê Đức Vũ,69,0,0.00%,0,Thấp,,,
+(DNO) Nhân Cơ,Huỳnh Thúc Duân,3099876,Nguyễn Văn Sơn,19,0,0.00%,0,Thấp,,,
+(DNO) Nhân Cơ,Huỳnh Thúc Duân,3186831,Nông Đức Quen,94,0,0.00%,0,Thấp,,,
+(DNO) Quảng Sơn,Trần Thị Nhung,3149773,Nguyễn Văn Sơn,32,0,0.00%,0,Thấp,,,
+(DNO) Quảng Sơn,Trần Thị Nhung,3088263,Nguyễn Thị Dung,15,3,20.00%,2,Thấp,,,
+(DNO) Trường Xuân,Trần Thị Nhung,3142217,Nguyễn Đình Cường,1,0,0.00%,0,Thấp,,,
+(DNO) Trường Xuân,Trần Thị Nhung,3164375,Phạm Huỳnh Anh Quý,61,0,0.00%,0,Thấp,,,
+(DNO) Đông Gia Nghĩa,Huỳnh Thúc Duân,3117746,Huỳnh Tấn Tài,157,0,0.00%,0,Thấp,,,
+(DNO) Đông Gia Nghĩa,Huỳnh Thúc Duân,3172285,Trần Quốc Thiện,83,0,0.00%,0,Thấp,,,
+(DNO) Đức An,Trần Thị Nhung,3127358,Bùi Anh Vũ Long,1,0,0.00%,0,Thấp,,,
+(DNO) Đức Lập,Trần Thị Nhung,3104210,Diệp Kỳ Dũng,19,0,0.00%,0,Thấp,,,
+(DNO) Đức Lập,Trần Thị Nhung,3102011,Doãn Huy Hùng,21,0,0.00%,0,Thấp,,,
+(DNO) Đức Lập,Trần Thị Nhung,2041785,Lê Hữu Hiệp,38,0,0.00%,0,Thấp,,,
+(DNO) Đức Lập,Trần Thị Nhung,3093194,Lê Tùng Tâm,25,0,0.00%,0,Thấp,,,
+(DNO) Đức Lập,Trần Thị Nhung,3088949,Nguyễn Thanh Thiện Bảo,8,0,0.00%,0,Thấp,,,
+(DNO) Đức Lập,Trần Thị Nhung,257312,Ngô Xuân Hùng,2,0,0.00%,0,Thấp,,,
+(DNO) Đức Lập,Trần Thị Nhung,3140386,Phạm Thị Hoài,22,0,0.00%,0,Thấp,,,
+(DNO) Đức Lập,Trần Thị Nhung,3104991,Vũ Hoàng Linh,18,0,0.00%,0,Thấp,,,
+(DNO) Đức Lập,Trần Thị Nhung,3160975,Vũ Thị Yên,0,0,0.00%,0,Thấp,,,
+(KHO) Bắc Nha Trang,Thái Thị Thanh Thư,3040994,Tô Xuân Công,19,0,0.00%,0,Thấp,,,
+(KHO) Cam Lâm 2,Nguyễn Thanh Long,3024652,Phan Quốc Thịnh,28,0,0.00%,0,Thấp,,,
+(KHO) Cam Lâm 2,Nguyễn Thanh Long,3175950,Trịnh Cao Đông Quỳnh,0,0,0.00%,0,Thấp,,,
+(KHO) Diên Thọ,Nguyễn Hoàng Phi,3021662,Huỳnh Trung Hiếu,0,0,0.00%,0,Thấp,,,
+(KHO) Khánh Vĩnh,Nguyễn Hoàng Phi,3042119,Hoàng Thị Thu Hiền,63,0,0.00%,0,Thấp,,,
+(KHO) Khánh Vĩnh,Nguyễn Hoàng Phi,3092690,Huỳnh Gia,61,0,0.00%,0,Thấp,,,
+(KHO) Khánh Vĩnh,Nguyễn Hoàng Phi,3102349,Lê Anh Tuấn,48,0,0.00%,0,Thấp,,,
+(KHO) Khánh Vĩnh,Nguyễn Hoàng Phi,3185604,Nguyễn Anh Khuyên,35,0,0.00%,0,Thấp,,,
+(KHO) Nam Nha Trang 1,Thái Thị Thanh Thư,3173884,Võ Minh Phương,0,0,0.00%,0,Thấp,,,
+(KHO) Nam Nha Trang 3,Thái Thị Thanh Thư,2045369,Nguyễn Lê Vinh,7,0,0.00%,0,Thấp,,,
+(KHO) Nam Nha Trang 3,Thái Thị Thanh Thư,3176126,Nguyễn Ngọc Bảo Khanh,18,0,0.00%,0,Thấp,,,
+(KHO) Nam Nha Trang 5,Thái Thị Thanh Thư,202412,Nguyễn Lê Minh Quý,0,0,0.00%,0,Thấp,,,
+(KHO) Nha Trang,Phan Đình Duy,3180150,Phạm Tiến Dũng,15,0,0.00%,0,Thấp,,,
+(KHO) Ninh Hòa 1,Nguyễn Hoàng Phi,3057468,Phạm Thị Ngọc Thảo,67,0,0.00%,0,Thấp,,,
+(KHO) Ninh Hòa 1,Nguyễn Hoàng Phi,3173397,Trần Trung Kiên,72,0,0.00%,0,Thấp,,,
+(KHO) Ninh Hòa 1,Nguyễn Hoàng Phi,3182018,Trần Trọng Sang,37,0,0.00%,0,Thấp,,,
+(KHO) Đông Ninh Hòa,Phan Đình Duy,3109122,Trương Tín Hùng,24,0,0.00%,0,Thấp,,,
+(LDO) 1 Bảo Lộc,Hồng Bích Nga,3185013,Nguyễn Anh Tuấn,0,0,0.00%,0,Thấp,,,
+(LDO) 1 Bảo Lộc,Hồng Bích Nga,3131140,Nguyễn Ngọc Thạch,0,0,0.00%,0,Thấp,,,
+(LDO) 3 Bảo Lộc,Nguyễn Lê Nguyên Vũ,3106479,Phạm Thị Mùi,0,0,0.00%,0,Thấp,,,
+(LDO) B'Lao,Hồng Bích Nga,3123741,Nguyễn Thiên An,0,0,0.00%,0,Thấp,,,
+(LDO) B'Lao,Hồng Bích Nga,3002582,Sỹ Danh Quân,15,0,0.00%,0,Thấp,,,
+(LDO) Di Linh,Nguyễn Lê Nguyên Vũ,3177024,K' Cường,1,0,0.00%,0,Thấp,,,
+(LDO) Di Linh,Nguyễn Lê Nguyên Vũ,3096493,Hỷ A Bẩu,25,1,4.00%,0,Thấp,,,
+(LDO) Lang Biang - Đà Lạt 2,Lê Văn Trường,3132055,Lương Thanh Lâm,24,0,0.00%,0,Thấp,,,
+(LDO) Lang Biang - Đà Lạt 2,Lê Văn Trường,3065277,Nguyễn Thị Bưởi,0,0,0.00%,0,Thấp,,,
+(LDO) Lang Biang - Đà Lạt 2,Lê Văn Trường,3099776,Nguyễn Văn Quyết,67,0,0.00%,0,Thấp,,,
+(LDO) Lang Biang - Đà Lạt 2,Lê Văn Trường,3112491,Nguyễn Văn Đạt,18,0,0.00%,0,Thấp,,,
+(LDO) Tân Hà Lâm Hà,Huỳnh Thị Kim Chi,2043293,Phạm Ngọc Thân,1,0,0.00%,0,Thấp,,,
+(LDO) Tân Hà Lâm Hà,Huỳnh Thị Kim Chi,3145886,Vũ Hồng Sơn,0,0,0.00%,0,Thấp,,,
+(LDO) Xuân Trường - Đà Lạt,Lê Văn Trường,3102493,Lương Quốc Thống,52,0,0.00%,0,Thấp,,,
+(LDO) Đam Rông 3,Huỳnh Thị Kim Chi,3158248,Nguyễn Văn Tuyển,0,0,0.00%,0,Thấp,,,
+(LDO) Đinh Văn Lâm Hà,Huỳnh Thị Kim Chi,3104581,Quàng Ngọc Luận,0,0,0.00%,2,Thấp,,,
+(LDO) Đơn Dương,Lê Văn Trường,3149437,Hồ Văn Lộc,18,0,0.00%,0,Thấp,,,
+(LDO) Đơn Dương,Lê Văn Trường,3046838,Nguyễn Văn Tiến,2,0,0.00%,0,Thấp,,,
+(LDO) Đơn Dương,Lê Văn Trường,3130271,Nguyễn Quốc Thiên,62,0,0.00%,0,Thấp,,,
+(LDO) Đơn Dương,Lê Văn Trường,3004307,Phạm Quang Vũ,28,1,3.57%,0,Thấp,,,
+(LDO) Đạ Huoai,Nguyễn Đỗ Minh Nghĩa,3120187,Nguyễn Ngọc Tuấn,16,0,0.00%,0,Thấp,,,
+(LDO) Đạ Huoai,Nguyễn Đỗ Minh Nghĩa,3018606,Nguyễn Văn Lợi,10,0,0.00%,0,Thấp,,,
+(LDO) Đạ Tẻh,Nguyễn Đỗ Minh Nghĩa,3188244,Lương Kim Thanh,2,0,0.00%,0,Thấp,,,
+(LDO) Đức Trọng 2,Nguyễn Thị Tuyết Thơ,3071631,Lê Văn Thuận,9,0,0.00%,0,Thấp,,,
+(NTH) Bảo An,Nguyễn Duy Long,1867868,Cao Thị Minh Thảo,20,0,0.00%,0,Thấp,,,
+(NTH) Bảo An,Nguyễn Duy Long,3109729,Trương Quốc Hiệp,12,0,0.00%,0,Thấp,,,
+(NTH) Bảo An,Nguyễn Duy Long,3133241,Nguyễn Tường Huy,24,1,4.17%,0,Thấp,,,
+(NTH) Ninh Chử,Nguyễn Duy Long,3102148,Phan Minh Đạt,0,0,0.00%,0,Thấp,,,
+(NTH) Ninh Sơn,Nguyễn Duy Long,3155738,Cao Quốc Lộc,6,0,0.00%,0,Thấp,,,
+(NTH) Ninh Sơn,Nguyễn Duy Long,3027434,Nguyễn Minh Đức,1,0,0.00%,0,Thấp,,,
+(NTH) Ninh Sơn,Nguyễn Duy Long,3174032,Phan Hồng Quân,1,0,0.00%,0,Thấp,,,
+(NTH) Phan Rang,Nguyễn Duy Long,255281,Trần Sĩ Quang,0,0,0.00%,0,Thấp,,,
+(NTH) Phước Dinh,Nguyễn Duy Long,3159526,Lê Đình Quốc,15,0,0.00%,0,Thấp,,,
+(NTH) Phước Dinh,Nguyễn Duy Long,3182130,Nguyễn Huỳnh Anh Tuấn,20,0,0.00%,0,Thấp,,,
+(NTH) Phước Dinh,Nguyễn Duy Long,1881824,Nguyễn Hữu Tín,15,0,0.00%,0,Thấp,,,
+(NTH) Phước Dinh,Nguyễn Duy Long,3181872,Nguyễn Tấn Âu,9,0,0.00%,0,Thấp,,,
+(NTH) Phước Dinh,Nguyễn Duy Long,3184926,Phạm Cao Hùng,30,0,0.00%,0,Thấp,,,
+(NTH) Phước Dinh,Nguyễn Duy Long,3122607,Trần Thanh Quốc,25,0,0.00%,0,Thấp,,,
