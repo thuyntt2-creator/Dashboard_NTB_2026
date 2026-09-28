@@ -1,17 +1,17 @@
 {
   "region": {
-    "total_cost": 1019.64,
-    "total_cost_formatted": "1.019.636.796 đ",
+    "total_cost": 984.01,
+    "total_cost_formatted": "984.008.264 đ",
     "total_trips": 1216,
-    "avg_cost_per_trip": 0.84,
-    "avg_cost_per_trip_formatted": "838.517 đ/chuyến",
+    "avg_cost_per_trip": 0.81,
+    "avg_cost_per_trip_formatted": "809.217 đ/chuyến",
     "ncc_count": 7,
     "ktc_count": 6,
-    "total_trucks": 31,
-    "last_updated": "10:39 - 28/09/2026"
+    "total_trucks": 29,
+    "last_updated": "11:15 - 28/09/2026"
   },
   "surge_fixed": {
-    "fixed_cost": 1019.64,
+    "fixed_cost": 984.01,
     "fixed_cost_pct": 100.0,
     "fixed_trips": 1216,
     "surge_cost": 0.0,
@@ -43,7 +43,7 @@
       "fixed_cost": 202.17,
       "surge_cost": 0.0,
       "surge_pct": 0.0,
-      "primary_ncc": "Công Định, NAK",
+      "primary_ncc": "NAK, Công Định",
       "truck_count": 9
     },
     {
@@ -56,34 +56,34 @@
       "fixed_cost": 156.05,
       "surge_cost": 0.0,
       "surge_pct": 0.0,
-      "primary_ncc": "Lâm Ngọc Thành, Tốt và Rẻ",
+      "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
       "truck_count": 4
     },
     {
       "ktc": "KTC Khánh Hòa",
-      "total_cost": 149.4,
-      "total_cost_raw": 149395329.2,
+      "total_cost": 115.81,
+      "total_cost_raw": 115812455.19999999,
       "total_trips": 182,
-      "cost_per_trip": 0.82,
-      "cost_per_trip_raw": 820853.457142857,
-      "fixed_cost": 149.4,
+      "cost_per_trip": 0.64,
+      "cost_per_trip_raw": 636332.1714285713,
+      "fixed_cost": 115.81,
       "surge_cost": 0.0,
       "surge_pct": 0.0,
-      "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+      "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
       "truck_count": 6
     },
     {
       "ktc": "KTC Bắc Nha Trang",
-      "total_cost": 74.94,
-      "total_cost_raw": 74941877.0,
+      "total_cost": 72.9,
+      "total_cost_raw": 72896219.0,
       "total_trips": 273,
       "cost_per_trip": 0.27,
-      "cost_per_trip_raw": 274512.36996337,
-      "fixed_cost": 74.94,
+      "cost_per_trip_raw": 267019.1172161172,
+      "fixed_cost": 72.9,
       "surge_cost": 0.0,
       "surge_pct": 0.0,
-      "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
-      "truck_count": 10
+      "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+      "truck_count": 9
     },
     {
       "ktc": "KTC Nam Nha Trang",
@@ -124,7 +124,7 @@
       "surge_cost": 0.0,
       "surge_pct": 0.0,
       "truck_count": 6,
-      "active_ktcs": "KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Đức Trọng, KTC Khánh Hòa"
+      "active_ktcs": "KTC Đức Trọng, KTC Bắc Nha Trang, KTC Nam Nha Trang, KTC Khánh Hòa"
     },
     {
       "ncc": "Công Định",
@@ -141,15 +141,15 @@
     },
     {
       "ncc": "Mạnh Cường (BCCK)",
-      "total_cost": 130.24,
-      "total_cost_raw": 130240185.0,
+      "total_cost": 94.61,
+      "total_cost_raw": 94611653.0,
       "total_trips": 360,
-      "cost_per_trip": 0.36,
-      "cost_per_trip_raw": 361778.2916666667,
-      "fixed_cost": 130.24,
+      "cost_per_trip": 0.26,
+      "cost_per_trip_raw": 262810.14722222224,
+      "fixed_cost": 94.61,
       "surge_cost": 0.0,
       "surge_pct": 0.0,
-      "truck_count": 10,
+      "truck_count": 8,
       "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
     },
     {
@@ -13069,13 +13069,28 @@
       "date_iso": "",
       "truck": "79F-00632",
       "capacity": "Bưu cục CK",
+      "route": "Kho CK Bắc Nha Trang đến các điểm giao nội khu vực KV1-Khánh Hòa 4",
+      "ktc": "KTC Bắc Nha Trang",
+      "type": "Cố định",
+      "cost_str": "1.056.923 đ",
+      "cost": 1056923.0,
+      "trips_equivalent": 30,
+      "trip_code": "HĐ_BCCK_3",
+      "ontime": "100%"
+    },
+    {
+      "ncc": "Mạnh Cường (BCCK)",
+      "date": "Hàng ngày",
+      "date_iso": "",
+      "truck": "79F-00632",
+      "capacity": "Bưu cục CK",
       "route": "Kho CK Diên Điền đến các điểm giao nội khu vực KV1-Khánh Hòa 1",
       "ktc": "KTC Khánh Hòa",
       "type": "Cố định",
-      "cost_str": "25.366.151 đ",
-      "cost": 25366151.0,
+      "cost_str": "24.309.228 đ",
+      "cost": 24309228.0,
       "trips_equivalent": 30,
-      "trip_code": "HĐ_BCCK_3",
+      "trip_code": "HĐ_BCCK_4",
       "ontime": "100%"
     },
     {
@@ -13090,7 +13105,22 @@
       "cost_str": "8.455.384 đ",
       "cost": 8455384.0,
       "trips_equivalent": 30,
-      "trip_code": "HĐ_BCCK_4",
+      "trip_code": "HĐ_BCCK_5",
+      "ontime": "100%"
+    },
+    {
+      "ncc": "Mạnh Cường (BCCK)",
+      "date": "Hàng ngày",
+      "date_iso": "",
+      "truck": "79G-00249",
+      "capacity": "Bưu cục CK",
+      "route": "Kho CK Bắc Nha Trang đến các điểm giao nội khu vực KV1-Khánh Hòa 4",
+      "ktc": "KTC Bắc Nha Trang",
+      "type": "Cố định",
+      "cost_str": "2.045.657 đ",
+      "cost": 2045657.0,
+      "trips_equivalent": 30,
+      "trip_code": "HĐ_BCCK_6",
       "ontime": "100%"
     },
     {
@@ -13102,10 +13132,10 @@
       "route": "Kho CK Diên Điền đến các điểm giao nội khu vực KV1-Khánh Hòa 1",
       "ktc": "KTC Khánh Hòa",
       "type": "Cố định",
-      "cost_str": "6.136.972 đ",
-      "cost": 6136972.0,
+      "cost_str": "4.091.315 đ",
+      "cost": 4091315.0,
       "trips_equivalent": 30,
-      "trip_code": "HĐ_BCCK_5",
+      "trip_code": "HĐ_BCCK_7",
       "ontime": "100%"
     },
     {
@@ -13120,7 +13150,7 @@
       "cost_str": "21.104.365 đ",
       "cost": 21104365.0,
       "trips_equivalent": 30,
-      "trip_code": "HĐ_BCCK_6",
+      "trip_code": "HĐ_BCCK_8",
       "ontime": "100%"
     },
     {
@@ -13135,7 +13165,7 @@
       "cost_str": "1.022.829 đ",
       "cost": 1022829.0,
       "trips_equivalent": 30,
-      "trip_code": "HĐ_BCCK_7",
+      "trip_code": "HĐ_BCCK_9",
       "ontime": "100%"
     },
     {
@@ -13147,10 +13177,10 @@
       "route": "Kho CK Bắc Nha Trang đến các điểm giao nội khu vực KV1-Khánh Hòa 4",
       "ktc": "KTC Bắc Nha Trang",
       "type": "Cố định",
-      "cost_str": "2.113.846 đ",
-      "cost": 2113846.0,
+      "cost_str": "1.056.923 đ",
+      "cost": 1056923.0,
       "trips_equivalent": 30,
-      "trip_code": "HĐ_BCCK_8",
+      "trip_code": "HĐ_BCCK_10",
       "ontime": "100%"
     },
     {
@@ -13162,38 +13192,8 @@
       "route": "Kho CK Diên Điền đến các điểm giao nội khu vực KV1-Khánh Hòa 1",
       "ktc": "KTC Khánh Hòa",
       "type": "Cố định",
-      "cost_str": "1.056.923 đ",
-      "cost": 1056923.0,
-      "trips_equivalent": 30,
-      "trip_code": "HĐ_BCCK_9",
-      "ontime": "100%"
-    },
-    {
-      "ncc": "Mạnh Cường (BCCK)",
-      "date": "Hàng ngày",
-      "date_iso": "",
-      "truck": "79H-10042",
-      "capacity": "Bưu cục CK",
-      "route": "Kho CK Bắc Nha Trang đến các điểm giao nội khu vực KV1-Khánh Hòa 4",
-      "ktc": "KTC Bắc Nha Trang",
-      "type": "Cố định",
-      "cost_str": "1.022.829 đ",
-      "cost": 1022829.0,
-      "trips_equivalent": 30,
-      "trip_code": "HĐ_BCCK_10",
-      "ontime": "100%"
-    },
-    {
-      "ncc": "Mạnh Cường (BCCK)",
-      "date": "Hàng ngày",
-      "date_iso": "",
-      "truck": "79H-10942",
-      "capacity": "Bưu cục CK",
-      "route": "Kho CK Bắc Nha Trang đến các điểm giao nội khu vực KV1-Khánh Hòa 4",
-      "ktc": "KTC Bắc Nha Trang",
-      "type": "Cố định",
-      "cost_str": "3.068.486 đ",
-      "cost": 3068486.0,
+      "cost_str": "2.113.846 đ",
+      "cost": 2113846.0,
       "trips_equivalent": 30,
       "trip_code": "HĐ_BCCK_11",
       "ontime": "100%"
@@ -13202,13 +13202,13 @@
       "ncc": "Mạnh Cường (BCCK)",
       "date": "Hàng ngày",
       "date_iso": "",
-      "truck": "94C-05445",
+      "truck": "79H-10042",
       "capacity": "Bưu cục CK",
-      "route": "Kho CK Diên Điền đến các điểm giao nội khu vực KV1-Khánh Hòa 2",
+      "route": "Kho CK Diên Điền đến các điểm giao nội khu vực KV1-Khánh Hòa 1",
       "ktc": "KTC Khánh Hòa",
       "type": "Cố định",
-      "cost_str": "32.560.046 đ",
-      "cost": 32560046.0,
+      "cost_str": "1.022.829 đ",
+      "cost": 1022829.0,
       "trips_equivalent": 30,
       "trip_code": "HĐ_BCCK_12",
       "ontime": "100%"
