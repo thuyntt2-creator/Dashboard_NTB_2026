@@ -65,6 +65,12 @@
           <button id="btn-sync-sheets" class="bi-btn" title="Đồng bộ dữ liệu từ Google Sheets">
             <i data-lucide="refresh-cw"></i> Đồng Bộ Sheets
           </button>
+          <a href="/kich-ban" target="_blank" class="bi-btn" title="Xem Kịch Bản Thuyết Trình Họp" style="text-decoration:none;">
+            <i data-lucide="file-text"></i> Kịch Bản Họp
+          </a>
+          <a href="/KICH_BAN_THUYET_TRINH_MOI_NHAT.docx" class="bi-btn" title="Tải File Kịch Bản Word (.docx)" style="text-decoration:none;">
+            <i data-lucide="download"></i> Tải Word
+          </a>
           <button id="btn-export-pdf" class="bi-btn" title="In / Xuất Báo Cáo PDF">
             <i data-lucide="printer"></i> Xuất Báo Cáo
           </button>
@@ -1012,8 +1018,8 @@
             <i data-lucide="user-check" style="width: 24px; height: 24px;"></i>
           </div>
           <div class="exec-banner-text">
-            <h3>TỶ LỆ GÁN VẬN HÀNH TOÀN MẠNG THEO CA 1, CA 2 & GÁN TỔNG (TARGET ≥ 90.0%) (W38)</h3>
-            <p>
+            <h3 id="banner-gan-title">TỶ LỆ GÁN VẬN HÀNH TOÀN MẠNG THEO CA 1, CA 2 & GÁN TỔNG (TARGET ≥ 90.0%)</h3>
+            <p id="banner-gan-summary">
               • <strong>Gán Tổng (Ca1+Ca2+Tồn W38):</strong> Full hàng đạt <strong>80.6%</strong> (-2.2%p WoW so với 82.8% W37); TTS đạt <strong>80.2%</strong> (-2.2%p WoW so với 82.4% W37).<br>
               • <strong>Gán Ca 1 + Tồn:</strong> Full hàng đạt <strong>85.9%</strong> (-3.1%p WoW so với 89.0% W37); TTS đạt <strong>85.5%</strong> (-2.9%p WoW so với 88.4% W37).<br>
               • <strong>Gán Ca 2:</strong> Full hàng đạt <strong>56.8%</strong> (+1.2%p WoW so với 55.7% W37); TTS đạt <strong>53.4%</strong> (+1.5%p WoW so với 51.9% W37).<br>
@@ -1162,8 +1168,8 @@
             <i data-lucide="clock" style="width: 24px; height: 24px;"></i>
           </div>
           <div class="exec-banner-text">
-            <h3>PHÂN TÍCH HIỆU SUẤT %ODR (GIAO ĐÚNG HẸN SLA) TOÀN VÙNG (TARGET ≥ 92.0%) (W38)</h3>
-            <p>
+            <h3 id="banner-odr-title">PHÂN TÍCH HIỆU SUẤT %ODR (GIAO ĐÚNG HẸN SLA) TOÀN VÙNG (TARGET ≥ 92.0%)</h3>
+            <p id="banner-odr-summary">
               • <strong>Toàn Vùng W38:</strong> Full Hàng đạt <strong>91.24%</strong> (-2.10%p WoW so với W37: 93.34%) và TTS đạt <strong>91.54%</strong> (-1.31%p WoW so với W37: 92.85%).<br>
               • <strong>Theo 5 Tỉnh:</strong> Ninh Thuận (96.5%) và Bình Thuận (96.2%) tiếp tục dẫn đầu toàn vùng, bảo vệ vững chắc chuẩn xanh SLA ≥ 92%. Khánh Hòa đạt 94.6%. Cần cải thiện: Đắk Nông (90.5%), Lâm Đồng (90.2%).<br>
               • <strong>Top AM Xuất Sắc:</strong> <strong>Nguyễn Ngọc Khánh (96.8%)</strong>, <strong>Cao Thị Thanh Thủy (96.7%)</strong>, <strong>Thái Thị Thanh Thư (96.5%)</strong>, <strong>Nguyễn Duy Long (95.8%)</strong>. Cần đôn đốc xả tồn: <strong>Lê Văn Trường (84.2%)</strong>, <strong>Trầm Hữu Tiến (73.1%)</strong>.
@@ -1398,8 +1404,8 @@
             <i data-lucide="archive" style="width: 24px; height: 24px;"></i>
           </div>
           <div class="exec-banner-text">
-            <h3>PHÂN TÍCH CHỈ SỐ %LTC (LẤY THÀNH CÔNG) THEO 18 AM & 5 TỈNH (TARGET ≥ 90.0%) (W38)</h3>
-            <p>
+            <h3 id="banner-ltc-title">PHÂN TÍCH CHỈ SỐ %LTC (LẤY THÀNH CÔNG) THEO 18 AM & 5 TỈNH (TARGET ≥ 90.0%)</h3>
+            <p id="banner-ltc-summary">
               • <strong>Toàn Vùng W38:</strong> Full hàng đạt <strong>90.36%</strong> (+0.06%p WoW so với W37: 90.29%), TTS đạt <strong>95.43%</strong> (+1.88%p WoW so với W37: 93.55%). Cả Full hàng và TikTok Shop đều duy trì vững vượt chuẩn SLA ≥ 90.0%.<br>
               • <strong>Top AM Dẫn Đầu:</strong> <strong>Nguyễn Lê Nguyên Vũ (96.8%)</strong>, <strong>Phan Đình Duy (96.1%)</strong>, <strong>Nguyễn Duy Long (94.5%)</strong>.<br>
               • <strong>Bứt Phá Lấy Hàng:</strong> Tỷ lệ lấy thành công TTS tăng mạnh ở hầu hết các bưu cục trên địa bàn Khánh Hòa và Lâm Đồng.
@@ -1506,8 +1512,8 @@
             <i data-lucide="sun-moon" style="width: 24px; height: 24px;"></i>
           </div>
           <div class="exec-banner-text">
-            <h3>PHÂN TÍCH CHỈ SỐ %OPR TIKTOK SHOP TOÀN VÙNG (TARGET KPI ≥ 80.0%) (W38)</h3>
-            <p>
+            <h3 id="banner-opr-title">PHÂN TÍCH CHỈ SỐ %OPR TIKTOK SHOP TOÀN VÙNG (TARGET KPI ≥ 80.0%)</h3>
+            <p id="banner-opr-summary">
               • <strong>Toàn Vùng W38 (Tổng Ngày + Đêm):</strong> Đạt <strong>83.02%</strong> (+7.22%p WoW so với 75.81% W37) — <strong>CHÍNH THỨC VƯỢT CHUẨN KPI ≥ 80.0%</strong>.<br>
               • <strong>Khung Giờ Ngày vs Đêm:</strong> Ca Ngày (9h–19h) đạt <strong>90.26%</strong> (3,631/4,023 đơn đạt); Ca Đêm (19h–9h) bứt phá ngoạn mục đạt <strong>71.45%</strong> (tăng vọt <strong>+9.76%p WoW</strong> so với 61.69% W37; số đơn trễ giảm xuống còn 717 đơn).<br>
               • <strong>Top AM Đạt KPI Xuất Sắc (≥80.0%):</strong> <strong>Thái Thị Thanh Thư (93.0%)</strong>, <strong>Cao Thị Thanh Thủy (91.4%)</strong>, <strong>Nguyễn Duy Long (90.6%)</strong>, <strong>Nguyễn Ngọc Khánh (89.5%)</strong>, <strong>Huỳnh Thị Kim Chi (88.5%)</strong>, <strong>Lê Thanh Nhựt (87.2%)</strong>.<br>
@@ -1657,8 +1663,8 @@
             <i data-lucide="alert-triangle" style="width: 24px; height: 24px;"></i>
           </div>
           <div class="exec-banner-text">
-            <h3>PHÂN TÍCH TỶ TRỌNG RỚT ĐƠN LUÂN CHUYỂN THEO AM & TỈNH THÀNH (W38)</h3>
-            <p>
+            <h3 id="banner-rot-lc-title">PHÂN TÍCH TỶ TRỌNG RỚT ĐƠN LUÂN CHUYỂN THEO AM & TỈNH THÀNH</h3>
+            <p id="banner-rot-lc-summary">
               • <strong>Tổng đơn rớt toàn vùng W38:</strong> Tỷ lệ rớt đạt <strong>3.32%</strong> (tăng <strong>+1.52%p WoW</strong> so với 1.80% ở W37, tổng <strong>252 đơn rớt</strong> trên 7,586 đơn cần luân chuyển).<br>
               • <strong>Top 5 AM rớt nhiều nhất (chiếm 71.8% lượng rớt):</strong> <strong>Thái Thị Thanh Thư (79 đơn - 7.13%)</strong>, <strong>Trần Thị Nhung (33 đơn - 19.76%)</strong>, <strong>Hồng Bích Nga (27 đơn - 4.49%)</strong>, <strong>Huỳnh Thúc Duân (21 đơn - 20.79%)</strong>, <strong>Lê Văn Trường (21 đơn - 4.24%)</strong>.<br>
               • <strong>Theo Tỉnh thành:</strong> <strong>Khánh Hòa</strong> chiếm <strong>102 đơn (5.09%)</strong>, <strong>Lâm Đồng</strong> 58 đơn (3.32%), <strong>Đắk Nông</strong> 57 đơn (20.73%), <strong>Bình Thuận</strong> 19 đơn (0.88%), <strong>Ninh Thuận</strong> 16 đơn (1.14%).
@@ -1666,7 +1672,7 @@
           </div>
         </div>
         <div class="exec-banner-actions">
-          <span class="badge-tag badge-tag-red" style="font-size: 12px; padding: 6px 12px;">
+          <span class="badge-tag badge-tag-red" id="banner-rot-lc-badge" style="font-size: 12px; padding: 6px 12px;">
             Tổng rớt W38: 252 đơn (3.32%)
           </span>
         </div>
@@ -1799,8 +1805,8 @@
             <i data-lucide="rotate-ccw" style="width: 24px; height: 24px;"></i>
           </div>
           <div class="exec-banner-text">
-            <h3>BÁO CÁO TỶ LỆ %FD (RETURN / HOÀN TRẢ) — VÙNG NAM TRUNG BỘ (W38)</h3>
-            <p>
+            <h3 id="banner-fd-title">BÁO CÁO TỶ LỆ %FD (RETURN / HOÀN TRẢ) — VÙNG NAM TRUNG BỘ</h3>
+            <p id="banner-fd-summary">
               Chu kỳ W38 (14/09 – 20/09/2026) &nbsp;|&nbsp; So sánh biến động WoW với tuần trước (W37) &nbsp;|&nbsp; Tách riêng Full Hàng và TikTok Shop
             </p>
           </div>
@@ -3335,14 +3341,14 @@
           </div>
           <div class="exec-banner-text" style="flex: 1;">
             <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
-              <h3 style="color: #991b1b; font-size: 16px; font-weight: 800; margin: 0; display: flex; align-items: center; gap: 8px;">
-                ĐIỀU HÀNH TRỌNG ĐIỂM: 13 BƯU CỤC TRONG DIỆN CẢNH BÁO BẤT ỔN (%GTC &lt; 45% HOẶC &lt; 70% LỊCH SỬ)
+              <h3 id="banner-canhbao-title" style="color: #991b1b; font-size: 16px; font-weight: 800; margin: 0; display: flex; align-items: center; gap: 8px;">
+                ĐIỀU HÀNH TRỌNG ĐIỂM: 13 BƯU CỤC TRONG DIỆN CẢNH BÁO BẤT ỔN
               </h3>
               <a href="https://docs.google.com/spreadsheets/d/1lmQv8KwHJzDFs_RMz64ydu4SOmG3M1YAzILNFGtzFec/edit?gid=250113221#gid=250113221" target="_blank" class="btn btn-sm" style="background: #dc2626; color: #ffffff; font-weight: 700; padding: 6px 14px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border-radius: 6px; font-size: 12px; box-shadow: 0 2px 6px rgba(220,38,38,0.25);">
                 <i data-lucide="external-link" style="width: 13px; height: 13px;"></i> Mở Google Sheets Gốc
               </a>
             </div>
-            <p style="color: #1e293b; font-size: 13px; line-height: 1.65; margin: 0;">
+            <p id="banner-canhbao-summary" style="color: #1e293b; font-size: 13px; line-height: 1.65; margin: 0;">
               • <strong style="color: #b45309;">Tiêu chí phân loại cảnh báo:</strong> (1) %GTC 7 ngày gần nhất &lt; 45% (10 bưu cục), hoặc (2) %GTC &lt; 70% so với mốc kỷ lục tốt nhất lịch sử của bưu cục (3 bưu cục).<br>
               • <strong style="color: #b91c1c;">Top điểm nóng nguy hiểm cần giải cứu khẩn cấp:</strong> <strong>(DNO) Quảng Tín</strong> (%GTC: <strong>18.1%</strong> | Cảnh báo <strong>100 ngày</strong> | Backlog <strong>1.224</strong> đơn | &gt;5N: <strong>490</strong> đơn), <strong>(LDO) Đức Trọng 1</strong> (<strong>20.1%</strong> | Cảnh báo <strong>84 ngày</strong> | Backlog <strong>1.223</strong> đơn), <strong>(DNO) Kiến Đức</strong> (<strong>29.9%</strong> | Cảnh báo <strong>80 ngày</strong> | Backlog <strong>1.035</strong> đơn), <strong>(LDO) Xuân Hương - Đà Lạt</strong> (<strong>30.2%</strong> / <strong>-21.4% WoW</strong> | Backlog <strong>2.165</strong> đơn | &gt;5N: <strong>310</strong> đơn), <strong>(KHO) Cam Linh</strong> (<strong>30.7%</strong> | Cảnh báo <strong>108 ngày</strong> | Backlog <strong>2.433</strong> đơn).
             </p>
