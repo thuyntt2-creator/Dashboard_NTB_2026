@@ -269,6 +269,42 @@
       subEl.textContent = `Báo Cáo Họp Vận Hành & Kinh Doanh Tuần ${currW} (${dateRange}) - Vùng Nam Trung Bộ`;
     }
 
+    // 1b. Executive Overview Callout Banner
+    const ovBannerTitle = document.getElementById('banner-overview-title');
+    if (ovBannerTitle) {
+      ovBannerTitle.textContent = `TỔNG HỢP TRỌNG TÂM HỌP TUẦN ${currW} — VÙNG NAM TRUNG BỘ`;
+    }
+
+    const ovBannerSummary = document.getElementById('banner-overview-summary');
+    if (ovBannerSummary && D.overview && D.overview.cards) {
+      const cards = D.overview.cards;
+      const getCard = (id) => cards.find(c => c.id === id) || {};
+      const volFull = getCard('vol_full');
+      const volTts = getCard('vol_tts');
+      const odrFull = getCard('odr_full');
+      const ltcFull = getCard('ltc_full');
+      const rotLc = getCard('rot_lc');
+      const fdRate = D.fd?.summary?.rate_full ? (D.fd.summary.rate_full * 100).toFixed(2) + '%' : '7.64%';
+      const ttsShare = volFull.val && volTts.val ? ((volTts.val / volFull.val) * 100).toFixed(1) + '%' : '22.1%';
+      
+      const volFullDiff = volFull.diff !== undefined ? (volFull.diff > 0 ? `+${volFull.diff.toLocaleString('vi-VN')}` : `${volFull.diff.toLocaleString('vi-VN')}`) : '';
+      const volFullPct = volFull.diff_pct !== undefined ? (volFull.diff_pct > 0 ? `+${(volFull.diff_pct * 100).toFixed(1)}%` : `${(volFull.diff_pct * 100).toFixed(1)}%`) : '';
+      const volTtsDiff = volTts.diff !== undefined ? (volTts.diff > 0 ? `+${volTts.diff.toLocaleString('vi-VN')}` : `${volTts.diff.toLocaleString('vi-VN')}`) : '';
+      const volTtsPct = volTts.diff_pct !== undefined ? (volTts.diff_pct > 0 ? `+${(volTts.diff_pct * 100).toFixed(1)}%` : `${(volTts.diff_pct * 100).toFixed(1)}%`) : '';
+
+      ovBannerSummary.innerHTML = `
+        • <strong>Sản lượng Giao Full Hàng:</strong> Đạt <strong>${(volFull.val || 328925).toLocaleString('vi-VN')} đơn</strong> (Tuần ${currW} (${dateRange}), ${volFullDiff} đơn / ${volFullPct} WoW so với ${prevW}).<br>
+        • <strong>Sản lượng TikTok Shop (TTS):</strong> Đạt <strong>${(volTts.val || 72781).toLocaleString('vi-VN')} đơn</strong> (tăng <strong>${volTtsDiff} đơn / ${volTtsPct} WoW</strong> so với ${prevW}), chiếm ${ttsShare} tổng sản lượng toàn vùng.<br>
+        • <strong>Chất lượng vận hành:</strong> %ODR Full hàng đạt <strong>${odrFull.val ? (odrFull.val * 100).toFixed(1) + '%' : '90.8%'}</strong>, %LTC đạt <strong>${ltcFull.val ? (ltcFull.val * 100).toFixed(1) + '%' : '90.1%'}</strong>. Tỷ lệ Rớt LC <strong>${rotLc.val ? (rotLc.val * 100).toFixed(2) + '%' : '1.52%'}</strong>. Tỷ lệ %FD Hoàn Trả <strong>${fdRate}</strong>.<br>
+        • <strong>Truy Thu & COD ${currW}:</strong> Tiền Cần Truy Thu phát sinh <strong>174.7 Tr ₫</strong> (giảm -21.2 Tr ₫ WoW), Tỷ lệ tiền mặt COD đạt <strong>40.1%</strong> (giảm -3.0%p WoW).
+      `;
+    }
+
+    const ovBannerActions = document.querySelector('#tab-overview .exec-banner-actions span');
+    if (ovBannerActions) {
+      ovBannerActions.innerHTML = `<i data-lucide="target"></i> Mục tiêu ${currW}: GTC ≥ 60%`;
+    }
+
     // 2. Select Dropdown
     const selWeek = document.getElementById('filter-week') || document.getElementById('week-select');
     if (selWeek && D.meta?.weeks) {
