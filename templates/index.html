@@ -3909,19 +3909,19 @@
                 <!-- Summary KPI Strip -->
                 <div id="ca-kpi-strip" style="display:grid; grid-template-columns: repeat(4,1fr); gap:16px; margin-bottom:24px;">
                     <div style="background:#fff; border-radius:10px; padding:16px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.06); border-left:4px solid #6366f1;">
-                        <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Tổng Vol Ca 1</div>
+                        <div id="ca-kpi-title1" style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Tổng Vol Ca 1</div>
                         <div id="ca-kpi-vol1" style="font-size:26px;font-weight:800;color:#1e293b;">-</div>
                     </div>
                     <div style="background:#fff; border-radius:10px; padding:16px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.06); border-left:4px solid #10b981;">
-                        <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Tổng Vol Ca 2</div>
+                        <div id="ca-kpi-title2" style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Tổng Vol Ca 2</div>
                         <div id="ca-kpi-vol2" style="font-size:26px;font-weight:800;color:#1e293b;">-</div>
                     </div>
                     <div style="background:#fff; border-radius:10px; padding:16px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.06); border-left:4px solid #f59e0b;">
-                        <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Tổng Vol Hàng Tồn</div>
+                        <div id="ca-kpi-title3" style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Tổng Vol Hàng Tồn</div>
                         <div id="ca-kpi-vol3" style="font-size:26px;font-weight:800;color:#1e293b;">-</div>
                     </div>
                     <div style="background:#fff; border-radius:10px; padding:16px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.06); border-left:4px solid #ef4444;">
-                        <div style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Số Bưu cục</div>
+                        <div id="ca-kpi-title4" style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Số Bưu cục</div>
                         <div id="ca-kpi-bc-count" style="font-size:26px;font-weight:800;color:#1e293b;">-</div>
                     </div>
                 </div>
@@ -3956,8 +3956,25 @@
                             <!-- AM filter -->
                             <div style="display:flex; align-items:center; gap:6px;">
                                 <span style="font-size:11px; color:#64748b; font-weight:600; text-transform:uppercase; letter-spacing:0.3px;">AM:</span>
-                                <select id="ca-filter-am" class="select-input" onchange="filterCaTable()" style="padding:6px 10px; font-size:13px; border-radius:7px; border:1px solid #e2e8f0; background:#fff; color:#1e293b; outline:none; min-width:120px;">
+                                <select id="ca-filter-am" class="select-input" onchange="onCaAmChange()" style="padding:6px 10px; font-size:13px; border-radius:7px; border:1px solid #e2e8f0; background:#fff; color:#1e293b; outline:none; min-width:120px;">
                                     <option value="">Tất cả AM</option>
+                                </select>
+                            </div>
+
+                            <!-- Bưu cục filter -->
+                            <div style="display:flex; align-items:center; gap:6px;">
+                                <span style="font-size:11px; color:#64748b; font-weight:600; text-transform:uppercase; letter-spacing:0.3px;">Bưu cục:</span>
+                                <select id="ca-filter-bc" class="select-input" onchange="filterCaTable()" style="padding:6px 10px; font-size:13px; border-radius:7px; border:1px solid #e2e8f0; background:#fff; color:#1e293b; outline:none; min-width:140px; max-width:210px;">
+                                    <option value="">Tất cả Bưu cục</option>
+                                </select>
+                            </div>
+
+                            <!-- Hiển thị / Chế độ xem Filter (Tất cả ca / Chỉ GTC Tổng) -->
+                            <div style="display:flex; align-items:center; gap:6px;">
+                                <span style="font-size:11px; color:#64748b; font-weight:600; text-transform:uppercase; letter-spacing:0.3px;">Hiển thị:</span>
+                                <select id="ca-filter-view-mode" class="select-input" onchange="filterCaTable()" style="padding:6px 11px; font-size:13px; border-radius:7px; border:1.5px solid #6366f1; background:#f5f5ff; color:#4338ca; font-weight:700; outline:none; cursor:pointer;">
+                                    <option value="all">Tất cả các ca (Đầy đủ)</option>
+                                    <option value="gtc_only">⭐ Chỉ coi GTC Tổng bưu cục</option>
                                 </select>
                             </div>
 
@@ -3979,17 +3996,22 @@
                     </div>
 
                     <!-- Legend -->
-                    <div style="display:flex; gap:20px; padding:10px 20px; background:#fafbfc; border-bottom:1px solid #f1f5f9; font-size:12px; color:#64748b; flex-wrap:wrap;">
-                        <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#6366f1;margin-right:5px;"></span>Ca 1</span>
-                        <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#10b981;margin-right:5px;"></span>Ca 2</span>
-                        <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#f59e0b;margin-right:5px;"></span>Hàng Tồn</span>
+                    <div id="ca-legend-bar" style="display:flex; gap:20px; padding:10px 20px; background:#fafbfc; border-bottom:1px solid #f1f5f9; font-size:12px; color:#64748b; flex-wrap:wrap; align-items:center;">
+                        <span id="ca-legend-pills" style="display:flex; gap:16px; align-items:center;">
+                            <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#6366f1;margin-right:5px;"></span>Ca 1</span>
+                            <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#10b981;margin-right:5px;"></span>Ca 2</span>
+                            <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#f59e0b;margin-right:5px;"></span>Hàng Tồn</span>
+                        </span>
+                        <span id="ca-legend-gtc-pill" style="display:none; align-items:center; gap:6px; color:#065f46; font-weight:700;">
+                            <i class="fa-solid fa-circle-check" style="color:#10b981;"></i> Chế độ thu gọn: <strong>Chỉ coi số GTC Tổng của Bưu cục</strong>
+                        </span>
                         <span style="margin-left:auto;"><i class="fa-solid fa-circle-info" style="color:#94a3b8;margin-right:4px;"></i>% Gán = SL Gán / Volume | % GTC = GTC / Volume</span>
                     </div>
 
                     <!-- Scrollable table -->
                     <div style="overflow-x:auto; max-height:65vh; overflow-y:auto;">
                         <table style="width:100%; border-collapse:collapse; font-size:13px;">
-                            <thead>
+                            <thead id="ca-table-thead">
                                 <tr style="background:#f8fafc; position:sticky; top:0; z-index:5;">
                                     <th style="padding:10px 14px; text-align:left; font-weight:700; color:#475569; border-bottom:2px solid #e2e8f0; white-space:nowrap; cursor:pointer;" onclick="sortCaTable('bc')" id="ca-th-bc">Bưu Cục <i class="fa-solid fa-sort" style="color:#cbd5e1; font-size:10px;"></i></th>
                                     <th style="padding:10px 8px; text-align:center; font-weight:700; color:#6366f1; border-bottom:2px solid #e2e8f0; background:#f0f0ff; white-space:nowrap;" colspan="4">🌅 Hàng Mới Ca 1</th>
@@ -13252,6 +13274,7 @@
         function populateCaFilters(dates, ams) {
             const dateSelect = document.getElementById('ca-filter-date');
             const amSelect = document.getElementById('ca-filter-am');
+            const bcSelect = document.getElementById('ca-filter-bc');
             if (dateSelect) {
                 const currVal = dateSelect.value;
                 dateSelect.innerHTML = '<option value="">Tất cả các ngày</option>';
@@ -13272,7 +13295,44 @@
                     amSelect.value = currVal;
                 }
             }
+            if (bcSelect) {
+                const currVal = bcSelect.value;
+                const bcs = [...new Set(caReportRawRows.map(r => r['Bưu Cục']).filter(Boolean))].sort((a,b) => a.localeCompare(b, 'vi'));
+                bcSelect.innerHTML = '<option value="">Tất cả Bưu cục</option>';
+                bcs.forEach(b => {
+                    bcSelect.innerHTML += `<option value="${b}">${b}</option>`;
+                });
+                if (currVal && bcs.includes(currVal)) {
+                    bcSelect.value = currVal;
+                }
+            }
         }
+
+        window.onCaAmChange = function() {
+            const amSelect = document.getElementById('ca-filter-am');
+            const selectedAm = amSelect ? amSelect.value : '';
+            const bcSelect = document.getElementById('ca-filter-bc');
+            if (bcSelect) {
+                const currBc = bcSelect.value;
+                let bcs = [];
+                if (selectedAm) {
+                    bcs = [...new Set(caReportRawRows.filter(r => r.AM === selectedAm).map(r => r['Bưu Cục']).filter(Boolean))];
+                } else {
+                    bcs = [...new Set(caReportRawRows.map(r => r['Bưu Cục']).filter(Boolean))];
+                }
+                bcs.sort((a, b) => a.localeCompare(b, 'vi'));
+                bcSelect.innerHTML = '<option value="">Tất cả Bưu cục</option>';
+                bcs.forEach(b => {
+                    bcSelect.innerHTML += `<option value="${b}">${b}</option>`;
+                });
+                if (currBc && bcs.includes(currBc)) {
+                    bcSelect.value = currBc;
+                } else {
+                    bcSelect.value = '';
+                }
+            }
+            filterCaTable();
+        };
 
         function updateCompareDateOptions(selectedDate, uniqueDates) {
             const compareSelect = document.getElementById('ca-compare-date');
@@ -13372,13 +13432,24 @@
             return `<div style="font-size:10px;color:${color};font-weight:700;margin-top:1px;">${sign}${displayVal}</div>`;
         }
 
+        function sortIcon(colKey) {
+            if (caReportSortKey === colKey) {
+                return caReportSortAsc ? '<i class="fa-solid fa-sort-up" style="color:#2563eb;font-size:11px;margin-left:4px;"></i>' : '<i class="fa-solid fa-sort-down" style="color:#2563eb;font-size:11px;margin-left:4px;"></i>';
+            }
+            return '<i class="fa-solid fa-sort" style="color:#cbd5e1;font-size:10px;margin-left:4px;"></i>';
+        }
+
         function renderCaTable() {
             const tbody = document.getElementById('ca-table-body');
+            const thead = document.getElementById('ca-table-thead');
             if (!tbody) return;
 
             const groupbySelect = document.getElementById('ca-filter-groupby');
             const groupby = groupbySelect ? groupbySelect.value : 'bc';
             
+            const viewModeSelect = document.getElementById('ca-filter-view-mode');
+            const viewMode = viewModeSelect ? viewModeSelect.value : 'all'; // 'all' or 'gtc_only'
+
             const dateSelect = document.getElementById('ca-filter-date');
             const selectedDate = dateSelect ? dateSelect.value : '';
 
@@ -13402,14 +13473,31 @@
             
             const amSelect = document.getElementById('ca-filter-am');
             const selectedAm = amSelect ? amSelect.value : '';
+
+            const bcSelect = document.getElementById('ca-filter-bc');
+            const selectedBc = bcSelect ? bcSelect.value : '';
             
             const query = (document.getElementById('ca-search-input') || {}).value || '';
             const q = query.toLowerCase().trim();
+
+            // Toggle legend display according to viewMode
+            const legendPills = document.getElementById('ca-legend-pills');
+            const legendGtcPill = document.getElementById('ca-legend-gtc-pill');
+            if (legendPills && legendGtcPill) {
+                if (viewMode === 'gtc_only') {
+                    legendPills.style.display = 'none';
+                    legendGtcPill.style.display = 'flex';
+                } else {
+                    legendPills.style.display = 'flex';
+                    legendGtcPill.style.display = 'none';
+                }
+            }
 
             // 1. Filter raw daily rows for current date
             let filteredRaw = caReportRawRows.filter(r => {
                 if (selectedDate && r.Date !== selectedDate) return false;
                 if (selectedAm && r.AM !== selectedAm) return false;
+                if (selectedBc && r['Bưu Cục'] !== selectedBc) return false;
                 return true;
             });
 
@@ -13419,21 +13507,12 @@
                 compareRaw = caReportRawRows.filter(r => {
                     if (r.Date !== compareDate) return false;
                     if (selectedAm && r.AM !== selectedAm) return false;
+                    if (selectedBc && r['Bưu Cục'] !== selectedBc) return false;
                     return true;
                 });
             }
 
-            // 2. Update KPI cards based on filtered raw data
-            const totalV1 = filteredRaw.reduce((s, r) => s + (r['Hàng Mới Ca 1_Volume'] || 0), 0);
-            let totalV2 = filteredRaw.reduce((s, r) => s + (r['Hàng Mới Ca 2_Volume'] || 0), 0);
-            const totalV3 = filteredRaw.reduce((s, r) => s + (r['Hàng Tồn_Volume'] || 0), 0);
-            
-            const el = id => document.getElementById(id);
-            if (el('ca-kpi-vol1')) el('ca-kpi-vol1').innerText = totalV1.toLocaleString('vi-VN');
-            if (el('ca-kpi-vol2')) el('ca-kpi-vol2').innerText = totalV2.toLocaleString('vi-VN');
-            if (el('ca-kpi-vol3')) el('ca-kpi-vol3').innerText = totalV3.toLocaleString('vi-VN');
-
-            // 3. Aggregate comparison date data by Group By dimension
+            // 2. Aggregate comparison date data by Group By dimension
             const compareAggregated = {};
             if (selectedDate && compareDate) {
                 compareRaw.forEach(r => {
@@ -13457,7 +13536,7 @@
                 });
             }
 
-            // 4. Aggregate current date data by Group By dimension
+            // 3. Aggregate current date data by Group By dimension
             const aggregated = {};
             filteredRaw.forEach(r => {
                 const key = groupby === 'am' ? (r.AM || 'Không xác định') : (r['Bưu Cục'] || 'Không xác định');
@@ -13499,7 +13578,7 @@
                 let diff_v1 = null, diff_g1 = null, diff_gan1 = null, diff_p1 = null;
                 let diff_v2 = null, diff_g2 = null, diff_gan2 = null, diff_p2 = null;
                 let diff_v3 = null, diff_g3 = null, diff_gan3 = null, diff_p3 = null;
-                let diff_total_v = null, diff_total_g = null, diff_total_gan = null, diff_total_p = null;
+                let diff_total_v = null, diff_total_g = null, diff_total_a = null, diff_total_gan = null, diff_total_p = null;
 
                 if (selectedDate && compareDate) {
                     const comp = compareAggregated[r.name] || {
@@ -13537,6 +13616,7 @@
 
                     diff_total_v = total_v - comp_total_v;
                     diff_total_g = total_g - comp_total_g;
+                    diff_total_a = total_a - comp_total_a;
                     diff_total_p = (total_p !== null && comp_total_p !== null) ? (total_p - comp_total_p) : null;
                     diff_total_gan = (total_gan !== null && comp_total_gan !== null) ? (total_gan - comp_total_gan) : null;
                 }
@@ -13556,22 +13636,52 @@
                     diff_v1, diff_g1, diff_p1, diff_gan1,
                     diff_v2, diff_g2, diff_p2, diff_gan2,
                     diff_v3, diff_g3, diff_p3, diff_gan3,
-                    diff_total_v, diff_total_g, diff_total_p, diff_total_gan
+                    diff_total_v, diff_total_g, diff_total_a, diff_total_p, diff_total_gan
                 };
             });
 
-            // 5. Apply search text query on aggregated rows
+            // 4. Apply search text query on aggregated rows
             if (q) {
                 displayRows = displayRows.filter(r => {
                     return r.name.toLowerCase().includes(q) || (r.am && r.am.toLowerCase().includes(q));
                 });
             }
 
-            // Update KPI for post office / AM count
-            if (el('ca-kpi-bc-count')) el('ca-kpi-bc-count').innerText = displayRows.length;
-            const kpiBcCardLabel = document.querySelector('#ca-kpi-bc-count') ? document.querySelector('#ca-kpi-bc-count').previousElementSibling : null;
-            if (kpiBcCardLabel) {
-                kpiBcCardLabel.innerText = groupby === 'am' ? 'Số AM' : 'Số Bưu cục';
+            // 5. Update KPI cards based on filtered dataset and viewMode
+            const totalV1 = filteredRaw.reduce((s, r) => s + (r['Hàng Mới Ca 1_Volume'] || 0), 0);
+            const totalV2 = filteredRaw.reduce((s, r) => s + (r['Hàng Mới Ca 2_Volume'] || 0), 0);
+            const totalV3 = filteredRaw.reduce((s, r) => s + (r['Hàng Tồn_Volume'] || 0), 0);
+            const grandTotalV = displayRows.reduce((s, r) => s + r.total_v, 0);
+            const grandTotalG = displayRows.reduce((s, r) => s + r.total_g, 0);
+            const grandTotalA = displayRows.reduce((s, r) => s + r.total_a, 0);
+            const grandTotalP = grandTotalV > 0 ? (grandTotalG / grandTotalV * 100) : 0;
+            const grandTotalGan = grandTotalV > 0 ? (grandTotalA / grandTotalV * 100) : 0;
+
+            const el = id => document.getElementById(id);
+            if (viewMode === 'gtc_only') {
+                if (el('ca-kpi-title1')) el('ca-kpi-title1').innerText = 'Tổng Volume';
+                if (el('ca-kpi-vol1')) el('ca-kpi-vol1').innerText = grandTotalV.toLocaleString('vi-VN');
+
+                if (el('ca-kpi-title2')) el('ca-kpi-title2').innerText = 'Tổng Gán';
+                if (el('ca-kpi-vol2')) el('ca-kpi-vol2').innerHTML = `${grandTotalA.toLocaleString('vi-VN')} <span style="font-size:14px;font-weight:600;color:#64748b;">(${grandTotalGan.toFixed(1)}%)</span>`;
+
+                if (el('ca-kpi-title3')) el('ca-kpi-title3').innerText = '🏆 Tổng GTC Bưu Cục';
+                if (el('ca-kpi-vol3')) el('ca-kpi-vol3').innerHTML = `${grandTotalG.toLocaleString('vi-VN')} <span style="font-size:14px;font-weight:700;color:#10b981;">(${grandTotalP.toFixed(1)}%)</span>`;
+
+                if (el('ca-kpi-title4')) el('ca-kpi-title4').innerText = groupby === 'am' ? 'Số AM' : 'Số Bưu cục';
+                if (el('ca-kpi-bc-count')) el('ca-kpi-bc-count').innerText = displayRows.length;
+            } else {
+                if (el('ca-kpi-title1')) el('ca-kpi-title1').innerText = 'Tổng Vol Ca 1';
+                if (el('ca-kpi-vol1')) el('ca-kpi-vol1').innerText = totalV1.toLocaleString('vi-VN');
+
+                if (el('ca-kpi-title2')) el('ca-kpi-title2').innerText = 'Tổng Vol Ca 2';
+                if (el('ca-kpi-vol2')) el('ca-kpi-vol2').innerText = totalV2.toLocaleString('vi-VN');
+
+                if (el('ca-kpi-title3')) el('ca-kpi-title3').innerText = 'Tổng Vol Hàng Tồn';
+                if (el('ca-kpi-vol3')) el('ca-kpi-vol3').innerText = totalV3.toLocaleString('vi-VN');
+
+                if (el('ca-kpi-title4')) el('ca-kpi-title4').innerText = groupby === 'am' ? 'Số AM' : 'Số Bưu cục';
+                if (el('ca-kpi-bc-count')) el('ca-kpi-bc-count').innerText = displayRows.length;
             }
 
             // 6. Sort
@@ -13588,43 +13698,126 @@
             const rowCount = document.getElementById('ca-row-count');
             if (rowCount) rowCount.innerText = `${displayRows.length} ${groupby === 'am' ? 'AM' : 'bưu cục'}`;
 
+            // 7. Render dynamic <thead>
+            if (thead) {
+                if (viewMode === 'gtc_only') {
+                    thead.innerHTML = `
+                        <tr style="background:#f8fafc; position:sticky; top:0; z-index:5;">
+                            <th style="padding:12px 14px; text-align:left; font-weight:700; color:#334155; border-bottom:2px solid #cbd5e1; cursor:pointer;" onclick="sortCaTable('bc')">
+                                ${groupby === 'am' ? 'AM' : 'Bưu Cục'} ${sortIcon('name')}
+                            </th>
+                            <th style="padding:12px 12px; text-align:right; font-weight:700; color:#334155; border-bottom:2px solid #cbd5e1; cursor:pointer;" onclick="sortCaTable('total_v')">
+                                Tổng Volume ${sortIcon('total_v')}
+                            </th>
+                            <th style="padding:12px 12px; text-align:right; font-weight:700; color:#475569; border-bottom:2px solid #cbd5e1; cursor:pointer;" onclick="sortCaTable('total_a')">
+                                Tổng Gán ${sortIcon('total_a')}
+                            </th>
+                            <th style="padding:12px 12px; text-align:right; font-weight:700; color:#475569; border-bottom:2px solid #cbd5e1; cursor:pointer;" onclick="sortCaTable('total_gan')">
+                                % Gán ${sortIcon('total_gan')}
+                            </th>
+                            <th style="padding:12px 14px; text-align:right; font-weight:800; color:#065f46; border-bottom:2px solid #cbd5e1; background:#ecfdf5; cursor:pointer; font-size:13px;" onclick="sortCaTable('total_g')">
+                                🏆 GTC Tổng ${sortIcon('total_g')}
+                            </th>
+                            <th style="padding:12px 12px; text-align:right; font-weight:700; color:#065f46; border-bottom:2px solid #cbd5e1; background:#ecfdf5; cursor:pointer;" onclick="sortCaTable('total_p')">
+                                % GTC ${sortIcon('total_p')}
+                            </th>
+                        </tr>`;
+                } else {
+                    thead.innerHTML = `
+                        <tr style="background:#f8fafc; position:sticky; top:0; z-index:5;">
+                            <th style="padding:10px 14px; text-align:left; font-weight:700; color:#475569; border-bottom:2px solid #e2e8f0; white-space:nowrap; cursor:pointer;" onclick="sortCaTable('bc')" id="ca-th-bc">
+                                ${groupby === 'am' ? 'AM' : 'Bưu Cục'} ${sortIcon('name')}
+                            </th>
+                            <th style="padding:10px 8px; text-align:center; font-weight:700; color:#6366f1; border-bottom:2px solid #e2e8f0; background:#f0f0ff; white-space:nowrap;" colspan="4">🌅 Hàng Mới Ca 1</th>
+                            <th style="padding:10px 8px; text-align:center; font-weight:700; color:#10b981; border-bottom:2px solid #e2e8f0; background:#f0fdf4; white-space:nowrap;" colspan="4">🌆 Hàng Mới Ca 2</th>
+                            <th style="padding:10px 8px; text-align:center; font-weight:700; color:#d97706; border-bottom:2px solid #e2e8f0; background:#fffbeb; white-space:nowrap;" colspan="4">📦 Hàng Tồn</th>
+                            <th style="padding:10px 8px; text-align:center; font-weight:700; color:#475569; border-bottom:2px solid #e2e8f0; background:#f1f5f9; white-space:nowrap;" colspan="4">📊 Tổng cộng</th>
+                        </tr>
+                        <tr style="background:#f8fafc; position:sticky; top:40px; z-index:5;">
+                            <th style="padding:6px 14px; text-align:left; font-weight:600; font-size:11px; color:#94a3b8; border-bottom:1px solid #e2e8f0;"></th>
+                            <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#6366f1; border-bottom:1px solid #e2e8f0; background:#f5f5ff; cursor:pointer;" onclick="sortCaTable('v1')">Vol ${sortIcon('v1')}</th>
+                            <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#6366f1; border-bottom:1px solid #e2e8f0; background:#f5f5ff; cursor:pointer;" onclick="sortCaTable('gan1')">% Gán ${sortIcon('gan1')}</th>
+                            <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#6366f1; border-bottom:1px solid #e2e8f0; background:#f5f5ff; cursor:pointer;" onclick="sortCaTable('g1')">GTC ${sortIcon('g1')}</th>
+                            <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#6366f1; border-bottom:1px solid #e2e8f0; background:#f5f5ff; cursor:pointer;" onclick="sortCaTable('p1')">%GTC ${sortIcon('p1')}</th>
+                            <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#10b981; border-bottom:1px solid #e2e8f0; background:#f0fdf4; cursor:pointer;" onclick="sortCaTable('v2')">Vol ${sortIcon('v2')}</th>
+                            <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#10b981; border-bottom:1px solid #e2e8f0; background:#f0fdf4; cursor:pointer;" onclick="sortCaTable('gan2')">% Gán ${sortIcon('gan2')}</th>
+                            <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#10b981; border-bottom:1px solid #e2e8f0; background:#f0fdf4; cursor:pointer;" onclick="sortCaTable('g2')">GTC ${sortIcon('g2')}</th>
+                            <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#10b981; border-bottom:1px solid #e2e8f0; background:#f0fdf4; cursor:pointer;" onclick="sortCaTable('p2')">%GTC ${sortIcon('p2')}</th>
+                            <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#d97706; border-bottom:1px solid #e2e8f0; background:#fef9ec; cursor:pointer;" onclick="sortCaTable('v3')">Vol ${sortIcon('v3')}</th>
+                            <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#d97706; border-bottom:1px solid #e2e8f0; background:#fef9ec; cursor:pointer;" onclick="sortCaTable('gan3')">% Gán ${sortIcon('gan3')}</th>
+                            <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#d97706; border-bottom:1px solid #e2e8f0; background:#fef9ec; cursor:pointer;" onclick="sortCaTable('g3')">GTC ${sortIcon('g3')}</th>
+                            <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#d97706; border-bottom:1px solid #e2e8f0; background:#fef9ec; cursor:pointer;" onclick="sortCaTable('p3')">%GTC ${sortIcon('p3')}</th>
+                            <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#475569; border-bottom:1px solid #e2e8f0; background:#f1f5f9; cursor:pointer;" onclick="sortCaTable('total_v')">Vol ${sortIcon('total_v')}</th>
+                            <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#475569; border-bottom:1px solid #e2e8f0; background:#f1f5f9; cursor:pointer;" onclick="sortCaTable('total_gan')">% Gán ${sortIcon('total_gan')}</th>
+                            <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#475569; border-bottom:1px solid #e2e8f0; background:#f1f5f9; cursor:pointer;" onclick="sortCaTable('total_g')">GTC ${sortIcon('total_g')}</th>
+                            <th style="padding:6px 8px; text-align:right; font-weight:600; font-size:11px; color:#475569; border-bottom:1px solid #e2e8f0; background:#f1f5f9; cursor:pointer;" onclick="sortCaTable('total_p')">%GTC ${sortIcon('total_p')}</th>
+                        </tr>`;
+                }
+            }
+
             if (displayRows.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="17" style="text-align:center;padding:30px;color:#94a3b8;">Không tìm thấy dữ liệu</td></tr>`;
+                const colSpan = viewMode === 'gtc_only' ? 6 : 17;
+                tbody.innerHTML = `<tr><td colspan="${colSpan}" style="text-align:center;padding:30px;color:#94a3b8;">Không tìm thấy dữ liệu</td></tr>`;
                 return;
             }
 
             const cellStyle = (bg, extra = '') => `style="padding:8px 10px;text-align:right;border-bottom:1px solid #f1f5f9;background:${bg};font-variant-numeric:tabular-nums;${extra}"`;
             let html = '';
+
             displayRows.forEach((r, i) => {
                 const rowBg = i % 2 === 0 ? '' : '#fafbfc';
-                html += `<tr style="background:${rowBg};">
-                    <td style="padding:8px 14px;border-bottom:1px solid #f1f5f9;font-weight:600;color:#1e293b;max-width:280px;word-break:break-word;">
-                        ${r.name}
-                        ${r.am ? `<div style="font-size:11px;color:#94a3b8;font-weight:400;margin-top:2px;"><i class="fa-solid fa-user" style="font-size:9px;"></i> ${r.am}</div>` : ''}
-                    </td>
-                    <td ${cellStyle('#f5f5ff')}>${r.v1.toLocaleString('vi-VN')}${formatDiff(r.diff_v1)}</td>
-                    <td ${cellStyle('#f5f5ff')}>${pctBadge(r.gan1)}${formatDiff(r.diff_gan1, true)}</td>
-                    <td ${cellStyle('#f5f5ff')}>${r.g1.toLocaleString('vi-VN')}${formatDiff(r.diff_g1)}</td>
-                    <td ${cellStyle('#f5f5ff')}>${pctBadge(r.p1)}${formatDiff(r.diff_p1, true)}</td>
-                    
-                    <td ${cellStyle('#f0fdf4')}>${r.v2.toLocaleString('vi-VN')}${formatDiff(r.diff_v2)}</td>
-                    <td ${cellStyle('#f0fdf4')}>${pctBadge(r.gan2)}${formatDiff(r.diff_gan2, true)}</td>
-                    <td ${cellStyle('#f0fdf4')}>${r.g2.toLocaleString('vi-VN')}${formatDiff(r.diff_g2)}</td>
-                    <td ${cellStyle('#f0fdf4')}>${pctBadge(r.p2)}${formatDiff(r.diff_p2, true)}</td>
-                    
-                    <td ${cellStyle('#fef9ec')}>${r.v3.toLocaleString('vi-VN')}${formatDiff(r.diff_v3)}</td>
-                    <td ${cellStyle('#fef9ec')}>${pctBadge(r.gan3)}${formatDiff(r.diff_gan3, true)}</td>
-                    <td ${cellStyle('#fef9ec')}>${r.g3.toLocaleString('vi-VN')}${formatDiff(r.diff_g3)}</td>
-                    <td ${cellStyle('#fef9ec')}>${pctBadge(r.p3)}${formatDiff(r.diff_p3, true)}</td>
-                    
-                    <td ${cellStyle('#f1f5f9', 'font-weight:700;color:#1e293b;')}>${r.total_v.toLocaleString('vi-VN')}${formatDiff(r.diff_total_v)}</td>
-                    <td ${cellStyle('#f1f5f9')}>${pctBadge(r.total_gan)}${formatDiff(r.diff_total_gan, true)}</td>
-                    <td ${cellStyle('#f1f5f9', 'font-weight:700;color:#1e293b;')}>${r.total_g.toLocaleString('vi-VN')}${formatDiff(r.diff_total_g)}</td>
-                    <td ${cellStyle('#f1f5f9')}>${pctBadge(r.total_p)}${formatDiff(r.diff_total_p, true)}</td>
-                </tr>`;
+                if (viewMode === 'gtc_only') {
+                    html += `<tr style="background:${rowBg};">
+                        <td style="padding:10px 14px;border-bottom:1px solid #f1f5f9;font-weight:600;color:#1e293b;max-width:280px;word-break:break-word;">
+                            ${r.name}
+                            ${r.am ? `<div style="font-size:11px;color:#94a3b8;font-weight:400;margin-top:2px;"><i class="fa-solid fa-user" style="font-size:9px;"></i> ${r.am}</div>` : ''}
+                        </td>
+                        <td style="padding:10px 12px;text-align:right;border-bottom:1px solid #f1f5f9;font-weight:600;color:#1e293b;font-variant-numeric:tabular-nums;">
+                            ${r.total_v.toLocaleString('vi-VN')}${formatDiff(r.diff_total_v)}
+                        </td>
+                        <td style="padding:10px 12px;text-align:right;border-bottom:1px solid #f1f5f9;color:#475569;font-variant-numeric:tabular-nums;">
+                            ${r.total_a.toLocaleString('vi-VN')}
+                        </td>
+                        <td style="padding:10px 12px;text-align:right;border-bottom:1px solid #f1f5f9;font-variant-numeric:tabular-nums;">
+                            ${pctBadge(r.total_gan)}${formatDiff(r.diff_total_gan, true)}
+                        </td>
+                        <td style="padding:10px 14px;text-align:right;border-bottom:1px solid #f1f5f9;font-weight:800;color:#047857;background:#ecfdf5;font-size:14px;font-variant-numeric:tabular-nums;">
+                            ${r.total_g.toLocaleString('vi-VN')}${formatDiff(r.diff_total_g)}
+                        </td>
+                        <td style="padding:10px 12px;text-align:right;border-bottom:1px solid #f1f5f9;background:#ecfdf5;font-variant-numeric:tabular-nums;">
+                            ${pctBadge(r.total_p)}${formatDiff(r.diff_total_p, true)}
+                        </td>
+                    </tr>`;
+                } else {
+                    html += `<tr style="background:${rowBg};">
+                        <td style="padding:8px 14px;border-bottom:1px solid #f1f5f9;font-weight:600;color:#1e293b;max-width:280px;word-break:break-word;">
+                            ${r.name}
+                            ${r.am ? `<div style="font-size:11px;color:#94a3b8;font-weight:400;margin-top:2px;"><i class="fa-solid fa-user" style="font-size:9px;"></i> ${r.am}</div>` : ''}
+                        </td>
+                        <td ${cellStyle('#f5f5ff')}>${r.v1.toLocaleString('vi-VN')}${formatDiff(r.diff_v1)}</td>
+                        <td ${cellStyle('#f5f5ff')}>${pctBadge(r.gan1)}${formatDiff(r.diff_gan1, true)}</td>
+                        <td ${cellStyle('#f5f5ff')}>${r.g1.toLocaleString('vi-VN')}${formatDiff(r.diff_g1)}</td>
+                        <td ${cellStyle('#f5f5ff')}>${pctBadge(r.p1)}${formatDiff(r.diff_p1, true)}</td>
+                        
+                        <td ${cellStyle('#f0fdf4')}>${r.v2.toLocaleString('vi-VN')}${formatDiff(r.diff_v2)}</td>
+                        <td ${cellStyle('#f0fdf4')}>${pctBadge(r.gan2)}${formatDiff(r.diff_gan2, true)}</td>
+                        <td ${cellStyle('#f0fdf4')}>${r.g2.toLocaleString('vi-VN')}${formatDiff(r.diff_g2)}</td>
+                        <td ${cellStyle('#f0fdf4')}>${pctBadge(r.p2)}${formatDiff(r.diff_p2, true)}</td>
+                        
+                        <td ${cellStyle('#fef9ec')}>${r.v3.toLocaleString('vi-VN')}${formatDiff(r.diff_v3)}</td>
+                        <td ${cellStyle('#fef9ec')}>${pctBadge(r.gan3)}${formatDiff(r.diff_gan3, true)}</td>
+                        <td ${cellStyle('#fef9ec')}>${r.g3.toLocaleString('vi-VN')}${formatDiff(r.diff_g3)}</td>
+                        <td ${cellStyle('#fef9ec')}>${pctBadge(r.p3)}${formatDiff(r.diff_p3, true)}</td>
+                        
+                        <td ${cellStyle('#f1f5f9', 'font-weight:700;color:#1e293b;')}>${r.total_v.toLocaleString('vi-VN')}${formatDiff(r.diff_total_v)}</td>
+                        <td ${cellStyle('#f1f5f9')}>${pctBadge(r.total_gan)}${formatDiff(r.diff_total_gan, true)}</td>
+                        <td ${cellStyle('#f1f5f9', 'font-weight:700;color:#1e293b;')}>${r.total_g.toLocaleString('vi-VN')}${formatDiff(r.diff_total_g)}</td>
+                        <td ${cellStyle('#f1f5f9')}>${pctBadge(r.total_p)}${formatDiff(r.diff_total_p, true)}</td>
+                    </tr>`;
+                }
             });
 
-            // Add aggregate Grand Total Row at the bottom of the table
+            // 8. Add aggregate Grand Total Row at the bottom of the table
             if (displayRows.length > 0) {
                 const sum_v1 = displayRows.reduce((s, r) => s + r.v1, 0);
                 const sum_g1 = displayRows.reduce((s, r) => s + r.g1, 0);
@@ -13665,7 +13858,7 @@
                         a3: Object.values(compareAggregated).reduce((s, r) => s + r.a3, 0)
                     };
                     comp_sum.total_v = comp_sum.v1 + comp_sum.v2 + comp_sum.v3;
-                    comp_sum.total_g = comp_sum.g1 + comp_sum.g2 + comp_sum.g3;
+                    comp_sum.total_g = comp_sum.g1 + comp_sum.total_g || (comp_sum.g1 + comp_sum.g2 + comp_sum.g3);
                     comp_sum.total_a = comp_sum.a1 + comp_sum.a2 + comp_sum.a3;
 
                     comp_sum.p1 = comp_sum.v1 > 0 ? (comp_sum.g1 / comp_sum.v1 * 100) : null;
@@ -13678,87 +13871,114 @@
                     comp_sum.total_gan = comp_sum.total_v > 0 ? (comp_sum.total_a / comp_sum.total_v * 100) : null;
                 }
 
-                const footerBg = '#f1f5f9';
-                const footerCellStyle = (bg, extra = '') => `style="padding:10px 10px;text-align:right;border-top:2px solid #cbd5e1;border-bottom:2px solid #cbd5e1;background:${bg};font-weight:700;font-variant-numeric:tabular-nums;${extra}"`;
+                if (viewMode === 'gtc_only') {
+                    html += `<tr style="background:#e2e8f0; font-weight:700; border-top:2px solid #94a3b8; border-bottom:2px solid #94a3b8;">
+                        <td style="padding:12px 14px;border-top:2px solid #94a3b8;border-bottom:2px solid #94a3b8;font-weight:800;color:#0f172a;">
+                            TỔNG CỘNG (${displayRows.length} ${groupby === 'am' ? 'AM' : 'Bưu cục'})
+                        </td>
+                        <td style="padding:12px 12px;text-align:right;border-top:2px solid #94a3b8;border-bottom:2px solid #94a3b8;font-weight:800;color:#0f172a;font-variant-numeric:tabular-nums;">
+                            ${sum_total_v.toLocaleString('vi-VN')}
+                            ${formatDiff(comp_sum ? sum_total_v - comp_sum.total_v : null)}
+                        </td>
+                        <td style="padding:12px 12px;text-align:right;border-top:2px solid #94a3b8;border-bottom:2px solid #94a3b8;font-weight:700;color:#334155;font-variant-numeric:tabular-nums;">
+                            ${sum_total_a.toLocaleString('vi-VN')}
+                        </td>
+                        <td style="padding:12px 12px;text-align:right;border-top:2px solid #94a3b8;border-bottom:2px solid #94a3b8;font-variant-numeric:tabular-nums;">
+                            ${pctBadge(sum_total_gan)}
+                            ${formatDiff((sum_total_gan !== null && comp_sum && comp_sum.total_gan !== null) ? sum_total_gan - comp_sum.total_gan : null, true)}
+                        </td>
+                        <td style="padding:12px 14px;text-align:right;border-top:2px solid #94a3b8;border-bottom:2px solid #94a3b8;font-weight:900;color:#065f46;background:#dcfce7;font-size:15px;font-variant-numeric:tabular-nums;">
+                            ${sum_total_g.toLocaleString('vi-VN')}
+                            ${formatDiff(comp_sum ? sum_total_g - comp_sum.total_g : null)}
+                        </td>
+                        <td style="padding:12px 12px;text-align:right;border-top:2px solid #94a3b8;border-bottom:2px solid #94a3b8;background:#dcfce7;font-variant-numeric:tabular-nums;">
+                            ${pctBadge(sum_total_p)}
+                            ${formatDiff((sum_total_p !== null && comp_sum && comp_sum.total_p !== null) ? sum_total_p - comp_sum.total_p : null, true)}
+                        </td>
+                    </tr>`;
+                } else {
+                    const footerBg = '#f1f5f9';
+                    const footerCellStyle = (bg, extra = '') => `style="padding:10px 10px;text-align:right;border-top:2px solid #cbd5e1;border-bottom:2px solid #cbd5e1;background:${bg};font-weight:700;font-variant-numeric:tabular-nums;${extra}"`;
 
-                html += `<tr style="background:${footerBg}; font-weight:700; border-top:2px solid #cbd5e1; border-bottom:2px solid #cbd5e1;">
-                    <td style="padding:10px 14px;border-top:2px solid #cbd5e1;border-bottom:2px solid #cbd5e1;font-weight:700;color:#0f172a;">
-                        TỔNG CỘNG
-                    </td>
-                    <td ${footerCellStyle('#f5f5ff')}>
-                        ${sum_v1.toLocaleString('vi-VN')}
-                        ${formatDiff(comp_sum ? sum_v1 - comp_sum.v1 : null)}
-                    </td>
-                    <td ${footerCellStyle('#f5f5ff')}>
-                        ${pctBadge(sum_gan1)}
-                        ${formatDiff((sum_gan1 !== null && comp_sum && comp_sum.gan1 !== null) ? sum_gan1 - comp_sum.gan1 : null, true)}
-                    </td>
-                    <td ${footerCellStyle('#f5f5ff')}>
-                        ${sum_g1.toLocaleString('vi-VN')}
-                        ${formatDiff(comp_sum ? sum_g1 - comp_sum.g1 : null)}
-                    </td>
-                    <td ${footerCellStyle('#f5f5ff')}>
-                        ${pctBadge(sum_p1)}
-                        ${formatDiff((sum_p1 !== null && comp_sum && comp_sum.p1 !== null) ? sum_p1 - comp_sum.p1 : null, true)}
-                    </td>
-                    
-                    <td ${footerCellStyle('#f0fdf4')}>
-                        ${sum_v2.toLocaleString('vi-VN')}
-                        ${formatDiff(comp_sum ? sum_v2 - comp_sum.v2 : null)}
-                    </td>
-                    <td ${footerCellStyle('#f0fdf4')}>
-                        ${pctBadge(sum_gan2)}
-                        ${formatDiff((sum_gan2 !== null && comp_sum && comp_sum.gan2 !== null) ? sum_gan2 - comp_sum.gan2 : null, true)}
-                    </td>
-                    <td ${footerCellStyle('#f0fdf4')}>
-                        ${sum_g2.toLocaleString('vi-VN')}
-                        ${formatDiff(comp_sum ? sum_g2 - comp_sum.g2 : null)}
-                    </td>
-                    <td ${footerCellStyle('#f0fdf4')}>
-                        ${pctBadge(sum_p2)}
-                        ${formatDiff((sum_p2 !== null && comp_sum && comp_sum.p2 !== null) ? sum_p2 - comp_sum.p2 : null, true)}
-                    </td>
-                    
-                    <td ${footerCellStyle('#fef9ec')}>
-                        ${sum_v3.toLocaleString('vi-VN')}
-                        ${formatDiff(comp_sum ? sum_v3 - comp_sum.v3 : null)}
-                    </td>
-                    <td ${footerCellStyle('#fef9ec')}>
-                        ${pctBadge(sum_gan3)}
-                        ${formatDiff((sum_gan3 !== null && comp_sum && comp_sum.gan3 !== null) ? sum_gan3 - comp_sum.gan3 : null, true)}
-                    </td>
-                    <td ${footerCellStyle('#fef9ec')}>
-                        ${sum_g3.toLocaleString('vi-VN')}
-                        ${formatDiff(comp_sum ? sum_g3 - comp_sum.g3 : null)}
-                    </td>
-                    <td ${footerCellStyle('#fef9ec')}>
-                        ${pctBadge(sum_p3)}
-                        ${formatDiff((sum_p3 !== null && comp_sum && comp_sum.p3 !== null) ? sum_p3 - comp_sum.p3 : null, true)}
-                    </td>
-                    
-                    <td ${footerCellStyle('#e2e8f0', 'color:#0f172a;')}>
-                        ${sum_total_v.toLocaleString('vi-VN')}
-                        ${formatDiff(comp_sum ? sum_total_v - comp_sum.total_v : null)}
-                    </td>
-                    <td ${footerCellStyle('#e2e8f0')}>
-                        ${pctBadge(sum_total_gan)}
-                        ${formatDiff((sum_total_gan !== null && comp_sum && comp_sum.total_gan !== null) ? sum_total_gan - comp_sum.total_gan : null, true)}
-                    </td>
-                    <td ${footerCellStyle('#e2e8f0', 'color:#0f172a;')}>
-                        ${sum_total_g.toLocaleString('vi-VN')}
-                        ${formatDiff(comp_sum ? sum_total_g - comp_sum.total_g : null)}
-                    </td>
-                    <td ${footerCellStyle('#e2e8f0')}>
-                        ${pctBadge(sum_total_p)}
-                        ${formatDiff((sum_total_p !== null && comp_sum && comp_sum.total_p !== null) ? sum_total_p - comp_sum.total_p : null, true)}
-                    </td>
-                </tr>`;
+                    html += `<tr style="background:${footerBg}; font-weight:700; border-top:2px solid #cbd5e1; border-bottom:2px solid #cbd5e1;">
+                        <td style="padding:10px 14px;border-top:2px solid #cbd5e1;border-bottom:2px solid #cbd5e1;font-weight:700;color:#0f172a;">
+                            TỔNG CỘNG
+                        </td>
+                        <td ${footerCellStyle('#f5f5ff')}>
+                            ${sum_v1.toLocaleString('vi-VN')}
+                            ${formatDiff(comp_sum ? sum_v1 - comp_sum.v1 : null)}
+                        </td>
+                        <td ${footerCellStyle('#f5f5ff')}>
+                            ${pctBadge(sum_gan1)}
+                            ${formatDiff((sum_gan1 !== null && comp_sum && comp_sum.gan1 !== null) ? sum_gan1 - comp_sum.gan1 : null, true)}
+                        </td>
+                        <td ${footerCellStyle('#f5f5ff')}>
+                            ${sum_g1.toLocaleString('vi-VN')}
+                            ${formatDiff(comp_sum ? sum_g1 - comp_sum.g1 : null)}
+                        </td>
+                        <td ${footerCellStyle('#f5f5ff')}>
+                            ${pctBadge(sum_p1)}
+                            ${formatDiff((sum_p1 !== null && comp_sum && comp_sum.p1 !== null) ? sum_p1 - comp_sum.p1 : null, true)}
+                        </td>
+                        
+                        <td ${footerCellStyle('#f0fdf4')}>
+                            ${sum_v2.toLocaleString('vi-VN')}
+                            ${formatDiff(comp_sum ? sum_v2 - comp_sum.v2 : null)}
+                        </td>
+                        <td ${footerCellStyle('#f0fdf4')}>
+                            ${pctBadge(sum_gan2)}
+                            ${formatDiff((sum_gan2 !== null && comp_sum && comp_sum.gan2 !== null) ? sum_gan2 - comp_sum.gan2 : null, true)}
+                        </td>
+                        <td ${footerCellStyle('#f0fdf4')}>
+                            ${sum_g2.toLocaleString('vi-VN')}
+                            ${formatDiff(comp_sum ? sum_g2 - comp_sum.g2 : null)}
+                        </td>
+                        <td ${footerCellStyle('#f0fdf4')}>
+                            ${pctBadge(sum_p2)}
+                            ${formatDiff((sum_p2 !== null && comp_sum && comp_sum.p2 !== null) ? sum_p2 - comp_sum.p2 : null, true)}
+                        </td>
+                        
+                        <td ${footerCellStyle('#fef9ec')}>
+                            ${sum_v3.toLocaleString('vi-VN')}
+                            ${formatDiff(comp_sum ? sum_v3 - comp_sum.v3 : null)}
+                        </td>
+                        <td ${footerCellStyle('#fef9ec')}>
+                            ${pctBadge(sum_gan3)}
+                            ${formatDiff((sum_gan3 !== null && comp_sum && comp_sum.gan3 !== null) ? sum_gan3 - comp_sum.gan3 : null, true)}
+                        </td>
+                        <td ${footerCellStyle('#fef9ec')}>
+                            ${sum_g3.toLocaleString('vi-VN')}
+                            ${formatDiff(comp_sum ? sum_g3 - comp_sum.g3 : null)}
+                        </td>
+                        <td ${footerCellStyle('#fef9ec')}>
+                            ${pctBadge(sum_p3)}
+                            ${formatDiff((sum_p3 !== null && comp_sum && comp_sum.p3 !== null) ? sum_p3 - comp_sum.p3 : null, true)}
+                        </td>
+                        
+                        <td ${footerCellStyle('#e2e8f0', 'color:#0f172a;')}>
+                            ${sum_total_v.toLocaleString('vi-VN')}
+                            ${formatDiff(comp_sum ? sum_total_v - comp_sum.total_v : null)}
+                        </td>
+                        <td ${footerCellStyle('#e2e8f0')}>
+                            ${pctBadge(sum_total_gan)}
+                            ${formatDiff((sum_total_gan !== null && comp_sum && comp_sum.total_gan !== null) ? sum_total_gan - comp_sum.total_gan : null, true)}
+                        </td>
+                        <td ${footerCellStyle('#e2e8f0', 'color:#0f172a;')}>
+                            ${sum_total_g.toLocaleString('vi-VN')}
+                            ${formatDiff(comp_sum ? sum_total_g - comp_sum.total_g : null)}
+                        </td>
+                        <td ${footerCellStyle('#e2e8f0')}>
+                            ${pctBadge(sum_total_p)}
+                            ${formatDiff((sum_total_p !== null && comp_sum && comp_sum.total_p !== null) ? sum_total_p - comp_sum.total_p : null, true)}
+                        </td>
+                    </tr>`;
+                }
             }
 
             tbody.innerHTML = html;
         }
 
-        window.filterCaTable = function() { renderCaTable(); }
+        window.filterCaTable = function() { renderCaTable(); };
 
         window.sortCaTable = function(key) {
             const actualKey = (key === 'bc') ? 'name' : key;
@@ -13766,10 +13986,10 @@
                 caReportSortAsc = !caReportSortAsc;
             } else {
                 caReportSortKey = actualKey;
-                caReportSortAsc = actualKey === 'name';
+                caReportSortAsc = (actualKey === 'name');
             }
             renderCaTable();
-        }
+        };
 
         // Hook: auto-load CA report when tab is opened
         const _switchTabOrig = window.switchTab;
