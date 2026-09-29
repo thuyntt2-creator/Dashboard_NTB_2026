@@ -72,13 +72,25 @@ prev_end = datetime.fromisocalendar(2026, prev_num, 7)
 prev_label = f"Tuần {prev_week} ({prev_start.strftime('%d/%m')} - {prev_end.strftime('%d/%m')})"
 curr_label = f"Tuần {latest_week} ({curr_start.strftime('%d/%m')} - {curr_end.strftime('%d/%m')})"
 
-w_prev = tt[(tt['date'] >= prev_start) & (tt['date'] <= prev_end)].copy()
+if os.path.exists('sheet_truythu_w38.csv'):
+    print("📂 Loading full W38 data from sheet_truythu_w38.csv...")
+    tt_w38 = pd.read_csv('sheet_truythu_w38.csv', low_memory=False)
+    tt_w38['date'] = tt_w38['Ngày kết luận truy thu'].apply(parse_ghn_date)
+    tt_w38['ban_dau'] = tt_w38['Số tiền ban đầu'].apply(parse_vn)
+    tt_w38['dieu_chinh'] = tt_w38['Điều chỉnh (+|-)'].apply(parse_vn)
+    tt_w38['da_thu'] = tt_w38['Đã truy thu'].apply(parse_vn)
+    tt_w38['can_thu'] = tt_w38['Cần truy thu thêm'].apply(parse_vn)
+    w_prev = tt_w38[(tt_w38['date'] >= prev_start) & (tt_w38['date'] <= prev_end)].copy()
+else:
+    w_prev = tt[(tt['date'] >= prev_start) & (tt['date'] <= prev_end)].copy()
+
 w_curr = tt[(tt['date'] >= curr_start) & (tt['date'] <= curr_end)].copy()
 
-print(f"Comparing {prev_label} ({len(w_prev)} records) vs {curr_label} ({len(w_curr)} records)")
+print(f"Comparing {prev_label} ({len(w_prev):,} records) vs {curr_label} ({len(w_curr):,} records)")
 
-# AM and Province Mapping
-am_rows = tt[tt['Chức vụ'].astype(str).str.contains('Area Manager', na=False)].copy()
+# Combine for AM and Province Mapping
+tt_all = pd.concat([tt, w_prev], ignore_index=True)
+am_rows = tt_all[tt_all['Chức vụ'].astype(str).str.contains('Area Manager', na=False)].copy()
 am_rows['ten_am'] = am_rows['Nhân viên'].astype(str).apply(lambda x: x.split('-', 1)[1].strip() if '-' in x else x)
 bc_am_map = {}
 for bc, group in am_rows.groupby('Nơi vi phạm'):
@@ -298,11 +310,14 @@ for _, r in bc_cmp.head(30).iterrows():
         "pct_can_thu_diff": f"{round((diff_ct_val / ct_p_val * 100), 1):+0.1f}%" if ct_p_val > 0 else ("+100%" if ct_c_val > 0 else "0%")
     })
 
+ct_trend = f"tăng +{diff_ct/1e6:,.1f} Tr ₫" if diff_ct >= 0 else f"giảm {abs(diff_ct)/1e6:,.1f} Tr ₫"
+bd_trend = f"tăng {diff_bd_pct:+0.1f}%" if diff_bd >= 0 else f"giảm {abs(diff_bd_pct):0.1f}%"
+
 banner_desc = (
     f"• <strong>Tổng quan so sánh 2 tuần:</strong> {latest_week} phát sinh <strong>{rec_c:,} bản ghi</strong> "
     f"(tăng {diff_rec:+,} đơn, {diff_rec_pct:+0.1f}%) với số tiền ban đầu <strong>{bd_c/1e6:,.1f} Tr ₫</strong> "
-    f"({diff_bd_pct:+0.1f}%). Cần truy thu thêm <strong>{ct_c/1e6:,.1f} Tr ₫</strong> "
-    f"(tăng {diff_ct/1e6:+,.1f} Tr ₫ so với {ct_p/1e6:,.1f} Tr ₫ {prev_week}).<br>"
+    f"({bd_trend}). Cần truy thu thêm <strong>{ct_c/1e6:,.1f} Tr ₫</strong> "
+    f"({ct_trend} so với {ct_p/1e6:,.1f} Tr ₫ {prev_week}).<br>"
     f"• <strong>Các loại truy thu trọng điểm:</strong> {top_loai_desc}.<br>"
     f"• <strong>Top AM có số tiền truy thu lớn nhất:</strong> {top_am_desc}."
 )

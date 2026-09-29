@@ -6246,9 +6246,9 @@
       if (elBdTitle) elBdTitle.textContent = `Tổng Tiền Ban Đầu (${currShort})`;
       if (elBd) elBd.innerHTML = `${(summary.ban_dau_curr / 1e6).toFixed(1)} <small>Tr ₫</small>`;
       if (elBdMeta) {
-        const sign = summary.diff_ban_dau >= 0 ? '+' : '';
         const isBad = summary.diff_ban_dau > 0;
-        elBdMeta.innerHTML = `<span class="diff-tag ${isBad ? 'diff-up-bad' : 'diff-neutral'}">${prevShort}: ${(summary.ban_dau_prev / 1e6).toFixed(1)} Tr (${sign}${(summary.diff_ban_dau / 1e6).toFixed(1)} Tr | ${summary.diff_ban_dau_pct})</span>`;
+        const trend = isBad ? `▲ Tăng +${(summary.diff_ban_dau / 1e6).toFixed(1)} Tr` : `▼ Giảm ${(Math.abs(summary.diff_ban_dau) / 1e6).toFixed(1)} Tr`;
+        elBdMeta.innerHTML = `<span class="diff-tag ${isBad ? 'diff-up-bad' : 'diff-down-good'}">${prevShort}: ${(summary.ban_dau_prev / 1e6).toFixed(1)} Tr (${trend} | ${summary.diff_ban_dau_pct})</span>`;
       }
 
       const elDc = document.getElementById('truythu-kpi-dieuchinh');
@@ -6257,8 +6257,7 @@
       if (elDcTitle) elDcTitle.textContent = `Tổng Điều Chỉnh (${currShort})`;
       if (elDc) elDc.innerHTML = `${(summary.dieu_chinh_curr / 1e6).toFixed(1)} <small>Tr ₫</small>`;
       if (elDcMeta) {
-        const sign = summary.diff_dieu_chinh >= 0 ? '+' : '';
-        elDcMeta.innerHTML = `<span class="diff-tag diff-down-good">${prevShort}: ${(summary.dieu_chinh_prev / 1e6).toFixed(1)} Tr (${sign}${(summary.diff_dieu_chinh / 1e6).toFixed(1)} Tr)</span>`;
+        elDcMeta.innerHTML = `<span class="diff-tag diff-neutral">${prevShort}: ${(summary.dieu_chinh_prev / 1e6).toFixed(1)} Tr (Chưa có đợt giảm trừ ${currShort})</span>`;
       }
 
       const elCt = document.getElementById('truythu-kpi-canthu');
@@ -6267,9 +6266,9 @@
       if (elCtTitle) elCtTitle.textContent = `Cần Truy Thu Thêm (${currShort})`;
       if (elCt) elCt.innerHTML = `${(summary.can_thu_curr / 1e6).toFixed(1)} <small>Tr ₫</small>`;
       if (elCtMeta) {
-        const sign = summary.diff_can_thu >= 0 ? '+' : '';
         const isBad = summary.diff_can_thu > 0;
-        elCtMeta.innerHTML = `<span class="diff-tag ${isBad ? 'diff-up-bad' : 'diff-down-good'}">▲ Tăng ${sign}${(summary.diff_can_thu / 1e6).toFixed(1)} Tr (${summary.diff_can_thu_pct} so với ${prevShort})</span>`;
+        const trend = isBad ? `▲ Tăng +${(summary.diff_can_thu / 1e6).toFixed(1)} Tr` : `▼ Giảm ${(Math.abs(summary.diff_can_thu) / 1e6).toFixed(1)} Tr`;
+        elCtMeta.innerHTML = `<span class="diff-tag ${isBad ? 'diff-up-bad' : 'diff-down-good'}">${trend} (${summary.diff_can_thu_pct} so với ${prevShort})</span>`;
       }
     }
 
