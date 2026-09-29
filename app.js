@@ -375,6 +375,10 @@
     const thGtcCa1Curr = document.querySelector('#table-gtc-tts-ca1-detailed thead th:nth-child(5)');
     if (thGtcCa1Prev) thGtcCa1Prev.textContent = `%GTC TTS Ca 1 (${prevW})`;
     if (thGtcCa1Curr) thGtcCa1Curr.textContent = `%GTC TTS Ca 1 (${currW})`;
+    const badgeGtcCa1 = document.querySelector('#tab-gtc-tts-ca1 .exec-banner-actions .badge-tag');
+    if (badgeGtcCa1) {
+      badgeGtcCa1.textContent = `Target ≥ 76.0% (${currW}: 75.10%)`;
+    }
 
     // 7. Tab 5: % Gán
     const thGanPrev = document.querySelector('#table-gan-full-detailed thead th:nth-child(6)');

@@ -9455,8 +9455,8 @@
       "avg_cost_per_trip_formatted": "989.011 đ/chuyến",
       "ncc_count": 7,
       "ktc_count": 7,
-      "total_trucks": 67,
-      "last_updated": "10:05 - 29/09/2026"
+      "total_trucks": 66,
+      "last_updated": "10:40 - 29/09/2026"
     },
     "surge_fixed": {
       "fixed_cost": 2801.87,
@@ -9491,7 +9491,7 @@
         "fixed_cost": 716.0,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 23
       },
       {
@@ -9504,8 +9504,8 @@
         "fixed_cost": 625.45,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, NAK",
-        "truck_count": 12
+        "primary_ncc": "NAK, Mạnh Cường",
+        "truck_count": 11
       },
       {
         "ktc": "KTC Bảo Lộc",
@@ -9543,7 +9543,7 @@
         "fixed_cost": 95.79,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 16
       },
       {
@@ -9572,7 +9572,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 39,
-        "active_ktcs": "KTC Nam Nha Trang, KTC Đức Trọng, KTC Bình Thuận, KTC Khánh Hòa, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Nam Nha Trang, KTC Đức Trọng, KTC Bình Thuận, KTC Bắc Nha Trang, KTC Khánh Hòa"
       },
       {
         "ncc": "NAK",
@@ -9584,7 +9584,7 @@
         "fixed_cost": 677.57,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "truck_count": 12,
+        "truck_count": 11,
         "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
       },
       {
@@ -9611,7 +9611,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 10,
-        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
       },
       {
         "ncc": "Lâm Ngọc Thành",
@@ -20083,7 +20083,7 @@
         "ncc": "NAK",
         "date": "08/09/2026",
         "date_iso": "2026-09-08",
-        "truck": "61H12544",
+        "truck": "61H-12544",
         "capacity": "1900",
         "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Đơn Dương -> (LDO) ĐG D'Ran -> (LDO) Đơn Dương -> (LDO) Nam Ban Lâm Hà -> (LDO) Tân Hà Lâm Hà -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
