@@ -3730,6 +3730,17 @@
     let y1Title = 'Biến Động (Δ % p.p)';
     const hasFilter = hlMode !== 'all' || selectedAM;
 
+    let allYVals = [];
+    if (seg === 'full') {
+      allYVals = displayList.flatMap(d => [d.full_w34, d.full_w35]);
+    } else if (seg === 'tts') {
+      allYVals = displayList.flatMap(d => [d.tts_w34, d.tts_w35]);
+    } else {
+      allYVals = displayList.flatMap(d => [d.full_w35, d.tts_w35]);
+    }
+    const minRaw = Math.min(...allYVals.filter(v => typeof v === 'number' && !isNaN(v)));
+    const yMin = Math.max(0, Math.min(30, Math.floor((minRaw - 5) / 10) * 10));
+
     if (seg === 'full') {
       displayList.sort((a, b) => b.full_diff - a.full_diff);
       datasets = [
@@ -3740,7 +3751,7 @@
           backgroundColor: displayList.map(d => {
             const isM = checkOdrMatch(d);
             if (!hasFilter) return '#94a3b8';
-            return isM ? '#64748b' : 'rgba(203, 213, 225, 0.2)';
+            return isM ? '#64748b' : 'rgba(203, 213, 225, 0.45)';
           }),
           borderRadius: 4,
           yAxisID: 'y',
@@ -3753,11 +3764,10 @@
           backgroundColor: displayList.map(d => {
             const isM = checkOdrMatch(d);
             if (!hasFilter) return d.full_w35 >= 92.0 ? '#10b981' : '#ef4444';
-            if (!isM) return 'rgba(148, 163, 184, 0.15)';
-            if (hlMode === 'pass') return '#10b981';
-            if (hlMode === 'fail') return '#ef4444';
-            if (hlMode === 'grow') return '#0284c7';
-            return '#ef4444';
+            if (hlMode === 'pass') return isM ? '#10b981' : 'rgba(148, 163, 184, 0.4)';
+            if (hlMode === 'fail') return isM ? '#ef4444' : 'rgba(16, 185, 129, 0.45)';
+            if (hlMode === 'grow') return isM ? '#0284c7' : 'rgba(148, 163, 184, 0.4)';
+            return isM ? (d.full_w35 >= 92 ? '#10b981' : '#ef4444') : 'rgba(148, 163, 184, 0.4)';
           }),
           borderColor: displayList.map(d => checkOdrMatch(d) && hasFilter ? (d.full_w35 >= 92 ? '#059669' : '#b91c1c') : 'transparent'),
           borderWidth: displayList.map(d => checkOdrMatch(d) && hasFilter ? 2 : 0),
@@ -3791,7 +3801,7 @@
           backgroundColor: displayList.map(d => {
             const isM = checkOdrMatch(d);
             if (!hasFilter) return '#cbd5e1';
-            return isM ? '#94a3b8' : 'rgba(203, 213, 225, 0.2)';
+            return isM ? '#94a3b8' : 'rgba(203, 213, 225, 0.45)';
           }),
           borderRadius: 4,
           yAxisID: 'y',
@@ -3803,12 +3813,11 @@
           data: displayList.map(d => d.tts_w35),
           backgroundColor: displayList.map(d => {
             const isM = checkOdrMatch(d);
-            if (!hasFilter) return d.tts_w35 >= 92.0 ? '#10b981' : '#f97316';
-            if (!isM) return 'rgba(148, 163, 184, 0.15)';
-            if (hlMode === 'pass') return '#10b981';
-            if (hlMode === 'fail') return '#ef4444';
-            if (hlMode === 'grow') return '#0284c7';
-            return '#ef4444';
+            if (!hasFilter) return d.tts_w35 >= 92.0 ? '#10b981' : '#ef4444';
+            if (hlMode === 'pass') return isM ? '#10b981' : 'rgba(148, 163, 184, 0.4)';
+            if (hlMode === 'fail') return isM ? '#ef4444' : 'rgba(16, 185, 129, 0.45)';
+            if (hlMode === 'grow') return isM ? '#0284c7' : 'rgba(148, 163, 184, 0.4)';
+            return isM ? (d.tts_w35 >= 92 ? '#10b981' : '#ef4444') : 'rgba(148, 163, 184, 0.4)';
           }),
           borderColor: displayList.map(d => checkOdrMatch(d) && hasFilter ? (d.tts_w35 >= 92 ? '#059669' : '#b91c1c') : 'transparent'),
           borderWidth: displayList.map(d => checkOdrMatch(d) && hasFilter ? 2 : 0),
@@ -3843,7 +3852,7 @@
           backgroundColor: displayList.map(d => {
             const isM = checkOdrMatch(d);
             if (!hasFilter) return '#2563eb';
-            return isM ? '#2563eb' : 'rgba(37, 99, 235, 0.18)';
+            return isM ? '#2563eb' : 'rgba(37, 99, 235, 0.3)';
           }),
           borderRadius: 4,
           yAxisID: 'y',
@@ -3856,7 +3865,7 @@
           backgroundColor: displayList.map(d => {
             const isM = checkOdrMatch(d);
             if (!hasFilter) return '#f97316';
-            return isM ? '#f97316' : 'rgba(249, 115, 22, 0.18)';
+            return isM ? '#f97316' : 'rgba(249, 115, 22, 0.3)';
           }),
           borderRadius: 4,
           yAxisID: 'y',
@@ -3893,7 +3902,7 @@
         scales: {
           y: {
             position: 'left',
-            min: 50,
+            min: yMin,
             max: 100,
             ticks: { callback: v => v + '%' },
             title: { display: true, text: '%ODR Giao Đúng Hẹn', font: { weight: '700', size: 11 } },
@@ -4213,24 +4222,37 @@
       return '<span class="badge-tag badge-tag-red">🔴 Chưa Đạt KPI (<80%)</span>';
     }
 
-    // Tính % OPR TTS tổng toàn vùng (weighted) cho W38 vs W37
+    const currKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1].toLowerCase() : 'w39';
+    const prevKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2].toLowerCase() : 'w38';
+    const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W39';
+    const prevLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2] : 'W38';
+
+    const getDayVal = r => r[`${currKey}_day`] !== undefined ? r[`${currKey}_day`] : (r.w_curr_day !== undefined ? r.w_curr_day : (r.w39_day !== undefined ? r.w39_day : r.w38_day));
+    const getNightVal = r => r[`${currKey}_night`] !== undefined ? r[`${currKey}_night`] : (r.w_curr_night !== undefined ? r.w_curr_night : (r.w39_night !== undefined ? r.w39_night : r.w38_night));
+    const getTotalVal = r => r[`${currKey}_total`] !== undefined ? r[`${currKey}_total`] : (r.w_curr_total !== undefined ? r.w_curr_total : (r.w39_total !== undefined ? r.w39_total : r.w38_total));
+
+    const getPrevDayVal = r => r[`${prevKey}_day`] !== undefined ? r[`${prevKey}_day`] : (r.w_prev_day !== undefined ? r.w_prev_day : (r.w38_day !== undefined ? r.w38_day : r.w37_day));
+    const getPrevNightVal = r => r[`${prevKey}_night`] !== undefined ? r[`${prevKey}_night`] : (r.w_prev_night !== undefined ? r.w_prev_night : (r.w38_night !== undefined ? r.w38_night : r.w37_night));
+    const getPrevTotalVal = r => r[`${prevKey}_total`] !== undefined ? r[`${prevKey}_total`] : (r.w_prev_total !== undefined ? r.w_prev_total : (r.w38_total !== undefined ? r.w38_total : r.w37_total));
+
+    // Tính % OPR TTS tổng toàn vùng (weighted) cho W39 vs W38
     const _ams = D.opr_tts.am;
     const _totalVol = _ams.reduce((s, r) => s + (r.vol_day||0) + (r.vol_night||0), 0);
     const _volDay = _ams.reduce((s, r) => s + (r.vol_day || 0), 0);
     const _volNight = _ams.reduce((s, r) => s + (r.vol_night || 0), 0);
-    const _vungCurrDay = _volDay > 0 ? _ams.reduce((s, r) => s + (r.vol_day || 0) * (r.w38_day !== undefined ? r.w38_day : (r.w37_day || 0)), 0) / _volDay : 0;
-    const _vungCurrNight = _volNight > 0 ? _ams.reduce((s, r) => s + (r.vol_night || 0) * (r.w38_night !== undefined ? r.w38_night : (r.w37_night || 0)), 0) / _volNight : 0;
+    const _vungCurrDay = _volDay > 0 ? _ams.reduce((s, r) => s + (r.vol_day || 0) * (getDayVal(r) || 0), 0) / _volDay : 0;
+    const _vungCurrNight = _volNight > 0 ? _ams.reduce((s, r) => s + (r.vol_night || 0) * (getNightVal(r) || 0), 0) / _volNight : 0;
     const _wtdCurr = _ams.reduce((s, r) => {
       const vol = (r.vol_day||0) + (r.vol_night||0);
-      const curD = r.w38_day !== undefined ? r.w38_day : (r.w37_day || 0);
-      const curN = r.w38_night !== undefined ? r.w38_night : (r.w37_night || 0);
+      const curD = getDayVal(r) || 0;
+      const curN = getNightVal(r) || 0;
       const o = vol > 0 ? ((r.vol_day||0)*curD + (r.vol_night||0)*curN) / vol : 0;
       return s + vol * o;
     }, 0);
     const _wtdPrev = _ams.reduce((s, r) => {
       const vol = (r.vol_day||0) + (r.vol_night||0);
-      const prvD = r.w37_day !== undefined ? r.w37_day : (r.w36_day || 0);
-      const prvN = r.w37_night !== undefined ? r.w37_night : (r.w36_night || 0);
+      const prvD = getPrevDayVal(r) || 0;
+      const prvN = getPrevNightVal(r) || 0;
       const o = vol > 0 ? ((r.vol_day||0)*prvD + (r.vol_night||0)*prvN) / vol : 0;
       return s + vol * o;
     }, 0);
@@ -4246,18 +4268,18 @@
         ? '<span class="badge-tag badge-tag-green" style="font-size:13px; font-weight:800; padding:6px 14px;">✅ Đạt KPI (≥80%)</span>'
         : '<span class="badge-tag badge-tag-red" style="font-size:13px; font-weight:800; padding:6px 14px;">❌ Chưa Đạt KPI (<80%)</span>';
       _vungEl.innerHTML = `
-        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; padding:14px 20px; background:linear-gradient(135deg, rgba(16,185,129,0.06), rgba(37,99,235,0.06)); border:1.5px solid rgba(16,185,129,0.25); border-radius:12px; margin-bottom:16px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; padding:14px 20px; background:${_kpiOk ? 'linear-gradient(135deg, rgba(16,185,129,0.06), rgba(37,99,235,0.06))' : 'linear-gradient(135deg, rgba(239,68,68,0.05), rgba(245,158,11,0.05))'}; border:1.5px solid ${_kpiOk ? 'rgba(16,185,129,0.25)' : 'rgba(239,68,68,0.3)'}; border-radius:12px; margin-bottom:16px;">
           <div style="display:flex; align-items:center; gap:16px;">
             <div style="font-size:32px; font-weight:900; color:${_kpiOk ? '#10b981' : '#ef4444'}; font-family:var(--font-mono, monospace); line-height:1;">
               ${(_vungCurr*100).toFixed(1)}%
             </div>
             <div>
               <div style="font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-main, #1e293b);">
-                OPR TTS Toàn Vùng W38 (Tổng Ngày + Đêm)
+                OPR TTS Toàn Vùng ${currLabel} (Tổng Ngày + Đêm)
               </div>
               <div style="font-size:12px; font-weight:700; color:${diffColor}; margin-top:2px;">
-                ${diffTxt} (W37: ${(_vungPrev*100).toFixed(1)}%) &nbsp;•&nbsp; 
-                <span style="color:#10b981; font-weight:800;">🏆 Đã vượt chuẩn KPI ≥ 80.0%</span>
+                ${diffTxt} (${prevLabel}: ${(_vungPrev*100).toFixed(1)}%) &nbsp;•&nbsp; 
+                ${_kpiOk ? '<span style="color:#10b981; font-weight:800;">🏆 Đã vượt chuẩn KPI ≥ 80.0%</span>' : '<span style="color:#ef4444; font-weight:800;">⚠️ Chưa đạt KPI (&lt; 80.0%) do Ca Đêm giảm sút</span>'}
               </div>
             </div>
           </div>
@@ -4275,30 +4297,30 @@
     // Render danh sách AM chưa đạt KPI OPR TTS (< 80.0%)
     const _failedContainer = document.getElementById('opr-failed-ams-container');
     if (_failedContainer) {
-      // Tính tổng đơn trễ OPR toàn vùng W38
+      // Tính tổng đơn trễ OPR toàn vùng
       const totalFailRegion = _ams.reduce((s, r) => {
         const vTot = r.vol_total || r.total_vol || ((r.vol_day || 0) + (r.vol_night || 0));
-        const oTot = (r.vol_day === 0 && r.vol_night === 0) ? 0 : (r.w38_total !== undefined ? r.w38_total : (r.w37_total || 0));
+        const oTot = (r.vol_day === 0 && r.vol_night === 0) ? 0 : (getTotalVal(r) || 0);
         return s + (vTot > 0 ? Math.round(vTot * (1 - (oTot > 1 ? 0 : oTot))) : 0);
       }, 0);
 
       // Sắp xếp các AM chưa đạt tổng (< 80%) và có đơn (> 0) theo số lượng đơn rớt OPR giảm dần
       const failedTotal = _ams.filter(r => {
         const vTot = r.vol_total || r.total_vol || ((r.vol_day || 0) + (r.vol_night || 0));
-        const oTot = r.w38_total !== undefined ? r.w38_total : (r.w37_total || 0);
+        const oTot = getTotalVal(r) || 0;
         return vTot > 0 && oTot < 0.80;
       }).map(r => {
         const vTot = r.vol_total || r.total_vol || ((r.vol_day || 0) + (r.vol_night || 0));
-        const oTot = r.w38_total !== undefined ? r.w38_total : (r.w37_total || 0);
+        const oTot = getTotalVal(r) || 0;
         const failTot = vTot > 0 ? Math.round(vTot * (1 - (oTot > 1 ? 0 : oTot))) : 0;
         const rateFail = totalFailRegion > 0 ? (failTot / totalFailRegion) : 0;
-        return { ...r, fail_total: failTot, rate_fail: rateFail };
+        return { ...r, fail_total: failTot, rate_fail: rateFail, curr_total: oTot };
       }).sort((a, b) => b.fail_total - a.fail_total);
 
-      const failedDay = _ams.filter(r => (r.vol_day || 0) > 0 && (r.w38_day !== undefined ? r.w38_day : (r.w37_day || 0)) < 0.80)
-                            .sort((a, b) => (a.w38_day || a.w37_day || 0) - (b.w38_day || b.w37_day || 0));
-      const failedNight = _ams.filter(r => (r.vol_night || 0) > 0 && (r.w38_night !== undefined ? r.w38_night : (r.w37_night || 0)) < 0.80)
-                              .sort((a, b) => (a.w38_night || a.w37_night || 0) - (b.w38_night || b.w37_night || 0));
+      const failedDay = _ams.filter(r => (r.vol_day || 0) > 0 && (getDayVal(r) || 0) < 0.80)
+                            .sort((a, b) => (getDayVal(a) || 0) - (getDayVal(b) || 0));
+      const failedNight = _ams.filter(r => (r.vol_night || 0) > 0 && (getNightVal(r) || 0) < 0.80)
+                              .sort((a, b) => (getNightVal(a) || 0) - (getNightVal(b) || 0));
 
       _failedContainer.innerHTML = `
         <div style="background:var(--bg-surface, #ffffff); border:1.5px solid rgba(239, 68, 68, 0.35); border-left:5px solid #ef4444; border-radius:12px; padding:16px 20px; box-shadow:0 3px 12px rgba(239,68,68,0.06); margin-bottom:16px;">
@@ -4313,26 +4335,26 @@
             </div>
             <div style="display:flex; gap:8px; flex-wrap:wrap;">
               <span class="badge-tag badge-tag-red" style="font-size:12px; font-weight:800; padding:6px 12px;">
-                🔴 Toàn Ngày: <strong>${failedTotal.length}/16 AM</strong>
+                🔴 Toàn Ngày: <strong>${failedTotal.length}/${_ams.length} AM</strong>
               </span>
               <span class="badge-tag badge-tag-amber" style="font-size:12px; font-weight:800; padding:6px 12px;">
-                ☀️ Ca Ngày: <strong>${failedDay.length}/16 AM</strong>
+                ☀️ Ca Ngày: <strong>${failedDay.length}/${_ams.length} AM</strong>
               </span>
               <span class="badge-tag badge-tag-purple" style="font-size:12px; font-weight:800; padding:6px 12px;">
-                🌙 Ca Đêm: <strong>${failedNight.length}/16 AM</strong>
+                🌙 Ca Đêm: <strong>${failedNight.length}/${_ams.length} AM</strong>
               </span>
             </div>
           </div>
 
           <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(285px, 1fr)); gap:12px;">
             ${failedTotal.map(r => {
-              const val = (((r.w38_total !== undefined ? r.w38_total : r.w37_total) || 0) * 100);
+              const val = ((r.curr_total || 0) * 100);
               const gap = (80 - val).toFixed(1);
-              const rawDay = (r.vol_day === 0) ? 0 : (r.w38_day !== undefined ? r.w38_day : (r.w37_day || 0));
+              const rawDay = (r.vol_day === 0) ? 0 : (getDayVal(r) || 0);
               const dayVal = (rawDay * 100).toFixed(1);
-              const rawNight = (r.vol_night === 0) ? 0 : (r.w38_night !== undefined ? r.w38_night : (r.w37_night || 0));
+              const rawNight = (r.vol_night === 0) ? 0 : (getNightVal(r) || 0);
               const nightVal = (rawNight * 100).toFixed(1);
-              const diffTot = r.diff_total !== undefined ? (r.diff_total * 100) : 0;
+              const diffTot = r.diff_total !== undefined ? (r.diff_total * 100) : (val - ((getPrevTotalVal(r) || 0) * 100));
               const diffBadge = diffTot !== 0 ? `<span style="font-size:11px; font-weight:800; color:${diffTot > 0 ? '#10b981' : '#ef4444'};">${diffTot > 0 ? '▲ +' : '▼ '}${Math.abs(diffTot).toFixed(1)}%p</span>` : '';
               const isSelected = state.selectedAM === r.am;
 
@@ -4375,8 +4397,8 @@
     const tblBodyDay = document.querySelector('#table-opr-day-detailed tbody');
     if (tblBodyDay) {
       let listDay = [...D.opr_tts.am].map(r => {
-        const curr = r.w38_day !== undefined ? r.w38_day : (r.w37_day || 0);
-        const prev = r.w37_day !== undefined ? r.w37_day : (r.w36_day || 0);
+        const curr = getDayVal(r);
+        const prev = getPrevDayVal(r);
         return {
           ...r,
           curr_val: curr,
@@ -4410,8 +4432,8 @@
     const tblBodyNight = document.querySelector('#table-opr-night-detailed tbody');
     if (tblBodyNight) {
       let listNight = [...D.opr_tts.am].map(r => {
-        const curr = r.w38_night !== undefined ? r.w38_night : (r.w37_night || 0);
-        const prev = r.w37_night !== undefined ? r.w37_night : (r.w36_night || 0);
+        const curr = getNightVal(r);
+        const prev = getPrevNightVal(r);
         return {
           ...r,
           curr_val: curr,
@@ -4451,25 +4473,25 @@
 
       const totalFailRegion = D.opr_tts.am.reduce((s, r) => {
         const vTot = r.vol_total || r.total_vol || ((r.vol_day || 0) + (r.vol_night || 0));
-        const oTot = (r.vol_day === 0 && r.vol_night === 0) ? 0 : (r.w38_total !== undefined ? r.w38_total : (r.w37_total || 0));
+        const oTot = (r.vol_day === 0 && r.vol_night === 0) ? 0 : (getTotalVal(r) || 0);
         return s + (vTot > 0 ? Math.round(vTot * (1 - (oTot > 1 ? 0 : oTot))) : 0);
       }, 0);
 
       const sorted = list.map(row => {
         const vTot = row.vol_total || row.total_vol || ((row.vol_day || 0) + (row.vol_night || 0));
-        const oTot = (row.vol_day === 0 && row.vol_night === 0) ? 0 : (row.w38_total !== undefined ? row.w38_total : (row.w37_total || 0));
+        const oTot = (row.vol_day === 0 && row.vol_night === 0) ? 0 : (getTotalVal(row) || 0);
         const failTot = vTot > 0 ? Math.round(vTot * (1 - (oTot > 1 ? 0 : oTot))) : 0;
         const rateFail = totalFailRegion > 0 ? (failTot / totalFailRegion) : 0;
-        return { ...row, fail_total: failTot, rate_fail: rateFail, total_calc_vol: vTot };
+        return { ...row, fail_total: failTot, rate_fail: rateFail, total_calc_vol: vTot, curr_tot: oTot };
       }).sort((a, b) => b.fail_total - a.fail_total || (b.diff_night || 0) - (a.diff_night || 0));
 
       tblBody.innerHTML = sorted.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
         const rowClass = isSelected ? 'presenter-laser-box' : '';
-        const rawDay = (row.vol_day === 0 || (row.w38_day || 0) > 1) ? 0 : (row.w38_day !== undefined ? row.w38_day : row.w37_day);
-        const prevDay = row.w37_day !== undefined ? row.w37_day : row.w36_day;
-        const rawNight = (row.vol_night === 0 || (row.w38_night || 0) > 1) ? 0 : (row.w38_night !== undefined ? row.w38_night : row.w37_night);
-        const prevNight = row.w37_night !== undefined ? row.w37_night : row.w36_night;
+        const rawDay = (row.vol_day === 0 || (getDayVal(row) || 0) > 1) ? 0 : getDayVal(row);
+        const prevDay = getPrevDayVal(row);
+        const rawNight = (row.vol_night === 0 || (getNightVal(row) || 0) > 1) ? 0 : getNightVal(row);
+        const prevNight = getPrevNightVal(row);
         const heatDay = getHeatmapClass(rawDay, 'opr');
         const heatNight = getHeatmapClass(rawNight, 'opr');
         const diffDay = renderDeltaBadge(row.diff_day, true, true);
@@ -4501,16 +4523,25 @@
     if (!ctx || !D.opr_tts || !D.opr_tts.am) return;
     if (charts.oprGrouped) charts.oprGrouped.destroy();
 
-    const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W38';
+    const currKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1].toLowerCase() : 'w39';
+    const prevKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2].toLowerCase() : 'w38';
+    const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W39';
+    const prevLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2] : 'W38';
+
+    const getDayVal = r => r[`${currKey}_day`] !== undefined ? r[`${currKey}_day`] : (r.w_curr_day !== undefined ? r.w_curr_day : (r.w39_day !== undefined ? r.w39_day : r.w38_day));
+    const getNightVal = r => r[`${currKey}_night`] !== undefined ? r[`${currKey}_night`] : (r.w_curr_night !== undefined ? r.w_curr_night : (r.w39_night !== undefined ? r.w39_night : r.w38_night));
+    const getTotalVal = r => r[`${currKey}_total`] !== undefined ? r[`${currKey}_total`] : (r.w_curr_total !== undefined ? r.w_curr_total : (r.w39_total !== undefined ? r.w39_total : r.w38_total));
+    const getPrevTotalVal = r => r[`${prevKey}_total`] !== undefined ? r[`${prevKey}_total`] : (r.w_prev_total !== undefined ? r.w_prev_total : (r.w38_total !== undefined ? r.w38_total : r.w37_total));
+
     const selectedAM = state.selectedAM;
     // Sắp xếp cải thiện tốt nhất giảm dần (diff_total descending)
     const ams = [...D.opr_tts.am].sort((a, b) => {
-      const diffA = a.diff_total !== undefined ? a.diff_total : ((a.w38_total || 0) - (a.w37_total || 0));
-      const diffB = b.diff_total !== undefined ? b.diff_total : ((b.w38_total || 0) - (b.w37_total || 0));
+      const diffA = a.diff_total !== undefined ? a.diff_total : ((getTotalVal(a) || 0) - (getPrevTotalVal(a) || 0));
+      const diffB = b.diff_total !== undefined ? b.diff_total : ((getTotalVal(b) || 0) - (getPrevTotalVal(b) || 0));
       return diffB - diffA;
     });
 
-    const diffVals = ams.map(d => Number(((d.diff_total !== undefined ? d.diff_total : ((d.w38_total || 0) - (d.w37_total || 0))) * 100).toFixed(1)));
+    const diffVals = ams.map(d => Number(((d.diff_total !== undefined ? d.diff_total : ((getTotalVal(d) || 0) - (getPrevTotalVal(d) || 0))) * 100).toFixed(1)));
     const minD = Math.min(...diffVals, 0);
     const maxD = Math.max(...diffVals, 0);
 
@@ -4542,7 +4573,7 @@
             label: `%OPR 9h–19h ${currLabel} (Ca Ngày)`,
             data: ams.map(d => {
               if (!d.vol_day || d.vol_day === 0) return 0;
-              const val = d.w38_day !== undefined ? d.w38_day : (d.w37_day || 0);
+              const val = getDayVal(d) || 0;
               return Number(((val > 1 ? 0 : val) * 100).toFixed(1));
             }),
             backgroundColor: ams.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#2563eb'),
@@ -4565,7 +4596,7 @@
             label: `%OPR 19h–9h ${currLabel} (Ca Đêm)`,
             data: ams.map(d => {
               if (!d.vol_night || d.vol_night === 0) return 0;
-              const val = d.w38_night !== undefined ? d.w38_night : (d.w37_night || 0);
+              const val = getNightVal(d) || 0;
               return Number(((val > 1 ? 0 : val) * 100).toFixed(1));
             }),
             backgroundColor: ams.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#ea580c'),
@@ -4588,20 +4619,20 @@
             label: `%OPR Tất cả ${currLabel} (Toàn Ngày)`,
             data: ams.map(d => {
               if ((!d.vol_day || d.vol_day === 0) && (!d.vol_night || d.vol_night === 0)) return 0;
-              const val = d.w38_total !== undefined ? d.w38_total : (d.w37_total || 0);
+              const val = getTotalVal(d) || 0;
               return Number(((val > 1 ? 0 : val) * 100).toFixed(1));
             }),
             borderColor: '#15803d',
             borderWidth: 3.5,
             tension: 0.25,
             pointBackgroundColor: ams.map(d => {
-              const val = ((d.w38_total !== undefined ? d.w38_total : (d.w37_total || 0)) * 100);
+              const val = ((getTotalVal(d) || 0) * 100);
               return val < 80 ? '#dc2626' : '#16a34a';
             }),
             pointBorderColor: '#ffffff',
             pointBorderWidth: 2,
             pointRadius: ams.map(d => {
-              const val = ((d.w38_total !== undefined ? d.w38_total : (d.w37_total || 0)) * 100);
+              const val = ((getTotalVal(d) || 0) * 100);
               return val < 80 ? 6.5 : 4.5;
             }),
             pointHoverRadius: 9,
@@ -4612,15 +4643,15 @@
               align: 'bottom',
               offset: 4,
               color: ams.map(d => {
-                const val = ((d.w38_total !== undefined ? d.w38_total : (d.w37_total || 0)) * 100);
+                const val = ((getTotalVal(d) || 0) * 100);
                 return val < 80 ? '#b91c1c' : '#166534';
               }),
               backgroundColor: ams.map(d => {
-                const val = ((d.w38_total !== undefined ? d.w38_total : (d.w37_total || 0)) * 100);
+                const val = ((getTotalVal(d) || 0) * 100);
                 return val < 80 ? 'rgba(254, 226, 226, 0.96)' : 'rgba(240, 253, 244, 0.96)';
               }),
               borderColor: ams.map(d => {
-                const val = ((d.w38_total !== undefined ? d.w38_total : (d.w37_total || 0)) * 100);
+                const val = ((getTotalVal(d) || 0) * 100);
                 return val < 80 ? '#fca5a5' : '#86efac';
               }),
               borderWidth: 1,
