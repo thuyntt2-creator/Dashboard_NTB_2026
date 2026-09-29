@@ -7054,6 +7054,8 @@
 
     const selectedAM = state.selectedAM;
     const sorted = [...D.kinh_doanh.am].sort((a, b) => (b.rev_curr || 0) - (a.rev_curr || 0));
+    const latestWeek = D.meta?.latest_week || 'W39';
+    const prevWeek = D.meta?.prev_week || 'W38';
 
     charts.kdDoanhThu = new Chart(ctx, {
       type: 'bar',
@@ -7061,13 +7063,13 @@
         labels: sorted.map(d => d.am),
         datasets: [
           {
-            label: 'Kỳ trước (W37) (Triệu VNĐ)',
+            label: `Kỳ trước (${prevWeek}) (Triệu VNĐ)`,
             data: sorted.map(d => Math.round((d.rev_prev || 0) / 1e6)),
             backgroundColor: '#cbd5e1',
             borderRadius: 4
           },
           {
-            label: 'Kỳ này (W38) (Triệu VNĐ)',
+            label: `Kỳ này (${latestWeek}) (Triệu VNĐ)`,
             data: sorted.map(d => Math.round((d.rev_curr || 0) / 1e6)),
             backgroundColor: sorted.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#10b981'),
             borderColor: sorted.map(d => selectedAM && selectedAM === d.am ? '#b91c1c' : 'transparent'),
@@ -7212,6 +7214,8 @@
 
     const sorted = [...D.f30.am].sort((a, b) => (b.kh_curr || 0) - (a.kh_curr || 0));
     const selectedAM = state.selectedAM;
+    const latestWeek = D.meta?.latest_week || 'W39';
+    const prevWeek = D.meta?.prev_week || 'W38';
 
     charts.f30Shops = new Chart(ctx, {
       type: 'bar',
@@ -7219,13 +7223,13 @@
         labels: sorted.map(d => d.am),
         datasets: [
           {
-            label: 'Shop F30 Kỳ Trước (W37)',
+            label: `Shop F30 Kỳ Trước (${prevWeek})`,
             data: sorted.map(d => d.kh_prev || 0),
             backgroundColor: '#cbd5e1',
             borderRadius: 4
           },
           {
-            label: 'Shop F30 Kỳ Này (W38)',
+            label: `Shop F30 Kỳ Này (${latestWeek})`,
             data: sorted.map(d => d.kh_curr || 0),
             backgroundColor: sorted.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#7c3aed'),
             borderColor: sorted.map(d => selectedAM && selectedAM === d.am ? '#b91c1c' : 'transparent'),
