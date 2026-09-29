@@ -48,11 +48,11 @@ if not token:
 
 headers = {'Authorization': f'Bearer {token}'}
 
-def get_tab_rows(s_id, tab_name, r_range='A1:P350'):
+def get_tab_rows(s_id, tab_name, r_range='A1:P1000'):
     try:
-        encoded = urllib.parse.quote(tab_name)
+        encoded = urllib.parse.quote(tab_name, safe='')
         val_url = f"https://sheets.googleapis.com/v4/spreadsheets/{s_id}/values/'{encoded}'!{r_range}"
-        r = requests.get(val_url, headers=headers, timeout=18)
+        r = requests.get(val_url, headers=headers, timeout=25)
         if r.status_code == 200:
             return r.json().get('values', [])
     except Exception as e:
@@ -116,7 +116,7 @@ all_trips = []
 # 1. CÔNG ĐỊNH
 # ==============================================================================
 print("Đang quét: NCC Công Định...")
-rows_cd = get_tab_rows('1uRoMDGPI0rJI5pqK4VA0QVfNj9B2vh9heNr9ow4MXaw', 'CĐ', 'A1:P250')
+rows_cd = get_tab_rows('1uRoMDGPI0rJI5pqK4VA0QVfNj9B2vh9heNr9ow4MXaw', 'CĐ', 'A1:P500')
 cd_count = 0
 for r in rows_cd[2:]:
     if len(r) >= 12 and r[1].strip() and '/' in str(r[1]):
@@ -147,7 +147,7 @@ print(f" -> Công Định: {cd_count} chuyến xe.")
 # 2. TỐT VÀ RẺ
 # ==============================================================================
 print("Đang quét: NCC Tốt và Rẻ...")
-rows_tr = get_tab_rows('1SuhbzeBJBnASyMT4nW9o5kiHOEW7zkBLGA-LmN8jpNU', 'TR', 'A1:P250')
+rows_tr = get_tab_rows('1SuhbzeBJBnASyMT4nW9o5kiHOEW7zkBLGA-LmN8jpNU', 'TR', 'A1:P500')
 tr_count = 0
 for r in rows_tr[2:]:
     if len(r) >= 12 and r[1].strip() and '/' in str(r[1]):
@@ -178,7 +178,7 @@ print(f" -> Tốt và Rẻ: {tr_count} chuyến xe.")
 # 3. NAK
 # ==============================================================================
 print("Đang quét: NCC NAK...")
-rows_nak = get_tab_rows('1_fDiARRteAUNEyas9tw9vvSDCppCudj_jxvqDrH8jug', 'DATA', 'A1:P300')
+rows_nak = get_tab_rows('1_fDiARRteAUNEyas9tw9vvSDCppCudj_jxvqDrH8jug', 'DATA', 'A1:P1000')
 nak_count = 0
 for r in rows_nak[1:]:
     if len(r) >= 12 and r[1].strip() and '/' in str(r[1]):
@@ -209,9 +209,9 @@ print(f" -> NAK: {nak_count} chuyến xe.")
 # 4. LÂM NGỌC THÀNH
 # ==============================================================================
 print("Đang quét: NCC Lâm Ngọc Thành...")
-rows_lnt = get_tab_rows('1VeYu4_Gs78E_sLRTx-Pq4PoDBmYR9oT8Ch6oDM_E2sM', 'DNO_01', 'A1:P250')
+rows_lnt = get_tab_rows('1VeYu4_Gs78E_sLRTx-Pq4PoDBmYR9oT8Ch6oDM_E2sM', 'LNT', 'A1:P500')
 lnt_count = 0
-for r in rows_lnt[6:]:
+for r in rows_lnt[2:]:
     if len(r) >= 12 and r[1].strip() and '/' in str(r[1]):
         cost = parse_num(r[11])
         if cost > 0:
@@ -240,7 +240,7 @@ print(f" -> Lâm Ngọc Thành: {lnt_count} chuyến xe.")
 # 5. TRÂM HOÁ
 # ==============================================================================
 print("Đang quét: NCC Trâm Hoá...")
-rows_th = get_tab_rows('1lt4NC2Ih_rqgsO8O7-qYTki17fPnjGwdB5EpTl116qg', 'TH', 'A1:P250')
+rows_th = get_tab_rows('1lt4NC2Ih_rqgsO8O7-qYTki17fPnjGwdB5EpTl116qg', 'TH', 'A1:P500')
 th_count = 0
 for r in rows_th[2:]:
     if len(r) >= 12 and r[1].strip() and '/' in str(r[1]):
@@ -294,7 +294,7 @@ print(f" -> Trâm Hoá: {th_count} chuyến xe.")
 # 6. MẠNH CƯỜNG (KTC & TUYẾN)
 # ==============================================================================
 print("Đang quét: NCC Mạnh Cường...")
-rows_mc = get_tab_rows('1xQtd7DUZ9JVctuV7VChwR1AMy9KPCOy6cz2YFTOVXuo', 'MCKH', 'A1:P250')
+rows_mc = get_tab_rows('1xQtd7DUZ9JVctuV7VChwR1AMy9KPCOy6cz2YFTOVXuo', 'MCKH', 'A1:P2500')
 mc_count = 0
 for r in rows_mc[2:]:
     if len(r) >= 12 and r[1].strip() and '/' in str(r[1]):
@@ -325,7 +325,7 @@ print(f" -> Mạnh Cường: {mc_count} chuyến xe.")
 # 7. MẠNH CƯỜNG - BCCK (HỢP ĐỒNG THÁNG CỐ ĐỊNH)
 # ==============================================================================
 print("Đang quét: NCC Mạnh Cường - BCCK...")
-rows_mcbcck = get_tab_rows('16UfCMPOOMJM3cS3h2wG4TPyGFgq-arrYd_qnShA_Id0', 'XUẤT HĐ.', 'A1:L50')
+rows_mcbcck = get_tab_rows('16UfCMPOOMJM3cS3h2wG4TPyGFgq-arrYd_qnShA_Id0', 'XUẤT HĐ.', 'A1:L100')
 mcbcck_count = 0
 for r in rows_mcbcck[1:]:
     if len(r) >= 11 and r[0].strip() and ('-' in str(r[0]) or 'C' in str(r[0])):
