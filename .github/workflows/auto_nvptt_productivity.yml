@@ -1,0 +1,57 @@
+name: Tự động Báo cáo Năng Suất NVPTT (Lastmile -> Google Sheet -> GTalk)
+
+on:
+  schedule:
+    # Giờ Việt Nam (ICT = UTC + 7):
+    # 07:00 UTC = 14:00 VN
+    # 09:00 UTC = 16:00 VN
+    # 11:00 UTC = 18:00 VN
+    # 13:00 UTC = 20:00 VN
+    # 14:00 UTC = 21:00 VN
+    - cron: '0 7,9,11,13,14 * * *'
+  workflow_dispatch: # Cho phép bấm chạy thủ công trên GitHub Web / Mobile App bất cứ lúc nào
+
+jobs:
+  sync-and-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Cài đặt Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Cài đặt Font Tiếng Việt (tránh lỗi hiển thị ảnh)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-color-emoji fonts-dejavu-core fonts-liberation
+
+      - name: Cài đặt thư viện Python & Playwright Chromium
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests urllib3 gspread google-auth pillow playwright
+          playwright install --with-deps chromium
+
+      - name: Tạo file Google Service Account từ GitHub Secret
+        run: |
+          echo '${{ secrets.GOOGLE_CREDENTIALS }}' > credentials.json
+
+      - name: BƯỚC 1 - Lấy dữ liệu Lastmile GHN & Cập nhật Google Sheet
+        env:
+          GHN_TOKEN: ${{ secrets.GHN_TOKEN }}
+        run: |
+          python fetch_lastmile_productivity.py
+
+      - name: Chờ 15s để Google Sheet tự động tính toán các công thức (BaoCao)
+        run: |
+          sleep 15
+
+      - name: BƯỚC 2 - Đọc tab BaoCao, Render Ảnh & Gửi về GTalk từng AM
+        env:
+          GTALK_OA_TOKEN: ${{ secrets.GTALK_OA_TOKEN }}
+        run: |
+          python send_report_nvptt_realtime.py
