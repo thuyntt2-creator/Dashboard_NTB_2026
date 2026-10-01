@@ -56,9 +56,9 @@ jobs:
         run: |
           python fetch_lastmile_productivity.py
 
-      - name: Chờ 15s để Google Sheet tự động tính toán các công thức (BaoCao)
+      - name: Chờ 30s để Google Sheet tự động tính toán các công thức (BaoCao)
         run: |
-          sleep 15
+          sleep 30
 
       - name: BƯỚC 2 - Đọc tab BaoCao, Render Ảnh & Gửi về GTalk từng AM
         env:

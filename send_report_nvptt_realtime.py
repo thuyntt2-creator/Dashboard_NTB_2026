@@ -175,6 +175,10 @@ def read_baocao_realtime(sheet_key=BAOCAO_SHEET_KEY, tab_name=BAOCAO_TAB_NAME):
         ltc = parse_num(row[i_ltc]) if (i_ltc is not None and i_ltc < len(row)) else 0
         danh_gia = row[i_danhgia].strip() if (i_danhgia is not None and i_danhgia < len(row)) else ""
 
+        # Bỏ qua nhân viên không có đơn hôm nay
+        if gan == 0 and ltc == 0:
+            continue
+
         grouped.setdefault(am, {}).setdefault(bc, []).append({
             "ma_nv": ma_nv,
             "name": name,
@@ -187,8 +191,9 @@ def read_baocao_realtime(sheet_key=BAOCAO_SHEET_KEY, tab_name=BAOCAO_TAB_NAME):
 
     result = []
     for am_name, bc_map in grouped.items():
-        bcs = [(bc_name, staff_list) for bc_name, staff_list in bc_map.items()]
-        result.append({"am": am_name, "bcs": bcs})
+        bcs = [(bc_name, staff_list) for bc_name, staff_list in bc_map.items() if len(staff_list) > 0]
+        if bcs:
+            result.append({"am": am_name, "bcs": bcs})
 
     total_staff = sum(len(s) for am in result for _, s in am["bcs"])
     print(f"📊 Đã đọc tổng cộng {total_staff} NVPTT tại {sum(len(am['bcs']) for am in result)} bưu cục thuộc {len(result)} AM.", flush=True)
@@ -1005,11 +1010,29 @@ def main():
 
     print(f"🚀 BẮT ĐẦU CHẠY BÁO CÁO NĂNG SUẤT REAL-TIME LÚC: {update_time_str}", flush=True)
 
-    try:
-        data = read_baocao_realtime()
-    except Exception as e:
-        print(f"❌ Lỗi đọc dữ liệu từ Google Sheet: {e}", flush=True)
-        return
+    # VÒNG LẶP CHỜ GOOGLE SHEET TÍNH XONG CÔNG THỨC (Tránh gửi ảnh số 0)
+    data = []
+    max_wait_attempts = 10
+    for attempt in range(1, max_wait_attempts + 1):
+        try:
+            data = read_baocao_realtime()
+        except Exception as e:
+            print(f"⚠️ Lỗi đọc tab BaoCao: {e}", flush=True)
+            data = []
+
+        total_orders = sum(s["gan"] for am in data for _, bcs in am["bcs"] for s in bcs)
+        print(f"📊 Kiểm tra dữ liệu: Tổng đơn gán trên tab BaoCao = {total_orders:,} đơn (Lần {attempt}/{max_wait_attempts}).", flush=True)
+
+        if total_orders > 1000:
+            print("✅ Google Sheet đã hoàn tất tính toán số liệu thật! Bắt đầu tạo ảnh báo cáo...", flush=True)
+            break
+        else:
+            print(f"⏳ Số đơn gán = {total_orders} (Google Sheet đang tính dở dang)... Chờ 20s để thử lại...", flush=True)
+            if attempt < max_wait_attempts:
+                time.sleep(20)
+            else:
+                print("❌ Google Sheet vẫn chưa tính toán xong số liệu sau hơn 3 phút! HỦY BỎ để tránh gửi ảnh sai.", flush=True)
+                return
 
     if not data:
         print("⚠️ Không có dữ liệu NVPTT nào trong tab BaoCao.", flush=True)

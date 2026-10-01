@@ -324,29 +324,31 @@ def main():
         
         # Dòng tab giao hàng: ['Bưu cục', 'NhanVien', 'Ngay', 'TongDon', 'TongDonGTC', '%GTC', 'LT', 'ChuyenDi']
         nv_key = f"{did}_{s['driverName']}" if s['driverName'] else did
-        giao_hang_rows.append([
-            hub_name,
-            nv_key,
-            date_str_vn,
-            str(s["deliver_total"]),
-            str(s["deliver_succ"]),
-            f"{pct_gtc:.2f}%".replace('.', ','),
-            "0",
-            str(s["trip_count"])
-        ])
+        if s["deliver_total"] > 0:
+            giao_hang_rows.append([
+                hub_name,
+                nv_key,
+                date_str_vn,
+                str(s["deliver_total"]),
+                str(s["deliver_succ"]),
+                f"{pct_gtc:.2f}%".replace('.', ','),
+                "0",
+                str(s["trip_count"])
+            ])
         
         # Dòng tab lấy hàng: ['Bưu Cục', 'Nhân Viên', 'Ngay', '%Lấy TC < 11:00', 'SLD Lấy TC < 11:00', 'SLD Lấy TC', 'LT_Lấy', 'SL Chuyến Đi Lấy']
         nv_lay = f"{did} - {s['driverName']}" if s['driverName'] else did
-        lay_hang_rows.append([
-            hub_name,
-            nv_lay,
-            date_str_vn,
-            "100%",
-            str(s["pick_succ"]),
-            str(s["pick_succ"]),
-            "0",
-            str(s["trip_count"])
-        ])
+        if s["pick_succ"] > 0 or s["pick_total"] > 0:
+            lay_hang_rows.append([
+                hub_name,
+                nv_lay,
+                date_str_vn,
+                "100%",
+                str(s["pick_succ"]),
+                str(s["pick_succ"]),
+                "0",
+                str(s["trip_count"])
+            ])
         
     # 6. Ghi vào Google Sheet
     # 6.1 Ghi tab 'Data'
@@ -356,8 +358,7 @@ def main():
                        'Lấy thành công', 'Lấy thất bại', '%LTC', 'Giao thành công', 'Giao thất bại', '%GTC', 
                        'Tiến độ', 'Thời gian ghi', 'Bưu cục', 'AM']
         print(f"📝 Đang cập nhật tab 'Data' ({len(data_rows)} dòng)...")
-        ws_data.clear()
-        ws_data.update([header_data] + data_rows, value_input_option='USER_ENTERED')
+        ws_data.update(range_name='A1', values=[header_data] + data_rows, value_input_option='USER_ENTERED')
         print("✅ Đã cập nhật thành công tab 'Data'!")
     except Exception as e:
         print(f"⚠️ Lỗi ghi tab 'Data': {e}")
@@ -372,8 +373,7 @@ def main():
             # Giữ lại các dòng của các ngày cũ, xóa các dòng của ngày hôm nay
             retained_rows = [r for r in existing_vals[1:] if len(r) > 2 and r[2] != date_str_vn]
             new_gh_table = [header] + retained_rows + giao_hang_rows
-            ws_gh.clear()
-            ws_gh.update(new_gh_table, value_input_option='USER_ENTERED')
+            ws_gh.update(range_name='A1', values=new_gh_table, value_input_option='USER_ENTERED')
             print(f"✅ Đã đồng bộ tab 'giao hàng' (tổng {len(new_gh_table)-1} dòng, trong đó có {len(giao_hang_rows)} dòng hôm nay)!")
     except Exception as e:
         print(f"⚠️ Lỗi ghi tab 'giao hàng': {e}")
@@ -387,8 +387,7 @@ def main():
             header_lh = existing_vals_lh[0]
             retained_lh = [r for r in existing_vals_lh[1:] if len(r) > 2 and r[2] != date_str_vn]
             new_lh_table = [header_lh] + retained_lh + lay_hang_rows
-            ws_lh.clear()
-            ws_lh.update(new_lh_table, value_input_option='USER_ENTERED')
+            ws_lh.update(range_name='A1', values=new_lh_table, value_input_option='USER_ENTERED')
             print(f"✅ Đã đồng bộ tab 'lấy hàng' (tổng {len(new_lh_table)-1} dòng)!")
     except Exception as e:
         print(f"⚠️ Lỗi ghi tab 'lấy hàng': {e}")
