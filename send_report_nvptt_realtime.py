@@ -179,7 +179,15 @@ def read_baocao_realtime(sheet_key=BAOCAO_SHEET_KEY, tab_name=BAOCAO_TAB_NAME):
         if gan == 0 and ltc == 0:
             continue
 
-        grouped.setdefault(am, {}).setdefault(bc, []).append({
+        # Chống trùng lặp nhân viên trong cùng 1 bưu cục: Nếu đã có, giữ lại bản ghi có đơn giao TC cao nhất (mới nhất)
+        existing_list = grouped.setdefault(am, {}).setdefault(bc, [])
+        dup_idx = None
+        for i, item in enumerate(existing_list):
+            if (ma_nv and item["ma_nv"] == ma_nv) or (not ma_nv and item["name"] == name):
+                dup_idx = i
+                break
+
+        staff_data = {
             "ma_nv": ma_nv,
             "name": name,
             "gan": gan,
@@ -187,7 +195,13 @@ def read_baocao_realtime(sheet_key=BAOCAO_SHEET_KEY, tab_name=BAOCAO_TAB_NAME):
             "pct": pct,
             "ltc": ltc,
             "danh_gia": danh_gia
-        })
+        }
+
+        if dup_idx is not None:
+            if tc > existing_list[dup_idx]["tc"] or (tc == existing_list[dup_idx]["tc"] and gan >= existing_list[dup_idx]["gan"]):
+                existing_list[dup_idx] = staff_data
+        else:
+            existing_list.append(staff_data)
 
     result = []
     for am_name, bc_map in grouped.items():

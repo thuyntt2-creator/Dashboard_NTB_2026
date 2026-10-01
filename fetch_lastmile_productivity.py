@@ -374,6 +374,13 @@ def main():
             retained_rows = [r for r in existing_vals[1:] if len(r) > 2 and r[2] != date_str_vn]
             new_gh_table = [header] + retained_rows + giao_hang_rows
             ws_gh.update(range_name='A1', values=new_gh_table, value_input_option='USER_ENTERED')
+            
+            # Xóa các dòng rác thừa phía sau nếu bảng mới ngắn hơn bảng cũ (tránh lưu vết dữ liệu cũ)
+            old_total_rows = len(existing_vals)
+            new_total_rows = len(new_gh_table)
+            if new_total_rows < old_total_rows:
+                ws_gh.batch_clear([f"A{new_total_rows + 1}:H{old_total_rows}"])
+                
             print(f"✅ Đã đồng bộ tab 'giao hàng' (tổng {len(new_gh_table)-1} dòng, trong đó có {len(giao_hang_rows)} dòng hôm nay)!")
     except Exception as e:
         print(f"⚠️ Lỗi ghi tab 'giao hàng': {e}")
@@ -388,6 +395,13 @@ def main():
             retained_lh = [r for r in existing_vals_lh[1:] if len(r) > 2 and r[2] != date_str_vn]
             new_lh_table = [header_lh] + retained_lh + lay_hang_rows
             ws_lh.update(range_name='A1', values=new_lh_table, value_input_option='USER_ENTERED')
+            
+            # Xóa các dòng rác thừa phía sau nếu bảng mới ngắn hơn bảng cũ
+            old_total_lh = len(existing_vals_lh)
+            new_total_lh = len(new_lh_table)
+            if new_total_lh < old_total_lh:
+                ws_lh.batch_clear([f"A{new_total_lh + 1}:H{old_total_lh}"])
+                
             print(f"✅ Đã đồng bộ tab 'lấy hàng' (tổng {len(new_lh_table)-1} dòng)!")
     except Exception as e:
         print(f"⚠️ Lỗi ghi tab 'lấy hàng': {e}")
