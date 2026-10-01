@@ -15,33 +15,25 @@ df['currentstatus'] = df['currentstatus'].fillna('unknown').astype(str).str.stri
 
 total_orders = len(df)
 delivered_count = len(df[df['currentstatus'] == 'delivered'])
-delivering_count = len(df[df['currentstatus'] == 'delivering'])
-storing_count = len(df[df['currentstatus'] == 'storing'])
-return_count = len(df[df['currentstatus'].isin(['return', 'return_transporting'])])
-other_count = total_orders - delivered_count - delivering_count - storing_count - return_count
-
-gtc_rate = (delivered_count / total_orders * 100) if total_orders > 0 else 0
+return_count = len(df[df['currentstatus'].str.contains('return')])
+pending_count = total_orders - delivered_count - return_count
 current_reward = delivered_count * 10000
-potential_pending = (total_orders - delivered_count)
+potential_reward = pending_count * 10000
 
 # AM Summary
 am_stats = []
 for am, grp in df.groupby('AM'):
     tot = len(grp)
     g_del = len(grp[grp['currentstatus'] == 'delivered'])
-    g_pending = tot - g_del
-    g_deliv = len(grp[grp['currentstatus'] == 'delivering'])
-    g_store = len(grp[grp['currentstatus'] == 'storing'])
-    g_ret = len(grp[grp['currentstatus'].isin(['return', 'return_transporting'])])
+    g_ret = len(grp[grp['currentstatus'].str.contains('return')])
+    g_pend = tot - g_del - g_ret
     r = (g_del / tot * 100) if tot > 0 else 0
     am_stats.append({
         'AM': am,
         'total': tot,
         'delivered': g_del,
-        'pending': g_pending,
-        'delivering': g_deliv,
-        'storing': g_store,
         'return': g_ret,
+        'pending': g_pend,
         'rate': r,
         'reward': g_del * 10000
     })
@@ -129,7 +121,7 @@ html_content = f"""<!DOCTYPE html>
     /* 3 KPI BOXES */
     .kpi-row {{
         display: grid;
-        grid-template-columns: 1fr 1.2fr 1fr;
+        grid-template-columns: 1fr 1.25fr 1fr;
         gap: 14px;
         margin-bottom: 20px;
     }}
@@ -294,14 +286,14 @@ html_content = f"""<!DOCTYPE html>
             <div class="kpi-desc">Phân bổ <b>13 Quản lý AM</b></div>
         </div>
         <div class="kpi-box orange">
-            <div class="kpi-lbl">CẦN XỬ LÝ GẤP TRƯỚC 15H</div>
-            <div class="kpi-num">{potential_pending} <span style="font-size:16px; font-weight:700;">đơn</span></div>
-            <div class="kpi-desc">Cơ hội gom thưởng: <b>+{potential_pending * 10000:,.0f}đ</b></div>
+            <div class="kpi-lbl">CẦN XỬ LÝ GIAO (PUSH GẤP)</div>
+            <div class="kpi-num">{pending_count} <span style="font-size:16px; font-weight:700;">đơn</span></div>
+            <div class="kpi-desc">Cơ hội gom thưởng: <b>+{potential_reward:,.0f}đ</b></div>
         </div>
         <div class="kpi-box green">
-            <div class="kpi-lbl">ĐÃ GTC (ĐÃ ĐẠT THƯỞNG)</div>
-            <div class="kpi-num">{delivered_count} <span style="font-size:16px; font-weight:700;">đơn</span></div>
-            <div class="kpi-desc">Đã chốt thưởng: <b>{current_reward:,.0f}đ</b></div>
+            <div class="kpi-lbl">ĐÃ XỬ LÝ (GTC & HOÀN)</div>
+            <div class="kpi-num">{delivered_count + return_count} <span style="font-size:16px; font-weight:700;">đơn</span></div>
+            <div class="kpi-desc">GTC: <b>{delivered_count}</b> | Đã hoàn: <b>{return_count}</b></div>
         </div>
     </div>
 
@@ -313,9 +305,9 @@ html_content = f"""<!DOCTYPE html>
                     <th style="width: 35px;" class="center">#</th>
                     <th>Quản lý AM</th>
                     <th class="center">Tổng số đơn</th>
-                    <th class="center">Cần xử lý gấp (Push)</th>
-                    <th class="center">Đã GTC (Không push)</th>
-                    <th class="right">Tỷ lệ GTC</th>
+                    <th class="center">Cần xử lý giao (Push)</th>
+                    <th class="center">Đã GTC (Thưởng 10k)</th>
+                    <th class="center">Đã Chuyển Hoàn</th>
                     <th class="right">Thưởng Đã Đạt</th>
                 </tr>
             </thead>
@@ -325,6 +317,7 @@ html_content = f"""<!DOCTYPE html>
 for idx, am in enumerate(am_stats, 1):
     pend_tag = f'<span class="tag-orange">{am["pending"]} đơn</span>' if am['pending'] > 0 else '<span class="tag-gray">0</span>'
     del_tag = f'<span class="tag-green">{am["delivered"]} đơn</span>' if am['delivered'] > 0 else '<span class="tag-gray">0</span>'
+    ret_tag = f'<span class="tag-gray">{am["return"]} đơn</span>' if am['return'] > 0 else '<span class="tag-gray">0</span>'
     
     html_content += f"""
                 <tr>
@@ -333,8 +326,8 @@ for idx, am in enumerate(am_stats, 1):
                     <td class="center" style="font-weight:700;">{am['total']}</td>
                     <td class="center">{pend_tag}</td>
                     <td class="center">{del_tag}</td>
-                    <td class="right" style="font-weight:700; color:{'#15803d' if am['rate'] > 0 else '#94a3b8'};">{am['rate']:.1f}%</td>
-                    <td class="right" style="font-weight:800; color:#15803d;">{am['reward']:,.0f}đ</td>
+                    <td class="center">{ret_tag}</td>
+                    <td class="right" style="font-weight:800; color:{'#15803d' if am['reward'] > 0 else '#94a3b8'};">{am['reward']:,.0f}đ</td>
                 </tr>
     """
 
@@ -368,4 +361,4 @@ with sync_playwright() as p:
     page.screenshot(path=img_path, full_page=True)
     browser.close()
 
-print(f"Today's report image generated: {img_path}")
+print(f"Updated today report image generated: {img_path}")

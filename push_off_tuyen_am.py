@@ -1,18 +1,19 @@
 # -*- coding: utf-8 -*-
 """
 Script: push_off_tuyen_am.py
-Đọc kết quả Off tuyến từ tab 'Đang OFF' thuộc Google Sheet:
-https://docs.google.com/spreadsheets/d/1PjzFqJO-wkQ8SNsPHD721_CbPr6c_ArZKuGGU6KqDZg
+Đọc kết quả Off tuyến từ tab 'Tổng Hợp KA OFF' thuộc Google Sheet:
+https://docs.google.com/spreadsheets/d/1PjzFqJO-wkQ8SNsPHD721_CbPr6c_ArZKuGGU6KqDZg/edit#gid=583983570
 
 Tính năng:
-1. Gom nhóm dữ liệu theo BƯU CỤC & AM, liệt kê rõ từng Xã/Phường tắt theo từng Bưu cục.
-2. Gửi tin nhắn văn bản đã định dạng rõ ràng (kèm link Google Sheet) tới Group ID riêng của từng AM qua GTalk API.
-3. Không gửi ảnh (chỉ gửi tin nhắn văn bản gọn nhẹ).
+1. Đọc dữ liệu đã map ID chuẩn từ tab 'Tổng Hợp KA OFF'.
+2. Gom nhóm dữ liệu theo AM & BƯU CỤC, phân loại nguồn đề xuất (SPE đề xuất mới / SPE đề xuất thêm / Đã có ở Vùng).
+3. Định dạng tin nhắn HTML trực quan (kèm link Google Sheet) gửi tới Group ID riêng của từng AM qua GTalk API.
+4. MẶC ĐỊNH: DRY-RUN (chỉ xem trước, KHÔNG tự ý gửi GTalk nếu không có tham số --send).
 
 Cách dùng:
-- Dry Run (chỉ xem trước tin nhắn, không gửi GTalk):
+- Dry Run (chỉ xem trước tin nhắn mẫu, KHÔNG gửi GTalk):
     python push_off_tuyen_am.py
-- Gửi thật qua GTalk API:
+- Gửi thật qua GTalk API (chỉ chạy khi được yêu cầu):
     python push_off_tuyen_am.py --send
 """
 
@@ -42,10 +43,10 @@ except Exception:
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 SPREADSHEET_ID = "1PjzFqJO-wkQ8SNsPHD721_CbPr6c_ArZKuGGU6KqDZg"
-SHEET_LINK = "https://docs.google.com/spreadsheets/d/1PjzFqJO-wkQ8SNsPHD721_CbPr6c_ArZKuGGU6KqDZg/edit?gid=1524249564#gid=1524249564"
-TAB_NAME = "Đang OFF"
+TAB_NAME = "Tổng Hợp KA OFF"
+SHEET_LINK = "https://docs.google.com/spreadsheets/d/1PjzFqJO-wkQ8SNsPHD721_CbPr6c_ArZKuGGU6KqDZg/edit?gid=583983570#gid=583983570"
 
-# Token GTalk OA mới
+# Token GTalk OA
 DEFAULT_TOKEN = "2077276776281051136:8hMHvBBU8qXKps3mLPzgKBucPLSQPg3Y"
 GTALK_API_URL = "https://mbff.ghn.vn/api/gtalk/send-message"
 
@@ -75,7 +76,10 @@ AM_GROUP_MAP = {
     "Hồng Bích Nga": "2077278157729837056",
     "Lê Minh Đại": "2077278182818799616",
     "Phan Thị Ngọc Diễm": "2079827073949868032",
-    "Lê Hồng Minh Tâm": "2079827054540226560"
+    "Lê Hồng Minh Tâm": "2079827054540226560",
+    "Huỳnh Thúc Duân": "2077277857186131968",    # AM Đắk Nông
+    "Nguyễn Minh Hoàng": "2077278127814696960",  # AM Lâm Đồng - Đức Trọng
+    "Trương Quang Linh": "2077277857186131968",  # AM Đắk Nông - Quảng Tín
 }
 
 
@@ -90,7 +94,6 @@ def get_gspread_client(sheet_key=None):
         "https://www.googleapis.com/auth/spreadsheets",
         "https://www.googleapis.com/auth/drive",
     ]
-    # 1. Thử Service Account
     for cred_file in SERVICE_ACCOUNT_CANDIDATES:
         if os.path.exists(cred_file):
             try:
@@ -102,7 +105,6 @@ def get_gspread_client(sheet_key=None):
             except Exception:
                 pass
 
-    # 2. Thử OAuth dùng authorized_user.json
     auth_candidates = [
         os.path.join(BASE_DIR, 'authorized_user.json'),
         r"C:\Users\lap4all\Documents\Auto report\authorized_user.json",
@@ -121,7 +123,6 @@ def get_gspread_client(sheet_key=None):
             except Exception:
                 pass
 
-    # 3. Thử gspread.oauth()
     oauth_candidates = [
         os.path.join(BASE_DIR, 'credentials_oauth.json'),
         r"C:\Users\lap4all\Documents\Auto report\credentials_oauth.json",
@@ -144,26 +145,110 @@ def get_gspread_client(sheet_key=None):
     raise PermissionError("❌ Không thể xác thực Google Sheets bằng credentials.json hoặc OAuth (authorized_user.json).")
 
 
+TAB_GTALK = "gtalk"
+
 def load_sheet_data():
+    """
+    Đọc dữ liệu từ 2 tab:
+    1. 'Tổng Hợp KA OFF' (chứa danh sách tuyến cần tắt gom theo AM/Bưu cục)
+    2. 'gtalk' (chứa token GTalk và ID Group chat riêng của từng AM)
+    """
     gc = get_gspread_client(SPREADSHEET_ID)
     sh = gc.open_by_key(SPREADSHEET_ID)
 
-    ws = None
+    # 1. Tìm tab Tổng Hợp KA OFF
+    ws_th = None
     for item in sh.worksheets():
-        if str(item.id) == "1524249564" or "off" in item.title.lower():
-            ws = item
+        t_low = item.title.lower()
+        if "tổng hợp ka" in t_low or "tong hop ka" in t_low:
+            ws_th = item
             break
-    if not ws:
-        ws = sh.worksheet(TAB_NAME)
 
-    return ws.get_all_values()
+    if not ws_th:
+        try:
+            ws_th = sh.worksheet(TAB_NAME)
+        except Exception:
+            ws_th = sh.get_worksheet(0)
+
+    th_rows = ws_th.get_all_values()
+
+    # 2. Tìm tab gtalk
+    ws_gtalk = None
+    for item in sh.worksheets():
+        if item.title.strip().lower() == TAB_GTALK.lower():
+            ws_gtalk = item
+            break
+
+    gtalk_rows = []
+    if ws_gtalk:
+        try:
+            gtalk_rows = ws_gtalk.get_all_values()
+        except Exception as e:
+            print(f"⚠️ Không thể đọc tab '{TAB_GTALK}': {e}")
+    else:
+        print(f"⚠️ Không tìm thấy tab '{TAB_GTALK}' trên Google Sheet!")
+
+    return th_rows, gtalk_rows
 
 
-def parse_off_data(rows):
+def parse_gtalk_config(gtalk_rows):
+    """
+    Phân tích dữ liệu từ tab 'gtalk':
+    - Hàng có cột A là 'token': lấy giá trị cột B làm OA Token
+    - Các hàng còn lại: Cột A là Tên AM, Cột B là Group ID của AM
+    """
+    sheet_token = None
+    gtalk_map = {}
+
+    for row in gtalk_rows:
+        if not row or not any(row):
+            continue
+        c0 = normalize_str(row[0])
+        c1 = normalize_str(row[1]) if len(row) > 1 else ""
+
+        if c0.lower() == "token":
+            if c1:
+                sheet_token = c1
+        elif c0:
+            gtalk_map[c0.lower()] = {
+                "am_name": c0,
+                "group_id": c1
+            }
+
+    return sheet_token, gtalk_map
+
+
+def parse_off_data(rows, gtalk_map=None):
     if not rows or len(rows) < 2:
         return {}
 
+    if gtalk_map is None:
+        gtalk_map = {}
+
+    header_row = [normalize_str(h).lower() for h in rows[0]]
+    
+    def get_col_idx(keywords, default_idx):
+        for idx, h in enumerate(header_row):
+            for kw in keywords:
+                if kw in h:
+                    return idx
+        return default_idx
+
+    col_tinh = get_col_idx(["tỉnh", "province"], 0)
+    col_huyen = get_col_idx(["quận", "huyện", "district"], 1)
+    col_xa = get_col_idx(["phường/xã", "phường", "xã"], 2)
+    col_id = get_col_idx(["id phường", "ward_code", "id"], 3)
+    col_bc = get_col_idx(["bưu cục", "post_office"], 4)
+    col_am = get_col_idx(["am"], 5)
+    col_kq = get_col_idx(["kết quả", "result"], 6)
+    col_tg_tat = get_col_idx(["thời gian tắt", "tg tắt"], 7)
+    col_tg_mo = get_col_idx(["thời gian mở", "tg mở"], 8)
+    col_phan_loai = get_col_idx(["phân loại", "đề xuất"], 9)
+
+    # Từ điển tra cứu tên chuẩn AM
     norm_am_map = {normalize_str(k).lower(): k for k in AM_GROUP_MAP.keys()}
+    for k_lower, v_info in gtalk_map.items():
+        norm_am_map[k_lower] = v_info["am_name"]
 
     am_data = {}
 
@@ -172,28 +257,19 @@ def parse_off_data(rows):
         if not any(row):
             continue
 
-        province = normalize_str(row[0]) if len(row) > 0 else ""
-        district = normalize_str(row[1]) if len(row) > 1 else ""
-        ward = normalize_str(row[2]) if len(row) > 2 else ""
-        ward_id = normalize_str(row[3]) if len(row) > 3 else ""
-        post_office = normalize_str(row[4]) if len(row) > 4 else ""
-        hrbp_confirm = normalize_str(row[5]) if len(row) > 5 else ""
-        result = normalize_str(row[6]) if len(row) > 6 else ""
-        cap_down = normalize_str(row[7]) if len(row) > 7 else ""
-        off_from = normalize_str(row[8]) if len(row) > 8 else ""
-        off_to = normalize_str(row[9]) if len(row) > 9 else ""
-        am_name = normalize_str(row[10]) if len(row) > 10 else ""
+        province = normalize_str(row[col_tinh]) if len(row) > col_tinh else ""
+        district = normalize_str(row[col_huyen]) if len(row) > col_huyen else ""
+        ward = normalize_str(row[col_xa]) if len(row) > col_xa else ""
+        ward_id = normalize_str(row[col_id]) if len(row) > col_id else ""
+        post_office = normalize_str(row[col_bc]) if len(row) > col_bc else ""
+        am_name = normalize_str(row[col_am]) if len(row) > col_am else ""
+        result = normalize_str(row[col_kq]) if len(row) > col_kq else "DUYỆT"
+        off_from = normalize_str(row[col_tg_tat]) if len(row) > col_tg_tat else ""
+        off_to = normalize_str(row[col_tg_mo]) if len(row) > col_tg_mo else ""
+        phan_loai = normalize_str(row[col_phan_loai]) if len(row) > col_phan_loai else ""
 
         if not am_name:
             continue
-
-        cap_down_fmt = cap_down
-        try:
-            val = float(cap_down)
-            if val <= 1:
-                cap_down_fmt = f"{int(val * 100)}%"
-        except ValueError:
-            pass
 
         norm_key = am_name.lower()
         canonical_am = norm_am_map.get(norm_key, am_name)
@@ -202,24 +278,23 @@ def parse_off_data(rows):
             "province": province,
             "district": district,
             "ward": ward,
+            "ward_id": ward_id,
             "post_office": post_office,
             "result": result or "DUYỆT",
-            "cap_down": cap_down_fmt,
             "off_from": off_from,
             "off_to": off_to,
+            "phan_loai": phan_loai,
             "am": canonical_am
         }
 
         bc_key = post_office or "CHƯA XÁC ĐỊNH"
 
-        # Gom theo AM -> Bưu cục
         if canonical_am not in am_data:
             am_data[canonical_am] = {}
         if bc_key not in am_data[canonical_am]:
             am_data[canonical_am][bc_key] = {
                 "bc_name": bc_key,
                 "result": result or "DUYỆT",
-                "cap_down": cap_down_fmt,
                 "off_from": off_from,
                 "off_to": off_to,
                 "wards": []
@@ -229,27 +304,38 @@ def parse_off_data(rows):
     return am_data
 
 
-def format_am_text_message(am_name, am_bcs):
+def format_am_text_message(am_name, am_bcs, is_supplement=False):
     """
     Định dạng tin nhắn riêng cho từng AM gom nhóm theo Bưu cục và liệt kê các xã/phường + Link Google Sheet.
     """
     total_wards = sum(len(b["wards"]) for b in am_bcs.values())
     total_bcs = len(am_bcs)
 
-    msg = f"📢 <b>THÔNG BÁO KẾT QUẢ OFF TUYẾN — AM: {am_name}</b>\n"
-    msg += f"📊 <b>Tổng số:</b> {total_wards} Xã/Phường | {total_bcs} Bưu cục\n"
+    title_prefix = "📢 <b>[BỔ SUNG] THÔNG BÁO TUYẾN SPE — AM: " if is_supplement else "📢 <b>THÔNG BÁO TUYẾN SPE — AM: "
+    msg = f"{title_prefix}{am_name}</b>\n"
+    msg += f"📊 <b>Tổng số:</b> {total_wards} Xã/Phường | {total_bcs} Bưu cục phụ trách\n"
 
     for bc_name, b_info in am_bcs.items():
         msg += f"\n📦 <b>BƯU CỤC: {bc_name}</b> ({len(b_info['wards'])} xã/phường)\n"
-        msg += f"   • Trạng thái: <b>{b_info['result']}</b> (Cap Down: {b_info['cap_down']})\n"
+        msg += f"   • Trạng thái: <b>{b_info['result']}</b>\n"
         if b_info['off_from'] or b_info['off_to']:
-            msg += f"   • Thời gian: {b_info['off_from']} ➔ {b_info['off_to']}\n"
-        msg += "   📍 <i>Các xã/phường off:</i>\n"
+            msg += f"   • Thời gian: <b>{b_info['off_from']} ➔ {b_info['off_to']}</b>\n"
+        msg += "   📍 <i>Chi tiết các xã/phường tắt:</i>\n"
 
         for idx, w in enumerate(b_info['wards'], 1):
-            msg += f"      {idx}. <b>{w['ward']}</b> - {w['district']}, {w['province']}\n"
+            phan_loai = w.get('phan_loai', '').strip()
+            # Loại bỏ các ghi chú nội bộ theo yêu cầu
+            if any(term in phan_loai.lower() for term in ["chưa có trong đang off", "spe đề xuất thêm", "đang off"]):
+                tag = ""
+            elif phan_loai:
+                tag = f" — <i>[{phan_loai}]</i>"
+            else:
+                tag = ""
 
-    msg += f"\n🔗 <b>Xem chi tiết tại Sheet:</b> <a href=\"{SHEET_LINK}\">Tab Đang OFF</a>"
+            id_tag = f" (Mã: <code>{w['ward_id']}</code>)" if w['ward_id'] else ""
+            msg += f"      {idx}. <b>{w['ward']}</b>{id_tag} - {w['district']}, {w['province']}{tag}\n"
+
+    msg += f"\n🔗 <b>Xem chi tiết tại Sheet:</b> <a href=\"{SHEET_LINK}\">Tab Tổng Hợp KA OFF</a>"
     return msg.strip()
 
 
@@ -278,51 +364,124 @@ def send_gtalk_text_message(group_id, text, oa_token):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Gửi thông báo Off tuyến văn bản cho AM")
-    parser.add_argument("--send", "--force-send", action="store_true", help="Gửi thật qua GTalk API")
+    parser = argparse.ArgumentParser(description="Gửi thông báo Tuyến SPE Tắt Giao Tệ cho AM")
+    parser.add_argument("--send", "--force-send", action="store_true", help="Gửi thật qua GTalk API (Mặc định: Chỉ xem trước)")
+    parser.add_argument("--am", type=str, default="", help="Chỉ gửi cho AM cụ thể (hoặc danh sách AM cách nhau bởi dấu phẩy, ví dụ: --am 'Phan Đình Duy' hoặc --am 'Duy,Vũ,Trường')")
+    parser.add_argument("--bo-sung", "--update", action="store_true", help="Gắn nhãn [BỔ SUNG] vào tiêu đề tin nhắn")
     args = parser.parse_args()
 
+    # MẶC ĐỊNH LÀ DRY RUN - TUYỆT ĐỐI KHÔNG TỰ Ý GỬI NẾU KHÔNG CÓ THAM SỐ --send
     is_dry_run = not args.send
 
-    print("=" * 65)
-    print("🚀 CHƯƠNG TRÌNH THỐNG KÊ VÀ BÁO CÁO KẾT QUẢ OFF TUYẾN (TEXT ONLY)")
-    print(f"🔑 Token GTalk OA: {DEFAULT_TOKEN[:20]}...")
-    print(f"📌 Chế độ: {'DRY-RUN (Chỉ xem trước, KHÔNG gửi thật)' if is_dry_run else '🔴 KHỞI CHẠY GỬI THẬT QUA GTALK'}")
-    print("=" * 65)
+    print("=" * 70)
+    print("🚀 THỐNG KÊ & BÁO CÁO TUYẾN SPE TẮT GIAO TỆ (TAB 'Tổng Hợp KA OFF')")
+    if args.bo_sung:
+        print("📌 Chế độ thông báo: 🔔 [BỔ SUNG / CẬP NHẬT]")
+    print(f"📌 Trạng thái gửi: {'DRY-RUN (Chỉ xem trước tin nhắn mẫu, KHÔNG gửi thật)' if is_dry_run else '🔴 KHỞI CHẠY GỬI THẬT QUA GTALK'}")
+    print("=" * 70)
 
-    print("📥 Đang đọc dữ liệu từ Google Sheet (sheet 'Đang OFF')...")
-    rows = load_sheet_data()
-    print(f"✅ Đã tải {len(rows)} dòng dữ liệu.")
+    print("📥 Đang tải dữ liệu từ Google Sheet (Tổng Hợp KA OFF & tab 'gtalk')...")
+    th_rows, gtalk_rows = load_sheet_data()
+    print(f"✅ Đã tải: {len(th_rows)} dòng 'Tổng Hợp KA OFF' | {len(gtalk_rows)} dòng tab 'gtalk'.")
 
-    am_data = parse_off_data(rows)
-    print(f"📊 Tìm thấy {len(am_data)} AM có tuyến OFF.")
+    # Lấy cấu hình Token và Group ID động từ tab 'gtalk'
+    sheet_token, gtalk_am_map = parse_gtalk_config(gtalk_rows)
+    active_token = sheet_token if sheet_token else DEFAULT_TOKEN
+    token_src = "Tab 'gtalk'" if sheet_token else "Mặc định (DEFAULT_TOKEN)"
+    print(f"🔑 Token GTalk OA: {active_token[:20]}... (Nguồn: {token_src})")
+    print(f"📋 Danh bạ AM cấu hình trong sheet 'gtalk': {len(gtalk_am_map)} AM.")
+
+    # Phân tích dữ liệu tuyến tắt
+    am_data = parse_off_data(th_rows, gtalk_am_map)
+    print(f"📊 Tìm thấy {len(am_data)} AM có tuyến OFF do SPE đề xuất trong bảng.")
 
     if not am_data:
         print("⚠️ Không tìm thấy dữ liệu OFF tuyến hợp lệ!")
         return
 
+    # Danh sách các mã ID Phường/Xã đã được gửi ở đợt 1 theo từng AM
+    # (Khi bật --bo-sung, hệ thống sẽ TỰ ĐỘNG LOẠI BỎ các tuyến đã gửi này để không gửi lặp lại)
+    ALREADY_SENT_BY_AM = {
+        "Nguyễn Lê Nguyên Vũ": {"420311"},  # Đã gửi Đức Trọng 1 (Xã Phú Hội)
+        "Lê Văn Trường": {"420504", "420506", "420502", "420503", "420510"},  # Đã gửi 5 xã Đơn Dương
+        "Huỳnh Thúc Duân": {"630101", "630104", "630108", "630102", "630103", "630107", "630105", "630106"},
+        "Trần Thị Nhung": {"630701"},
+    }
+
+    # NẾU LÀ CHẾ ĐỘ BỔ SUNG: Chỉ lọc giữ lại các tuyến CHƯA ĐƯỢC GỬI cho từng AM
+    if args.bo_sung:
+        supp_data = {}
+        for am_name, am_bcs in am_data.items():
+            sent_ids = ALREADY_SENT_BY_AM.get(am_name, set())
+            new_bcs = {}
+            for bc_name, b_info in am_bcs.items():
+                missing_wards = [w for w in b_info['wards'] if str(w['ward_id']).strip() not in sent_ids]
+                if missing_wards:
+                    new_bcs[bc_name] = {
+                        "bc_name": bc_name,
+                        "result": b_info['result'],
+                        "off_from": b_info['off_from'],
+                        "off_to": b_info['off_to'],
+                        "wards": missing_wards
+                    }
+            if new_bcs:
+                supp_data[am_name] = new_bcs
+
+        am_data = supp_data
+        total_missing = sum(sum(len(b['wards']) for b in am.values()) for am in am_data.values())
+        print(f"🔔 [CHẾ ĐỘ BỔ SUNG]: Đã loại trừ các tuyến đã gửi đợt 1.")
+        print(f"👉 Còn lại đúng {total_missing} tuyến THIẾU cần gửi cho {len(am_data)} AM: {list(am_data.keys())}")
+
+    # Lọc theo danh sách AM nếu có truyền --am
+    if args.am.strip():
+        filter_terms = [normalize_str(t).lower() for t in args.am.split(",") if t.strip()]
+        filtered_data = {}
+        for am_name, am_bcs in am_data.items():
+            am_norm = normalize_str(am_name).lower()
+            if any(term in am_norm for term in filter_terms):
+                filtered_data[am_name] = am_bcs
+        
+        if not filtered_data:
+            print(f"\n⚠️ Không tìm thấy AM nào khớp với từ khóa '--am {args.am}'!")
+            print(f"Danh sách AM có sẵn: {list(am_data.keys())}")
+            return
+        
+        am_data = filtered_data
+        print(f"🎯 Đã lọc theo yêu cầu: Chỉ xử lý {len(am_data)} AM -> {list(am_data.keys())}")
+
     success_count = 0
     fail_count = 0
 
-    print("\n📡 Đang xử lý tin nhắn cho từng AM...")
+    print("\n📡 Đang tạo mẫu tin nhắn thông báo cho từng AM...")
     for idx, (am_name, am_bcs) in enumerate(am_data.items(), 1):
-        group_id = AM_GROUP_MAP.get(am_name)
+        norm_key = normalize_str(am_name).lower()
+        group_id = None
+        source_note = ""
+
+        # Ưu tiên lấy Group ID từ tab 'gtalk' trên Sheet
+        if norm_key in gtalk_am_map and gtalk_am_map[norm_key]["group_id"]:
+            group_id = gtalk_am_map[norm_key]["group_id"]
+            source_note = "Tab 'gtalk'"
+        elif am_name in AM_GROUP_MAP and AM_GROUP_MAP[am_name]:
+            group_id = AM_GROUP_MAP[am_name]
+            source_note = "AM_GROUP_MAP (fallback)"
+
         if not group_id:
-            print(f"⚠️ AM '{am_name}' không tìm thấy ID Group ở danh sách cấu hình! (Bỏ qua)")
+            print(f"⚠️ AM '{am_name}' chưa được cấu hình Group ID trong tab 'gtalk'! (Bỏ qua)")
             continue
 
-        am_msg = format_am_text_message(am_name, am_bcs)
+        am_msg = format_am_text_message(am_name, am_bcs, is_supplement=args.bo_sung)
 
-        print(f"\n[{idx:02d}/{len(am_data):02d}] 👤 AM: {am_name:<22} | Group ID: {group_id}")
+        print(f"\n[{idx:02d}/{len(am_data):02d}] 👤 AM: {am_name:<22} | Group ID: {group_id} ({source_note})")
 
         if is_dry_run:
-            print("  👉 [DRY-RUN] Tin nhắn văn bản mẫu dự kiến gửi:")
-            print("  " + "-" * 55)
+            print("  👉 [DRY-RUN - XEM TRƯỚC] Nội dung tin nhắn dự kiến:")
+            print("  " + "-" * 60)
             print("  " + am_msg.replace('\n', '\n  '))
-            print("  " + "-" * 55)
+            print("  " + "-" * 60)
             success_count += 1
         else:
-            ok_am, err_am = send_gtalk_text_message(group_id, am_msg, DEFAULT_TOKEN)
+            ok_am, err_am = send_gtalk_text_message(group_id, am_msg, active_token)
             if ok_am:
                 print("  ✅ Gửi tin nhắn text thành công!")
                 success_count += 1
@@ -331,17 +490,21 @@ def main():
                 fail_count += 1
             time.sleep(0.4)
 
-    print("\n" + "=" * 65)
-    print("📊 TỔNG KẾT BÁO CÁO:")
-    print(f"   - Chế độ:     {'DRY-RUN (Chỉ xem trước)' if is_dry_run else 'THỰC HÀNH GỬI THẬT'}")
-    print(f"   - Token:      {DEFAULT_TOKEN[:20]}...")
-    print(f"   - Số AM gửi:  {success_count}/{len(am_data)}")
+    print("\n" + "=" * 70)
+    print("📊 TỔNG KẾT:")
+    print(f"   - Chế độ:     {'DRY-RUN (Chỉ xem trước, CHƯA GỬI GTALK)' if is_dry_run else 'ĐÃ GỬI THẬT QUA GTALK'}")
+    print(f"   - Số AM:      {success_count}/{len(am_data)}")
     if not is_dry_run:
         print(f"   - Thất bại:   {fail_count}/{len(am_data)}")
     else:
-        print("💡 Để gửi thật, chạy lệnh: python push_off_tuyen_am.py --send")
-    print("=" * 65)
+        print("\n💡 Lưu ý: Đây là chế độ xem trước an toàn. Khi bạn duyệt nội dung và muốn gửi thật, hãy thêm cờ --send:")
+        if args.am:
+            print(f"   👉 python push_off_tuyen_am.py --send --am \"{args.am}\"" + (" --bo-sung" if args.bo_sung else ""))
+        else:
+            print("   👉 python push_off_tuyen_am.py --send" + (" --bo-sung" if args.bo_sung else ""))
+    print("=" * 70)
 
 
 if __name__ == "__main__":
     main()
+

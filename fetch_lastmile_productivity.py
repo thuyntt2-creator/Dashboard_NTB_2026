@@ -42,8 +42,10 @@ def get_ghn_token():
             pass
     return DEFAULT_TOKEN
 
-def get_gspread_client():
+def get_gspread_client(sheet_key=GOOGLE_SHEET_KEY):
     scopes = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
+    
+    # 1. Thử authorized_user (OAuth cá nhân)
     auth_candidates = [
         os.path.join(SCRIPT_DIR, 'authorized_user.json'),
         os.path.join(SCRIPT_DIR, 'credentials_oauth.json'),
@@ -53,10 +55,14 @@ def get_gspread_client():
         if os.path.exists(auth_file):
             try:
                 creds = Credentials.from_authorized_user_file(auth_file, scopes=scopes)
-                return gspread.authorize(creds)
+                gc = gspread.authorize(creds)
+                if sheet_key:
+                    gc.open_by_key(sheet_key)
+                return gc
             except Exception:
                 pass
 
+    # 2. Thử Service Account
     sa_candidates = [
         os.path.join(SCRIPT_DIR, 'credentials.json'),
         'credentials.json'
@@ -65,10 +71,14 @@ def get_gspread_client():
         if os.path.exists(sa):
             try:
                 creds = SACredentials.from_service_account_file(sa, scopes=scopes)
-                return gspread.authorize(creds)
-            except Exception:
-                pass
-    raise PermissionError("Không thể xác thực Google Sheets API.")
+                gc = gspread.authorize(creds)
+                if sheet_key:
+                    gc.open_by_key(sheet_key)
+                return gc
+            except Exception as e:
+                print(f"⚠️ Service account ({sa}) không có quyền mở Google Sheet: {e}", flush=True)
+
+    raise PermissionError("Không thể xác thực Google Sheets API. Hãy kiểm tra xem file Google Sheet đã được chia sẻ cho email Service Account bot-ghn@ghn-automation.iam.gserviceaccount.com hay chưa.")
 
 def get_today_info():
     tz = timezone(timedelta(hours=7))

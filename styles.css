@@ -886,7 +886,8 @@ body {
   font-size: 24px;
   font-weight: 800;
   color: var(--text-main);
-  font-family: var(--font-mono);
+  font-family: var(--font-family);
+  font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
   margin-bottom: 6px;
   display: flex;

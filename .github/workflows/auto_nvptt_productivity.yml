@@ -36,9 +36,12 @@ jobs:
           pip install requests urllib3 gspread google-auth pillow playwright
           playwright install --with-deps chromium
 
-      - name: Tạo file Google Service Account từ GitHub Secret
+      - name: Tạo file xác thực Google từ GitHub Secret
         run: |
           echo '${{ secrets.GOOGLE_CREDENTIALS }}' > credentials.json
+          if [ -n "${{ secrets.AUTHORIZED_USER }}" ]; then
+            echo '${{ secrets.AUTHORIZED_USER }}' > authorized_user.json
+          fi
 
       - name: BƯỚC 1 - Lấy dữ liệu Lastmile GHN & Cập nhật Google Sheet
         env:
