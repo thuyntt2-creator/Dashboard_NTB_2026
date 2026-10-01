@@ -9448,18 +9448,18 @@ window.DASHBOARD_DATA = {
   },
   "transport_costs": {
     "region": {
-      "total_cost": 1839.29,
-      "total_cost_formatted": "1.839.293.876 đ",
+      "total_cost": 1838.85,
+      "total_cost_formatted": "1.838.847.457 đ",
       "total_trips": 2006,
       "avg_cost_per_trip": 0.92,
-      "avg_cost_per_trip_formatted": "916.896 đ/chuyến",
+      "avg_cost_per_trip_formatted": "916.674 đ/chuyến",
       "ncc_count": 6,
       "ktc_count": 7,
       "total_trucks": 57,
-      "last_updated": "09:29 - 01/10/2026"
+      "last_updated": "10:04 - 01/10/2026"
     },
     "surge_fixed": {
-      "fixed_cost": 1839.29,
+      "fixed_cost": 1838.85,
       "fixed_cost_pct": 100.0,
       "fixed_trips": 2006,
       "surge_cost": 0.0,
@@ -9509,12 +9509,12 @@ window.DASHBOARD_DATA = {
       },
       {
         "ktc": "KTC Đắk Nông",
-        "total_cost": 205.03,
-        "total_cost_raw": 205034514.5999996,
+        "total_cost": 204.59,
+        "total_cost_raw": 204588096.19999978,
         "total_trips": 193,
         "cost_per_trip": 1.06,
-        "cost_per_trip_raw": 1062354.9979274592,
-        "fixed_cost": 205.03,
+        "cost_per_trip_raw": 1060041.9492227968,
+        "fixed_cost": 204.59,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "primary_ncc": "Trâm Hoá, Tốt và Rẻ",
@@ -9572,7 +9572,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 39,
-        "active_ktcs": "KTC Khánh Hòa, KTC Bình Thuận, KTC Nam Nha Trang, KTC Đức Trọng, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang, KTC Bình Thuận, KTC Đức Trọng, KTC Nam Nha Trang"
       },
       {
         "ncc": "NAK",
@@ -9628,12 +9628,12 @@ window.DASHBOARD_DATA = {
       },
       {
         "ncc": "Trâm Hoá",
-        "total_cost": 28.7,
-        "total_cost_raw": 28698300.0,
+        "total_cost": 28.25,
+        "total_cost_raw": 28251881.599999987,
         "total_trips": 30,
-        "cost_per_trip": 0.96,
-        "cost_per_trip_raw": 956610.0,
-        "fixed_cost": 28.7,
+        "cost_per_trip": 0.94,
+        "cost_per_trip_raw": 941729.3866666663,
+        "fixed_cost": 28.25,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 1,
@@ -14207,13 +14207,13 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-09-26",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260925KM7K45P8",
         "ontime": "1"
       },
       {
@@ -14222,13 +14222,13 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-09-27",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260926V0TTPKBQ",
         "ontime": "1"
       },
       {
@@ -14237,13 +14237,13 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-09-28",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E260927D67ID7WM",
         "ontime": "1"
       },
       {
@@ -14252,13 +14252,13 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-09-29",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2609287BEAYFXA",
         "ontime": "1"
       },
       {
@@ -14267,13 +14267,13 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-09-30",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2609297JRO6GPE",
         "ontime": "1"
       },
       {
@@ -14282,14 +14282,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-01",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14297,14 +14297,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-02",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14312,14 +14312,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-03",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14327,14 +14327,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-04",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14342,14 +14342,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-05",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14357,14 +14357,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-06",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14372,14 +14372,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-07",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14387,14 +14387,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-08",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14402,14 +14402,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-09",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14417,14 +14417,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-10",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14432,14 +14432,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-11",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14447,14 +14447,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-12",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14462,14 +14462,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-13",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14477,14 +14477,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-14",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14492,14 +14492,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-15",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14507,14 +14507,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-16",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14522,14 +14522,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-17",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14537,14 +14537,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-18",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14552,14 +14552,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-19",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14567,14 +14567,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-20",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14582,14 +14582,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-21",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14597,14 +14597,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-22",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "100,00%"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14612,14 +14612,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-23",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14627,14 +14627,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-24",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Trâm Hoá",
@@ -14642,14 +14642,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-25",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "956.610 đ",
-        "cost": 956610.0,
+        "cost_str": "941.729 đ",
+        "cost": 941729.4,
         "trips_equivalent": 1,
         "trip_code": "",
-        "ontime": "1"
+        "ontime": ""
       },
       {
         "ncc": "Mạnh Cường",
