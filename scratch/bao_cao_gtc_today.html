@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+    
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+        background: #f8fafc;
+        color: #0f172a;
+        padding: 24px;
+        width: 880px;
+        margin: 0 auto;
+    }
+    
+    .card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 26px 30px;
+        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    }
+    
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+        border-bottom: 2px solid #f1f5f9;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 4px 10px;
+        background: #fff7ed;
+        color: #ea580c;
+        border: 1px solid #ffedd5;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+    
+    .title {
+        font-size: 22px;
+        font-weight: 800;
+        color: #0f172a;
+        letter-spacing: -0.5px;
+    }
+    
+    .time-tag {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        padding: 6px 14px;
+        border-radius: 10px;
+        text-align: right;
+    }
+    .time-lbl {
+        font-size: 10px;
+        font-weight: 700;
+        color: #64748b;
+        text-transform: uppercase;
+    }
+    .time-val {
+        font-size: 13px;
+        font-weight: 800;
+        color: #0284c7;
+    }
+
+    /* 3 KPI BOXES */
+    .kpi-row {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr 1fr;
+        gap: 14px;
+        margin-bottom: 20px;
+    }
+
+    .kpi-box {
+        padding: 16px 18px;
+        border-radius: 14px;
+    }
+
+    .kpi-box.blue {
+        background: #f8fafc;
+        border: 1.5px solid #e2e8f0;
+    }
+    .kpi-box.orange {
+        background: #fff7ed;
+        border: 1.5px solid #fed7aa;
+    }
+    .kpi-box.green {
+        background: #f0fdf4;
+        border: 1.5px solid #bbf7d0;
+    }
+
+    .kpi-lbl {
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        margin-bottom: 4px;
+    }
+    .kpi-box.blue .kpi-lbl { color: #475569; }
+    .kpi-box.orange .kpi-lbl { color: #9a3412; }
+    .kpi-box.green .kpi-lbl { color: #166534; }
+
+    .kpi-num {
+        font-size: 30px;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 4px;
+    }
+    .kpi-box.blue .kpi-num { color: #334155; }
+    .kpi-box.orange .kpi-num { color: #c2410c; }
+    .kpi-box.green .kpi-num { color: #15803d; }
+
+    .kpi-desc {
+        font-size: 12px;
+        font-weight: 600;
+    }
+    .kpi-box.blue .kpi-desc { color: #64748b; }
+    .kpi-box.orange .kpi-desc { color: #c2410c; }
+    .kpi-box.green .kpi-desc { color: #15803d; }
+
+    /* TABLE */
+    .table-box {
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 18px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+    }
+
+    th {
+        background: #f8fafc;
+        color: #475569;
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        padding: 10px 12px;
+        border-bottom: 1px solid #e2e8f0;
+        text-align: left;
+    }
+
+    td {
+        padding: 9px 12px;
+        border-bottom: 1px solid #f1f5f9;
+        color: #334155;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+        background: #fafafa;
+    }
+
+    .center { text-align: center; }
+    .right { text-align: right; }
+
+    .tag-green {
+        background: #dcfce7;
+        color: #15803d;
+        font-weight: 800;
+        padding: 2px 7px;
+        border-radius: 6px;
+        display: inline-block;
+    }
+
+    .tag-orange {
+        background: #ffedd5;
+        color: #c2410c;
+        font-weight: 800;
+        padding: 2px 7px;
+        border-radius: 6px;
+        display: inline-block;
+    }
+
+    .tag-gray {
+        background: #f1f5f9;
+        color: #64748b;
+        font-weight: 700;
+        padding: 2px 7px;
+        border-radius: 6px;
+        display: inline-block;
+    }
+
+    /* NOTICE BANNER */
+    .notice {
+        background: linear-gradient(90deg, #ea580c 0%, #f97316 100%);
+        color: #ffffff;
+        padding: 12px 18px;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 700;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .notice-badge {
+        background: rgba(255, 255, 255, 0.25);
+        padding: 3px 10px;
+        border-radius: 6px;
+        font-size: 11px;
+        text-transform: uppercase;
+    }
+</style>
+</head>
+<body>
+
+<div class="card">
+    <div class="header">
+        <div>
+            <div class="badge">VÙNG NAM TRUNG BỘ</div>
+            <div class="title">TIẾN ĐỘ THƯỞNG 10K/ĐƠN TTS (NGÀY 01/10)</div>
+        </div>
+        <div class="time-tag">
+            <div class="time-lbl">Hạn chót chốt thưởng</div>
+            <div class="time-val">18:00 HÔM NAY</div>
+        </div>
+    </div>
+
+    <!-- 3 KPI BOXES -->
+    <div class="kpi-row">
+        <div class="kpi-box blue">
+            <div class="kpi-lbl">TỔNG ĐƠN DANH SÁCH</div>
+            <div class="kpi-num">99 <span style="font-size:16px; font-weight:700;">đơn</span></div>
+            <div class="kpi-desc">Phân bổ <b>13 Quản lý AM</b></div>
+        </div>
+        <div class="kpi-box orange">
+            <div class="kpi-lbl">CẦN XỬ LÝ GẤP TRƯỚC 15H</div>
+            <div class="kpi-num">96 <span style="font-size:16px; font-weight:700;">đơn</span></div>
+            <div class="kpi-desc">Cơ hội gom thưởng: <b>+960,000đ</b></div>
+        </div>
+        <div class="kpi-box green">
+            <div class="kpi-lbl">ĐÃ GTC (ĐÃ ĐẠT THƯỞNG)</div>
+            <div class="kpi-num">3 <span style="font-size:16px; font-weight:700;">đơn</span></div>
+            <div class="kpi-desc">Đã chốt thưởng: <b>30,000đ</b></div>
+        </div>
+    </div>
+
+    <!-- AM PROGRESS TABLE -->
+    <div class="table-box">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 35px;" class="center">#</th>
+                    <th>Quản lý AM</th>
+                    <th class="center">Tổng số đơn</th>
+                    <th class="center">Cần xử lý gấp (Push)</th>
+                    <th class="center">Đã GTC (Không push)</th>
+                    <th class="right">Tỷ lệ GTC</th>
+                    <th class="right">Thưởng Đã Đạt</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td class="center" style="font-weight:700; color:#94a3b8;">1</td>
+                    <td style="font-weight:700; color:#0f172a;">Lê Văn Trường</td>
+                    <td class="center" style="font-weight:700;">51</td>
+                    <td class="center"><span class="tag-orange">51 đơn</span></td>
+                    <td class="center"><span class="tag-gray">0</span></td>
+                    <td class="right" style="font-weight:700; color:#94a3b8;">0.0%</td>
+                    <td class="right" style="font-weight:800; color:#15803d;">0đ</td>
+                </tr>
+    
+                <tr>
+                    <td class="center" style="font-weight:700; color:#94a3b8;">2</td>
+                    <td style="font-weight:700; color:#0f172a;">Nguyễn Lê Nguyên Vũ</td>
+                    <td class="center" style="font-weight:700;">12</td>
+                    <td class="center"><span class="tag-orange">12 đơn</span></td>
+                    <td class="center"><span class="tag-gray">0</span></td>
+                    <td class="right" style="font-weight:700; color:#94a3b8;">0.0%</td>
+                    <td class="right" style="font-weight:800; color:#15803d;">0đ</td>
+                </tr>
+    
+                <tr>
+                    <td class="center" style="font-weight:700; color:#94a3b8;">3</td>
+                    <td style="font-weight:700; color:#0f172a;">Huỳnh Thị Kim Chi</td>
+                    <td class="center" style="font-weight:700;">9</td>
+                    <td class="center"><span class="tag-orange">8 đơn</span></td>
+                    <td class="center"><span class="tag-green">1 đơn</span></td>
+                    <td class="right" style="font-weight:700; color:#15803d;">11.1%</td>
+                    <td class="right" style="font-weight:800; color:#15803d;">10,000đ</td>
+                </tr>
+    
+                <tr>
+                    <td class="center" style="font-weight:700; color:#94a3b8;">4</td>
+                    <td style="font-weight:700; color:#0f172a;">Nguyễn Thanh Long</td>
+                    <td class="center" style="font-weight:700;">5</td>
+                    <td class="center"><span class="tag-orange">5 đơn</span></td>
+                    <td class="center"><span class="tag-gray">0</span></td>
+                    <td class="right" style="font-weight:700; color:#94a3b8;">0.0%</td>
+                    <td class="right" style="font-weight:800; color:#15803d;">0đ</td>
+                </tr>
+    
+                <tr>
+                    <td class="center" style="font-weight:700; color:#94a3b8;">5</td>
+                    <td style="font-weight:700; color:#0f172a;">Phan Đình Duy</td>
+                    <td class="center" style="font-weight:700;">5</td>
+                    <td class="center"><span class="tag-orange">4 đơn</span></td>
+                    <td class="center"><span class="tag-green">1 đơn</span></td>
+                    <td class="right" style="font-weight:700; color:#15803d;">20.0%</td>
+                    <td class="right" style="font-weight:800; color:#15803d;">10,000đ</td>
+                </tr>
+    
+                <tr>
+                    <td class="center" style="font-weight:700; color:#94a3b8;">6</td>
+                    <td style="font-weight:700; color:#0f172a;">Trương Quang Linh</td>
+                    <td class="center" style="font-weight:700;">4</td>
+                    <td class="center"><span class="tag-orange">4 đơn</span></td>
+                    <td class="center"><span class="tag-gray">0</span></td>
+                    <td class="right" style="font-weight:700; color:#94a3b8;">0.0%</td>
+                    <td class="right" style="font-weight:800; color:#15803d;">0đ</td>
+                </tr>
+    
+                <tr>
+                    <td class="center" style="font-weight:700; color:#94a3b8;">7</td>
+                    <td style="font-weight:700; color:#0f172a;">Trần Thị Nhung</td>
+                    <td class="center" style="font-weight:700;">4</td>
+                    <td class="center"><span class="tag-orange">3 đơn</span></td>
+                    <td class="center"><span class="tag-green">1 đơn</span></td>
+                    <td class="right" style="font-weight:700; color:#15803d;">25.0%</td>
+                    <td class="right" style="font-weight:800; color:#15803d;">10,000đ</td>
+                </tr>
+    
+                <tr>
+                    <td class="center" style="font-weight:700; color:#94a3b8;">8</td>
+                    <td style="font-weight:700; color:#0f172a;">Huỳnh Thúc Duân</td>
+                    <td class="center" style="font-weight:700;">3</td>
+                    <td class="center"><span class="tag-orange">3 đơn</span></td>
+                    <td class="center"><span class="tag-gray">0</span></td>
+                    <td class="right" style="font-weight:700; color:#94a3b8;">0.0%</td>
+                    <td class="right" style="font-weight:800; color:#15803d;">0đ</td>
+                </tr>
+    
+                <tr>
+                    <td class="center" style="font-weight:700; color:#94a3b8;">9</td>
+                    <td style="font-weight:700; color:#0f172a;">Nguyễn Duy Long</td>
+                    <td class="center" style="font-weight:700;">2</td>
+                    <td class="center"><span class="tag-orange">2 đơn</span></td>
+                    <td class="center"><span class="tag-gray">0</span></td>
+                    <td class="right" style="font-weight:700; color:#94a3b8;">0.0%</td>
+                    <td class="right" style="font-weight:800; color:#15803d;">0đ</td>
+                </tr>
+    
+                <tr>
+                    <td class="center" style="font-weight:700; color:#94a3b8;">10</td>
+                    <td style="font-weight:700; color:#0f172a;">Lê Thanh Nhựt</td>
+                    <td class="center" style="font-weight:700;">1</td>
+                    <td class="center"><span class="tag-orange">1 đơn</span></td>
+                    <td class="center"><span class="tag-gray">0</span></td>
+                    <td class="right" style="font-weight:700; color:#94a3b8;">0.0%</td>
+                    <td class="right" style="font-weight:800; color:#15803d;">0đ</td>
+                </tr>
+    
+                <tr>
+                    <td class="center" style="font-weight:700; color:#94a3b8;">11</td>
+                    <td style="font-weight:700; color:#0f172a;">Nguyễn Hoàng Phi</td>
+                    <td class="center" style="font-weight:700;">1</td>
+                    <td class="center"><span class="tag-orange">1 đơn</span></td>
+                    <td class="center"><span class="tag-gray">0</span></td>
+                    <td class="right" style="font-weight:700; color:#94a3b8;">0.0%</td>
+                    <td class="right" style="font-weight:800; color:#15803d;">0đ</td>
+                </tr>
+    
+                <tr>
+                    <td class="center" style="font-weight:700; color:#94a3b8;">12</td>
+                    <td style="font-weight:700; color:#0f172a;">Nguyễn Ngọc Khánh</td>
+                    <td class="center" style="font-weight:700;">1</td>
+                    <td class="center"><span class="tag-orange">1 đơn</span></td>
+                    <td class="center"><span class="tag-gray">0</span></td>
+                    <td class="right" style="font-weight:700; color:#94a3b8;">0.0%</td>
+                    <td class="right" style="font-weight:800; color:#15803d;">0đ</td>
+                </tr>
+    
+                <tr>
+                    <td class="center" style="font-weight:700; color:#94a3b8;">13</td>
+                    <td style="font-weight:700; color:#0f172a;">Thái Thị Thanh Thư</td>
+                    <td class="center" style="font-weight:700;">1</td>
+                    <td class="center"><span class="tag-orange">1 đơn</span></td>
+                    <td class="center"><span class="tag-gray">0</span></td>
+                    <td class="right" style="font-weight:700; color:#94a3b8;">0.0%</td>
+                    <td class="right" style="font-weight:800; color:#15803d;">0đ</td>
+                </tr>
+    
+            </tbody>
+        </table>
+    </div>
+
+    <!-- NOTICE -->
+    <div class="notice">
+        <div>⚡ <b>Chính sách thưởng:</b> Mỗi đơn GTC trước 18h hôm nay thưởng <b>10.000đ/đơn</b>. Yêu cầu AM push xử lý trước <b>15h00</b>.</div>
+        <div class="notice-badge">Hạn chót 18:00</div>
+    </div>
+</div>
+
+</body>
+</html>
