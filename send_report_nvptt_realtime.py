@@ -12,7 +12,7 @@ import json
 import time
 import argparse
 import unicodedata
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 import requests
 from requests.adapters import HTTPAdapter
@@ -998,7 +998,8 @@ def main():
     parser.add_argument("--no-send", action="store_true", help="Chỉ tạo ảnh test, không gửi lên GTalk")
     args = parser.parse_args()
 
-    now = datetime.now()
+    tz_vn = timezone(timedelta(hours=7))
+    now = datetime.now(tz_vn)
     report_date_str = now.strftime("%d/%m/%Y")
     update_time_str = now.strftime("%H:%M · %d/%m/%Y")
 
