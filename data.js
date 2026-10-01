@@ -9456,7 +9456,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 5,
       "ktc_count": 5,
       "total_trucks": 19,
-      "last_updated": "13:02 - 01/10/2026"
+      "last_updated": "13:37 - 01/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 509.15,
@@ -9478,7 +9478,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 200.46,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
+        "primary_ncc": "Trâm Hoá, Tốt và Rẻ",
         "truck_count": 5
       },
       {
@@ -9546,7 +9546,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 9,
-        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
+        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
       },
       {
         "ncc": "Mạnh Cường (BCCK)",
