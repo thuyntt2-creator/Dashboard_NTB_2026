@@ -110,6 +110,15 @@ def read_baocao_realtime(sheet_key=BAOCAO_SHEET_KEY, tab_name=BAOCAO_TAB_NAME):
     gc = get_gspread_client(sheet_key)
     sh = gc.open_by_key(sheet_key)
     ws = sh.worksheet(tab_name)
+    # Đảm bảo cell B2 luôn ở trạng thái 'TẤT CẢ' để công thức QUERY hiển thị đầy đủ mọi bưu cục
+    try:
+        b2_val = str(ws.acell('B2').value or '').strip()
+        if b2_val != 'TẤT CẢ':
+            print(f"⚠️ Cell B2 đang lọc '{b2_val}', tự động chuyển về 'TẤT CẢ'...", flush=True)
+            ws.update_acell('B2', 'TẤT CẢ')
+            time.sleep(3)
+    except Exception as e:
+        print(f"⚠️ Kiểm tra cell B2: {e}", flush=True)
 
     all_values = ws.get_all_values()
     print(f"🔎 [DEBUG] Tab '{tab_name}' có {len(all_values)} dòng.", flush=True)
