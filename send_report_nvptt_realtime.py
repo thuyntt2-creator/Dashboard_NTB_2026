@@ -1134,6 +1134,7 @@ def main():
 
         total_staff = sum(len(s) for am in data for _, s in am["bcs"])
         total_bcs = sum(len(am["bcs"]) for am in data)
+        total_orders = sum(s.get("gan", 0) for am in data for _, staff_list in am["bcs"] for s in staff_list)
         print(f"📊 Kiểm tra dữ liệu: {total_bcs} bưu cục, {total_staff} NVPTT, Tổng đơn gán = {total_orders:,} đơn (Lần {attempt}/{max_wait_attempts}).", flush=True)
 
         # Chỉ bắt đầu gửi khi Google Sheet đã tính xong đầy đủ (tối thiểu 60 bưu cục và 400 NVPTT)
