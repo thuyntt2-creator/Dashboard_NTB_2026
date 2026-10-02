@@ -106,9 +106,97 @@ def get_gspread_client(spreadsheet_id=BAOCAO_SHEET_KEY):
 
 # ===== ĐỌC TAB BAOCAO REAL-TIME =====
 
+def read_data_tab_realtime(sh):
+    """Đọc dữ liệu sạch trực tiếp từ tab 'Data' (18 cột do API Lastmile ghi trực tiếp).
+    Không phụ thuộc vào chuỗi công thức QUERY/XLOOKUP của Google Sheet."""
+    try:
+        ws_data = sh.worksheet('Data')
+        all_vals = ws_data.get_all_values()
+        if not all_vals or len(all_vals) < 2:
+            return None
+        
+        headers = all_vals[0]
+        i_bc = 16
+        i_am = 17
+        i_did = 1
+        i_name = 2
+        i_gan = 6
+        i_tc = 11
+        i_pct = 13
+        i_ltc = 8
+        
+        grouped = {}
+        for row in all_vals[1:]:
+            if len(row) <= max(i_bc, i_am):
+                continue
+            bc = row[i_bc].strip()
+            am = row[i_am].strip()
+            ma_nv = row[i_did].strip() if i_did < len(row) else ""
+            name = row[i_name].strip() if i_name < len(row) else ""
+            if not bc or not am or not name:
+                continue
+            
+            gan = parse_num(row[i_gan]) if i_gan < len(row) else 0
+            tc = parse_num(row[i_tc]) if i_tc < len(row) else 0
+            pct = parse_pct(row[i_pct]) if i_pct < len(row) else 0.0
+            ltc = parse_num(row[i_ltc]) if i_ltc < len(row) else 0
+            
+            if gan == 0 and ltc == 0:
+                continue
+                
+            danh_gia = "Thấp" if pct < 80.0 else ("Đạt" if pct < 85.0 else "OK")
+            
+            existing_list = grouped.setdefault(am, {}).setdefault(bc, [])
+            dup_idx = None
+            for idx, item in enumerate(existing_list):
+                if (ma_nv and item["ma_nv"] == ma_nv) or (not ma_nv and item["name"] == name):
+                    dup_idx = idx
+                    break
+                    
+            staff_data = {
+                "ma_nv": ma_nv,
+                "name": name,
+                "gan": gan,
+                "tc": tc,
+                "pct": pct,
+                "ltc": ltc,
+                "danh_gia": danh_gia
+            }
+            if dup_idx is not None:
+                if tc > existing_list[dup_idx]["tc"] or (tc == existing_list[dup_idx]["tc"] and gan >= existing_list[dup_idx]["gan"]):
+                    existing_list[dup_idx] = staff_data
+            else:
+                existing_list.append(staff_data)
+                
+        result = []
+        for am_name, bc_map in sorted(grouped.items()):
+            bcs = []
+            for bc_name, staff_list in sorted(bc_map.items()):
+                if staff_list:
+                    staff_list.sort(key=lambda x: x["pct"])
+                    bcs.append((bc_name, staff_list))
+            if bcs:
+                result.append({"am": am_name, "bcs": bcs})
+                
+        total_staff = sum(len(s) for am in result for _, s in am["bcs"])
+        total_bcs = sum(len(am["bcs"]) for am in result)
+        if total_bcs >= 60 and total_staff >= 400:
+            print(f"📊 [DIRECT FROM TAB DATA] Đã tải sạch {total_staff} NVPTT tại {total_bcs} bưu cục thuộc {len(result)} AM (Không cần qua công thức trung gian).", flush=True)
+            return result
+    except Exception as e:
+        print(f"⚠️ Thử đọc tab Data: {e}. Sẽ dùng tab BaoCao...", flush=True)
+    return None
+
 def read_baocao_realtime(sheet_key=BAOCAO_SHEET_KEY, tab_name=BAOCAO_TAB_NAME):
     gc = get_gspread_client(sheet_key)
     sh = gc.open_by_key(sheet_key)
+
+    # 1. Ưu tiên đọc trực tiếp từ tab 'Data' (siêu tốc, chuẩn 100%, không bị ảnh hưởng bởi công thức Google Sheet)
+    direct_res = read_data_tab_realtime(sh)
+    if direct_res:
+        return direct_res
+
+    # 2. Dự phòng: Đọc tab BaoCao
     ws = sh.worksheet(tab_name)
     # Đảm bảo cell B2 luôn ở trạng thái 'TẤT CẢ' để công thức QUERY hiển thị đầy đủ mọi bưu cục
     try:
