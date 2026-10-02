@@ -1044,18 +1044,20 @@ def main():
             print(f"⚠️ Lỗi đọc tab BaoCao: {e}", flush=True)
             data = []
 
-        total_orders = sum(s["gan"] for am in data for _, bcs in am["bcs"] for s in bcs)
-        print(f"📊 Kiểm tra dữ liệu: Tổng đơn gán trên tab BaoCao = {total_orders:,} đơn (Lần {attempt}/{max_wait_attempts}).", flush=True)
+        total_staff = sum(len(s) for am in data for _, s in am["bcs"])
+        total_bcs = sum(len(am["bcs"]) for am in data)
+        print(f"📊 Kiểm tra dữ liệu: {total_bcs} bưu cục, {total_staff} NVPTT, Tổng đơn gán = {total_orders:,} đơn (Lần {attempt}/{max_wait_attempts}).", flush=True)
 
-        if total_orders > 1000:
-            print("✅ Google Sheet đã hoàn tất tính toán số liệu thật! Bắt đầu tạo ảnh báo cáo...", flush=True)
+        # Chỉ bắt đầu gửi khi Google Sheet đã tính xong đầy đủ (tối thiểu 60 bưu cục và 400 NVPTT)
+        if total_bcs >= 60 and total_staff >= 400 and total_orders >= 10000:
+            print("✅ Google Sheet đã hoàn tất tính toán đầy đủ toàn bộ bưu cục! Bắt đầu tạo ảnh báo cáo...", flush=True)
             break
         else:
-            print(f"⏳ Số đơn gán = {total_orders} (Google Sheet đang tính dở dang)... Chờ 20s để thử lại...", flush=True)
+            print(f"⏳ Dữ liệu Google Sheet chưa tính xong đầy đủ ({total_bcs} bưu cục, {total_staff} NVPTT, {total_orders} đơn)... Chờ 20s để thử lại...", flush=True)
             if attempt < max_wait_attempts:
                 time.sleep(20)
             else:
-                print("❌ Google Sheet vẫn chưa tính toán xong số liệu sau hơn 3 phút! HỦY BỎ để tránh gửi ảnh sai.", flush=True)
+                print("❌ Google Sheet vẫn chưa tính toán xong đầy đủ số liệu sau hơn 3 phút! HỦY BỎ để tránh gửi ảnh thiếu.", flush=True)
                 return
 
     if not data:

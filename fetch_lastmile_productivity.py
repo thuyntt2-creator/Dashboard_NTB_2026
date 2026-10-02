@@ -16,12 +16,22 @@ import json
 from datetime import datetime, timezone, timedelta
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 import gspread
 from google.oauth2.credentials import Credentials
 from google.oauth2.service_account import Credentials as SACredentials
 
 sys.stdout.reconfigure(encoding='utf-8')
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+def get_http_session():
+    session = requests.Session()
+    retries = Retry(total=4, backoff_factor=0.6, status_forcelist=[429, 500, 502, 503, 504], raise_on_status=False)
+    adapter = HTTPAdapter(max_retries=retries, pool_connections=25, pool_maxsize=25)
+    session.mount("https://", adapter)
+    session.mount("http://", adapter)
+    return session
 
 GOOGLE_SHEET_KEY = "1-p9VUXndK_7BoiT-a81UfTCbUi953XNmVBoXaTGis_c"
 CONFIG_FILE = os.path.join(SCRIPT_DIR, "ghn_config.json")
@@ -104,7 +114,7 @@ def get_hubs_from_sheet(sh):
         print(f"⚠️ Lỗi đọc tab 'cocau': {e}")
         return []
 
-def fetch_hub_trips(hub_id, today_int, headers):
+def fetch_hub_trips(hub_id, today_int, headers, session):
     trips = []
     # Quét cả 3 trạng thái của chuyến đi trong ngày: đang chạy, hoàn tất, vừa tạo
     for st in ["ON_TRIP", "FINISHED", "NEW"]:
@@ -117,8 +127,8 @@ def fetch_hub_trips(hub_id, today_int, headers):
         }
         for attempt in range(3):
             try:
-                r = requests.post('https://nhanh-api.ghn.vn/api/lastmile/trip/get-trip-list-by-hub',
-                                  headers=headers, json=payload, timeout=20)
+                r = session.post('https://nhanh-api.ghn.vn/api/lastmile/trip/get-trip-list-by-hub',
+                                 headers=headers, json=payload, timeout=20)
                 if r.status_code == 200:
                     data = r.json().get('data') or []
                     for t in data:
@@ -134,7 +144,7 @@ def fetch_hub_trips(hub_id, today_int, headers):
                     time.sleep(1)
     return trips
 
-def fetch_trip_items(trip, headers):
+def fetch_trip_items(trip, headers, session):
     trip_code = trip.get('tripCode')
     res = {
         "tripCode": trip_code,
@@ -155,10 +165,10 @@ def fetch_trip_items(trip, headers):
     if not res["driverId"]:
         return res
         
-    for attempt in range(2):
+    for attempt in range(3):
         try:
-            r = requests.post('https://nhanh-api.ghn.vn/api/lastmile/trip/get-trip-items',
-                              headers=headers, json={"tripCode": trip_code, "limit": 5000}, timeout=25)
+            r = session.post('https://nhanh-api.ghn.vn/api/lastmile/trip/get-trip-items',
+                             headers=headers, json={"tripCode": trip_code, "limit": 5000}, timeout=25)
             if r.status_code == 200:
                 items = r.json().get('data') or []
                 res["total_items"] = len(items)
@@ -186,15 +196,18 @@ def fetch_trip_items(trip, headers):
                     elif itype == 'RETURN':
                         res["return_total"] += 1
                 break
+            else:
+                time.sleep(1)
         except Exception:
-            if attempt == 1:
-                # Fallback nếu api items timeout
-                res["pick_total"] = trip.get('pickCount') or 0
-                res["deliver_total"] = trip.get('deliverCount') or 0
-                res["return_total"] = trip.get('returnCount') or 0
-                res["total_items"] = res["pick_total"] + res["deliver_total"] + res["return_total"]
             time.sleep(1)
         
+    # Fallback an toàn nếu API items bị lỗi/rate-limit hoặc trả về rỗng nhưng chuyến có đơn
+    if res["deliver_total"] == 0 and (trip.get('deliverCount') or 0) > 0:
+        res["deliver_total"] = trip.get('deliverCount') or 0
+        res["pick_total"] = trip.get('pickCount') or 0
+        res["return_total"] = trip.get('returnCount') or 0
+        res["total_items"] = res["pick_total"] + res["deliver_total"] + res["return_total"]
+
     return res
 
 def main():
@@ -209,6 +222,7 @@ def main():
         'Content-Type': 'application/json',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
     }
+    session = get_http_session()
     
     print(f"📅 Ngày kiểm tra: {today_int} ({time_str})")
     
@@ -223,25 +237,25 @@ def main():
         
     hub_map = {h["warehouse_id"]: h for h in hubs}
     
-    # 2. Quét chuyến đi của các bưu cục
+    # 2. Quét chuyến đi của các bưu cục (10 workers để tránh bị chặn IP)
     print(f"📡 Đang quét chuyến đi của {len(hubs)} bưu cục qua Lastmile API...")
     t0 = time.time()
     all_trips = []
-    with ThreadPoolExecutor(max_workers=15) as executor:
-        futures = {executor.submit(fetch_hub_trips, h["warehouse_id"], today_int, headers): h for h in hubs}
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        futures = {executor.submit(fetch_hub_trips, h["warehouse_id"], today_int, headers, session): h for h in hubs}
         for f in as_completed(futures):
             trips = f.result()
             all_trips.extend(trips)
             
     print(f"✅ Quét xong trong {time.time()-t0:.2f}s. Tìm thấy {len(all_trips)} chuyến đi hôm nay.")
     
-    # 3. Lấy chi tiết từng đơn hàng trong chuyến
+    # 3. Lấy chi tiết từng đơn hàng trong chuyến (10 workers có retry và backoff)
     valid_trips = [t for t in all_trips if str(t.get('driverId') or '').strip()]
     print(f"📦 Đang lấy chi tiết đơn hàng cho {len(valid_trips)} chuyến có CBĐP...")
     t1 = time.time()
     trip_details = []
-    with ThreadPoolExecutor(max_workers=35) as executor:
-        futures = [executor.submit(fetch_trip_items, t, headers) for t in valid_trips]
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        futures = [executor.submit(fetch_trip_items, t, headers, session) for t in valid_trips]
         for f in as_completed(futures):
             trip_details.append(f.result())
     print(f"✅ Đã tải xong chi tiết {len(trip_details)} chuyến đi trong {time.time()-t1:.2f}s.")
