@@ -8,7 +8,7 @@
     "ncc_count": 7,
     "ktc_count": 7,
     "total_trucks": 59,
-    "last_updated": "17:21 - 02/10/2026"
+    "last_updated": "17:56 - 02/10/2026"
   },
   "surge_fixed": {
     "fixed_cost": 1806.39,
@@ -56,7 +56,7 @@
       "fixed_cost": 200.54,
       "surge_cost": 0.0,
       "surge_pct": 0.0,
-      "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
+      "primary_ncc": "Tốt và Rẻ, Trâm Hoá",
       "truck_count": 5
     },
     {
@@ -108,7 +108,7 @@
       "fixed_cost": 43.18,
       "surge_cost": 0.0,
       "surge_pct": 0.0,
-      "primary_ncc": "Công Định, NAK",
+      "primary_ncc": "NAK, Công Định",
       "truck_count": 5
     }
   ],
@@ -124,7 +124,7 @@
       "surge_cost": 0.0,
       "surge_pct": 0.0,
       "truck_count": 38,
-      "active_ktcs": "KTC Khánh Hòa, KTC Nam Nha Trang, KTC Bình Thuận, KTC Bắc Nha Trang, KTC Đức Trọng"
+      "active_ktcs": "KTC Bắc Nha Trang, KTC Đức Trọng, KTC Nam Nha Trang, KTC Bình Thuận, KTC Khánh Hòa"
     },
     {
       "ncc": "Mạnh Cường (BCCK)",
@@ -137,7 +137,7 @@
       "surge_cost": 0.0,
       "surge_pct": 0.0,
       "truck_count": 5,
-      "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
+      "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
     },
     {
       "ncc": "Lâm Ngọc Thành",
@@ -163,7 +163,7 @@
       "surge_cost": 0.0,
       "surge_pct": 0.0,
       "truck_count": 9,
-      "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
+      "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
     },
     {
       "ncc": "Tốt và Rẻ",
@@ -23918,7 +23918,7 @@
       "cost_str": "3.963.620 đ",
       "cost": 3963620.0,
       "trips_equivalent": 1,
-      "trip_code": "",
+      "trip_code": "Phú Quý 1",
       "ontime": ""
     },
     {
@@ -23933,7 +23933,7 @@
       "cost_str": "4.068.165 đ",
       "cost": 4068165.0,
       "trips_equivalent": 1,
-      "trip_code": "",
+      "trip_code": "Phú Quý 1",
       "ontime": ""
     },
     {
@@ -23948,7 +23948,7 @@
       "cost_str": "513.635 đ",
       "cost": 513635.0,
       "trips_equivalent": 1,
-      "trip_code": "",
+      "trip_code": "Phú Quý 1",
       "ontime": ""
     },
     {
@@ -23963,7 +23963,7 @@
       "cost_str": "4.068.165 đ",
       "cost": 4068165.0,
       "trips_equivalent": 1,
-      "trip_code": "",
+      "trip_code": "Phú Quý 1",
       "ontime": ""
     },
     {
@@ -23978,7 +23978,7 @@
       "cost_str": "7.727.240 đ",
       "cost": 7727240.0,
       "trips_equivalent": 1,
-      "trip_code": "",
+      "trip_code": "Phú Quý 1",
       "ontime": ""
     },
     {
@@ -23993,7 +23993,7 @@
       "cost_str": "4.695.435 đ",
       "cost": 4695435.0,
       "trips_equivalent": 1,
-      "trip_code": "",
+      "trip_code": "Phú Quý 1",
       "ontime": ""
     },
     {
@@ -24008,7 +24008,7 @@
       "cost_str": "4.590.890 đ",
       "cost": 4590890.0,
       "trips_equivalent": 1,
-      "trip_code": "",
+      "trip_code": "Phú Quý 2",
       "ontime": ""
     },
     {
@@ -24023,7 +24023,7 @@
       "cost_str": "3.440.895 đ",
       "cost": 3440895.0,
       "trips_equivalent": 1,
-      "trip_code": "",
+      "trip_code": "Phú Quý 2",
       "ontime": ""
     },
     {
@@ -24038,7 +24038,7 @@
       "cost_str": "1.090.908 đ",
       "cost": 1090908.0,
       "trips_equivalent": 1,
-      "trip_code": "",
+      "trip_code": "Phú Quý 2",
       "ontime": ""
     },
     {
@@ -24053,7 +24053,7 @@
       "cost_str": "5.740.885 đ",
       "cost": 5740885.0,
       "trips_equivalent": 1,
-      "trip_code": "",
+      "trip_code": "Phú Quý 2",
       "ontime": ""
     },
     {
@@ -24068,7 +24068,7 @@
       "cost_str": "3.859.075 đ",
       "cost": 3859075.0,
       "trips_equivalent": 1,
-      "trip_code": "",
+      "trip_code": "Phú Quý 2",
       "ontime": ""
     },
     {
@@ -24083,7 +24083,7 @@
       "cost_str": "727.272 đ",
       "cost": 727272.0,
       "trips_equivalent": 1,
-      "trip_code": "",
+      "trip_code": "Phú Quý 2",
       "ontime": ""
     },
     {
@@ -24098,7 +24098,7 @@
       "cost_str": "3.127.260 đ",
       "cost": 3127260.0,
       "trips_equivalent": 1,
-      "trip_code": "",
+      "trip_code": "Phú Quý 2",
       "ontime": ""
     },
     {
@@ -24113,7 +24113,7 @@
       "cost_str": "1.090.908 đ",
       "cost": 1090908.0,
       "trips_equivalent": 1,
-      "trip_code": "",
+      "trip_code": "Phú Quý 2",
       "ontime": ""
     },
     {
