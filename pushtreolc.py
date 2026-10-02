@@ -61,6 +61,7 @@ AM_CHANNEL_MAP = {
     "Lê Minh Đại": "2077278182818799616",
     "Phan Thị Ngọc Diễm": "2079827073949868032",
     "Lê Hồng Minh Tâm": "2079827054540226560",
+    "Phan Nguyễn Yến Nhi": "2105595062412402688"
 }
  
 # Đặt True để CHỈ gửi thử 1 AM đầu tiên (test payload GTalk trước khi bắn hết cho tất cả AM)

@@ -80,6 +80,7 @@ AM_GROUP_MAP = {
     "Huỳnh Thúc Duân": "2077277857186131968",    # AM Đắk Nông
     "Nguyễn Minh Hoàng": "2077278127814696960",  # AM Lâm Đồng - Đức Trọng
     "Trương Quang Linh": "2077277857186131968",  # AM Đắk Nông - Quảng Tín
+    "Phan Nguyễn Yến Nhi": "2105595062412402688",
 }
 
 
