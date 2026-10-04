@@ -9456,7 +9456,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 60,
-      "last_updated": "22:06 - 04/10/2026"
+      "last_updated": "22:42 - 04/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 1845.8,
@@ -9478,7 +9478,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 715.86,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 23
       },
       {
@@ -9504,7 +9504,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 200.54,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Tốt và Rẻ, Trâm Hoá",
+        "primary_ncc": "Trâm Hoá, Tốt và Rẻ",
         "truck_count": 5
       },
       {
@@ -9530,7 +9530,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 94.11,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 12
       },
       {
@@ -9572,7 +9572,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 38,
-        "active_ktcs": "KTC Nam Nha Trang, KTC Khánh Hòa, KTC Bình Thuận, KTC Đức Trọng, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Bắc Nha Trang, KTC Đức Trọng, KTC Nam Nha Trang, KTC Khánh Hòa, KTC Bình Thuận"
       },
       {
         "ncc": "Mạnh Cường (BCCK)",
@@ -9585,7 +9585,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 5,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
+        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Lâm Ngọc Thành",
@@ -9611,7 +9611,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 9,
-        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
+        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
       },
       {
         "ncc": "Tốt và Rẻ",
