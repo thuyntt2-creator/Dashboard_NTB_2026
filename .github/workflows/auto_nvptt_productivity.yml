@@ -60,8 +60,9 @@ jobs:
         run: |
           sleep 60
 
-      - name: BƯỚC 2 - Đọc tab BaoCao, Render Ảnh & Gửi về GTalk từng AM
-        env:
-          GTALK_OA_TOKEN: ${{ secrets.GTALK_OA_TOKEN }}
-        run: |
-          python send_report_nvptt_realtime.py
+      # TẠM TẮT BƯỚC GỬI ẢNH GTALK THEO YÊU CẦU: CHỈ AUTO TẢI DATA ĐỂ TEST
+      # - name: BƯỚC 2 - Đọc tab BaoCao, Render Ảnh & Gửi về GTalk từng AM
+      #   env:
+      #     GTALK_OA_TOKEN: ${{ secrets.GTALK_OA_TOKEN }}
+      #   run: |
+      #     python send_report_nvptt_realtime.py
