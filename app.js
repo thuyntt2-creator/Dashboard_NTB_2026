@@ -1023,17 +1023,93 @@
 
   function setupTableSorting() {
     document.querySelectorAll('.bi-table th').forEach(th => {
-      th.addEventListener('click', () => {
-        const table = th.closest('table');
-        if (!table) return;
-        const tableId = table.id;
-        const colIdx = Array.from(th.parentNode.children).indexOf(th);
-        
-        state.sortDirection[tableId] = (state.sortColumn[tableId] === colIdx && state.sortDirection[tableId] === 'asc') ? 'desc' : 'asc';
-        state.sortColumn[tableId] = colIdx;
+      th.style.cursor = 'pointer';
+      th.title = 'Bấm để sắp xếp (Cao về thấp / Thấp đến cao)';
+    });
 
-        renderAll();
+    document.addEventListener('click', e => {
+      const th = e.target.closest('.bi-table th');
+      if (!th) return;
+      const table = th.closest('table');
+      if (!table) return;
+      const tbody = table.querySelector('tbody');
+      if (!tbody) return;
+
+      const tableId = table.id || ('tbl_' + Math.random().toString(36).substr(2, 9));
+      const colIdx = Array.from(th.parentNode.children).indexOf(th);
+
+      // Mặc định click lần đầu là desc (cao về thấp)
+      const currentDir = state.sortDirection[tableId];
+      const currentCol = state.sortColumn[tableId];
+      const newDir = (currentCol === colIdx && currentDir === 'desc') ? 'asc' : 'desc';
+      state.sortDirection[tableId] = newDir;
+      state.sortColumn[tableId] = colIdx;
+
+      // Cập nhật mũi tên chỉ thị
+      th.parentNode.querySelectorAll('th').forEach(h => {
+        h.querySelectorAll('.sort-arrow').forEach(el => el.remove());
       });
+      const arrow = document.createElement('span');
+      arrow.className = 'sort-arrow';
+      arrow.style.marginLeft = '4px';
+      arrow.style.fontSize = '10px';
+      arrow.innerHTML = newDir === 'desc' ? ' ▼' : ' ▲';
+      th.appendChild(arrow);
+
+      // Tách dòng tổng nếu có
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      let totalRow = null;
+      if (rows.length > 0) {
+        const lastRowText = rows[rows.length - 1].innerText.toUpperCase();
+        if (lastRowText.includes('TỔNG') || lastRowText.includes('TOÀN VÙNG')) {
+          totalRow = rows.pop();
+        }
+      }
+
+      const parseVal = el => {
+        if (!el) return -Infinity;
+        const s = el.innerText.trim();
+        if (!s || s === '–' || s === '—' || s === '-') return -Infinity;
+        const m = s.match(/([+-]?\s*[\d]+(?:[.,]\d+)*)/);
+        if (m) {
+          let raw = m[1].replace(/\s+/g, '');
+          if (/^\d{1,3}\.\d{3}$/.test(raw) || /^\d{1,3}\.\d{3}\.\d{3}$/.test(raw)) {
+            raw = raw.replace(/\./g, '');
+          } else if (/^\d{1,3},\d{3}$/.test(raw) || /^\d{1,3},\d{3},\d{3}$/.test(raw)) {
+            raw = raw.replace(/,/g, '');
+          } else {
+            raw = raw.replace(/,/g, '.');
+          }
+          const num = parseFloat(raw);
+          if (!isNaN(num)) return num;
+        }
+        return s.toLowerCase();
+      };
+
+      rows.sort((a, b) => {
+        const cellA = a.children[colIdx];
+        const cellB = b.children[colIdx];
+        const valA = parseVal(cellA);
+        const valB = parseVal(cellB);
+
+        let cmp = 0;
+        if (typeof valA === 'number' && typeof valB === 'number') {
+          cmp = valA - valB;
+        } else {
+          cmp = String(valA).localeCompare(String(valB), 'vi');
+        }
+        return newDir === 'desc' ? -cmp : cmp;
+      });
+
+      // Cập nhật lại số thứ tự cột #
+      rows.forEach((r, idx) => {
+        const firstCell = r.children[0];
+        if (firstCell && (firstCell.querySelector('.rank-pill') || firstCell.classList.contains('center'))) {
+          firstCell.innerHTML = renderRankPill(idx);
+        }
+        tbody.appendChild(r);
+      });
+      if (totalRow) tbody.appendChild(totalRow);
     });
   }
 
@@ -1771,7 +1847,7 @@
         list = list.filter(r => r.am.toLowerCase().includes(state.searchVolFull));
       }
 
-      const sorted = list.sort((a, b) => b.diff_val - a.diff_val);
+      const sorted = list.sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyFull.innerHTML = sorted.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
@@ -1820,7 +1896,7 @@
         listTTS = listTTS.filter(r => r.am.toLowerCase().includes(state.searchVolTTS));
       }
 
-      const sortedTTS = listTTS.sort((a, b) => b.diff_val - a.diff_val);
+      const sortedTTS = listTTS.sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyTTS.innerHTML = sortedTTS.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
@@ -1903,7 +1979,7 @@
           rate_tts: rate,
           diff_val: r.diff !== undefined ? r.diff : (ttsVol - prevTtsVol)
         };
-      }).sort((a, b) => b.diff_val - a.diff_val);
+      }).sort((a, b) => (b[wKeys[3]] !== undefined ? b[wKeys[3]] : (b.vol || 0)) - (a[wKeys[3]] !== undefined ? a[wKeys[3]] : (a.vol || 0)));
 
       tblBodyTinhTTS.innerHTML = listTinhTTS.map((row, i) => {
         const diffBadge = renderDeltaBadge(row.diff_val, true, false);
@@ -2326,7 +2402,7 @@
         listFull = listFull.filter(r => r.am.toLowerCase().includes(state.searchGtcTongFull));
       }
 
-      const sortedFull = listFull.sort((a, b) => b.diff_val - a.diff_val);
+      const sortedFull = listFull.sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyFull.innerHTML = sortedFull.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
@@ -2370,7 +2446,7 @@
         listTTS = listTTS.filter(r => r.am.toLowerCase().includes(state.searchGtcTongTTS));
       }
 
-      const sortedTTS = listTTS.sort((a, b) => b.diff_val - a.diff_val);
+      const sortedTTS = listTTS.sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyTTS.innerHTML = sortedTTS.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
@@ -2974,7 +3050,7 @@
   function renderGtcTtsCa1Tab() {
     const tblBody = document.querySelector('#table-gtc-tts-ca1-detailed tbody');
     if (tblBody) {
-      const list = getGtcCa1TtsData().sort((a, b) => b.diff_pct - a.diff_pct);
+      const list = getGtcCa1TtsData().sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
       const rowsHtml = list.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
         const rowClass = isSelected ? 'presenter-laser-box' : '';
@@ -3603,7 +3679,7 @@
         listFull = listFull.filter(r => r.am.toLowerCase().includes(state.searchOdrFull));
       }
 
-      const sortedFull = listFull.sort((a, b) => b.diff_val - a.diff_val);
+      const sortedFull = listFull.sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyFull.innerHTML = sortedFull.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
@@ -3647,7 +3723,7 @@
         listTTS = listTTS.filter(r => r.am.toLowerCase().includes(state.searchOdrTTS));
       }
 
-      const sortedTTS = listTTS.sort((a, b) => b.diff_val - a.diff_val);
+      const sortedTTS = listTTS.sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyTTS.innerHTML = sortedTTS.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
@@ -4094,7 +4170,7 @@
           curr_val: v4,
           diff_val: r.diff !== undefined ? r.diff : ((v4 || 0) - (v3 || 0))
         };
-      }).sort((a, b) => b.diff_val - a.diff_val);
+      }).sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyAM.innerHTML = list.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
@@ -4140,7 +4216,7 @@
           curr_val: v4,
           diff_val: r.diff !== undefined ? r.diff : ((v4 || 0) - (v3 || 0))
         };
-      }).sort((a, b) => b.diff_val - a.diff_val);
+      }).sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyTinh.innerHTML = listTinh.map((row, i) => {
         const v1 = row[wKeys[0]] !== undefined ? row[wKeys[0]] : (row.w34 || 0);
@@ -4515,7 +4591,7 @@
           prev_val: prev,
           diff_val: r.diff_day !== undefined ? r.diff_day : ((curr || 0) - (prev || 0))
         };
-      }).sort((a, b) => b.diff_val - a.diff_val);
+      }).sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyDay.innerHTML = listDay.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
@@ -4550,7 +4626,7 @@
           prev_val: prev,
           diff_val: r.diff_night !== undefined ? r.diff_night : ((curr || 0) - (prev || 0))
         };
-      }).sort((a, b) => b.diff_val - a.diff_val);
+      }).sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyNight.innerHTML = listNight.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
@@ -6433,7 +6509,8 @@
     // 2. PANEL 2: TOP BC GIAO & SO SÁNH TỈNH
     const tblProv = document.querySelector('#table-truythu-by-province tbody');
     if (tblProv && report.by_province) {
-      tblProv.innerHTML = report.by_province.map((r, i) => {
+      const listProv = [...report.by_province].sort((a, b) => (b.can_thu_curr || 0) - (a.can_thu_curr || 0));
+      tblProv.innerHTML = listProv.map((r, i) => {
         const diffSign = r.diff_can_thu > 0 ? '+' : '';
         const diffDonSign = r.diff_don > 0 ? '+' : '';
         return `
@@ -6454,7 +6531,8 @@
     const tblBcGiao = document.querySelector('#table-truythu-top-bc-giao tbody');
     if (tblBcGiao && report.top_bc) {
       const selectedAM = state.selectedAM;
-      tblBcGiao.innerHTML = report.top_bc.map((r, i) => {
+      const listTopBc = [...report.top_bc].sort((a, b) => (b.can_thu_curr || 0) - (a.can_thu_curr || 0));
+      tblBcGiao.innerHTML = listTopBc.map((r, i) => {
         const isSelected = selectedAM && selectedAM === r.am;
         const rowClass = isSelected ? 'presenter-laser-box' : '';
         const diffSign = r.diff_can_thu > 0 ? '+' : '';
@@ -6481,7 +6559,8 @@
     const tblAm = document.querySelector('#table-truythu-top-am tbody');
     if (tblAm && report.by_am) {
       const selectedAM = state.selectedAM;
-      tblAm.innerHTML = report.by_am.map((r, i) => {
+      const listAm = [...report.by_am].sort((a, b) => (b.can_thu_curr || 0) - (a.can_thu_curr || 0));
+      tblAm.innerHTML = listAm.map((r, i) => {
         const isSelected = selectedAM === r.am;
         const rowClass = isSelected ? 'presenter-laser-box' : '';
         const diffSign = r.diff_can_thu > 0 ? '+' : '';
@@ -7488,7 +7567,7 @@
     // Table 1: Backlog by AM
     const tbody1 = document.querySelector('#table-ktc-backlog-am tbody');
     if (tbody1 && ktc.backlog.by_am) {
-      const rows = [...ktc.backlog.by_am];
+      const rows = [...ktc.backlog.by_am].sort((a, b) => (b.total || 0) - (a.total || 0));
       const tot = ktc.backlog.total_am;
 
       const makeRow = (r, i, isTotal) => {
@@ -7521,7 +7600,7 @@
     // Table 2: Backlog by Kho
     const tbody2 = document.querySelector('#table-ktc-backlog-kho tbody');
     if (tbody2 && ktc.backlog.by_kho) {
-      const rows = ktc.backlog.by_kho;
+      const rows = [...ktc.backlog.by_kho].sort((a, b) => (b.total || 0) - (a.total || 0));
       const tot = ktc.backlog.total_kho;
       const makeRowKho = (r, i, isTotal) => {
         const treo = r.treo_36h || 0;
