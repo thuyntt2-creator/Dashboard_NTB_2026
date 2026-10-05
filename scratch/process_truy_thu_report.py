@@ -72,7 +72,8 @@ prev_end = datetime.fromisocalendar(2026, prev_num, 7)
 prev_label = f"Tuần {prev_week} ({prev_start.strftime('%d/%m')} - {prev_end.strftime('%d/%m')})"
 curr_label = f"Tuần {latest_week} ({curr_start.strftime('%d/%m')} - {curr_end.strftime('%d/%m')})"
 
-if os.path.exists('sheet_truythu_w38.csv'):
+w_prev = tt[(tt['date'] >= prev_start) & (tt['date'] <= prev_end)].copy()
+if len(w_prev) == 0 and os.path.exists('sheet_truythu_w38.csv'):
     print("📂 Loading full W38 data from sheet_truythu_w38.csv...")
     tt_w38 = pd.read_csv('sheet_truythu_w38.csv', low_memory=False)
     tt_w38['date'] = tt_w38['Ngày kết luận truy thu'].apply(parse_ghn_date)
@@ -81,8 +82,6 @@ if os.path.exists('sheet_truythu_w38.csv'):
     tt_w38['da_thu'] = tt_w38['Đã truy thu'].apply(parse_vn)
     tt_w38['can_thu'] = tt_w38['Cần truy thu thêm'].apply(parse_vn)
     w_prev = tt_w38[(tt_w38['date'] >= prev_start) & (tt_w38['date'] <= prev_end)].copy()
-else:
-    w_prev = tt[(tt['date'] >= prev_start) & (tt['date'] <= prev_end)].copy()
 
 w_curr = tt[(tt['date'] >= curr_start) & (tt['date'] <= curr_end)].copy()
 
@@ -363,7 +362,9 @@ with open('data.json', 'w', encoding='utf-8') as f:
     json.dump(d, f, ensure_ascii=False, indent=2)
 
 with open('data.js', 'w', encoding='utf-8') as f:
-    f.write('window.DATA = ' + json.dumps(d, ensure_ascii=False, indent=2) + ';\n')
+    f.write('window.DASHBOARD_DATA = ' + json.dumps(d, ensure_ascii=False, indent=2) + ';\n')
+    f.write('window.DATA = window.DASHBOARD_DATA;\n')
+    f.write('const REPORT_DATA = window.DASHBOARD_DATA;\n')
 
 print("✅ SUCCESS: Saved 2-Week Truy Thu Comparison into data.json and data.js!")
 print(f"Summary: {summary['prev_label']} vs {summary['curr_label']}")
