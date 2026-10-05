@@ -73,7 +73,7 @@ def build_w40_16_topics():
                 "Về quản trị dòng tiền, tỷ lệ nộp COD bằng chuyển khoản QR tuần này đã tăng vọt lên gần 63%, giảm lượng tiền mặt shipper cầm về còn 37,1%, hạn chế tối đa rủi ro thất thoát quỹ.",
                 "Tuy nhiên, chúng ta vẫn phải nhìn thẳng vào 3 nút thắt rất lớn cần giải quyết ngay:",
                 "Thứ nhất: Sản lượng tuần này hạ nhiệt nhẹ về 311.503 đơn, giảm khoảng 6% so với tuần W39 do tuần cuối tháng thị trường có sự chững lại.",
-                "Thứ hai: Khâu vận tải KTC vẫn đang gánh 76 chuyến xe chạy non tải dưới 30% thùng, kéo tỷ lệ lấp đầy KTC đứng yên ở mức 51,0%, gây lãng phí chi phí nhiên liệu đường trục.",
+                "Thứ hai: Khâu vận tải KTC đang báo động đỏ khi tỷ lệ lấp đầy thùng xe tụt xuống chỉ còn 45,6% (giảm -2,1%p so với 47,7% tuần W39), và số chuyến xe chạy non tải dưới 30% thùng xe tăng vọt lên tới 124 chuyến (chiếm gần một phần tư tổng số 513 chuyến KTC toàn vùng), gây lãng phí rất lớn chi phí nhiên liệu đường trục.",
                 "Thứ ba: Mặc dù tổng số tiền cần truy thu giảm 40% về 187,1 triệu đồng, nhưng số tiền phát sinh ban đầu lại tăng vọt lên 433,1 triệu đồng, nổi cộm lên vụ việc chiếm dụng tiền hàng 48,7 triệu đồng tại bưu cục Bắc Cam Ranh thuộc cụm AM Nguyễn Thanh Long và 419 ticket truy thu dồn ứ tại địa bàn AM Lê Văn Trường.",
                 "Bây giờ, em xin phép bấm chuyển qua Tab 2 để đi sâu vào sản lượng từng Tỉnh và từng anh chị AM nha!\""
             ],
@@ -83,10 +83,10 @@ def build_w40_16_topics():
             ],
             "warnings": [
                 "Phát sinh 433,1 Tr ₫ cước truy thu ban đầu; vụ việc liên đới chiếm dụng 48,7 Tr ₫ tại Bắc Cam Ranh là hồi chuông cảnh báo đỏ về đạo đức nghề nghiệp và kiểm soát nội bộ.",
-                "76 chuyến xe KTC chạy non tải dưới 30% thùng làm xói mòn biên lợi nhuận vận hành của vùng."
+                "124 chuyến xe KTC chạy non tải dưới 30% thùng (chiếm 24,2% tổng số chuyến) làm xói mòn nghiêm trọng biên lợi nhuận vận hành của vùng."
             ],
             "actions": [
-                "Tuần W41 tập trung 3 mũi nhọn: Truy thu dứt điểm 187,1 Tr ₫ công nợ, tối ưu gộp chuyến 76 xe KTC non tải và cứu vãn ODR tại các bưu cục vùng sâu."
+                "Tuần W41 tập trung 3 mũi nhọn: Truy thu dứt điểm 187,1 Tr ₫ công nợ, tối ưu gộp chuyến 124 xe KTC non tải và cứu vãn ODR tại các bưu cục vùng sâu."
             ]
         },
 
@@ -443,34 +443,40 @@ def build_w40_16_topics():
 
         # TOPIC 11
         {
-            "sec_title": "🚛 [XI. BÁO CÁO ĐIỀU HÀNH KTC, VẬN TẢI, %TLTĐ THÙNG XE (51.0%) & LEADTIME KHO (W40)]",
-            "speech_title": "🗣️ HIỆU QUẢ VẬN TẢI KTC: XỬ LÝ 76 CHUYẾN XE NON TẢI DƯỚI 30% THÙNG (TAB 12):",
+            "sec_title": "🚛 [XI. BÁO CÁO ĐIỀU HÀNH KTC, VẬN TẢI, %TLTĐ THÙNG XE (45.6%) & 124 CHUYẾN NON TẢI (W40)]",
+            "speech_title": "🗣️ HIỆU QUẢ VẬN TẢI KTC: XỬ LÝ 124 CHUYẾN XE NON TẢI DƯỚI 30% THÙNG (TAB 12):",
             "speech_paragraphs": [
-                "📍 1. BẢNG CHỈ SỐ VẬN TẢI & KHO KTC (W40):",
-                "• Tỷ Lệ Lấp Đầy Thùng Xe KTC (%TLTĐ): Đạt 51,0% (đứng yên so với W39, cách rất xa mục tiêu tối ưu ≥ 58,0%).",
-                "• Số chuyến xe chạy non tải (<30% thùng xe): Ghi nhận 76 chuyến xuất bến trong tuần!",
-                "• Tổng số chuyến xe KTC vận hành toàn vùng: 532 chuyến.",
-                "• Leadtime xử lý tại các kho KTC trung chuyển: KTC Nha Trang đạt 1,8 giờ | KTC Phan Thiết đạt 2,1 giờ | KTC Đức Trọng đạt 3,4 giờ (chậm nhất vùng do nghẽn ca đêm).",
+                "📍 1. BẢNG CHỈ SỐ VẬN TẢI & KHO KTC (W40 vs W39):",
+                "• Tỷ Lệ Lấp Đầy Thùng Xe KTC (%TLTĐ Toàn Vùng): Đạt 45,6% (W39: 47,7%, tụt giảm -2,1%p, cách rất xa mục tiêu tối ưu ≥ 55,0%).",
+                "• Số chuyến xe chạy non tải (<30% thùng xe): Ghi nhận tới 124 chuyến xuất bến trong tuần (chiếm 24,2% tổng số 513 chuyến KTC), trong đó có 7 chuyến rỗng dưới 10%, 32 chuyến dưới 20% và 37 chuyến dưới 30%!",
+                "• Tổng số chuyến xe KTC vận hành toàn vùng: 513 chuyến (giảm 14 chuyến so với 527 chuyến W39).",
+                "• Chi tiết 5 kho KTC trọng điểm:",
+                "  - KTC Khánh Hòa: 193 chuyến | TLTĐ 52,3% (-2,6%p) | 20 xe non tải <30%.",
+                "  - KTC Đức Trọng - Lâm Đồng: 110 chuyến | TLTĐ 40,6% (-4,5%p) | 43 xe non tải <30% ➔ ĐIỂM NÓNG LÃNG PHÍ LỚN NHẤT VÙNG!",
+                "  - KTC Bình Thuận: 113 chuyến | TLTĐ 47,7% (+1,1%p) | 20 xe non tải <30%.",
+                "  - KTC Bảo Lộc - Lâm Đồng: 55 chuyến | TLTĐ 38,2% (-1,6%p) | 19 xe non tải <30%.",
+                "  - KTC Đắk Nông: 42 chuyến | TLTĐ 31,3% (-1,9%p) | 22 xe non tải <30% (hơn một nửa số chuyến chạy non tải).",
                 "📍 2. ĐÁNH GIÁ CHI PHÍ VẬN TẢI:",
-                "• 76 chuyến xe non tải dưới 30% thùng xe đang làm lãng phí hàng trăm triệu đồng tiền dầu và khấu hao phương tiện.",
-                "• Các hợp đồng xe thuê ngoài nhà xe Mạnh Cường chạy các tuyến bưu cục huyện (chi phí từ 22 đến 31 triệu/tháng/xe) cần rà soát lại hệ số sử dụng.",
+                "• 124 chuyến xe non tải dưới 30% thùng xe đang trực tiếp làm lãng phí hàng trăm triệu đồng tiền dầu và chi phí thuê xe.",
+                "• Tuyến Đức Trọng - Lâm Đồng và Đắk Nông cần tái cấu trúc ngay lịch xuất bến xe tải.",
                 "🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 12 VẬN TẢI & KTC):",
                 "\"Dạ qua tới Tab 12 về Điều hành KTC và Chi phí Vận tải đường trục:",
-                "Mọi người nhìn vào con số %TLTĐ thùng xe tuần này: Vẫn đang dậm chân tại chỗ ở mức 51,0%!",
-                "Và trên hệ thống giám sát hành trình tuần qua phát hiện có tới 76 chuyến xe tải KTC lăn bánh trên đường với tỷ lệ lấp đầy thùng dưới 30%!",
-                "Tức là chiếc xe thùng dài chạy từ Nha Trang vào Phan Thiết hay từ Đức Trọng về Bảo Lộc mà bên trong chỉ chở được có vài chục bao hàng, thùng xe rỗng tới hơn hai phần ba!",
-                "Chúng ta đang trả nguyên tiền cước xe, tiền dầu, tiền cầu đường cho một chuyến xe rỗng.",
+                "Mọi người nhìn vào con số %TLTĐ thùng xe tuần này: Rất đáng lo ngại khi tụt từ 47,7% xuống chỉ còn 45,6%, giảm mất -2,1%p!",
+                "Và trên hệ thống giám sát hành trình tuần qua phát hiện có tới 124 CHUYẾN XE TẢI KTC lăn bánh trên đường với tỷ lệ lấp đầy thùng dưới 30%!",
+                "Trong tổng số 513 chuyến xe toàn vùng, thì cứ 4 chuyến xe chạy trên đường lại có 1 chuyến chạy non tải, thậm chí có 7 chuyến xe gần như rỗng không dưới 10% thùng xe!",
+                "Điểm nóng nhất nằm ở đâu?",
+                "Chính là KTC Đức Trọng ở Lâm Đồng: Một mình Đức Trọng gánh tới 43 chuyến xe non tải, tỷ lệ lấp đầy rơi tự do xuống 40,6%! Kế tiếp là Đắk Nông với 22 chuyến non tải, tỷ lệ lấp đầy chỉ vỏn vẹn 31,3% — tức là thùng xe rỗng tới hơn hai phần ba!",
+                "Chúng ta đang trả nguyên tiền cước xe, tiền dầu, tiền cầu đường cho những chuyến xe chở gió.",
                 "Nguyên nhân là do biểu đồ giờ chạy xe đang bị cứng nhắc, cứ tới giờ là xe chạy bất kể lượng hàng nhiều hay ít.",
-                "Bên cạnh đó, thời gian Leadtime tại KTC Đức Trọng lên tới 3,4 giờ, trong khi Nha Trang chỉ mất 1,8 giờ. Hàng xe tải đổ xuống KTC Đức Trọng bị ngâm quá lâu mới được đưa lên băng chuyền.",
                 "Em đề xuất Ban Vận tải trong tuần W41 này:",
-                "Phải rà soát ngay 76 chuyến xe non tải này: Tuyến nào sản lượng ít thì gộp 2 chuyến làm một hoặc chuyển sang dùng xe tải nhỏ 1,5 tấn. Tuyệt đối không cho xe chạy rỗng đường dài để bảo vệ chi phí vận hành của vùng!\""
+                "Phải rà soát và xử lý ngay 124 chuyến xe non tải này: Tuyến nào sản lượng ít thì gộp 2 chuyến làm một hoặc chuyển sang dùng xe tải nhỏ 1,5 tấn. Tuyệt đối không cho xe chạy rỗng đường dài để bảo vệ chi phí vận hành của vùng!\""
             ],
             "insights": [
                 "Biểu đồ chạy xe cố định đang không theo kịp biến động sản lượng hàng ngày trong tuần, gây lãng phí lớn vào các ngày thứ Hai, thứ Ba.",
-                "KTC Đức Trọng cần cải tổ quy trình chia chọn để rút ngắn Leadtime từ 3,4 giờ về dưới 2,0 giờ."
+                "KTC Đức Trọng (43 xe non tải) và Đắk Nông (31,3% TLTĐ) là hai nút thắt trọng điểm cần tối ưu hóa phương tiện."
             ],
             "warnings": [
-                "76 chuyến xe non tải trực tiếp làm đội chi phí trên mỗi đơn hàng (Cost Per Order - CPO) của vùng Nam Trung Bộ."
+                "124 chuyến xe non tải trực tiếp làm đội chi phí trên mỗi đơn hàng (Cost Per Order - CPO) của vùng Nam Trung Bộ."
             ],
             "actions": [
                 "Ban Vận tải làm việc với các nhà xe đối tác: Linh hoạt dời chuyến hoặc gộp tuyến bưu cục huyện có sản lượng dưới 30% thùng xe."
@@ -682,7 +688,7 @@ def build_w40_16_topics():
                 "• Trọng tâm 1: Duy trì kỷ luật Last-mile, giữ vững %GTC trên 60%, nâng tỷ lệ Gán Ca 2 từ 62,4% lên trên 85%.",
                 "• Trọng tâm 2: Quyết liệt thu hồi công nợ & truy thu: Xử lý dứt điểm 187,1 Tr ₫, phong tỏa và thu hồi vụ 48,7 Tr ₫ tại Bắc Cam Ranh.",
                 "• Trọng tâm 3: Cứu vãn ODR tại 3 điểm đáy: Nâng ODR Lang Biang, Quảng Tín, Đơn Dương lên trên 85% bằng cơ chế phát tăng cường ca chiều tối.",
-                "• Trọng tâm 4: Tối ưu chi phí vận tải: Gộp tuyến và cắt giảm 76 chuyến xe KTC non tải <30% thùng để đưa %TLTĐ vượt mốc 55%.",
+                "• Trọng tâm 4: Tối ưu chi phí vận tải: Gộp tuyến và cắt giảm 124 chuyến xe KTC non tải <30% thùng để đưa %TLTĐ vượt mốc 50%.",
                 "• Trọng tâm 5: Chăm sóc giữ chân khách hàng nhóm A và phục hồi sản lượng kinh doanh tại Đắk Nông và Khánh Hòa.",
                 "🎙️ LỜI THOẠI KẾT LUẬN TOÀN BỘ BUỔI HỌP GIAO BAN:",
                 "\"Kính thưa Ban Giám Đốc và toàn thể các anh chị em AM,",
@@ -718,9 +724,19 @@ def build_w40_16_topics():
     # Save Word files
     out_docx1 = "KICH_BAN_THUYET_TRINH_W40_NAM_TRUNG_BO.docx"
     out_docx2 = "KICH_BAN_THUYET_TRINH_MOI_NHAT.docx"
-    doc.save(out_docx1)
-    doc.save(out_docx2)
-    print(f"Saved DOCX: {out_docx1} and {out_docx2}")
+    try:
+        doc.save(out_docx1)
+        print(f"Saved DOCX: {out_docx1}")
+    except Exception as e:
+        print(f"Warning saving {out_docx1}: {e}")
+        
+    try:
+        doc.save(out_docx2)
+        print(f"Saved DOCX: {out_docx2}")
+    except Exception as e:
+        out_alt = "KICH_BAN_THUYET_TRINH_MOI_NHAT_V2.docx"
+        doc.save(out_alt)
+        print(f"File {out_docx2} is locked in Word. Saved to {out_alt} instead.")
 
     # Generate HTML file
     build_html_file(sections_data)
