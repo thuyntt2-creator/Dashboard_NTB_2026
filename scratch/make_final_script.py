@@ -746,7 +746,7 @@ Nhiều AM đổ lỗi rằng Đắk Nông hay vùng nông thôn Bình Thuận b
 2. LÀM VIỆC 1-1 VỚI AM LÊ THANH NHỰT: Phòng Tài chính - Kế toán vùng làm việc trực tiếp với anh Nhựt để kiểm tra quy trình nộp tiền tại Hàm Thuận và Hàm Liêm; trang bị ngay mã VietQR tại quầy và cấp mã bưu tá.
 3. SIẾT CHẶT KỶ LUẬT THU NỘP QUỸ: 100% bưu cục phải thực hiện chốt quỹ tiền mặt 2 lần/ngày: Chốt ca trưa lúc 12h00 và chốt ca chiều lúc 18h30. Shipper không nộp hết tiền mặt về tài khoản công ty trước 19h00 sẽ bị khóa app không cho xuất bến ngày hôm sau!
 4. GIAO CHỈ TIÊU TUẦN W41: Ép tỷ lệ tiền mặt của anh Duân, anh Nhựt, chị Chi từ trên 75-80% xuống dưới mốc 60%!
-Bây giờ, em xin chuyển sang Tab 14 mổ xẻ Báo cáo Truy thu 2 tuần ạ!"
+Bây giờ, em xin chuyển sang Tab 14 mổ xẻ Báo cáo Truy thu 2 tuần ạ!"""
     },
 
     # ----------------------------------------------------
@@ -822,7 +822,7 @@ Khi xảy ra mất hàng hay khiếu nại, AM không quyết liệt phân đị
    - Tối hậu thư 72 giờ: Anh Lê Văn Trường và chị Huỳnh Thị Kim Chi phải rà soát từng ticket. Đơn nào shipper làm mất thì khấu trừ lương tháng 9; đơn nào lỗi do bưu cục thì Trưởng bưu cục chịu trách nhiệm giải quyết dứt điểm trước ngày 10/10!
 3. Phòng Tài chính vùng áp dụng cơ chế tự động phong tỏa hạn mức nợ đối với các bưu cục vi phạm.
 4. MỤC TIÊU TUẦN W41: Toàn vùng Nam Trung Bộ phải kéo tổng số tiền cần truy thu từ 187 triệu xuống dưới mốc 100 triệu đồng!
-Bây giờ, em xin phép chuyển sang Tab 15 xem tình hình Kinh doanh & Khách hàng F30 ạ!"
+Bây giờ, em xin phép chuyển sang Tab 15 xem tình hình Kinh doanh & Khách hàng F30 ạ!"""
     },
 
     # ----------------------------------------------------
