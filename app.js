@@ -1847,7 +1847,7 @@
         list = list.filter(r => r.am.toLowerCase().includes(state.searchVolFull));
       }
 
-      const sorted = list.sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
+      const sorted = list.sort((a, b) => (b.diff_val || 0) - (a.diff_val || 0));
 
       tblBodyFull.innerHTML = sorted.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
@@ -1896,7 +1896,7 @@
         listTTS = listTTS.filter(r => r.am.toLowerCase().includes(state.searchVolTTS));
       }
 
-      const sortedTTS = listTTS.sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
+      const sortedTTS = listTTS.sort((a, b) => (b.diff_val || 0) - (a.diff_val || 0));
 
       tblBodyTTS.innerHTML = sortedTTS.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
@@ -1932,7 +1932,7 @@
           ...r,
           diff_val: r.diff !== undefined ? r.diff : (curr - prev)
         };
-      }).sort((a, b) => (b[wKeys[3]] || b.vol || 0) - (a[wKeys[3]] || a.vol || 0));
+      }).sort((a, b) => (b.diff_val || 0) - (a.diff_val || 0));
 
       tblBodyTinhFull.innerHTML = listTinhFull.map((row, i) => {
         const diffBadge = renderDeltaBadge(row.diff_val, true, false);
@@ -1979,7 +1979,7 @@
           rate_tts: rate,
           diff_val: r.diff !== undefined ? r.diff : (ttsVol - prevTtsVol)
         };
-      }).sort((a, b) => (b[wKeys[3]] !== undefined ? b[wKeys[3]] : (b.vol || 0)) - (a[wKeys[3]] !== undefined ? a[wKeys[3]] : (a.vol || 0)));
+      }).sort((a, b) => (b.diff_val || 0) - (a.diff_val || 0));
 
       tblBodyTinhTTS.innerHTML = listTinhTTS.map((row, i) => {
         const diffBadge = renderDeltaBadge(row.diff_val, true, false);
