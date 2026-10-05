@@ -1,1134 +1,679 @@
-# GHN EXPRESS — VÙNG NAM TRUNG BỘ
-## BÁO CÁO VẬN HÀNH & KINH DOANH TUẦN W40
-*(Chu kỳ dữ liệu: 28/09/2026 – 04/10/2026)*
-**Kịch bản thuyết trình 16 chuyên đề điều hành chuẩn hóa — Chỉ số Tỉnh đặt lên đầu, phân tích sâu theo 18 AM & Giao việc hiện trường**
+# KỊCH BẢN THUYẾT TRÌNH BÁO CÁO GIAO BAN TUẦN W40 - VÙNG NAM TRUNG BỘ
+**Phong Cách:** 'Sếp của AM' (Giám đốc Điều hành Vùng chủ trì cuộc họp)
+**Chu kỳ dữ liệu:** 28/09/2026 – 04/10/2026 | **Đồng bộ 100%:** 16 Tab Dashboard Vận Hành NTB
 
 ---
 
-## 📊 [I. TỔNG HỢP TRỌNG TÂM HỌP TUẦN W40 — VÙNG NAM TRUNG BỘ]
+## TAB 1: 🗣️ LỜI MỞ ĐẦU & TỔNG QUAN ĐIỀU HÀNH VÙNG TUẦN W40 (BẬT TAB 1 DASHBOARD):
 
-### 🗣️ LỜI MỞ ĐẦU & TỔNG QUAN ĐIỀU HÀNH VÙNG TUẦN W40 (BẬT TAB 1 DASHBOARD):
-
-**📍 1. BẢNG 10 CHỈ SỐ NHANH TRÊN MÀN HÌNH DASHBOARD (W40 vs W39):**
-
+📍 1. BẢNG 10 CHỈ SỐ NHANH TRÊN MÀN HÌNH DASHBOARD (W40 vs W39):
 • 1. Sản Lượng Full Hàng: 311.503 đơn (-19.810 đơn / -5,98% so với W39 331.313 đơn).
-
 • 2. Sản Lượng TikTok Shop: 72.253 đơn (-1.190 đơn / -1,62%), chiếm tỷ trọng 23,2% sản lượng toàn vùng.
-
 • 3. %GTC Full Hàng: 60,87% (+4,19%p so với W39 56,68%) ➔ Bứt phá ngoạn mục, chính thức vượt mốc trần 60%!
-
 • 4. %GTC TikTok Shop: 63,38% (+5,84%p so với W39 57,54%) ➔ Lập đỉnh cao nhất từ trước đến nay, vượt Full hàng +2,51%p.
-
 • 5. %ODR (Giao Đúng Hẹn): 93,12% (+2,28%p so với W39 90,84%) ➔ Vượt chuẩn cam kết SLA ≥ 92,0% (TTS đạt 94,18%).
-
 • 6. %LTC (Lấy Hàng Thành Công): 91,35% (+1,22%p so với W39 90,13%; riêng TTS duy trì xuất sắc 94,97%).
-
 • 7. %Rớt Luân Chuyển KTC: 1,69% (W39: 1,52%, tăng nhẹ +0,17%p; 219 đơn rớt / 12.934 đơn cần luân chuyển).
-
 • 8. %FD (Tỷ Lệ Hoàn Trả): 7,77% (W39: 7,54%, tăng nhẹ +0,23%p; riêng TTS kiểm soát rất tốt ở mức 6,10%).
-
 • 9. Tổng Cần Truy Thu: 187,1 Tr ₫ (2.424 bản ghi, giảm -125,0 Tr ₫ / -40,1% so với 312,1 Tr ₫ tuần W39).
+• 10. Tỷ Lệ Tiền Mặt COD: 40,4% (so với 40,1% W39; tỷ lệ nộp COD chuyển khoản QR đạt 59,6% toàn vùng).
 
-• 10. Tỷ Lệ Tiền Mặt COD: 37,1% (giảm mạnh từ 40,1% xuống 37,1%, tỷ lệ chuyển khoản QR tăng vọt lên 62,9%).
-
-
-> **🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 1 DASHBOARD TỔNG QUAN):**
-
+🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 1 DASHBOARD TỔNG QUAN):
 "Dạ em chào Ban Giám Đốc, chào các anh chị AM và các phòng ban.
-
 Mở đầu buổi họp giao ban tuần W40 (chu kỳ dữ liệu từ 28/09 đến 04/10/2026), kính mời Ban Giám Đốc và các anh chị cùng nhìn lên màn hình Dashboard Tổng quan giúp em.
-
 Tuần 40 này, toàn vùng Nam Trung Bộ của chúng ta có một bước chuyển mình rất ấn tượng về chất lượng dịch vụ Last-mile:
-
-Đầu tiên là điểm sáng rực rỡ nhất: Tỷ lệ Giao thành công (%GTC Full) tuần này đã chính thức phá mốc 60%, chạm mức 60,87%, tăng tới hơn 4,19%p so với tuần trước. Đặc biệt ở kênh TikTok Shop, %GTC đã bay thẳng lên 63,38%, tăng gần 6%p! Đây là kết quả của việc các anh chị AM đã siết rất chặt ca giao chiều và giải tỏa đơn tồn đầu ngày.
-
+Đầu tiên là điểm sáng rực rỡ nhất: Tỷ lệ Giao thành công (%GTC Full) tuần này đã chính thức phá mốc 60%, chạm mức 60,87%, tăng tới hơn 4,19%p so với tuần trước. Đặc biệt ở kênh TikTok Shop, %GTC đã tăng lên 63,38%, tăng gần 6%p! Đây là kết quả của việc các anh chị AM đã siết rất chặt ca giao chiều và giải tỏa đơn tồn đầu ngày.
 Điểm sáng thứ hai là chỉ số Giao đúng hẹn %ODR: Sau nhiều tuần ngấp nghé 90-91%, tuần này toàn vùng đã vượt ngưỡng cam kết SLA 92%, vươn lên 93,12% (hàng TikTok đạt tới 94,18%). Khâu lấy hàng First-mile cũng duy trì rất đều tay trên 91,3%, riêng TikTok Shop đạt gần 95%.
-
-Về quản trị dòng tiền, tỷ lệ nộp COD bằng chuyển khoản QR tuần này đã tăng vọt lên gần 63%, giảm lượng tiền mặt shipper cầm về còn 37,1%, hạn chế tối đa rủi ro thất thoát quỹ.
-
-Tuy nhiên, chúng ta vẫn phải nhìn thẳng vào 3 nút thắt rất lớn cần giải quyết ngay:
-
-Thứ nhất: Sản lượng tuần này hạ nhiệt nhẹ về 311.503 đơn, giảm khoảng 6% so với tuần W39 do tuần cuối tháng thị trường có sự chững lại.
-
-Thứ hai: Khâu vận tải KTC đang báo động đỏ khi tỷ lệ lấp đầy thùng xe tụt xuống chỉ còn 45,6% (giảm -2,1%p so với 47,7% tuần W39), và số chuyến xe chạy non tải dưới 30% thùng xe tăng vọt lên tới 124 chuyến (chiếm gần một phần tư tổng số 513 chuyến KTC toàn vùng), gây lãng phí rất lớn chi phí nhiên liệu đường trục.
-
+Về quản trị dòng tiền, tỷ lệ nộp COD bằng chuyển khoản QR tuần này duy trì ở mức cao 59,6%, hạn chế tối đa rủi ro thất thoát quỹ.
+Tuy nhiên, ở tuần vừa rồi có một số điểm lowlight sau cần nhìn nhận thẳng thắn:
+Thứ nhất: Sản lượng tuần này hạ nhiệt về 311.503 đơn, giảm khoảng 6% so với tuần W39 do tuần cuối tháng thị trường có sự chững lại.
+Thứ hai: Khâu vận tải KTC vẫn đang gánh 76 chuyến xe chạy non tải dưới 30% thùng, kéo tỷ lệ lấp đầy KTC đứng yên ở mức 51,0%, gây lãng phí lớn chi phí nhiên liệu đường trục.
 Thứ ba: Mặc dù tổng số tiền cần truy thu giảm 40% về 187,1 triệu đồng, nhưng số tiền phát sinh ban đầu lại tăng vọt lên 433,1 triệu đồng, nổi cộm lên vụ việc chiếm dụng tiền hàng 48,7 triệu đồng tại bưu cục Bắc Cam Ranh thuộc cụm AM Nguyễn Thanh Long và 419 ticket truy thu dồn ứ tại địa bàn AM Lê Văn Trường.
-
 Bây giờ, em xin phép bấm chuyển qua Tab 2 để đi sâu vào sản lượng từng Tỉnh và từng anh chị AM nha!"
 
-
-> 💡 **Điểm sáng & Insight vận hành:**
-> - %GTC Full phá vỡ mốc 60% (đạt 60,87%) và TTS đạt đỉnh 63,38% khẳng định kỷ luật xuất tuyến Last-mile đã có chuyển biến thực chất.
-> - %ODR toàn vùng vượt chuẩn SLA 92% (đạt 93,12%), khâu lấy hàng First-mile TikTok Shop đạt 94,97% giữ vững uy tín với các sàn TMĐT.
-
-
-> ⚠️ **Cảnh báo rủi ro & Điểm nóng:**
-> - Phát sinh 433,1 Tr ₫ cước truy thu ban đầu; vụ việc liên đới chiếm dụng 48,7 Tr ₫ tại Bắc Cam Ranh là hồi chuông cảnh báo đỏ về đạo đức nghề nghiệp và kiểm soát nội bộ.
-> - 124 chuyến xe KTC chạy non tải dưới 30% thùng (chiếm 24,2% tổng số chuyến) làm xói mòn nghiêm trọng biên lợi nhuận vận hành của vùng.
-
-
-> 🎯 **Hành động cụ thể & Giao việc hiện trường:**
-> - Tuần W41 tập trung 3 mũi nhọn: Truy thu dứt điểm 187,1 Tr ₫ công nợ, tối ưu gộp chuyến 124 xe KTC non tải và cứu vãn ODR tại các bưu cục vùng sâu.
-
-
 ---
 
-## 📦 [II. PHÂN TÍCH SẢN LƯỢNG GIAO TOÀN VÙNG, 5 TỈNH THÀNH & 18 AM (W40)]
+## TAB 2: 🗣️ PHÂN TÍCH SẢN LƯỢNG GIAO CHI TIẾT (BẬT TAB 2 DASHBOARD):
 
-### 🗣️ PHÂN TÍCH SẢN LƯỢNG GIAO 5 TỈNH & BIẾN ĐỘNG THEO 18 AM (TAB 2):
+📍 1. BẢNG SẢN LƯỢNG 5 TỈNH THÀNH (W40 vs W39):
+• Khánh Hòa: 95.340 đơn (-10.155 đơn / -9,63%) ➔ Tỉnh có sản lượng lớn nhất nhưng giảm mạnh nhất.
+• Lâm Đồng: 89.288 đơn (-5.454 đơn / -5,76%) ➔ Địa bàn rộng lớn, đang gặp khó khăn về địa hình và thời tiết.
+• Bình Thuận: 62.628 đơn (-2.278 đơn / -3,51%) ➔ Ổn định nhất toàn vùng.
+• Ninh Thuận: 35.138 đơn (-413 đơn / -1,16%) ➔ Giữ nhịp rất tốt.
+• Đắk Nông: 29.109 đơn (-1.510 đơn / -4,93%) ➔ Địa bàn vùng sâu vùng xa.
 
-**📍 1. BẢNG SỐ LIỆU 5 TỈNH THÀNH TUẦN W40 (W40 vs W39):**
+📍 2. PHÂN TÍCH CHI TIẾT 18 AM:
+• AM sản lượng lớn nhất toàn vùng:
+  1. Nguyễn Duy Long (Ninh Thuận): 61.356 đơn ➔ Tiếp tục là 'cỗ máy sản lượng' lớn nhất vùng Nam Trung Bộ!
+  2. Lê Văn Trường (Lâm Đồng): 37.411 đơn (-4.568 đơn / -10,88%).
+  3. Trần Thị Nhung (Đắk Nông): 36.878 đơn (-1.085 đơn / -2,86%).
+  4. Thái Thị Thanh Thư (Khánh Hòa): 35.889 đơn (-9.986 đơn / -21,77%).
+  5. Nguyễn Ngọc Khánh (Bình Thuận): 34.296 đơn (-769 đơn / -2,19%).
 
-• Khánh Hòa: 84.777 đơn Full (giảm -10.304 đơn / -10,8% WoW) | TikTok Shop: 15.921 đơn (-2.784 đơn). Giữ vị trí số 1 sản lượng toàn vùng.
-
-• Bình Thuận: 83.686 đơn Full (tăng +2.869 đơn / +3,5% WoW) | TikTok Shop: 22.331 đơn (tăng mạnh +4.185 đơn / +23,1%!). Bứt phá ngoạn mục.
-
-• Lâm Đồng: 77.719 đơn Full (giảm -10.581 đơn / -12,0% WoW) | TikTok Shop: ~14.125 đơn. Giảm tải sau đợt cao điểm.
-
-• Ninh Thuận: 33.549 đơn Full (tăng +307 đơn / +0,9% WoW) | TikTok Shop: 11.156 đơn (tăng mạnh +2.863 đơn / +34,5%!).
-
-• Đắk Nông: 31.772 đơn Full (giảm -2.112 đơn / -6,2% WoW) | TikTok Shop: 8.720 đơn (-296 đơn / -3,3%).
-
-**📍 2. BIẾN ĐỘNG THEO 18 AM:**
-
-• Nhóm tăng trưởng tốt: AM Lê Thanh Nhựt (30.386 đơn, +1.316 đơn), AM Nguyễn Ngọc Khánh (27.379 đơn, +1.137 đơn), AM Cao Thị Thanh Thủy (16.786 đơn, +545 đơn), AM Nguyễn Thị Tuyết Thơ (9.296 đơn, +463 đơn), AM Nguyễn Duy Long (42.684 đơn, +178 đơn, đầu tàu tải lớn nhất vùng).
-
-• Nhóm giảm sâu: AM Thái Thị Thanh Thư (27.165 đơn, -7.600 đơn WoW), AM Lê Văn Trường (17.707 đơn, -4.544 đơn WoW), AM Hồng Bích Nga (17.961 đơn, -2.561 đơn WoW), AM Phan Nguyễn Yến Nhi (2.433 đơn, -2.104 đơn), AM Nguyễn Thanh Long (11.220 đơn, -1.974 đơn), AM Nguyễn Lê Nguyên Vũ (10.173 đơn, -1.973 đơn).
-
-
-> **🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 2 SẢN LƯỢNG — 3 CHARTS):**
-
-"Dạ qua tới Tab 2 Sản Lượng, mời mọi người nhìn vào biểu đồ 5 Tỉnh ở trên cùng:
-
-Tuần W40 này, bức tranh sản lượng có sự phân hóa rất rõ nét giữa Duyên hải và Tây Nguyên:
-
-Điểm sáng lớn nhất thuộc về Bình Thuận và Ninh Thuận: Trong khi cả nước giảm đơn cuối tháng thì Bình Thuận lại tăng thêm gần 2.900 đơn Full và bùng nổ đơn TikTok Shop lên hơn 22 ngàn đơn, tăng tới hơn 4.100 đơn sàn (+23%)! Ninh Thuận của anh Nhựt cũng tăng tới 34% đơn TikTok. Đơn sàn TMĐT đổ về Bình Thuận và Ninh Thuận cực kỳ mạnh mẽ.
-
-Ngược lại, 2 địa bàn giảm sâu nhất tuần này là Khánh Hòa (giảm hơn 10 ngàn đơn) và Lâm Đồng (giảm hơn 10 ngàn đơn).
-
-Soi vào chi tiết 18 AM bên dưới:
-
-Em xin tuyên dương anh Long Bình Thuận: Vẫn luôn là đầu tàu gánh tải lớn nhất vùng với gần 43 ngàn đơn, và tuần này anh Long dẫn đầu toàn vùng khi kéo về hơn 22 ngàn đơn TikTok Shop cho tỉnh nhà!
-
-Anh Nhựt ở Ninh Thuận và anh Khánh ở Bình Thuận tuần này cũng làm rất xuất sắc, tăng trưởng trên 1.100 đến 1.300 đơn mỗi người.
+🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 2 DASHBOARD SẢN LƯỢNG):
+"Dạ sang Tab 2, nhìn vào cơ cấu sản lượng toàn vùng 311 ngàn đơn:
+Tỉnh Khánh Hòa vẫn là anh cả gánh 95 ngàn đơn, Lâm Đồng đứng thứ nhì với 89 ngàn đơn, kế đến là Bình Thuận 62 ngàn, Ninh Thuận 35 ngàn và Đắk Nông 29 ngàn đơn.
+Về phía các AM: Anh Nguyễn Duy Long ở Ninh Thuận tiếp tục là 'cỗ máy sản lượng' khủng nhất vùng khi một mình anh điều hành tới hơn 61 ngàn đơn, chạy rất đều tay và ổn định!
+Kế đến là anh Lê Văn Trường (37,4 ngàn đơn), chị Trần Thị Nhung (36,8 ngàn đơn), chị Thái Thị Thanh Thư (35,8 ngàn đơn) và anh Nguyễn Ngọc Khánh (34,2 ngàn đơn).
 
 Tuy nhiên, có 2 điểm báo động về sản lượng cần lưu ý:
-
 Thứ nhất là cụm của chị Thư ở Khánh Hòa: Tuần trước chị Thư tăng mạnh thì tuần này lại sụt giảm tới 7.600 đơn (-21,8%). Chị Thư cần rà soát lại xem có shop lớn nào tại Nha Trang bị đối thủ kéo đi hay do bưu cục chia lại tuyến giao.
-
-Thứ hai là anh Trường ở Lâm Đồng: Giảm tiếp hơn 4.500 đơn. Địa bàn của anh Trường đang dính nhiều đơn tồn và ODR thấp, khi giao trễ khách hàng họ sẽ hủy đơn và shop giảm gửi qua GHN.
-
+Thứ hai là anh Trường ở Lâm Đồng: Giảm tiếp hơn 4.500 đơn. Địa bàn của anh Trường đang dính nhiều đơn tồn và ODR thấp, khi giao trễ khách hàng họ sẽ hủy đơn và shop sẽ có tâm lý giảm gửi qua GHN.
 Bây giờ em xin phép chuyển sang Tab 3 để xem tỷ lệ Giao thành công (%GTC) của từng tỉnh và từng AM nhé!"
 
-
-> 💡 **Điểm sáng & Insight vận hành:**
-> - Bình Thuận và Ninh Thuận bùng nổ sản lượng TikTok Shop (+23% đến +34% WoW), chứng minh sức mua online tại thị trường ven biển đang tăng rất mạnh.
-> - Khánh Hòa và Lâm Đồng giảm đồng thời hơn 20 ngàn đơn, cảnh báo nguy cơ mất thị phần tại các trung tâm thành phố lớn.
-
-
-> ⚠️ **Cảnh báo rủi ro & Điểm nóng:**
-> - AM Thái Thị Thanh Thư sụt giảm 7.600 đơn và AM Lê Văn Trường sụt giảm 4.544 đơn cần phải được điều tra nguyên nhân ngay trong đầu tuần.
-> - Đắk Nông sản lượng tiếp tục giảm tuần thứ 3 liên tiếp (xuống 31,7k đơn), cần kích hoạt lại đội ngũ kinh doanh bưu cục huyện.
-
-
-> 🎯 **Hành động cụ thể & Giao việc hiện trường:**
-> - AM Thư và AM Trường rà soát ngay danh sách top 20 khách hàng gửi lớn nhất trên địa bàn để nắm rõ lý do sụt giảm sản lượng.
-
-
 ---
 
-## 🎯 [III. PHÂN TÍCH HIỆU SUẤT %GTC TỔNG TOÀN MẠNG THEO 18 AM & 5 TỈNH (W40)]
+## TAB 3: 🗣️ PHÂN TÍCH TỶ LỆ GIAO THÀNH CÔNG %GTC TỔNG (BẬT TAB 3 DASHBOARD):
 
-### 🗣️ ĐÁNH GIÁ TỶ LỆ GIAO THÀNH CÔNG (%GTC) VÀ ĐỘ LỆCH THEO TỈNH & AM (TAB 3):
+📍 1. BẢNG %GTC 5 TỈNH THÀNH (W40 vs W39):
+• Bình Thuận: 67,52% (W39: 67,49%, +0,03%p) ➔ Dẫn đầu toàn vùng, vững chắc tuyệt đối.
+• Khánh Hòa: 62,23% (W39: 58,80%, bứt phá +3,43%p) ➔ Chính thức vượt mốc 60%!
+• Ninh Thuận: 60,65% (W39: 59,96%, tăng +0,69%p) ➔ Vượt chuẩn an toàn.
+• Đắk Nông: 54,42% (W39: 48,72%, tăng mạnh +5,70%p) ➔ Nỗ lực thoát đáy cực lớn.
+• Lâm Đồng: 54,41% (W39: 47,38%, bứt phá +7,03%p) ➔ Bước nhảy vọt ngoạn mục nhất!
 
-**📍 1. BẢNG %GTC TỔNG THEO 5 TỈNH THÀNH (W40 vs W39):**
+📍 2. PHÂN TÍCH CHI TIẾT 18 AM:
+• Top 4 AM dẫn đầu GTC toàn vùng:
+  1. Nguyễn Ngọc Khánh (Bình Thuận): 74,5% ➔ Quán quân GTC toàn vùng!
+  2. Thái Thị Thanh Thư (Khánh Hòa): 72,0% (+9,63%p) ➔ Á quân xuất sắc.
+  3. Nguyễn Duy Long (Ninh Thuận): 71,2% ➔ Vừa gánh vol lớn nhất vừa giữ GTC đỉnh.
+  4. Nguyễn Đỗ Minh Nghĩa (Lâm Đồng): 70,4% ➔ Ngôi sao sáng nhất tỉnh Lâm Đồng.
+• 3 AM có bước nhảy vọt thần tốc kéo cả vùng bứt phá:
+  - Chị Thái Thị Thanh Thư: Tăng vọt gần +10%p (từ 62,4% lên 72,0%) trên khối lượng gần 36 ngàn đơn.
+  - Anh Lê Văn Trường: Tăng phi thường +11,9%p (từ 37,1% lên 49,0%) trên khối lượng hơn 37 ngàn đơn!
+  - Anh Trương Quang Linh: Tăng bứt phá mạnh nhất toàn vùng với +14,5%p (từ 25,8% lên 40,3%).
+• Nhóm AM còn nằm dưới mốc 50%:
+  - Lê Minh Lợi (36,5%), Phan Nguyễn Yến Nhi (38,0%), Trương Quang Linh (40,3%).
 
-• Ninh Thuận: 67,49% (W39: 67,96%) ➔ Duy trì vị trí số 1 toàn vùng, tỷ lệ giao hoàn tất cực kỳ ổn định.
+🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 3 DASHBOARD %GTC TỔNG):
+"Nhìn vào 5 Tỉnh thành ở bảng trên cùng:
+Bình Thuận vẫn giữ vững tỷ lệ với GTC 67,5%, cho thấy anh em khu vực tại Bình Thuận chạy tuyến rất đều và khách nhận hàng rất chuẩn.
+Khánh Hòa và Ninh Thuận tuần này đã xuất sắc vượt qua mốc 60%. Đặc biệt Khánh Hòa tăng từ 58,8% lên 62,2%, đóng góp cực lớn vào tỷ lệ GTC chung của vùng.
+Hai tỉnh Đắk Nông và Lâm Đồng: Dù vẫn đứng ở 2 vị trí cuối bảng với 54,4%, nhưng tuần này anh em đã có sự nỗ lực rất lớn. Lâm Đồng kéo tăng tới hơn 7,0%p, còn Đắk Nông tăng 5,7%p so với tuần trước. Về phần này có sự tuyên dương nỗ lực của các AM khu vực 2 tỉnh Đắk Nông và Lâm Đồng!
 
-• Bình Thuận: 67,45% (W39: 67,49%) ➔ Bám sát vị trí dẫn đầu, giữ phong độ bền bỉ.
-
-• Khánh Hòa: 62,23% (W39: 58,82%, tăng +3,41%p) ➔ Bứt phá qua mốc 60%, đóng góp lớn vào vùng.
-
-• Đắk Nông: 54,46% (W39: 48,81%, tăng mạnh +5,65%p) ➔ Nỗ lực vượt bậc kéo GTC thoát đáy.
-
-• Lâm Đồng: 54,43% (W39: 47,38%, tăng mạnh +7,05%p) ➔ Mức tăng trưởng %GTC mạnh nhất vùng, nhưng vẫn đứng chót bảng 5 tỉnh.
-
-• Toàn vùng: Full hàng đạt 60,87% (+4,19%p) | TikTok Shop đạt 63,38% (+5,84%p).
-
-**📍 2. XẾP HẠNG %GTC TUYỆT ĐỐI THEO 18 AM (TOP ĐẦU & ĐÁY BẢNG):**
-
-• Top AM xuất sắc (>68%): Nguyễn Ngọc Khánh (74,5% - Top 1 GTC toàn vùng), Thái Thị Thanh Thư (72,0% - Top 2 GTC), Nguyễn Đỗ Minh Nghĩa (70,4%), Nguyễn Duy Long (69,0% - Đầu tàu sản lượng 42,7k đơn), Cao Thị Thanh Thủy (68,0%).
-
-• Top AM tiến bộ (60 - 68%): Nguyễn Thị Tuyết Thơ (67,6%), Nguyễn Hoàng Phi (64,6%), Lê Thanh Nhựt (60,2%).
-
-• Nhóm AM đáy (<50% cần kèm cặp gấp): Lê Minh Lợi (36,5%), Phan Nguyễn Yến Nhi (38,0%), Trương Quang Linh (40,3%), Huỳnh Thúc Duân (47,1%), Lê Văn Trường (48,9%), Nguyễn Lê Nguyên Vũ (49,0%).
-
-**📍 3. TOP AM CÓ ĐÓNG GÓP TĂNG TRƯỞNG %GTC LỚN NHẤT TUẦN VỪA RỒI (Δ WoW W40 vs W39):**
-
-• 🥇 AM Trương Quang Linh (Đắk Nông): Tăng mạnh nhất vùng +14,49%p (từ 25,85% lên 40,34%) ➔ Bước nhảy vọt thoát khỏi đáy tuyệt đối.
-
-• 🥈 AM Lê Văn Trường (Lâm Đồng): Tăng bứt phá +11,85%p (từ 37,10% lên 48,95%) trên tải lớn 37.411 đơn ➔ Công thần chủ lực kéo toàn tỉnh Lâm Đồng tăng vọt +7,05%p!
-
-• 🥉 AM Thái Thị Thanh Thư (Khánh Hòa): Tăng thần tốc +9,63%p (từ 62,38% lên 72,02%) trên tải lớn 35.889 đơn ➔ Nhân tố số 1 kéo tỉnh Khánh Hòa bứt phá vượt mốc 60%!
-
-• 4️⃣ AM Phan Nguyễn Yến Nhi (Lâm Đồng): Tăng +8,96%p (từ 29,00% lên 37,96%).
-
-• 5️⃣ AM Nguyễn Lê Nguyên Vũ (Lâm Đồng): Tăng +7,53%p (từ 41,44% lên 48,97%).
-
-• 6️⃣ AM Lê Minh Lợi (Lâm Đồng): Tăng +5,89%p (từ 30,61% lên 36,50%).
-
-• 7️⃣ AM Hồng Bích Nga (Lâm Đồng/Đắk Nông): Tăng +3,53%p (từ 55,87% lên 59,40%).
-
-• 8️⃣ AM Trần Thị Nhung (Đắk Nông): Tăng +3,49%p (từ 55,46% lên 58,95% với 37.073 đơn).
-
-**📍 4. BÓC TÁCH RIÊNG PHÂN KHÚC %GTC TIKTOK SHOP (TTS) — ĐỘNG LỰC BỨT PHÁ 63,38% (+5,84%p WoW):**
-
-• Toàn vùng TTS: Đạt đỉnh 63,38% (tăng vọt +5,84%p WoW so với W39: 57,54%), cao hơn Full hàng chung 2,51%p (60,87%).
-
-• Theo 5 Tỉnh thành TTS: Lâm Đồng tăng số 1 vùng +10,36%p (từ 48,73% lên 59,09% với 24.505 đơn TTS); Đắk Nông tăng +6,32%p (từ 49,57% lên 55,88%); Khánh Hòa tăng +3,85%p (từ 59,89% lên 63,74%); Ninh Thuận (67,94%) và Bình Thuận (67,78%) tiếp tục giữ đỉnh.
-
-• Top AM tăng trưởng GTC TTS mạnh nhất (Δ WoW): 🥇 AM Nguyễn Thanh Long (+14,84%p, từ 46,1% lên 61,0%), 🥈 AM Lê Minh Lợi (+14,57%p), 🥉 AM Lê Văn Trường (+11,41%p, từ 39,9% lên 51,3%), 4️⃣ AM Nguyễn Lê Nguyên Vũ (+9,41%p, từ 41,5% lên 51,0%), 5️⃣ AM Hồng Bích Nga (+5,58%p, từ 55,1% lên 60,7%).
-
-• Top AM đạt %GTC TTS cao nhất vùng: 🥇 Nguyễn Ngọc Khánh (75,56%), 🥈 Nguyễn Đỗ Minh Nghĩa (70,77%), 🥉 Nguyễn Duy Long (69,42% — Gánh sản lượng TTS lớn nhất vùng: 18.628 đơn), 4️⃣ Cao Thị Thanh Thủy (69,30%), 5️⃣ Nguyễn Thị Tuyết Thơ (68,73%).
-
-
-> **🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 3 GTC TỔNG):**
-
-"Dạ qua tới Tab 3 GTC Tổng, trên màn hình mọi người thấy toàn bộ các cột chỉ số đều nhuộm màu xanh tăng trưởng rất đẹp mắt!
-
-Nhìn vào 5 Tỉnh thành ở bảng trên cùng:
-
-Ninh Thuận và Bình Thuận tiếp tục là 2 điểm sáng dẫn đầu vùng về độ ổn định với GTC đạt xấp xỉ 67,5%.
-
-Khánh Hòa tuần này đã xuất sắc bứt phá qua mốc 60% khi đạt 62,2% (tăng +3,4%p so với W39: 58,8%), đóng góp cực lớn vào kỳ tích chung của toàn vùng.
-
-Hai tỉnh miền núi là Đắk Nông và Lâm Đồng: Dù vẫn đứng ở 2 vị trí cuối bảng với 54,4%, nhưng tuần này anh em đã có sự nỗ lực phi thường. Lâm Đồng kéo tăng tới hơn +7,0%p, còn Đắk Nông tăng hơn +5,6%p so với tuần trước.
-
-Đặc biệt, khi mổ xẻ đóng góp của 18 AM, Ban Giám Đốc sẽ thấy một điểm mấu chốt rất đáng biểu dương:
-
+Nhìn xuống danh sách 18 AM:
+Top 1 GTC full hàng tuần này thuộc về khu vực AM Nguyễn Ngọc Khánh với tỷ lệ 74,5%, kế đến là chị Thái Thị Thanh Thư (Khánh Hòa) đạt 72,0% và anh Nguyễn Đỗ Minh Nghĩa (Lâm Đồng) đạt 70,4%.
+Đặc biệt, AM Duy Long tiếp tục là AM sản lượng lớn nhất toàn vùng, nhưng vẫn duy trì %GTC rất vững vàng ở mức 71,2%!
 Tuần này toàn vùng tăng mạnh +4,19%p KHÔNG PHẢI nhờ nhóm ven biển (vì Bình Thuận và Ninh Thuận đã ở mức trần nên đi ngang ~67,5%), mà công lớn nhất kéo cả vùng bứt phá tuần này thuộc về 3 AM có bước nhảy vọt thần tốc:
-
 Thứ nhất là chị Thái Thị Thanh Thư ở Khánh Hòa: Tăng vọt tới gần +10%p (từ 62,4% lên 72,0%) trên khối lượng gần 36 ngàn đơn, đưa chị Thư lên thẳng vị trí Á quân GTC toàn vùng và kéo bừng sáng cả tỉnh Khánh Hòa!
-
 Thứ hai là anh Lê Văn Trường ở Lâm Đồng: Tăng phi thường +11,9%p (từ 37,1% lên 49,0%) trên khối lượng cực lớn hơn 37 ngàn đơn! Chính anh Trường là đầu tàu kéo Lâm Đồng tăng hơn 7%p tuần này!
-
 Thứ ba là anh Trương Quang Linh ở Đắk Nông: Tăng bứt phá mạnh nhất toàn vùng với +14,5%p (từ 25,8% lên 40,3%). Bên cạnh đó, anh Vũ (+7,5%p), chị Nhi (+9,0%p) và chị Nhung (+3,5%p trên 37 ngàn đơn) cũng là những nhân tố nòng cốt kéo toàn bộ khu vực Tây Nguyên thoát đáy!
 
-Đặc biệt khi nhìn sang kênh TikTok Shop (TTS):
-
-Hiệu suất giao sàn TMĐT tuần này bùng nổ vượt bậc khi đạt kỷ lục 63,38% (tăng vọt tới +5,84%p WoW), cao hơn mặt bằng chung 2,51%p!
-
-Trong đó, anh Nguyễn Thanh Long ở Cam Ranh tăng trưởng kỷ lục +14,84%p GTC TTS, anh Lê Văn Trường kéo GTC TTS Lâm Đồng tăng tới hơn +10,3%p, và anh Nguyễn Duy Long tiếp tục là 'lá chắn thép' khi gánh tới gần 19 ngàn đơn TikTok Shop mà vẫn duy trì GTC TTS chuẩn đét ở mức 69,42%!
-
-Quán quân GTC TikTok Shop tuần này thuộc về anh Nguyễn Ngọc Khánh (75,56%) và anh Nguyễn Đỗ Minh Nghĩa (70,77%).
-
-Tuy nhiên, Ban Giám Đốc lưu ý giúp em nhóm các AM vẫn còn nằm dưới mốc 50% GTC:
-
-Dù anh Lợi (+5,9%p), chị Nhi (+9,0%p) và anh Linh (+14,5%p) đã có tiến bộ vượt bậc, nhưng GTC tuyệt đối vẫn còn dưới 40%, shipper vẫn chưa linh hoạt đổi ca phát chiều tối.
-
-Em đề nghị tuần tới, các AM nhóm dưới phải duy trì đà tiến bộ này và ngồi lại với từng Trưởng bưu cục để tối ưu lại ca phát chiều. Giờ em xin chuyển qua Tab 4 mổ xẻ Ca 1 và Ca 2 ạ!"
-
-
-> 💡 **Điểm sáng & Insight vận hành:**
-> - Động lực tăng trưởng GTC tuần W40 (+4,19%p toàn vùng) chủ yếu đến từ sự bứt phá của AM Lê Văn Trường (+11,85%p / 37,4k đơn) và AM Thái Thị Thanh Thư (+9,63%p / 35,9k đơn).
-> - Kênh TikTok Shop đạt đỉnh 63,38% GTC (tăng +5,84%p WoW), trong đó Lâm Đồng bứt phá +10,36%p và Đắk Nông tăng +6,32%p.
-
-
-> ⚠️ **Cảnh báo rủi ro & Điểm nóng:**
-> - 6 AM (Lợi, Nhi, Linh, Duân, Trường, Vũ) dù đã có cải thiện mạnh về biến động nhưng mức tuyệt đối vẫn dưới 50% GTC, cần duy trì kỷ luật đôn đốc.
-> - Cần kiểm tra xem có hiện tượng shipper cố tình chọn đơn dễ giao để đẩy tỷ lệ GTC ảo hay không.
-
-
-> 🎯 **Hành động cụ thể & Giao việc hiện trường:**
-> - Áp dụng quy trình kiểm soát ca 2 của Bình Thuận cho các AM nhóm đáy, bắt buộc gọi lại lần 2 cho 100% đơn chưa phát trước 17h30.
-
+Tuy nhiên, ngược lại nhóm các AM vẫn còn nằm dưới mốc 50%:
+Đặc biệt là anh Lê Minh Lợi (36,5%), khu vực AM mới của chị Yến Nhi (38,0%) và anh Trương Quang Linh (40,3%): Các địa bàn này tỷ lệ khách từ chối và hẹn lùi giờ còn cao, shipper chưa linh hoạt đổi ca phát.
+Em đề nghị trong tuần này, các AM nhóm dưới phải ngồi lại với từng bưu cục để tối ưu lại ca phát chiều. Giờ em xin chuyển qua Tab 4 mổ xẻ Ca 1 và Ca 2 ạ!"
 
 ---
 
-## 🎯 [IV. PHÂN TÍCH CHUYÊN SÂU %GTC TIKTOK SHOP CA 1 — TARGET SLA ≥ 76.0% (TAB 4)]
+## TAB 4: 🗣️ MỔ XẺ GIAO HÀNG CA 1 SÁNG: HÀNG TỒN (52.8%) VS HÀNG THUẦN (72.4%) (BẬT TAB 4 DASHBOARD):
 
-### 🗣️ BẢNG ĐIỀU HÀNH %GTC CA 1 TIKTOK SHOP THEO 18 AM & 5 TỈNH (TARGET ≥ 76.0%):
+📍 1. BẢNG HIỆU SUẤT CA 1 SÁNG TOÀN VÙNG:
+• Hàng Thuần Ca 1 Full: 77,35% (tăng +5,12%p WoW).
+• Hàng Thuần Ca 1 TikTok Shop: 81,34% (+6,17%p so với 75,16% W39) ➔ VƯỢT XA TARGET SLA 76,0%!
+• 4/5 Tỉnh vượt mốc 80% TTS Ca 1: Bình Thuận 86,5%, Ninh Thuận 83,8%, Lâm Đồng 80,2%, Khánh Hòa 80,2%.
+• Sự thật đằng sau con số: GTC Ca 1 thuần đạt đỉnh 81,34%, nhưng nếu tính cả hàng tồn thì rơi xuống chỉ còn 66,47% (sụt tới -14,87%p)!
 
-**📍 1. HIỆU SUẤT TOÀN VÙNG VÀ BẢNG 5 TỈNH THÀNH (W40 vs W39):**
+📍 2. PHÂN TÍCH THEO AM:
+• Top AM dẫn đầu Ca 1 TTS:
+  - Nguyễn Ngọc Khánh: 88,9%
+  - Nguyễn Đỗ Minh Nghĩa: 87,0%
+  - Cao Thị Thanh Thủy: 87,0%
+  - Nguyễn Duy Long: 85,1% (trên hơn 10 ngàn đơn)
+  - Lê Văn Trường: Kéo GTC Ca 1 TTS tăng tới gần +25% lên 80,3%!
+• 5 AM còn hiển thị màu đỏ dưới mốc SLA 76%:
+  - Huỳnh Thúc Duân: 64,5%
+  - Nguyễn Lê Nguyên Vũ: 61,4%
+  - Phan Nguyễn Yến Nhi: 58,6%
+  - Trương Quang Linh: 58,1%
+  - Lê Minh Lợi: 46,7%
 
-• Toàn vùng TTS Ca 1: Bứt phá ngoạn mục đạt 81,34% (tăng mạnh +6,17%p WoW so với W39: 75,16%) ➔ Chính thức vượt xa Target cam kết SLA ≥ 76.0%!
-
-• Bình Thuận: 86,45% (W39: 84,64%, +1,81%p) ➔ Quán quân Ca 1 TTS toàn vùng, giữ phong độ đỉnh cao.
-
-• Ninh Thuận: 83,78% (W39: 84,75%) ➔ Á quân toàn vùng, tỷ lệ hoàn tất ca sáng rất chuẩn.
-
-• Lâm Đồng: 80,22% (W39: 66,85%, tăng bùng nổ +13,37%p!) ➔ Lần đầu tiên vượt ngưỡng chuẩn SLA 80%!
-
-• Khánh Hòa: 80,15% (W39: 75,77%, tăng +4,37%p) ➔ Chính thức gia nhập nhóm xuất sắc >80%.
-
-• Đắk Nông: 72,78% (W39: 67,81%, tăng mạnh +4,97%p) ➔ Rút ngắn khoảng cách chỉ còn thiếu 3,2%p để đạt SLA.
-
-**📍 2. XẾP HẠNG 18 AM THEO %GTC CA 1 TIKTOK SHOP (TARGET SLA ≥ 76.0%):**
-
-• Tỷ lệ đạt chuẩn: Đã có 13/18 AM xuất sắc đạt và vượt Target SLA ≥ 76.0% (nhuộm xanh bảng điều hành).
-
-• Top 5 AM dẫn đầu %GTC Ca 1 TTS: 🥇 AM Nguyễn Ngọc Khánh (88,94%), 🥈 AM Nguyễn Đỗ Minh Nghĩa (87,02%), 🥉 AM Cao Thị Thanh Thủy (87,01%), 👑 AM Nguyễn Duy Long (85,05% — gánh hơn 10 ngàn đơn Ca 1: 10.257 đơn), 5️⃣ AM Nguyễn Thị Tuyết Thơ (83,20%).
-
-• Top AM tăng trưởng Ca 1 TTS bứt phá nhất (Δ WoW): 🚀 AM Lê Văn Trường tăng vọt +24,72%p (từ 55,56% lên 80,28%, vượt chuẩn 76%!), 🚀 AM Trương Quang Linh (+18,94%p), 🚀 AM Phan Nguyễn Yến Nhi (+16,65%p), 🚀 AM Nguyễn Thanh Long (+16,40%p, lên 82,98%).
-
-• Nhóm 5 AM chưa đạt Target SLA 76% (cần thúc đẩy gấp): Huỳnh Thúc Duân (64,52%), Nguyễn Lê Nguyên Vũ (61,43%), Phan Nguyễn Yến Nhi (58,62%), Trương Quang Linh (58,14%), Lê Minh Lợi (46,67%).
-
-
-> **🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 4 %GTC TTS CA 1):**
-
-"Dạ mời Ban Giám Đốc và các anh chị nhìn lên màn hình Tab 4: Phân tích chuyên sâu %GTC TikTok Shop Ca 1:
-
-Tuần W40 này ghi nhận một kỳ tích rất lớn của toàn vùng Nam Trung Bộ:
-
-Hiệu suất giao hàng sàn TikTok Shop chuyến sáng Ca 1 đã chính thức vượt xa cam kết SLA 76% khi bứt phá lên tới 81,34% (tăng mạnh tới +6,17%p so với mức 75,16% của tuần W39)!
-
-Nhìn vào 5 Tỉnh thành:
-
-Bình Thuận (86,5%) và Ninh Thuận (83,8%) tiếp tục giữ vững vị thế dẫn đầu. Nhưng điều đáng mừng nhất là tuần này cả Lâm Đồng (80,2%) và Khánh Hòa (80,2%) đều đã xuất sắc kéo GTC Ca 1 sàn vượt qua ngưỡng 80%!
-
-Đặc biệt, Lâm Đồng đã có bước nhảy vọt phi thường khi tăng hơn +13,3%p so với tuần trước.
-
-Nhìn vào bảng 18 AM bên dưới:
-
-Chúng ta đã có 13 trên tổng số 18 AM đạt chuẩn xanh ≥ 76%. Quán quân thuộc về anh Nguyễn Ngọc Khánh đạt 88,9%, anh Nguyễn Đỗ Minh Nghĩa đạt 87,0% và chị Cao Thị Thanh Thủy đạt 87,0%.
-
-Đặc biệt, em xin tuyên dương anh Nguyễn Duy Long: Một mình anh Long gánh khối lượng Ca 1 TTS khổng lồ với hơn 10 ngàn đơn (10.257 đơn, chiếm gần 1/4 sản lượng Ca 1 toàn vùng) nhưng vẫn đạt tỷ lệ xuất sắc lên tới 85,05%!
-
-Bên cạnh đó, anh Lê Văn Trường ở Lâm Đồng đã có cú lội ngược dòng ngoạn mục nhất khi kéo GTC Ca 1 TTS tăng gần +25%p (từ 55,6% nhảy vọt lên 80,3%), đưa địa bàn Đà Lạt từ điểm nóng cảnh báo trở thành điểm đạt chuẩn SLA!
+🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 4 DASHBOARD GTC CA 1 TTS):
+"Đối với hàng thuần mới về sáng sớm, tỷ lệ giao thành công Full hàng toàn vùng đã tăng lên 77,35%, và đặc biệt là phân khúc TikTok Shop (TTS) tuần này đã chính thức bứt phá ngoạn mục vượt qua mốc 81% (đạt 81,34%, tăng mạnh +6,17%p so với mức 75,16% của W39)! Cả 4/5 tỉnh gồm Bình Thuận (86,5%), Ninh Thuận (83,8%), Lâm Đồng (80,2%) và Khánh Hòa (80,2%) đều đã xuất sắc vượt qua mốc 80% đối với hàng sàn Ca 1 sáng!
+Soi vào AM: Anh Khánh (88,9%), anh Nghĩa (87,0%), chị Thủy (87,0%) và anh Long (85,1% trên hơn 10 ngàn đơn) đều có tỷ lệ giao ca sáng cực kỳ ấn tượng.
+Đặc biệt, anh Lê Văn Trường ở Lâm Đồng đã kéo GTC Ca 1 TTS tăng tới gần +25% lên 80,3%!
 
 Tuy nhiên, trên biểu đồ mọi người thấy vẫn còn 5 AM hiển thị màu đỏ dưới mốc 76%:
-
 Đó là chỗ anh Duân (64,5%), anh Vũ (61,4%), chị Nhi (58,6%), anh Linh (58,1%) và anh Lợi (46,7%).
+Em đề nghị tuần tới, 5 AM này phải áp dụng triệt để kỷ luật xuất bến: Bắt buộc shipper đi phát chuyến 1 trước 8h30 sáng để tận dụng tối đa khung giờ vàng nhận hàng của khách TikTok Shop.
 
-Em đề nghị tuần tới, 5 AM này phải áp dụng triệt để kỷ luật xuất bến: Bắt buộc shipper đi phát chuyến 1 trước 8h30 sáng để tận dụng tối đa khung giờ vàng nhận hàng của khách TikTok Shop. Giờ em xin chuyển qua Tab 5 mổ xẻ Tỷ lệ gán vận hành ạ!"
+🔍 INSIGHT BẢN CHẤT & GỐC RỄ NGUYÊN NHÂN:
+GTC Ca 1 thuần đạt đỉnh 81,34% (vượt xa target SLA 76%), nhưng nếu tính cả tồn thì chỉ còn 66,47% (rơi tới -14,87%p)!
+Shipper buổi sáng có thói quen 'chọn việc dễ, né việc khó': ưu tiên bốc các kiện hàng vừa hạ tải tinh tươm để đi phát cho nhanh (khách mới đặt, dễ nghe máy). Các đơn tồn lưu cữu từ hôm trước bị nhét xuống đáy sọt hoặc để lại góc bưu cục. Càng để qua ngày thì tâm lý khách hủy đơn, bom hàng, hoặc không liên lạc được càng tăng vọt.
+Đây chính là lý do vì sao biểu đồ Ca 1 thuần nhìn rất 'xanh' (81,3%), nhưng tỷ lệ GTC chốt sổ cuối tuần toàn vùng lại chỉ quanh quẩn 60 - 62%.
 
-
-> 💡 **Điểm sáng & Insight vận hành:**
-> - GTC Ca 1 TikTok Shop đạt kỷ lục 81,34% (tăng +6,17%p WoW), chính thức đưa toàn vùng vượt qua cam kết SLA ≥ 76.0% với sàn TMĐT.
-> - 13/18 AM đã đạt chuẩn SLA, chứng minh việc đôn đốc bưu tá xuất tuyến sớm chuyến 1 đầu ngày phát huy hiệu quả rõ rệt.
-
-
-> ⚠️ **Cảnh báo rủi ro & Điểm nóng:**
-> - Vẫn còn 5 AM (Duân, Vũ, Nhi, Linh, Lợi) dưới ngưỡng 76%, trong đó AM Lê Minh Lợi mới đạt 46,67%, làm kéo tụt điểm chung của các tuyến vùng sâu.
-
-
-> 🎯 **Hành động cụ thể & Giao việc hiện trường:**
-> - Trưởng bưu cục tại 5 AM nhóm dưới phải kiểm soát 100% shipper xuất bến chuyến 1 trước 08h30 sáng, ưu tiên giao dứt điểm các tuyến trung tâm trước 11h00.
-
+🎯 QUYẾT SÁCH HÀNH ĐỘNG & MỆNH LỆNH TÁC CHIẾN:
+• Trưởng bưu cục bắt buộc phải kiểm tra sọt hàng của shipper trước khi xuất bến lúc 08h30: 100% đơn tồn hôm trước phải được xếp lên trên cùng để phát trước 10h30.
+Giờ em xin chuyển qua Tab 5 mổ xẻ Tỷ lệ gán vận hành ạ!"
 
 ---
 
-## 📋 [V. TỶ LỆ GÁN VẬN HÀNH TOÀN MẠNG & HIỆU SUẤT %GTC CA 2 (W40)]
+## TAB 5: 🗣️ PHÂN TÍCH TỶ LỆ GÁN VẬN HÀNH: CA 1 + TỒN VS GÁN TỔNG (BẬT TAB 5 DASHBOARD):
 
-### 🗣️ HIỆU SUẤT GIAO CA 2 (48.6%) VÀ TỶ LỆ GÁN ĐẦU NGÀY TOÀN VÙNG (TAB 6):
+📍 1. BẢNG 1: CHỈ TIÊU VÙNG (CA 1 + TỒN, CA 2 & GÁN TỔNG CẢ NGÀY):
+• Full hàng – Ca 1 + Tồn: 92,77% (W39: 87,46%, tăng +5,32%p) ➔ VƯỢT CHUẨN SLA ≥ 90,0%!
+• TTS – Ca 1 + Tồn: 94,80% (W39: 88,22%, bứt phá +6,58%p) ➔ Xuất sắc toàn diện!
+• Full hàng – Ca 2: 62,87% (W39: 59,28%, chỉ tăng +3,59%p) ➔ ĐIỂM NGHẼN CỔ CHAI LỚN NHẤT VÙNG!
+• TTS – Ca 2: 63,54% (W39: 58,57%, tăng +4,98%p).
+• Full hàng – Tổng cả ngày: 86,32% (W39: 82,47%, tăng +3,86%p) ➔ Chưa đạt target 90,0%.
+• TTS – Tổng cả ngày: 88,00% (W39: 82,83%, tăng +5,17%p).
 
-**📍 1. BẢNG HIỆU SUẤT GIAO CA 2 THEO 5 TỈNH THÀNH (W40):**
+📍 2. BẢNG 2: TỶ LỆ GÁN CA 1 + TỒN THEO 18 AM (TARGET ≥ 90.0%):
+• Top 5 AM xuất sắc nhất:
+  1. Nguyễn Đỗ Minh Nghĩa (Lâm Đồng): 99,1% (W39: 97,4%) | Sản lượng: 10.414 đơn
+  2. Nguyễn Ngọc Khánh (Bình Thuận): 98,9% (W39: 98,4%) | Sản lượng: 34.296 đơn
+  3. Lê Thanh Nhựt (Ninh Thuận): 98,9% (W39: 98,1%) | Sản lượng: 46.427 đơn
+  4. Thái Thị Thanh Thư (Khánh Hòa): 98,4% (W39: 98,2%) | Sản lượng: 35.889 đơn
+  5. Cao Thị Thanh Thủy (Khánh Hòa): 98,0% (W39: 98,5%) | Sản lượng: 22.756 đơn
+• Nhóm bứt phá thần tốc kéo cả vùng vượt chuẩn 90%:
+  - Phan Nguyễn Yến Nhi: Tăng phi thường +22,3%p (từ 60,2% lên 82,5%).
+  - Trương Quang Linh: Tăng bứt phá +21,6%p (từ 58,4% lên 80,0%).
+  - Lê Văn Trường: Tăng thần tốc +21,5%p (từ 61,9% lên 83,4%) trên khối lượng cực lớn 37,4k đơn!
+  - Nguyễn Lê Nguyên Vũ: Tăng +9,2%p (từ 68,3% lên 77,5%).
+• Đáy bảng Ca 1 + Tồn (Vẫn dưới chuẩn 90%):
+  - Nguyễn Lê Nguyên Vũ (77,5%), Lê Minh Lợi (78,2%), Trương Quang Linh (80,0%), Phan Nguyễn Yến Nhi (82,5%), Lê Văn Trường (83,4%).
 
-• Toàn vùng: GTC Ca 2 đạt 48,60% (tăng +7,4%p so với W39 41,20%).
+📍 3. BẢNG 3: TỶ LỆ GÁN TỔNG CẢ NGÀY THEO 18 AM:
+• Top AM gán tổng cao nhất (> 91%):
+  1. Thái Thị Thanh Thư (97,5%), Nguyễn Ngọc Khánh (92,7%), Nguyễn Hoàng Phi (92,2%), Nguyễn Duy Long (91,6%).
+• 5 AM ở đáy bảng Gán Tổng (kéo tụt cả vùng dưới 80%):
+  1. Nguyễn Lê Nguyên Vũ: 72,8% ➔ Thấp nhất vùng!
+  2. Huỳnh Thúc Duân: 75,5% (giảm -0,5%p)
+  3. Lê Văn Trường: 75,9% (dù tăng nhưng vẫn kẹt ở 75%)
+  4. Huỳnh Thị Kim Chi: 77,6% (giảm -1,1%p)
+  5. Lê Minh Lợi: 78,2%
 
-• Bình Thuận: 52,10% | Khánh Hòa: 49,80% | Ninh Thuận: 48,90% | Lâm Đồng: 42,50% | Đắk Nông: 40,80%.
+🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 5 DASHBOARD TỶ LỆ GÁN):
+"Kính thưa Ban Giám Đốc và các anh chị AM, khi chuyển sang Tab 5 về Tỷ lệ gán vận hành, chúng ta sẽ thấy ngay gốc rễ vì sao Last-mile tuần này có chuyển biến tích cực nhưng vẫn còn những điểm nghẽn nghiêm trọng:
+Đầu tiên, nhìn vào Bảng 1: Chỉ tiêu Gán Ca 1 + Tồn toàn vùng đã có một bước nhảy vọt thực sự: Full hàng tăng từ 87,5% lên 92,77%, và riêng TikTok Shop bứt phá từ 88,2% lên 94,80%! Toàn vùng đã chính thức vượt qua chuẩn cam kết 90%!
+Để có được kết quả này, nhìn xuống Bảng 2, em xin tuyên dương đặc biệt 3 AM Tây Nguyên:
+Chị Phan Nguyễn Yến Nhi tăng tới +22,3%p (từ 60,2% lên 82,5%).
+Anh Trương Quang Linh ở Đắk Nông tăng +21,6%p (từ 58,4% lên 80,0%).
+Và anh Lê Văn Trường ở Lâm Đồng tăng +21,5%p (từ 61,9% lên 83,4%) trên khối lượng cực lớn hơn 37 ngàn đơn!
+Bên cạnh đó, các anh chị nhóm ven biển như anh Nghĩa (99,1%), anh Khánh (98,9%), anh Nhựt (98,9%), chị Thư (98,4%) tiếp tục giữ vững kỷ luật thép với tỷ lệ gán ca sáng gần như tuyệt đối 100%!
 
-**📍 2. TỶ LỆ GÁN VẬN HÀNH TOÀN MẠNG (TARGET ≥ 90.0%):**
+TUY NHIÊN, các anh chị nhìn sang Bảng 3: Tỷ lệ Gán Tổng cả ngày của toàn vùng lại chỉ đạt 86,32%, vẫn chưa chạm được mốc target 90%!
+Tại sao Ca 1 + Tồn đạt tới gần 93% mà Gán Tổng cả ngày lại rớt xuống 86%?
+Câu trả lời nằm ở con số Gán Ca 2: Toàn vùng chỉ đạt vỏn vẹn 62,87%!
+Nhìn vào danh sách 5 AM ở đáy Bảng 3:
+Anh Nguyễn Lê Nguyên Vũ chỉ đạt 72,8%! Anh Huỳnh Thúc Duân 75,5%! Anh Lê Văn Trường 75,9%! Chị Huỳnh Thị Kim Chi 77,6%! Và anh Lê Minh Lợi 78,2%!
+Năm anh chị đang để tỷ lệ gán tổng của cụm mình chìm sâu dưới mốc 80%! Cứ 100 đơn về bưu cục trong ngày thì có tới hơn 20 đến 25 đơn không được gán cho shipper đi phát!
 
-• Gán Ca 1 (Đầu ngày): Toàn vùng đạt 88,50% (Bình Thuận 92,1%, Khánh Hòa 90,4%, Lâm Đồng 84,2%).
+🔍 INSIGHT BẢN CHẤT & GỐC RỄ NGUYÊN NHÂN:
+Nguyên nhân gốc rễ ở đây không phải do shipper thiếu máy móc hay lỗi phần mềm, mà là THÓI QUEN VẬN HÀNH CA CHIỀU TẠI BƯU CỤC:
+Chuyến xe KTC buổi chiều thường cập bưu cục vào khung giờ 13h30 đến 14h30. Khi hàng hạ tải xuống bãi, Trưởng bưu cục và điều phối có tâm lý: 'Thôi để sáng mai chia một thể, chiều nay cho shipper phát nốt mấy đơn ca 1 rồi nghỉ'.
+Đơn ca 2 không được gán lên hệ thống, nằm chết dí ở kho bưu cục từ 14h chiều hôm nay đến tận 8h sáng hôm sau!
+Hàng nằm kho mà không gán, hệ thống ghi nhận là hàng ngâm, chỉ số ODR lập tức bị kéo sụt, và nguy cơ khách hủy đơn tăng gấp đôi!
 
-• Gán Ca 2 (Ca trưa/chiều): Toàn vùng chỉ đạt 62,40% (mặc dù tăng so với 56,8% W39 nhưng vẫn rất thấp so với target 90%).
-
-• Gán Tổng Toàn Mạng: Đạt 83,20% (chưa chạm ngưỡng 90%). Gần 17% đơn hàng về kho trong ngày không được đưa ra đường.
-
-
-> **🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 6 GTC CA 2 & TỶ LỆ GÁN):**
-
-"Dạ mời Ban Giám Đốc nhìn tiếp sang Tab 6 về Ca 2 và Tỷ lệ gán đơn:
-
-Tuần này tỷ lệ GTC Ca 2 của toàn vùng đã có tiến bộ vượt bậc, kéo từ 41,2% lên 48,6%, tăng tới hơn 7%p. Bình Thuận thậm chí đã vượt 52% ca chiều.
-
-Tuy nhiên, nguyên nhân lớn nhất khiến GTC cả ngày của mình chưa vượt được 65% là do TỶ LỆ GÁN CA 2 QUÁ THẤP!
-
-Mọi người nhìn cái con số 62,4% này: Cứ 100 đơn hàng chuyến xe KTC trưa chở về bưu cục, thì có tới gần 38 đơn bị nằm lại sàn kho, không được gán cho shipper mang đi giao ca chiều!
-
-Tại sao hàng về mà không mang đi phát?
-
-Vẫn là câu chuyện cũ: Khung giờ 12h30 đến 13h30 xe KTC về, nhân viên kho bưu cục nghỉ ăn trưa. Đến 14h00 shipper chuẩn bị đi ca chiều thì hàng trưa vẫn chưa được bắn quét phân loại xong. Shipper không có hàng mới để đi, chỉ mang lèo tèo vài đơn hẹn buổi sáng rồi về sớm lúc 16h30.
-
-Trong khi đó, khung giờ từ 16h30 đến 18h30 là giờ vàng khách hàng đi làm về, ở nhà nhận hàng nhiều nhất thì shipper của mình lại không có trên tuyến!
-
-Em đề nghị tuần W41, tất cả các bưu cục phải sắp xếp lại ca trực trưa: Phải có 1 nhân viên trực bắn gán hàng từ 13h00, để đúng 14h00 shipper có đủ hàng xuất tuyến ca 2, kéo tỷ lệ gán Ca 2 lên trên 85% giúp em!"
-
-
-> 💡 **Điểm sáng & Insight vận hành:**
-> - Khung giờ 16h30 - 18h30 là 'khung giờ vàng' giao hàng cho người dân đô thị, nhưng tỷ lệ shipper trên tuyến lại thấp nhất trong ngày.
-> - Gán ca 2 đạt 62,4% là nút thắt cơ học làm nghẽn dòng chảy hàng hóa tại kho bưu cục.
-
-
-> ⚠️ **Cảnh báo rủi ro & Điểm nóng:**
-> - Đơn hàng tồn ca trưa không gán sẽ trực tiếp bị rớt SLA ODR vào sáng hôm sau và làm chật chội mặt bằng sàn bưu cục.
-
-
-> 🎯 **Hành động cụ thể & Giao việc hiện trường:**
-> - Trưởng bưu cục phân công nhân viên luân phiên trực trưa bắn phân loại hàng; AM kiểm tra tỷ lệ gán trên hệ thống lúc 14h15 hàng ngày.
-
+🎯 QUYẾT SÁCH HÀNH ĐỘNG & MỆNH LỆNH TÁC CHIẾN:
+1. Tôi yêu cầu 5 AM: Vũ, Duân, Trường, Chi, Lợi: Ngay chiều nay, bắt buộc 100% bưu cục phải thực hiện quy trình GÁN CA 2 trước 15h30. Xe KTC hạ tải kiện nào là quét nhập kho và gán ngay cho bưu tá kiện đó.
+2. Bưu tá phải xuất bến chuyến 2 trước 16h00 để phát dứt điểm hàng trong ngày.
+3. Mục tiêu tuần W41: Toàn bộ 18 AM phải đưa tỷ lệ Gán Tổng vượt mốc 90,0%, triệt tiêu hoàn toàn tình trạng om đơn ca chiều!
+Bây giờ, em xin phép chuyển sang Tab 6 để xem chất lượng giao đúng hẹn %ODR nhé!"
 
 ---
 
-## ⏱️ [VI. PHÂN TÍCH HIỆU SUẤT %ODR (GIAO ĐÚNG HẸN SLA) TOÀN VÙNG (TARGET ≥ 92.0%) (W40)]
+## TAB 6: 🗣️ PHÂN TÍCH CHẤT LƯỢNG GIAO ĐÚNG HẸN %ODR (BẬT TAB 6 DASHBOARD):
 
-### 🗣️ CHẤT LƯỢNG GIAO ĐÚNG HẸN %ODR: 5 TỈNH LÊN ĐẦU & ĐÁNH GIÁ 18 AM (TAB 7):
-
-**📍 1. BẢNG %ODR GIAO ĐÚNG HẸN 5 TỈNH THÀNH (W40 vs W39):**
-
-• Bình Thuận: 96,74% (W39: 96,27%, tăng +0,47%p) ➔ Dẫn đầu toàn vùng, vượt xa chuẩn cam kết 92%.
-
-• Khánh Hòa: 95,59% (W39: 91,94%, bứt phá +3,65%p) ➔ Vượt chuẩn xuất sắc.
-
-• Ninh Thuận: 94,20% (W39: 92,80%, tăng +1,40%p) ➔ Đạt chuẩn an toàn.
-
-• Đắk Nông: 90,42% (W39: 88,53%, tăng +1,89%p) ➔ Đã vượt mốc 90%, tiệm cận chuẩn 92%.
-
-• Lâm Đồng: 87,79% (W39: 84,69%, tăng +3,10%p) ➔ Tiến bộ lớn nhưng vẫn là tỉnh duy nhất chưa đạt chuẩn 92%.
-
+📍 1. BẢNG 1 & 2: %ODR 5 TỈNH THÀNH (TARGET ≥ 92.0%):
+• Bình Thuận: 96,74% (W39: 96,27%, +0,47%p) ➔ Dẫn đầu toàn vùng.
+• Ninh Thuận: 96,62% (W39: 96,43%, +0,19%p) ➔ Rất xuất sắc.
+• Khánh Hòa: 95,59% (W39: 91,94%, bứt phá +3,65%p) ➔ Vượt chuẩn an toàn.
+• Đắk Nông: 90,42% (W39: 88,53%, tăng +1,89%p) ➔ Đã vượt 90%, tiệm cận chuẩn.
+• Lâm Đồng: 87,79% (W39: 84,69%, tăng +3,10%p) ➔ Tiến bộ lớn nhưng là tỉnh duy nhất chưa đạt 92%.
 • Toàn vùng: Full hàng đạt 93,12% (+2,28%p) | TikTok Shop đạt 94,18% (+2,41%p) ➔ ĐẠT CHUẨN SLA TOÀN VÙNG!
 
-**📍 2. PHÂN TÍCH CHI TIẾT 18 AM:**
-
-• Top AM xuất sắc nhất vùng (%ODR > 96%):
-
+📍 2. BẢNG 3: HIỆU SUẤT %ODR FULL HÀNG THEO 18 AM:
+• Top AM xuất sắc nhất (%ODR > 96%):
   1. Cao Thị Thanh Thủy (Khánh Hòa): 97,8% ➔ Quán quân ODR toàn vùng Nam Trung Bộ!
+  2. Nguyễn Ngọc Khánh (Bình Thuận): 97,4%
+  3. Thái Thị Thanh Thư (Khánh Hòa): 96,9%
+  4. Nguyễn Duy Long (Ninh Thuận): 96,6%
+• Bottom 5 AM báo động đỏ (%ODR thấp nhất):
+  1. Lê Minh Lợi (Lâm Đồng): 74,1% ➔ Thấp nhất vùng, điểm nóng BC Lang Biang.
+  2. Trương Quang Linh (Đắk Nông): 74,9% ➔ Điểm nóng BC Quảng Tín.
+  3. Phan Nguyễn Yến Nhi (Lâm Đồng): 76,1% ➔ Điểm nóng BC Đơn Dương.
+  4. Lê Văn Trường (Lâm Đồng): 78,3% ➔ Điểm nóng BC Xuân Hương.
+  5. Nguyễn Lê Nguyên Vũ (Lâm Đồng): 87,2%
 
-  2. Thái Thị Thanh Thư (Khánh Hòa): 96,9% | Nguyễn Duy Long (Bình Thuận): 96,6% | Nguyễn Ngọc Khánh (Bình Thuận): 96,4% | Lê Thanh Nhựt (Ninh Thuận): 95,4%.
+📍 3. BẢNG 4: BÁO ĐỘNG ĐỎ CỰC ĐẠI — %ODR TIKTOK SHOP (SLA CAM KẾT SÀN):
+• Nhóm ven biển giữ vững đỉnh cao: Nguyễn Ngọc Khánh (98,2%), Cao Thị Thanh Thủy (97,6%), Nguyễn Đỗ Minh Nghĩa (97,3%), Nguyễn Duy Long (97,2%).
+• NHƯNG KHU VỰC TÂY NGUYÊN SỤP ĐỔ THÊ THẢM TRÊN KÊNH TIKTOK SHOP:
+  - Lê Minh Lợi: 14,3% (ODR TTS rớt xuống đáy vực! 100 đơn giao thì 86 đơn bị trễ hẹn!)
+  - Trương Quang Linh: 42,0% (Giao trễ gần 60% đơn hàng TikTok Shop!)
+  - Phan Nguyễn Yến Nhi: 44,6% (Hơn một nửa đơn hàng bị sàn phạt trễ hẹn!)
+  - Lê Văn Trường: 62,1% (Gần 40% đơn giao trễ hẹn sàn!)
+  - Nguyễn Lê Nguyên Vũ: 80,4% (Dưới chuẩn 92%)
 
-• Bottom 3 AM báo động đỏ (%ODR < 80% — NGUY CƠ BỊ SÀN PHẠT):
+🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 6 DASHBOARD %ODR):
+"Dạ kính thưa Ban Giám Đốc, qua Tab 6 là chỉ số sống còn ODR - Giao đúng hẹn để giữ hợp đồng với các sàn TMĐT và khách hàng VIP:
+Nhìn tổng thể, toàn vùng mình đạt 93,12% (TikTok Shop đạt 94,18%), chính thức vượt qua vạch đích SLA 92%!
+Ba tỉnh ven biển gồm Bình Thuận (96,7%), Ninh Thuận (96,6%) và Khánh Hòa (95,6%) làm cực kỳ xuất sắc.
+Em xin tuyên dương chị Cao Thị Thanh Thủy ở Khánh Hòa: Tuần này chị Thủy đạt ODR đỉnh toàn vùng 97,8%, gần như 100 đơn đi là giao đúng hẹn trọn vẹn 98 đơn! Anh Khánh, chị Thư và anh Duy Long cũng duy trì phong độ rất cao trên 96,6%.
 
-  1. Lê Minh Lợi (Lâm Đồng): 74,1% ➔ Thấp nhất toàn vùng, điểm nóng bưu cục Lang Biang - Đà Lạt 1.
+TUY NHIÊN, tôi yêu cầu tất cả các AM nhìn vào Bảng 4 ODR TikTok Shop giúp tôi:
+Các anh chị có thấy giật mình không?
+Trong khi nhóm ven biển anh Khánh, chị Thủy, anh Nghĩa đạt 97-98%, thì nhìn xuống 4 cái tên ở Tây Nguyên:
+Anh Lê Minh Lợi: ODR TikTok Shop chỉ có 14,3%! Cứ 100 đơn hàng của TikTok Shop giao tới tay khách thì có tới 86 đơn bị trễ hạn cam kết!
+Anh Trương Quang Linh: 42,0%!
+Chị Phan Nguyễn Yến Nhi: 44,6%!
+Và anh Lê Văn Trường: 62,1%!
+Bốn anh chị đang biến địa bàn của mình thành 'vùng trũng SLA' nghiêm trọng nhất toàn quốc!
 
-  2. Trương Quang Linh (Đắk Nông): 74,9% ➔ Điểm nóng bưu cục Quảng Tín.
+🔍 INSIGHT BẢN CHẤT & GỐC RỄ NGUYÊN NHÂN:
+Tại sao ODR hàng TikTok Shop ở vùng cao lại sụp đổ nặng nề như vậy?
+Insight hiện trường rất rõ: Đơn TikTok Shop quy định thời gian giao hàng cực kỳ ngặt nghèo (trong vòng 24h - 48h từ khi rời kho).
+Nhưng shipper của anh Lợi ở bưu cục Lang Biang, anh Linh ở bưu cục Quảng Tín, chị Nhi ở bưu cục Đơn Dương chạy các tuyến đồi núi dốc xa 20-30km có thói quen: 'Gom đơn lại 2-3 ngày mới đi một chuyến cho đỡ tốn xăng'!
+Kiện hàng nằm ngâm ở bưu cục từ thứ Hai, đến tận thứ Tư shipper mới mang đi phát. Đến nơi thì hệ thống sàn TikTok Shop đã ghi nhận trễ hẹn từ hôm trước!
+Hậu quả là gì?
+TikTok Shop họ quét hệ thống tự động: Họ đánh gậy cảnh cáo chủ shop, shop bị phạt tiền oan ức họ quay sang chửi rủa GHN và khóa cổng vận chuyển của chúng ta! Khách hàng chờ lâu bực mình từ chối nhận hàng, đẩy tỷ lệ hoàn trả tăng vọt!
 
-  3. Lê Văn Trường (Lâm Đồng): 78,3% ➔ Điểm nóng bưu cục Xuân Hương và Đơn Dương.
-
-
-> **🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 7 ODR):**
-
-"Dạ qua tới Tab 7 ODR, đây là chỉ số sống còn để giữ hợp đồng với các sàn TMĐT và khách hàng VIP:
-
-Tin rất vui là tuần này toàn vùng mình đã chính thức vượt qua vạch đích SLA 92%, đạt 93,12% đối với Full hàng và TikTok Shop đạt tới 94,18%!
-
-3 tỉnh Duyên hải làm cực kỳ xuất sắc: Bình Thuận giữ vững phong độ 96,7%, Khánh Hòa bứt phá lên 95,6% và Ninh Thuận đạt 94,2%.
-
-Đặc biệt, em xin tuyên dương chị Thủy Khánh Hòa: Chị Thủy tuần này đạt ODR đỉnh toàn vùng 97,8%, gần như 100 đơn đi là giao đúng hẹn 98 đơn!
-
-Anh Long Bình Thuận và chị Thư Khánh Hòa cũng duy trì phong độ rất cao trên 96,6%.
-
-TUY NHIÊN, nhìn xuống 3 cái tên ở đáy bảng, em xin phép cảnh báo rất nghiêm khắc:
-
-Anh Lợi (74,1%), anh Linh (74,9%) và anh Trường (78,3%):
-
-Ba anh đang quản lý những địa bàn có ODR tụt xuống dưới 80%! Cứ 10 đơn giao thì có tới 2-3 đơn bị trễ hẹn với khách!
-
-Chỗ anh Lợi ở Đà Lạt: Bưu cục Lang Biang địa bàn đồi dốc xa xôi, tài xế KTC đưa hàng lên trễ thì shipper lại không đi phát tăng ca chiều tối, để đơn trôi qua 2-3 ngày.
-
-Chỗ anh Linh ở Đắk Nông: Bưu cục Quảng Tín đường xa nhưng shipper không chủ động hẹn khách trước, đi đến nơi khách vắng nhà lại quay xe về kho.
-
-ODR dưới 80% trên sàn TikTok Shop là shop bán hàng sẽ bị đánh gậy cảnh cáo, họ sẽ lập tức khóa cổng vận chuyển GHN. Em yêu cầu 3 anh Lợi, Linh, Trường phải viết cam kết phương án xử lý, đưa ODR cụm mình lên trên 85% ngay trong tuần W41 này!"
-
-
-> 💡 **Điểm sáng & Insight vận hành:**
-> - Chị Cao Thị Thanh Thủy đạt 97,8% ODR khẳng định việc quản lý chặt lộ trình di chuyển của bưu tá có thể triệt tiêu hoàn toàn đơn trễ hẹn.
-> - 3 tỉnh ven biển (Bình Thuận, Khánh Hòa, Ninh Thuận) tạo thành trục vận hành vững chắc gánh số ODR cho toàn vùng.
-
-
-> ⚠️ **Cảnh báo rủi ro & Điểm nóng:**
-> - 3 AM (Lợi 74,1%, Linh 74,9%, Trường 78,3%) đối mặt nguy cơ bị đối tác sàn phạt vi phạm cam kết chất lượng dịch vụ (SLA Breach).
-> - Đơn giao trễ kéo dài tại các bưu cục huyện làm xói mòn lòng tin của người mua hàng vùng cao.
-
-
-> 🎯 **Hành động cụ thể & Giao việc hiện trường:**
-> - Áp dụng cơ chế cảnh báo đơn cận giờ: Bưu cục ưu tiên chia chọn và giao trước các đơn hàng chỉ còn dưới 4 tiếng là hết hạn SLA.
-
+🎯 QUYẾT SÁCH HÀNH ĐỘNG & MỆNH LỆNH TÁC CHIẾN:
+1. Tôi yêu cầu anh Lợi, anh Linh, chị Nhi, anh Trường: Bắt buộc phải chia lại tuyến và chạy tuyến mỗi ngày, tuyệt đối cấm hành vi gom đơn qua ngày để đi một lần!
+2. Bưu cục nào đơn tuyến xa ít thì Trưởng bưu cục phải trực tiếp lấy xe máy phụ shipper chạy giải tỏa các đơn cận giờ SLA trước 12h00 trưa hàng ngày.
+3. Tuần W41, 4 AM này phải đưa ODR TikTok Shop vượt lên trên mốc 80%, nếu tiếp tục để rớt dưới 50% sẽ đình chỉ điều hành Last-mile để phòng Vận hành vùng vào tiếp quản!
+Giờ em xin chuyển sang Tab 7 xem tỷ lệ lấy hàng %LTC First-mile ạ!"
 
 ---
 
-## 🚚 [VII. PHÂN TÍCH CHỈ SỐ %LTC (LẤY THÀNH CÔNG) THEO 18 AM & 5 TỈNH (TARGET ≥ 90.0%) (W40)]
+## TAB 7: 🗣️ PHÂN TÍCH CHỈ SỐ %LTC LẤY HÀNG THÀNH CÔNG (BẬT TAB 7 DASHBOARD):
 
-### 🗣️ PHONG ĐỘ FIRST-MILE: %LTC TOÀN VÙNG ĐẠT 91.35% (TTS ĐẠT 94.97%) (TAB 8):
+📍 1. BẢNG %LTC 5 TỈNH THÀNH (TARGET ≥ 90.0%):
+• Ninh Thuận: 97,6% (W39: 97,3%) ➔ Dẫn đầu tuyệt đối, lấy hàng chuẩn chỉ.
+• Khánh Hòa: 91,6% (W39: 91,0%) ➔ Vượt chuẩn an toàn.
+• Đắk Nông: 91,1% (W39: 89,8%) ➔ Bứt phá vượt chuẩn 90%.
+• Lâm Đồng: 90,0% (W39: 88,9%) ➔ Chạm ngưỡng chuẩn SLA.
+• Bình Thuận: 89,8% (W39: 89,5%) ➔ Tiệm cận chuẩn 90%.
+• Toàn vùng: Full hàng đạt 91,35% (+1,22%p) | Riêng TikTok Shop đạt 94,97% (+1,51%p).
 
-**📍 1. BẢNG CHỈ SỐ %LTC THEO 5 TỈNH THÀNH (W40 vs W39):**
+📍 2. PHÂN TÍCH THEO 18 AM:
+• Top AM lấy hàng xuất sắc nhất (%LTC > 94%):
+  1. Nguyễn Duy Long (Ninh Thuận): 97,1%
+  2. Nguyễn Đỗ Minh Nghĩa (Lâm Đồng): 97,0%
+  3. Cao Thị Thanh Thủy (Khánh Hòa): 95,1%
+  4. Nguyễn Thị Tuyết Thơ (Lâm Đồng): 94,5%
+• 4 AM báo động đỏ khâu lấy hàng:
+  1. Trương Quang Linh (Đắk Nông): 53,2% ➔ Rơi tự do, tỷ lệ lấy thất bại lên tới 46,8%!
+  2. Phan Nguyễn Yến Nhi (Lâm Đồng): 70,0% ➔ Lấy hụt 30% yêu cầu của shop!
+  3. Lê Minh Lợi (Lâm Đồng): 73,6% ➔ Quá thấp!
+  4. Nguyễn Thanh Long (Khánh Hòa): 85,2%
 
-• Ninh Thuận: 97,58% (W39: 96,10%, tăng +1,48%p) ➔ Dẫn đầu tuyệt đối về tỷ lệ lấy hàng thành công.
+🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 7 DASHBOARD %LTC):
+"Kính thưa Ban Giám Đốc, First-mile lấy hàng chính là cánh cửa đầu tiên để khách hàng tin tưởng GHN. Nếu chúng ta lấy hàng không xong thì đừng bao giờ mơ đến chuyện tăng trưởng sản lượng:
+Tin tốt là toàn vùng tuần này đã vượt mốc 91% (đạt 91,35%), và kênh TikTok Shop đạt gần 95%.
+Anh Duy Long ở Ninh Thuận (97,1%), anh Nghĩa ở Lâm Đồng (97,0%) và chị Thủy ở Khánh Hòa (95,1%) làm khâu lấy hàng rất bài bản, shipper chủ động hẹn giờ và đến đúng hẹn với các chủ shop.
 
-• Khánh Hòa: 94,80% (W39: 93,50%, tăng +1,30%p) ➔ Phong độ rất vững vàng.
+NHƯNG nhìn vào đáy bảng LTC, tôi yêu cầu anh Trương Quang Linh, chị Yến Nhi và anh Lê Minh Lợi nghe rõ:
+Anh Linh ở Đắk Nông LTC chỉ đạt 53,2%! Cứ 10 shop tạo yêu cầu lấy hàng thì shipper của anh Linh bỏ lỡ gần 5 shop!
+Chị Nhi ở Đơn Dương chỉ đạt 70,0%, anh Lợi ở Đà Lạt chỉ đạt 73,6%!
 
-• Lâm Đồng: 92,10% (W39: 90,80%, tăng +1,30%p) ➔ Khâu lấy hàng rau hoa, nông sản cải thiện rõ rệt.
+🔍 INSIGHT BẢN CHẤT & GỐC RỄ NGUYÊN NHÂN:
+Tại sao tỷ lệ lấy hàng của anh Linh lại sụt giảm thê thảm như vậy?
+Gốc rễ hiện trường: Buổi chiều từ 16h đến 18h là lúc các shop đóng gói xong hàng loạt để gửi đi.
+Shipper của các anh chị lười chạy tuyến xa hoặc gặp trời mưa, tự ý bấm trên app lý do ảo: 'Shop hẹn ngày mai lấy' hoặc 'Shop chưa đóng gói xong' mà không hề gọi điện hay đến tận nơi!
+Chủ shop đóng hàng xong, ngồi chờ đến 18h tối không thấy bóng dáng shipper GHN đâu, gọi điện lên bưu cục không ai bắt máy. Họ lập tức hủy đơn trên sàn và gọi shipper của Viettel Post, J&T hoặc SPX sang bốc hàng đi ngay trong đêm!
+Các anh chị đang tự tay đuổi khách hàng sang cho đối thủ cạnh tranh!
 
-• Đắk Nông: 91,15% (W39: 87,79%, tăng mạnh +3,36%p) ➔ Chính thức vượt mốc 90%.
-
-• Bình Thuận: 89,82% (W39: 86,26%, tăng mạnh +3,56%p) ➔ Tiệm cận mục tiêu 90%.
-
-• Toàn vùng: Full hàng đạt 91,35% (+1,22%p) | TikTok Shop đạt 94,97% (+0,39%p).
-
-**📍 2. ĐÁNH GIÁ 18 AM:**
-
-• 15 trên 18 AM đã hoàn thành xuất sắc chỉ tiêu %LTC ≥ 90%. Top đầu: AM Lê Thanh Nhựt (98,1%), AM Nguyễn Đỗ Minh Nghĩa (97,0%), AM Cao Thị Thanh Thủy (96,8%).
-
-• 3 AM cần lưu ý: AM Trầm Hữu Tiến (88,9%), AM Trương Quang Linh (89,2%), AM Nguyễn Thị Tuyết Thơ (89,4%) — còn để rớt đơn lấy do shop hẹn lấy lại vào ngày hôm sau.
-
-
-> **🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 8 LTC):**
-
-"Dạ qua tới Tab 8 Lấy hàng First-mile, em xin báo cáo một kết quả rất đáng mừng:
-
-Toàn vùng tuần này tiếp tục duy trì phong độ lấy hàng rất cao, đạt 91,35% với Full hàng và gần 95% với đơn TikTok Shop!
-
-Cả 5 tỉnh đều làm rất tốt. Đặc biệt anh Nhựt với anh Nghĩa ở Ninh Thuận lấy hàng đạt đỉnh 97,6%. Shipper Ninh Thuận kết nối với các shop bán nho, tỏi, hải sản rất thân thiết, nhận đơn lấy là có mặt gom hàng ngay trong vòng 2 tiếng.
-
-Đắk Nông và Bình Thuận tuần này cũng tăng hơn 3,5%p, đưa tỷ lệ lấy hàng của vùng lên mức an toàn.
-
-Điểm cần lưu ý duy nhất ở khâu lấy hàng: Là tại các huyện miền núi của Lâm Đồng và Đắk Nông, một số shop nông sản đóng hàng muộn sau 17h00. Shipper bưu cục huyện ngại chạy xa vào rẫy nên xin shop dời sang sáng mai lấy.
-
-Việc dời đơn lấy này rất nguy hiểm với đơn TikTok Shop vì sàn tính giờ bàn giao (Handover SLA) rất ngặt. Em nhờ anh Tiến và anh Linh bố trí xe tải nhỏ hoặc shipper chuyên trách gom hàng chiều muộn cho các shop lớn nha!"
-
-
-> 💡 **Điểm sáng & Insight vận hành:**
-> - Khâu lấy hàng First-mile duy trì trên 91% là nền tảng vững chắc giúp GHN giữ vững thị phần trước các đối thủ.
-> - Mô hình shipper phụ trách shop ruột tại Ninh Thuận đạt 97,58% cần được nhân rộng ra các tỉnh khác.
-
-
-> ⚠️ **Cảnh báo rủi ro & Điểm nóng:**
-> - Shop TikTok Shop nếu bị hoãn lấy hàng qua đêm sẽ bị hệ thống sàn tính trễ hạn lấy, dẫn đến nguy cơ shop chuyển sang đơn vị khác.
-
-
-> 🎯 **Hành động cụ thể & Giao việc hiện trường:**
-> - Bố trí tuyến xe gom cố định sau 16h30 tại các vùng tập trung nhiều shop online để lấy dứt điểm đơn trước 18h30.
-
+🎯 QUYẾT SÁCH HÀNH ĐỘNG & MỆNH LỆNH TÁC CHIẾN:
+• Yêu cầu anh Linh, chị Nhi, anh Lợi: Từ ngày hôm nay, 100% đơn lấy hàng không thành công bắt buộc phải có biên bản xác nhận hoặc ghi âm cuộc gọi của chủ shop hẹn lùi ngày.
+• Trưởng bưu cục phải kiểm soát danh sách yêu cầu lấy hàng trên hệ thống trước 17h00 hàng ngày, nếu shipper nào chưa lấy phải điều phối nhân sự khác đến hỗ trợ ngay lập tức. Tuần W41 bắt buộc kéo %LTC lên trên 90%!
+Giờ em xin chuyển sang Tab 8 mổ xẻ Chỉ số %OPR TikTok Shop lấy hàng ngày và đêm ạ!"
 
 ---
 
-## 🌙 [VIII. PHÂN TÍCH CHỈ SỐ %OPR TIKTOK SHOP TOÀN VÙNG (TARGET KPI ≥ 80.0%) (W40)]
+## TAB 8: 🗣️ PHÂN TÍCH HIỆU SUẤT LẤY HÀNG %OPR TIKTOK SHOP: NGÀY VS ĐÊM (BẬT TAB 8 DASHBOARD):
 
-### 🗣️ HIỆU SUẤT XỬ LÝ ĐƠN TIKTOK SHOP %OPR: CA NGÀY VS CA ĐÊM (TAB 9):
+📍 1. BẢNG 1: HIỆU SUẤT ĐƠN NGÀY (KHUNG GIỜ 9H00 – 19H00):
+• Toàn bộ 18 AM đều đạt tỷ lệ rất cao từ 88% đến 100%:
+  - Nguyễn Thanh Long (100%), Lê Minh Lợi (100%), Nguyễn Lê Nguyên Vũ (99,1%), Nguyễn Duy Long (98,8%), Nguyễn Thị Tuyết Thơ (98,8%), Thái Thị Thanh Thư (97,8%).
 
-**📍 1. BẢNG HIỆU SUẤT %OPR TIKTOK SHOP THEO 5 TỈNH THÀNH (W40):**
+📍 2. BẢNG 2: HIỆU SUẤT ĐƠN ĐÊM (KHUNG GIỜ 19H00 – 9H00 SÁNG HÔM SAU) — ĐIỂM LIỆT HOÀN TOÀN:
+• Danh sách các AM tê liệt hoàn toàn vào ban đêm (Tỷ lệ OPR Đêm = 0%):
+  1. Huỳnh Thúc Duân: 0,0% (63 đơn đêm trôi sạch 100% SLA!)
+  2. Huỳnh Thị Kim Chi: 0,0% (2 đơn)
+  3. Lê Minh Lợi: 0,0%
+  4. Phan Nguyễn Yến Nhi: 0,0%
+• Nhóm AM có tỷ lệ đơn đêm cực kỳ thấp dưới 15%:
+  5. Nguyễn Lê Nguyên Vũ: 9,4% (32 đơn đêm bị trôi)
+  6. Lê Văn Trường: 11,1% (488 đơn đêm — khối lượng cực lớn bị bỏ bê!)
+  7. Trần Thị Nhung: 12,2% (131 đơn đêm)
+• Ngược lại, nhóm duy trì lấy đêm xuất sắc:
+  - Nguyễn Thanh Long: 100% (33/33 đơn đêm)
+  - Nguyễn Thị Tuyết Thơ: 94,7% (282 đơn đêm)
+  - Nguyễn Đỗ Minh Nghĩa: 89,3% (75 đơn đêm)
 
-• Ninh Thuận: Ca Ngày 97,59% | Ca Đêm 85,19% | Tổng OPR: 93,79% ➔ Quán quân OPR toàn vùng.
+🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 8 DASHBOARD %OPR TIKTOK SHOP):
+"Kính thưa Ban Giám Đốc, Tab 8 OPR TikTok Shop chính là nơi bộc lộ lỗ hổng tác chiến chí mạng nhất của vùng Nam Trung Bộ chúng ta:
+Nếu chỉ nhìn vào Bảng 1 - Đơn ban ngày từ 9h sáng đến 19h tối, chúng ta thấy một bức tranh toàn màu xanh rực rỡ: 18/18 AM đều đạt từ 90% đến 100%, anh Long 100%, anh Lợi 100%, anh Vũ 99,1%!
+NHƯNG các anh chị bấm sang Bảng 2 - Đơn ban đêm từ 19h tối đến 9h sáng hôm sau:
+Cả một sự sụp đổ kinh hoàng:
+Anh Huỳnh Thúc Duân: 0,0% trên 63 đơn đêm!
+Chị Huỳnh Thị Kim Chi: 0,0%! Anh Lê Minh Lợi: 0,0%! Chị Yến Nhi: 0,0%!
+Anh Nguyễn Lê Nguyên Vũ: 9,4%!
+Đặc biệt là anh Lê Văn Trường ở Lâm Đồng: Có tới 488 đơn hàng phát sinh ban đêm thì anh Trường chỉ đạt OPR đêm có 11,1%, để trôi mất gần 440 đơn!
+Chị Trần Thị Nhung ở Đắk Nông cũng để trôi 131 đơn đêm với OPR chỉ 12,2%!
 
-• Khánh Hòa: Ca Ngày 94,10% | Ca Đêm 84,57% | Tổng OPR: 89,23% ➔ Cả 2 ca đều làm rất đều tay.
+🔍 INSIGHT BẢN CHẤT & GỐC RỄ NGUYÊN NHÂN:
+Tại sao ban ngày thì 100% mà ban đêm lại rớt về 0% và 10%?
+Gốc rễ là ở GIỜ GIẤC HOẠT ĐỘNG CỦA BƯU CỤC:
+Hầu hết các bưu cục của anh Duân, anh Trường, chị Nhung đúng 18h00 là nhân viên dọn dẹp, 18h30 là Trưởng bưu cục khóa cửa tắt đèn đi về!
+Trong khi đó, đặc thù của sàn TikTok Shop là gì? Khung giờ livestream bùng nổ đơn khủng nhất của các shop là từ 20h00 đến 23h30 đêm!
+Chủ shop in đơn nườm nượp lúc 21h đêm, bấm yêu cầu GHN đến lấy hàng. Nhưng bưu cục của chúng ta cửa đóng then cài, không có ai trực, không có shipper nào chạy ngoài đường!
+Đơn hàng nằm ngâm trên app từ 21h đêm qua đến tận 9h30 - 10h00 sáng hôm sau shipper mới tới bưu cục uống cà phê rồi mới túc tắc đi lấy.
+Lúc đó hệ thống thuật toán của TikTok Shop nó đã tự động ghi nhận đơn quá hạn SLA OPR hơn 12 tiếng rồi!
+Các anh chị nhìn sang anh Nghĩa ở Lâm Đồng: Anh Nghĩa đạt 89,3% đơn đêm; chị Thơ đạt 94,7% đơn đêm! Tại sao bưu cục của chị Thơ, anh Nghĩa làm được mà bưu cục anh Trường, anh Duân lại không làm được?
 
-• Bình Thuận: Ca Ngày 88,05% | Ca Đêm 77,37% (tăng vọt từ 52,4% W39 lên 77,4%!) | Tổng OPR: 83,45%.
-
-• Lâm Đồng: Ca Ngày 89,58% | Ca Đêm 48,32% | Tổng OPR: 75,54% ➔ Ca đêm tiếp tục là nút thắt nghiêm trọng.
-
-• Đắk Nông: Ca Ngày 97,20% | Ca Đêm 7,24% | Tổng OPR: 62,80% ➔ Ca đêm gần như tê liệt hoàn toàn.
-
-• Toàn vùng: Hoàn thành 85,60% (vượt KPI ≥ 80,0%).
-
-**📍 2. BÓC TÁCH NGUYÊN NHÂN TẠI LÂM ĐỒNG VÀ ĐẮK NÔNG:**
-
-• Ca ngày tất cả 5 tỉnh đều làm cực kỳ xuất sắc (88% đến 97%).
-
-• Tuy nhiên, ban đêm tại kho KTC Lâm Đồng và Đắk Nông không bố trí đủ nhân sự phân loại, hàng đêm nhập kho bị ngâm đến sáng hôm sau mới quét OPR.
-
-
-> **🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 9 OPR TTS):**
-
-"Dạ qua tới Tab 9 về OPR TikTok Shop, mời Ban Giám Đốc nhìn vào sự tương phản giữa ca ngày và ca đêm:
-
-Ban ngày thì tỉnh nào cũng làm cực kỳ xuất sắc, toàn 90% đến 97%, chứng tỏ quy trình ban ngày anh em vận hành rất trơn tru.
-
-Tuần này em xin đặc biệt biểu dương kho KTC Bình Thuận: Ca đêm tuần trước chỉ đạt 52% thì tuần này anh em đã chấn chỉnh, kéo vọt lên 77,4%, giúp OPR cả tỉnh đạt trên 83%!
-
-Nhưng nhìn sang Lâm Đồng và Đắk Nông:
-
-Ca đêm Lâm Đồng chỉ đạt 48,3%, và Đắk Nông thì ca đêm vỏn vẹn có 7,2%!
-
-Hàng TikTok Shop từ TP.HCM chạy xe KTC về tới kho Lâm Đồng và Đắk Nông lúc 23h đêm đến 2h sáng. Lúc đó kho chỉ có bảo vệ trực hoặc vài bạn bốc xếp, không có ai ngồi máy tính bắn quét nhập kho OPR.
-
-Hàng nằm im trên sàn xe đến tận 6h sáng hôm sau mới được xử lý. Điều này làm trễ toàn bộ thời gian cam kết 24h của sàn TikTok.
-
-Em đề nghị Giám đốc Vận hành chỉ đạo ngay: Bắt buộc KTC Lâm Đồng và các bưu cục lớn Đắk Nông phải xếp ca trực đêm có nhân viên thao tác hệ thống, giải phóng dứt điểm hàng trước 5h sáng!"
-
-
-> 💡 **Điểm sáng & Insight vận hành:**
-> - KTC Bình Thuận chứng minh việc bố trí lại nhân sự trực đêm có thể tăng ngay 25% hiệu suất OPR chỉ trong vài ngày.
-> - Kho KTC Lâm Đồng và Đắk Nông thiếu nhân sự ca đêm là nguyên nhân gốc rễ làm chậm luồng hàng buổi sáng.
-
-
-> ⚠️ **Cảnh báo rủi ro & Điểm nóng:**
-> - OPR ca đêm dưới 50% làm lãng phí 8 tiếng vận chuyển ban đêm, khiến bưu tá sáng hôm sau bị trễ giờ xuất bến.
-
-
-> 🎯 **Hành động cụ thể & Giao việc hiện trường:**
-> - Bổ sung tối thiểu 2 nhân sự trực ca đêm (22h00 - 05h00) tại KTC Lâm Đồng và Gia Nghĩa để quét nhập kho 100% hàng về đêm.
-
+🎯 QUYẾT SÁCH HÀNH ĐỘNG & MỆNH LỆNH TÁC CHIẾN:
+1. Bắt buộc từ tuần W41: Tất cả các bưu cục có shop livestream phát sinh trên 30 đơn/đêm phải bố trí 1 ca trực tối đến 21h30 hoặc hợp đồng với shipper ruột gom chuyến cuối lúc 21h00.
+2. Sáng hôm sau, bưu cục phải xuất bến ca lấy sớm lúc 07h30, quét lấy và cập nhật trạng thái 'Đã lấy hàng' lên sàn TikTok Shop trước 08h30 sáng.
+3. Tôi giao chỉ tiêu cho anh Duân, anh Trường, chị Nhung: Tuần W41 OPR đơn đêm bắt buộc phải kéo từ 0% lên tối thiểu 60%!
+Giờ em xin chuyển sang Tab 9 mổ xẻ tình trạng Rớt luân chuyển KTC ạ!"
 
 ---
 
-## ⚠️ [IX. PHÂN TÍCH TỶ TRỌNG RỚT ĐƠN LUÂN CHUYỂN THEO AM & TỈNH THÀNH (W40)]
+## TAB 9: 🗣️ PHÂN TÍCH HIỆN TƯỢNG RỚT ĐƠN LUÂN CHUYỂN KTC (BẬT TAB 9 DASHBOARD):
 
-### 🗣️ KIỂM SOÁT TỶ LỆ RỚT LUÂN CHUYỂN KTC TOÀN VÙNG (1.69%) (TAB 10):
+📍 1. BẢNG TỔNG HỢP VÙNG & 5 TỈNH THÀNH:
+• Toàn vùng: 1,69% đơn rớt (W39: 1,52%, tăng nhẹ +0,17%p; 219 đơn rớt / 12.934 đơn cần luân chuyển).
+• Lâm Đồng: 3,84% rớt LC (121 đơn rớt / 3.151 đơn) ➔ Tỉnh rớt nhiều nhất, chiếm hơn 55% lượng đơn rớt toàn vùng!
+• Ninh Thuận: 3,58% rớt LC (60 đơn rớt / 1.676 đơn) ➔ Tỷ lệ rớt rất cao.
+• Đắk Nông: 1,12% rớt LC (19 đơn rớt).
+• Khánh Hòa: 0,48% rớt LC (12 đơn rớt / 2.500 đơn) ➔ Kiểm soát tốt.
+• Bình Thuận: 0,28% rớt LC (7 đơn rớt / 2.500 đơn) ➔ Rất an toàn.
 
-**📍 1. BẢNG TỶ LỆ RỚT LUÂN CHUYỂN THEO 5 TỈNH THÀNH (W40):**
+📍 2. PHÂN TÍCH CHI TIẾT THEO AM & BƯU CỤC ĐIỂM NÓNG:
+• Top AM có tỷ lệ rớt LC cao nhất vùng:
+  1. Nguyễn Đỗ Minh Nghĩa (Lâm Đồng): 6,20% rớt LC (BC Cát Tiên rớt tới 29 đơn!)
+  2. Hồng Bích Nga (Đắk Nông): 4,63% rớt LC (BC Kiến Đức rớt 5 đơn)
+  3. Nguyễn Thị Tuyết Thơ (Lâm Đồng): 4,24% rớt LC (BC Ninh Gia rớt 5 đơn)
+  4. Nguyễn Duy Long (Ninh Thuận): 3,29% rớt LC (gánh tới 60 đơn rớt; riêng BC Thuận Nam rớt 6 đơn)
+  5. Lê Văn Trường (Lâm Đồng): 2,77% rớt LC (BC Xuân Hương rớt 2 đơn)
 
-• Bình Thuận: 0,28% (xuất sắc nhất vùng, chỉ rớt 12 đơn trên 4.230 đơn cần luân chuyển).
+🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 9 DASHBOARD RỚT LUÂN CHUYỂN):
+"Dạ kính thưa Ban Giám Đốc, nhìn vào Tab 9 Rớt luân chuyển KTC:
+Tuần W40 toàn vùng mình có 219 đơn hàng bị rớt luân chuyển, tương ứng tỷ lệ 1,69%, tăng nhẹ so với 1,52% của tuần trước.
+Con số 219 đơn nghe qua thì thấy nhỏ so với quy mô 311 ngàn đơn, nhưng khi mổ xẻ ra thì thấy một sự phân hóa cực kỳ nguy hiểm:
+Hai tỉnh Bình Thuận và Khánh Hòa kiểm soát rất chặt chẽ, tỷ lệ rớt chỉ 0,28% đến 0,48%.
+NHƯNG toàn bộ 219 đơn rớt này lại tập trung dồn cục ở 2 tỉnh: Lâm Đồng rớt tới 121 đơn (chiếm 3,84%) và Ninh Thuận rớt 60 đơn (chiếm 3,58%)!
+Soi vào từng AM:
+Anh Nguyễn Đỗ Minh Nghĩa tỷ lệ rớt lên tới 6,20%, trong đó riêng bưu cục Cát Tiên làm rớt một phát 29 đơn hàng!
+Chị Hồng Bích Nga ở Đắk Nông rớt 4,63%, chị Tuyết Thơ ở Lâm Đồng rớt 4,24%, và anh Duy Long ở Ninh Thuận rớt tới 60 đơn (3,29%)!
 
-• Khánh Hòa: 0,48% (cực kỳ an toàn, chỉ rớt 16 đơn trên 3.304 đơn).
+🔍 INSIGHT BẢN CHẤT & GỐC RỄ NGUYÊN NHÂN:
+Tại sao xe tải KTC ngày nào cũng chạy qua bưu cục mà đơn hàng lại bị rớt lại kho?
+Có 2 nguyên nhân cốt lõi qua kiểm tra thực tế:
+Thứ nhất: Thói quen ĐÓNG BAO TRỄ GIỜ XE CHẠY. Xe tải KTC theo lịch trình đến bưu cục lúc 17h30. Nhưng đến 17h30 nhân viên bưu cục mới bắt đầu gom hàng đóng bao, in manifest. Tài xế KTC bấm còi giục, đợi 15 phút không xong phải cho xe xuất bến để kịp giờ cắt bến trung tâm. Thế là số bao chưa đóng xong bị bỏ lại kho!
+Thứ hai: SÓT MÃ KIỆN VÀ LẪN HÀNG. Bưu tá thu gom về để lẫn đơn luân chuyển với đơn tồn giao. Nhân viên bắn quét sót mã kiện, hàng nằm góc kho mà không ai hay biết.
+Mỗi một đơn hàng rớt luân chuyển đồng nghĩa với việc hành trình của khách hàng bị cộng thêm ít nhất 24 đến 48 tiếng! Đơn hàng đang đúng hẹn lập tức biến thành trễ hẹn, làm tụt ODR của toàn vùng!
 
-• Đắk Nông: 1,45% (ở mức chấp nhận được).
-
-• Ninh Thuận: 3,58% (rớt 60 đơn trên 1.676 đơn ➔ tăng so với 2,40% W39).
-
-• Lâm Đồng: 3,84% (rớt 121 đơn trên 3.150 đơn ➔ chiếm hơn một nửa tổng đơn rớt của cả vùng).
-
-• Toàn vùng: 1,69% (tổng 219 đơn rớt trên 12.934 đơn cần luân chuyển, duy trì dưới trần kiểm soát 1,80%).
-
-**📍 2. TOP BƯU CỤC RỚT LUÂN CHUYỂN NHIỀU NHẤT:**
-
-• (LDO) Đức Trọng 1: Rớt 42 đơn (AM Trầm Hữu Tiến).
-
-• (NTH) Phan Rang: Rớt 38 đơn (AM Lê Thanh Nhựt).
-
-• (LDO) Lang Biang - Đà Lạt 1: Rớt 29 đơn (AM Lê Minh Lợi).
-
-• (LDO) Xuân Hương - Đà Lạt: Rớt 24 đơn (AM Lê Văn Trường).
-
-
-> **🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 10 RỚT LUÂN CHUYỂN):**
-
-"Dạ qua tới Tab 10 về Rớt Luân Chuyển KTC:
-
-Con số tổng toàn vùng tuần này là 1,69%, cơ bản mình vẫn giữ được dưới ngưỡng khống chế 1,8% của công ty.
-
-Hai tỉnh làm rất chuẩn chỉ là Bình Thuận (0,28%) và Khánh Hòa (0,48%), tỷ lệ rớt gần như bằng không.
-
-Tuy nhiên, khi nhìn vào con số tuyệt đối 219 đơn bị rớt lại trong tuần, thì có tới 121 đơn — tức là hơn một nửa — nằm trọn ở tỉnh Lâm Đồng, và 60 đơn nằm ở Ninh Thuận!
-
-Điểm mặt 4 bưu cục để rớt hàng nhiều nhất: Đức Trọng 1 rớt 42 đơn, Phan Rang rớt 38 đơn, Lang Biang rớt 29 đơn và Xuân Hương rớt 24 đơn.
-
-Nguyên nhân ở đây là gì?
-
-Là do nhân viên bưu cục làm hàng trễ, không kịp giờ cắt hàng (Cut-off time) của xe KTC. Xe tải tới nơi bấm còi chờ 15 phút không thấy bao hàng seal xong thì tài xế buộc phải chạy theo lộ trình giờ giấc, để lại bao hàng nằm chỏng chơ ở góc bưu cục!
-
-Đơn bị rớt luân chuyển là tự động trễ thêm 24 tiếng, hôm sau giao chắc chắn dính lỗi trễ ODR.
-
-Em đề nghị anh Tiến, anh Nhựt, anh Lợi và anh Trường: Bắt buộc Trưởng các bưu cục trên phải đóng túi seal trước giờ xe đến tối thiểu 20 phút. Tuyệt đối không để xảy ra tình trạng xe tải đến nơi mới cuống cuồng đi tìm hàng đóng bao!"
-
-
-> 💡 **Điểm sáng & Insight vận hành:**
-> - Bình Thuận và Khánh Hòa duy trì tỷ lệ rớt dưới 0,5% chứng tỏ quy trình bàn giao ca xe KTC hoàn toàn có thể chuẩn hóa được.
-> - Hơn 55% lượng đơn rớt luân chuyển dồn ở Lâm Đồng do địa hình đèo dốc và lịch xe chạy buổi tối rất khắt khe.
-
-
-> ⚠️ **Cảnh báo rủi ro & Điểm nóng:**
-> - 219 đơn rớt luân chuyển đồng nghĩa với 219 khách hàng bị trễ hẹn ít nhất 1 ngày, gia tăng nguy cơ khiếu nại và hủy đơn.
-
-
-> 🎯 **Hành động cụ thể & Giao việc hiện trường:**
-> - Quy định giờ giới nghiêm đóng bao seal tại bưu cục trước giờ xe KTC cập bến 20 phút; bưu cục nào làm rớt xe phải tự chịu chi phí chuyển xe tăng cường.
-
+🎯 QUYẾT SÁCH HÀNH ĐỘNG & MỆNH LỆNH TÁC CHIẾN:
+1. Tôi yêu cầu Trưởng bưu cục Cát Tiên, Thuận Nam, Ninh Gia, Kiến Đức: Bắt buộc phải hoàn thành đóng bao và niêm phong seal trước giờ xe KTC đến ít nhất 15 phút.
+2. Tài xế KTC và Trưởng bưu cục phải thực hiện ký biên bản giao nhận quét mã 100%, tuyệt đối không bàn giao vo bằng miệng.
+3. AM Nghĩa và AM Long phải kiểm tra trực tiếp bưu cục Cát Tiên và Thuận Nam, đưa tỷ lệ rớt LC tuần W41 về dưới mốc 1,0%!
+Bây giờ, em xin phép chuyển sang Tab 10 phân tích tỷ lệ hoàn trả %FD nhé!"
 
 ---
 
-## 🔄 [X. BÁO CÁO TỶ LỆ %FD (RETURN / HOÀN TRẢ) — VÙNG NAM TRUNG BỘ (W40)]
+## TAB 10: 🗣️ PHÂN TÍCH TỶ LỆ HOÀN TRẢ %FD (RETURN RATE) (BẬT TAB 10 DASHBOARD):
 
-### 🗣️ PHÂN TÍCH TỶ LỆ HOÀN TRẢ (%FD 7.77%) VÀ CẢNH BÁO BẤT THƯỜNG (TAB 11):
+📍 1. BẢNG TỔNG QUAN TỶ LỆ HOÀN TRẢ TOÀN VÙNG:
+• Toàn vùng: 7,77% (W39: 7,54%, tăng nhẹ +0,23%p; 24.498 đơn return / 315.328 đơn phát sinh; 86 bưu cục).
+• Kênh TikTok Shop kiểm soát tốt ở mức 6,10%.
 
-**📍 1. BẢNG TỶ LỆ HOÀN TRẢ THEO 5 TỈNH THÀNH (W40 vs W39):**
+📍 2. BẢNG 2: TOP BƯU CỤC BÁO ĐỘNG ĐỎ TỶ LỆ HOÀN TRẢ TRÊN 20% (GẤP GẦN 3 LẦN BÌNH QUÂN VÙNG):
+• 1. (DNO) Quảng Tín: 22,95% (380 đơn hoàn / 1.656 đơn) ➔ AM Trương Quang Linh (Cứ 4 đơn đi giao thì trả về gần 1 đơn!)
+• 2. (LDO) Lang Biang - Đà Lạt 1: 21,04% (444 đơn hoàn / 2.110 đơn) ➔ AM Lê Minh Lợi (Cảnh báo 108 ngày)
+• 3. (LDO) Đơn Dương: 20,99% (653 đơn hoàn / 3.111 đơn) ➔ AM Phan Nguyễn Yến Nhi
+• 4. (LDO) Đức Trọng 1: 20,53% (334 đơn hoàn / 1.627 đơn) ➔ AM Nguyễn Lê Nguyên Vũ
+• Kế tiếp là các bưu cục có tỷ lệ hoàn trả rất cao:
+  - (DNO) Kiến Đức: 16,71% (320 đơn hoàn) ➔ AM Hồng Bích Nga
+  - (KHO) Cam Linh: 15,33% (579 đơn hoàn) ➔ AM Nguyễn Thanh Long
 
-• Khánh Hòa: 6,90% (tốt nhất vùng, kiểm soát hoàn trả rất chặt chẽ).
+🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 10 DASHBOARD %FD HOÀN TRẢ):
+"Kính thưa Ban Giám Đốc, chuyển sang Tab 10 là chỉ số %FD tỷ lệ hoàn trả:
+Đây là con số gây xót xa nhất trong vận hành Last-mile: Chúng ta tốn công vận chuyển hàng từ đầu gửi về đến tận bưu cục, shipper chở hàng đi phát không được lại phải chở ngược về kho đóng bao trả lại cho người gửi! Vừa tốn chi phí vận hành 2 đầu, vừa mất trắng doanh thu, lại bị chủ shop khiếu nại!
+Bình quân toàn vùng tuần này là 7,77% với hơn 24.400 đơn hoàn.
+NHƯNG tôi yêu cầu tất cả các AM nhìn vào 4 cái tên bưu cục đang hiển thị đỏ chót trên màn hình:
+Thứ nhất: Bưu cục Quảng Tín của anh Trương Quang Linh ở Đắk Nông: Tỷ lệ hoàn trả lên tới 22,95%!
+Thứ hai: Bưu cục Lang Biang - Đà Lạt 1 của anh Lê Minh Lợi: 21,04%!
+Thứ ba: Bưu cục Đơn Dương của chị Phan Nguyễn Yến Nhi: 20,99% với 653 đơn bị trả về!
+Thứ tư: Bưu cục Đức Trọng 1 của anh Nguyễn Lê Nguyên Vũ: 20,53%!
+Bốn bưu cục này đang có tỷ lệ hoàn trả trên 20%, cao gấp gần 3 lần mức bình quân của vùng! Cứ 5 đơn hàng giao đi thì có hơn 1 đơn bị trả về!
 
-• Bình Thuận: 7,10% (ở ngưỡng an toàn).
+🔍 INSIGHT BẢN CHẤT & GỐC RỄ NGUYÊN NHÂN:
+Tại sao hàng giao ở những bưu cục này lại bị trả về khủng khiếp như vậy?
+Tôi trực tiếp xuống hiện trường tại Lang Biang và Quảng Tín tôi thấy rất rõ hiện tượng: 'SHIPPER BẤM HOÀN TRẢ ẢO ĐỂ NÉ TUYẾN ĐỒI NÚI':
+Đặc thù địa bàn Lang Biang, Quảng Tín, Đơn Dương là đường đèo dốc khúc khuỷu, vào các buôn làng xa 15-20km, trời mưa đường đất sình lầy trơn trượt.
+Shipper nhận đơn ngại đi xa, đứng ở bưu cục nhá máy cho khách 1 tiếng chuông rồi cúp máy ngay! Khách chưa kịp cầm điện thoại lên thì shipper đã nhanh tay bấm trên app lý do: 'Khách không nghe máy' hoặc 'Khách từ chối nhận hàng'!
+Hoặc shipper cứ hẹn lùi ngày 3-4 lần liên tiếp, khách hàng đợi lâu quá họ mua chỗ khác, đến khi shipper đem hàng tới thì khách bực mình từ chối nhận!
+Chính sự vô trách nhiệm của shipper đã biến đơn giao thành công thành đơn hoàn trả!
 
-• Ninh Thuận: 7,40% (ở ngưỡng an toàn).
-
-• Lâm Đồng: 8,60% (vượt ngưỡng kiểm soát 8,0%).
-
-• Đắk Nông: 9,10% (tỷ lệ hoàn cao nhất vùng).
-
-• Toàn vùng: Full hàng đạt 7,77% (24.498 đơn hoàn / 315.328 đơn xử lý) | TikTok Shop đạt 6,10% (4.191 đơn hoàn / 68.719 đơn).
-
-**📍 2. CẢNH BÁO TOP BƯU CỤC HOÀN TRẢ BẤT THƯỜNG:**
-
-• (DNO) Quảng Tín: Tỷ lệ hoàn lên tới 28,40% (AM Trương Quang Linh).
-
-• (LDO) Lang Biang - Đà Lạt 1: Tỷ lệ hoàn 18,20% (AM Lê Minh Lợi).
-
-• (LDO) Đức Trọng 1: Tỷ lệ hoàn 14,50% (AM Trầm Hữu Tiến).
-
-• Nghi vấn nghiệp vụ: Có dấu hiệu shipper lười đi phát tuyến xa, bấm lý do 'Khách không nhận' hoặc 'Không liên lạc được 3 lần' để xả tải đẩy hàng hoàn về kho.
-
-
-> **🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 11 HOÀN TRẢ %FD):**
-
-"Dạ qua tới Tab 11 về tỷ lệ Hoàn trả (%FD):
-
-Mặt bằng chung toàn vùng tuần này là 7,77%, kênh TikTok Shop là 6,10%, nhìn chung vẫn nằm trong biên độ an toàn dưới 8% của công ty.
-
-Khánh Hòa, Bình Thuận và Ninh Thuận kiểm soát rất tốt, chỉ quanh mức 7%.
-
-Nhưng khi nhìn lên 2 tỉnh miền núi Lâm Đồng (8,6%) và Đắk Nông (9,1%), đặc biệt là 3 bưu cục trên màn hình:
-
-Quảng Tín hoàn tới 28,4%! Tức là cứ 4 đơn giao đi thì có hơn 1 đơn bị trả về!
-
-Lang Biang hoàn hơn 18% và Đức Trọng 1 hoàn 14,5%!
-
-Đây là những con số cực kỳ bất thường. Bộ phận Chăm sóc khách hàng phúc tra ngẫu nhiên đã phát hiện: Shipper chạy tuyến xã vùng sâu ngại đi xa, gọi điện cho khách 1 cuộc chuông reo chưa kịp bắt máy đã vội vàng bấm lên app là 'Khách từ chối nhận' để trả hàng về bưu cục!
-
-Việc này làm các shop bán hàng họ rất bức xúc, vì họ mất tiền chạy quảng cáo, mất tiền đóng gói mà hàng chưa kịp tới tay người mua đã bị bấm hoàn về.
-
-Em đề nghị Trưởng bưu cục Quảng Tín và Lang Biang: Từ tuần này, 100% đơn trước khi bấm duyệt trạng thái Chuyển Hoàn bắt buộc CS bưu cục phải gọi điện xác nhận lại với người mua. Nếu phát hiện shipper khai báo gian dối để xả tải thì xử lý kỷ luật nghiêm theo quy chế!"
-
-
-> 💡 **Điểm sáng & Insight vận hành:**
-> - TikTok Shop kiểm soát hoàn trả ở mức 6,10% chứng tỏ người mua trên sàn có độ cam kết nhận hàng cao hơn khách mua lẻ bên ngoài.
-> - Tỷ lệ hoàn cao tại các huyện vùng sâu chủ yếu bắt nguồn từ hành vi xả tải của shipper chứ không phải do lỗi của shop.
-
-
-> ⚠️ **Cảnh báo rủi ro & Điểm nóng:**
-> - Bưu cục Quảng Tín hoàn 28,4% đang đẩy chi phí vận chuyển ngược lên rất cao và làm mất uy tín thương hiệu GHN.
-
-
-> 🎯 **Hành động cụ thể & Giao việc hiện trường:**
-> - Bắt buộc CS bưu cục phúc tra độc lập 100% đơn hàng trước khi cho phép bấm hoàn trả tại các bưu cục có %FD > 12%.
-
+🎯 QUYẾT SÁCH HÀNH ĐỘNG & MỆNH LỆNH TÁC CHIẾN:
+1. Giao trách nhiệm cá nhân cho anh Linh, anh Lợi, chị Nhi, anh Vũ: Bắt buộc từ ngày mai, Trưởng bưu cục hoặc nhân viên CS bưu cục phải gọi điện đối soát 100% các đơn shipper báo 'Khách từ chối nhận' trước khi bấm duyệt hoàn trên hệ thống.
+2. Nếu phát hiện shipper bấm lý do ảo khi chưa liên hệ với khách: Phạt cắt thưởng chuyên cần của shipper đó và yêu cầu bưu tá mang hàng đi phát lại ngay trong ngày!
+3. Mục tiêu tuần W41: Kéo tỷ lệ %FD của 4 bưu cục này từ trên 20% xuống dưới mốc 12%!
+Bây giờ, em xin phép chuyển sang Tab 11 xem Báo cáo điều hành KTC & Vận tải đường trục ạ!"
 
 ---
 
-## 🚛 [XI. BÁO CÁO ĐIỀU HÀNH KTC, VẬN TẢI, %TLTĐ THÙNG XE (45.6%) & 124 CHUYẾN NON TẢI (W40)]
+## TAB 11: 🗣️ BÁO CÁO ĐIỀU HÀNH KTC & VẬN TẢI ĐƯỜNG TRỤC (BẬT TAB 11 DASHBOARD):
 
-### 🗣️ HIỆU QUẢ VẬN TẢI KTC: XỬ LÝ 124 CHUYẾN XE NON TẢI DƯỚI 30% THÙNG (TAB 12):
+📍 1. BẢNG HIỆU SUẤT VẬN TẢI TOÀN VÙNG:
+• Tỷ lệ lấp đầy KTC toàn vùng (%TLTĐ): 51,0% (Target tối thiểu ≥ 55,0%).
+• Tình trạng lãng phí tải trọng: Vẫn còn tới 76 chuyến xe chạy non tải dưới 30% thùng (đặc biệt tập trung ở tuyến nhánh Lâm Đồng, Đắk Nông và Ninh Thuận).
+• Leadtime luân chuyển trung bình:
+  - KTC Khánh Hòa: 8,4h (đạt chuẩn)
+  - KTC Đức Trọng: 9,2h
+  - KTC Đắk Nông: 11,5h ➔ Thời gian luân chuyển còn dài do địa hình chia cắt.
 
-**📍 1. BẢNG CHỈ SỐ VẬN TẢI & KHO KTC (W40 vs W39):**
+🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 11 DASHBOARD KTC & VẬN TẢI):
+"Kính thưa Ban Giám Đốc, vận tải KTC chính là 'huyết mạch' và cũng là khoản chi phí lớn nhất của khối vận hành:
+Tuần W40 này, tỷ lệ lấp đầy KTC toàn vùng đứng yên ở mức 51,0%, chưa đạt mục tiêu 55%.
+Đáng chú ý nhất là con số 76 chuyến xe chạy non tải dưới 30% thùng!
+Một chuyến xe tải 5 tấn hay 8 tấn chạy từ bưu cục huyện về kho trung tâm mà thùng xe rỗng hơn 70% thì mỗi cây số lăn bánh là công ty đang đốt tiền xăng dầu và khấu hao vô ích!
+Insight: Các bưu cục tuyến huyện như Tân Hà, Đơn Dương, Cát Tiên, Đắk R'lấp thường nằng nặc yêu cầu xe KTC phải đến rước hàng theo giờ cố định dù chỉ gom được vài chục kiện. Điều phối KTC thì máy móc, chưa linh hoạt gộp tuyến tam giác hoặc dịch chuyển giờ cắt bến giữa các bưu cục gần nhau.
 
-• Tỷ Lệ Lấp Đầy Thùng Xe KTC (%TLTĐ Toàn Vùng): Đạt 45,6% (W39: 47,7%, tụt giảm -2,1%p, cách rất xa mục tiêu tối ưu ≥ 55,0%).
-
-• Số chuyến xe chạy non tải (<30% thùng xe): Ghi nhận tới 124 chuyến xuất bến trong tuần (chiếm 24,2% tổng số 513 chuyến KTC), trong đó có 7 chuyến rỗng dưới 10%, 32 chuyến dưới 20% và 37 chuyến dưới 30%!
-
-• Tổng số chuyến xe KTC vận hành toàn vùng: 513 chuyến (giảm 14 chuyến so với 527 chuyến W39).
-
-• Chi tiết 5 kho KTC trọng điểm:
-
-  - KTC Khánh Hòa: 193 chuyến | TLTĐ 52,3% (-2,6%p) | 20 xe non tải <30%.
-
-  - KTC Đức Trọng - Lâm Đồng: 110 chuyến | TLTĐ 40,6% (-4,5%p) | 43 xe non tải <30% ➔ ĐIỂM NÓNG LÃNG PHÍ LỚN NHẤT VÙNG!
-
-  - KTC Bình Thuận: 113 chuyến | TLTĐ 47,7% (+1,1%p) | 20 xe non tải <30%.
-
-  - KTC Bảo Lộc - Lâm Đồng: 55 chuyến | TLTĐ 38,2% (-1,6%p) | 19 xe non tải <30%.
-
-  - KTC Đắk Nông: 42 chuyến | TLTĐ 31,3% (-1,9%p) | 22 xe non tải <30% (hơn một nửa số chuyến chạy non tải).
-
-**📍 2. ĐÁNH GIÁ CHI PHÍ VẬN TẢI:**
-
-• 124 chuyến xe non tải dưới 30% thùng xe đang trực tiếp làm lãng phí hàng trăm triệu đồng tiền dầu và chi phí thuê xe.
-
-• Tuyến Đức Trọng - Lâm Đồng và Đắk Nông cần tái cấu trúc ngay lịch xuất bến xe tải.
-
-
-> **🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 12 VẬN TẢI & KTC):**
-
-"Dạ qua tới Tab 12 về Điều hành KTC và Chi phí Vận tải đường trục:
-
-Mọi người nhìn vào con số %TLTĐ thùng xe tuần này: Rất đáng lo ngại khi tụt từ 47,7% xuống chỉ còn 45,6%, giảm mất -2,1%p!
-
-Và trên hệ thống giám sát hành trình tuần qua phát hiện có tới 124 CHUYẾN XE TẢI KTC lăn bánh trên đường với tỷ lệ lấp đầy thùng dưới 30%!
-
-Trong tổng số 513 chuyến xe toàn vùng, thì cứ 4 chuyến xe chạy trên đường lại có 1 chuyến chạy non tải, thậm chí có 7 chuyến xe gần như rỗng không dưới 10% thùng xe!
-
-Điểm nóng nhất nằm ở đâu?
-
-Chính là KTC Đức Trọng ở Lâm Đồng: Một mình Đức Trọng gánh tới 43 chuyến xe non tải, tỷ lệ lấp đầy rơi tự do xuống 40,6%! Kế tiếp là Đắk Nông với 22 chuyến non tải, tỷ lệ lấp đầy chỉ vỏn vẹn 31,3% — tức là thùng xe rỗng tới hơn hai phần ba!
-
-Chúng ta đang trả nguyên tiền cước xe, tiền dầu, tiền cầu đường cho những chuyến xe chở gió.
-
-Nguyên nhân là do biểu đồ giờ chạy xe đang bị cứng nhắc, cứ tới giờ là xe chạy bất kể lượng hàng nhiều hay ít.
-
-Em đề xuất Ban Vận tải trong tuần W41 này:
-
-Phải rà soát và xử lý ngay 124 chuyến xe non tải này: Tuyến nào sản lượng ít thì gộp 2 chuyến làm một hoặc chuyển sang dùng xe tải nhỏ 1,5 tấn. Tuyệt đối không cho xe chạy rỗng đường dài để bảo vệ chi phí vận hành của vùng!"
-
-
-> 💡 **Điểm sáng & Insight vận hành:**
-> - Biểu đồ chạy xe cố định đang không theo kịp biến động sản lượng hàng ngày trong tuần, gây lãng phí lớn vào các ngày thứ Hai, thứ Ba.
-> - KTC Đức Trọng (43 xe non tải) và Đắk Nông (31,3% TLTĐ) là hai nút thắt trọng điểm cần tối ưu hóa phương tiện.
-
-
-> ⚠️ **Cảnh báo rủi ro & Điểm nóng:**
-> - 124 chuyến xe non tải trực tiếp làm đội chi phí trên mỗi đơn hàng (Cost Per Order - CPO) của vùng Nam Trung Bộ.
-
-
-> 🎯 **Hành động cụ thể & Giao việc hiện trường:**
-> - Ban Vận tải làm việc với các nhà xe đối tác: Linh hoạt dời chuyến hoặc gộp tuyến bưu cục huyện có sản lượng dưới 30% thùng xe.
-
+🎯 MỆNH LỆNH TÁC CHIẾN TUẦN W41:
+• Phòng Vận tải KTC phải phối hợp với các AM: Cắt giảm ngay ít nhất 30 chuyến xe non tải bằng cách ghép tuyến liên huyện (ví dụ ghép tuyến Đơn Dương - Đức Trọng; ghép Tuy Đức - Kiến Đức).
+• Đưa tỷ lệ lấp đầy KTC toàn vùng trong tuần W41 vượt qua mốc 55,0%!
+Giờ em xin chuyển sang Tab 12 mổ xẻ Tồn Aging & Treo luân chuyển ạ!"
 
 ---
 
-## ⏳ [XII. ĐIỀU HÀNH XỬ LÝ HÀNG AGING TỒN ĐỌNG & TREO LUÂN CHUYỂN (W40)]
+## TAB 12: 🗣️ ĐIỀU HÀNH XỬ LÝ HÀNG AGING TỒN ĐỌNG & TREO LUÂN CHUYỂN (BẬT TAB 12 DASHBOARD):
 
-### 🗣️ CHIẾN DỊCH GIẢI TỎA 1.420 ĐƠN AGING >5 NGÀY & 118 ĐƠN TREO LUÂN CHUYỂN (TAB 13):
+📍 1. BẢNG TỔNG HỢP HÀNG TỒN AGING VÀ TREO LUÂN CHUYỂN:
+• Tổng đơn tồn Aging >5 ngày toàn vùng: Hơn 2.400 đơn dồn ứ (trong đó có hàng trăm đơn tồn >15 ngày).
+• Danh sách bưu cục điểm nóng dồn ứ hàng tồn >5 ngày:
+  1. (DNO) Quảng Tín: 490 đơn tồn >5 ngày (AM Trương Quang Linh)
+  2. (LDO) Xuân Hương - Đà Lạt: 310 đơn tồn >5 ngày (AM Lê Văn Trường)
+  3. (LDO) Đức Trọng 1: 281 đơn tồn >5 ngày (AM Trầm Hữu Tiến / Nguyễn Lê Nguyên Vũ)
+  4. (KHO) Cam Linh: 250 đơn tồn >5 ngày (AM Nguyễn Thanh Long)
+  5. (LDO) Di Linh: 219 đơn tồn >5 ngày (AM Trầm Hữu Tiến)
+• Đơn treo luân chuyển >24h: 36 đơn (tập trung tại Lâm Đồng và Đắk Nông).
 
-**📍 1. BẢNG PHÂN BỔ HÀNG TỒN LÂU NGÀY (AGING TOÀN VÙNG W40):**
+🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 12 DASHBOARD AGING & TREO LC):
+"Kính thưa Ban Giám Đốc, hàng Aging tồn đọng trên 5 ngày chính là những 'ổ bệnh' làm tê liệt mặt bằng bưu cục:
+Hơn 2.400 đơn hàng đang nằm lưu cữu trên 5 ngày ở các bưu cục!
+Điểm nóng lớn nhất:
+Bưu cục Quảng Tín của anh Linh: 490 đơn tồn >5 ngày!
+Bưu cục Xuân Hương của anh Trường: 310 đơn!
+Bưu cục Đức Trọng 1: 281 đơn! Cam Linh: 250 đơn! Di Linh: 219 đơn!
+Insight: Đơn hàng để càng lâu thì rủi ro mất mát, bể vỡ, chuột cắn, và khách hủy hàng càng cao. Bưu tá mới vào thấy đơn tồn lưu cữu không dám nhận đi phát, Trưởng bưu cục thì lười kiểm kê kho buổi sáng, cứ để hàng chất xó kho chờ khách tự khiếu nại!
 
-• Tổng đơn Aging tồn trên 5 ngày: 1.420 đơn (giảm được 218 đơn so với 1.638 đơn tuần W39).
-
-  - Tồn từ 5 đến 8 ngày: 1.025 đơn.
-
-  - Tồn từ 8 đến 15 ngày: 362 đơn.
-
-  - Tồn nguy hiểm trên 15 ngày: 33 đơn (nguy cơ bồi thường mất mát, hư hỏng rất cao).
-
-• Top 3 bưu cục tập trung Aging nhiều nhất: (DNO) Quảng Tín (312 đơn), (LDO) Đức Trọng 1 (285 đơn), (LDO) Xuân Hương - Đà Lạt (210 đơn). Ba bưu cục này chiếm hơn 56% tổng lượng hàng tồn lâu của cả vùng.
-
-**📍 2. TÌNH HÌNH ĐƠN TREO LUÂN CHUYỂN (>24H):**
-
-• Toàn vùng ghi nhận 118 đơn bị treo trạng thái luân chuyển quá 24 giờ chưa quét tới bưu cục nhận.
-
-• Nổi cộm: Cụm Đắk Nông (AM Trần Thị Nhung dính 36 đơn treo), Lâm Đồng dính 45 đơn treo.
-
-
-> **🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 13 HÀNG AGING & TREO LC):**
-
-"Dạ qua tới Tab 13 về Hàng tồn Aging và Đơn treo luân chuyển:
-
-Tuần này nhờ sự đôn đốc của các AM, lượng hàng ngâm lâu trên 5 ngày đã giảm từ 1.638 đơn xuống 1.420 đơn, giải phóng được hơn 200 đơn.
-
-Tuy nhiên, con số 1.420 đơn vẫn là một khối u lớn trong kho bưu cục!
-
-Đặc biệt là 33 đơn tồn trên 15 ngày và 362 đơn tồn từ 8 đến 15 ngày. Những đơn này nằm lăn lóc ở góc kho từ nửa tháng trước, tỷ lệ giao được bây giờ chưa tới 3%, nhưng anh em cứ để đó không chịu bấm xử lý hoàn trả hay báo đền bù.
-
-Lại tiếp tục là 3 cái tên quen thuộc: Quảng Tín (312 đơn), Đức Trọng 1 (285 đơn) và Xuân Hương Đà Lạt (210 đơn).
-
-Thêm vào đó, hệ thống đang cảnh báo 118 đơn bị 'treo luân chuyển' trên 24 giờ. Tức là kho KTC đã bắn gửi đi từ hôm kia nhưng bưu cục nhận vẫn chưa quét nhập kho. Chỗ chị Nhung Đắk Nông dính 36 đơn và Lâm Đồng dính 45 đơn.
-
-Hàng treo luân chuyển này rất dễ bị rơi rớt trên thùng xe hoặc thất lạc mà không ai hay biết.
-
-Em yêu cầu các AM: Cho rà soát kho ngay trong chiều nay, tìm cho ra 118 đơn treo luân chuyển này để quét cập nhật lên hệ thống, và dọn sạch 395 đơn tồn trên 8 ngày trước ngày thứ Năm tuần này!"
-
-
-> 💡 **Điểm sáng & Insight vận hành:**
-> - Lượng hàng tồn aging giảm 218 đơn cho thấy các bưu cục đã bắt đầu quan tâm đến việc dọn kho cuối tuần.
-> - Đơn treo luân chuyển >24h tiềm ẩn nguy cơ mất cắp hoặc thất lạc trong quá trình vận chuyển giữa các chặng.
-
-
-> ⚠️ **Cảnh báo rủi ro & Điểm nóng:**
-> - 33 đơn tồn trên 15 ngày nếu không xử lý dứt điểm sẽ biến thành các khiếu nại đền bù thiệt hại tài chính.
-
-
-> 🎯 **Hành động cụ thể & Giao việc hiện trường:**
-> - AM trực tiếp đến 3 bưu cục Quảng Tín, Đức Trọng 1, Xuân Hương chỉ đạo kiểm kê sàn kho và xử lý dứt điểm các đơn >8 ngày.
-
+🎯 MỆNH LỆNH TÁC CHIẾN TUẦN W41:
+• Tôi ra tối hậu thư 48 giờ: Bắt đầu từ 8h00 sáng nay, Trưởng bưu cục 5 điểm nóng Quảng Tín, Xuân Hương, Đức Trọng 1, Cam Linh, Di Linh phải trực tiếp rà soát từng kiện hàng tồn >5 ngày.
+• Phân loại dứt điểm: Đơn nào giao được phải phát ngay trước 17h00 ngày mai; đơn nào khách từ chối phải bấm hoàn trả về kho trung tâm; đơn nào thất lạc phải lập hồ sơ đền bù theo đúng quy trình.
+• Hết 48 giờ mà bưu cục nào còn tồn đơn >5 ngày chưa xử lý, Ban Giám Đốc sẽ xem xét kỷ luật Trưởng bưu cục!
+Bây giờ, em xin phép chuyển sang Tab 13 mổ xẻ Quản trị dòng tiền COD & Tỷ lệ nộp bằng QR Code nhé!"
 
 ---
 
-## 💰 [XIII. QUẢN TRỊ DÒNG TIỀN COD, TỶ LỆ THANH TOÁN QR & THU HỒI CÔNG NỢ (W40)]
+## TAB 13: 🗣️ BÁO CÁO COD – QUẢN TRỊ DÒNG TIỀN & TỶ LỆ NỘP BẰNG QR CODE (BẬT TAB 13 DASHBOARD):
 
-### 🗣️ QUẢN TRỊ DÒNG TIỀN COD (82.6 TỶ ₫): TỶ LỆ QR TĂNG VỌT LÊN 62.9% (TAB 14):
+📍 1. BẢNG 1: TỔNG QUAN DÒNG TIỀN COD TOÀN VÙNG (W40 vs W39):
+• Tổng COD thu hộ toàn vùng tuần W40: 77.502,0 Triệu VNĐ (~77,5 Tỷ đồng, giảm -3.231,6 Tr ₫ do sản lượng giảm nhẹ).
+• Tiền mặt thu về: 31.276,0 Triệu VNĐ (chiếm tỷ lệ 40,4% tiền mặt).
+• Chuyển khoản QR thu về: 46.226,0 Triệu VNĐ (chiếm tỷ lệ 59,6% chuyển khoản).
+• Đánh giá biến động: Tỷ lệ tiền mặt tăng nhẹ +0,2%p so với mức 40,1% của tuần W39 (Xu hướng Xấu đi ⚠️).
 
-**📍 1. BẢNG CHỈ SỐ THU HỘ COD THEO 5 TỈNH THÀNH (W40 vs W39):**
+📍 2. BẢNG 2: SO SÁNH TỶ LỆ TIỀN MẶT THEO 18 AM (TARGET TIỀN MẶT < 40%, QR > 60%):
+• Quán quân thu COD bằng QR xuất sắc nhất toàn vùng:
+  1. Thái Thị Thanh Thư (Khánh Hòa): Tiền mặt chỉ 4,0% ➔ Tỷ lệ chuyển khoản QR đạt tới 96,0%! (Thu hơn 9 Tỷ COD mà chỉ cầm 360 triệu tiền mặt, số hóa dòng tiền gần như tuyệt đối!).
+  2. Cao Thị Thanh Thủy (Khánh Hòa): Tiền mặt 16,1% ➔ Tỷ lệ QR đạt 83,9%!
+• 3 AM BÁO ĐỘNG ĐỎ VỀ NGUY CƠ THẤT THOÁT TIỀN MẶT (TỶ LỆ TIỀN MẶT TRÊN 75%):
+  1. Huỳnh Thúc Duân: 81,0% Tiền mặt! (W39: 71,5%, tăng vọt +9,5%p ➔ CỰC KỲ NGUY HIỂM)
+  2. Lê Thanh Nhựt: 80,4% Tiền mặt! (W39: 77,7%, tăng +2,7%p)
+  3. Huỳnh Thị Kim Chi: 75,8% Tiền mặt! (W39: 68,6%, tăng vọt +7,2%p)
 
-• Tổng tiền COD toàn vùng thu hộ tuần W40: 82.610,5 triệu đồng (~82,6 tỷ đồng).
+🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 13 DASHBOARD COD & QR CODE):
+"Kính thưa Ban Giám Đốc, chuyển sang Tab 13 là Báo cáo Quản trị dòng tiền COD và thanh toán QR Code:
+Tuần W40 này, toàn vùng chúng ta luân chuyển dòng tiền COD lên tới 77,5 TỶ ĐỒNG!
+Trong đó, số tiền thu bằng chuyển khoản QR đạt 46,2 tỷ đồng (chiếm 59,6%), còn tiền mặt shipper ôm về là 31,3 tỷ đồng (chiếm 40,4%). So với tuần trước, tỷ lệ tiền mặt tăng nhẹ +0,2%p, tức là xu hướng đang xấu đi!
 
-• Tỷ lệ thanh toán Chuyển khoản QR / Online: Tăng vọt lên 62,90% (tăng +3,0%p so với 59,9% W39).
+Nhìn vào bảng so sánh các AM, chúng ta thấy 2 bức tranh hoàn toàn đối lập:
+Một bên làm cực kỳ xuất sắc: Em xin biểu dương chị Thái Thị Thanh Thư ở Khánh Hòa: Chị Thư thu hơn 9 tỷ tiền COD mà tỷ lệ tiền mặt chỉ vỏn vẹn 4,0%, còn lại 96% khách hàng quét mã VietQR nộp tiền thẳng về tài khoản công ty! Chị Thủy ở Khánh Hòa cũng đạt tới 84% chuyển khoản QR!
+Khánh Hòa làm được như vậy chứng tỏ nếu bưu tá chịu khó hướng dẫn thì khách hàng ai cũng sẵn sàng quét QR!
+NHƯNG các anh chị nhìn sang 3 AM ở nhóm báo động đỏ nghiêm trọng:
+Anh Huỳnh Thúc Duân: 81,0% tiền mặt, tăng vọt gần 10%p so với tuần trước!
+Anh Lê Thanh Nhựt: 80,4% tiền mặt!
+Chị Huỳnh Thị Kim Chi: 75,8% tiền mặt!
+Cứ 10 đồng tiền thu hộ của khách thì shipper của anh Duân, anh Nhựt, chị Chi đang ôm tới 8 đồng tiền mặt trong người!
 
-• Tỷ lệ thu bằng Tiền mặt: Giảm mạnh từ 40,1% xuống còn 37,10% ➔ Hạn chế tối đa tiền mặt trôi nổi.
+🔍 INSIGHT BẢN CHẤT & GỐC RỄ NGUYÊN NHÂN:
+Tại sao tỷ lệ tiền mặt ở cụm anh Duân, anh Nhựt, chị Chi lại cao bất thường như vậy?
+Insight: Shipper có thói quen ngại chìa mã QR trên app GHN cho khách quét vì muốn cầm tiền mặt để chi tiêu cá nhân, rồi lấy tiền thu của ngày hôm sau bù đắp cho ngày hôm trước!
+Nhiều bưu tá đổ lỗi rằng 'Bà con nông thôn không có tài khoản ngân hàng'. Điều đó hoàn toàn không đúng! Hiện nay bà con ở Đắk Nông hay Ninh Thuận đi chợ mua bó rau cũng quét VietQR.
+Chính sự buông lỏng kiểm tra của Trưởng bưu cục đã tạo kẽ hở cho shipper giữ tiền mặt qua đêm, là nguyên nhân trực tiếp dẫn đến chiếm dụng công nợ và vỡ nợ tập thể!
 
-• Khánh Hòa: Tỷ lệ QR cao nhất vùng đạt 64,50% (tiền mặt chỉ còn 35,5%).
-
-• Ninh Thuận: Đạt 61,20% QR.
-
-• Bình Thuận: Đạt 58,50% QR (tiền mặt còn 41,5%).
-
-• Lâm Đồng: Đạt 56,80% QR (tiền mặt còn 43,2%).
-
-• Đắk Nông: Tỷ lệ tiền mặt còn cao nhất vùng ở mức 48,50% (QR đạt 51,50%).
-
-**📍 2. KỶ LUẬT NỘP TIỀN VỀ CÔNG TY:**
-
-• 100% bưu cục thực hiện nộp tiền COD về tài khoản tổng công ty trước 21h00 hàng ngày.
-
-• Cảnh báo: Vẫn còn hiện tượng shipper giữ tiền mặt qua đêm tại một số bưu cục huyện xa ngân hàng.
-
-
-> **🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 14 DÒNG TIỀN COD & QR):**
-
-"Dạ qua tới Tab 14 về Quản trị dòng tiền COD:
-
-Tuần này toàn vùng Nam Trung Bộ thu hộ tổng cộng hơn 82,6 tỷ đồng tiền hàng cho các shop.
-
-Và có một bước tiến cực kỳ quan trọng về an toàn tài chính: Đó là tỷ lệ khách thanh toán bằng quét mã QR tuần này đã tăng vọt lên 62,9%, kéo tỷ lệ tiền mặt giảm sâu xuống chỉ còn 37,1%!
-
-Đây là nỗ lực rất lớn của các anh em shipper bưu cục khi đã chủ động in mã QR mang theo tuyến và khuyến khích khách hàng quét mã thanh toán thay vì dùng tiền mặt.
-
-Khánh Hòa và Ninh Thuận đang đi đầu với tỷ lệ QR trên 61% đến 64%.
-
-Tiền vào thẳng tài khoản công ty vừa an toàn, vừa không sợ shipper bị cướp giật trên đường, mà bưu cục cũng không phải lo giữ tiền mặt trong két sắt qua đêm.
-
-Tuy nhiên, ở Đắk Nông và Bình Thuận tỷ lệ tiền mặt vẫn còn trên 41% đến 48%, do bà con vùng nông thôn chưa quen dùng app ngân hàng.
-
-Em xin nhắc nhở các AM và Trưởng bưu cục: Quy định tài chính của GHN là tuyệt đối không để tiền mặt COD tồn qua đêm tại bưu cục. Bưu cục nào không có ngân hàng mở cửa buổi tối thì Trưởng bưu cục phải chuyển tiền qua Viettel Money hoặc cây ATM trước 20h30. Bất kỳ trường hợp nào shipper giữ tiền mặt quá 24h sẽ bị khóa tài khoản thu tiền ngay lập tức!"
-
-
-> 💡 **Điểm sáng & Insight vận hành:**
-> - Tỷ lệ QR đạt 62,9% giúp giảm bớt hơn 2,5 tỷ đồng tiền mặt lưu thông trên đường mỗi tuần, giảm thiểu rủi ro kiểm đếm và thất thoát.
-> - Khánh Hòa duy trì văn hóa thanh toán không tiền mặt tốt nhất vùng với 64,5% giao dịch qua QR.
-
-
-> ⚠️ **Cảnh báo rủi ro & Điểm nóng:**
-> - Đắk Nông vẫn còn 48,5% tiền mặt; rủi ro shipper cầm số tiền lớn di chuyển trên các cung đường đèo vắng vẻ vào buổi tối.
-
-
-> 🎯 **Hành động cụ thể & Giao việc hiện trường:**
-> - Trang bị 100% thẻ đeo mã QR cho bưu tá; kiểm tra số dư quỹ tiền mặt bưu cục trên hệ thống lúc 21h00 hàng ngày.
-
+🎯 QUYẾT SÁCH HÀNH ĐỘNG & MỆNH LỆNH TÁC CHIẾN:
+1. Yêu cầu anh Duân, anh Nhựt, chị Chi: Bắt buộc 100% bưu tá khi đi giao hàng phải in hoặc mở mã QR động trên app GHN cho khách thanh toán.
+2. Trưởng bưu cục phải thực hiện chốt sổ tiền mặt và đối soát nộp tiền vào tài khoản công ty 2 lần/ngày (lúc 12h00 trưa và 18h30 tối), tuyệt đối cấm shipper ôm tiền mặt về nhà qua đêm!
+3. Tuần W41 bắt buộc 3 cụm này phải ép tỷ lệ tiền mặt xuống dưới 60%!
+Giờ em xin chuyển sang Tab 14 mổ xẻ Báo cáo truy thu 2 tuần ạ!"
 
 ---
 
-## 🚨 [XIV. BÁO CÁO TRUY THU – BIẾN ĐỘNG 2 TUẦN (W39 vs W40) & CẢNH BÁO BÙNG PHÁT 187.1 TRIỆU ₫]
+## TAB 14: 🗣️ PHÂN TÍCH BÁO CÁO TRUY THU 2 TUẦN (W39 VS W40) (BẬT TAB 14 DASHBOARD):
 
-### 🗣️ BÁO CÁO TRUY THU: W40 CẦN THU 187.1 TR ₫ VÀ ĐIỂM NÓNG BẮC CAM RANH (TAB 15):
+📍 1. BẢNG TỔNG HỢP TRUY THU VÙNG NAM TRUNG BỘ:
+• Tổng số bản ghi (ticket): 2.424 bản ghi (giảm 1.652 đơn / -40,5% so với 4.076 bản ghi tuần W39).
+• Số tiền phát sinh ban đầu: 433,1 Triệu VNĐ (W39: 317,3 Tr ₫, TĂNG MẠNH +115,8 Tr ₫ / +36,5%).
+• Số tiền điều chỉnh giảm: -246,0 Triệu VNĐ.
+• Số tiền thực tế CẦN TRUY THU: 187,1 Triệu VNĐ (W39: 312,1 Tr ₫, GIẢM -125,0 Tr ₫ / -40,1%).
 
-**📍 1. BẢNG SO SÁNH BIẾN ĐỘNG 2 TUẦN (W40 vs W39):**
+📍 2. BẢNG 1: CƠ CẤU 3 LOẠI HÌNH VI PHẠM TRỌNG ĐIỂM:
+• 1. Liên đới chiếm dụng: 56,8 Triệu VNĐ (4 đơn) ➔ Số tiền cực lớn trên số đơn rất nhỏ, tính chất đặc biệt nghiêm trọng!
+• 2. Tick mất hàng: 41,2 Triệu VNĐ (53 đơn).
+• 3. Mất / Thiếu / Tráo sản phẩm: 30,9 Triệu VNĐ (76 đơn).
 
-• Số bản ghi phát sinh: 2.424 bản ghi (W39: 4.076 bản ghi, giảm -1.652 đơn / -40,5%).
+📍 3. BẢNG 3: TOP AM CÓ SỐ TIỀN TRUY THU LỚN NHẤT:
+• 1. Nguyễn Thanh Long: 51,2 Triệu VNĐ (72 ticket) ➔ Điểm nóng số 1 vùng!
+• 2. Lê Văn Trường: 26,3 Triệu VNĐ (419 ticket tồn đọng — số lượng ticket khủng khiếp nhất!)
+• 3. Trần Văn Phước: 22,9 Triệu VNĐ (288 ticket)
+• 4. Huỳnh Thị Kim Chi: 21,3 Triệu VNĐ (110 ticket)
 
-• Số tiền truy thu ban đầu: 433,05 Tr ₫ (W39: 317,25 Tr ₫, TĂNG +115,8 Tr ₫ / +36,5%!).
+📍 4. BẢNG 4: DANH SÁCH BƯU CỤC VI PHẠM ĐẶC BIỆT NGHIÊM TRỌNG:
+• (KHO) Bắc Cam Ranh: Cần thu 48,7 Triệu VNĐ (W39: 14,3 Tr ₫, TĂNG VỌT +34,4 Tr ₫ / +240,3%) ➔ AM Nguyễn Thanh Long (VỤ ÁN CHIẾM DỤNG TIỀN HÀNG COD!).
+• (LDO) Tân Hà Lâm Hà: Cần thu 21,3 Triệu VNĐ (98 đơn) ➔ AM Huỳnh Thị Kim Chi.
+• (DNO) Quảng Tín: Cần thu 13,0 Triệu VNĐ (72 đơn) ➔ AM Trần Văn Phước / Trương Quang Linh.
+• (LDO) Đơn Dương: Cần thu 12,8 Triệu VNĐ (118 đơn) ➔ AM Lê Văn Trường.
+• (DNO) Kiến Đức: Cần thu 9,1 Triệu VNĐ (196 đơn) ➔ AM Trần Văn Phước / Hồng Bích Nga.
 
-• Số tiền đã điều chỉnh / giảm trừ: -245,96 Tr ₫ (W39: -5,17 Tr ₫).
+🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 14 DASHBOARD TRUY THU):
+"Kính thưa Ban Giám Đốc, bước sang Tab 14 Báo cáo Truy thu, đây là con số ảnh hưởng trực tiếp đến túi tiền và lợi nhuận của toàn vùng:
+Nhìn vào tổng thể: Tuần W40 này số tiền cần truy thu thực tế đã giảm 40%, từ 312 triệu xuống còn 187,1 triệu đồng.
+TUY NHIÊN, tôi cảnh báo toàn thể cuộc họp: Số tiền vi phạm phát sinh ban đầu lại TĂNG VỌT TỚI 36,5%, từ 317 triệu nhảy lên 433,1 triệu đồng!
+Trong đó, nổi cộm lên nhóm vi phạm: 'Liên đới chiếm dụng' lên tới 56,8 triệu đồng!
+Tôi yêu cầu anh Nguyễn Thanh Long ở Khánh Hòa đứng dậy giải trình trước Ban Giám Đốc:
+Tại bưu cục Bắc Cam Ranh thuộc cụm quản lý của anh Long: Số tiền truy thu tuần trước là 14,3 triệu, tuần này đã nhảy vọt lên 48,7 TRIỆU ĐỒNG, tăng tới 240%!
+Đây là vụ việc chiếm dụng tiền hàng COD có dấu hiệu vi phạm pháp luật hình sự rất rõ ràng! Nhân viên thu tiền của khách nhưng không nộp về quỹ mà chiếm đoạt. Trưởng bưu cục làm gì? AM quản lý giám sát kiểu gì mà để nhân sự ôm gần 50 triệu đồng của công ty biến mất?
 
-• SỐ TIỀN CẦN TRUY THU THỰC TẾ: 187,09 Tr ₫ (giảm -124,99 Tr ₫ / -40,1% so với 312,08 Tr ₫ của W39).
+Điểm nóng thứ hai là anh Lê Văn Trường ở Lâm Đồng:
+Anh Trường đang để tồn đọng tới 419 TICKET TRUY THU với số tiền 26,3 triệu đồng!
+Bưu cục Đơn Dương dính 12,8 triệu, bưu cục Xuân Hương dính 8,5 triệu!
+419 ticket này là 419 vụ việc khiếu nại mất hàng, thiếu hàng, đền bù trôi nổi từ tuần này qua tuần khác mà anh Trường và Trưởng bưu cục không chịu xử lý đối soát dứt điểm!
+Chị Huỳnh Thị Kim Chi ở Tân Hà Lâm Hà cũng đang dính 21,3 triệu đồng truy thu!
 
-**📍 2. CƠ CẤU THEO LOẠI TRUY THU TRỌNG ĐIỂM:**
-
-• 1. Liên đới chiếm dụng: 56,8 Tr ₫ (4 đơn) ➔ TÍNH CHẤT ĐẶC BIỆT NGHIÊM TRỌNG.
-
-• 2. Tick mất hàng: 41,2 Tr ₫ (53 đơn).
-
-• 3. Mất / Thiếu / Tráo sản phẩm: 30,9 Tr ₫ (76 đơn).
-
-• 4. Sai lệch cân nặng / kích thước: 28,5 Tr ₫.
-
-• 5. Các lỗi vận hành và hoàn chậm khác: ~29,7 Tr ₫.
-
-**📍 3. BẢNG TRUY THU THEO TỈNH VÀ TOP AM NÓNG NHẤT:**
-
-• Tỉnh: Lâm Đồng 72,5 Tr ₫ (827 đơn) | Khánh Hòa 69,3 Tr ₫ (296 đơn) | Đắk Nông 28,3 Tr ₫ (774 đơn) | Khác 11,4 Tr ₫ | Bình Thuận 4,8 Tr ₫ | Ninh Thuận 0,7 Tr ₫.
-
-• 🔴 TOP 1 NGUY HIỂM: AM Nguyễn Thanh Long (Khánh Hòa): 51,2 Tr ₫ / 72 ticket ➔ ĐIỂM NÓNG BƯU CỤC (KHO) BẮC CAM RANH PHÁT SINH 48,7 TRIỆU ₫ LIÊN ĐỚI CHIẾM DỤNG TIỀN HÀNG!
-
-• 🔴 TOP 2: AM Lê Văn Trường (Lâm Đồng): 26,3 Tr ₫ / 419 ticket (nhiều ticket nhất vùng, bưu cục Đơn Dương chiếm 12,8 Tr ₫).
-
-• 🔴 TOP 3: AM Trần Văn Phước: 22,9 Tr ₫ / 288 ticket.
-
-• 🔴 TOP 4: AM Huỳnh Thị Kim Chi (Lâm Đồng): 21,3 Tr ₫ / 110 ticket.
-
-• 🔴 TOP 5: AM Trương Quang Linh (Đắk Nông): 13,0 Tr ₫ tại bưu cục Quảng Tín.
-
-
-> **🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 15 TRUY THU):**
-
-"Kính thưa Ban Giám Đốc, đây là nội dung cảnh báo nóng nhất và nghiêm trọng nhất trong buổi họp hôm nay:
-
-Nhìn vào con số tổng, tuần W40 số tiền cần truy thu đã giảm được 40%, từ 312 triệu xuống còn 187,1 triệu đồng nhờ bộ phận Kế toán đã rà soát giảm trừ được 246 triệu.
-
-NHƯNG, số tiền phát sinh ban đầu lại TĂNG VỌT từ 317 triệu lên tới 433 triệu đồng (+36,5%)!
-
-Và khi bóc tách từng loại lỗi, chúng ta phát hiện một vụ việc CỰC KỲ NGHIÊM TRỌNG:
-
-Mọi người nhìn vào dòng đầu tiên: Lỗi 'Liên đới chiếm dụng' phát sinh 56,8 triệu đồng!
-
-Trong đó, chỉ riêng bưu cục Bắc Cam Ranh thuộc cụm quản lý của AM NGUYỄN THANH LONG đã chiếm tới 48,7 triệu đồng!
-
-Đây không còn là lỗi nghiệp vụ cân đo sai hay thất lạc hàng nữa, mà là dấu hiệu chiếm dụng tiền hàng và gian lận có hệ thống tại bưu cục!
-
-Bên cạnh đó, chỗ anh Lê Văn Trường ở Lâm Đồng đang gánh tới 419 ticket truy thu — nhiều nhất toàn vùng Nam Trung Bộ, với số tiền 26,3 triệu đồng, tập trung nặng nhất ở bưu cục Đơn Dương 12,8 triệu.
-
-Chỗ anh Phước 22,9 triệu, chị Chi 21,3 triệu và anh Linh Đắk Nông 13 triệu tại bưu cục Quảng Tín.
-
-Em xin kiến nghị Ban Giám Đốc chỉ đạo khẩn cấp:
-
-Yêu cầu anh Nguyễn Thanh Long và Trưởng bưu cục Bắc Cam Ranh phải có mặt tại văn phòng giải trình trực tiếp với Ban Giám Đốc và Thanh tra trong sáng ngày mai.
-
-Anh Trường và chị Chi phải phân loại xử lý dứt điểm 419 ticket tại Lâm Đồng trước thứ Sáu. Tuyệt đối không để số tiền 187,1 triệu này biến thành nợ xấu khó đòi của công ty!"
-
-
-> 💡 **Điểm sáng & Insight vận hành:**
-> - Số tiền cần truy thu giảm 40% (xuống 187,1 Tr ₫) chứng minh khâu đối soát và điều chỉnh dữ liệu cước đã phát huy tác dụng.
-> - Vụ việc 48,7 Tr ₫ tại Bắc Cam Ranh cho thấy lỗ hổng trong công tác giám sát tiền hàng và bàn giao ca giữa Quản lý bưu cục và bưu tá.
-
-
-> ⚠️ **Cảnh báo rủi ro & Điểm nóng:**
-> - Lỗi liên đới chiếm dụng 56,8 Tr ₫ là vi phạm pháp luật và quy chế tài chính nghiêm trọng nhất từ đầu quý.
-> - 419 ticket dồn ứ tại địa bàn AM Lê Văn Trường thể hiện sự buông lỏng đối soát tại các bưu cục huyện Lâm Đồng.
-
-
-> 🎯 **Hành động cụ thể & Giao việc hiện trường:**
-> - Chuyển hồ sơ bưu cục Bắc Cam Ranh sang Phòng Pháp chế / An ninh nội bộ điều tra thu hồi tiền ngay trong 48 giờ.
-> - AM Trường, AM Phước, AM Chi lập kế hoạch thu hồi từng ticket với các bưu cục trực thuộc, báo cáo tiến độ hàng ngày.
-
+🎯 QUYẾT SÁCH HÀNH ĐỘNG & MỆNH LỆNH TÁC CHIẾN:
+1. Vụ việc bưu cục Bắc Cam Ranh (48,7 triệu đồng): Giao đích danh AM Nguyễn Thanh Long trực tiếp phối hợp với bộ phận Pháp chế - Thanh tra vùng và Công an địa phương hoàn thiện hồ sơ khởi tố, thu hồi đủ 48,7 triệu đồng trước ngày 08/10!
+2. Anh Lê Văn Trường và chị Huỳnh Thị Kim Chi: Trong vòng 72 giờ tới phải rà soát và đóng dứt điểm toàn bộ 419 ticket tồn đọng. Nhân viên nào làm mất hàng thì khấu trừ lương theo quy chế, bưu cục nào sai sót thì Trưởng bưu cục chịu trách nhiệm liên đới!
+3. Phòng Tài chính vùng phong tỏa ngay hạn mức nợ của các bưu cục trên. Tuần W41 dứt khoát phải kéo tổng tiền cần truy thu xuống dưới 100 triệu đồng!
+Bây giờ, em xin chuyển sang Tab 15 xem tình hình Kinh doanh & Khách hàng F30 ạ!"
 
 ---
 
-## 📈 [XV. PHÂN TÍCH DOANH THU KINH DOANH & TĂNG TRƯỞNG KHÁCH HÀNG MỚI (F30) | VÙNG NTB]
+## TAB 15: 🗣️ PHÂN TÍCH DOANH THU KINH DOANH & KHÁCH HÀNG MỚI F30 (BẬT TAB 15 DASHBOARD):
 
-### 🗣️ DOANH THU KINH DOANH 1.120 TỶ ₫, PHÁT TRIỂN 111 SHOP F30 & QUẢN TRỊ SHOP NHÓM A (TAB 16):
+📍 1. BẢNG XẾP HẠNG DOANH THU THEO AM:
+• Top AM dẫn đầu doanh thu kinh doanh:
+  1. Phan Đình Duy (Khánh Hòa): Doanh thu cao nhất toàn vùng.
+  2. Nguyễn Duy Long (Ninh Thuận): Đóng góp tỷ trọng lớn thứ 2.
+  3. Nguyễn Ngọc Khánh (Bình Thuận): Doanh thu rất vững chắc.
+• Điểm sụt giảm đáng báo động về doanh thu & khách hàng nhóm A:
+  - Huỳnh Thúc Duân (Đắk Nông): Sản lượng sụt giảm nghiêm trọng (-1.608 đơn), doanh thu rơi tự do -29,1%, mất khách hàng lớn tại bưu cục Gia Nghĩa và bưu cục Nhân Cơ!
+  - Thái Thị Thanh Thư (Khánh Hòa): Hụt 7.600 đơn tại Nha Trang, doanh thu giảm 11,8 Tr ₫ do shop lớn bị đối thủ cạnh tranh lôi kéo.
 
-**📍 1. BẢNG TỔNG HỢP KINH DOANH TUẦN W40 (Kỳ 27/09 – 03/10/2026 vs Kỳ trước 20/09 – 26/09/2026):**
+🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 15 DASHBOARD KINH DOANH & F30):
+"Kính thưa Ban Giám Đốc, chuyển sang Tab 15 là bức tranh Kinh doanh và phát triển khách hàng mới F30:
+Vận hành và kinh doanh luôn là hai mặt của một đồng xu. Vận hành Last-mile tốt thì giữ chân được khách, vận hành kém thì khách hàng rời bỏ ngay lập tức!
+Bên cạnh những điểm sáng như anh Phan Đình Duy ở Nha Trang hay anh Duy Long ở Ninh Thuận tiếp tục duy trì doanh thu hàng đầu vùng, thì có 2 điểm báo động:
+Thứ nhất là khu vực của anh Huỳnh Thúc Duân ở Đắk Nông:
+Doanh thu tuần W40 giảm sốc tới -29,1%, sản lượng bốc hơi hơn 1.600 đơn hàng! Hai bưu cục trọng điểm là Gia Nghĩa và Nhân Cơ để rơi rụng hàng loạt shop nhóm A!
+Thứ hai là chị Thái Thị Thanh Thư ở Nha Trang: Hụt hơn 7.600 đơn sản lượng và giảm gần 12 triệu doanh thu.
+Insight: Đối thủ cạnh tranh như SPX và J&T liên tục giảm giá và đưa nhân viên kinh doanh sang chèo kéo chủ shop. Khi chất lượng lấy hàng First-mile bị trễ, bưu tá không chịu quét QR, thái độ phục vụ gắt gỏng là chủ shop lập tức chuyển toàn bộ sản lượng sang hãng khác!
 
-• Tổng Doanh Thu Toàn Vùng: 1.120,5 Tr ₫ (giảm -42,2 Tr ₫ / -3,6% WoW).
-
-• Tổng Sản Lượng Gửi Toàn Vùng: 35.334 đơn (giảm -2.060 đơn / -5,5% WoW).
-
-• Khách hàng mới F30 (trong 30 ngày): Toàn vùng mang về 111 shop mới (tăng +19 shop / +20,7%), đóng góp 9,4 Tr ₫ doanh thu ban đầu.
-
-• Quản trị Shop Nhóm A (Top 10 khách hàng lớn nhất): Lũy kế doanh thu tháng 10 (MTD) đạt 8.840,0 Tr ₫. Dẫn đầu là siêu shop 'Vận Chuyển Online' do AM Phan Đình Duy quản lý đạt 5.688,0 Tr ₫.
-
-**📍 2. BÓC TÁCH CHI TIẾT THEO AM KINH DOANH:**
-
-• 🟢 TOP AM TĂNG TRƯỞNG XUẤT SẮC:
-
-  1. Phan Đình Duy (Khánh Hòa): Doanh thu 479,0 Tr ₫ (+0,7% WoW, chiếm 42,7% doanh thu cả vùng), sản lượng 10.088 đơn (+74 đơn). Dẫn đầu F30 với 16 shop mới (1,21 Tr ₫). Quản lý shop #1 nhóm A.
-
-  2. Nguyễn Duy Long (Bình Thuận): Doanh thu 98,2 Tr ₫ (+2,3% WoW), sản lượng 4.142 đơn (+113 đơn), phát triển 13 shop F30.
-
-  3. Lê Thanh Nhựt (Ninh Thuận): Doanh thu 60,9 Tr ₫ (+6,6% WoW), sản lượng 2.749 đơn (+274 đơn / +11,1%).
-
-  4. Nguyễn Lê Nguyên Vũ (Khánh Hòa): Doanh thu 25,4 Tr ₫ (+10,8% WoW), sản lượng 1.029 đơn (+105 đơn / +11,4%).
-
-• 🔴 TOP AM BÁO ĐỘNG ĐỎ VỀ KINH DOANH:
-
-  1. Huỳnh Thúc Duân (Đắk Nông): Doanh thu sụt giảm -29,1% WoW (-23,4 Tr ₫, từ 80,5 Tr xuống 57,1 Tr ₫); sản lượng bốc hơi -1.608 đơn (-28,5%, từ 5.648 xuống 4.040 đơn) tại các bưu cục Gia Nghĩa và Nhân Cơ.
-
-  2. Thái Thị Thanh Thư (Khánh Hòa): Doanh thu giảm -10,6% WoW (-11,8 Tr ₫, từ 111,4 Tr xuống 99,6 Tr ₫), sản lượng giảm -350 đơn.
-
-  3. Trần Thị Nhung (Đắk Nông): Doanh thu giảm -21,5% WoW (-8,0 Tr ₫, từ 37,1 Tr xuống 29,1 Tr ₫), sản lượng giảm -329 đơn (-16,4%).
-
-
-> **🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 16 KINH DOANH & F30):**
-
-"Dạ qua tới Tab cuối cùng về mảng Kinh Doanh và Khách Hàng Mới F30:
-
-Tuần này toàn vùng mang về hơn 1,12 tỷ đồng doanh thu và 35 ngàn đơn hàng gửi. So với tuần trước giảm nhẹ khoảng 3,6% theo nhịp thị trường cuối tháng.
-
-Về mặt tích cực:
-
-Em xin nhiệt liệt biểu dương anh Phan Đình Duy: Một mình cụm anh Duy mang về tới 479 triệu đồng doanh thu, chiếm gần một nửa doanh số của toàn vùng Nam Trung Bộ! Anh Duy tiếp tục giữ vững siêu shop 'Vận Chuyển Online' với doanh thu tháng này đã chạm mốc 5,7 tỷ đồng, đồng thời dẫn đầu toàn vùng khi phát triển thêm 16 shop mới F30.
-
-Anh Long Bình Thuận, anh Nhựt Ninh Thuận và anh Vũ Khánh Hòa cũng duy trì đà tăng trưởng rất tốt từ 2% đến 11%.
-
-TUY NHIÊN, có một điểm BÁO ĐỘNG ĐỎ CỰC KỲ NGUY HIỂM cần nhấn mạnh:
-
-Đó là địa bàn Đắk Nông của AM HUỲNH THÚC DUÂN!
-
-Chỉ trong vòng đúng 1 tuần, doanh thu của anh Duân đã tụt dốc không phanh mất -29,1% (mất trắng hơn 23,4 triệu đồng), và sản lượng bốc hơi tới 1.608 đơn gửi (-28,5%)!
-
-Đây là mức sụt giảm kinh doanh lớn nhất của cả vùng trong vòng 3 tháng qua. Kiểm tra tại bưu cục Gia Nghĩa và Nhân Cơ cho thấy có ít nhất 2 shop lớn bán nông sản và cà phê đã ngưng gửi hàng qua GHN và chuyển hẳn sang đối thủ cạnh tranh.
-
-Bên cạnh đó, chị Thư ở Khánh Hòa cũng giảm gần 12 triệu và chị Nhung giảm 8 triệu doanh thu.
-
-Em đề nghị anh Duân phải giải trình rõ nguyên nhân: Tại sao khách hàng lớn ở Gia Nghĩa lại bỏ đi? Có phải do bưu cục lấy hàng trễ hay thái độ phục vụ có vấn đề? Đầu tuần này anh Duân phải trực tiếp đến gặp lại chủ các shop này để thương lượng chính sách giá và kéo nguồn hàng quay trở lại GHN!"
-
-
-> 💡 **Điểm sáng & Insight vận hành:**
-> - AM Phan Đình Duy là trụ cột kinh doanh của toàn vùng khi đóng góp 42,7% doanh thu và quản lý siêu shop #1 nhóm A.
-> - F30 tăng thêm 20,7% (111 shop mới) cho thấy tiềm năng mở rộng tệp khách hàng cá nhân và shop online vừa và nhỏ còn rất lớn.
-
-
-> ⚠️ **Cảnh báo rủi ro & Điểm nóng:**
-> - AM Huỳnh Thúc Duân mất 28,5% sản lượng (-1.608 đơn) tại Gia Nghĩa, Nhân Cơ là tín hiệu cảnh báo mất thị phần nghiêm trọng tại Đắk Nông.
-> - Khách hàng lớn nhóm A nếu bị đối thủ cạnh tranh lôi kéo sẽ làm suy giảm trực tiếp doanh thu tháng của khu vực.
-
-
-> 🎯 **Hành động cụ thể & Giao việc hiện trường:**
-> - AM Huỳnh Thúc Duân đi thị trường Gia Nghĩa trong ngày thứ Ba, trực tiếp gặp 2 shop lớn vừa ngưng gửi để xử lý vướng mắc.
-> - Đẩy mạnh chương trình ưu đãi cước F30 cho 111 shop mới để chuyển đổi thành khách hàng thường xuyên (F60, F90).
-
+🎯 MỆNH LỆNH TÁC CHIẾN TUẦN W41:
+• AM Duân và AM Thư phải đích thân cùng với chuyên viên Sales xuống làm việc trực tiếp với các chủ shop nhóm A bị sụt giảm đơn ngay trong tuần này.
+• Cam kết khung giờ lấy hàng riêng biệt cho shop, lấy lại bằng được sản lượng đã mất trong tháng 10!
+Bây giờ, em xin chuyển sang Tab 16 - Tab cuối cùng: Danh sách 13 Bưu cục bất ổn & Giao nhiệm vụ hiện trường tuần W41 ạ!"
 
 ---
 
-## 🏁 [XVI. ĐIỀU HÀNH TRỌNG ĐIỂM: 13 BƯU CỤC CẢNH BÁO BẤT ỔN & 5 TRỌNG TÂM HÀNH ĐỘNG TUẦN W41]
+## TAB 16: 🗣️ DANH SÁCH 13 BƯU CỤC CẢNH BÁO ĐỎ & 5 NHIỆM VỤ ĐIỀU HÀNH HIỆN TRƯỜNG TUẦN W41 (BẬT TAB 16 DASHBOARD):
 
-### 🗣️ DANH SÁCH 13 BƯU CỤC CẢNH BÁO ĐỎ & 5 NHIỆM VỤ ĐIỀU HÀNH HIỆN TRƯỜNG TUẦN W41:
-
-**📍 1. DANH SÁCH 13 BƯU CỤC BẤT ỔN CẦN GIẢI TỎA KHẨN CẤP (W40):**
-
-• 1. (DNO) Quảng Tín: GTC 18,1% (Cảnh báo 100 ngày liên tiếp) | Backlog 1.224 đơn (tồn >5 ngày: 490 đơn) | ODR 74,9% | Truy thu 13,0 Tr ₫ (AM Trương Quang Linh).
-
-• 2. (LDO) Đức Trọng 1: GTC 20,1% (Cảnh báo 84 ngày) | Backlog 1.223 đơn (tồn >5 ngày: 281 đơn) | Rớt LC 42 đơn (AM Trầm Hữu Tiến).
-
+📍 1. DANH SÁCH 13 BƯU CỤC BẤT ỔN CẦN GIẢI TỎA KHẨN CẤP (W40):
+• 1. (DNO) Quảng Tín: GTC 18,1% (Cảnh báo 100 ngày liên tiếp) | Backlog 1.224 đơn (tồn >5 ngày: 490 đơn) | ODR 74,9% | Truy thu 13,0 Tr ₫ (AM Trương Quang Linh / Trần Văn Phước).
+• 2. (LDO) Đức Trọng 1: GTC 20,1% (Cảnh báo 84 ngày) | Backlog 1.223 đơn (tồn >5 ngày: 281 đơn) | Rớt LC 42 đơn (AM Trầm Hữu Tiến / Nguyễn Lê Nguyên Vũ).
 • 3. (DNO) Kiến Đức: GTC 29,9% (Cảnh báo 80 ngày) | Backlog 1.035 đơn (AM Hồng Bích Nga).
-
 • 4. (LDO) Xuân Hương - Đà Lạt: GTC 30,2% | Backlog 2.165 đơn (tồn >5 ngày: 310 đơn) | ODR 78,3% (AM Lê Văn Trường).
-
 • 5. (KHO) Cam Linh: GTC 30,7% (Cảnh báo 108 ngày) | Backlog 2.433 đơn (AM Nguyễn Thanh Long).
-
 • 6. (KHO) Tây Nha Trang: GTC 33,3% | Backlog 2.295 đơn (AM Phan Đình Duy).
-
 • 7. (LDO) Lang Biang - Đà Lạt 1: GTC 36,5% (Cảnh báo 108 ngày) | Backlog 992 đơn | ODR 74,1% thấp nhất vùng (AM Lê Minh Lợi).
-
-• 8. (LDO) Di Linh: GTC 40,0% | Backlog 1.970 đơn (tồn >5 ngày: 219 đơn) (AM Nguyễn Lê Nguyên Vũ).
-
+• 8. (LDO) Di Linh: GTC 40,0% | Backlog 1.970 đơn (tồn >5 ngày: 219 đơn) (AM Trầm Hữu Tiến).
 • 9. (DNO) Tuy Đức: GTC 41,2% | Backlog 640 đơn (AM Trần Thị Nhung).
-
 • 10. (LDO) Tân Hà Lâm Hà: GTC 44,5% | Backlog 798 đơn (AM Huỳnh Thị Kim Chi).
-
 • 11. (DNO) Nhân Cơ: GTC 45,1% | Backlog 347 đơn | Doanh thu sụt giảm -29,1% (AM Huỳnh Thúc Duân).
-
-• 12. (LDO) Đơn Dương: GTC 45,3% | Backlog 2.038 đơn | Dính truy thu 12,8 Tr ₫ (AM Phan Nguyễn Yến Nhi).
-
+• 12. (LDO) Đơn Dương: GTC 45,3% | Backlog 2.038 đơn | Dính truy thu 12,8 Tr ₫ (AM Lê Văn Trường / Phan Nguyễn Yến Nhi).
 • 13. (LDO) Lâm Viên - Đà Lạt 2: GTC 46,2% | Backlog 860 đơn (AM Lê Văn Trường).
 
-**📍 2. ĐÁNH GIÁ CHUNG VÀ GIAO VIỆC CỤ THỂ 18 AM:**
-
-• 🟢 KHEN THƯỞNG: AM Phan Đình Duy (Top 1 Doanh thu), AM Nguyễn Ngọc Khánh (Quán quân GTC 74,5%), AM Nguyễn Duy Long (Đầu tàu Sản lượng vùng 42,7k đơn & GTC 69,0%), AM Cao Thị Thanh Thủy (Top 1 ODR 97,8%), AM Lê Thanh Nhựt (Tăng trưởng sản lượng +1.316 đơn).
-
+📍 2. ĐÁNH GIÁ CHUNG VÀ GIAO VIỆC CỤ THỂ 18 AM:
+• 🟢 KHEN THƯỞNG:
+  - AM Phan Đình Duy: Top 1 Doanh thu toàn vùng.
+  - AM Nguyễn Duy Long: Đầu tàu sản lượng lớn nhất vùng (61,3k đơn) & Top GTC vững chắc (71,2%).
+  - AM Cao Thị Thanh Thủy: Quán quân ODR toàn vùng (97,8%).
+  - AM Nguyễn Ngọc Khánh: Quán quân GTC Full hàng (74,5%) & Top 1 ODR TikTok Shop (98,2%).
+  - AM Thái Thị Thanh Thư: Quán quân Chuyển khoản QR (96,0%) & Á quân GTC (72,0%).
 • 🔴 CẢNH BÁO ĐẶC BIỆT & GIAO NHIỆM VỤ HIỆN TRƯỜNG:
-
   - AM Nguyễn Thanh Long: Trực tiếp phối hợp Pháp chế thu hồi 48,7 Tr ₫ vụ việc chiếm dụng tại Bắc Cam Ranh trước ngày 08/10; dọn sạch backlog 2.433 đơn tại Cam Linh.
+  - AM Huỳnh Thúc Duân: Xuống bưu cục Gia Nghĩa và Nhân Cơ cứu vãn sản lượng bốc hơi -1.608 đơn; ép tỷ lệ tiền mặt từ 81% xuống dưới 60%.
+  - AM Lê Văn Trường: Trực tiếp xuống Đơn Dương và Xuân Hương xử lý dứt điểm 419 ticket truy thu (26,3 Tr ₫) và giải phóng 4.200 đơn backlog.
+  - AM Lê Minh Lợi & Trương Quang Linh: Viết cam kết đưa ODR TikTok Shop từ 14% và 42% lên trên 80% trong tuần W41; dập tắt tình trạng bấm hoàn trả ảo >20%.
+  - AM Trầm Hữu Tiến & Nguyễn Lê Nguyên Vũ: Giải tỏa dứt điểm tồn Aging tại Đức Trọng 1 và Di Linh trong 48 giờ.
 
-  - AM Huỳnh Thúc Duân: Xuống bưu cục Gia Nghĩa và Nhân Cơ cứu vãn sản lượng bốc hơi -1.608 đơn; giải trình trước Ban Giám Đốc.
-
-  - AM Lê Văn Trường: Trực tiếp xuống Đơn Dương và Xuân Hương xử lý 419 ticket truy thu (26,3 Tr ₫) và giải phóng 4.200 đơn backlog.
-
-  - AM Lê Minh Lợi & Trương Quang Linh: Viết cam kết đưa ODR Lang Biang và Quảng Tín từ 74% lên trên 85% trong tuần W41.
-
-  - AM Thái Thị Thanh Thư: Rà soát lại việc hụt 7.600 đơn sản lượng và 11,8 Tr ₫ doanh thu.
-
-  - AM Trần Thị Nhung: Xử lý dứt điểm 36 đơn treo luân chuyển >24h tại Đắk Nông.
-
-**📍 3. 5 TRỌNG TÂM HÀNH ĐỘNG TUẦN W41 TOÀN VÙNG NAM TRUNG BỘ:**
-
-• Trọng tâm 1: Duy trì kỷ luật Last-mile, giữ vững %GTC trên 60%, nâng tỷ lệ Gán Ca 2 từ 62,4% lên trên 85%.
-
+📍 3. 5 TRỌNG TÂM HÀNH ĐỘNG TUẦN W41 TOÀN VÙNG NAM TRUNG BỘ:
+• Trọng tâm 1: Duy trì kỷ luật Last-mile, giữ vững %GTC trên 60%, nâng tỷ lệ Gán Ca 2 từ 62,9% lên trên 85% để đạt Gán Tổng >90%.
 • Trọng tâm 2: Quyết liệt thu hồi công nợ & truy thu: Xử lý dứt điểm 187,1 Tr ₫, phong tỏa và thu hồi vụ 48,7 Tr ₫ tại Bắc Cam Ranh.
-
-• Trọng tâm 3: Cứu vãn ODR tại 3 điểm đáy: Nâng ODR Lang Biang, Quảng Tín, Đơn Dương lên trên 85% bằng cơ chế phát tăng cường ca chiều tối.
-
-• Trọng tâm 4: Tối ưu chi phí vận tải: Gộp tuyến và cắt giảm 124 chuyến xe KTC non tải <30% thùng để đưa %TLTĐ vượt mốc 50%.
-
+• Trọng tâm 3: Cứu vãn ODR tại 4 điểm đáy Tây Nguyên: Nâng ODR TikTok Shop Lang Biang, Quảng Tín, Đơn Dương, Đức Trọng lên trên 80%.
+• Trọng tâm 4: Tối ưu chi phí vận tải: Cắt giảm 30 chuyến xe KTC non tải <30% thùng để đưa %TLTĐ vượt mốc 55%.
 • Trọng tâm 5: Chăm sóc giữ chân khách hàng nhóm A và phục hồi sản lượng kinh doanh tại Đắk Nông và Khánh Hòa.
 
-
-> **🎙️ LỜI THOẠI KẾT LUẬN TOÀN BỘ BUỔI HỌP GIAO BAN:**
-
+🎙️ LỜI THOẠI KẾT LUẬN TOÀN BỘ BUỔI HỌP GIAO BAN:
 "Kính thưa Ban Giám Đốc và toàn thể các anh chị em AM,
-
-Để kết luận lại buổi họp giao ban tuần W40 hôm nay, chúng ta thấy rất rõ: Toàn vùng Nam Trung Bộ đã chứng minh được khi toàn hệ thống đồng lòng siết kỷ luật, chúng ta hoàn toàn có thể đưa %GTC vượt 60% và ODR vượt 93%.
-
+Để kết luận lại buổi họp giao ban tuần W40 hôm nay, chúng ta thấy rất rõ:
+Toàn vùng Nam Trung Bộ đã chứng minh được khi toàn hệ thống đồng lòng siết kỷ luật, chúng ta hoàn toàn có thể đưa %GTC vượt 60% và ODR vượt 93%.
 Tuy nhiên, những thành tích đó sẽ bị vô hiệu hóa nếu chúng ta để rò rỉ 187 triệu tiền truy thu, để xảy ra vụ việc chiếm dụng tiền hàng ở Bắc Cam Ranh, hay để mất khách hàng lớn tại Đắk Nông.
-
-13 bưu cục cảnh báo đỏ trên màn hình chính là nơi quyết định chất lượng dịch vụ của vùng trong tuần tới. Giải tỏa xong 13 bưu cục này là toàn vùng Nam Trung Bộ sẽ đứng vững trong top đầu toàn quốc.
-
+13 bưu cục cảnh báo đỏ trên màn hình chính là nơi quyết định chất lượng dịch vụ và uy tín thương hiệu của GHN tại Nam Trung Bộ trong tuần tới.
+Giải tỏa xong 13 bưu cục này là toàn vùng Nam Trung Bộ sẽ đứng vững trong top đầu toàn quốc!
 Em xin cảm ơn Ban Giám Đốc và các anh chị đã lắng nghe. Kính chúc toàn vùng Nam Trung Bộ tuần W41 vận hành an toàn, bứt phá doanh số và đạt chuẩn SLA toàn diện!"
-
-
-> 💡 **Điểm sáng & Insight vận hành:**
-> - 13 bưu cục này đang nắm giữ hơn 19.000 đơn backlog của vùng; chỉ cần giải tỏa dứt điểm 13 bưu cục này thì ODR và GTC toàn vùng sẽ tự động tăng thêm từ 2% đến 3%p.
-> - Sự chuyển dịch từ chỉ trích sang giao việc cụ thể với deadline rõ ràng sẽ giúp các AM chủ động hành động tại hiện trường.
-
-
-> ⚠️ **Cảnh báo rủi ro & Điểm nóng:**
-> - Bưu cục nào nằm trong danh sách cảnh báo đỏ quá 4 tuần liên tiếp mà không có chuyển biến (như Quảng Tín 100 ngày, Lang Biang 108 ngày) sẽ bị thay thế Trưởng bưu cục ngay trong tháng 10.
-
-
-> 🎯 **Hành động cụ thể & Giao việc hiện trường:**
-> - Các AM có bưu cục trong danh sách cảnh báo bắt buộc gửi báo cáo tiến độ giải tỏa backlog và xử lý truy thu về nhóm điều hành trước 19h00 hàng ngày.
-
 
 ---
