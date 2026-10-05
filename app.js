@@ -59,6 +59,7 @@
     gtcTongSegment: 'full',
     gtcTtsCa1Highlight: 'all',
     gtcTtsCa1Sort: 'diff_asc',
+    ganFilter: 'all',
     theme: 'light',
     searchVol: '',
     searchGtcTong: '',
@@ -878,6 +879,12 @@
         // Move GHN Express Delivery Truck to this tab!
         updateGhnTruckPosition(tab);
 
+        // Show/hide Gán Threshold Filter in Filter Bar when on Tab 5
+        const filterGanRate = document.getElementById('filter-gan-rate');
+        if (filterGanRate) {
+          filterGanRate.style.display = targetId === 'tab-gan' ? 'inline-block' : 'none';
+        }
+
         updateDynamicWeekLabels();
         setTimeout(() => {
           renderTabCharts(targetId);
@@ -894,6 +901,11 @@
     // Initial truck positioning
     setTimeout(() => {
       updateGhnTruckPosition();
+      const initialTabId = document.querySelector('.tab-view.active')?.id;
+      const filterGanRate = document.getElementById('filter-gan-rate');
+      if (filterGanRate) {
+        filterGanRate.style.display = initialTabId === 'tab-gan' ? 'inline-block' : 'none';
+      }
     }, 200);
 
     selectWeek.addEventListener('change', e => { state.week = e.target.value; renderAll(); });
@@ -907,6 +919,13 @@
       }
       renderAll(); 
     });
+
+    const selGanRate = document.getElementById('filter-gan-rate');
+    if (selGanRate) {
+      selGanRate.addEventListener('change', e => {
+        window.setGanFilter(e.target.value);
+      });
+    }
 
     // Volume Chart Mode Pills (Tab 2)
     const volModePills = document.querySelectorAll('#vol-chart-mode-pills .chart-mode-pill');
@@ -3397,11 +3416,56 @@
   }
 
   // --------------------------------------------------------------------------
-  // TAB 5: % GÁN VẬN HÀNH (GÁN CA 1, GÁN CA 2, GÁN TỔNG)
-  // --------------------------------------------------------------------------
-    // --------------------------------------------------------------------------
   // TAB 5: % GÁN VẬN HÀNH (CA 1, CA 2 & GÁN TỔNG)
   // --------------------------------------------------------------------------
+  window.setGanFilter = function(filterMode) {
+    state.ganFilter = filterMode || 'all';
+
+    // 1. Sync Pill buttons in Tab 5
+    document.querySelectorAll('#gan-chart-mode-pills .chart-mode-pill').forEach(btn => {
+      const mode = btn.getAttribute('data-gan-filter');
+      if (mode === state.ganFilter) {
+        btn.classList.add('active');
+        if (state.ganFilter === 'under80') {
+          btn.style.background = '#dc2626';
+          btn.style.color = '#ffffff';
+          btn.style.borderColor = '#dc2626';
+        } else {
+          btn.style.background = '';
+          btn.style.color = '';
+          btn.style.borderColor = '';
+        }
+      } else {
+        btn.classList.remove('active');
+        if (mode === 'under80') {
+          btn.style.background = 'rgba(239, 68, 68, 0.12)';
+          btn.style.color = '#dc2626';
+          btn.style.borderColor = '#ef4444';
+        } else {
+          btn.style.background = '';
+          btn.style.color = '';
+          btn.style.borderColor = '';
+        }
+      }
+    });
+
+    // 2. Sync Global Filter Dropdown
+    const selGan = document.getElementById('filter-gan-rate');
+    if (selGan && selGan.value !== state.ganFilter) {
+      selGan.value = state.ganFilter;
+    }
+
+    // 3. Toggle Callout Alert
+    const callout = document.getElementById('gan-filter-callout');
+    if (callout) {
+      callout.style.display = state.ganFilter === 'under80' ? 'flex' : 'none';
+    }
+
+    // 4. Re-render Chart & Detailed Tables
+    renderGanBarChart();
+    renderGanTab();
+  };
+
   function renderGanTab() {
     if (!D.gan || !D.gan.am) return;
 
@@ -3447,13 +3511,25 @@
       let listCa1 = [...D.gan.am].map(r => {
         const curr = r.ca1ton_w38 !== undefined ? r.ca1ton_w38 : (r.ca1ton_curr !== undefined ? r.ca1ton_curr : (r.ca1ton_w37 || 0));
         const prev = r.ca1ton_w37 !== undefined ? r.ca1ton_w37 : (r.ca1ton_prev !== undefined ? r.ca1ton_prev : (r.ca1ton_w36 || 0));
+        const tong = r.tong_w38 !== undefined ? r.tong_w38 : (r.tong_curr !== undefined ? r.tong_curr : (r.tong_w37 || 0));
         return {
           ...r,
           curr_val: curr,
           prev_val: prev,
+          tong_val: tong,
           diff_val: r.ca1ton_diff !== undefined ? r.ca1ton_diff : ((curr || 0) - (prev || 0))
         };
-      }).sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
+      });
+
+      if (state.ganFilter === 'under80') {
+        listCa1 = listCa1.filter(r => (r.tong_val || 0) < 0.80);
+      } else if (state.ganFilter === '80to90') {
+        listCa1 = listCa1.filter(r => (r.tong_val || 0) >= 0.80 && (r.tong_val || 0) < 0.90);
+      } else if (state.ganFilter === 'ge90') {
+        listCa1 = listCa1.filter(r => (r.tong_val || 0) >= 0.90);
+      }
+
+      listCa1.sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyCa1.innerHTML = listCa1.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
@@ -3490,7 +3566,17 @@
           prev_val: prev,
           diff_val: r.tong_diff !== undefined ? r.tong_diff : ((curr || 0) - (prev || 0))
         };
-      }).sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
+      });
+
+      if (state.ganFilter === 'under80') {
+        listCa2 = listCa2.filter(r => (r.curr_val || 0) < 0.80);
+      } else if (state.ganFilter === '80to90') {
+        listCa2 = listCa2.filter(r => (r.curr_val || 0) >= 0.80 && (r.curr_val || 0) < 0.90);
+      } else if (state.ganFilter === 'ge90') {
+        listCa2 = listCa2.filter(r => (r.curr_val || 0) >= 0.90);
+      }
+
+      listCa2.sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyCa2.innerHTML = listCa2.map((row, i) => {
         const isSelected = state.selectedAM === row.am;
@@ -3619,7 +3705,8 @@
     const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W38';
     const prevLabel = D.meta?.weeks && D.meta.weeks.length >= 2 ? D.meta.weeks[D.meta.weeks.length - 2] : 'W37';
     const selectedAM = state.selectedAM;
-    const sorted = [...D.gan.am].map(r => {
+
+    let list = [...D.gan.am].map(r => {
       const prev_val = r.tong_w37 !== undefined ? r.tong_w37 : (r.tong_prev !== undefined ? r.tong_prev : (r.tong_w36 || 0));
       const curr_val = r.tong_w38 !== undefined ? r.tong_w38 : (r.tong_curr !== undefined ? r.tong_curr : (r.tong_w37 || 0));
       const diff_val = curr_val - prev_val;
@@ -3633,68 +3720,124 @@
         tong_pct: Number((curr_val * 100).toFixed(1)),
         diff_pct: Number((diff_val * 100).toFixed(1))
       };
-    }).sort((a, b) => b.diff_pct - a.diff_pct); // Sort theo biến động WoW (W38 vs W37)
+    });
+
+    if (state.ganFilter === 'under80') {
+      list = list.filter(r => r.tong_pct < 80.0);
+      list.sort((a, b) => a.tong_pct - b.tong_pct); // Thấp nhất lên trước để ưu tiên giải pháp
+    } else if (state.ganFilter === '80to90') {
+      list = list.filter(r => r.tong_pct >= 80.0 && r.tong_pct < 90.0);
+      list.sort((a, b) => a.tong_pct - b.tong_pct);
+    } else if (state.ganFilter === 'ge90') {
+      list = list.filter(r => r.tong_pct >= 90.0);
+      list.sort((a, b) => b.tong_pct - a.tong_pct);
+    } else {
+      list.sort((a, b) => b.diff_pct - a.diff_pct); // Mặc định sort theo biến động WoW
+    }
+
+    const isUnder80 = state.ganFilter === 'under80';
+    const barMaxThick = isUnder80 ? 46 : 28;
 
     charts.ganBar = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: sorted.map(d => d.am),
+        labels: list.map(d => d.am),
         datasets: [
           {
             type: 'bar',
             label: `% Gán Ca 1 + Tồn (${currLabel})`,
-            data: sorted.map(d => d.ca1_pct),
+            data: list.map(d => d.ca1_pct),
             backgroundColor: '#c084fc',
             borderRadius: 4,
+            maxBarThickness: barMaxThick,
             yAxisID: 'y',
-            order: 2
+            order: 2,
+            datalabels: {
+              display: true,
+              anchor: 'end',
+              align: 'top',
+              color: '#7e22ce',
+              font: { weight: '800', size: isUnder80 ? 11 : 9 },
+              formatter: v => v + '%'
+            }
           },
           {
             type: 'bar',
             label: `% Gán Ca 2 (${currLabel})`,
-            data: sorted.map(d => d.ca2_pct),
+            data: list.map(d => d.ca2_pct),
             backgroundColor: '#9333ea',
             borderRadius: 4,
+            maxBarThickness: barMaxThick,
             yAxisID: 'y',
-            order: 2
+            order: 2,
+            datalabels: {
+              display: true,
+              anchor: 'end',
+              align: 'top',
+              color: '#581c87',
+              font: { weight: '800', size: isUnder80 ? 11 : 9 },
+              formatter: v => v > 0 ? v + '%' : '0%'
+            }
           },
           {
             type: 'bar',
             label: `% Gán Tổng ${currLabel} (Target ≥90%)`,
-            data: sorted.map(d => d.tong_pct),
-            backgroundColor: sorted.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : (d.tong_pct >= 90 ? '#10b981' : '#f59e0b')),
-            borderColor: sorted.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : 'transparent'),
-            borderWidth: sorted.map(d => selectedAM && selectedAM === d.am ? 3 : 0),
+            data: list.map(d => d.tong_pct),
+            backgroundColor: list.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : (d.tong_pct >= 90 ? '#10b981' : (d.tong_pct >= 80 ? '#f59e0b' : '#ef4444'))),
+            borderColor: list.map(d => selectedAM && selectedAM === d.am ? '#b91c1c' : 'transparent'),
+            borderWidth: list.map(d => selectedAM && selectedAM === d.am ? 3 : 0),
             borderRadius: 4,
+            maxBarThickness: barMaxThick,
             yAxisID: 'y',
-            order: 2
+            order: 2,
+            datalabels: {
+              display: true,
+              anchor: 'end',
+              align: 'top',
+              offset: 2,
+              color: d => d.parsed.y < 80 ? '#b91c1c' : (d.parsed.y >= 90 ? '#15803d' : '#b45309'),
+              font: { weight: '900', size: isUnder80 ? 12 : 9.5 },
+              formatter: v => v + '%'
+            }
           },
           {
             type: 'line',
             label: 'Đường Biến Động WoW (Δ %)',
-            data: sorted.map(d => d.diff_pct),
+            data: list.map(d => d.diff_pct),
             borderColor: '#f26522',
             borderWidth: 3,
             tension: 0.25,
-            pointBackgroundColor: sorted.map(d => d.diff_pct >= 0 ? '#10b981' : '#ef4444'),
+            pointBackgroundColor: list.map(d => d.diff_pct >= 0 ? '#10b981' : '#ef4444'),
             pointBorderColor: '#ffffff',
             pointBorderWidth: 2,
-            pointRadius: 6,
-            pointHoverRadius: 8,
+            pointRadius: isUnder80 ? 7 : 5,
+            pointHoverRadius: 9,
             yAxisID: 'y1',
-            order: 1
+            order: 1,
+            datalabels: {
+              display: true,
+              anchor: 'center',
+              align: 'top',
+              offset: 6,
+              color: '#c2410c',
+              backgroundColor: 'rgba(255, 255, 255, 0.92)',
+              borderRadius: 3,
+              padding: { top: 1, bottom: 1, left: 3, right: 3 },
+              font: { weight: '800', size: isUnder80 ? 10.5 : 8.5 },
+              formatter: v => (v > 0 ? '+' : '') + v + '%'
+            }
           }
         ]
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        layout: { padding: { top: 20, bottom: 10 } },
+        layout: { padding: { top: 26, bottom: 10 } },
         scales: {
           y: {
             position: 'left',
             min: 0,
-            max: 105,
+            max: 110,
             ticks: { callback: v => v + '%' },
           },
           y1: {
@@ -3704,7 +3847,7 @@
             ticks: { callback: v => (v > 0 ? '+' : '') + v + '%' }
           },
           x: {
-            ticks: { maxRotation: 45, minRotation: 30, font: { size: 11, weight: '600' } }
+            ticks: { maxRotation: isUnder80 ? 15 : 45, minRotation: isUnder80 ? 0 : 30, font: { size: isUnder80 ? 12 : 11, weight: '700' } }
           }
         },
         plugins: {
@@ -3717,7 +3860,7 @@
         },
         onClick: (event, elements) => {
           if (elements.length > 0) {
-            selectAndHighlightAM(sorted[elements[0].index].am);
+            selectAndHighlightAM(list[elements[0].index].am);
           }
         }
       }
