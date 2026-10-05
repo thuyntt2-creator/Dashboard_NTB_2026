@@ -113,8 +113,8 @@ def parse_san_luong_sheet():
                 items.append(item)
         return items
 
-    am_full = extract_rows(12, 30)
-    am_tts = extract_rows(34, 52)
+    am_full = extract_rows(11, 32)
+    am_tts = extract_rows(33, 55)
     tinh_full = extract_rows(56, 64)
     tinh_tts = extract_rows(65, 73)
 
@@ -172,8 +172,8 @@ def parse_standard_sheet(sheet_name):
                 items.append(item)
         return items
 
-    am_full = extract_rows(12, 30)
-    am_tts = extract_rows(34, 52)
+    am_full = extract_rows(11, 32)
+    am_tts = extract_rows(33, 55)
     tinh_full = extract_rows(56, 64)
     tinh_tts = extract_rows(65, 73)
 
