@@ -597,48 +597,117 @@ Bây giờ, em xin chuyển sang Tab 14 mổ xẻ Báo cáo Truy thu 2 tuần �
         "id": "tab-truythu",
         "title": "🗣️ BÁO CÁO TRUY THU 2 TUẦN: TIẾN ĐỘ THU HỒI CÔNG NỢ & XỬ LÝ TICKET TỒN ĐỌNG (BẬT TAB 14 DASHBOARD):",
         "content": """📍 1. BẢNG TỔNG HỢP SO SÁNH 2 TUẦN TRUY THU TOÀN VÙNG:
-• Tổng số bản ghi (ticket): 2.424 bản ghi (W39: 4.076 bản ghi, giảm -1.652 đơn / -40,5%).
+• Tổng số bản ghi (ticket): 2.424 bản ghi (W39: 4.076 bản ghi, giảm mạnh -1.652 đơn / -40,5%).
 • Số tiền phát sinh ban đầu: 433,1 Triệu VNĐ (W39: 317,3 Tr ₫, tăng +115,8 Tr ₫ / +36,5%).
 • Số tiền điều chỉnh giảm: -246,0 Triệu VNĐ (chủ yếu là đối soát bù trừ backlog vận hành kỳ trước).
 • Số tiền thực tế CẦN TRUY THU: 187,1 Triệu VNĐ (W39: 312,1 Tr ₫, giảm -125,0 Tr ₫ / -40,1% ➔ TIẾN BỘ TỐT).
 
-📍 2. BẢNG 1: CƠ CẤU CÁC LOẠI HÌNH VI PHẠM TRỌNG ĐIỂM:
-• 1. Liên đới chiếm dụng: 56,8 Triệu VNĐ (4 đơn hàng phát sinh).
+📍 2. BẢNG 1: CƠ CẤU CÁC LOẠI HÌNH VI PHẠM TRỌNG ĐIỂM (XẾP THEO TIỀN CẦN THU):
+• 1. Liên đới chiếm dụng: 56,8 Triệu VNĐ (4 đơn hàng phát sinh ➔ Giá trị bồi hoàn lớn nhất).
 • 2. Tick mất hàng: 41,2 Triệu VNĐ (53 đơn hàng).
 • 3. Mất / Thiếu / Tráo sản phẩm: 30,9 Triệu VNĐ (76 đơn hàng).
 • 4. Hàng hóa trễ hạn: 17,7 Triệu VNĐ (69 đơn hàng).
 • 5. Bồi thường COD: 11,8 Triệu VNĐ (4 đơn hàng).
+• 6. Khiếu nại chưa tick GTC: 8,8 Triệu VNĐ (13 đơn | Cảnh báo tăng mới).
+• 7. Đơn hàng hư hỏng: 8,2 Triệu VNĐ (95 đơn | Giảm tốt -17,3 Tr ₫).
+• 8. Khiếu nại chưa nhận hàng giao: 7,2 Triệu VNĐ (34 đơn).
+• 9. Kiện hàng bị thiếu đơn: 6,2 Triệu VNĐ (147 đơn).
+• 10. Giao lấy trả sai số lần quy định: 6,1 Triệu VNĐ (260 đơn).
+• 11. Quá hạn toàn trình: 5,4 Triệu VNĐ (132 đơn | Giảm -7,5 Tr ₫).
+• 12. Kiện thất lạc: 3,5 Triệu VNĐ (163 đơn | Giảm -5,6 Tr ₫).
+• 13. Thu dư tiền: 2,0 Triệu VNĐ (66 đơn).
+• 14. Backlog luân chuyển trả: 2,0 Triệu VNĐ (275 đơn | Giảm mạnh -51,6 Tr ₫).
+• 15. Dán nhầm phiếu & Sai quy trình G1P: 1,4 Tr – 1,5 Tr ₫.
 
 📍 3. BẢNG 2: PHÂN BỔ TRUY THU THEO TỈNH THÀNH:
-• Lâm Đồng: Cần thu 72,5 Tr ₫ (827 ticket | giảm -63,4% so với 197,9 Tr ₫ W39).
+• Lâm Đồng: Cần thu 72,5 Tr ₫ (827 ticket | giảm rất mạnh -63,4% so với 197,9 Tr ₫ W39).
 • Khánh Hòa: Cần thu 69,3 Tr ₫ (296 ticket | tăng so với 38,3 Tr ₫ W39 do phát sinh công nợ tại Bắc Cam Ranh).
 • Đắk Nông: Cần thu 28,3 Tr ₫ (774 ticket | giảm -44,7% so với 51,3 Tr ₫ W39).
-• Khác / Liên tỉnh: 11,4 Tr ₫ (377 ticket) | Bình Thuận: 4,8 Tr ₫ (93 ticket) | Ninh Thuận: 682 ngàn đồng (57 ticket ➔ Rất tốt).
+• Khác / Liên tỉnh: 11,4 Tr ₫ (377 ticket) | Bình Thuận: 4,8 Tr ₫ (93 ticket) | Ninh Thuận: 682 ngàn đồng (57 ticket ➔ Rất xuất sắc).
 
-📍 4. BẢNG 3: TÌNH HÌNH TRUY THU THEO MỘT SỐ AM CẦN CHÚ Ý:
-• Nguyễn Thanh Long: Cần thu 51,2 Triệu VNĐ (72 ticket) ➔ Điểm phát sinh chính tại bưu cục (KHO) Bắc Cam Ranh (48,7 Triệu VNĐ).
-• Lê Văn Trường: Cần thu 26,3 Triệu VNĐ (419 ticket cần đối soát) ➔ Điểm phát sinh tại BC Đơn Dương (12,8 Tr ₫) và BC Xuân Hương (8,5 Tr ₫).
-• Trần Văn Phước: Cần thu 22,9 Triệu VNĐ (288 ticket) ➔ BC Quảng Tín (13,0 Tr ₫) và BC Kiến Đức (9,1 Tr ₫).
-• Huỳnh Thị Kim Chi: Cần thu 21,3 Triệu VNĐ (110 ticket) ➔ BC Tân Hà Lâm Hà (21,3 Tr ₫).
+📍 4. BẢNG 3: XẾP HẠNG TIỀN CẦN TRUY THU THEO TẤT CẢ CÁC AM:
+• 🔴 NHÓM CẦN KIỂM SOÁT VÀ TẬP TRUNG XỬ LÝ (CHIẾM >65% TRUY THU TOÀN VÙNG):
+  1. Nguyễn Thanh Long: Cần thu 51,2 Triệu VNĐ (72 ticket, tăng +33,0 Tr | BC Bắc Cam Ranh 48,7 Tr).
+  2. Lê Văn Trường: Cần thu 26,3 Triệu VNĐ (419 ticket cần đối soát, giảm -48,3% so với 50,9 Tr | BC Đơn Dương 12,8 Tr, Lang Biang 2: 6,1 Tr).
+  3. Trần Văn Phước: Cần thu 22,9 Triệu VNĐ (288 ticket | BC Quảng Tín 13,0 Tr, BC Kiến Đức 9,1 Tr).
+  4. Huỳnh Thị Kim Chi: Cần thu 21,3 Triệu VNĐ (110 ticket, giảm -63,5% so với 58,3 Tr | BC Tân Hà Lâm Hà 21,3 Tr).
+• 🟢 NHÓM AM KIỂM SOÁT TỐT & TUYÊN DƯƠNG GIẢM MẠNH:
+  5. Phan Đình Duy: 8,9 Tr ₫ (86 ticket) | 6. Nguyễn Ngọc Khánh: 8,8 Tr ₫ (72 ticket).
+  7. Hồng Bích Nga: 8,1 Tr ₫ (60 ticket | Giảm kỷ lục -42,6 Tr từ 50,7 Tr W39).
+  8. Lê Minh Lợi: 8,0 Tr ₫ (46 ticket | BC Lang Biang 1: 8,0 Tr).
+  9. Thái Thị Thanh Thư: 6,8 Tr ₫ (80 ticket).
+  10. Trầm Hữu Tiến: 6,3 Tr ₫ (149 ticket | Giảm mạnh -22,2 Tr từ 28,4 Tr W39).
+  11. Chưa gán / KTC: 5,4 Tr ₫ (334 ticket) | 12. Trần Thị Nhung: 4,6 Tr ₫ (57 ticket).
+  13. Nguyễn Lê Nguyên Vũ: 2,5 Tr ₫ (26 ticket) | 14. Nguyễn Hoàng Phi: 2,4 Tr ₫ (58 ticket).
+  15. Lê Thanh Nhựt: 1,3 Tr ₫ (43 ticket).
+  16. Huỳnh Thúc Duân: 815 ngàn đồng (429 ticket | Giảm -15,6 Tr từ 16,4 Tr W39).
+  17. Nguyễn Duy Long: 763 ngàn đồng (60 ticket ➔ Rất tốt).
+  18. Cao Thị Thanh Thủy: 589 ngàn đồng (18 ticket ➔ Rất tốt).
+  19. Nguyễn Thị Tuyết Thơ: 18 ngàn đồng (17 ticket ➔ Tốt nhất vùng).
+
+📍 5. BẢNG 4: TOP 10 BƯU CỤC CÓ SỐ TIỀN CẦN TRUY THU CAO NHẤT:
+• 1. (KHO) Bắc Cam Ranh (Khánh Hòa - AM Long): 48,7 Triệu VNĐ (8 đơn | tuần trước 14,3 Tr, tăng +34,4 Tr).
+• 2. (LDO) Tân Hà Lâm Hà (Lâm Đồng - AM Kim Chi): 21,3 Triệu VNĐ (98 đơn | đã giảm -25,5 Tr so với 46,8 Tr).
+• 3. (DNO) Quảng Tín (Đắk Nông - AM Trần Văn Phước): 13,0 Triệu VNĐ (72 đơn).
+• 4. (LDO) Đơn Dương (Lâm Đồng - AM Lê Văn Trường): 12,8 Triệu VNĐ (118 đơn | đã giảm -9,1 Tr).
+• 5. (DNO) Kiến Đức (Đắk Nông - AM Trần Văn Phước): 9,1 Triệu VNĐ (196 đơn).
+• 6. (LDO) Lang Biang - Đà Lạt 1 (Lâm Đồng - AM Lê Minh Lợi): 8,0 Triệu VNĐ (46 đơn).
+• 7. (LDO) Lang Biang - Đà Lạt 2 (Lâm Đồng - AM Lê Văn Trường): 6,1 Triệu VNĐ (150 đơn | đã giảm -7,5 Tr).
+• 8. (LDO) Bảo Lâm 1 (Lâm Đồng - AM Hồng Bích Nga): 6,1 Triệu VNĐ (25 đơn | Giảm kỷ lục -44,5 Tr từ 50,6 Tr tuần trước!).
+• 9. Kho Chuyển Tiếp Bình Thuận (Khác - AM Nguyễn Ngọc Khánh): 6,0 Triệu VNĐ (44 đơn).
+• 10. (LDO) Di Linh (Lâm Đồng - AM Trầm Hữu Tiến): 5,5 Triệu VNĐ (96 đơn | Giảm -13,9 Tr từ 19,5 Tr).
 
 🎙️ LỜI THOẠI THUYẾT TRÌNH (KHI BẬT TAB 14 DASHBOARD TRUY THU):
 "Kính thưa Ban Giám Đốc và các anh chị AM,
-Bước sang Tab 14 Báo cáo Truy thu 2 tuần:
-Tin tích cực là tổng số tiền cần truy thu thực tế toàn vùng trong tuần W40 đã giảm 40,1%, từ 312 triệu xuống còn 187,1 triệu đồng, và số lượng ticket phát sinh giảm hơn 1.600 bản ghi.
-Tuy nhiên, số tiền vi phạm phát sinh ban đầu ghi nhận 433,1 triệu đồng, trong đó có một số vụ việc công nợ và ticket tồn đọng cần được các AM phối hợp xử lý dứt điểm:
+Bước sang Tab 14 là Báo cáo Truy thu 2 tuần (so sánh W39 và W40):
+Điểm đáng ghi nhận đầu tiên là tổng số tiền cần truy thu thực tế toàn vùng trong tuần qua đã giảm sâu 40,1%, từ 312,1 triệu xuống còn 187,1 triệu đồng, đồng thời số lượng ticket phát sinh giảm hơn 1.650 bản ghi (từ hơn 4.000 đơn xuống còn 2.424 đơn). Khâu đối soát và bù trừ điều chỉnh giảm cũng đã giải quyết được 246 triệu đồng.
 
-Thứ nhất là vụ việc công nợ tại bưu cục Bắc Cam Ranh thuộc khu vực của anh Nguyễn Thanh Long:
-Ghi nhận phát sinh 48,7 triệu đồng liên quan đến việc thu hồi tiền hàng COD. Đề nghị anh Long phối hợp chặt chẽ với bộ phận Thanh tra - Pháp chế vùng và cơ quan chức năng địa phương để theo dõi, thu hồi dứt điểm số tiền này về cho công ty theo đúng quy trình pháp lý.
-Thứ hai là khâu đối soát ticket khiếu nại tại khu vực của anh Lê Văn Trường:
-Hiện đang có khoảng 419 ticket tồn đọng với số tiền 26,3 triệu đồng (tập trung tại Đơn Dương và Xuân Hương), và cụm của chị Kim Chi tại Tân Hà Lâm Hà có 110 ticket (21,3 triệu đồng).
+Tuy nhiên, nhìn sâu vào cơ cấu dữ liệu, chúng ta cần phân tích rất rõ 3 góc độ: Loại hình vi phạm nào phát sinh nhiều tiền nhất, AM nào cần tập trung xử lý, và bưu cục nào là điểm nóng:
 
-🔍 NGUYÊN NHÂN & GIẢI PHÁP THỰC HIỆN:
-Các ticket này chủ yếu liên quan đến việc xử lý bồi thường mất hàng, thiếu hàng hoặc hư hỏng phát sinh trong quá trình vận chuyển. Do khối lượng công việc nhiều nên việc đối soát và phân định trách nhiệm đôi khi còn kéo dài.
-Kế hoạch hành động tuần W41:
-1. Đối với vụ việc Bắc Cam Ranh: Anh Long bám sát tiến độ xử lý cùng Pháp chế vùng, phấn đấu thu hồi dứt điểm trong tuần tới.
-2. Đối với các ticket tồn đọng: Đề nghị anh Trường và chị Chi bố trí nhân sự chuyên trách phối hợp với phòng Dịch vụ khách hàng để rà soát, phân loại và hoàn tất đối soát các ticket tồn trước ngày 10/10.
-3. Phòng Tài chính tiếp tục hỗ trợ các bưu cục kiểm soát chặt chẽ công nợ hàng ngày, hướng tới mục tiêu đưa tổng tiền cần truy thu toàn vùng về dưới 100 triệu đồng.
-Bây giờ, em xin phép chuyển sang Tab 15 xem tình hình Kinh doanh & Khách hàng F30 ạ!\""""
+1. Về cơ cấu các LOẠI HÌNH TRUY THU:
+Có 5 nhóm loại hình chiếm tỷ trọng tiền lớn nhất mà các bưu cục cần siết chặt:
+- Lớn nhất là Liên đới chiếm dụng: Chiếm 56,8 triệu đồng (phát sinh qua 4 đơn hàng). Đây là nhóm rủi ro cao nhất liên quan đến việc thu hồi tiền hàng COD và nghĩa vụ bàn giao quỹ của nhân sự bưu cục.
+- Thứ hai là Tick mất hàng: Chiếm 41,2 triệu đồng với 53 đơn hàng.
+- Thứ ba là Mất, thiếu hoặc tráo đổi sản phẩm: Chiếm 30,9 triệu đồng với 76 đơn.
+- Thứ tư là Hàng hóa trễ hạn: Chiếm 17,7 triệu đồng với 69 đơn.
+- Thứ năm là Bồi thường COD: Ghi nhận 11,8 triệu đồng qua 4 đơn.
+- Ngoài ra, chúng ta có một số cảnh báo mới như lỗi Khiếu nại chưa tick GTC phát sinh 8,8 triệu đồng (13 đơn), Kiện hàng thiếu đơn phát sinh 6,2 triệu đồng (147 đơn) và Sai số lần giao nhận 6,1 triệu đồng. Điểm tích cực là các lỗi như Đơn hàng hư hỏng (8,2 Tr), Quá hạn toàn trình (5,4 Tr) và Kiện thất lạc (3,5 Tr) đều đã được kéo giảm từ 5 đến 17 triệu đồng so với tuần trước.
+
+2. Về tình hình theo từng AM PHỤ TRÁCH:
+Toàn vùng phân hóa thành 2 bức tranh rất rõ nét:
+- Ở nhóm cần tập trung xử lý dứt điểm (4 AM chiếm hơn 65% tổng truy thu toàn vùng):
+  + Đứng đầu là anh Nguyễn Thanh Long với 51,2 triệu đồng (72 ticket), tăng thêm 33 triệu đồng so với tuần trước. Nguyên nhân chủ yếu nằm ở vụ việc công nợ tại bưu cục Bắc Cam Ranh.
+  + Thứ hai là anh Lê Văn Trường với 26,3 triệu đồng. Mặc dù số tiền đã giảm gần một nửa (-48,3% so với 50,9 triệu tuần trước), nhưng anh Trường hiện là AM có khối lượng ticket tồn đọng lớn nhất vùng với 419 ticket, đòi hỏi phải tập trung nhân lực đối soát.
+  + Thứ ba là anh Trần Văn Phước với 22,9 triệu đồng (288 ticket), tập trung tại 2 bưu cục Quảng Tín và Kiến Đức của Đắk Nông.
+  + Thứ tư là chị Huỳnh Thị Kim Chi với 21,3 triệu đồng (110 ticket), toàn bộ nằm tại cụm Tân Hà Lâm Hà.
+- Ở chiều ngược lại, em xin biểu dương tinh thần trách nhiệm và kết quả thu hồi rất xuất sắc của các AM:
+  + Điển hình là chị Hồng Bích Nga: Tuần trước truy thu lên tới 50,7 triệu đồng, nhưng sang tuần này chị Nga đã quyết liệt xử lý đối soát kéo giảm sâu -42,6 triệu đồng (giảm 84%), hiện chỉ còn 8,1 triệu đồng.
+  + Anh Trầm Hữu Tiến cũng kéo giảm truy thu từ 28,4 triệu xuống còn 6,3 triệu đồng.
+  + Anh Huỳnh Thúc Duân giải quyết dứt điểm các khoản tồn, giảm từ 16,4 triệu xuống chỉ còn 815 ngàn đồng (giảm 95%).
+  + Đặc biệt, anh Nguyễn Duy Long ở Ninh Thuận chỉ có 763 ngàn đồng, chị Cao Thị Thanh Thủy ở Khánh Hòa chỉ có 589 ngàn đồng, và chị Tuyết Thơ ở Lâm Đồng chỉ vỏn vẹn 18 ngàn đồng. Đây là hình mẫu về quản trị rủi ro và đối soát bưu cục mà các khu vực khác cần học hỏi.
+
+3. Về các BƯU CỤC ĐIỂM NÓNG cần theo dõi sát sao:
+Nhìn vào bảng Top 10 bưu cục có số tiền cần truy thu cao nhất:
+- Bưu cục đứng đầu là (KHO) Bắc Cam Ranh của anh Long với 48,7 triệu đồng (chiếm tới 95% tổng truy thu của cụm anh Long). Vụ việc này liên quan đến khoản công nợ COD bưu tá nghỉ việc, hiện đang phối hợp với Pháp chế.
+- Thứ hai là bưu cục (LDO) Tân Hà Lâm Hà của chị Kim Chi với 21,3 triệu đồng (đã giảm 25,5 triệu so với 46,8 triệu tuần trước nhưng vẫn cần tiếp tục thu hồi dứt điểm).
+- Thứ ba là bưu cục (DNO) Quảng Tín của anh Phước với 13,0 triệu đồng (72 đơn).
+- Thứ tư là bưu cục (LDO) Đơn Dương của anh Trường với 12,8 triệu đồng (118 đơn).
+- Thứ năm là bưu cục (DNO) Kiến Đức của anh Phước với 9,1 triệu đồng (196 đơn).
+- Ngoài ra là cụm Đà Lạt gồm Lang Biang 1 của anh Lợi (8,0 triệu đồng) và Lang Biang 2 của anh Trường (6,1 triệu đồng).
+- Một điểm sáng bưu cục rất đáng khen ngợi là BC Bảo Lâm 1: Tuần trước ghi nhận hơn 50,5 triệu đồng, tuần này chị Nga đã đối soát thu hồi xử lý dứt điểm, giảm hơn 44 triệu, hiện chỉ còn 6,1 triệu đồng.
+
+🔍 NGUYÊN NHÂN CỐT LÕI & KẾ HOẠCH HÀNH ĐỘNG TUẦN W41:
+Phân tích nguyên nhân gốc rễ cho thấy:
+1. Nhóm công nợ lớn (chiếm dụng, COD): Phát sinh từ việc quản lý dòng tiền bưu tá nộp cuối ngày chưa nghiêm ngặt, hoặc bưu tá nghỉ việc bàn giao công nợ chậm trễ.
+2. Nhóm ticket bồi thường (mất hàng, thiếu hàng, hư hỏng, trễ hạn): Do khâu đối soát trách nhiệm giữa bưu cục nhận - KTC trung chuyển - bưu cục phát còn chậm, dẫn đến ticket bị treo dồn qua nhiều kỳ.
+
+Kế hoạch hành động cụ thể cho tuần tới:
+- Đối với anh Long & BC Bắc Cam Ranh: Đầu mối phối hợp trực tiếp với Trưởng phòng Pháp chế vùng và cơ quan công an địa phương để hoàn tất thu hồi dứt điểm 48,7 triệu đồng trong tuần này, báo cáo tiến độ hàng ngày.
+- Đối với anh Trường & chị Kim Chi: Cắt cử nhân sự bưu cục phối hợp cùng phòng CS/Audit rà soát dứt điểm danh sách 419 ticket tại Đơn Dương, Lang Biang và 110 ticket tại Tân Hà Lâm Hà trước ngày 10/10, không để ticket tồn đọng kéo dài sang tuần thứ ba.
+- Đối với anh Phước: Tập trung xử lý các ticket tồn tại Quảng Tín và Kiến Đức, siết chặt quy trình đóng bao niêm phong chống thất lạc hàng hóa.
+- Đối với toàn vùng: Áp dụng bài học quản trị của chị Nga, anh Duân, anh Long Ninh Thuận: Bưu cục chốt quỹ COD 100% trong ngày, phát sinh ticket là đối soát ngay trong 24 giờ.
+- Mục tiêu toàn vùng tuần W41: Kéo giảm tổng số tiền cần truy thu về dưới 100 triệu đồng và xử lý dứt điểm trên 80% số lượng ticket tồn đọng.
+Bây giờ, em xin phép chuyển sang Tab 15 xem tình hình Doanh thu Kinh doanh & Khách hàng F30 nhé!\""""
     },
 
     # ----------------------------------------------------
