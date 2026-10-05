@@ -247,53 +247,63 @@ Em đề nghị tuần tới, các AM nhóm dưới phải duy trì đà tiến 
 
 ## 🔥 [IV. PHÂN TÍCH CHUYÊN SÂU %GTC CA 1 (HÀNG TỒN & HÀNG THUẦN) (W40)]
 
-### 🗣️ MỔ XẺ GIAO HÀNG CA 1 SÁNG: HÀNG TỒN (52.8%) VS HÀNG THUẦN (72.4%):
+### 🗣️ MỔ XẺ GIAO HÀNG CA 1 SÁNG: HÀNG TỒN (63,6%) VS HÀNG THUẦN (77,3%) — TIKTOK SHOP BỨT PHÁ 81,3%:
 
-**📍 1. BẢNG HIỆU SUẤT GIAO CA 1 THEO 5 TỈNH THÀNH (W40):**
+**📍 1. BẢNG HIỆU SUẤT GIAO CA 1 TOÀN VÙNG (W40 vs W39):**
 
-• Toàn vùng: GTC Ca 1 Hàng Tồn đạt 52,80% (tăng +3,8%p) | GTC Ca 1 Hàng Thuần đạt 72,40% (tăng +3,1%p; TTS đạt đỉnh 75,80%).
+• Hàng Thuần Ca 1 (Hàng mới sáng sớm): Full hàng đạt 77,35% (tăng +4,38%p WoW); đặc biệt kênh TikTok Shop (TTS) bứt phá ngoạn mục lên 81,34% (tăng +6,17%p WoW so với W39: 75,16%) — chính thức vượt chuẩn xuất sắc ≥80%!
 
-• Bình Thuận: Hàng Tồn 58,4% | Hàng Thuần 76,2% ➔ Đạt chuẩn SLA toàn diện.
+• Hàng Tồn + Ca 1 Tổng (Bao gồm đơn tồn cũ): Full hàng đạt 63,56% (+4,87%p); kênh TikTok Shop đạt 66,47% (+6,58%p).
 
-• Khánh Hòa: Hàng Tồn 56,1% | Hàng Thuần 74,5% ➔ Xử lý hàng tồn đầu ngày rất sạch.
+**📍 2. HIỆU SUẤT GIAO CA 1 HÀNG THUẦN TIKTOK SHOP (TTS) THEO 5 TỈNH THÀNH:**
 
-• Ninh Thuận: Hàng Tồn 53,2% | Hàng Thuần 71,8%.
+• Bình Thuận: 86,45% (W39: 84,64%, +1,81%p) ➔ Dẫn đầu toàn vùng về hiệu suất phát sàn sáng.
 
-• Đắk Nông: Hàng Tồn 49,5% | Hàng Thuần 68,9% ➔ Hàng tồn đã kéo lên sát 50%.
+• Ninh Thuận: 83,78% (W39: 84,75%) ➔ Duy trì vị trí số 2 xuất sắc.
 
-• Lâm Đồng: Hàng Tồn 48,2% | Hàng Thuần 67,5% ➔ Nút thắt lớn nhất nằm ở đơn tồn dồn toa.
+• Lâm Đồng: 80,22% (W39: 66,85%, tăng bùng nổ +13,37%p!) ➔ Lần đầu tiên vượt ngưỡng 80% Ca 1 TTS!
 
-**📍 2. BÓC TÁCH NGUYÊN NHÂN LỆCH PHA:**
+• Khánh Hòa: 80,15% (W39: 75,77%, tăng +4,37%p) ➔ Đạt chuẩn xuất sắc >80%.
 
-• Hàng Thuần Ca 1 (hàng mới về trong đêm) được shipper ưu tiên chọn giao trước nên đạt tỷ lệ thành công rất cao (72,4%, riêng TTS đạt gần 76%).
+• Đắk Nông: 72,78% (W39: 67,81%, tăng mạnh +4,97%p).
 
-• Hàng Tồn Ca 1 (hàng của ngày hôm trước trôi sang) chỉ đạt 52,8%: Shipper có tâm lý ngại cầm hàng cũ đi phát vì sợ khách đổi ý không lấy hoặc địa chỉ khó tìm.
+**📍 3. TOP AM GIAO CA 1 HÀNG THUẦN TIKTOK SHOP XUẤT SẮC NHẤT:**
+
+• Top 1 GTC Ca 1 TTS: AM Nguyễn Ngọc Khánh đạt 88,94%, kế đến là AM Nguyễn Đỗ Minh Nghĩa đạt 87,02%, AM Cao Thị Thanh Thủy đạt 87,01%.
+
+• Đầu tàu gánh tải Ca 1 TTS lớn nhất: AM Nguyễn Duy Long xử lý hơn 10 ngàn đơn (10.257 đơn) với tỷ lệ giao thành công lên tới 85,05%!
+
+• Đóng góp bứt phá nhất Ca 1 TTS: AM Lê Văn Trường tăng vọt +24,72%p (từ 55,56% lên 80,28%) và AM Nguyễn Thanh Long tăng +16,40%p (từ 66,58% lên 82,98%).
 
 
 > **🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 4 & 5 GTC CA 1):**
 
-"Dạ khi chuyển sang Tab 4 và Tab 5 mổ xẻ chi tiết ca sáng, mọi người sẽ thấy rõ điểm nghẽn thực sự của khâu Last-mile:
+"Dạ khi chuyển sang Tab 4 và Tab 5 mổ xẻ chi tiết ca phát sáng, mọi người sẽ thấy một điểm sáng rất đáng tự hào:
 
-Nhìn vào hàng thuần mới về sáng sớm, toàn vùng giao cực kỳ tốt, đạt tới 72,4%, riêng đơn TikTok Shop lên tới gần 76%, chạm đúng trần kỳ vọng của sàn.
+Đối với hàng thuần mới về sáng sớm, tỷ lệ giao thành công Full hàng toàn vùng đã tăng lên 77,35%, và đặc biệt là phân khúc TikTok Shop (TTS) tuần này đã chính thức bứt phá ngoạn mục vượt qua mốc 81% (đạt 81,34%, tăng mạnh +6,17%p so với mức 75,16% của W39)! Cả 4/5 tỉnh gồm Bình Thuận (86,5%), Ninh Thuận (83,8%), Lâm Đồng (80,2%) và Khánh Hòa (80,2%) đều đã xuất sắc vượt qua mốc 80% đối với hàng sàn Ca 1 sáng!
 
-Nhưng khi nhìn sang thẻ Hàng Tồn ở Tab 4, tỷ lệ thành công lập tức tụt xuống còn 52,8%, chênh lệch nhau tới gần 20%p!
+Soi vào AM: Anh Khánh (88,9%), anh Nghĩa (87,0%), chị Thủy (87,0%) và anh Long (85,1% trên hơn 10 ngàn đơn) đều có tỷ lệ giao ca sáng cực kỳ ấn tượng.
+
+Đặc biệt, anh Lê Văn Trường ở Lâm Đồng đã kéo GTC Ca 1 TTS tăng phi mã tới gần +25%p (từ 55,6% lên 80,3%), chứng minh khi anh em tập trung xuất tuyến sớm, đơn sàn giao cực kỳ thoát!
+
+Tuy nhiên, khi nhìn sang thẻ Hàng Tồn ở Tab 4, tỷ lệ thành công chung lập tức tụt xuống còn 63,56%, chênh lệch nhau tới gần 14%p!
 
 Tại sao lại như vậy?
 
-Qua kiểm tra thực tế tại các kho bưu cục ở Đà Lạt và Gia Nghĩa, em thấy shipper sáng ra lấy hàng chỉ chăm chăm lựa các kiện hàng thuần mới tinh để giao cho nhanh lấy số. Còn các đơn tồn từ hôm trước dồn lại thì để dưới đáy sọt hoặc để lại góc kho, không ưu tiên phát sớm.
+Bởi vì shipper sáng ra lấy hàng vẫn còn thói quen lựa các kiện hàng thuần mới tinh để giao trước cho nhanh. Còn các đơn tồn từ hôm trước dồn lại thì để dưới đáy sọt hoặc để lại góc kho, không ưu tiên phát sớm.
 
-Hàng tồn để càng lâu thì tỷ lệ khách hủy càng cao. Ở Lâm Đồng hàng tồn Ca 1 chỉ đạt 48,2% và Đắk Nông đạt 49,5%.
+Hàng tồn để càng lâu thì tỷ lệ khách đổi ý không lấy càng cao.
 
-Anh Trường, anh Tiến với anh Linh phải quán triệt lại cho bưu tá: Quy tắc bất di bất dịch của GHN là 'First In - First Out', hàng cũ tồn hôm qua phải được gán và mang đi phát ngay chuyến đầu tiên lúc 8h sáng, không được găm hàng lại bưu cục!"
+Em đề nghị các AM nhóm dưới như anh Trường, anh Vũ và anh Linh phải quán triệt lại cho bưu tá: Quy tắc bất di bất dịch của GHN là 'First In - First Out', hàng cũ tồn hôm qua phải được gán và mang đi phát ngay chuyến đầu tiên lúc 8h sáng, không được găm hàng lại bưu cục!"
 
 
 > 💡 **Điểm sáng & Insight vận hành:**
-> - Hàng thuần ca 1 đạt 75,8% TTS chứng minh năng lực giao hàng của shipper GHN rất tốt khi khách có nhu cầu nhận ngay.
-> - Độ trễ 20%p giữa hàng tồn và hàng thuần khẳng định shipper đang phân biệt đối xử với các kiện hàng cũ.
+> - Hàng thuần Ca 1 TikTok Shop đạt kỷ lục 81,34% (tăng +6,17%p WoW), chứng minh khách hàng mua sàn TMĐT có nhu cầu nhận hàng ca sáng rất cao và shipper giao rất hiệu quả.
+> - Độ lệch ~14%p giữa hàng thuần (77,35%) và hàng tồn (63,56%) khẳng định shipper vẫn còn tâm lý ưu tiên hàng mới, bỏ bê hàng tồn hôm trước.
 
 
 > ⚠️ **Cảnh báo rủi ro & Điểm nóng:**
-> - Đơn tồn ca 1 dưới 50% tại Lâm Đồng và Đắk Nông đang biến hàng trăm kiện hàng thành đơn tồn aging và tăng tỷ lệ hoàn trả oan uổng.
+> - Cần kiểm soát chặt chẽ việc shipper không chịu mang hàng tồn đi phát chuyến 1 đầu ngày, dẫn tới trôi sang ca chiều và rớt GTC.
 
 
 > 🎯 **Hành động cụ thể & Giao việc hiện trường:**
