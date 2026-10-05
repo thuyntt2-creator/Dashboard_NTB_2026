@@ -181,6 +181,16 @@ Bây giờ em xin phép chuyển sang Tab 3 để xem tỷ lệ Giao thành côn
 
 • 8️⃣ AM Trần Thị Nhung (Đắk Nông): Tăng +3,49%p (từ 55,46% lên 58,95% với 37.073 đơn).
 
+**📍 4. BÓC TÁCH RIÊNG PHÂN KHÚC %GTC TIKTOK SHOP (TTS) — ĐỘNG LỰC BỨT PHÁ 63,38% (+5,84%p WoW):**
+
+• Toàn vùng TTS: Đạt đỉnh 63,38% (tăng vọt +5,84%p WoW so với W39: 57,54%), cao hơn Full hàng chung 2,51%p (60,87%).
+
+• Theo 5 Tỉnh thành TTS: Lâm Đồng tăng số 1 vùng +10,36%p (từ 48,73% lên 59,09% với 24.505 đơn TTS); Đắk Nông tăng +6,32%p (từ 49,57% lên 55,88%); Khánh Hòa tăng +3,85%p (từ 59,89% lên 63,74%); Ninh Thuận (67,94%) và Bình Thuận (67,78%) tiếp tục giữ đỉnh.
+
+• Top AM tăng trưởng GTC TTS mạnh nhất (Δ WoW): 🥇 AM Nguyễn Thanh Long (+14,84%p, từ 46,1% lên 61,0%), 🥈 AM Lê Minh Lợi (+14,57%p), 🥉 AM Lê Văn Trường (+11,41%p, từ 39,9% lên 51,3%), 4️⃣ AM Nguyễn Lê Nguyên Vũ (+9,41%p, từ 41,5% lên 51,0%), 5️⃣ AM Hồng Bích Nga (+5,58%p, từ 55,1% lên 60,7%).
+
+• Top AM đạt %GTC TTS cao nhất vùng: 🥇 Nguyễn Ngọc Khánh (75,56%), 🥈 Nguyễn Đỗ Minh Nghĩa (70,77%), 🥉 Nguyễn Duy Long (69,42% — Gánh sản lượng TTS lớn nhất vùng: 18.628 đơn), 4️⃣ Cao Thị Thanh Thủy (69,30%), 5️⃣ Nguyễn Thị Tuyết Thơ (68,73%).
+
 
 > **🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 3 GTC TỔNG):**
 
@@ -204,9 +214,15 @@ Thứ hai là anh Lê Văn Trường ở Lâm Đồng: Tăng phi thường +11,9
 
 Thứ ba là anh Trương Quang Linh ở Đắk Nông: Tăng bứt phá mạnh nhất toàn vùng với +14,5%p (từ 25,8% lên 40,3%). Bên cạnh đó, anh Vũ (+7,5%p), chị Nhi (+9,0%p) và chị Nhung (+3,5%p trên 37 ngàn đơn) cũng là những nhân tố nòng cốt kéo toàn bộ khu vực Tây Nguyên thoát đáy!
 
-Bên cạnh các AM tăng trưởng mạnh, em cũng xin ghi nhận anh Nguyễn Ngọc Khánh (Bình Thuận) giữ vững ngôi Quán quân GTC toàn vùng với 74,5%, và anh Nguyễn Duy Long tiếp tục là đầu tàu gánh sản lượng lớn nhất toàn vùng (gần 43 ngàn đơn Full hàng) với GTC rất vững 69,0%.
+Đặc biệt khi nhìn sang kênh TikTok Shop (TTS):
 
-Tuy nhiên, Ban Giám Đốc lưu ý giúp em nhóm các AM vẫn còn nằm dưới mốc 50%:
+Hiệu suất giao sàn TMĐT tuần này bùng nổ vượt bậc khi đạt kỷ lục 63,38% (tăng vọt tới +5,84%p WoW), cao hơn mặt bằng chung 2,51%p!
+
+Trong đó, anh Nguyễn Thanh Long ở Cam Ranh tăng trưởng kỷ lục +14,84%p GTC TTS, anh Lê Văn Trường kéo GTC TTS Lâm Đồng tăng tới hơn +10,3%p, và anh Nguyễn Duy Long tiếp tục là 'lá chắn thép' khi gánh tới gần 19 ngàn đơn TikTok Shop mà vẫn duy trì GTC TTS chuẩn đét ở mức 69,42%!
+
+Quán quân GTC TikTok Shop tuần này thuộc về anh Nguyễn Ngọc Khánh (75,56%) và anh Nguyễn Đỗ Minh Nghĩa (70,77%).
+
+Tuy nhiên, Ban Giám Đốc lưu ý giúp em nhóm các AM vẫn còn nằm dưới mốc 50% GTC:
 
 Dù anh Lợi (+5,9%p), chị Nhi (+9,0%p) và anh Linh (+14,5%p) đã có tiến bộ vượt bậc, nhưng GTC tuyệt đối vẫn còn dưới 40%, shipper vẫn chưa linh hoạt đổi ca phát chiều tối.
 
@@ -215,7 +231,7 @@ Em đề nghị tuần tới, các AM nhóm dưới phải duy trì đà tiến 
 
 > 💡 **Điểm sáng & Insight vận hành:**
 > - Động lực tăng trưởng GTC tuần W40 (+4,19%p toàn vùng) chủ yếu đến từ sự bứt phá của AM Lê Văn Trường (+11,85%p / 37,4k đơn) và AM Thái Thị Thanh Thư (+9,63%p / 35,9k đơn).
-> - Kênh TikTok Shop đạt 63,38% GTC, cao hơn Full hàng 2,51%p, cho thấy đơn sàn TMĐT có độ hoàn tất nhanh hơn đơn hàng ngoài.
+> - Kênh TikTok Shop đạt đỉnh 63,38% GTC (tăng +5,84%p WoW), trong đó Lâm Đồng bứt phá +10,36%p và Đắk Nông tăng +6,32%p.
 
 
 > ⚠️ **Cảnh báo rủi ro & Điểm nóng:**
