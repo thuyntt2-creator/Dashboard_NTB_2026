@@ -100,16 +100,6 @@
         "diff_pct": -0.108,
         "is_good": true,
         "icon": "shield-alert"
-      },
-      {
-        "id": "cod_tm",
-        "title": "Tỷ Lệ Tiền Mặt COD",
-        "val": 0.371,
-        "unit": "%",
-        "diff": -0.03,
-        "diff_pct": -0.075,
-        "is_good": true,
-        "icon": "qr-code"
       }
     ],
     "kpis_trend": [
@@ -10200,7 +10190,7 @@
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 60,
-      "last_updated": "18:32 - 05/10/2026"
+      "last_updated": "19:08 - 05/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 1914.18,
@@ -10248,7 +10238,7 @@
         "fixed_cost": 234.88,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, NAK",
         "truck_count": 9
       },
       {
@@ -10261,7 +10251,7 @@
         "fixed_cost": 200.54,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Trâm Hoá, Tốt và Rẻ",
+        "primary_ncc": "Lâm Ngọc Thành, Tốt và Rẻ",
         "truck_count": 5
       },
       {
@@ -10287,7 +10277,7 @@
         "fixed_cost": 73.39,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Công Định",
+        "primary_ncc": "Công Định, NAK",
         "truck_count": 6
       },
       {
@@ -10316,7 +10306,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 38,
-        "active_ktcs": "KTC Đức Trọng, KTC Khánh Hòa, KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Bình Thuận"
+        "active_ktcs": "KTC Khánh Hòa, KTC Bình Thuận, KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Đức Trọng"
       },
       {
         "ncc": "NAK",
@@ -10355,7 +10345,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 4,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
+        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Tốt và Rẻ",
