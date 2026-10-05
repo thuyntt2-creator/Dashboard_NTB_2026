@@ -1,99 +1,35 @@
-import os
-import re
+import sys, os, gspread
+from google.oauth2.credentials import Credentials
 
-def read_file(path):
-    if not os.path.exists(path):
-        return None
-    # Try different encodings
-    for enc in ['utf-16', 'utf-8', 'latin1', 'utf-16-le', 'utf-16-be']:
-        try:
-            with open(path, 'r', encoding=enc) as f:
-                content = f.read()
-                if len(content) > 10:
-                    print(f"Successfully read {path} with {enc}")
-                    return content
-        except Exception:
-            continue
-    return None
+sys.stdout.reconfigure(encoding='utf-8')
+AUTH_FILE = r'C:\Users\lap4all\Documents\Auto report\authorized_user.json'
+creds = Credentials.from_authorized_user_file(AUTH_FILE, scopes=['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive'])
+gc = gspread.authorize(creds)
 
-current = read_file(r"templates/index.html")
-base = read_file(r"scratch/index.html.base")
-patched = read_file(r"scratch/index.html.patched")
+sh = gc.open_by_key('1-p9VUXndK_7BoiT-a81UfTCbUi953XNmVBoXaTGis_c')
+ws_bc = sh.worksheet('BaoCao')
+ws_td = sh.worksheet('tự động')
 
-def get_block(content, start_pattern, end_pattern):
-    if not content:
-        return "No content"
-    match = re.search(start_pattern, content)
-    if not match:
-        return "Start not found"
-    start_idx = match.start()
-    end_match = re.search(end_pattern, content[start_idx:])
-    if not end_match:
-        return "End not found"
-    return content[start_idx:start_idx + end_match.end()]
+bc_rows = ws_bc.get_all_values()
+td_rows = ws_td.get_all_values()
 
-def get_js_func(content, func_name):
-    if not content:
-        return "No content"
-    pattern = rf"function\s+{func_name}\s*\("
-    match = re.search(pattern, content)
-    if not match:
-        pattern = rf"const\s+{func_name}\s*=\s*\("
-        match = re.search(pattern, content)
-        if not match:
-            return "Not found"
-    
-    start_idx = match.start()
-    braces = 0
-    in_string = False
-    string_char = ''
-    func_content = []
-    for i in range(start_idx, len(content)):
-        char = content[i]
-        func_content.append(char)
-        if not in_string:
-            if char in ['"', "'", '`']:
-                in_string = True
-                string_char = char
-            elif char == '{':
-                braces += 1
-            elif char == '}':
-                braces -= 1
-                if braces == 0 and len(func_content) > 50:
-                    break
-        else:
-            if char == string_char and content[i-1] != '\\':
-                in_string = False
-    return "".join(func_content)
+target_bcs = [
+    '(BTH) Hàm Liêm', '(BTH) Hàm Thuận', '(BTH) Hàm Thắng', '(BTH) Hàm Tân',
+    '(BTH) Liên Hương', '(BTH) Lương Sơn', '(BTH) Phan Rí Cửa', '(BTH) Phú Thủy',
+    '(BTH) Phước Hội', '(BTH) Tuyên Quang', '(BTH) Đồng Kho', '(BTH) Đức Linh',
+    '(DNO) Cư Jút', '(DNO) Krông Nô', '(DNO) Nhân Cơ 1', '(DNO) ĐL Nam Gia Nghĩa 2'
+]
 
-# Compare HTML for tab-ntb-summary
-print("\n--- tab-ntb-summary in Current vs Base ---")
-current_ntb = get_block(current, r'<div[^>]*id="tab-ntb-summary"', r'</div>\s*</div>\s*</div>')
-base_ntb = get_block(base, r'<div[^>]*id="tab-ntb-summary"', r'</div>\s*</div>\s*</div>')
-print(f"Current length: {len(current_ntb)}, Base length: {len(base_ntb)}")
-if current_ntb != base_ntb:
-    print("HTML for tab-ntb-summary is DIFFERENT!")
-    # Let's write the diff or print first line differences
-else:
-    print("HTML for tab-ntb-summary is SAME.")
+print("=== SO SÁNH TỔNG QUAN GIỮA 2 TAB ===")
+for b in target_bcs:
+    # Lấy trong BaoCao (Row 4 là header: A=BC, E=Gán, F=TC, H=LTC)
+    b_bc = [r for r in bc_rows[4:] if len(r) > 5 and b.lower() in r[0].lower()]
+    gan_bc = sum(int(r[4]) for r in b_bc if r[4].replace(',', '').isdigit())
+    tc_bc = sum(int(r[5]) for r in b_bc if r[5].replace(',', '').isdigit())
 
-# Compare HTML for tab-opr
-print("\n--- tab-opr in Current vs Base ---")
-current_opr = get_block(current, r'<div[^>]*id="tab-opr"', r'</div>\s*</div>\s*</div>')
-base_opr = get_block(base, r'<div[^>]*id="tab-opr"', r'</div>\s*</div>\s*</div>')
-print(f"Current length: {len(current_opr)}, Base length: {len(base_opr)}")
-if current_opr != base_opr:
-    print("HTML for tab-opr is DIFFERENT!")
-else:
-    print("HTML for tab-opr is SAME.")
+    # Lấy trong tự động
+    b_td = [r for r in td_rows[4:] if len(r) > 5 and b.lower() in r[0].lower()]
+    gan_td = sum(int(r[4]) for r in b_td if r[4].replace(',', '').isdigit())
+    tc_td = sum(int(r[5]) for r in b_td if r[5].replace(',', '').isdigit())
 
-# Let's check some JavaScript functions
-for func in ["loadNtbSummaryData", "loadOprDashboardData", "renderOprDashboard", "switchTab"]:
-    print(f"\n--- JS Function: {func} ---")
-    cf = get_js_func(current, func)
-    bf = get_js_func(base, func)
-    print(f"Current len: {len(cf)}, Base len: {len(bf)}")
-    if cf != bf:
-        print(f"Function {func} is DIFFERENT!")
-    else:
-        print(f"Function {func} is SAME.")
+    print(f"{b:<28} | BaoCao: {len(b_bc)} NV, Gán={gan_bc}, TC={tc_bc} | tự động: {len(b_td)} NV, Gán={gan_td}, TC={tc_td}")
