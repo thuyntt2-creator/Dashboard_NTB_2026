@@ -4845,11 +4845,12 @@ def showcase_slide():
 
 @app.route('/kich-ban')
 @app.route('/script')
+@app.route('/kich-ban-w40')
 @app.route('/kich-ban-w39')
 @app.route('/kich-ban-w38')
 def meeting_script_w38():
     root_dir = os.path.dirname(os.path.abspath(__file__))
-    target_file = 'KICH_BAN_THUYET_TRINH_W39_NAM_TRUNG_BO.html' if os.path.exists(os.path.join(root_dir, 'KICH_BAN_THUYET_TRINH_W39_NAM_TRUNG_BO.html')) else 'KICH_BAN_THUYET_TRINH_W38_NAM_TRUNG_BO.html'
+    target_file = 'KICH_BAN_THUYET_TRINH_W40_NAM_TRUNG_BO.html' if os.path.exists(os.path.join(root_dir, 'KICH_BAN_THUYET_TRINH_W40_NAM_TRUNG_BO.html')) else ('KICH_BAN_THUYET_TRINH_W39_NAM_TRUNG_BO.html' if os.path.exists(os.path.join(root_dir, 'KICH_BAN_THUYET_TRINH_W39_NAM_TRUNG_BO.html')) else 'KICH_BAN_THUYET_TRINH_W38_NAM_TRUNG_BO.html')
     response = send_from_directory(root_dir, target_file)
     response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
     return response
@@ -4866,6 +4867,7 @@ def meeting_script():
 @app.route('/data.js')
 @app.route('/data.json')
 @app.route('/download-doc')
+@app.route('/KICH_BAN_THUYET_TRINH_W40_NAM_TRUNG_BO.docx')
 @app.route('/KICH_BAN_CANH_BAO_BUU_CUC_W38_VS_W39.docx')
 @app.route('/KICH_BAN_THUYET_TRINH_MOI_NHAT.docx')
 @app.route('/KICH_BAN_THUYET_TRINH_W39_INSIGHT_CHUYEN_SAU_CHINH_SUA.docx')
@@ -4881,7 +4883,7 @@ def serve_meeting_assets():
     root_dir = os.path.dirname(os.path.abspath(__file__))
     req_file = request.path.lstrip('/')
     if req_file == 'download-doc':
-        req_file = 'KICH_BAN_THUYET_TRINH_W39_NAM_TRUNG_BO.docx' if os.path.exists(os.path.join(root_dir, 'KICH_BAN_THUYET_TRINH_W39_NAM_TRUNG_BO.docx')) else 'KICH_BAN_THUYET_TRINH_W38_NAM_TRUNG_BO.docx'
+        req_file = 'KICH_BAN_THUYET_TRINH_W40_NAM_TRUNG_BO.docx' if os.path.exists(os.path.join(root_dir, 'KICH_BAN_THUYET_TRINH_W40_NAM_TRUNG_BO.docx')) else ('KICH_BAN_THUYET_TRINH_W39_NAM_TRUNG_BO.docx' if os.path.exists(os.path.join(root_dir, 'KICH_BAN_THUYET_TRINH_W39_NAM_TRUNG_BO.docx')) else 'KICH_BAN_THUYET_TRINH_W38_NAM_TRUNG_BO.docx')
     response = send_from_directory(root_dir, req_file, as_attachment=True if req_file.endswith('.docx') else False)
     response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
     response.headers['Pragma'] = 'no-cache'
