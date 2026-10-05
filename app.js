@@ -281,11 +281,13 @@
       const getCard = (id) => cards.find(c => c.id === id) || {};
       const volFull = getCard('vol_full');
       const volTts = getCard('vol_tts');
+      const gtcFull = getCard('gtc_full');
+      const gtcTts = getCard('gtc_tts');
       const odrFull = getCard('odr_full');
       const ltcFull = getCard('ltc_full');
       const rotLc = getCard('rot_lc');
-      const fdRate = D.fd?.summary?.rate_full ? (D.fd.summary.rate_full * 100).toFixed(2) + '%' : '7.64%';
-      const ttsShare = volFull.val && volTts.val ? ((volTts.val / volFull.val) * 100).toFixed(1) + '%' : '22.1%';
+      const fdRate = D.fd?.summary?.rate_full ? (D.fd.summary.rate_full * 100).toFixed(2) + '%' : '7.77%';
+      const ttsShare = volFull.val && volTts.val ? ((volTts.val / volFull.val) * 100).toFixed(1) + '%' : '23.2%';
       
       const volFullDiff = volFull.diff !== undefined ? (volFull.diff > 0 ? `+${volFull.diff.toLocaleString('vi-VN')}` : `${volFull.diff.toLocaleString('vi-VN')}`) : '';
       const volFullPct = volFull.diff_pct !== undefined ? (volFull.diff_pct > 0 ? `+${(volFull.diff_pct * 100).toFixed(1)}%` : `${(volFull.diff_pct * 100).toFixed(1)}%`) : '';
@@ -293,16 +295,16 @@
       const volTtsPct = volTts.diff_pct !== undefined ? (volTts.diff_pct > 0 ? `+${(volTts.diff_pct * 100).toFixed(1)}%` : `${(volTts.diff_pct * 100).toFixed(1)}%`) : '';
 
       ovBannerSummary.innerHTML = `
-        • <strong>Sản lượng Giao Full Hàng:</strong> Đạt <strong>${(volFull.val || 328925).toLocaleString('vi-VN')} đơn</strong> (Tuần ${currW} (${dateRange}), ${volFullDiff} đơn / ${volFullPct} WoW so với ${prevW}).<br>
-        • <strong>Sản lượng TikTok Shop (TTS):</strong> Đạt <strong>${(volTts.val || 72781).toLocaleString('vi-VN')} đơn</strong> (tăng <strong>${volTtsDiff} đơn / ${volTtsPct} WoW</strong> so với ${prevW}), chiếm ${ttsShare} tổng sản lượng toàn vùng.<br>
-        • <strong>Chất lượng vận hành:</strong> %ODR Full hàng đạt <strong>${odrFull.val ? (odrFull.val * 100).toFixed(1) + '%' : '90.8%'}</strong>, %LTC đạt <strong>${ltcFull.val ? (ltcFull.val * 100).toFixed(1) + '%' : '90.1%'}</strong>. Tỷ lệ Rớt LC <strong>${rotLc.val ? (rotLc.val * 100).toFixed(2) + '%' : '1.52%'}</strong>. Tỷ lệ %FD Hoàn Trả <strong>${fdRate}</strong>.<br>
-        • <strong>Truy Thu & COD ${currW}:</strong> Tiền Cần Truy Thu phát sinh <strong>174.7 Tr ₫</strong> (giảm -21.2 Tr ₫ WoW), Tỷ lệ tiền mặt COD đạt <strong>40.1%</strong> (giảm -3.0%p WoW).
+        • <strong>Sản lượng Giao Full Hàng:</strong> Đạt <strong>${(volFull.val || 311503).toLocaleString('vi-VN')} đơn</strong> (Tuần ${currW} (${dateRange}), ${volFullDiff} đơn / ${volFullPct} WoW so với ${prevW}).<br>
+        • <strong>Sản lượng TikTok Shop (TTS):</strong> Đạt <strong>${(volTts.val || 72253).toLocaleString('vi-VN')} đơn</strong> (${volTtsDiff} đơn / ${volTtsPct} WoW so với ${prevW}), chiếm ${ttsShare} tổng sản lượng toàn vùng.<br>
+        • <strong>Chất lượng vận hành bứt phá:</strong> %ODR Full đạt <strong>${odrFull.val ? (odrFull.val * 100).toFixed(1) + '%' : '93.1%'}</strong>, %LTC đạt <strong>${ltcFull.val ? (ltcFull.val * 100).toFixed(1) + '%' : '91.4%'}</strong>. Tỷ lệ Rớt LC <strong>${rotLc.val ? (rotLc.val * 100).toFixed(2) + '%' : '1.69%'}</strong>. Tỷ lệ %FD Hoàn Trả <strong>${fdRate}</strong>.<br>
+        • <strong>Chỉ số %GTC:</strong> Full hàng đạt <strong>${gtcFull.val ? (gtcFull.val * 100).toFixed(1) + '%' : '60.9%'}</strong>, TTS đạt <strong>${gtcTts.val ? (gtcTts.val * 100).toFixed(1) + '%' : '63.4%'}</strong> — Hoàn thành xuất sắc mục tiêu GTC ≥ 60%!
       `;
     }
 
     const ovBannerActions = document.querySelector('#tab-overview .exec-banner-actions span');
     if (ovBannerActions) {
-      ovBannerActions.innerHTML = `<i data-lucide="target"></i> Mục tiêu ${currW}: GTC ≥ 60%`;
+      ovBannerActions.innerHTML = `<i data-lucide="target"></i> Mục tiêu ${currW}: GTC ≥ 60% (Đạt 60.9%)`;
     }
 
     // 2. Select Dropdown
@@ -511,20 +513,88 @@
     const thRotBc = document.querySelector('#table-rot-lc-top-bc thead th:nth-child(6)');
     if (thRotBc) thRotBc.textContent = `% Rớt LC (${currW})`;
 
-    // 15. Dynamic Card Titles and Headers with regex replacement
-    document.querySelectorAll('.report-card-title, .exec-banner-text h2, .exec-banner-text h3').forEach(el => {
-      if (el.textContent.includes('SO SÁNH TỶ LỆ GÁN 18 AM:')) {
+    // 15. Dynamic Card Titles and Headers with comprehensive week synchronization
+    document.querySelectorAll('.report-card-title, .exec-banner-text h2, .exec-banner-text h3, .exec-banner-text h4').forEach(el => {
+      let t = el.textContent;
+      if (t.includes('XU HƯỚNG CÁC CHỈ SỐ VẬN HÀNH CHÍNH')) {
+        el.innerHTML = `<i data-lucide="activity" style="color: var(--color-green);"></i> XU HƯỚNG CÁC CHỈ SỐ VẬN HÀNH CHÍNH (${w1} – ${currW})`;
+      } else if (t.includes('SẢN LƯỢNG GIAO THEO 5 TỈNH THÀNH')) {
+        el.innerHTML = `<i data-lucide="bar-chart-2" style="color: var(--ghn-navy);"></i> SẢN LƯỢNG GIAO THEO 5 TỈNH THÀNH (FULL HÀNG vs TTS — ${currW})`;
+      } else if (t.includes('ĐIỂM NỔI BẬT & ĐÁNH GIÁ') || t.includes('ĐIỂM NỔI BẬT &amp; ĐÁNH GIÁ')) {
+        el.innerHTML = `<i data-lucide="sparkles" style="color: var(--color-amber);"></i> ĐIỂM NỔI BẬT & ĐÁNH GIÁ ${currW}`;
+      } else if (t.includes('BẢNG TỔNG HỢP CÁC CHỈ SỐ VÙNG NTB')) {
+        el.innerHTML = `<i data-lucide="table" style="color: var(--color-blue);"></i> BẢNG TỔNG HỢP CÁC CHỈ SỐ VÙNG NTB (${w1} – ${currW}) — FULL HÀNG & TTS`;
+      } else if (t.includes('TỔNG QUAN VÙNG NTB — TỶ LỆ % GÁN')) {
+        el.innerHTML = `<i data-lucide="layout-grid" style="color: var(--ghn-orange);"></i> TỔNG QUAN VÙNG NTB — TỶ LỆ % GÁN (4 TUẦN ${w1} – ${currW})`;
+      } else if (t.includes('PHÂN TÍCH SẢN LƯỢNG GIAO TOÀN VÙNG, 5 TỈNH THÀNH')) {
+        el.textContent = `PHÂN TÍCH SẢN LƯỢNG GIAO TOÀN VÙNG, 5 TỈNH THÀNH & 18 AM (${currW})`;
+      } else if (t.includes('PHÂN TÍCH HIỆU SUẤT %GTC TỔNG TOÀN MẠNG')) {
+        el.textContent = `PHÂN TÍCH HIỆU SUẤT %GTC TỔNG TOÀN MẠNG THEO 18 AM & 5 TỈNH (${currW})`;
+      } else if (t.includes('PHÂN TÍCH CHUYÊN SÂU %GTC CA 1 TIKTOK SHOP')) {
+        el.textContent = `PHÂN TÍCH CHUYÊN SÂU %GTC CA 1 TIKTOK SHOP (TARGET SLA ≥ 76.0%) (${currW})`;
+      } else if (t.includes('SO SÁNH TỶ LỆ GÁN 18 AM:')) {
         el.textContent = `SO SÁNH TỶ LỆ GÁN 18 AM: % GÁN CA 1+TỒN vs % GÁN CA 2 vs % GÁN TỔNG (${currW})`;
-      } else if (el.textContent.includes('% RỚT LUÂN CHUYỂN THEO 18 AM PHỤ TRÁCH')) {
+      } else if (t.includes('% RỚT LUÂN CHUYỂN THEO 18 AM PHỤ TRÁCH')) {
         el.textContent = `% RỚT LUÂN CHUYỂN THEO 18 AM PHỤ TRÁCH (${currW})`;
-      } else if (el.textContent.includes('DANH SÁCH TOP 20 BƯU CỤC CÓ TỶ LỆ RỚT LUÂN CHUYỂN CAO NHẤT')) {
+      } else if (t.includes('DANH SÁCH TOP 20 BƯU CỤC CÓ TỶ LỆ RỚT LUÂN CHUYỂN CAO NHẤT')) {
         el.textContent = `DANH SÁCH TOP 20 BƯU CỤC CÓ TỶ LỆ RỚT LUÂN CHUYỂN CAO NHẤT (${currW})`;
-      } else if (el.textContent.includes('BẢNG 2: TOP BƯU CỤC CÓ TỶ LỆ %FD CAO NHẤT')) {
+      } else if (t.includes('BÁO CÁO TỶ LỆ %FD (RETURN / HOÀN TRẢ)')) {
+        el.textContent = `BÁO CÁO TỶ LỆ %FD (RETURN / HOÀN TRẢ) — VÙNG NAM TRUNG BỘ (${currW})`;
+      } else if (t.includes('BẢNG 2: TOP BƯU CỤC CÓ TỶ LỆ %FD CAO NHẤT')) {
         el.textContent = `BẢNG 2: TOP BƯU CỤC CÓ TỶ LỆ %FD CAO NHẤT (${currW})`;
-      } else if (el.textContent.includes('TOP 10 KHÁCH HÀNG CÓ SẢN LƯỢNG GIẢM / RỜI BỎ LỚN NHẤT')) {
+      } else if (t.includes('TOP 10 KHÁCH HÀNG CÓ SẢN LƯỢNG GIẢM / RỜI BỎ LỚN NHẤT')) {
         el.textContent = `TOP 10 KHÁCH HÀNG CÓ SẢN LƯỢNG GIẢM / RỜI BỎ LỚN NHẤT (${currW})`;
       }
     });
+
+    // Dynamic banner badges and subtitles
+    const volBadge = document.getElementById('banner-volume-badge');
+    if (volBadge && D.overview?.cards) {
+      const vFull = D.overview.cards.find(c => c.id === 'vol_full')?.val || 311503;
+      const vTts = D.overview.cards.find(c => c.id === 'vol_tts')?.val || 72253;
+      volBadge.textContent = `Full: ${(vFull / 1000).toFixed(1)}k đơn | TTS: ${(vTts / 1000).toFixed(1)}k đơn`;
+    }
+    const gtcBadge = document.querySelector('#tab-gtc-tong .exec-banner-actions span');
+    if (gtcBadge) {
+      const gF = D.overview?.cards?.find(c => c.id === 'gtc_full')?.val || 0.6087;
+      const gT = D.overview?.cards?.find(c => c.id === 'gtc_tts')?.val || 0.6338;
+      gtcBadge.textContent = `Full: ${(gF * 100).toFixed(2)}% | TTS: ${(gT * 100).toFixed(2)}% (Target ≥ 60.0%)`;
+    }
+    const ganBadge = document.querySelector('#tab-gan .exec-banner-actions span');
+    if (ganBadge) {
+      ganBadge.textContent = `Gán Tổng ${currW}: 86.3% (Target ≥ 90.0%)`;
+    }
+    const odrBadge = document.querySelector('#tab-odr .exec-banner-actions span');
+    if (odrBadge) {
+      const oF = D.overview?.cards?.find(c => c.id === 'odr_full')?.val || 0.9312;
+      const oT = D.odr?.overview?.find(r => r.label === 'TTS')?.w40 || 0.9418;
+      odrBadge.textContent = `ODR Full: ${(oF * 100).toFixed(1)}% | TTS: ${(oT * 100).toFixed(1)}% (Target ≥ 92.0%)`;
+    }
+    const ltcBadge = document.querySelector('#tab-ltc .exec-banner-actions span');
+    if (ltcBadge) {
+      const lF = D.overview?.cards?.find(c => c.id === 'ltc_full')?.val || 0.9135;
+      const lT = D.ltc?.overview?.find(r => r.label === 'TTS')?.w40 || 0.9497;
+      ltcBadge.textContent = `Full: ${(lF * 100).toFixed(1)}% | TTS: ${(lT * 100).toFixed(1)}% (Target ≥ 90.0%)`;
+    }
+    const oprBadge = document.querySelector('#tab-opr-tts .exec-banner-actions span');
+    if (oprBadge) {
+      oprBadge.textContent = `OPR TTS ${currW}: 83.5% (Vượt KPI ≥ 80.0%)`;
+    }
+    const rotBadge = document.getElementById('banner-rot-lc-badge');
+    if (rotBadge) {
+      const totR = D.rot_lc?.overview?.tot_rot || 219;
+      const rateR = D.rot_lc?.overview?.rate_curr ? (D.rot_lc.overview.rate_curr * 100).toFixed(2) : '1.69';
+      rotBadge.textContent = `Tổng rớt ${currW}: ${totR} đơn (${rateR}%)`;
+    }
+    const fdBadge = document.querySelector('#tab-fd .exec-banner-meta span:first-child');
+    if (fdBadge) {
+      const fR = D.fd?.overview?.rate_fd ? (D.fd.overview.rate_fd * 100).toFixed(2) : '7.77';
+      fdBadge.textContent = `Target Toàn Vùng ≤ 6.0% (${currW}: ${fR}%)`;
+    }
+    const ovSubtitle = document.querySelector('#table-overview-kpi-data')?.closest('.report-card')?.querySelector('.report-card-tools span');
+    if (ovSubtitle) {
+      ovSubtitle.textContent = `Dữ liệu so sánh ${w1} – ${currW} kèm đường Xu Hướng (Trend)`;
+    }
 
     // 16. Generic DOM Text Replacer for all badges and labels
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
