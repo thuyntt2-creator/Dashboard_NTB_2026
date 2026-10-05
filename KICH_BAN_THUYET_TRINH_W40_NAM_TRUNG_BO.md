@@ -143,11 +143,11 @@ Bây giờ em xin phép chuyển sang Tab 3 để xem tỷ lệ Giao thành côn
 
 **📍 1. BẢNG %GTC TỔNG THEO 5 TỈNH THÀNH (W40 vs W39):**
 
-• Bình Thuận: 67,45% (W39: 67,49%) ➔ Duy trì vị trí số 1 toàn vùng, hiệu suất giao cực kỳ ổn định.
+• Ninh Thuận: 67,49% (W39: 67,96%) ➔ Duy trì vị trí số 1 toàn vùng, tỷ lệ giao hoàn tất cực kỳ ổn định.
 
-• Khánh Hòa: 62,23% (W39: 58,82%, tăng +3,41%p) ➔ Bứt phá qua mốc 60%, đứng thứ 2 vùng.
+• Bình Thuận: 67,45% (W39: 67,49%) ➔ Bám sát vị trí dẫn đầu, giữ phong độ bền bỉ.
 
-• Ninh Thuận: 60,15% (W39: 56,95%, tăng +3,20%p) ➔ Chính thức gia nhập nhóm xuất sắc >60%.
+• Khánh Hòa: 62,23% (W39: 58,82%, tăng +3,41%p) ➔ Bứt phá qua mốc 60%, đóng góp lớn vào vùng.
 
 • Đắk Nông: 54,46% (W39: 48,81%, tăng mạnh +5,65%p) ➔ Nỗ lực vượt bậc kéo GTC thoát đáy.
 
@@ -157,11 +157,11 @@ Bây giờ em xin phép chuyển sang Tab 3 để xem tỷ lệ Giao thành côn
 
 **📍 2. XẾP HẠNG %GTC THEO 18 AM:**
 
-• Top AM xuất sắc (>65%): Nguyễn Duy Long (71,2%), Nguyễn Ngọc Khánh (66,5%), Cao Thị Thanh Thủy (65,8%), Nguyễn Thị Tuyết Thơ (65,1%).
+• Top AM xuất sắc (>68%): Nguyễn Ngọc Khánh (74,5% - Top 1 GTC toàn vùng), Thái Thị Thanh Thư (72,0% - Top 2 GTC), Nguyễn Đỗ Minh Nghĩa (70,4%), Nguyễn Duy Long (69,0% - Đầu tàu sản lượng lớn nhất vùng), Cao Thị Thanh Thủy (68,0%).
 
-• Top AM tiến bộ tiệm cận 60%: Lê Thanh Nhựt (61,4%), Phan Đình Duy (60,9%), Thái Thị Thanh Thư (59,8%).
+• Top AM tiến bộ (60 - 68%): Nguyễn Thị Tuyết Thơ (67,6%), Nguyễn Hoàng Phi (64,6%), Lê Thanh Nhựt (60,2%).
 
-• Nhóm AM đáy (<55% cần kèm cặp gấp): Trương Quang Linh (50,2%), Lê Minh Lợi (51,4%), Trầm Hữu Tiến (53,1%), Lê Văn Trường (53,8%), Hồng Bích Nga (54,1%).
+• Nhóm AM đáy (<50% cần kèm cặp gấp): Lê Minh Lợi (36,5%), Phan Nguyễn Yến Nhi (38,0%), Trương Quang Linh (40,3%), Huỳnh Thúc Duân (47,1%), Lê Văn Trường (48,9%), Nguyễn Lê Nguyên Vũ (49,0%).
 
 
 > **🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 3 GTC TỔNG):**
@@ -170,23 +170,21 @@ Bây giờ em xin phép chuyển sang Tab 3 để xem tỷ lệ Giao thành côn
 
 Nhìn vào 5 Tỉnh thành ở bảng trên cùng:
 
-Bình Thuận vẫn giữ vững ngôi vương với GTC 67,45%, shipper Bình Thuận chạy tuyến rất đều và khách nhận hàng rất chuẩn.
+Ninh Thuận và Bình Thuận tiếp tục là 2 điểm sáng dẫn đầu vùng về độ ổn định với GTC đạt xấp xỉ 67,5%.
 
-Khánh Hòa và Ninh Thuận tuần này đã xuất sắc vượt qua mốc 60%. Đặc biệt Khánh Hòa tăng từ 58,8% lên 62,2%, đóng góp cực lớn vào kỳ tích chung của vùng.
+Khánh Hòa tuần này đã xuất sắc bứt phá qua mốc 60% khi đạt 62,2% (tăng +3,4%p so với W39: 58,8%), đóng góp cực lớn vào kỳ tích chung của toàn vùng.
 
-Hai tỉnh miền núi là Đắk Nông và Lâm Đồng: Dù vẫn đứng ở 2 vị trí cuối bảng với 54,4%, nhưng tuần này anh em đã có sự nỗ lực phi thường. Lâm Đồng kéo tăng tới hơn 7,0%p, còn Đắk Nông tăng hơn 5,6%p so với tuần trước. Em xin ghi nhận sự quyết tâm của các AM Tây Nguyên!
+Hai tỉnh miền núi là Đắk Nông và Lâm Đồng: Dù vẫn đứng ở 2 vị trí cuối bảng với 54,4%, nhưng tuần này anh em đã có sự nỗ lực phi thường. Lâm Đồng kéo tăng tới hơn +7,0%p, còn Đắk Nông tăng hơn +5,6%p so với tuần trước. Em xin ghi nhận sự quyết tâm của các AM Tây Nguyên!
 
-Nhìn xuống danh sách 18 AM:
+Nhìn xuống bảng xếp hạng 18 AM:
 
-Anh Long Bình Thuận tiếp tục là tấm gương sáng nhất với GTC đạt tới 71,2% — vừa gánh sản lượng lớn nhất vùng vừa có tỷ lệ giao thành công cao nhất!
+Quán quân GTC tuần này thuộc về anh Nguyễn Ngọc Khánh (Bình Thuận) với tỷ lệ ấn tượng 74,5%, kế đến là chị Thái Thị Thanh Thư (Khánh Hòa) đạt 72,0% và anh Nguyễn Đỗ Minh Nghĩa (Lâm Đồng) đạt 70,4%.
 
-Chị Thủy Khánh Hòa và anh Khánh Bình Thuận cũng xuất sắc đạt trên 65%.
+Đặc biệt, anh Nguyễn Duy Long (phụ trách liên tỉnh Ninh Thuận & Bắc Bình Thuận) tiếp tục là đầu tàu gánh sản lượng lớn nhất toàn vùng với 42.684 đơn Full hàng, nhưng vẫn duy trì %GTC rất vững vàng ở mức 69,0%!
 
-Tuy nhiên, Ban Giám Đốc lưu ý giúp em nhóm 4 AM vẫn còn nằm dưới mốc 54%:
+Tuy nhiên, Ban Giám Đốc lưu ý giúp em nhóm các AM vẫn còn nằm dưới mốc 50%:
 
-Chỗ anh Linh Đắk Nông (50,2%) và anh Lợi Lâm Đồng (51,4%): Hai địa bàn này vẫn còn tỷ lệ khách từ chối và hẹn lùi giờ quá nhiều, shipper chưa có kỹ năng thuyết phục khách nhận hàng.
-
-Anh Trường (53,8%) và anh Tiến (53,1%) ở Lâm Đồng: Dù có tiến bộ nhưng tỷ lệ đơn không phát được vẫn chiếm gần 47%, chi phí xử lý lại đơn hàng tại đây đang rất cao.
+Đặc biệt là anh Lê Minh Lợi (36,5%), chị Yến Nhi (38,0%) và anh Trương Quang Linh (40,3%): Các địa bàn này tỷ lệ khách từ chối và hẹn lùi giờ còn cao, shipper chưa linh hoạt đổi ca phát.
 
 Em đề nghị tuần tới, các AM nhóm dưới phải ngồi lại với từng Trưởng bưu cục để tối ưu lại ca phát chiều. Giờ em xin chuyển qua Tab 4 mổ xẻ Ca 1 và Ca 2 ạ!"
 
@@ -197,12 +195,12 @@ Em đề nghị tuần tới, các AM nhóm dưới phải ngồi lại với t�
 
 
 > ⚠️ **Cảnh báo rủi ro & Điểm nóng:**
-> - 4 AM (Linh, Lợi, Tiến, Trường) vẫn chìm dưới 54% GTC, kéo tụt mặt bằng chung và làm tăng tỷ lệ hàng dồn tồn kho.
+> - 6 AM (Lợi, Nhi, Linh, Duân, Trường, Vũ) vẫn chìm dưới 50% GTC, kéo tụt mặt bằng chung và làm tăng tỷ lệ hàng dồn tồn kho.
 > - Cần kiểm tra xem có hiện tượng shipper cố tình chọn đơn dễ giao để đẩy tỷ lệ GTC ảo hay không.
 
 
 > 🎯 **Hành động cụ thể & Giao việc hiện trường:**
-> - Áp dụng quy trình kiểm soát ca 2 của Bình Thuận cho 4 AM nhóm đáy, bắt buộc gọi lại lần 2 cho 100% đơn chưa phát trước 17h30.
+> - Áp dụng quy trình kiểm soát ca 2 của Bình Thuận cho các AM nhóm đáy, bắt buộc gọi lại lần 2 cho 100% đơn chưa phát trước 17h30.
 
 
 ---
@@ -1008,7 +1006,7 @@ Em đề nghị anh Duân phải giải trình rõ nguyên nhân: Tại sao khá
 
 • 7. (LDO) Lang Biang - Đà Lạt 1: GTC 36,5% (Cảnh báo 108 ngày) | Backlog 992 đơn | ODR 74,1% thấp nhất vùng (AM Lê Minh Lợi).
 
-• 8. (LDO) Di Linh: GTC 40,0% | Backlog 1.970 đơn (tồn >5 ngày: 219 đơn) (AM Trầm Hữu Tiến).
+• 8. (LDO) Di Linh: GTC 40,0% | Backlog 1.970 đơn (tồn >5 ngày: 219 đơn) (AM Nguyễn Lê Nguyên Vũ).
 
 • 9. (DNO) Tuy Đức: GTC 41,2% | Backlog 640 đơn (AM Trần Thị Nhung).
 
@@ -1016,13 +1014,13 @@ Em đề nghị anh Duân phải giải trình rõ nguyên nhân: Tại sao khá
 
 • 11. (DNO) Nhân Cơ: GTC 45,1% | Backlog 347 đơn | Doanh thu sụt giảm -29,1% (AM Huỳnh Thúc Duân).
 
-• 12. (LDO) Đơn Dương: GTC 45,3% | Backlog 2.038 đơn | Dính truy thu 12,8 Tr ₫ (AM Lê Văn Trường).
+• 12. (LDO) Đơn Dương: GTC 45,3% | Backlog 2.038 đơn | Dính truy thu 12,8 Tr ₫ (AM Phan Nguyễn Yến Nhi).
 
 • 13. (LDO) Lâm Viên - Đà Lạt 2: GTC 46,2% | Backlog 860 đơn (AM Lê Văn Trường).
 
 **📍 2. ĐÁNH GIÁ CHUNG VÀ GIAO VIỆC CỤ THỂ 18 AM:**
 
-• 🟢 KHEN THƯỞNG: AM Phan Đình Duy (Top 1 Doanh thu), AM Nguyễn Duy Long (Đầu tàu Sản lượng & Top 1 GTC 71,2%), AM Cao Thị Thanh Thủy (Top 1 ODR 97,8%), AM Lê Thanh Nhựt (Tăng trưởng toàn diện).
+• 🟢 KHEN THƯỞNG: AM Phan Đình Duy (Top 1 Doanh thu), AM Nguyễn Ngọc Khánh (Quán quân GTC 74,5%), AM Nguyễn Duy Long (Đầu tàu Sản lượng vùng 42,7k đơn & GTC 69,0%), AM Cao Thị Thanh Thủy (Top 1 ODR 97,8%), AM Lê Thanh Nhựt (Tăng trưởng sản lượng +1.316 đơn).
 
 • 🔴 CẢNH BÁO ĐẶC BIỆT & GIAO NHIỆM VỤ HIỆN TRƯỜNG:
 
