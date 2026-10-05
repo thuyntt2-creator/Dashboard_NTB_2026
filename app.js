@@ -318,13 +318,13 @@
     }
 
     // 3. Tab 1: Overview table columns
-    const thOv4 = document.querySelector('#table-overview-kpi thead th:nth-child(6)');
+    const thOv4 = document.querySelector('#table-overview-kpi-data thead th:nth-child(6), #table-overview-kpi thead th:nth-child(6)');
     if (thOv4) thOv4.textContent = `${currW} (Kỳ N)`;
-    const thOv3 = document.querySelector('#table-overview-kpi thead th:nth-child(5)');
+    const thOv3 = document.querySelector('#table-overview-kpi-data thead th:nth-child(5), #table-overview-kpi thead th:nth-child(5)');
     if (thOv3) thOv3.textContent = prevW;
-    const thOv2 = document.querySelector('#table-overview-kpi thead th:nth-child(4)');
+    const thOv2 = document.querySelector('#table-overview-kpi-data thead th:nth-child(4), #table-overview-kpi thead th:nth-child(4)');
     if (thOv2) thOv2.textContent = w2;
-    const thOv1 = document.querySelector('#table-overview-kpi thead th:nth-child(3)');
+    const thOv1 = document.querySelector('#table-overview-kpi-data thead th:nth-child(3), #table-overview-kpi thead th:nth-child(3)');
     if (thOv1) thOv1.textContent = w1;
 
     // 4. Tab 2: Sản Lượng
