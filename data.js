@@ -100,6 +100,16 @@ window.DASHBOARD_DATA = {
         "diff_pct": -0.108,
         "is_good": true,
         "icon": "shield-alert"
+      },
+      {
+        "id": "cod_tm",
+        "title": "Tỷ Lệ Tiền Mặt COD",
+        "val": 0.371,
+        "unit": "%",
+        "diff": -0.03,
+        "diff_pct": -0.075,
+        "is_good": true,
+        "icon": "qr-code"
       }
     ],
     "kpis_trend": [
@@ -45933,5 +45943,3 @@ window.DASHBOARD_DATA = {
     }
   }
 };
-window.DATA = window.DASHBOARD_DATA;
-const REPORT_DATA = window.DASHBOARD_DATA;

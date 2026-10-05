@@ -4829,6 +4829,8 @@ def home():
 @app.route('/meeting')
 @app.route('/bao-cao-hop')
 @app.route('/bao-cao-tuan')
+@app.route('/index.html')
+@app.route('/dashboard')
 def meeting_dashboard():
     root_dir = os.path.dirname(os.path.abspath(__file__))
     response = send_from_directory(root_dir, 'index.html')

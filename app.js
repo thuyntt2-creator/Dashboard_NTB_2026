@@ -1224,10 +1224,39 @@
       const rotVal = rotCard.val !== undefined ? rotCard.val : 0.0225;
       const rotDiff = rotCard.diff !== undefined ? rotCard.diff : 0.0068;
 
-      // 8. COD Tiền mặt
+      // 8. COD Tiền mặt & Thanh toán QR
       const codCard = cardMap['cod_tm'] || {};
-      const codVal = codCard.val !== undefined ? codCard.val : 0.396;
-      const codDiff = codCard.diff !== undefined ? codCard.diff : 0.011;
+      const codReportMetrics = D.cod_report?.metrics || [];
+      const codTmRow = codReportMetrics.find(m => m.chi_so && m.chi_so.includes('Tiền mặt (% TM)')) || {};
+      const codCkRow = codReportMetrics.find(m => m.chi_so && m.chi_so.includes('Chuyển khoản (% CK)')) || {};
+      const codTotRow = codReportMetrics.find(m => m.chi_so && m.chi_so.includes('Tổng COD')) || {};
+      
+      let codVal = 0.371;
+      let codPrev = 0.401;
+      let codDiff = -0.030;
+      let codDigitalVal = 0.629;
+      let codTotStr = '82.6 Tỷ';
+
+      if (codCard.val !== undefined) {
+        codVal = codCard.val;
+        codDiff = codCard.diff !== undefined ? codCard.diff : -0.030;
+        codPrev = codVal - codDiff;
+        codDigitalVal = 1 - codVal;
+      } else if (codTmRow.curr) {
+        codVal = parseFloat(codTmRow.curr) / 100;
+        if (codTmRow.prev) codPrev = parseFloat(codTmRow.prev) / 100;
+        codDiff = codVal - codPrev;
+        codDigitalVal = 1 - codVal;
+      } else if (D.cod_payment?.overview?.rate_cash !== undefined) {
+        codVal = D.cod_payment.overview.rate_cash;
+        codDiff = D.cod_payment.overview.diff_cash || -0.024;
+        codPrev = codVal - codDiff;
+        codDigitalVal = 1 - codVal;
+      }
+      if (codTotRow.curr) {
+        const numTot = parseFloat(codTotRow.curr.replace(/,/g, ''));
+        if (!isNaN(numTot)) codTotStr = (numTot / 1000).toFixed(1) + ' Tỷ';
+      }
 
       // 9. FD Hoàn Trả (Failed Delivery)
       const fdData = D.fd || {};
@@ -1347,6 +1376,17 @@
           isHigherBetter: true,
           colorCls: tltdDiff >= 0 ? 'kpi-teal' : 'kpi-amber',
           icon: 'truck'
+        },
+        {
+          id: 'cod_pair',
+          title: `Tỷ Lệ Tiền Mặt COD (${latestWeek})`,
+          mainVal: fPct(codVal),
+          mainUnit: `Tiền mặt (${prevWeek}: ${fPct(codPrev)} | ${codDiff >= 0 ? '▲ +' : '▼ '}${(Math.abs(codDiff)*100).toFixed(1)}%p)`,
+          subVal: `QR/CK: ${fPct(codDigitalVal)} · Tổng COD: ${codTotStr} ₫`,
+          diff: codDiff,
+          isHigherBetter: false,
+          colorCls: codDiff <= 0 ? 'kpi-green' : 'kpi-amber',
+          icon: 'qr-code'
         }
       ];
 
