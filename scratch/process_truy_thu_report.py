@@ -312,9 +312,10 @@ for _, r in bc_cmp.head(30).iterrows():
 ct_trend = f"tăng +{diff_ct/1e6:,.1f} Tr ₫" if diff_ct >= 0 else f"giảm {abs(diff_ct)/1e6:,.1f} Tr ₫"
 bd_trend = f"tăng {diff_bd_pct:+0.1f}%" if diff_bd >= 0 else f"giảm {abs(diff_bd_pct):0.1f}%"
 
+rec_trend = f"tăng +{diff_rec:,} đơn" if diff_rec >= 0 else f"giảm {abs(diff_rec):,} đơn"
 banner_desc = (
     f"• <strong>Tổng quan so sánh 2 tuần:</strong> {latest_week} phát sinh <strong>{rec_c:,} bản ghi</strong> "
-    f"(tăng {diff_rec:+,} đơn, {diff_rec_pct:+0.1f}%) với số tiền ban đầu <strong>{bd_c/1e6:,.1f} Tr ₫</strong> "
+    f"({rec_trend}, {diff_rec_pct:+0.1f}%) với số tiền ban đầu <strong>{bd_c/1e6:,.1f} Tr ₫</strong> "
     f"({bd_trend}). Cần truy thu thêm <strong>{ct_c/1e6:,.1f} Tr ₫</strong> "
     f"({ct_trend} so với {ct_p/1e6:,.1f} Tr ₫ {prev_week}).<br>"
     f"• <strong>Các loại truy thu trọng điểm:</strong> {top_loai_desc}.<br>"
