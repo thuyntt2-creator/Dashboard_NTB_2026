@@ -245,69 +245,75 @@ Em đề nghị tuần tới, các AM nhóm dưới phải duy trì đà tiến 
 
 ---
 
-## 🔥 [IV. PHÂN TÍCH CHUYÊN SÂU %GTC CA 1 (HÀNG TỒN & HÀNG THUẦN) (W40)]
+## 🎯 [IV. PHÂN TÍCH CHUYÊN SÂU %GTC TIKTOK SHOP CA 1 — TARGET SLA ≥ 76.0% (TAB 4)]
 
-### 🗣️ MỔ XẺ GIAO HÀNG CA 1 SÁNG: HÀNG TỒN (63,6%) VS HÀNG THUẦN (77,3%) — TIKTOK SHOP BỨT PHÁ 81,3%:
+### 🗣️ BẢNG ĐIỀU HÀNH %GTC CA 1 TIKTOK SHOP THEO 18 AM & 5 TỈNH (TARGET ≥ 76.0%):
 
-**📍 1. BẢNG HIỆU SUẤT GIAO CA 1 TOÀN VÙNG (W40 vs W39):**
+**📍 1. HIỆU SUẤT TOÀN VÙNG VÀ BẢNG 5 TỈNH THÀNH (W40 vs W39):**
 
-• Hàng Thuần Ca 1 (Hàng mới sáng sớm): Full hàng đạt 77,35% (tăng +4,38%p WoW); đặc biệt kênh TikTok Shop (TTS) bứt phá ngoạn mục lên 81,34% (tăng +6,17%p WoW so với W39: 75,16%) — chính thức vượt chuẩn xuất sắc ≥80%!
+• Toàn vùng TTS Ca 1: Bứt phá ngoạn mục đạt 81,34% (tăng mạnh +6,17%p WoW so với W39: 75,16%) ➔ Chính thức vượt xa Target cam kết SLA ≥ 76.0%!
 
-• Hàng Tồn + Ca 1 Tổng (Bao gồm đơn tồn cũ): Full hàng đạt 63,56% (+4,87%p); kênh TikTok Shop đạt 66,47% (+6,58%p).
+• Bình Thuận: 86,45% (W39: 84,64%, +1,81%p) ➔ Quán quân Ca 1 TTS toàn vùng, giữ phong độ đỉnh cao.
 
-**📍 2. HIỆU SUẤT GIAO CA 1 HÀNG THUẦN TIKTOK SHOP (TTS) THEO 5 TỈNH THÀNH:**
+• Ninh Thuận: 83,78% (W39: 84,75%) ➔ Á quân toàn vùng, tỷ lệ hoàn tất ca sáng rất chuẩn.
 
-• Bình Thuận: 86,45% (W39: 84,64%, +1,81%p) ➔ Dẫn đầu toàn vùng về hiệu suất phát sàn sáng.
+• Lâm Đồng: 80,22% (W39: 66,85%, tăng bùng nổ +13,37%p!) ➔ Lần đầu tiên vượt ngưỡng chuẩn SLA 80%!
 
-• Ninh Thuận: 83,78% (W39: 84,75%) ➔ Duy trì vị trí số 2 xuất sắc.
+• Khánh Hòa: 80,15% (W39: 75,77%, tăng +4,37%p) ➔ Chính thức gia nhập nhóm xuất sắc >80%.
 
-• Lâm Đồng: 80,22% (W39: 66,85%, tăng bùng nổ +13,37%p!) ➔ Lần đầu tiên vượt ngưỡng 80% Ca 1 TTS!
+• Đắk Nông: 72,78% (W39: 67,81%, tăng mạnh +4,97%p) ➔ Rút ngắn khoảng cách chỉ còn thiếu 3,2%p để đạt SLA.
 
-• Khánh Hòa: 80,15% (W39: 75,77%, tăng +4,37%p) ➔ Đạt chuẩn xuất sắc >80%.
+**📍 2. XẾP HẠNG 18 AM THEO %GTC CA 1 TIKTOK SHOP (TARGET SLA ≥ 76.0%):**
 
-• Đắk Nông: 72,78% (W39: 67,81%, tăng mạnh +4,97%p).
+• Tỷ lệ đạt chuẩn: Đã có 13/18 AM xuất sắc đạt và vượt Target SLA ≥ 76.0% (nhuộm xanh bảng điều hành).
 
-**📍 3. TOP AM GIAO CA 1 HÀNG THUẦN TIKTOK SHOP XUẤT SẮC NHẤT:**
+• Top 5 AM dẫn đầu %GTC Ca 1 TTS: 🥇 AM Nguyễn Ngọc Khánh (88,94%), 🥈 AM Nguyễn Đỗ Minh Nghĩa (87,02%), 🥉 AM Cao Thị Thanh Thủy (87,01%), 👑 AM Nguyễn Duy Long (85,05% — gánh hơn 10 ngàn đơn Ca 1: 10.257 đơn), 5️⃣ AM Nguyễn Thị Tuyết Thơ (83,20%).
 
-• Top 1 GTC Ca 1 TTS: AM Nguyễn Ngọc Khánh đạt 88,94%, kế đến là AM Nguyễn Đỗ Minh Nghĩa đạt 87,02%, AM Cao Thị Thanh Thủy đạt 87,01%.
+• Top AM tăng trưởng Ca 1 TTS bứt phá nhất (Δ WoW): 🚀 AM Lê Văn Trường tăng vọt +24,72%p (từ 55,56% lên 80,28%, vượt chuẩn 76%!), 🚀 AM Trương Quang Linh (+18,94%p), 🚀 AM Phan Nguyễn Yến Nhi (+16,65%p), 🚀 AM Nguyễn Thanh Long (+16,40%p, lên 82,98%).
 
-• Đầu tàu gánh tải Ca 1 TTS lớn nhất: AM Nguyễn Duy Long xử lý hơn 10 ngàn đơn (10.257 đơn) với tỷ lệ giao thành công lên tới 85,05%!
-
-• Đóng góp bứt phá nhất Ca 1 TTS: AM Lê Văn Trường tăng vọt +24,72%p (từ 55,56% lên 80,28%) và AM Nguyễn Thanh Long tăng +16,40%p (từ 66,58% lên 82,98%).
+• Nhóm 5 AM chưa đạt Target SLA 76% (cần thúc đẩy gấp): Huỳnh Thúc Duân (64,52%), Nguyễn Lê Nguyên Vũ (61,43%), Phan Nguyễn Yến Nhi (58,62%), Trương Quang Linh (58,14%), Lê Minh Lợi (46,67%).
 
 
-> **🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 4 & 5 GTC CA 1):**
+> **🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 4 %GTC TTS CA 1):**
 
-"Dạ khi chuyển sang Tab 4 và Tab 5 mổ xẻ chi tiết ca phát sáng, mọi người sẽ thấy một điểm sáng rất đáng tự hào:
+"Dạ mời Ban Giám Đốc và các anh chị nhìn lên màn hình Tab 4: Phân tích chuyên sâu %GTC TikTok Shop Ca 1:
 
-Đối với hàng thuần mới về sáng sớm, tỷ lệ giao thành công Full hàng toàn vùng đã tăng lên 77,35%, và đặc biệt là phân khúc TikTok Shop (TTS) tuần này đã chính thức bứt phá ngoạn mục vượt qua mốc 81% (đạt 81,34%, tăng mạnh +6,17%p so với mức 75,16% của W39)! Cả 4/5 tỉnh gồm Bình Thuận (86,5%), Ninh Thuận (83,8%), Lâm Đồng (80,2%) và Khánh Hòa (80,2%) đều đã xuất sắc vượt qua mốc 80% đối với hàng sàn Ca 1 sáng!
+Tuần W40 này ghi nhận một kỳ tích rất lớn của toàn vùng Nam Trung Bộ:
 
-Soi vào AM: Anh Khánh (88,9%), anh Nghĩa (87,0%), chị Thủy (87,0%) và anh Long (85,1% trên hơn 10 ngàn đơn) đều có tỷ lệ giao ca sáng cực kỳ ấn tượng.
+Hiệu suất giao hàng sàn TikTok Shop chuyến sáng Ca 1 đã chính thức vượt xa cam kết SLA 76% khi bứt phá lên tới 81,34% (tăng mạnh tới +6,17%p so với mức 75,16% của tuần W39)!
 
-Đặc biệt, anh Lê Văn Trường ở Lâm Đồng đã kéo GTC Ca 1 TTS tăng phi mã tới gần +25%p (từ 55,6% lên 80,3%), chứng minh khi anh em tập trung xuất tuyến sớm, đơn sàn giao cực kỳ thoát!
+Nhìn vào 5 Tỉnh thành:
 
-Tuy nhiên, khi nhìn sang thẻ Hàng Tồn ở Tab 4, tỷ lệ thành công chung lập tức tụt xuống còn 63,56%, chênh lệch nhau tới gần 14%p!
+Bình Thuận (86,5%) và Ninh Thuận (83,8%) tiếp tục giữ vững vị thế dẫn đầu. Nhưng điều đáng mừng nhất là tuần này cả Lâm Đồng (80,2%) và Khánh Hòa (80,2%) đều đã xuất sắc kéo GTC Ca 1 sàn vượt qua ngưỡng 80%!
 
-Tại sao lại như vậy?
+Đặc biệt, Lâm Đồng đã có bước nhảy vọt phi thường khi tăng hơn +13,3%p so với tuần trước.
 
-Bởi vì shipper sáng ra lấy hàng vẫn còn thói quen lựa các kiện hàng thuần mới tinh để giao trước cho nhanh. Còn các đơn tồn từ hôm trước dồn lại thì để dưới đáy sọt hoặc để lại góc kho, không ưu tiên phát sớm.
+Nhìn vào bảng 18 AM bên dưới:
 
-Hàng tồn để càng lâu thì tỷ lệ khách đổi ý không lấy càng cao.
+Chúng ta đã có 13 trên tổng số 18 AM đạt chuẩn xanh ≥ 76%. Quán quân thuộc về anh Nguyễn Ngọc Khánh đạt 88,9%, anh Nguyễn Đỗ Minh Nghĩa đạt 87,0% và chị Cao Thị Thanh Thủy đạt 87,0%.
 
-Em đề nghị các AM nhóm dưới như anh Trường, anh Vũ và anh Linh phải quán triệt lại cho bưu tá: Quy tắc bất di bất dịch của GHN là 'First In - First Out', hàng cũ tồn hôm qua phải được gán và mang đi phát ngay chuyến đầu tiên lúc 8h sáng, không được găm hàng lại bưu cục!"
+Đặc biệt, em xin tuyên dương anh Nguyễn Duy Long: Một mình anh Long gánh khối lượng Ca 1 TTS khổng lồ với hơn 10 ngàn đơn (10.257 đơn, chiếm gần 1/4 sản lượng Ca 1 toàn vùng) nhưng vẫn đạt tỷ lệ xuất sắc lên tới 85,05%!
+
+Bên cạnh đó, anh Lê Văn Trường ở Lâm Đồng đã có cú lội ngược dòng ngoạn mục nhất khi kéo GTC Ca 1 TTS tăng gần +25%p (từ 55,6% nhảy vọt lên 80,3%), đưa địa bàn Đà Lạt từ điểm nóng cảnh báo trở thành điểm đạt chuẩn SLA!
+
+Tuy nhiên, trên biểu đồ mọi người thấy vẫn còn 5 AM hiển thị màu đỏ dưới mốc 76%:
+
+Đó là chỗ anh Duân (64,5%), anh Vũ (61,4%), chị Nhi (58,6%), anh Linh (58,1%) và anh Lợi (46,7%).
+
+Em đề nghị tuần tới, 5 AM này phải áp dụng triệt để kỷ luật xuất bến: Bắt buộc shipper đi phát chuyến 1 trước 8h30 sáng để tận dụng tối đa khung giờ vàng nhận hàng của khách TikTok Shop. Giờ em xin chuyển qua Tab 5 mổ xẻ Tỷ lệ gán vận hành ạ!"
 
 
 > 💡 **Điểm sáng & Insight vận hành:**
-> - Hàng thuần Ca 1 TikTok Shop đạt kỷ lục 81,34% (tăng +6,17%p WoW), chứng minh khách hàng mua sàn TMĐT có nhu cầu nhận hàng ca sáng rất cao và shipper giao rất hiệu quả.
-> - Độ lệch ~14%p giữa hàng thuần (77,35%) và hàng tồn (63,56%) khẳng định shipper vẫn còn tâm lý ưu tiên hàng mới, bỏ bê hàng tồn hôm trước.
+> - GTC Ca 1 TikTok Shop đạt kỷ lục 81,34% (tăng +6,17%p WoW), chính thức đưa toàn vùng vượt qua cam kết SLA ≥ 76.0% với sàn TMĐT.
+> - 13/18 AM đã đạt chuẩn SLA, chứng minh việc đôn đốc bưu tá xuất tuyến sớm chuyến 1 đầu ngày phát huy hiệu quả rõ rệt.
 
 
 > ⚠️ **Cảnh báo rủi ro & Điểm nóng:**
-> - Cần kiểm soát chặt chẽ việc shipper không chịu mang hàng tồn đi phát chuyến 1 đầu ngày, dẫn tới trôi sang ca chiều và rớt GTC.
+> - Vẫn còn 5 AM (Duân, Vũ, Nhi, Linh, Lợi) dưới ngưỡng 76%, trong đó AM Lê Minh Lợi mới đạt 46,67%, làm kéo tụt điểm chung của các tuyến vùng sâu.
 
 
 > 🎯 **Hành động cụ thể & Giao việc hiện trường:**
-> - Trưởng bưu cục bắt buộc phải kiểm tra sọt hàng của shipper trước khi xuất bến lúc 08h15: 100% đơn tồn hôm trước phải được xếp lên trên cùng để phát trước 10h30.
+> - Trưởng bưu cục tại 5 AM nhóm dưới phải kiểm soát 100% shipper xuất bến chuyến 1 trước 08h30 sáng, ưu tiên giao dứt điểm các tuyến trung tâm trước 11h00.
 
 
 ---
