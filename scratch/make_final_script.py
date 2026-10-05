@@ -74,7 +74,7 @@ Tuần 40 này, toàn vùng Nam Trung Bộ của chúng ta có nhiều chuyển 
 Về quản trị dòng tiền, tỷ lệ nộp COD bằng chuyển khoản QR tuần này duy trì ở mức 59,6%.
 Bên cạnh đó, chúng ta cũng cần nhìn nhận một số điểm cần lưu ý để cải thiện trong tuần tới:
 Thứ nhất: Sản lượng tuần này hạ nhiệt nhẹ về 311.503 đơn, giảm khoảng 6% so với tuần W39 do tuần cuối tháng thị trường có sự chững lại.
-Thứ hai: Khâu vận chuyển KTC vẫn còn 76 chuyến xe chạy non tải dưới 30% thùng, tỷ lệ lấp đầy KTC đạt 51,0%, cần được tối ưu gộp tuyến để tiết kiệm chi phí.
+Thứ hai: Khâu vận chuyển KTC toàn vùng tuần này ghi nhận 124 chuyến xe chạy non tải dưới 30% thùng (chiếm 24,2% tổng số chuyến), kéo tỷ lệ lấp đầy bình quân KTC giảm về 45,6% (giảm 2,1% so với tuần trước), trong đó tập trung nhiều nhất ở Đức Trọng (43 chuyến) và Đắk Nông (22 chuyến). Khâu này cần được các bộ phận phối hợp rà soát ghép tuyến và tối ưu tải trọng xe.
 Thứ ba: Mặc dù tổng số tiền cần truy thu giảm 40% về 187,1 triệu đồng, nhưng số tiền phát sinh mới còn khá lớn, trong đó có một số vụ việc công nợ tại Cam Ranh và các ticket tồn tại Lâm Đồng cần được tập trung xử lý dứt điểm.
 Bây giờ, em xin phép bấm chuyển qua Tab 2 để đi sâu vào sản lượng từng Tỉnh và từng anh chị AM nha!\""""
     },
@@ -485,18 +485,41 @@ Bây giờ, em xin phép chuyển sang Tab 11 xem Báo cáo điều hành KTC & 
     {
         "id": "tab-ktc",
         "title": "🗣️ BÁO CÁO ĐIỀU HÀNH KTC & VẬN TẢI ĐƯỜNG TRỤC (BẬT TAB 11 DASHBOARD):",
-        "content": """📍 1. BẢNG HIỆU SUẤT VẬN TẢI TOÀN VÙNG:
-• Tỷ lệ lấp đầy KTC toàn vùng (%TLTĐ): 51,0% (Target tối thiểu ≥ 55,0%).
-• Tình trạng non tải: Còn khoảng 76 chuyến xe chạy non tải dưới 30% thùng (chủ yếu ở tuyến nhánh Lâm Đồng, Đắk Nông và Ninh Thuận).
-• Leadtime luân chuyển trung bình: KTC Khánh Hòa 8,4h, KTC Đức Trọng 9,2h, KTC Đắk Nông 11,5h.
+        "content": """📍 1. BẢNG HIỆU SUẤT VẬN TẢI KTC TOÀN VÙNG:
+• Tỷ lệ lấp đầy bình quân toàn vùng (%TLTĐ): 45,6% (giảm -2,1%p so với tuần trước 47,7%; Target tối thiểu ≥ 55,0%).
+• Tổng số chuyến xe toàn vùng: 513 chuyến (giảm -14 chuyến so với 527 chuyến tuần trước).
+• Tình trạng xe non tải: Toàn vùng phát sinh 124 chuyến xe chạy non tải dưới 30% thùng (chiếm 24,2% tổng số chuyến):
+  - KCT Đức Trọng (Lâm Đồng): 43 chuyến xe dưới 30% (nhiều nhất vùng), TLLĐ chỉ đạt 40,6% (giảm -4,5%p so với 45,1% tuần trước).
+  - KCT Đắk Nông: 22 chuyến xe dưới 30% (chiếm hơn 52% trong tổng số 42 chuyến của kho), TLLĐ thấp nhất vùng chỉ 31,3% (giảm -1,9%p so với 33,2%).
+  - KTC Khánh Hòa: 20 chuyến xe dưới 30% / 193 chuyến, TLLĐ đạt 52,3% (giảm -2,6%p so với 54,9%).
+  - KCT Bình Thuận: 20 chuyến xe dưới 30% / 113 chuyến, TLLĐ đạt 47,7% (tăng nhẹ +1,1%p so với 46,6%).
+  - KCT Bảo Lộc (Lâm Đồng): 19 chuyến xe dưới 30% / 55 chuyến, TLLĐ đạt 38,2% (giảm -1,6%p so với 39,8%).
+• Phân loại mức độ non tải toàn vùng: Dưới 10% có 7 chuyến, từ 10% - 20% có 32 chuyến, từ 20% - 30% có 37 chuyến.
+• Nguyên nhân chính dẫn đến 124 chuyến non tải:
+  - 35,1% (33 chuyến) do sản lượng bưu cục / hàng gom về thấp (Đắk Nông 19 chuyến, Đức Trọng 8 chuyến).
+  - 11,7% (11 chuyến) do lộ trình xa, ghé nhiều điểm nhưng sản lượng mỏng (Bình Thuận 7 chuyến, Đức Trọng 4 chuyến).
+  - 8,5% (8 chuyến) do chủ động giữ hàng / ghép điểm để tối ưu giảm các chuyến khác.
+  - Còn lại do chu kỳ tuần, đặc thù gom bưu cục, hoặc xe trọng tải 5 tấn không đủ hàng lấp đầy.
+• Leadtime luân chuyển KTC trung bình: Toàn vùng duy trì rất tốt ở mức 5,37h (Khánh Hòa 4,81h, Bảo Lộc 4,47h, Đức Trọng 5,67h, Đắk Nông 6,34h).
+• Tồn luân chuyển KTC >12h: Toàn vùng 7.088 đơn (13,0%); tồn >24h chỉ 182 đơn (0,34%).
 
 🎙️ LỜI THOẠI THUYẾT TRÌNH (KHI BẬT TAB 11 DASHBOARD KTC & VẬN TẢI):
-"Kính thưa Ban Giám Đốc, vận tải KTC là khâu kết nối huyết mạch và chiếm tỷ trọng chi phí lớn trong vận hành:
-Tuần W40, tỷ lệ lấp đầy KTC toàn vùng đạt 51,0%, tiệm cận mục tiêu 55%.
-Một điểm chúng ta có thể tối ưu thêm là hiện vẫn còn 76 chuyến xe chạy dưới 30% tải trọng thùng xe ở các tuyến nhánh.
-Nguyên nhân là một số bưu cục tuyến huyện có sản lượng trong ngày chưa nhiều nhưng vẫn cần xe rước theo lịch trình cố định.
-Giải pháp trong tuần W41: Phòng Vận tải KTC phối hợp chặt chẽ với các AM để khảo sát gộp tuyến liên huyện (ví dụ ghép tuyến Đơn Dương - Đức Trọng hoặc cụm Tuy Đức - Kiến Đức) để vừa đảm bảo giờ rước hàng vừa nâng tỷ lệ lấp đầy xe lên trên 55%, giúp tiết kiệm chi phí vận hành chung cho toàn vùng.
-Giờ em xin chuyển sang Tab 12 mổ xẻ Tồn Aging & Treo luân chuyển ạ!\""""
+"Kính thưa Ban Giám Đốc, vận tải KTC là khâu huyết mạch kết nối toàn mạng lưới và chiếm tỷ trọng chi phí rất lớn trong hoạt động vận hành:
+Nhìn vào dữ liệu tuần qua, tỷ lệ lấp đầy thùng xe KTC bình quân toàn vùng đạt 45,6%, giảm nhẹ 2,1% so với mức 47,7% của tuần trước trên tổng số 513 chuyến xe xuất bến.
+Điểm mấu chốt chúng ta cần tập trung tối ưu là hiện toàn vùng ghi nhận 124 chuyến xe chạy non tải dưới 30% thùng, chiếm 24,2% tổng số chuyến xe toàn vùng.
+Trong 124 chuyến non tải này, tập trung nhiều nhất ở 2 khu vực:
+- Thứ nhất là KCT Đức Trọng với 43 chuyến xe dưới 30%, kéo tỷ lệ lấp đầy ở đây giảm xuống 40,6% (giảm -4,5% so với tuần trước).
+- Thứ hai là KCT Đắk Nông với 22 chuyến xe dưới 30% trên tổng số 42 chuyến — tức là hơn một nửa số chuyến chạy trong tuần chưa đạt một phần ba thùng xe, khiến tỷ lệ lấp đầy ở Đắk Nông chỉ đạt 31,3%.
+- Còn tại Khánh Hòa có 20 chuyến (TLLĐ 52,3%), Bình Thuận có 20 chuyến (TLLĐ 47,7%) và Bảo Lộc có 19 chuyến (TLLĐ 38,2%).
+
+Về nguyên nhân: Dữ liệu hệ thống bóc tách cho thấy nguyên nhân lớn nhất (chiếm 35,1% số chuyến) là do sản lượng gom về tại các bưu cục nhánh bị mỏng (đặc biệt là khu vực Đắk Nông và Đức Trọng), cộng với khoảng 11,7% số chuyến có lộ trình xa, ghé nhiều điểm nhưng lượng hàng thực tế ít.
+
+Để giải quyết bài toán chi phí vận tải này trong các tuần tới, em xin đề xuất 3 giải pháp trọng tâm:
+1. Phòng Vận tải KTC phối hợp chặt chẽ với AM Đắk Nông và AM Đức Trọng rà soát lại toàn bộ biểu đồ chạy xe: Tuyến nhánh nào sản lượng mỏng thì linh hoạt chuyển sang loại xe trọng tải nhỏ hơn (như xe 1 tấn, 1.5 tấn thay vì xe lớn) để vừa vặn với dung tích hàng.
+2. Với các bưu cục trên cùng trục đường, tiến hành gộp điểm dừng và gom chuyến liên bưu cục, điều chỉnh lệch giờ rước hàng từ 30 đến 45 phút nếu cần thiết để gom đủ lượng hàng rồi mới xuất bến.
+3. Tiếp tục duy trì leadtime luân chuyển (hiện trung bình toàn vùng đang giữ rất tốt ở mức 5,37h, tồn >24h chỉ 0,34%) để đảm bảo việc gộp chuyến tối ưu chi phí không làm ảnh hưởng đến thời gian cam kết giao hàng cho khách.
+Mục tiêu là trong tuần tới, chúng ta sẽ kéo giảm số chuyến xe non tải từ 124 chuyến xuống dưới 70 chuyến, đưa tỷ lệ lấp đầy toàn vùng quay trở lại ngưỡng trên 50-55%.
+Giờ em xin phép chuyển sang Tab 12 mổ xẻ Tồn Aging & Treo luân chuyển ạ!\""""
     },
 
     # ----------------------------------------------------
