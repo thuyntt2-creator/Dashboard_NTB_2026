@@ -1,0 +1,85 @@
+{
+  "status": "SUCCESS",
+  "bang_3a": [
+    {
+      "rank": "🥇",
+      "name": "Bình Thuận",
+      "w40": "83.686",
+      "diff": "▲ +2.869 đơn"
+    },
+    {
+      "rank": "🥈",
+      "name": "Ninh Thuận",
+      "w40": "33.549",
+      "diff": "▲ +307 đơn"
+    },
+    {
+      "rank": "🥉",
+      "name": "Đắk Nông",
+      "w40": "31.772",
+      "diff": "▼ -2.112 đơn"
+    },
+    {
+      "rank": "4",
+      "name": "Khánh Hòa",
+      "w40": "84.777",
+      "diff": "▼ -10.304 đơn"
+    },
+    {
+      "rank": "5",
+      "name": "Lâm Đồng",
+      "w40": "77.719",
+      "diff": "▼ -10.570 đơn"
+    }
+  ],
+  "bang_3b": [
+    {
+      "rank": "🥇",
+      "name": "Bình Thuận",
+      "w40": "22.331",
+      "diff": "▲ +4.185 đơn"
+    },
+    {
+      "rank": "🥈",
+      "name": "Ninh Thuận",
+      "w40": "11.156",
+      "diff": "▲ +2.863 đơn"
+    },
+    {
+      "rank": "🥉",
+      "name": "Đắk Nông",
+      "w40": "8.720",
+      "diff": "▼ -296 đơn"
+    },
+    {
+      "rank": "4",
+      "name": "Khánh Hòa",
+      "w40": "15.921",
+      "diff": "▼ -2.784 đơn"
+    },
+    {
+      "rank": "5",
+      "name": "Lâm Đồng",
+      "w40": "14.125",
+      "diff": "▼ -5.158 đơn"
+    }
+  ],
+  "top3_am": [
+    {
+      "rank": "🥇",
+      "name": "Lê Thanh Nhựt",
+      "diff": "🟢 Tăng Trưởng"
+    },
+    {
+      "rank": "🥈",
+      "name": "Nguyễn Ngọc Khánh",
+      "diff": "🟢 Tăng Trưởng"
+    },
+    {
+      "rank": "🥉",
+      "name": "Cao Thị Thanh Thủy",
+      "diff": "🟢 Tăng Trưởng"
+    }
+  ],
+  "has_province_laser": true
+}
