@@ -685,10 +685,142 @@
     if (activeTab === 'tab-ltc') renderLtcChart();
   };
 
+  // Mapping cơ cấu AM theo từng Tỉnh Thành (chuẩn hóa theo co_cau_ntb.csv)
+  const PROVINCE_AM_MAP = {
+    'Bình Thuận': ['Cao Thị Thanh Thủy', 'Lê Thanh Nhựt', 'Nguyễn Ngọc Khánh', 'Nguyễn Duy Long'],
+    'Ninh Thuận': ['Nguyễn Duy Long'],
+    'Khánh Hòa': ['Thái Thị Thanh Thư', 'Phan Đình Duy', 'Nguyễn Hoàng Phi', 'Nguyễn Thanh Long'],
+    'Lâm Đồng': ['Lê Văn Trường', 'Lê Minh Lợi', 'Phan Nguyễn Yến Nhi', 'Huỳnh Thị Kim Chi', 'Nguyễn Thị Tuyết Thơ', 'Nguyễn Lê Nguyên Vũ', 'Nguyễn Đỗ Minh Nghĩa', 'Hồng Bích Nga'],
+    'Đắk Nông': ['Trần Thị Nhung', 'Huỳnh Thúc Duân', 'Trương Quang Linh', 'Hồng Bích Nga']
+  };
+
+  function selectAndHighlightProvince(tinhName) {
+    // If clicking same Province again, toggle off
+    if (state.selectedProvince === tinhName) {
+      window.clearProvinceHighlight();
+      return;
+    }
+
+    state.selectedProvince = tinhName;
+
+    // Remove old highlights
+    document.querySelectorAll('.province-laser-box').forEach(el => el.classList.remove('province-laser-box'));
+    document.querySelectorAll('.presenter-laser-gold').forEach(el => el.classList.remove('presenter-laser-gold'));
+
+    // Highlight all matching rows in province tables
+    document.querySelectorAll(`tr[data-province="${tinhName}"]`).forEach(tr => {
+      tr.classList.add('province-laser-box');
+    });
+
+    // Re-render chart to highlight province
+    renderSanLuongTinhChart();
+
+    // Show spotlight callout
+    renderProvinceSpotlight(tinhName);
+
+    // Highlight associated AMs in Bảng 1 & Bảng 2
+    const associatedAMs = PROVINCE_AM_MAP[tinhName] || [];
+    associatedAMs.forEach(am => {
+      document.querySelectorAll(`tr[data-entity="${am}"]`).forEach(tr => {
+        tr.classList.add('presenter-laser-gold');
+      });
+    });
+
+    // Update province tables
+    renderVolumeTab();
+    const activeTab = document.querySelector('.tab-view.active')?.id || 'tab-volume';
+    if (activeTab === 'tab-gtc-tong') renderGtcTongTab();
+    if (activeTab === 'tab-odr') renderOdrTab();
+    if (activeTab === 'tab-ltc') renderLtcTab();
+    if (activeTab === 'tab-rot-lc') renderRotLcTab();
+  }
+  window.selectAndHighlightProvince = selectAndHighlightProvince;
+
+  window.clearProvinceHighlight = function() {
+    state.selectedProvince = null;
+    document.querySelectorAll('.province-laser-box').forEach(el => el.classList.remove('province-laser-box'));
+    document.querySelectorAll('.presenter-laser-gold').forEach(el => el.classList.remove('presenter-laser-gold'));
+
+    const calloutElVol = document.getElementById('vol-spotlight-callout-container');
+    if (calloutElVol && calloutElVol.getAttribute('data-type') === 'province') {
+      calloutElVol.innerHTML = '';
+      calloutElVol.removeAttribute('data-type');
+    }
+
+    renderSanLuongTinhChart();
+    renderVolumeTab();
+    const activeTab = document.querySelector('.tab-view.active')?.id || 'tab-volume';
+    if (activeTab === 'tab-gtc-tong') renderGtcTongTab();
+    if (activeTab === 'tab-odr') renderOdrTab();
+    if (activeTab === 'tab-ltc') renderLtcTab();
+    if (activeTab === 'tab-rot-lc') renderRotLcTab();
+  };
+
+  function renderProvinceSpotlight(tinhName) {
+    const calloutEl = document.getElementById('vol-spotlight-callout-container');
+    if (!calloutEl) return;
+
+    calloutEl.setAttribute('data-type', 'province');
+
+    const rawTinhFull = D.san_luong?.tinh_full || D.san_luong?.tinh || [];
+    const rawTinhTTS = D.san_luong?.tinh_tts || [];
+    const wKeys = (D.meta?.weeks || ['W37', 'W38', 'W39', 'W40']).map(w => w.toLowerCase());
+
+    const itemFull = rawTinhFull.find(r => r.tinh === tinhName) || {};
+    const itemTTS = rawTinhTTS.find(r => r.tinh === tinhName) || {};
+
+    const vFull = itemFull[wKeys[3]] !== undefined ? itemFull[wKeys[3]] : (itemFull.vol || 0);
+    const prevFull = itemFull[wKeys[2]] !== undefined ? itemFull[wKeys[2]] : 0;
+    const diffFull = itemFull.diff !== undefined ? itemFull.diff : (vFull - prevFull);
+
+    const vTTS = itemTTS[wKeys[3]] !== undefined ? itemTTS[wKeys[3]] : (itemTTS.vol || 0);
+    const prevTTS = itemTTS[wKeys[2]] !== undefined ? itemTTS[wKeys[2]] : 0;
+    const diffTTS = itemTTS.diff !== undefined ? itemTTS.diff : (vTTS - prevTTS);
+
+    const amList = PROVINCE_AM_MAP[tinhName] || [];
+    const amBadges = amList.map(am => `<span class="badge-tag" style="background:#e0f2fe; color:#0369a1; font-weight:700; cursor:pointer;" onclick="selectAndHighlightAM('${am}')">${am}</span>`).join(' ');
+
+    calloutEl.innerHTML = `
+      <div style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 2px solid #3b82f6; border-radius: 12px; padding: 14px 18px; margin-bottom: 16px; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.15); animation: toolPop 0.25s ease;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom: 8px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="background:#2563eb; color:white; width:28px; height:28px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:14px; font-weight:800;">📍</span>
+            <span style="font-size:16px; font-weight:800; color:#1e3a8a;">ĐANG CHỌN TỈNH: ${tinhName.toUpperCase()}</span>
+            <span class="badge-tag badge-tag-blue" style="font-size:11px;">Tâm Điểm Báo Cáo</span>
+          </div>
+          <button onclick="window.clearProvinceHighlight()" style="background:#ffffff; border:1px solid #93c5fd; color:#1d4ed8; padding:4px 12px; border-radius:20px; font-size:12px; font-weight:700; cursor:pointer; display:flex; align-items:center; gap:4px; box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+            ✕ Bỏ chọn tỉnh
+          </button>
+        </div>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 10px;">
+          <div style="background:#ffffff; padding:10px 14px; border-radius:8px; border-left:4px solid #2563eb;">
+            <div style="font-size:11.5px; color:#64748b; font-weight:700;">FULL HÀNG W40:</div>
+            <div style="font-size:18px; font-weight:800; color:#1e3a8a;">${fNum(vFull)} đơn <span style="font-size:12px; font-weight:700; color:${diffFull >= 0 ? '#16a34a' : '#2563eb'};">(${diffFull >= 0 ? '+' : ''}${fNum(diffFull)})</span></div>
+          </div>
+          <div style="background:#ffffff; padding:10px 14px; border-radius:8px; border-left:4px solid #ea580c;">
+            <div style="font-size:11.5px; color:#64748b; font-weight:700;">TIKTOK SHOP W40:</div>
+            <div style="font-size:18px; font-weight:800; color:#ea580c;">${fNum(vTTS)} đơn <span style="font-size:12px; font-weight:700; color:${diffTTS >= 0 ? '#16a34a' : '#ea580c'};">(${diffTTS >= 0 ? '+' : ''}${fNum(diffTTS)})</span></div>
+          </div>
+          <div style="background:#ffffff; padding:10px 14px; border-radius:8px; border-left:4px solid #10b981;">
+            <div style="font-size:11.5px; color:#64748b; font-weight:700;">ĐỘI NGŨ AM PHỤ TRÁCH ĐỊA BÀN:</div>
+            <div style="display:flex; flex-wrap:wrap; gap:5px; margin-top:4px;">${amBadges}</div>
+          </div>
+        </div>
+        <div style="font-size:11.5px; color:#3b82f6; font-weight:600; font-style:italic;">
+          💡 Mẹo: Các dòng AM thuộc tỉnh ${tinhName} ở Bảng 1 & Bảng 2 bên dưới đã được viền sáng xanh lá (Gold Laser) để dễ theo dõi.
+        </div>
+      </div>
+    `;
+  }
+
   function setupLaserClickHighlighter() {
     document.addEventListener('click', e => {
       const tr = e.target.closest('tbody tr');
-      if (tr && tr.hasAttribute('data-entity')) {
+      if (!tr) return;
+      if (tr.hasAttribute('data-province')) {
+        const tinh = tr.getAttribute('data-province');
+        selectAndHighlightProvince(tinh);
+      } else if (tr.hasAttribute('data-entity')) {
         const amName = tr.getAttribute('data-entity');
         selectAndHighlightAM(amName);
       }
@@ -697,6 +829,7 @@
     window.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
         window.clearAMHighlight();
+        window.clearProvinceHighlight();
       }
     });
   }
@@ -1764,12 +1897,18 @@
           {
             label: `Full Hàng (Toàn Mạng) ${latestWeek}`,
             data: dataT.map(d => d[currKey] !== undefined ? d[currKey] : (d.vol || d.w37 || 0)),
-            backgroundColor: '#1e3a8a',
+            backgroundColor: dataT.map(d => {
+              if (!state.selectedProvince) return '#1e3a8a';
+              return d.tinh === state.selectedProvince ? '#2563eb' : 'rgba(30, 58, 138, 0.25)';
+            }),
+            borderColor: dataT.map(d => d.tinh === state.selectedProvince ? '#1d4ed8' : 'transparent'),
+            borderWidth: 2,
+            borderRadius: 6,
             datalabels: {
               anchor: 'end',
               align: 'top',
               offset: 2,
-              color: '#1e3a8a',
+              color: d => (state.selectedProvince && dataT[d.dataIndex].tinh !== state.selectedProvince) ? '#94a3b8' : '#1e3a8a',
               font: { weight: '800', size: 10 },
               formatter: v => (v / 1000).toFixed(1) + 'k'
             }
@@ -1783,12 +1922,18 @@
               const total = d[currKey] !== undefined ? d[currKey] : (d.vol || 0);
               return Math.round(total * 0.192);
             }),
-            backgroundColor: '#f26522',
+            backgroundColor: dataT.map(d => {
+              if (!state.selectedProvince) return '#f26522';
+              return d.tinh === state.selectedProvince ? '#ea580c' : 'rgba(242, 101, 34, 0.25)';
+            }),
+            borderColor: dataT.map(d => d.tinh === state.selectedProvince ? '#c2410c' : 'transparent'),
+            borderWidth: 2,
+            borderRadius: 6,
             datalabels: {
               anchor: 'end',
               align: 'top',
               offset: 2,
-              color: '#d44d0e',
+              color: d => (state.selectedProvince && dataT[d.dataIndex].tinh !== state.selectedProvince) ? '#94a3b8' : '#d44d0e',
               font: { weight: '800', size: 10 },
               formatter: (v, ctx) => {
                 const total = dataT[ctx.dataIndex][currKey] || dataT[ctx.dataIndex].vol || 0;
@@ -1813,6 +1958,13 @@
             callbacks: {
               label: c => `${c.dataset.label}: ${c.parsed.y.toLocaleString('vi-VN')} đơn`
             }
+          }
+        },
+        onClick: (event, elements) => {
+          if (elements.length > 0) {
+            const idx = elements[0].index;
+            const clickedProvince = dataT[idx].tinh;
+            selectAndHighlightProvince(clickedProvince);
           }
         }
       }
@@ -1936,6 +2088,8 @@
       }).sort((a, b) => (b.diff_val || 0) - (a.diff_val || 0));
 
       tblBodyTinhFull.innerHTML = listTinhFull.map((row, i) => {
+        const isSelected = state.selectedProvince === row.tinh;
+        const rowClass = isSelected ? 'province-laser-box' : '';
         const diffBadge = renderDeltaBadge(row.diff_val, true, false);
         const evalBadge = row.diff_val > 0
           ? '<span class="badge-tag badge-tag-green">🟢 Tăng Trưởng</span>'
@@ -1947,9 +2101,9 @@
         const v4 = row[wKeys[3]] !== undefined ? row[wKeys[3]] : (row.w37 || row.vol || 0);
 
         return `
-          <tr>
+          <tr data-province="${row.tinh}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightProvince('${row.tinh}')">
             <td class="center">${renderRankPill(i)}</td>
-            <td class="bold" style="font-size:13.5px; font-weight:800;">${row.tinh}</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:${isSelected ? '#2563eb' : 'inherit'};">${row.tinh}</td>
             <td class="num">${fNum(v1)}</td>
             <td class="num">${fNum(v2)}</td>
             <td class="num">${fNum(v3)}</td>
@@ -1983,6 +2137,8 @@
       }).sort((a, b) => (b.diff_val || 0) - (a.diff_val || 0));
 
       tblBodyTinhTTS.innerHTML = listTinhTTS.map((row, i) => {
+        const isSelected = state.selectedProvince === row.tinh;
+        const rowClass = isSelected ? 'province-laser-box' : '';
         const diffBadge = renderDeltaBadge(row.diff_val, true, false);
         const evalBadge = row.diff_val > 0
           ? '<span class="badge-tag badge-tag-green">🟢 Tăng Trưởng</span>'
@@ -1995,9 +2151,9 @@
         const v4 = row[wKeys[3]] !== undefined ? row[wKeys[3]] : (row.w37 !== undefined ? row.w37 : (row.vol || 0));
 
         return `
-          <tr>
+          <tr data-province="${row.tinh}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightProvince('${row.tinh}')">
             <td class="center">${renderRankPill(i)}</td>
-            <td class="bold" style="font-size:13.5px; font-weight:800;">${row.tinh}</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:${isSelected ? '#ea580c' : 'inherit'};">${row.tinh}</td>
             <td class="num">${fNum(v1)}</td>
             <td class="num">${fNum(v2)}</td>
             <td class="num">${fNum(v3)}</td>
@@ -2486,6 +2642,8 @@
       }).sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyTinhFull.innerHTML = listTinhFull.map((row, i) => {
+        const isSelected = state.selectedProvince === row.tinh;
+        const rowClass = isSelected ? 'province-laser-box' : '';
         const v1 = row[wKeys[0]] !== undefined ? row[wKeys[0]] : (row.w34 || 0);
         const v2 = row[wKeys[1]] !== undefined ? row[wKeys[1]] : (row.w35 || 0);
         const v3 = row[wKeys[2]] !== undefined ? row[wKeys[2]] : (row.w36 || 0);
@@ -2495,9 +2653,9 @@
         const evalBadge = getGtcEvalBadge(v4);
 
         return `
-          <tr>
+          <tr data-province="${row.tinh}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightProvince('${row.tinh}')">
             <td class="center">${renderRankPill(i)}</td>
-            <td class="bold" style="font-size:13.5px; font-weight:800;">${row.tinh}</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:${isSelected ? '#2563eb' : 'inherit'};">${row.tinh}</td>
             <td class="num">${fNum(row.vol)}</td>
             <td class="num">${fPct(v1)}</td>
             <td class="num">${fPct(v2)}</td>
@@ -2526,6 +2684,8 @@
       }).sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyTinhTTS.innerHTML = listTinhTTS.map((row, i) => {
+        const isSelected = state.selectedProvince === row.tinh;
+        const rowClass = isSelected ? 'province-laser-box' : '';
         const v1 = row[wKeys[0]] !== undefined ? row[wKeys[0]] : (row.w34 || 0);
         const v2 = row[wKeys[1]] !== undefined ? row[wKeys[1]] : (row.w35 || 0);
         const v3 = row[wKeys[2]] !== undefined ? row[wKeys[2]] : (row.w36 || 0);
@@ -2535,9 +2695,9 @@
         const evalBadge = getGtcEvalBadge(v4);
 
         return `
-          <tr>
+          <tr data-province="${row.tinh}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightProvince('${row.tinh}')">
             <td class="center">${renderRankPill(i)}</td>
-            <td class="bold" style="font-size:13.5px; font-weight:800;">${row.tinh}</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:${isSelected ? '#ea580c' : 'inherit'};">${row.tinh}</td>
             <td class="num">${fNum(row.vol)}</td>
             <td class="num">${fPct(v1)}</td>
             <td class="num">${fPct(v2)}</td>
@@ -3763,6 +3923,8 @@
       }).sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyTinhFull.innerHTML = listTinhFull.map((row, i) => {
+        const isSelected = state.selectedProvince === row.tinh;
+        const rowClass = isSelected ? 'province-laser-box' : '';
         const v1 = row[wKeys[0]] !== undefined ? row[wKeys[0]] : (row.w34 || 0);
         const v2 = row[wKeys[1]] !== undefined ? row[wKeys[1]] : (row.w35 || 0);
         const v3 = row[wKeys[2]] !== undefined ? row[wKeys[2]] : (row.w36 || 0);
@@ -3772,9 +3934,9 @@
         const evalBadge = getOdrEvalBadge(v4);
 
         return `
-          <tr>
+          <tr data-province="${row.tinh}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightProvince('${row.tinh}')">
             <td class="center">${renderRankPill(i)}</td>
-            <td class="bold" style="font-size:13.5px; font-weight:800;">${row.tinh}</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:${isSelected ? '#2563eb' : 'inherit'};">${row.tinh}</td>
             <td class="num">${fNum(row.vol)}</td>
             <td class="num">${fPct(v1)}</td>
             <td class="num">${fPct(v2)}</td>
@@ -3803,6 +3965,8 @@
       }).sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyTinhTTS.innerHTML = listTinhTTS.map((row, i) => {
+        const isSelected = state.selectedProvince === row.tinh;
+        const rowClass = isSelected ? 'province-laser-box' : '';
         const v1 = row[wKeys[0]] !== undefined ? row[wKeys[0]] : (row.w34 || 0);
         const v2 = row[wKeys[1]] !== undefined ? row[wKeys[1]] : (row.w35 || 0);
         const v3 = row[wKeys[2]] !== undefined ? row[wKeys[2]] : (row.w36 || 0);
@@ -3812,9 +3976,9 @@
         const evalBadge = getOdrEvalBadge(v4);
 
         return `
-          <tr>
+          <tr data-province="${row.tinh}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightProvince('${row.tinh}')">
             <td class="center">${renderRankPill(i)}</td>
-            <td class="bold" style="font-size:13.5px; font-weight:800;">${row.tinh}</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:${isSelected ? '#ea580c' : 'inherit'};">${row.tinh}</td>
             <td class="num">${fNum(row.vol)}</td>
             <td class="num">${fPct(v1)}</td>
             <td class="num">${fPct(v2)}</td>
@@ -4220,6 +4384,8 @@
       }).sort((a, b) => (b.curr_val || 0) - (a.curr_val || 0));
 
       tblBodyTinh.innerHTML = listTinh.map((row, i) => {
+        const isSelected = state.selectedProvince === row.tinh;
+        const rowClass = isSelected ? 'province-laser-box' : '';
         const v1 = row[wKeys[0]] !== undefined ? row[wKeys[0]] : (row.w34 || 0);
         const v2 = row[wKeys[1]] !== undefined ? row[wKeys[1]] : (row.w35 || 0);
         const v3 = row[wKeys[2]] !== undefined ? row[wKeys[2]] : (row.w36 || 0);
@@ -4231,9 +4397,9 @@
           : '<span class="badge-tag badge-tag-red">🔴 Cần Thúc Đẩy (&lt;90%)</span>';
 
         return `
-          <tr>
+          <tr data-province="${row.tinh}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightProvince('${row.tinh}')">
             <td class="center">${renderRankPill(i)}</td>
-            <td class="bold" style="font-size:13px; font-weight:800;">${row.tinh}</td>
+            <td class="bold" style="font-size:13px; font-weight:800; color:${isSelected ? '#2563eb' : 'inherit'};">${row.tinh}</td>
             <td class="num">${fNum(row.vol)}</td>
             <td class="num">${fPct(v1)}</td>
             <td class="num">${fPct(v2)}</td>
@@ -5063,6 +5229,8 @@
       }).sort((a, b) => (b.vol_rot || 0) - (a.vol_rot || 0) || (b.wCurr || 0) - (a.wCurr || 0));
 
       tblBodyTinh.innerHTML = listTinh.map((row, i) => {
+        const isSelected = state.selectedProvince === row.tinh;
+        const rowClass = isSelected ? 'province-laser-box' : '';
         const heatCurr = getHeatmapClass(row.wCurr, 'rot_lc');
         const diffBadge = renderDeltaBadge(row.diff_val, false, true);
         let evalBadge = '<span class="badge-tag badge-tag-green">🟢 Tốt (≤1%)</span>';
@@ -5070,9 +5238,9 @@
         else if ((row.wCurr || 0) > 0.02) evalBadge = '<span class="badge-tag badge-tag-amber">🟡 Cảnh Báo (2-5%)</span>';
 
         return `
-          <tr>
+          <tr data-province="${row.tinh}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightProvince('${row.tinh}')">
             <td class="center">${renderRankPill(i)}</td>
-            <td class="bold" style="font-size:13px; font-weight:800;">${row.tinh}</td>
+            <td class="bold" style="font-size:13px; font-weight:800; color:${isSelected ? '#2563eb' : 'inherit'};">${row.tinh}</td>
             <td class="num">${fNum(row.vol)}</td>
             <td class="num bold" style="background: rgba(239, 68, 68, 0.08); color: ${row.vol_rot > 10 ? '#b91c1c' : 'inherit'}; font-weight: 800; font-size: 13.5px;">${fNum(row.vol_rot)}</td>
             <td class="num bold" style="background: var(--color-amber-bg); color: #ea580c; font-weight: 800; font-size: 13px;">${fPct(row.rate_rot, 1)}</td>
