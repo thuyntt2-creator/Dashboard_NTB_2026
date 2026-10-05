@@ -142,29 +142,41 @@ def build_w40_16_topics():
                 "• Đắk Nông: 54,46% (W39: 48,81%, tăng mạnh +5,65%p) ➔ Nỗ lực vượt bậc kéo GTC thoát đáy.",
                 "• Lâm Đồng: 54,43% (W39: 47,38%, tăng mạnh +7,05%p) ➔ Mức tăng trưởng %GTC mạnh nhất vùng, nhưng vẫn đứng chót bảng 5 tỉnh.",
                 "• Toàn vùng: Full hàng đạt 60,87% (+4,19%p) | TikTok Shop đạt 63,38% (+5,84%p).",
-                "📍 2. XẾP HẠNG %GTC THEO 18 AM:",
-                "• Top AM xuất sắc (>68%): Nguyễn Ngọc Khánh (74,5% - Top 1 GTC toàn vùng), Thái Thị Thanh Thư (72,0% - Top 2 GTC), Nguyễn Đỗ Minh Nghĩa (70,4%), Nguyễn Duy Long (69,0% - Đầu tàu sản lượng lớn nhất vùng), Cao Thị Thanh Thủy (68,0%).",
+                "📍 2. XẾP HẠNG %GTC TUYỆT ĐỐI THEO 18 AM (TOP ĐẦU & ĐÁY BẢNG):",
+                "• Top AM xuất sắc (>68%): Nguyễn Ngọc Khánh (74,5% - Top 1 GTC toàn vùng), Thái Thị Thanh Thư (72,0% - Top 2 GTC), Nguyễn Đỗ Minh Nghĩa (70,4%), Nguyễn Duy Long (69,0% - Đầu tàu sản lượng 42,7k đơn), Cao Thị Thanh Thủy (68,0%).",
                 "• Top AM tiến bộ (60 - 68%): Nguyễn Thị Tuyết Thơ (67,6%), Nguyễn Hoàng Phi (64,6%), Lê Thanh Nhựt (60,2%).",
                 "• Nhóm AM đáy (<50% cần kèm cặp gấp): Lê Minh Lợi (36,5%), Phan Nguyễn Yến Nhi (38,0%), Trương Quang Linh (40,3%), Huỳnh Thúc Duân (47,1%), Lê Văn Trường (48,9%), Nguyễn Lê Nguyên Vũ (49,0%).",
+                "📍 3. TOP AM CÓ ĐÓNG GÓP TĂNG TRƯỞNG %GTC LỚN NHẤT TUẦN VỪA RỒI (Δ WoW W40 vs W39):",
+                "• 🥇 AM Trương Quang Linh (Đắk Nông): Tăng mạnh nhất vùng +14,49%p (từ 25,85% lên 40,34%) ➔ Bước nhảy vọt thoát khỏi đáy tuyệt đối.",
+                "• 🥈 AM Lê Văn Trường (Lâm Đồng): Tăng bứt phá +11,85%p (từ 37,10% lên 48,95%) trên tải lớn 37.411 đơn ➔ Công thần chủ lực kéo toàn tỉnh Lâm Đồng tăng vọt +7,05%p!",
+                "• 🥉 AM Thái Thị Thanh Thư (Khánh Hòa): Tăng thần tốc +9,63%p (từ 62,38% lên 72,02%) trên tải lớn 35.889 đơn ➔ Nhân tố số 1 kéo tỉnh Khánh Hòa bứt phá vượt mốc 60%!",
+                "• 4️⃣ AM Phan Nguyễn Yến Nhi (Lâm Đồng): Tăng +8,96%p (từ 29,00% lên 37,96%).",
+                "• 5️⃣ AM Nguyễn Lê Nguyên Vũ (Lâm Đồng): Tăng +7,53%p (từ 41,44% lên 48,97%).",
+                "• 6️⃣ AM Lê Minh Lợi (Lâm Đồng): Tăng +5,89%p (từ 30,61% lên 36,50%).",
+                "• 7️⃣ AM Hồng Bích Nga (Lâm Đồng/Đắk Nông): Tăng +3,53%p (từ 55,87% lên 59,40%).",
+                "• 8️⃣ AM Trần Thị Nhung (Đắk Nông): Tăng +3,49%p (từ 55,46% lên 58,95% với 37.073 đơn).",
                 "🎙️ LỜI THOẠI THUYẾT TRÌNH TỰ NHIÊN (KHI BẬT TAB 3 GTC TỔNG):",
                 "\"Dạ qua tới Tab 3 GTC Tổng, trên màn hình mọi người thấy toàn bộ các cột chỉ số đều nhuộm màu xanh tăng trưởng rất đẹp mắt!",
                 "Nhìn vào 5 Tỉnh thành ở bảng trên cùng:",
                 "Ninh Thuận và Bình Thuận tiếp tục là 2 điểm sáng dẫn đầu vùng về độ ổn định với GTC đạt xấp xỉ 67,5%.",
                 "Khánh Hòa tuần này đã xuất sắc bứt phá qua mốc 60% khi đạt 62,2% (tăng +3,4%p so với W39: 58,8%), đóng góp cực lớn vào kỳ tích chung của toàn vùng.",
-                "Hai tỉnh miền núi là Đắk Nông và Lâm Đồng: Dù vẫn đứng ở 2 vị trí cuối bảng với 54,4%, nhưng tuần này anh em đã có sự nỗ lực phi thường. Lâm Đồng kéo tăng tới hơn +7,0%p, còn Đắk Nông tăng hơn +5,6%p so với tuần trước. Em xin ghi nhận sự quyết tâm của các AM Tây Nguyên!",
-                "Nhìn xuống bảng xếp hạng 18 AM:",
-                "Quán quân GTC tuần này thuộc về anh Nguyễn Ngọc Khánh (Bình Thuận) với tỷ lệ ấn tượng 74,5%, kế đến là chị Thái Thị Thanh Thư (Khánh Hòa) đạt 72,0% và anh Nguyễn Đỗ Minh Nghĩa (Lâm Đồng) đạt 70,4%.",
-                "Đặc biệt, anh Nguyễn Duy Long (phụ trách liên tỉnh Ninh Thuận & Bắc Bình Thuận) tiếp tục là đầu tàu gánh sản lượng lớn nhất toàn vùng với 42.684 đơn Full hàng, nhưng vẫn duy trì %GTC rất vững vàng ở mức 69,0%!",
+                "Hai tỉnh miền núi là Đắk Nông và Lâm Đồng: Dù vẫn đứng ở 2 vị trí cuối bảng với 54,4%, nhưng tuần này anh em đã có sự nỗ lực phi thường. Lâm Đồng kéo tăng tới hơn +7,0%p, còn Đắk Nông tăng hơn +5,6%p so với tuần trước.",
+                "Đặc biệt, khi mổ xẻ đóng góp của 18 AM, Ban Giám Đốc sẽ thấy một điểm mấu chốt rất đáng biểu dương:",
+                "Tuần này toàn vùng tăng mạnh +4,19%p KHÔNG PHẢI nhờ nhóm ven biển (vì Bình Thuận và Ninh Thuận đã ở mức trần nên đi ngang ~67,5%), mà công lớn nhất kéo cả vùng bứt phá tuần này thuộc về 3 AM có bước nhảy vọt thần tốc:",
+                "Thứ nhất là chị Thái Thị Thanh Thư ở Khánh Hòa: Tăng vọt tới gần +10%p (từ 62,4% lên 72,0%) trên khối lượng gần 36 ngàn đơn, đưa chị Thư lên thẳng vị trí Á quân GTC toàn vùng và kéo bừng sáng cả tỉnh Khánh Hòa!",
+                "Thứ hai là anh Lê Văn Trường ở Lâm Đồng: Tăng phi thường +11,9%p (từ 37,1% lên 49,0%) trên khối lượng cực lớn hơn 37 ngàn đơn! Chính anh Trường là đầu tàu kéo Lâm Đồng tăng hơn 7%p tuần này!",
+                "Thứ ba là anh Trương Quang Linh ở Đắk Nông: Tăng bứt phá mạnh nhất toàn vùng với +14,5%p (từ 25,8% lên 40,3%). Bên cạnh đó, anh Vũ (+7,5%p), chị Nhi (+9,0%p) và chị Nhung (+3,5%p trên 37 ngàn đơn) cũng là những nhân tố nòng cốt kéo toàn bộ khu vực Tây Nguyên thoát đáy!",
+                "Bên cạnh các AM tăng trưởng mạnh, em cũng xin ghi nhận anh Nguyễn Ngọc Khánh (Bình Thuận) giữ vững ngôi Quán quân GTC toàn vùng với 74,5%, và anh Nguyễn Duy Long tiếp tục là đầu tàu gánh sản lượng lớn nhất toàn vùng (gần 43 ngàn đơn Full hàng) với GTC rất vững 69,0%.",
                 "Tuy nhiên, Ban Giám Đốc lưu ý giúp em nhóm các AM vẫn còn nằm dưới mốc 50%:",
-                "Đặc biệt là anh Lê Minh Lợi (36,5%), chị Yến Nhi (38,0%) và anh Trương Quang Linh (40,3%): Các địa bàn này tỷ lệ khách từ chối và hẹn lùi giờ còn cao, shipper chưa linh hoạt đổi ca phát.",
-                "Em đề nghị tuần tới, các AM nhóm dưới phải ngồi lại với từng Trưởng bưu cục để tối ưu lại ca phát chiều. Giờ em xin chuyển qua Tab 4 mổ xẻ Ca 1 và Ca 2 ạ!\"",
+                "Dù anh Lợi (+5,9%p), chị Nhi (+9,0%p) và anh Linh (+14,5%p) đã có tiến bộ vượt bậc, nhưng GTC tuyệt đối vẫn còn dưới 40%, shipper vẫn chưa linh hoạt đổi ca phát chiều tối.",
+                "Em đề nghị tuần tới, các AM nhóm dưới phải duy trì đà tiến bộ này và ngồi lại với từng Trưởng bưu cục để tối ưu lại ca phát chiều. Giờ em xin chuyển qua Tab 4 mổ xẻ Ca 1 và Ca 2 ạ!\"",
             ],
             "insights": [
-                "Lâm Đồng (+7,05%p) và Đắk Nông (+5,65%p) chứng minh việc tập trung đôn đốc shipper có thể tạo ra bước nhảy vọt về GTC ngay trong 1 tuần.",
+                "Động lực tăng trưởng GTC tuần W40 (+4,19%p toàn vùng) chủ yếu đến từ sự bứt phá của AM Lê Văn Trường (+11,85%p / 37,4k đơn) và AM Thái Thị Thanh Thư (+9,63%p / 35,9k đơn).",
                 "Kênh TikTok Shop đạt 63,38% GTC, cao hơn Full hàng 2,51%p, cho thấy đơn sàn TMĐT có độ hoàn tất nhanh hơn đơn hàng ngoài."
             ],
             "warnings": [
-                "6 AM (Lợi, Nhi, Linh, Duân, Trường, Vũ) vẫn chìm dưới 50% GTC, kéo tụt mặt bằng chung và làm tăng tỷ lệ hàng dồn tồn kho.",
+                "6 AM (Lợi, Nhi, Linh, Duân, Trường, Vũ) dù đã có cải thiện mạnh về biến động nhưng mức tuyệt đối vẫn dưới 50% GTC, cần duy trì kỷ luật đôn đốc.",
                 "Cần kiểm tra xem có hiện tượng shipper cố tình chọn đơn dễ giao để đẩy tỷ lệ GTC ảo hay không."
             ],
             "actions": [
@@ -733,9 +745,12 @@ def build_w40_16_topics():
         doc.save(out_docx2)
         print(f"Saved DOCX: {out_docx2}")
     except Exception as e:
-        out_alt = "KICH_BAN_THUYET_TRINH_MOI_NHAT_V2.docx"
-        doc.save(out_alt)
-        print(f"File {out_docx2} is locked in Word. Saved to {out_alt} instead.")
+        try:
+            out_alt = "KICH_BAN_THUYET_TRINH_MOI_NHAT_V2.docx"
+            doc.save(out_alt)
+            print(f"File {out_docx2} is locked in Word. Saved to {out_alt} instead.")
+        except Exception as e2:
+            print(f"Note: Word files are open in MS Word: {e2}")
 
     # Generate HTML file
     build_html_file(sections_data)
