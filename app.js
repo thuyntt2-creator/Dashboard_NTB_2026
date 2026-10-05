@@ -52,6 +52,7 @@
     province: 'ALL',
     am: 'ALL',
     selectedAM: null,
+    selectedProvince: null,
     volChartMode: 'w34_vs_w35_full',
     volHighlight: 'all',
     gtcTongHighlight: 'all',
