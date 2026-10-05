@@ -115,8 +115,8 @@ def parse_san_luong_sheet():
 
     am_full = extract_rows(12, 30)
     am_tts = extract_rows(34, 52)
-    tinh_full = extract_rows(56, 61)
-    tinh_tts = extract_rows(65, 70)
+    tinh_full = extract_rows(56, 64)
+    tinh_tts = extract_rows(65, 73)
 
     return {
         'am_full': am_full,
@@ -174,8 +174,8 @@ def parse_standard_sheet(sheet_name):
 
     am_full = extract_rows(12, 30)
     am_tts = extract_rows(34, 52)
-    tinh_full = extract_rows(56, 61)
-    tinh_tts = extract_rows(65, 70)
+    tinh_full = extract_rows(56, 64)
+    tinh_tts = extract_rows(65, 73)
 
     return {
         'overview': overview,
@@ -324,7 +324,8 @@ data = {
             {'id': 'odr_full', 'title': '%ODR (Giao Đúng Hẹn)', 'val': odr_full_curr, 'unit': '%', 'diff': odr_full_diff, 'diff_pct': odr_full_diff, 'is_good': odr_full_diff >= 0, 'icon': 'clock'},
             {'id': 'ltc_full', 'title': '%LTC (Lấy Thành Công)', 'val': ltc_full_curr, 'unit': '%', 'diff': ltc_full_diff, 'diff_pct': ltc_full_diff, 'is_good': ltc_full_diff >= 0, 'icon': 'archive'},
             {'id': 'rot_lc', 'title': '%Rớt Luân Chuyển', 'val': rot_lc_val, 'unit': '%', 'diff': rot_lc_diff, 'diff_pct': rot_lc_diff, 'is_good': rot_lc_diff <= 0, 'icon': 'alert-triangle'},
-            {'id': 'truy_thu', 'title': 'Tổng Cần Truy Thu', 'val': 174663624, 'unit': 'VNĐ', 'diff': -21200000, 'diff_pct': -0.108, 'is_good': True, 'icon': 'shield-alert'}
+            {'id': 'truy_thu', 'title': 'Tổng Cần Truy Thu', 'val': 187088448, 'unit': 'VNĐ', 'diff': -124994814, 'diff_pct': -0.401, 'is_good': True, 'icon': 'shield-alert'},
+            {'id': 'cod_tm', 'title': 'Tỷ Lệ Tiền Mặt COD', 'val': 0.371, 'unit': '%', 'diff': -0.030, 'diff_pct': -0.075, 'is_good': True, 'icon': 'qr-code'}
         ],
         'kpis_trend': kpis_trend,
         'insights': insights
