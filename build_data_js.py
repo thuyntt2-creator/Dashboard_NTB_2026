@@ -325,7 +325,7 @@ data = {
             {'id': 'ltc_full', 'title': '%LTC (Lấy Thành Công)', 'val': ltc_full_curr, 'unit': '%', 'diff': ltc_full_diff, 'diff_pct': ltc_full_diff, 'is_good': ltc_full_diff >= 0, 'icon': 'archive'},
             {'id': 'rot_lc', 'title': '%Rớt Luân Chuyển', 'val': rot_lc_val, 'unit': '%', 'diff': rot_lc_diff, 'diff_pct': rot_lc_diff, 'is_good': rot_lc_diff <= 0, 'icon': 'alert-triangle'},
             {'id': 'truy_thu', 'title': 'Tổng Cần Truy Thu', 'val': 187088448, 'unit': 'VNĐ', 'diff': -124994814, 'diff_pct': -0.401, 'is_good': True, 'icon': 'shield-alert'},
-            {'id': 'cod_tm', 'title': 'Tỷ Lệ Tiền Mặt COD', 'val': 0.371, 'unit': '%', 'diff': -0.030, 'diff_pct': -0.075, 'is_good': True, 'icon': 'qr-code'}
+            {'id': 'cod_tm', 'title': 'Tỷ Lệ Tiền Mặt COD', 'val': 0.404, 'unit': '%', 'diff': 0.003, 'diff_pct': 0.007, 'is_good': False, 'icon': 'qr-code'}
         ],
         'kpis_trend': kpis_trend,
         'insights': insights

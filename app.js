@@ -3700,18 +3700,24 @@
   function renderGanBarChart() {
     const ctx = document.getElementById('chart-gan-am-bar');
     if (!ctx || !D.gan || !D.gan.am) return;
-    if (charts.ganBar) charts.ganBar.destroy();
+    
+    const existingChart = Chart.getChart(ctx);
+    if (existingChart) existingChart.destroy();
+    if (charts.ganBar) {
+      try { charts.ganBar.destroy(); } catch (e) {}
+      charts.ganBar = null;
+    }
 
-    const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W38';
-    const prevLabel = D.meta?.weeks && D.meta.weeks.length >= 2 ? D.meta.weeks[D.meta.weeks.length - 2] : 'W37';
+    const currLabel = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1] : 'W40';
+    const prevLabel = D.meta?.weeks && D.meta.weeks.length >= 2 ? D.meta.weeks[D.meta.weeks.length - 2] : 'W39';
     const selectedAM = state.selectedAM;
 
     let list = [...D.gan.am].map(r => {
-      const prev_val = r.tong_w37 !== undefined ? r.tong_w37 : (r.tong_prev !== undefined ? r.tong_prev : (r.tong_w36 || 0));
-      const curr_val = r.tong_w38 !== undefined ? r.tong_w38 : (r.tong_curr !== undefined ? r.tong_curr : (r.tong_w37 || 0));
-      const diff_val = curr_val - prev_val;
-      const ca1 = r.ca1ton_w38 !== undefined ? r.ca1ton_w38 : (r.ca1ton_curr !== undefined ? r.ca1ton_curr : (r.ca1ton_w37 || 0));
-      const ca2 = r.ca2_w38 !== undefined ? r.ca2_w38 : (r.ca2_curr !== undefined ? r.ca2_curr : (r.ca2_w37 || 0));
+      const prev_val = r.tong_w39 !== undefined ? r.tong_w39 : (r.tong_w37 !== undefined ? r.tong_w37 : (r.tong_prev !== undefined ? r.tong_prev : (r.tong_w36 || 0)));
+      const curr_val = r.tong_w40 !== undefined ? r.tong_w40 : (r.tong_w38 !== undefined ? r.tong_w38 : (r.tong_curr !== undefined ? r.tong_curr : (r.tong_w37 || 0)));
+      const diff_val = r.tong_diff !== undefined ? r.tong_diff : (curr_val - prev_val);
+      const ca1 = r.ca1ton_w40 !== undefined ? r.ca1ton_w40 : (r.ca1ton_w38 !== undefined ? r.ca1ton_w38 : (r.ca1ton_curr !== undefined ? r.ca1ton_curr : (r.ca1ton_w37 || 0)));
+      const ca2 = r.ca2_w40 !== undefined ? r.ca2_w40 : (r.ca2_w38 !== undefined ? r.ca2_w38 : (r.ca2_curr !== undefined ? r.ca2_curr : (r.ca2_w37 || 0)));
       return {
         ...r,
         ca1_pct: Number((ca1 * 100).toFixed(1)),
@@ -3738,133 +3744,143 @@
     const isUnder80 = state.ganFilter === 'under80';
     const barMaxThick = isUnder80 ? 46 : 28;
 
-    charts.ganBar = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: list.map(d => d.am),
-        datasets: [
-          {
-            type: 'bar',
-            label: `% Gán Ca 1 + Tồn (${currLabel})`,
-            data: list.map(d => d.ca1_pct),
-            backgroundColor: '#c084fc',
-            borderRadius: 4,
-            maxBarThickness: barMaxThick,
-            yAxisID: 'y',
-            order: 2,
-            datalabels: {
-              display: true,
-              anchor: 'end',
-              align: 'top',
-              color: '#7e22ce',
-              font: { weight: '800', size: isUnder80 ? 11 : 9 },
-              formatter: v => v + '%'
+    try {
+      charts.ganBar = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: list.map(d => d.am),
+          datasets: [
+            {
+              type: 'bar',
+              label: `% Gán Ca 1 + Tồn (${currLabel})`,
+              data: list.map(d => d.ca1_pct),
+              backgroundColor: '#c084fc',
+              borderRadius: 4,
+              maxBarThickness: barMaxThick,
+              yAxisID: 'y',
+              order: 2,
+              datalabels: {
+                display: true,
+                anchor: 'end',
+                align: 'top',
+                color: '#7e22ce',
+                font: { weight: '800', size: isUnder80 ? 11 : 9 },
+                formatter: v => v + '%'
+              }
+            },
+            {
+              type: 'bar',
+              label: `% Gán Ca 2 (${currLabel})`,
+              data: list.map(d => d.ca2_pct),
+              backgroundColor: '#9333ea',
+              borderRadius: 4,
+              maxBarThickness: barMaxThick,
+              yAxisID: 'y',
+              order: 2,
+              datalabels: {
+                display: true,
+                anchor: 'end',
+                align: 'top',
+                color: '#581c87',
+                font: { weight: '800', size: isUnder80 ? 11 : 9 },
+                formatter: v => v > 0 ? v + '%' : '0%'
+              }
+            },
+            {
+              type: 'bar',
+              label: `% Gán Tổng ${currLabel} (Target ≥90%)`,
+              data: list.map(d => d.tong_pct),
+              backgroundColor: list.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : (d.tong_pct >= 90 ? '#10b981' : (d.tong_pct >= 80 ? '#f59e0b' : '#ef4444'))),
+              borderColor: list.map(d => selectedAM && selectedAM === d.am ? '#b91c1c' : 'transparent'),
+              borderWidth: list.map(d => selectedAM && selectedAM === d.am ? 3 : 0),
+              borderRadius: 4,
+              maxBarThickness: barMaxThick,
+              yAxisID: 'y',
+              order: 2,
+              datalabels: {
+                display: true,
+                anchor: 'end',
+                align: 'top',
+                offset: 2,
+                color: ctx => {
+                  const val = typeof ctx.parsed === 'number' ? ctx.parsed : (ctx.parsed?.y ?? ctx.dataset.data[ctx.dataIndex] ?? 0);
+                  return val < 80 ? '#b91c1c' : (val >= 90 ? '#15803d' : '#b45309');
+                },
+                font: { weight: '900', size: isUnder80 ? 12 : 9.5 },
+                formatter: v => v + '%'
+              }
+            },
+            {
+              type: 'line',
+              label: 'Đường Biến Động WoW (Δ %)',
+              data: list.map(d => d.diff_pct),
+              borderColor: '#f26522',
+              borderWidth: 3,
+              tension: 0.25,
+              pointBackgroundColor: list.map(d => d.diff_pct >= 0 ? '#10b981' : '#ef4444'),
+              pointBorderColor: '#ffffff',
+              pointBorderWidth: 2,
+              pointRadius: isUnder80 ? 7 : 5,
+              pointHoverRadius: 9,
+              yAxisID: 'y1',
+              order: 1,
+              datalabels: {
+                display: true,
+                anchor: 'center',
+                align: 'top',
+                offset: 6,
+                color: '#c2410c',
+                backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                borderRadius: 3,
+                padding: { top: 1, bottom: 1, left: 3, right: 3 },
+                font: { weight: '800', size: isUnder80 ? 10.5 : 8.5 },
+                formatter: v => (v > 0 ? '+' : '') + v + '%'
+              }
             }
-          },
-          {
-            type: 'bar',
-            label: `% Gán Ca 2 (${currLabel})`,
-            data: list.map(d => d.ca2_pct),
-            backgroundColor: '#9333ea',
-            borderRadius: 4,
-            maxBarThickness: barMaxThick,
-            yAxisID: 'y',
-            order: 2,
-            datalabels: {
-              display: true,
-              anchor: 'end',
-              align: 'top',
-              color: '#581c87',
-              font: { weight: '800', size: isUnder80 ? 11 : 9 },
-              formatter: v => v > 0 ? v + '%' : '0%'
-            }
-          },
-          {
-            type: 'bar',
-            label: `% Gán Tổng ${currLabel} (Target ≥90%)`,
-            data: list.map(d => d.tong_pct),
-            backgroundColor: list.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : (d.tong_pct >= 90 ? '#10b981' : (d.tong_pct >= 80 ? '#f59e0b' : '#ef4444'))),
-            borderColor: list.map(d => selectedAM && selectedAM === d.am ? '#b91c1c' : 'transparent'),
-            borderWidth: list.map(d => selectedAM && selectedAM === d.am ? 3 : 0),
-            borderRadius: 4,
-            maxBarThickness: barMaxThick,
-            yAxisID: 'y',
-            order: 2,
-            datalabels: {
-              display: true,
-              anchor: 'end',
-              align: 'top',
-              offset: 2,
-              color: d => d.parsed.y < 80 ? '#b91c1c' : (d.parsed.y >= 90 ? '#15803d' : '#b45309'),
-              font: { weight: '900', size: isUnder80 ? 12 : 9.5 },
-              formatter: v => v + '%'
-            }
-          },
-          {
-            type: 'line',
-            label: 'Đường Biến Động WoW (Δ %)',
-            data: list.map(d => d.diff_pct),
-            borderColor: '#f26522',
-            borderWidth: 3,
-            tension: 0.25,
-            pointBackgroundColor: list.map(d => d.diff_pct >= 0 ? '#10b981' : '#ef4444'),
-            pointBorderColor: '#ffffff',
-            pointBorderWidth: 2,
-            pointRadius: isUnder80 ? 7 : 5,
-            pointHoverRadius: 9,
-            yAxisID: 'y1',
-            order: 1,
-            datalabels: {
-              display: true,
-              anchor: 'center',
-              align: 'top',
-              offset: 6,
-              color: '#c2410c',
-              backgroundColor: 'rgba(255, 255, 255, 0.92)',
-              borderRadius: 3,
-              padding: { top: 1, bottom: 1, left: 3, right: 3 },
-              font: { weight: '800', size: isUnder80 ? 10.5 : 8.5 },
-              formatter: v => (v > 0 ? '+' : '') + v + '%'
-            }
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        layout: { padding: { top: 26, bottom: 10 } },
-        scales: {
-          y: {
-            position: 'left',
-            min: 0,
-            max: 110,
-            ticks: { callback: v => v + '%' },
-          },
-          y1: {
-            position: 'right',
-            grid: { drawOnChartArea: false },
-            title: { display: true, text: 'Biến Động WoW (Δ % p.p)', font: { weight: '700', size: 11, color: '#f26522' } },
-            ticks: { callback: v => (v > 0 ? '+' : '') + v + '%' }
-          },
-          x: {
-            ticks: { maxRotation: isUnder80 ? 15 : 45, minRotation: isUnder80 ? 0 : 30, font: { size: isUnder80 ? 12 : 11, weight: '700' } }
-          }
+          ]
         },
-        plugins: {
-          legend: { position: 'top' },
-          tooltip: {
-            callbacks: {
-              label: c => `${c.dataset.label}: ${c.parsed.y}%`
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          layout: { padding: { top: 26, bottom: 10 } },
+          scales: {
+            y: {
+              position: 'left',
+              min: 0,
+              max: 110,
+              ticks: { callback: v => v + '%' },
+            },
+            y1: {
+              position: 'right',
+              grid: { drawOnChartArea: false },
+              title: { display: true, text: 'Biến Động WoW (Δ % p.p)', font: { weight: '700', size: 11, color: '#f26522' } },
+              ticks: { callback: v => (v > 0 ? '+' : '') + v + '%' }
+            },
+            x: {
+              ticks: { maxRotation: isUnder80 ? 15 : 45, minRotation: isUnder80 ? 0 : 30, font: { size: isUnder80 ? 12 : 11, weight: '700' } }
             }
-          }
-        },
-        onClick: (event, elements) => {
-          if (elements.length > 0) {
-            selectAndHighlightAM(list[elements[0].index].am);
+          },
+          plugins: {
+            legend: { position: 'top' },
+            tooltip: {
+              callbacks: {
+                label: c => {
+                  const val = typeof c.parsed === 'number' ? c.parsed : (c.parsed?.y ?? c.raw ?? 0);
+                  return `${c.dataset.label}: ${val}%`;
+                }
+              }
+            }
+          },
+          onClick: (event, elements) => {
+            if (elements.length > 0) {
+              selectAndHighlightAM(list[elements[0].index].am);
+            }
           }
         }
-      }
-    });
+      });
+    } catch (err) {
+      console.error('Error rendering GanBarChart:', err);
+    }
   }
 
   // --------------------------------------------------------------------------
