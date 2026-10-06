@@ -1,0 +1,16 @@
+Created At: 2026-09-22T00:28:45+07:00
+Completed At: 2026-09-22T00:29:01+07:00
+
+				The command exited with code 1.
+				Output:
+				Traceback (most recent call last):
+  File "<string>", line 10, in <module>
+    print(f'P{i+1} [{p.style.name}]: {p.text[:120]}')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lap4all\AppData\Local\Python\pythoncore-3.14-64\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u1ed8' in position 43: character maps to <undefined>
+Total paragraphs: 22
+Total tables: 9
+

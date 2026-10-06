@@ -1,0 +1,117 @@
+Created At: 2026-10-06T00:00:49+07:00
+Completed At: 2026-10-06T00:00:52+07:00
+
+				The command exited with code 0.
+				Output:
+				<truncated 8 lines>
+P04: 📊 [I. TỔNG HỢP TRỌNG TÂM HỌP TUẦN W40 — VÙNG NAM TRUNG BỘ]
+P06: 📦 [II. PHÂN TÍCH SẢN LƯỢNG GIAO TOÀN VÙNG, 5 TỈNH THÀNH & 18 AM (W40)]
+P08: 🎯 [III. PHÂN TÍCH HIỆU SUẤT %GTC TỔNG TOÀN MẠNG THEO 18 AM & 5 TỈNH (W40)]
+P10: 🔥 [IV. PHÂN TÍCH CHUYÊN SÂU %GTC CA TTS
+P12: 📋 [V. TỶ LỆ GÁN VẬN HÀNH TOÀN MẠNG & HIỆU SUẤT %GTC CA 2 (W40)]
+P14: ⏱️ [VI. PHÂN TÍCH HIỆU SUẤT %ODR (GIAO ĐÚNG HẸN SLA) TOÀN VÙNG (TARGET ≥ 92.0%) (W40)]
+P16: 🚚 [VII. PHÂN TÍCH CHỈ SỐ %LTC (LẤY THÀNH CÔNG) THEO 18 AM & 5 TỈNH (TARGET ≥ 90.0%) (W40)]
+P18: 🌙 [VIII. PHÂN TÍCH CHỈ SỐ %OPR TIKTOK SHOP TOÀN VÙNG (TARGET KPI ≥ 80.0%) (W40)]
+P20: ⚠️ [IX. PHÂN TÍCH TỶ TRỌNG RỚT ĐƠN LUÂN CHUYỂN THEO AM & TỈNH THÀNH (W40)]
+P22: 🔄 [X. BÁO CÁO TỶ LỆ %FD (RETURN / HOÀN TRẢ) — VÙNG NAM TRUNG BỘ (W40)]
+P24: 🚛 [XI. BÁO CÁO ĐIỀU HÀNH KTC, VẬN TẢI, %TLTĐ THÙNG XE (51.0%) & LEADTIME KHO (W40)]
+P26: ⏳ [XII. ĐIỀU HÀNH XỬ LÝ HÀNG AGING TỒN ĐỌNG & TREO LUÂN CHUYỂN (W40)]
+P28: 💰 [XIII. QUẢN TRỊ DÒNG TIỀN COD, TỶ LỆ THANH TOÁN QR & THU HỒI CÔNG NỢ (W40)]
+P30: 🚨 [XIV. BÁO CÁO TRUY THU – BIẾN ĐỘNG 2 TUẦN (W39 vs W40) & CẢNH BÁO BÙNG PHÁT 187.1 TRIỆU ₫]
+P32: 📈 [XV. PHÂN TÍCH DOANH THU KINH DOANH & TĂNG TRƯỞNG KHÁCH HÀNG MỚI (F30) | VÙNG NTB]
+P34: 🏁 [XVI. ĐIỀU HÀNH TRỌNG ĐIỂM: 13 BƯU CỤC CẢNH BÁO BẤT ỔN & 5 TRỌNG TÂM HÀNH ĐỘNG TUẦN W41]
+
+--- TABLES IN kịch bản.docx ---
+
+=== Table 1 (1 rows, 1 cols) ===
+  [R0C0]: 🗣️ LỜI MỞ ĐẦU & TỔNG QUAN ĐIỀU HÀNH VÙNG TUẦN W40 (BẬT TAB 1 DASHBOARD):
+📍 1. BẢNG 10 CHỈ SỐ NHANH TRÊN MÀN HÌNH DASHBOARD (W40 vs W39):
+• 1. Sản Lượng Full Hàng: 311.503 đơn (-19.810 đơn / -5,98% so với W39 331.313 đơn).
+• 2. Sản Lượng TikTok Shop: 72.253 đơn (-1.190 đơn / -1,62%), chiếm tỷ trọng 2...
+
+=== Table 2 (1 rows, 1 cols) ===
+  [R0C0]: 🗣️ PHÂN TÍCH SẢN LƯỢNG GIAO 5 TỈNH & BIẾN ĐỘNG THEO 18 AM (TAB 2):
+📍 2. BIẾN ĐỘNG THEO 18 AM:
+• Nhóm tăng trưởng tốt: AM Lê Thanh Nhựt (30.386 đơn, +1.316 đơn), AM Nguyễn Ngọc Khánh (27.379 đơn, +1.137 đơn), AM Cao Thị Thanh Thủy (16.786 đơn, +545 đơn), AM Nguyễn Thị Tuyết Thơ (9.296 đơn, +463 đơn),...
+
+=== Table 3 (1 rows, 1 cols) ===
+  [R0C0]: Nhìn vào 5 Tỉnh thành ở bảng trên cùng:
+Bình Thuận vẫn giữ vững tỷ lệ với GTC 67,5%, cho thấy ae khu vực tại Bình Thuận chạy tuyến rất đều và khách nhận hàng rất chuẩn.
+Khánh Hòa và Ninh Thuận tuần này đã xuất sắc vượt qua mốc 60%. Đặc biệt Khánh Hòa tăng từ 58,8% lên 62,2%, đóng góp cực lớn vào tỷ ...
+
+=== Table 4 (1 rows, 1 cols) ===
+  [R0C0]: 🗣️ MỔ XẺ GIAO HÀNG CA 1 SÁNG: HÀNG TỒN (52.8%) VS HÀNG THUẦN (72.4%):
+Đối với hàng thuần mới về sáng sớm, tỷ lệ giao thành công Full hàng toàn vùng đã tăng lên 77,35%, và đặc biệt là phân khúc TikTok Shop (TTS) tuần này đã chính thức bứt phá ngoạn mục vượt qua mốc 81% (đạt 81,34%, tăng mạnh +6,17%p ...
+
+=== Table 5 (1 rows, 1 cols) ===
+  [R0C0]: 🗣️...
+
+=== Table 6 (1 rows, 1 cols) ===
+  [R0C0]: 🗣️ CHẤT LƯỢNG GIAO ĐÚNG HẸN %ODR: 5 TỈNH LÊN ĐẦU & ĐÁNH GIÁ 18 AM (TAB 7):
+📍 1. BẢNG %ODR GIAO ĐÚNG HẸN 5 TỈNH THÀNH (W40 vs W39):
+• Bình Thuận: 96,74% (W39: 96,27%, tăng +0,47%p) ➔ Dẫn đầu toàn vùng, vượt xa chuẩn cam kết 92%.
+• Khánh Hòa: 95,59% (W39: 91,94%, bứt phá +3,65%p) ➔ Vượt chuẩn xuất sắc...
+
+=== Table 7 (1 rows, 1 cols) ===
+  [R0C0]: 🗣️ PHONG ĐỘ FIRST-MILE: %LTC TOÀN VÙNG ĐẠT 91.35% (TTS ĐẠT 94.97%) (TAB 8):
+📍 1. BẢNG CHỈ SỐ %LTC THEO 5 TỈNH THÀNH (W40 vs W39):
+• Ninh Thuận: 97,58% (W39: 96,10%, tăng +1,48%p) ➔ Dẫn đầu tuyệt đối về tỷ lệ lấy hàng thành công.
+• Khánh Hòa: 94,80% (W39: 93,50%, tăng +1,30%p) ➔ Phong độ rất vững vàn...
+
+=== Table 8 (1 rows, 1 cols) ===
+  [R0C0]: 🗣️ HIỆU SUẤT XỬ LÝ ĐƠN TIKTOK SHOP %OPR: CA NGÀY VS CA ĐÊM (TAB 9):
+📍 1. BẢNG HIỆU SUẤT %OPR TIKTOK SHOP THEO 5 TỈNH THÀNH (W40):
+• Ninh Thuận: Ca Ngày 97,59% | Ca Đêm 85,19% | Tổng OPR: 93,79% ➔ Quán quân OPR toàn vùng.
+• Khánh Hòa: Ca Ngày 94,10% | Ca Đêm 84,57% | Tổng OPR: 89,23% ➔ Cả 2 ca đều là...
+
+=== Table 9 (1 rows, 1 cols) ===
+  [R0C0]: 🗣️ KIỂM SOÁT TỶ LỆ RỚT LUÂN CHUYỂN KTC TOÀN VÙNG (1.69%) (TAB 10):
+📍 1. BẢNG TỶ LỆ RỚT LUÂN CHUYỂN THEO 5 TỈNH THÀNH (W40):
+• Bình Thuận: 0,28% (xuất sắc nhất vùng, chỉ rớt 12 đơn trên 4.230 đơn cần luân chuyển).
+• Khánh Hòa: 0,48% (cực kỳ an toàn, chỉ rớt 16 đơn trên 3.304 đơn).
+• Đắk Nông: 1,45% (...
+
+=== Table 10 (1 rows, 1 cols) ===
+  [R0C0]: 🗣️ PHÂN TÍCH TỶ LỆ HOÀN TRẢ (%FD 7.77%) VÀ CẢNH BÁO BẤT THƯỜNG (TAB 11):
+📍 1. BẢNG TỶ LỆ HOÀN TRẢ THEO 5 TỈNH THÀNH (W40 vs W39):
+• Khánh Hòa: 6,90% (tốt nhất vùng, kiểm soát hoàn trả rất chặt chẽ).
+• Bình Thuận: 7,10% (ở ngưỡng an toàn).
+• Ninh Thuận: 7,40% (ở ngưỡng an toàn).
+• Lâm Đồng: 8,60% (vư...
+
+=== Table 11 (1 rows, 1 cols) ===
+  [R0C0]: 🗣️ HIỆU QUẢ VẬN TẢI KTC: XỬ LÝ 76 CHUYẾN XE NON TẢI DƯỚI 30% THÙNG (TAB 12):
+📍 1. BẢNG CHỈ SỐ VẬN TẢI & KHO KTC (W40):
+• Tỷ Lệ Lấp Đầy Thùng Xe KTC (%TLTĐ): Đạt 51,0% (đứng yên so với W39, cách rất xa mục tiêu tối ưu ≥ 58,0%).
+• Số chuyến xe chạy non tải (<30% thùng xe): Ghi nhận 76 chuyến xuất bến ...
+
+=== Table 12 (1 rows, 1 cols) ===
+  [R0C0]: 🗣️ CHIẾN DỊCH GIẢI TỎA 1.420 ĐƠN AGING >5 NGÀY & 118 ĐƠN TREO LUÂN CHUYỂN (TAB 13):
+📍 1. BẢNG PHÂN BỔ HÀNG TỒN LÂU NGÀY (AGING TOÀN VÙNG W40):
+• Tổng đơn Aging tồn trên 5 ngày: 1.420 đơn (giảm được 218 đơn so với 1.638 đơn tuần W39).
+  - Tồn từ 5 đến 8 ngày: 1.025 đơn.
+  - Tồn từ 8 đến 15 ngày: 362 ...
+
+=== Table 13 (1 rows, 1 cols) ===
+  [R0C0]: 🗣️ QUẢN TRỊ DÒNG TIỀN COD (82.6 TỶ ₫): TỶ LỆ QR TĂNG VỌT LÊN 62.9% (TAB 14):
+📍 1. BẢNG CHỈ SỐ THU HỘ COD THEO 5 TỈNH THÀNH (W40 vs W39):
+• Tổng tiền COD toàn vùng thu hộ tuần W40: 82.610,5 triệu đồng (~82,6 tỷ đồng).
+• Tỷ lệ thanh toán Chuyển khoản QR / Online: Tăng vọt lên 62,90% (tăng +3,0%p so vớ...
+
+=== Table 14 (1 rows, 1 cols) ===
+  [R0C0]: 🗣️ BÁO CÁO TRUY THU: W40 CẦN THU 187.1 TR ₫ VÀ ĐIỂM NÓNG BẮC CAM RANH (TAB 15):
+📍 1. BẢNG SO SÁNH BIẾN ĐỘNG 2 TUẦN (W40 vs W39):
+• Số bản ghi phát sinh: 2.424 bản ghi (W39: 4.076 bản ghi, giảm -1.652 đơn / -40,5%).
+• Số tiền truy thu ban đầu: 433,05 Tr ₫ (W39: 317,25 Tr ₫, TĂNG +115,8 Tr ₫ / +36,5%!...
+
+=== Table 15 (1 rows, 1 cols) ===
+  [R0C0]: 🗣️ DOANH THU KINH DOANH 1.120 TỶ ₫, PHÁT TRIỂN 111 SHOP F30 & QUẢN TRỊ SHOP NHÓM A (TAB 16):
+📍 1. BẢNG TỔNG HỢP KINH DOANH TUẦN W40 (Kỳ 27/09 – 03/10/2026 vs Kỳ trước 20/09 – 26/09/2026):
+• Tổng Doanh Thu Toàn Vùng: 1.120,5 Tr ₫ (giảm -42,2 Tr ₫ / -3,6% WoW).
+• Tổng Sản Lượng Gửi Toàn Vùng: 35.334 đ...
+
+=== Table 16 (1 rows, 1 cols) ===
+  [R0C0]: 🗣️ DANH SÁCH 13 BƯU CỤC CẢNH BÁO ĐỎ & 5 NHIỆM VỤ ĐIỀU HÀNH HIỆN TRƯỜNG TUẦN W41:
+📍 1. DANH SÁCH 13 BƯU CỤC BẤT ỔN CẦN GIẢI TỎA KHẨN CẤP (W40):
+• 1. (DNO) Quảng Tín: GTC 18,1% (Cảnh báo 100 ngày liên tiếp) | Backlog 1.224 đơn (tồn >5 ngày: 490 đơn) | ODR 74,9% | Truy thu 13,0 Tr ₫ (AM Trương Quang Li...
+

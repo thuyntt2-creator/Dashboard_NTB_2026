@@ -1,0 +1,31 @@
+Created At: 2026-10-05T23:47:43+07:00
+Completed At: 2026-10-05T23:47:45+07:00
+
+				The command exited with code 0.
+				Output:
+				Total paragraphs: 33
+Total tables: 14
+
+--- FIRST 40 PARAGRAPHS ---
+P00: GHN EXPRESS — VÙNG NAM TRUNG BỘ
+P01: BÁO CÁO VẬN HÀNH & KINH DOANH TUẦN W39
+P02: (Chu kỳ dữ liệu: 21/09/2026 – 27/09/2026)
+P03: Kịch bản thuyết trình 16 chuyên đề điều hành chuẩn hóa — Chỉ số Tỉnh đặt lên đầu, phân tích sâu theo 18 AM & Giao việc hiện trường
+P04: 📊 [I. TỔNG HỢP TRỌNG TÂM HỌP TUẦN W39 — VÙNG NAM TRUNG BỘ]
+P06: 📦 [II. PHÂN TÍCH SẢN LƯỢNG GIAO TOÀN VÙNG, 5 TỈNH THÀNH & 18 AM (W39)]
+P08: 🎯 [III. PHÂN TÍCH HIỆU SUẤT %GTC TỔNG TOÀN MẠNG THEO 18 AM & 5 TỈNH (W39)]
+P10: 🔥 [IV. PHÂN TÍCH CHUYÊN SÂU %GTC CA 1 TIKTOK SHOP (TARGET SLA ≥ 76.0%) (W39)]
+P12: 📋 [V. TỶ LỆ GÁN VẬN HÀNH TOÀN MẠNG THEO CA 1, CA 2 & GÁN TỔNG (TARGET ≥ 90.0%) (W39)]
+P14: ⏱️ [VI. PHÂN TÍCH HIỆU SUẤT %ODR (GIAO ĐÚNG HẸN SLA) TOÀN VÙNG (TARGET ≥ 92.0%) (W39)]
+P16: 🌙 [VIII. PHÂN TÍCH CHỈ SỐ %OPR TIKTOK SHOP TOÀN VÙNG (TARGET KPI ≥ 80.0%) (W39)]
+P18: ⚠️ [IX. PHÂN TÍCH TỶ TRỌNG RỚT ĐƠN LUÂN CHUYỂN THEO AM & TỈNH THÀNH (W39)]
+P20: 🔄 [X. BÁO CÁO TỶ LỆ %FD (RETURN / HOÀN TRẢ) — VÙNG NAM TRUNG BỘ (W39)]
+P22: 🚛 [
+P23: ⏳ [XII. ĐIỀU HÀNH XỬ LÝ HÀNG AGING TỒN ĐỌNG & TREO LUÂN CHUYỂN]
+P25: 💰 [XIII. QUẢN TRỊ DÒNG TIỀN COD, TỶ LỆ THANH TOÁN & THU HỒI CÔNG NỢ]
+P27: 🚨 [XIV. BÁO CÁO TRUY THU – BIẾN ĐỘNG 2 TUẦN (W37 vs W38) & CẢNH BÁO BÙNG PHÁT 282.4 TRIỆU ₫]
+P29: 📈 [XV. PHÂN TÍCH DOANH THU KINH DOANH & TĂNG TRƯỞNG KHÁCH HÀNG MỚI (F30) | VÙNG NTB]
+P31: 🏁 [XVI. ĐIỀU HÀNH TRỌNG ĐIỂM: 13 BƯU CỤC CẢNH BÁO BẤT ỔN & 5 TRỌNG TÂM HÀNH ĐỘNG TUẦN W39]
+
+--- SAMPLE HEADINGS IN W39 ---
+

@@ -1,0 +1,44 @@
+Created At: 2026-10-06T09:55:50+07:00
+Completed At: 2026-10-06T09:55:50+07:00
+File Path: `file:///c:/Users/lap4all/Desktop/New%20folder/scratch/original_kich_ban_dump.txt`
+Total Lines: 36
+Total Bytes: 1592
+Showing lines 1 to 36
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: Created At: 2026-10-06T09:55:32+07:00
+2: Completed At: 2026-10-06T09:55:32+07:00
+3: File Path: `file:///c:/Users/lap4all/Desktop/New%20folder/scratch/inspect_kich_ban_docx.py`
+4: Total Lines: 27
+5: Total Bytes: 908
+6: Showing lines 1 to 27
+7: The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+8: 1: import docx, sys
+9: 2: sys.stdout.reconfigure(encoding='utf-8')
+10: 3: 
+11: 4: file_path = r"C:\Users\lap4all\Downloads\kịch bản.docx"
+12: 5: 
+13: 6: try:
+14: 7:     doc = docx.Document(file_path)
+15: 8:     print(f"Total paragraphs: {len(doc.paragraphs)}")
+16: 9:     print(f"Total tables: {len(doc.tables)}")
+17: 10:     
+18: 11:     print("\n--- ALL PARAGRAPHS IN kịch bản.docx ---")
+19: 12:     for i, p in enumerate(doc.paragraphs):
+20: 13:         t = p.text.strip()
+21: 14:         if t:
+22: 15:             print(f"P{i:02d}: {t}")
+23: 16:             
+24: 17:     print("\n--- TABLES IN kịch bản.docx ---")
+25: 18:     for ti, tbl in enumerate(doc.tables):
+26: 19:         print(f"\n=== Table {ti+1} ({len(tbl.rows)} rows, {len(tbl.columns)} cols) ===")
+27: 20:         for r_i, r in enumerate(tbl.rows):
+28: 21:             for c_i, c in enumerate(r.cells):
+29: 22:                 ct = c.text.strip()
+30: 23:                 if ct:
+31: 24:                     print(f"  [R{r_i}C{c_i}]: {ct[:300]}...")
+32: 25: except Exception as e:
+33: 26:     print("Error reading docx:", e)
+34: 27: 
+35: The above content shows the entire, complete file contents of the requested file.
+36: 
+The above content shows the entire, complete file contents of the requested file.
