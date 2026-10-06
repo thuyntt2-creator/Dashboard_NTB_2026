@@ -1466,15 +1466,15 @@
       let codDigitalVal = 0.629;
       let codTotStr = '82.6 Tỷ';
 
-      if (codCard.val !== undefined) {
+      if (codTmRow.curr) {
+        codVal = parseFloat(codTmRow.curr.replace('%', '')) / 100;
+        if (codTmRow.prev) codPrev = parseFloat(codTmRow.prev.replace('%', '')) / 100;
+        codDiff = codVal - codPrev;
+        codDigitalVal = 1 - codVal;
+      } else if (codCard.val !== undefined) {
         codVal = codCard.val;
         codDiff = codCard.diff !== undefined ? codCard.diff : -0.030;
         codPrev = codVal - codDiff;
-        codDigitalVal = 1 - codVal;
-      } else if (codTmRow.curr) {
-        codVal = parseFloat(codTmRow.curr) / 100;
-        if (codTmRow.prev) codPrev = parseFloat(codTmRow.prev) / 100;
-        codDiff = codVal - codPrev;
         codDigitalVal = 1 - codVal;
       } else if (D.cod_payment?.overview?.rate_cash !== undefined) {
         codVal = D.cod_payment.overview.rate_cash;
