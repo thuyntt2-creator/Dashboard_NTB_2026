@@ -24,6 +24,7 @@ Mở đầu buổi họp giao ban tuần W40 (chu kỳ dữ liệu từ 28/09 đ
 Tuần 40 này, toàn vùng Nam Trung Bộ của chúng ta có nhiều chuyển biến rất tích cực về chất lượng dịch vụ:
 Đầu tiên là điểm sáng về tỷ lệ Giao thành công (%GTC Full): Tuần này đã chính thức vượt mốc 60%, chạm mức 60,87%, tăng hơn 4,19%p so với tuần trước. Đặc biệt ở kênh TikTok Shop, %GTC đã đạt 63,38%, tăng gần 6%p. Đây là kết quả nỗ lực của các anh chị AM trong việc tối ưu ca giao chiều và giải tỏa đơn tồn đầu ngày.
 Điểm sáng thứ hai là chỉ số Giao đúng hẹn %ODR: Toàn vùng đã vượt ngưỡng cam kết SLA 92%, vươn lên 93,12% (riêng hàng TikTok đạt tới 94,18%). Khâu lấy hàng First-mile cũng duy trì đều tay trên 91,3%, riêng TikTok Shop đạt gần 95%.
+Điểm sáng thứ ba đặc biệt ấn tượng là khâu xả hàng tồn Aging: Toàn vùng Nam Trung Bộ tuần này đã kéo giảm lượng tồn tới hơn 71% so với cùng kỳ tuần trước (chính xác là -71,11%), đưa tỷ trọng tồn kho của NTB xuống chỉ còn 3,2% trên toàn quốc — nằm trong nhóm các vùng kiểm soát kho bãi sạch nhất mạng lưới.
 Về quản trị dòng tiền, tỷ lệ nộp COD bằng chuyển khoản QR tuần này duy trì ở mức 59,6%.
 Bên cạnh đó, chúng ta cũng cần nhìn nhận một số điểm cần lưu ý để cải thiện trong tuần tới:
 Thứ nhất: Sản lượng tuần này hạ nhiệt nhẹ về 311.503 đơn, giảm khoảng 6% so với tuần W39 do tuần cuối tháng thị trường có sự chững lại.
@@ -448,9 +449,13 @@ Giờ em xin phép chuyển sang Tab 12 mổ xẻ Tồn Aging & Treo luân chuy�
 
 ## TAB 12: 🗣️ ĐIỀU HÀNH XỬ LÝ HÀNG AGING TỒN ĐỌNG & TREO LUÂN CHUYỂN (BẬT TAB 12 DASHBOARD):
 
-📍 1. BẢNG 1: TỔNG QUAN HÀNG AGING TỒN KHO (>5 NGÀY) TOÀN VÙNG:
-• Tổng số đơn tồn Aging >5 ngày toàn vùng: 431 đơn hàng (kiểm soát tương đối tốt so với quy mô sản lượng vùng).
-• Phân bổ theo các dải thời gian lưu kho:
+📍 1. BẢNG 1: TỔNG QUAN TIẾN ĐỘ XẢ TỒN AGING VÀ SO SÁNH TOÀN QUỐC:
+• Thành tích bứt phá ngoạn mục: Lượng tồn Aging toàn vùng Nam Trung Bộ đã GIẢM TỚI 71,11% (hơn 71%) so với cùng kỳ tuần trước (N-7)!
+• Diễn biến giải tỏa tồn kho liên tục theo ngày:
+  - 28/09: 1.322 đơn ➔ 29/09: 1.184 đơn ➔ 30/09: 1.204 đơn ➔ 01/10: 943 đơn
+  - 02/10: 758 đơn ➔ 03/10: 508 đơn ➔ 04/10: 399 đơn ➔ 05/10: 352 đơn ➔ 06/10: 342 đơn (tiếp tục giảm -2,84% so với N-1).
+• Vị thế trên toàn quốc: Tỷ trọng tồn Aging của NTB hiện CHỈ CHIẾM 3,2% toàn quốc (trong khi ĐNB chiếm 31,6%, HCM 12,6%, ĐBB 9,2%, HNO 9,7%). NTB là một trong những vùng kiểm soát tồn sạch nhất hệ thống!
+• Phân bổ 431 đơn lưu kho (>5 ngày) theo dải thời gian:
   - Dải 5 – 8 ngày: 365 đơn (chiếm 84,7% tổng lượng tồn Aging ➔ Đơn mới chớm quá hạn, khả năng giải tỏa cao).
   - Dải 8 – 15 ngày: 59 đơn (chiếm 13,7%).
   - Dải trên 15 ngày: 7 đơn (chiếm 1,6% ➔ Tồn đọng lâu ngày cần thanh lý/hoàn trả dứt điểm).
@@ -485,28 +490,33 @@ Giờ em xin phép chuyển sang Tab 12 mổ xẻ Tồn Aging & Treo luân chuy�
   - BC Sơn Trà: 12 đơn treo ≥24h | BC Ngũ Hành Sơn: 11 đơn treo ≥24h.
 
 🎙️ LỜI THOẠI THUYẾT TRÌNH (KHI BẬT TAB 12 DASHBOARD AGING & TREO LC):
-"Kính thưa Ban Giám Đốc và các anh chị em AM, em xin phép chuyển sang Tab 12 để theo dõi sát hai mảng tồn đọng: Hàng Aging lưu kho và Hàng Treo luân chuyển.
+"Kính thưa Ban Giám Đốc và các anh chị em AM, chuyển sang Tab 12 về tình hình Hàng tồn Aging và Treo luân chuyển:
 
-Thứ nhất, nhìn vào Báo cáo Hàng Aging tồn kho (>5 ngày):
-Tin vui là toàn vùng chúng ta hiện chỉ ghi nhận 431 đơn hàng lưu kho trên 5 ngày — một con số khá khiêm tốn so với quy mô hàng trăm ngàn đơn mỗi tuần.
-Trong 431 đơn này, có tới 84,7% (365 đơn) là mới chớm bước qua ngày thứ 5 đến ngày thứ 8; đơn tồn từ 8 đến 15 ngày là 59 đơn; và đơn tồn lâu trên 15 ngày chỉ có 7 đơn.
-Về phía AM, anh Nguyễn Văn B đang có 78 đơn, anh Nguyễn Văn D có 76 đơn, anh Duân có 36 đơn, anh E có 35 đơn và anh C có 34 đơn.
-Với nhóm Aging này, do phần lớn mới chớm ở ngưỡng 5–8 ngày, nên việc xử lý tương đối thuận lợi. Em đề nghị các AM phối hợp trực tiếp với trưởng bưu cục kiểm đếm nhanh: Đơn nào khách hẹn giao lại thì ưu tiên cho bưu tá giao dứt điểm trong ca; đơn nào khách từ chối nhận thì chuyển trạng thái hoàn ngay, tránh để ngâm kho kéo dài sang mốc 15 ngày.
+Điểm sáng rất ấn tượng đầu tiên mà em muốn báo cáo với Ban Giám Đốc là:
+Theo số liệu theo dõi toàn mạng lưới, lượng hàng tồn Aging của vùng Nam Trung Bộ chúng ta tuần này đã có bước bứt phá xả hàng cực kỳ ngoạn mục:
+So với cùng kỳ 7 ngày trước (N-7), toàn vùng NTB đã kéo giảm lượng tồn tới hơn 71% (chính xác là giảm 71,11%)!
+Các anh chị có thể thấy trên biểu đồ diễn biến từng ngày: Đầu chu kỳ ngày 28/09 toàn vùng ghi nhận 1.322 đơn, nhưng các bưu cục đã xả tồn quyết liệt qua từng ngày: xuống 943 đơn vào ngày 01/10, xuống 758 đơn ngày 02/10, ngày 04/10 chỉ còn 399 đơn, và đến ngày hôm nay 06/10 chạm mức 342 đơn — tức là tiếp tục giảm thêm 2,84% so với ngày hôm qua.
+Nhờ tiến độ xả tồn dốc đứng này, tỷ trọng hàng tồn của Nam Trung Bộ hiện chỉ còn chiếm vỏn vẹn 3,2% trên toàn quốc — trong khi các vùng bạn như Đông Nam Bộ chiếm tới 31,6%, TP.HCM 12,6%, hay Đồng bằng Bắc Bộ 9,2%. Đây là kết quả chứng minh sự vào cuộc rất rốt ráo của các anh chị AM và anh em bưu cục trong việc giải phóng kho bãi!
 
-Thứ hai, chuyển sang tab Báo cáo Hàng Treo luân chuyển:
-Hiện tại toàn vùng có 4.660 đơn đang nằm trên luồng luân chuyển. Điểm rất tích cực là có tới 92,0% (tương đương 4.287 đơn) luân chuyển hoàn toàn đúng hạn dưới 24h.
+Nhìn vào cơ cấu 431 đơn lưu kho trên 5 ngày hiện tại:
+Có tới 84,7% (365 đơn) là mới chớm bước qua ngày thứ 5 đến ngày thứ 8; đơn tồn từ 8 đến 15 ngày là 59 đơn; và nhóm tồn lâu trên 15 ngày toàn vùng chỉ còn vỏn vẹn đúng 7 đơn (chiếm 1,6%).
+Về phía AM, anh Nguyễn Văn B hiện có 78 đơn, anh Nguyễn Văn D có 76 đơn, anh Duân có 36 đơn, anh E có 35 đơn và anh C có 34 đơn.
+Với nhóm Aging này, do phần lớn mới chớm ở ngưỡng 5–8 ngày, nên việc xử lý tương đối thuận lợi. Em đề nghị các AM phối hợp trực tiếp với trưởng bưu cục kiểm đếm nhanh: Đơn nào khách hẹn giao lại thì ưu tiên cho bưu tá giao dứt điểm trong ca; đơn nào khách từ chối nhận thì chuyển trạng thái hoàn ngay, dứt khoát không để ngâm kho kéo dài sang mốc 15 ngày.
+
+Thứ hai, chuyển sang mảng Hàng Treo luân chuyển:
+Hiện tại toàn vùng có 4.660 đơn đang nằm trên luồng luân chuyển. Điểm rất tích cực là có tới 92,0% (tương đương 4.287 đơn) luân chuyển hoàn toàn đúng hạn dưới 24h, dòng chảy vận hành cơ bản thông suốt.
 Tuy nhiên, chúng ta đang có 373 đơn (chiếm 8,0%) bị treo từ 24h trở lên, trong đó số đơn trễ nặng trên 36h là 208 đơn (chiếm 4,5% toàn luồng).
 Các điểm nóng treo tập trung ở cụm của anh Nguyễn Văn B (45 đơn treo), anh Nguyễn Văn A (42 đơn), anh Duân (35 đơn), anh Nguyễn Văn D (35 đơn) và anh Trường (30 đơn); tại một số bưu cục như Cẩm Lệ (18 đơn), Hải Châu (15 đơn), Thanh Khê (14 đơn), Sơn Trà (12 đơn).
 
 🔍 NGUYÊN NHÂN & GIẢI PHÁP ĐIỀU HÀNH:
 Qua rà soát quy trình, đơn bị treo luân chuyển chủ yếu xuất phát từ 2 khâu:
-1. Xe trung chuyển KTC đã hạ tải tại bưu cục nhưng bưu cục chưa quét xác nhận nhập kho kịp thời vào hệ thống, khiến trạng thái đơn vẫn hiển thị là đang luân chuyển trên đường.
-2. Một số kiện hàng chuyển nhầm tuyến bưu cục phụ trách, dẫn đến việc phải quét luân chuyển nội bộ thêm một vòng nữa.
+1. Xe trung chuyển KTC đã hạ tải tại bưu cục nhưng bưu cục chưa quét xác nhận 'Đến Bưu Cục' kịp thời vào hệ thống, khiến trạng thái đơn vẫn hiển thị là đang luân chuyển trên đường.
+2. Một số kiện hàng chuyển nhầm tuyến bưu cục phụ trách tại Hub, dẫn đến việc phải quét luân chuyển nội bộ thêm một vòng nữa.
 
 Vì vậy, giải pháp tuần W41 của chúng ta là:
 1. Đề nghị các bưu cục điểm nóng (như Cẩm Lệ, Hải Châu, Thanh Khê...) thực hiện nghiêm kỷ luật quét 'Đến Bưu Cục' ngay khi nhận bao tải từ xe KTC, không để dồn bao qua ca mới mở niêm phong.
 2. Bộ phận KTC kiểm soát chặt chẽ khâu chia chọn tại Hub, hạn chế tối đa việc phân nhầm bao tải về sai bưu cục phát.
-Mục tiêu là trong tuần W41, toàn vùng chúng ta sẽ kéo giảm tỷ lệ Treo luân chuyển từ 8,0% xuống dưới 4,0%, và thanh lý dứt điểm 7 đơn Aging trên 15 ngày.
+Mục tiêu là trong tuần W41, chúng ta tiếp tục giữ vững đà xả tồn, kéo giảm tỷ lệ Treo luân chuyển từ 8,0% xuống dưới 4,0%, và giải phóng sạch sẽ 7 đơn Aging trên 15 ngày.
 Bây giờ, em xin phép chuyển sang Tab 13 để phân tích Quản trị dòng tiền COD và Chuyển đổi số thanh toán QR Code nhé!"
 
 ---
