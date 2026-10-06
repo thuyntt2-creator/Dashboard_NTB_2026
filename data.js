@@ -10642,7 +10642,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 60,
-      "last_updated": "08:34 - 06/10/2026"
+      "last_updated": "09:09 - 06/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 1917.53,
@@ -10664,7 +10664,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 692.64,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 22
       },
       {
@@ -10690,7 +10690,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 234.88,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, NAK",
         "truck_count": 9
       },
       {
@@ -10716,7 +10716,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 94.49,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 12
       },
       {
@@ -10729,7 +10729,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 76.74,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Công Định",
+        "primary_ncc": "Công Định, NAK",
         "truck_count": 6
       },
       {

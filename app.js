@@ -5685,28 +5685,28 @@
       if (tblAmTitle) tblAmTitle.textContent = 'BẢNG 1: TOP AM NHIỀU ĐƠN AGING >5 NGÀY NHẤT (SORT GIẢM DẦN)';
       if (tblBcTitle) tblBcTitle.textContent = 'BẢNG 2: TOP BƯU CỤC (BC) CẦN GIẢI CỨU AGING GẤP';
     } else if (seg === 'treo_lc' && D.treo_lc) {
-      if (t1) t1.textContent = 'Tổng Đơn Luân Chuyển Live';
-      if (v1) v1.innerHTML = `${fNum(D.treo_lc.total)} <small>đơn</small>`;
-      if (m1) m1.innerHTML = `<span class="diff-tag diff-up-bad">Treo ≥24h: ${fNum(D.treo_lc.total_treo_24 || 625)} đơn (${((D.treo_lc.total_treo_24||625)/D.treo_lc.total*100).toFixed(1)}%)</span>`;
+      if (t1) t1.textContent = 'Tổng Đơn Treo LC (≥24h)';
+      if (v1) v1.innerHTML = `${fNum(D.treo_lc.total_treo_24)} <small>đơn</small>`;
+      if (m1) m1.innerHTML = `<span class="diff-tag diff-up-bad">Tỷ lệ treo: ${(D.treo_lc.total_treo_24 / D.treo_lc.total * 100).toFixed(1)}%</span> <span style="font-size:11px;color:var(--text-muted);">/ Tổng ${fNum(D.treo_lc.total)} đơn LC</span>`;
 
-      const topAM = D.treo_lc.top_am[0] || {};
-      if (t2) t2.textContent = 'Top 1 AM Luân Chuyển Nhiều Nhất';
+      const topAM = (D.treo_lc.top_am && D.treo_lc.top_am[0]) || {};
+      if (t2) t2.textContent = 'Top 1 AM Treo LC Nhiều Nhất';
       if (v2) v2.textContent = topAM.am || '---';
-      if (m2) m2.innerHTML = `<span class="diff-tag diff-up-bad">Treo ≥24h: ${fNum(topAM.treo_24 || 0)} đ / Tổng: ${fNum(topAM.vol)} đ</span>`;
+      if (m2) m2.innerHTML = `<span class="diff-tag diff-up-bad">Treo ≥24h: ${fNum(topAM.treo_24 || 0)} đ (${topAM.rate_treo_24 || (topAM.treo_24/topAM.vol*100).toFixed(1)}%)</span> <span style="font-size:11px;color:var(--text-muted);">/ ${fNum(topAM.vol)} đ</span>`;
 
-      const topBC = D.treo_lc.top_bc[0] || {};
+      const topBC = (D.treo_lc.top_bc && D.treo_lc.top_bc[0]) || {};
       if (t3) t3.textContent = 'Top 1 BC Treo LC Nhiều Nhất';
-      if (v3) v3.textContent = topBC.bc ? topBC.bc.substring(0, 24) + '...' : '---';
-      if (m3) m3.innerHTML = `<span class="diff-tag diff-neutral">${fNum(topBC.vol)} đơn (${topBC.pct}%)</span>`;
+      if (v3) v3.textContent = topBC.bc ? (topBC.bc.length > 24 ? topBC.bc.substring(0, 24) + '...' : topBC.bc) : '---';
+      if (m3) m3.innerHTML = `<span class="diff-tag diff-up-bad">Treo ≥24h: ${fNum(topBC.treo_24 || 0)} đ (${topBC.rate_treo_24 || (topBC.treo_24/topBC.vol*100).toFixed(1)}%)</span> <span style="font-size:11px;color:var(--text-muted);">/ ${fNum(topBC.vol)} đ</span>`;
 
-      const topTinh = D.treo_lc.tinh[0] || {};
+      const topTinh = (D.treo_lc.tinh && D.treo_lc.tinh[0]) || {};
       if (t4) t4.textContent = 'Tỉnh Treo LC Nhiều Nhất';
       if (v4) v4.textContent = topTinh.tinh || '---';
-      if (m4) m4.innerHTML = `<span class="diff-tag diff-neutral">${fNum(topTinh.vol)} đơn (${topTinh.pct}%)</span>`;
+      if (m4) m4.innerHTML = `<span class="diff-tag diff-neutral">Treo ≥24h: ${fNum(topTinh.treo_24 || 151)} đ (${topTinh.rate_treo_24 || (topTinh.treo_24/topTinh.vol*100).toFixed(1)}%)</span> <span style="font-size:11px;color:var(--text-muted);">/ ${fNum(topTinh.vol)} đ</span>`;
 
-      if (chartTitle) chartTitle.textContent = 'BIỂU ĐỒ TOP AM NHIỀU ĐƠN TREO LUÂN CHUYỂN (LC) VÀ MIỀN TỶ TRỌNG (%)';
-      if (tblAmTitle) tblAmTitle.textContent = 'BẢNG 1: TOP AM NHIỀU ĐƠN TREO LUÂN CHUYỂN NHẤT (SORT GIẢM DẦN)';
-      if (tblBcTitle) tblBcTitle.textContent = 'BẢNG 2: TOP BƯU CỤC (BC) TREO LUÂN CHUYỂN NHIỀU NHẤT';
+      if (chartTitle) chartTitle.textContent = 'BIỂU ĐỒ TOP AM NHIỀU ĐƠN TREO LUÂN CHUYỂN (≥24H) VÀ TỶ LỆ TREO (%)';
+      if (tblAmTitle) tblAmTitle.textContent = 'BẢNG 1: TOP AM THEO ĐƠN TREO LUÂN CHUYỂN (≥24H) (SORT GIẢM DẦN)';
+      if (tblBcTitle) tblBcTitle.textContent = 'BẢNG 2: TOP BƯU CỤC (BC) TREO LUÂN CHUYỂN (≥24H) NHIỀU NHẤT';
     } else if (seg === 'compare') {
       if (chartTitle) chartTitle.textContent = 'BIỂU ĐỒ ĐỐI CHIẾU SONG SONG: ĐƠN AGING vs ĐƠN TREO LUÂN CHUYỂN (THEO TOP AM)';
       if (tblAmTitle) tblAmTitle.textContent = 'BẢNG 1: ĐỐI CHIẾU SỐ LIỆU TỒN AGING vs TREO LC THEO AM';
@@ -6014,6 +6014,22 @@
     const isTreo = seg === 'treo_lc';
     const isCompare = seg === 'compare';
 
+    // Dynamic banner text and summary badge
+    const badge = document.getElementById('aging-badge-summary');
+    if (badge && D.aging && D.treo_lc) {
+      badge.textContent = `Aging (>5N): ${fNum(D.aging.total)} đơn | Treo LC (≥24h): ${fNum(D.treo_lc.total_treo_24)} / ${fNum(D.treo_lc.total)} đơn`;
+    }
+    const bannerDesc = document.getElementById('aging-banner-desc');
+    if (bannerDesc && D.aging && D.treo_lc) {
+      const topAmAg = (D.aging.top_am && D.aging.top_am[0]) || {};
+      const topAmTr = (D.treo_lc.top_am && D.treo_lc.top_am[0]) || {};
+      const topBcTr = (D.treo_lc.top_bc && D.treo_lc.top_bc[0]) || {};
+      bannerDesc.innerHTML = `
+        • <strong>Aging Tồn Kho (>5 ngày):</strong> Toàn vùng ghi nhận <strong>${fNum(D.aging.total)} đơn</strong> (5–8 ngày: <strong>${fNum(D.aging.total_5_8)} đ / ${((D.aging.total_5_8||0)/D.aging.total*100).toFixed(1)}%</strong>; 8–15 ngày: <strong>${fNum(D.aging.total_8_15)} đ / ${((D.aging.total_8_15||0)/D.aging.total*100).toFixed(1)}%</strong>; >15 ngày: <strong>${fNum(D.aging.total_gt_15)} đ / ${((D.aging.total_gt_15||0)/D.aging.total*100).toFixed(1)}%</strong>). Top AM: ${topAmAg.am || '---'} (${fNum(topAmAg.vol)} đ).<br/>
+        • <strong>Hàng Treo Luân Chuyển:</strong> Toàn vùng có <strong>${fNum(D.treo_lc.total)} đơn</strong> đang lưu chuyển, trong đó <strong>${((D.treo_lc.total_u24||0)/D.treo_lc.total*100).toFixed(1)}% (${fNum(D.treo_lc.total_u24)} đơn)</strong> luân chuyển đúng hạn <24h. Đơn tồn <strong>Treo ≥24h: ${fNum(D.treo_lc.total_treo_24)} đơn (${(D.treo_lc.total_treo_24/D.treo_lc.total*100).toFixed(1)}%)</strong>, trễ nặng <strong>≥36h: ${fNum(D.treo_lc.total_treo_36)} đơn (${(D.treo_lc.total_treo_36/D.treo_lc.total*100).toFixed(1)}%)</strong>. Điểm nóng treo: AM ${topAmTr.am || '---'} (${fNum(topAmTr.treo_24)} đơn treo) tại BC ${topBcTr.bc || '---'} (${fNum(topBcTr.treo_24)} đơn treo).
+      `;
+    }
+
     // Update top KPI cards dynamically
     updateAgingKPIs(seg);
 
@@ -6043,8 +6059,8 @@
             <th class="num" style="background: #ea580c; color: #ffffff; font-weight:700;">36 – 72h</th>
             <th class="num" style="background: #dc2626; color: #ffffff; font-weight:700;">72 – 120h</th>
             <th class="num" style="background: #991b1b; color: #ffffff; font-weight:700;">Trên 120h</th>
-            <th class="num" style="background: #fef08a; color: #92400e; font-weight:800;">Treo ≥24h</th>
-            <th class="num" style="background: #f59e0b; color: #000000; font-weight:900; font-size:13.5px;">Tổng (Live)</th>
+            <th class="num" style="background: #ef4444; color: #ffffff; font-weight:900; font-size:13.5px;">Treo ≥24h (Sort)</th>
+            <th class="num" style="background: #64748b; color: #ffffff; font-weight:700;">Tổng Luân Chuyển</th>
           </tr>
         `;
       } else {
@@ -6072,7 +6088,7 @@
             am: t.am,
             tinh: t.tinh || a.tinh || '',
             vol: a.vol || 0,
-            vol_treo: t.vol || 0,
+            vol_treo: t.treo_24 || t.vol || 0,
             pct: a.pct || 0
           };
         });
@@ -6119,8 +6135,8 @@
               <td class="num" style="background: rgba(234, 88, 12, 0.05); font-weight:600; color:${h36 > 0 ? '#ea580c' : '#64748b'};">${fNum(h36)}</td>
               <td class="num" style="background: rgba(220, 38, 38, 0.06); font-weight:600; color:${h72 > 0 ? '#dc2626' : '#64748b'};">${fNum(h72)}</td>
               <td class="num bold" style="background: rgba(153, 27, 27, 0.08); color:${h120 > 0 ? '#991b1b' : '#64748b'};">${fNum(h120)}</td>
-              <td class="num bold" style="background: #fef3c7; color: #b45309; font-weight:800;">${fNum(treo24)}</td>
-              <td class="num bold" style="background: #fef08a; color: #92400e; font-size:13.5px; font-weight:900;">${fNum(row.vol)}</td>
+              <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size:13.5px; font-weight:900;">${fNum(treo24)}</td>
+              <td class="num bold" style="background: rgba(0,0,0,0.02); color: #475569; font-size:13px; font-weight:700;">${fNum(row.vol)}</td>
             </tr>
           `;
         } else {
@@ -6143,10 +6159,10 @@
           <tr style="background: #fde047; font-weight: 900; border-top: 2px solid #ca8a04;">
             <td class="center">⭐</td>
             <td class="bold" style="font-size: 13.5px; text-transform: uppercase;">TỔNG VÙNG</td>
-            <td class="num bold" style="font-size: 13.5px; color: #0369a1;">${fNum(D.aging.total_5_8 || 1329)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #b45309;">${fNum(D.aging.total_8_15 || 674)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #b91c1c;">${fNum(D.aging.total_gt_15 || 334)}</td>
-            <td class="num bold" style="background: #f59e0b; color: #000000; font-size:14.5px;">${fNum(D.aging.total || 2337)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #0369a1;">${fNum(D.aging.total_5_8 || 365)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #b45309;">${fNum(D.aging.total_8_15 || 59)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #b91c1c;">${fNum(D.aging.total_gt_15 || 7)}</td>
+            <td class="num bold" style="background: #f59e0b; color: #000000; font-size:14.5px;">${fNum(D.aging.total || 431)}</td>
           </tr>
         `;
       } else if (isTreo && D.treo_lc) {
@@ -6154,13 +6170,13 @@
           <tr style="background: #fde047; font-weight: 900; border-top: 2px solid #ca8a04;">
             <td class="center">⭐</td>
             <td class="bold" style="font-size: 13.5px; text-transform: uppercase;">TỔNG VÙNG</td>
-            <td class="num bold" style="font-size: 13.5px; color: #0284c7;">${fNum(D.treo_lc.total_u24 || 4024)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #d97706;">${fNum(D.treo_lc.total_24_36 || 242)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #ea580c;">${fNum(D.treo_lc.total_36_72 || 290)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #dc2626;">${fNum(D.treo_lc.total_72_120 || 70)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #991b1b;">${fNum(D.treo_lc.total_120_plus || 23)}</td>
-            <td class="num bold" style="background: #fef3c7; color: #b45309; font-size:14px; font-weight:900;">${fNum(D.treo_lc.total_treo_24 || 625)}</td>
-            <td class="num bold" style="background: #f59e0b; color: #000000; font-size:14.5px;">${fNum(D.treo_lc.total || 4649)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #0284c7;">${fNum(D.treo_lc.total_u24 || 4287)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #d97706;">${fNum(D.treo_lc.total_24_36 || 165)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #ea580c;">${fNum(D.treo_lc.total_36_72 || 132)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #dc2626;">${fNum(D.treo_lc.total_72_120 || 31)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #991b1b;">${fNum(D.treo_lc.total_120_plus || 45)}</td>
+            <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size:14.5px; font-weight:900;">${fNum(D.treo_lc.total_treo_24 || 373)}</td>
+            <td class="num bold" style="background: #f1f5f9; color: #1e293b; font-size:13.5px;">${fNum(D.treo_lc.total || 4660)}</td>
           </tr>
         `;
       }
@@ -6194,8 +6210,8 @@
             <th class="num" style="background: #ea580c; color: #ffffff; font-weight:700;">36 – 72h</th>
             <th class="num" style="background: #dc2626; color: #ffffff; font-weight:700;">72 – 120h</th>
             <th class="num" style="background: #991b1b; color: #ffffff; font-weight:700;">Trên 120h</th>
-            <th class="num" style="background: #fef08a; color: #92400e; font-weight:800;">Treo ≥24h</th>
-            <th class="num" style="background: #f59e0b; color: #000000; font-weight:900; font-size:13.5px;">Tổng (Live)</th>
+            <th class="num" style="background: #ef4444; color: #ffffff; font-weight:900; font-size:13.5px;">Treo ≥24h (Sort)</th>
+            <th class="num" style="background: #64748b; color: #ffffff; font-weight:700;">Tổng Luân Chuyển</th>
           </tr>
         `;
       } else {
@@ -6221,7 +6237,7 @@
         listBC = listBC.filter(r => r.bc.toLowerCase().includes(state.searchAgingBC) || (r.am && r.am.toLowerCase().includes(state.searchAgingBC)));
       }
 
-      tblBodyBC.innerHTML = listBC.map((row, i) => {
+      let bcRowsHtml = listBC.map((row, i) => {
         const isSelected = state.selectedAM && state.selectedAM === row.am;
         const rowClass = isSelected ? 'presenter-laser-box' : '';
 
@@ -6257,8 +6273,8 @@
               <td class="num" style="background: rgba(234, 88, 12, 0.05); font-weight:600; color:${h36 > 0 ? '#ea580c' : '#64748b'};">${fNum(h36)}</td>
               <td class="num" style="background: rgba(220, 38, 38, 0.06); font-weight:600; color:${h72 > 0 ? '#dc2626' : '#64748b'};">${fNum(h72)}</td>
               <td class="num bold" style="background: rgba(153, 27, 27, 0.08); color:${h120 > 0 ? '#991b1b' : '#64748b'};">${fNum(h120)}</td>
-              <td class="num bold" style="background: #fef3c7; color: #b45309; font-weight:800;">${fNum(treo24)}</td>
-              <td class="num bold" style="background: #fef08a; color: #92400e; font-size:13.5px; font-weight:900;">${fNum(row.vol)}</td>
+              <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size:13.5px; font-weight:900;">${fNum(treo24)}</td>
+              <td class="num bold" style="background: rgba(0,0,0,0.02); color: #475569; font-size:13px; font-weight:700;">${fNum(row.vol)}</td>
             </tr>
           `;
         } else {
@@ -6275,6 +6291,24 @@
           `;
         }
       }).join('');
+
+      // Add Total Row at bottom for BC
+      if (isTreo && D.treo_lc) {
+        bcRowsHtml += `
+          <tr style="background: #fde047; font-weight: 900; border-top: 2px solid #ca8a04;">
+            <td class="center">⭐</td>
+            <td class="bold" style="font-size: 13.5px; text-transform: uppercase;">TỔNG VÙNG (${listBC.length} BC)</td>
+            <td class="num bold" style="font-size: 13.5px; color: #0284c7;">${fNum(D.treo_lc.total_u24 || 4287)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #d97706;">${fNum(D.treo_lc.total_24_36 || 165)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #ea580c;">${fNum(D.treo_lc.total_36_72 || 132)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #dc2626;">${fNum(D.treo_lc.total_72_120 || 31)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #991b1b;">${fNum(D.treo_lc.total_120_plus || 45)}</td>
+            <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size:14.5px; font-weight:900;">${fNum(D.treo_lc.total_treo_24 || 373)}</td>
+            <td class="num bold" style="background: #f1f5f9; color: #1e293b; font-size:13.5px;">${fNum(D.treo_lc.total || 4660)}</td>
+          </tr>
+        `;
+      }
+      tblBodyBC.innerHTML = bcRowsHtml;
     }
   }
 
@@ -6298,8 +6332,9 @@
     } else if (seg === 'treo_lc' && D.treo_lc) {
       dataList = (D.treo_lc.top_am || []).slice(0, 15).map(r => ({
         am: r.am,
-        vol: r.vol,
-        pct: r.pct,
+        vol: r.treo_24, // SỐ ĐƠN TREO >= 24H CHUẨN XÁC!
+        vol_total: r.vol,
+        pct: r.rate_treo_24 !== undefined ? r.rate_treo_24 : Number((r.treo_24 / (r.vol || 1) * 100).toFixed(1)),
         tinh: r.tinh
       }));
     } else if (seg === 'compare' && D.aging && D.treo_lc) {
@@ -6308,7 +6343,7 @@
       dataList = (D.treo_lc.top_am || []).slice(0, 15).map(r => ({
         am: r.am,
         vol: agingMap[r.am] || 0,
-        vol_treo: r.vol,
+        vol_treo: r.treo_24 || r.vol,
         pct: r.pct,
         tinh: r.tinh
       }));
@@ -6330,7 +6365,7 @@
         },
         {
           type: 'bar',
-          label: 'Đơn Treo Luân Chuyển',
+          label: 'Đơn Treo LC (≥24h)',
           data: dataList.map(d => d.vol_treo),
           backgroundColor: dataList.map(d => selectedAM && selectedAM === d.am ? '#f59e0b' : '#3b82f6'),
           borderRadius: 4,
@@ -6342,7 +6377,7 @@
       datasets = [
         {
           type: 'line',
-          label: '🌊 Miền Tỷ Trọng (%)',
+          label: seg === 'aging' ? '🌊 Miền Tỷ Trọng Aging (%)' : '🌊 Tỷ Lệ Treo LC (%)',
           data: dataList.map(d => d.pct),
           fill: true,
           backgroundColor: seg === 'aging' ? 'rgba(239, 68, 68, 0.15)' : 'rgba(147, 51, 234, 0.15)',
@@ -6358,12 +6393,12 @@
         },
         {
           type: 'bar',
-          label: seg === 'aging' ? 'Số Đơn Aging >5 Ngày' : 'Số Đơn Treo Luân Chuyển',
+          label: seg === 'aging' ? 'Số Đơn Aging >5 Ngày' : 'Số Đơn Treo LC (≥24h)',
           data: dataList.map(d => d.vol),
           backgroundColor: dataList.map(d => {
             if (selectedAM && selectedAM === d.am) return '#ef4444';
-            if (hlMode === 'danger') return d.vol >= (seg === 'aging' ? 100 : 500) ? '#b91c1c' : 'rgba(185, 28, 28, 0.2)';
-            if (hlMode === 'warning') return d.vol >= (seg === 'aging' ? 30 : 300) ? '#d97706' : 'rgba(217, 119, 6, 0.2)';
+            if (hlMode === 'danger') return d.vol >= (seg === 'aging' ? 100 : 35) ? '#b91c1c' : 'rgba(185, 28, 28, 0.2)';
+            if (hlMode === 'warning') return d.vol >= (seg === 'aging' ? 30 : 20) ? '#d97706' : 'rgba(217, 119, 6, 0.2)';
             return seg === 'aging' ? '#dc2626' : '#2563eb';
           }),
           borderColor: dataList.map(d => selectedAM && selectedAM === d.am ? '#b91c1c' : 'transparent'),
