@@ -534,17 +534,25 @@ Giờ em xin phép chuyển sang Tab 12 mổ xẻ Tồn Aging & Treo luân chuy�
 • Diễn biến giải tỏa tồn kho liên tục theo ngày:
   - 28/09: 1.322 đơn ➔ 29/09: 1.184 đơn ➔ 30/09: 1.204 đơn ➔ 01/10: 943 đơn
   - 02/10: 758 đơn ➔ 03/10: 508 đơn ➔ 04/10: 399 đơn ➔ 05/10: 352 đơn ➔ 06/10: 342 đơn (tiếp tục giảm -2,84% so với N-1).
-• Vị thế trên toàn quốc: Tỷ trọng tồn Aging của NTB hiện CHỈ CHIẾM 3,2% toàn quốc (trong khi ĐNB chiếm 31,6%, HCM 12,6%, ĐBB 9,2%, HNO 9,7%). NTB là một trong những vùng kiểm soát tồn sạch nhất hệ thống!
-• Phân bổ 431 đơn lưu kho (>5 ngày) theo dải thời gian:
-  - Dải 5 – 8 ngày: 365 đơn (chiếm 84,7% tổng lượng tồn Aging ➔ Đơn mới chớm quá hạn, khả năng giải tỏa cao).
-  - Dải 8 – 15 ngày: 59 đơn (chiếm 13,7%).
-  - Dải trên 15 ngày: 7 đơn (chiếm 1,6% ➔ Tồn đọng lâu ngày cần thanh lý/hoàn trả dứt điểm).
+• Vị thế trên toàn quốc: Tỷ trọng tồn Aging của NTB hiện CHỈ CHIẾM 3,2% toàn quốc (trong khi ĐNB chiếm 31,6%, HCM 12,6%, ĐBB 9,2%, HNO 9,7%). NTB là một trong những vùng kiểm soát tồn sạch nhất toàn mạng lưới!
+• Cơ cấu 400 đơn lưu kho (>5 ngày) theo dải thời gian:
+  - Dải 5 – 8 ngày: 328 đơn (chiếm 82,0% tổng lượng tồn Aging ➔ Đơn mới chớm quá hạn, khả năng giải tỏa rất cao).
+  - Dải 8 – 15 ngày: 64 đơn (chiếm 16,0%).
+  - Dải trên 15 ngày: 8 đơn (chiếm 2,0% ➔ Tồn đọng lâu ngày cần thanh lý/hoàn trả dứt điểm).
 • Top AM có số lượng đơn tồn Aging >5 ngày:
-  - Nguyễn Văn B: 78 đơn (5–8N: 68 đơn, 8–15N: 9 đơn, >15N: 1 đơn).
-  - Nguyễn Văn D: 76 đơn (5–8N: 65 đơn, 8–15N: 10 đơn, >15N: 1 đơn).
-  - Huỳnh Thúc Duân: 36 đơn (5–8N: 31 đơn, 8–15N: 4 đơn, >15N: 1 đơn).
-  - Nguyễn Văn E: 35 đơn (5–8N: 30 đơn, 8–15N: 5 đơn).
-  - Nguyễn Văn C: 34 đơn (5–8N: 29 đơn, 8–15N: 4 đơn, >15N: 1 đơn).
+  - Nguyễn Lê Nguyên Vũ (Lâm Đồng): 120 đơn (chiếm 30,0% toàn vùng | 5–8N: 103 đ, 8–15N: 16 đ, >15N: 1 đ | TB lưu kho: 6,7 ngày).
+  - Huỳnh Thị Kim Chi (Lâm Đồng): 47 đơn (chiếm 11,8% | 5–8N: 32 đ, 8–15N: 15 đ, >15N: 0 đ | TB: 7,3 ngày).
+  - Nguyễn Thanh Long (Khánh Hòa): 43 đơn (chiếm 10,8% | 5–8N: 42 đ, 8–15N: 1 đ, >15N: 0 đ | TB: 6,3 ngày).
+  - Hồng Bích Nga (Lâm Đồng): 40 đơn (chiếm 10,0% | 5–8N: 34 đ, 8–15N: 5 đ, >15N: 1 đ | TB: 7,2 ngày).
+  - Nguyễn Duy Long (Ninh Thuận): 25 đơn (chiếm 6,2% | 5–8N: 24 đ, 8–15N: 1 đ, >15N: 0 đ | TB: 5,9 ngày).
+  *(Lưu ý: AM Huỳnh Thúc Duân - Đắk Nông tuy chỉ có 15 đơn nhưng có tới 4 đơn trên 15 ngày, thời gian lưu kho bình quân 13,1 ngày cần rà soát gấp).*
+• Top Bưu cục điểm nóng tồn Aging:
+  - (LDO) Đức Trọng 1 (Lâm Đồng - AM Nguyễn Lê Nguyên Vũ): 101 đơn (5–8N: 91 đ, 8–15N: 10 đ).
+  - (LDO) Tân Hà Lâm Hà (Lâm Đồng - AM Huỳnh Thị Kim Chi): 40 đơn (5–8N: 28 đ, 8–15N: 12 đ).
+  - (KHO) Bắc Cam Ranh (Khánh Hòa - AM Nguyễn Thanh Long): 39 đơn (5–8N: 38 đ, 8–15N: 1 đ).
+  - (LDO) Hòa Ninh (Lâm Đồng - AM Hồng Bích Nga): 19 đơn (toàn bộ 19 đ ở dải 5–8N).
+  - (LDO) Di Linh (Lâm Đồng - AM Nguyễn Lê Nguyên Vũ): 18 đơn (5–8N: 11 đ, 8–15N: 6 đ, >15N: 1 đ).
+  - (LDO) Đơn Dương (Lâm Đồng - AM Phan Nguyễn Yến Nhi): 17 đơn (5–8N: 10 đ, 8–15N: 7 đ).
 
 📍 2. BẢNG 2: TỔNG QUAN HÀNG TREO LUÂN CHUYỂN (TREO LC):
 • Tổng số kiện đang trong luồng luân chuyển toàn vùng: 4.660 đơn hàng.
@@ -555,19 +563,27 @@ Giờ em xin phép chuyển sang Tab 12 mổ xẻ Tồn Aging & Treo luân chuy�
     + 24 – 36h: 165 đơn (3,5%).
     + 36 – 72h: 132 đơn (2,8%).
     + 72 – 120h: 31 đơn (0,7%).
-    + Trên 120h: 45 đơn (1,0%).
-  - Tổng số đơn trễ luân chuyển nặng (≥36h): 208 đơn (chiếm 4,5%).
+    + Trên 120h (>5 ngày): 45 đơn (1,0%).
+  - Tổng số đơn trễ luân chuyển nặng (≥36h): 208 đơn (chiếm 4,5% toàn luồng).
+• Phân bổ luân chuyển theo tỉnh:
+  - Lâm Đồng: 1.504 đơn (chiếm 32,3% toàn vùng).
+  - Khánh Hòa: 1.294 đơn (chiếm 27,8%).
+  - Bình Thuận: 700 đơn (chiếm 15,0%).
+  - Đắk Nông: 619 đơn (chiếm 13,3%).
+  - Ninh Thuận: 523 đơn (chiếm 11,2%).
 • Top AM có số lượng đơn Treo ≥24h nhiều nhất:
-  - Nguyễn Văn B: 45 đơn treo (Tổng LC: 285 đơn | Tỷ lệ treo 15,8% | 24-36h: 20 đ, 36-72h: 16 đ, 72-120h: 4 đ, >120h: 5 đ).
-  - Nguyễn Văn A: 42 đơn treo (Tổng LC: 280 đơn | Tỷ lệ treo 15,0% | 24-36h: 19 đ, 36-72h: 15 đ, >120h: 5 đ).
-  - Huỳnh Thúc Duân: 35 đơn treo (Tổng LC: 245 đơn | Tỷ lệ treo 14,3% | 24-36h: 16 đ, 36-72h: 12 đ, >120h: 4 đ).
-  - Nguyễn Văn D: 35 đơn treo (Tổng LC: 250 đơn | Tỷ lệ treo 14,0% | 24-36h: 16 đ, 36-72h: 13 đ, >120h: 4 đ).
-  - Lê Văn Trường: 30 đơn treo (Tổng LC: 240 đơn | Tỷ lệ treo 12,5% | 24-36h: 13 đ, 36-72h: 11 đ, >120h: 4 đ).
+  - Nguyễn Hoàng Phi (Khánh Hòa): 45 đơn treo ≥24h (Treo ≥36h: 24 đ | 24-36h: 21 đ, 36-72h: 21 đ, 72-120h: 3 đ) trên tổng 365 đơn luân chuyển.
+  - Phan Đình Duy (Khánh Hòa): 35 đơn treo ≥24h (Treo ≥36h: 18 đ | 24-36h: 17 đ, 36-72h: 13 đ, 72-120h: 3 đ, >120h: 2 đ) trên tổng 418 đơn.
+  - Nguyễn Duy Long (Ninh Thuận): 30 đơn treo ≥24h (Treo ≥36h: 12 đ | 24-36h: 18 đ, 36-72h: 11 đ, 72-120h: 1 đ) trên tổng 569 đơn.
+  - Hồng Bích Nga (Lâm Đồng): 29 đơn treo ≥24h (Treo ≥36h: 10 đ | 24-36h: 19 đ, 36-72h: 2 đ, 72-120h: 6 đ, >120h: 2 đ) trên tổng 357 đơn.
+  - Trần Thị Nhung (Đắk Nông): 28 đơn treo ≥24h (Treo ≥36h: 15 đ | 24-36h: 13 đ, 36-72h: 14 đ, >120h: 1 đ) trên tổng 349 đơn.
+  - Lê Văn Trường (Lâm Đồng): 27 đơn treo ≥24h (Treo ≥36h: 18 đ | 24-36h: 9 đ, 36-72h: 12 đ, 72-120h: 6 đ) trên tổng 460 đơn.
 • Top Bưu cục điểm nóng phát sinh đơn treo:
-  - BC Cẩm Lệ: 18 đơn treo ≥24h (24-36h: 8 đ, 36-72h: 6 đ, >120h: 2 đ).
-  - BC Hải Châu: 15 đơn treo ≥24h (24-36h: 7 đ, 36-72h: 5 đ, >120h: 2 đ).
-  - BC Thanh Khê: 14 đơn treo ≥24h (24-36h: 6 đ, 36-72h: 5 đ, >120h: 2 đ).
-  - BC Sơn Trà: 12 đơn treo ≥24h | BC Ngũ Hành Sơn: 11 đơn treo ≥24h.
+  - (LDO) Đơn Dương (Lâm Đồng - AM Phan Nguyễn Yến Nhi): 21 đơn treo ≥24h (Treo ≥36h: 10 đ | 24-36h: 11 đ, 36-72h: 9 đ, 72-120h: 1 đ) trên 113 đơn.
+  - (LDO) Lang Biang - Đà Lạt 2 (Lâm Đồng - AM Lê Văn Trường): 18 đơn treo ≥24h (Treo ≥36h: 11 đ | 24-36h: 7 đ, 36-72h: 9 đ, 72-120h: 2 đ) trên 146 đơn.
+  - (NTH) Phước Dinh (Ninh Thuận - AM Nguyễn Duy Long): 18 đơn treo ≥24h (Treo ≥36h: 7 đ | 24-36h: 11 đ, 36-72h: 6 đ, 72-120h: 1 đ) trên 203 đơn.
+  - (KHO) Tây Nha Trang (Khánh Hòa - AM Phan Đình Duy): 14 đơn treo ≥24h (Treo ≥36h: 5 đ | 24-36h: 9 đ, 36-72h: 3 đ, 72-120h: 1 đ, >120h: 1 đ) trên 112 đơn.
+  - (KHO) Cam Linh (Khánh Hòa - AM Nguyễn Thanh Long): 11 đơn treo ≥24h (Treo ≥36h: 9 đ | 24-36h: 2 đ, 36-72h: 7 đ, 72-120h: 1 đ, >120h: 1 đ) trên 136 đơn.
 
 🎙️ LỜI THOẠI THUYẾT TRÌNH (KHI BẬT TAB 12 DASHBOARD AGING & TREO LC):
 "Kính thưa Ban Giám Đốc và các anh chị em AM, chuyển sang Tab 12 về tình hình Hàng tồn Aging và Treo luân chuyển:
@@ -578,25 +594,26 @@ So với cùng kỳ 7 ngày trước (N-7), toàn vùng NTB đã kéo giảm lư
 Các anh chị có thể thấy trên biểu đồ diễn biến từng ngày: Đầu chu kỳ ngày 28/09 toàn vùng ghi nhận 1.322 đơn, nhưng các bưu cục đã xả tồn quyết liệt qua từng ngày: xuống 943 đơn vào ngày 01/10, xuống 758 đơn ngày 02/10, ngày 04/10 chỉ còn 399 đơn, và đến ngày hôm nay 06/10 chạm mức 342 đơn — tức là tiếp tục giảm thêm 2,84% so với ngày hôm qua.
 Nhờ tiến độ xả tồn dốc đứng này, tỷ trọng hàng tồn của Nam Trung Bộ hiện chỉ còn chiếm vỏn vẹn 3,2% trên toàn quốc — trong khi các vùng bạn như Đông Nam Bộ chiếm tới 31,6%, TP.HCM 12,6%, hay Đồng bằng Bắc Bộ 9,2%. Đây là kết quả chứng minh sự vào cuộc rất rốt ráo của các anh chị AM và anh em bưu cục trong việc giải phóng kho bãi!
 
-Nhìn vào cơ cấu 431 đơn lưu kho trên 5 ngày hiện tại:
-Có tới 84,7% (365 đơn) là mới chớm bước qua ngày thứ 5 đến ngày thứ 8; đơn tồn từ 8 đến 15 ngày là 59 đơn; và nhóm tồn lâu trên 15 ngày toàn vùng chỉ còn vỏn vẹn đúng 7 đơn (chiếm 1,6%).
-Về phía AM, anh Nguyễn Văn B hiện có 78 đơn, anh Nguyễn Văn D có 76 đơn, anh Duân có 36 đơn, anh E có 35 đơn và anh C có 34 đơn.
-Với nhóm Aging này, do phần lớn mới chớm ở ngưỡng 5–8 ngày, nên việc xử lý tương đối thuận lợi. Em đề nghị các AM phối hợp trực tiếp với trưởng bưu cục kiểm đếm nhanh: Đơn nào khách hẹn giao lại thì ưu tiên cho bưu tá giao dứt điểm trong ca; đơn nào khách từ chối nhận thì chuyển trạng thái hoàn ngay, dứt khoát không để ngâm kho kéo dài sang mốc 15 ngày.
+Đi sâu vào cơ cấu 400 đơn lưu kho trên 5 ngày hiện tại:
+Có tới 82,0% (328 đơn) là mới chớm bước qua ngày thứ 5 đến ngày thứ 8; đơn tồn từ 8 đến 15 ngày là 64 đơn (16,0%); và nhóm tồn lâu trên 15 ngày toàn vùng chỉ còn vỏn vẹn đúng 8 đơn (chiếm 2,0%).
+Về phân bổ AM, anh Nguyễn Lê Nguyên Vũ tại Lâm Đồng hiện có 120 đơn (chiếm 30,0% toàn vùng, tập trung 101 đơn tại bưu cục Đức Trọng 1 do đặc thù địa bàn rộng). Kế đến là chị Huỳnh Thị Kim Chi có 47 đơn (chủ yếu tại bưu cục Tân Hà Lâm Hà 40 đơn), anh Nguyễn Thanh Long có 43 đơn (tại Bắc Cam Ranh 39 đơn), chị Hồng Bích Nga có 40 đơn, và anh Nguyễn Duy Long có 25 đơn. Riêng anh Huỳnh Thúc Duân tại Đắk Nông dù chỉ có 15 đơn nhưng có tới 4 đơn tồn trên 15 ngày, thời gian lưu kho bình quân 13,1 ngày – anh Duân cần kiểm tra xử lý dứt điểm 4 đơn này ngay hôm nay.
+Với nhóm Aging này, do đại đa số (82%) mới chớm ở ngưỡng 5–8 ngày, nên việc xử lý tương đối thuận lợi. Em đề nghị các AM phối hợp trực tiếp với trưởng bưu cục kiểm đếm nhanh: Đơn nào khách hẹn giao lại thì ưu tiên cho bưu tá giao dứt điểm trong ca; đơn nào khách từ chối nhận thì chuyển trạng thái hoàn ngay, dứt khoát không để ngâm kho kéo dài sang mốc 15 ngày.
 
 Thứ hai, chuyển sang mảng Hàng Treo luân chuyển:
 Hiện tại toàn vùng có 4.660 đơn đang nằm trên luồng luân chuyển. Điểm rất tích cực là có tới 92,0% (tương đương 4.287 đơn) luân chuyển hoàn toàn đúng hạn dưới 24h, dòng chảy vận hành cơ bản thông suốt.
 Tuy nhiên, chúng ta đang có 373 đơn (chiếm 8,0%) bị treo từ 24h trở lên, trong đó số đơn trễ nặng trên 36h là 208 đơn (chiếm 4,5% toàn luồng).
-Các điểm nóng treo tập trung ở cụm của anh Nguyễn Văn B (45 đơn treo), anh Nguyễn Văn A (42 đơn), anh Duân (35 đơn), anh Nguyễn Văn D (35 đơn) và anh Trường (30 đơn); tại một số bưu cục như Cẩm Lệ (18 đơn), Hải Châu (15 đơn), Thanh Khê (14 đơn), Sơn Trà (12 đơn).
+Xét theo tỉnh, Lâm Đồng chiếm 1.504 đơn luân chuyển (32,3%) và Khánh Hòa chiếm 1.294 đơn (27,8%).
+Các điểm nóng treo tập trung ở cụm của anh Nguyễn Hoàng Phi (45 đơn treo ≥24h, trong đó 24 đơn trễ nặng ≥36h), anh Phan Đình Duy (35 đơn treo), anh Nguyễn Duy Long (30 đơn treo), chị Hồng Bích Nga (29 đơn treo), chị Trần Thị Nhung (28 đơn treo) và anh Lê Văn Trường (27 đơn treo); tại một số bưu cục như Đơn Dương (21 đơn), Lang Biang - Đà Lạt 2 (18 đơn), Phước Dinh (18 đơn), Tây Nha Trang (14 đơn) và Cam Linh (11 đơn).
 
 🔍 NGUYÊN NHÂN & GIẢI PHÁP ĐIỀU HÀNH:
 Qua rà soát quy trình, đơn bị treo luân chuyển chủ yếu xuất phát từ 2 khâu:
-1. Xe trung chuyển KTC đã hạ tải tại bưu cục nhưng bưu cục chưa quét xác nhận 'Đến Bưu Cục' kịp thời vào hệ thống, khiến trạng thái đơn vẫn hiển thị là đang luân chuyển trên đường.
+1. Xe trung chuyển KTC đã hạ tải tại bưu cục nhưng bưu cục chưa quét xác nhận 'Đến Bưu Cục' kịp thời vào hệ thống, khiến trạng thái đơn vẫn hiển thị là đang luân chuyển trên đường (thường gặp tại các bưu cục tuyến huyện như Đơn Dương, Lang Biang, Phước Dinh).
 2. Một số kiện hàng chuyển nhầm tuyến bưu cục phụ trách tại Hub, dẫn đến việc phải quét luân chuyển nội bộ thêm một vòng nữa.
 
 Vì vậy, giải pháp tuần W41 của chúng ta là:
-1. Đề nghị các bưu cục điểm nóng (như Cẩm Lệ, Hải Châu, Thanh Khê...) thực hiện nghiêm kỷ luật quét 'Đến Bưu Cục' ngay khi nhận bao tải từ xe KTC, không để dồn bao qua ca mới mở niêm phong.
+1. Đề nghị các bưu cục điểm nóng (như Đơn Dương, Lang Biang, Phước Dinh, Tây Nha Trang...) thực hiện nghiêm kỷ luật quét 'Đến Bưu Cục' ngay khi nhận bao tải từ xe KTC, không để dồn bao qua ca mới mở niêm phong.
 2. Bộ phận KTC kiểm soát chặt chẽ khâu chia chọn tại Hub, hạn chế tối đa việc phân nhầm bao tải về sai bưu cục phát.
-Mục tiêu là trong tuần W41, chúng ta tiếp tục giữ vững đà xả tồn, kéo giảm tỷ lệ Treo luân chuyển từ 8,0% xuống dưới 4,0%, và giải phóng sạch sẽ 7 đơn Aging trên 15 ngày.
+Mục tiêu là trong tuần W41, chúng ta tiếp tục giữ vững đà xả tồn, kéo giảm tỷ lệ Treo luân chuyển từ 8,0% xuống dưới 4,0%, và giải phóng sạch sẽ 8 đơn Aging trên 15 ngày.
 Bây giờ, em xin phép chuyển sang Tab 13 để phân tích Quản trị dòng tiền COD và Chuyển đổi số thanh toán QR Code nhé!\""""
     },
 
