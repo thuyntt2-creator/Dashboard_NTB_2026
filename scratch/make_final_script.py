@@ -791,24 +791,87 @@ Bây giờ, em xin phép chuyển sang Tab 15 xem tình hình Doanh thu Kinh doa
     {
         "id": "tab-commercial",
         "title": "🗣️ PHÂN TÍCH DOANH THU KINH DOANH & KHÁCH HÀNG MỚI F30 (BẬT TAB 15 DASHBOARD):",
-        "content": """📍 1. BẢNG XẾP HẠNG DOANH THU THEO AM:
-• Top AM dẫn đầu doanh thu kinh doanh:
-  1. Phan Đình Duy (Khánh Hòa): Doanh thu cao nhất toàn vùng.
-  2. Nguyễn Duy Long (Ninh Thuận): Đóng góp tỷ trọng lớn thứ 2.
-  3. Nguyễn Ngọc Khánh (Bình Thuận): Doanh thu rất vững chắc.
-• Điểm cần lưu ý chăm sóc khách hàng nhóm A:
-  - Huỳnh Thúc Duân (Đắk Nông): Sản lượng giảm khoảng 1.600 đơn tại cụm Gia Nghĩa và Nhân Cơ.
-  - Thái Thị Thanh Thư (Khánh Hòa): Hụt khoảng 7.600 đơn tại Nha Trang do một số shop lớn có sự điều chỉnh kênh gửi.
+        "content": """📍 1. BẢNG 1: TỔNG QUAN DOANH THU VÀ SẢN LƯỢNG KINH DOANH (W40 vs W39):
+• Tổng sản lượng kinh doanh toàn vùng: 34.412 đơn (W39: 36.516 đơn, giảm -2.104 đơn / -5,77%).
+• Tổng doanh thu kinh doanh toàn vùng: 1.084,3 Triệu VNĐ (1.084.291.331 ₫; W39: 1.127,9 Tr ₫, giảm nhẹ -43,6 Tr ₫ / -3,87% WoW).
+• Tình hình phát triển khách hàng mới F30:
+  - Tổng số khách hàng mới phát sinh đơn (F30): 111 shop (W39: 92 shop, tăng bứt phá +19 shop / +20,7%).
+  - Doanh thu từ shop mới F30: 11,43 Triệu VNĐ (W39: 8,13 Tr ₫, tăng trưởng +3,29 Tr ₫ / +40,5%).
+
+📍 2. BẢNG 2: XẾP HẠNG DOANH THU KINH DOANH THEO 16 AM (KỲ 27/9 – 03/10/2026):
+• 🟢 TOP AM DẪN ĐẦU DOANH THU KINH DOANH:
+  1. Phan Đình Duy (Khánh Hòa): 478,97 Triệu VNĐ (10.088 đơn | chiếm tới 44,2% tổng doanh thu toàn vùng, tăng +3,24 Tr ₫ WoW).
+  2. Thái Thị Thanh Thư (Khánh Hòa): 98,94 Triệu VNĐ (4.608 đơn | chiếm 9,1%, giảm -11,77 Tr ₫ / -10,6%).
+  3. Nguyễn Duy Long (Ninh Thuận): 98,17 Triệu VNĐ (3.651 đơn | chiếm 9,1%, tăng +2,17 Tr ₫ / +2,3%).
+  4. Lê Thanh Nhựt (Bình Thuận): 60,88 Triệu VNĐ (2.279 đơn | chiếm 5,6%, tăng +3,78 Tr ₫ / +6,6%).
+  5. Huỳnh Thúc Duân (Đắk Nông): 57,07 Triệu VNĐ (4.041 đơn | chiếm 5,3%, giảm -23,44 Tr ₫ / -29,1%, hụt -1.608 đơn).
+  6. Hồng Bích Nga (Lâm Đồng): 47,86 Triệu VNĐ (1.771 đơn | chiếm 4,4%, giảm -7,07 Tr ₫ / -12,9%).
+  7. Huỳnh Thị Kim Chi (Lâm Đồng): 32,13 Triệu VNĐ (690 đơn | chiếm 3,0%, giảm -2,35 Tr ₫).
+  8. Trần Thị Nhung (Đắk Nông): 29,32 Triệu VNĐ (878 đơn | chiếm 2,7%, giảm -8,04 Tr ₫ / -21,5%).
+  9. Nguyễn Đỗ Minh Nghĩa (Lâm Đồng): 27,92 Triệu VNĐ (1.143 đơn | chiếm 2,6%).
+  10. Nguyễn Lê Nguyên Vũ (Lâm Đồng): 25,44 Triệu VNĐ (1.058 đơn | chiếm 2,3%, tăng +2,48 Tr ₫).
+  11. Nguyễn Hoàng Phi (Khánh Hòa): 25,01 Triệu VNĐ (798 đơn | chiếm 2,3%).
+  12. Lê Văn Trường (Lâm Đồng): 23,86 Triệu VNĐ (1.115 đơn | chiếm 2,2%, giảm -3,55 Tr ₫).
+  13. Cao Thị Thanh Thủy (Khánh Hòa): 19,83 Triệu VNĐ (633 đơn | chiếm 1,8%, tăng +2,91 Tr ₫ / +17,2%).
+  14. Nguyễn Ngọc Khánh (Bình Thuận): 17,38 Triệu VNĐ (468 đơn | chiếm 1,6%, bứt phá +4,69 Tr ₫ / +36,9%).
+  15. Nguyễn Thanh Long (Khánh Hòa): 13,08 Triệu VNĐ (312 đơn | chiếm 1,2%, tăng +2,50 Tr ₫ / +23,7%).
+  16. Nguyễn Thị Tuyết Thơ (Lâm Đồng): 12,50 Triệu VNĐ (287 đơn | chiếm 1,2%, giảm -4,94 Tr ₫ / -28,3%).
+
+📍 3. BẢNG 3: TOP 5 AM CÓ MỨC GIẢM DOANH THU CẦN TẬP TRUNG HỖ TRỢ (TOP DROP):
+• 1. Huỳnh Thúc Duân: Giảm -23,44 Tr ₫ (-29,1% | từ 80,5 Tr xuống 57,1 Tr ₫, hụt 1.608 đơn).
+• 2. Thái Thị Thanh Thư: Giảm -11,77 Tr ₫ (-10,6% | từ 110,7 Tr xuống 98,9 Tr ₫, hụt 233 đơn).
+• 3. Trần Thị Nhung: Giảm -8,04 Tr ₫ (-21,5% | từ 37,4 Tr xuống 29,3 Tr ₫, hụt 329 đơn).
+• 4. Hồng Bích Nga: Giảm -7,07 Tr ₫ (-12,9% | từ 54,9 Tr xuống 47,9 Tr ₫, hụt 93 đơn).
+• 5. Nguyễn Thị Tuyết Thơ: Giảm -4,94 Tr ₫ (-28,3% | từ 17,4 Tr xuống 12,5 Tr ₫, hụt 44 đơn).
+
+📍 4. BẢNG 4: KẾT QUẢ PHÁT TRIỂN KHÁCH HÀNG MỚI F30:
+• Dẫn đầu toàn vùng về số lượng shop mới:
+  - AM Phan Đình Duy: 16 shop mới (doanh thu 1,21 Tr ₫).
+  - AM Thái Thị Thanh Thư: 15 shop mới (doanh thu 630 ngàn ₫).
+  - AM Nguyễn Duy Long: 13 shop mới (doanh thu 677 ngàn ₫).
+  - AM Trần Thị Nhung: 9 shop mới (doanh thu 643 ngàn ₫).
+  - AM Huỳnh Thị Kim Chi: 6 shop mới (doanh thu 335 ngàn ₫).
+  - AM Hồng Bích Nga: 6 shop mới (doanh thu 207 ngàn ₫).
+  - AM Lê Thanh Nhựt: 5 shop mới (doanh thu 674 ngàn ₫).
+  - AM Nguyễn Ngọc Khánh: 5 shop mới (doanh thu bứt phá 2,88 Tr ₫).
+
+📍 5. BẢNG 5: DANH SÁCH SHOP NHÓM A CẢNH BÁO SỤT GIẢM SẢN LƯỢNG / NGUY CƠ RỜI BỎ:
+• 1. Shop Nghĩa Gumi (AM Duân - BC Bắc Gia Nghĩa): Giảm từ 167 đơn xuống 31 đơn (-136 đơn / -81,4%).
+• 2. Bếp vườn nhà Trinh (AM Duy - BC Vạn Ninh): Giảm -48,6% sv W-1 (-35 Tr ₫), MTD đạt 730 Tr (mới đạt 51,2% sv M-1), tỷ lệ trụ hạng 31,4%.
+• 3. Cám store (AM Nga - BC B'Lao): Giảm -29,6% sv W-1 (-29 Tr ₫), MTD 929 Tr, tỷ lệ trụ hạng 40,2%.
+• 4. Vận Chuyển Online (AM Duy - BC Nha Trang): Giảm -202 đơn (-14,7% sv W-1 | từ 1.378 xuống 1.176 đơn).
+• 5. Công Ty TNHH Khởi Phát Thịnh (AM Thư - BC Nam Nha Trang 3): Giảm -60 đơn (-12,1% | từ 497 xuống 437 đơn).
+• 6. Shop Đồ Bộ (AM Duân - BC Bắc Gia Nghĩa): Giảm từ 53 đơn xuống 33 đơn (-20 đơn / -37,7%).
+• 7. Shop Hằng Huyền (AM Thư - BC Nam Nha Trang 1): Giảm từ 28 đơn xuống 1 đơn (-27 đơn / -96,4%).
+• 8. TIÊN HUỲNH US (AM Long - BC Phước Dinh): Giảm từ 105 đơn xuống 88 đơn (-17 đơn / -16,2%).
+• 9. VA Beauty Queen79 (AM Nhung - BC Đức Lập): Giảm từ 23 đơn xuống 7 đơn (-16 đơn / -69,6%).
 
 🎙️ LỜI THOẠI THUYẾT TRÌNH (KHI BẬT TAB 15 DASHBOARD KINH DOANH & F30):
-"Kính thưa Ban Giám Đốc, chuyển sang Tab 15 là bức tranh Kinh doanh và phát triển khách hàng mới F30:
-Khâu kinh doanh và vận hành luôn gắn bó chặt chẽ với nhau. Khi chất lượng vận hành tốt thì việc giữ chân và mở rộng khách hàng sẽ rất thuận lợi.
-Tuần này, anh Phan Đình Duy ở Nha Trang và anh Duy Long ở Ninh Thuận tiếp tục duy trì doanh thu hàng đầu vùng.
-Bên cạnh đó, có 2 khu vực chúng ta cần quan tâm hỗ trợ thêm về mặt kinh doanh:
-Tại cụm anh Duân ở Đắk Nông: Sản lượng giảm khoảng 1.600 đơn tại Gia Nghĩa và Nhân Cơ.
-Tại cụm chị Thư ở Nha Trang: Hụt khoảng 7.600 đơn.
-Đề nghị anh Duân và chị Thư cùng đội ngũ Sales chủ động gặp gỡ các chủ shop nhóm A để lắng nghe ý kiến phản hồi về chất lượng lấy giao, từ đó đưa ra các cam kết hỗ trợ phù hợp nhằm phục hồi sản lượng trong các tuần tiếp theo.
-Bây giờ, em xin chuyển sang Tab 16 - Danh sách 13 Bưu cục cần quan tâm & Phương hướng tuần W41 ạ!\""""
+"Kính thưa Ban Giám Đốc và các anh chị AM, chuyển sang Tab 15 là bức tranh Kinh doanh và phát triển khách hàng mới F30:
+Khâu kinh doanh và vận hành luôn gắn bó mật thiết với nhau: Khi chất lượng giao vận hành thông suốt thì việc giữ chân và mở rộng khách hàng của đội ngũ Sales sẽ trở nên rất thuận lợi.
+
+Nhìn vào tổng quan tuần W40:
+Toàn vùng Nam Trung Bộ đạt doanh thu kinh doanh 1.084,3 triệu đồng với 34.412 đơn hàng. So với tuần trước, doanh thu giảm nhẹ 3,9% (giảm 43,6 triệu đồng).
+Về phía các AM:
+- Điểm sáng rất lớn là anh Phan Đình Duy ở Khánh Hòa: Tiếp tục là ngọn cờ đầu của vùng với 478,97 triệu đồng doanh thu, chiếm tới 44,2% tổng doanh thu toàn vùng, đạt hơn 10.000 đơn và vẫn duy trì mức tăng trưởng dương (+3,24 triệu đồng WoW).
+- Kế đến là chị Thái Thị Thanh Thư (98,9 triệu đồng) và anh Nguyễn Duy Long ở Ninh Thuận (98,2 triệu đồng, tăng +2,17 triệu đồng).
+- Anh Lê Thanh Nhựt ở Bình Thuận cũng tăng trưởng tốt, đạt 60,88 triệu đồng (+3,78 triệu đồng); anh Nguyễn Ngọc Khánh có bước bứt phá doanh thu rất ấn tượng tăng +36,9%, đạt 17,38 triệu đồng.
+
+Một điểm sáng rất đáng ghi nhận nữa là công tác phát triển khách hàng mới F30:
+Tuần này toàn vùng đã phát triển được 111 shop mới (tăng 19 shop so với 92 shop của tuần trước, tức tăng 20,7%). Doanh thu từ shop mới tăng vọt 40,5%, mang về 11,43 triệu đồng. Dẫn đầu về số shop mới là anh Phan Đình Duy với 16 shop, chị Thái Thị Thanh Thư 15 shop, và anh Nguyễn Duy Long 13 shop.
+
+Tuy nhiên, nhìn vào bảng Top sụt giảm doanh thu (Top Drop) và danh sách cảnh báo shop nhóm A, chúng ta cần lưu ý 3 trường hợp:
+1. Thứ nhất là khu vực của anh Huỳnh Thúc Duân tại Đắk Nông: Doanh thu tuần này giảm 23,44 triệu đồng (-29,1%), sản lượng giảm hơn 1.600 đơn. Trong đó, riêng Shop Nghĩa Gumi tại bưu cục Bắc Gia Nghĩa bị sụt giảm từ 167 đơn xuống chỉ còn 31 đơn (giảm hơn 81%), và Shop Đồ Bộ giảm từ 53 đơn xuống 33 đơn.
+2. Thứ hai là khu vực của chị Thái Thị Thanh Thư tại Nha Trang: Doanh thu giảm 11,77 triệu đồng, trong đó Shop Hằng Huyền tại bưu cục Nam Nha Trang 1 giảm từ 28 đơn xuống chỉ còn 1 đơn, và Khởi Phát Thịnh tại Nam Nha Trang 3 giảm 60 đơn.
+3. Thứ ba là một số shop nhóm A có dấu hiệu giảm đơn so với tuần trước cần theo dõi sát: Như Bếp vườn nhà Trinh tại Vạn Ninh (giảm 35 triệu đồng, MTD mới đạt 51% cam kết), Cám store tại B'Lao của chị Nga (giảm 29 triệu đồng, MTD đạt 74%), TIÊN HUỲNH US tại Phước Dinh của anh Duy Long, và VA Beauty Queen79 tại Đức Lập của chị Nhung.
+
+🔍 NGUYÊN NHÂN & ĐỊNH HƯỚNG PHỐI HỢP KINH DOANH TUẦN W41:
+Nguyên nhân sụt giảm một phần do yếu tố chu kỳ đơn hàng sau đợt sale cuối tháng, nhưng phần quan trọng hơn là khách hàng nhóm A rất nhạy cảm với chất lượng lấy hàng và thời gian giao đơn sàn.
+Định hướng phối hợp tuần tới:
+- Đề nghị anh Duân, chị Thư, chị Nga và các AM chủ động phối hợp với chuyên viên kinh doanh phụ trách tài khoản để trực tiếp liên hệ và thăm gặp các chủ shop nhóm A có sản lượng sụt giảm (đặc biệt là Shop Nghĩa Gumi, Bếp vườn nhà Trinh, Cám store).
+- Lắng nghe phản hồi thực tế của khách hàng về tỷ lệ lấy đúng giờ và thời gian giao hàng, từ đó bưu cục cam kết khung giờ lấy hàng cố định và ưu tiên tuyến phát để shop yên tâm tiếp tục đẩy volume cho chúng ta.
+- Tiếp tục phát huy khí thế phát triển shop mới F30, phấn đấu đưa số lượng shop mới tuần W41 vượt mốc 120 shop.
+Bây giờ, em xin phép chuyển sang Tab 16 – Danh sách 13 Bưu cục cần quan tâm & 5 Trọng tâm điều hành tuần W41 ạ!\""""
     },
 
     # ----------------------------------------------------
