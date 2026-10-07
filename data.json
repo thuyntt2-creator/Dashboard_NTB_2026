@@ -10634,20 +10634,20 @@
   },
   "transport_costs": {
     "region": {
-      "total_cost": 1945.11,
-      "total_cost_formatted": "1.945.113.171 đ",
-      "total_trips": 2024,
+      "total_cost": 1956.68,
+      "total_cost_formatted": "1.956.680.607 đ",
+      "total_trips": 2038,
       "avg_cost_per_trip": 0.96,
-      "avg_cost_per_trip_formatted": "961.024 đ/chuyến",
+      "avg_cost_per_trip_formatted": "960.098 đ/chuyến",
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 60,
-      "last_updated": "11:33 - 07/10/2026"
+      "last_updated": "12:08 - 07/10/2026"
     },
     "surge_fixed": {
-      "fixed_cost": 1945.11,
+      "fixed_cost": 1956.68,
       "fixed_cost_pct": 100.0,
-      "fixed_trips": 2024,
+      "fixed_trips": 2038,
       "surge_cost": 0.0,
       "surge_cost_pct": 0.0,
       "surge_trips": 0,
@@ -10664,7 +10664,7 @@
         "fixed_cost": 694.36,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 22
       },
       {
@@ -10690,7 +10690,7 @@
         "fixed_cost": 234.88,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, NAK",
         "truck_count": 9
       },
       {
@@ -10703,7 +10703,7 @@
         "fixed_cost": 200.54,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
+        "primary_ncc": "Lâm Ngọc Thành, Tốt và Rẻ",
         "truck_count": 5
       },
       {
@@ -10716,20 +10716,20 @@
         "fixed_cost": 94.43,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 12
       },
       {
         "ktc": "KTC Bảo Lộc",
-        "total_cost": 76.74,
-        "total_cost_raw": 76735147.0,
-        "total_trips": 68,
-        "cost_per_trip": 1.13,
-        "cost_per_trip_raw": 1128458.044117647,
-        "fixed_cost": 76.74,
+        "total_cost": 88.3,
+        "total_cost_raw": 88302583.0,
+        "total_trips": 82,
+        "cost_per_trip": 1.08,
+        "cost_per_trip_raw": 1076860.768292683,
+        "fixed_cost": 88.3,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Công Định",
+        "primary_ncc": "Công Định, NAK",
         "truck_count": 6
       },
       {
@@ -10758,7 +10758,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 38,
-        "active_ktcs": "KTC Bình Thuận, KTC Đức Trọng, KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Nam Nha Trang"
+        "active_ktcs": "KTC Bắc Nha Trang, KTC Bình Thuận, KTC Nam Nha Trang, KTC Khánh Hòa, KTC Đức Trọng"
       },
       {
         "ncc": "NAK",
@@ -10797,7 +10797,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 4,
-        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
       },
       {
         "ncc": "Tốt và Rẻ",
@@ -10814,12 +10814,12 @@
       },
       {
         "ncc": "Công Định",
-        "total_cost": 42.31,
-        "total_cost_raw": 42312464.0,
-        "total_trips": 50,
-        "cost_per_trip": 0.85,
-        "cost_per_trip_raw": 846249.28,
-        "fixed_cost": 42.31,
+        "total_cost": 53.88,
+        "total_cost_raw": 53879900.0,
+        "total_trips": 64,
+        "cost_per_trip": 0.84,
+        "cost_per_trip_raw": 841873.4375,
+        "fixed_cost": 53.88,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 5,
@@ -10988,6 +10988,66 @@
         "cost": 710281.0,
         "trips_equivalent": 1,
         "trip_code": "E2610041MBPJQUT",
+        "ontime": "100,00%"
+      },
+      {
+        "ncc": "Công Định",
+        "date": "05/10/2026",
+        "date_iso": "2026-10-05",
+        "truck": "49H-06014",
+        "capacity": "1900",
+        "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc",
+        "ktc": "KTC Bảo Lộc",
+        "type": "Cố định",
+        "cost_str": "710.281 đ",
+        "cost": 710281.0,
+        "trips_equivalent": 1,
+        "trip_code": "E261004FPYQDP28",
+        "ontime": "100,00%"
+      },
+      {
+        "ncc": "Công Định",
+        "date": "05/10/2026",
+        "date_iso": "2026-10-05",
+        "truck": "49H-06014",
+        "capacity": "1900",
+        "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc",
+        "ktc": "KTC Bảo Lộc",
+        "type": "Cố định",
+        "cost_str": "710.281 đ",
+        "cost": 710281.0,
+        "trips_equivalent": 1,
+        "trip_code": "E261004SELBPV0C",
+        "ontime": "100,00%"
+      },
+      {
+        "ncc": "Công Định",
+        "date": "06/10/2026",
+        "date_iso": "2026-10-06",
+        "truck": "49H-06014",
+        "capacity": "1900",
+        "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> Kho Chuyển Tiếp Bảo Lộc",
+        "ktc": "KTC Bảo Lộc",
+        "type": "Cố định",
+        "cost_str": "710.281 đ",
+        "cost": 710281.0,
+        "trips_equivalent": 1,
+        "trip_code": "E261005QI7IEKQE",
+        "ontime": "100,00%"
+      },
+      {
+        "ncc": "Công Định",
+        "date": "06/10/2026",
+        "date_iso": "2026-10-06",
+        "truck": "49H-06014",
+        "capacity": "1900",
+        "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 1 Bảo Lộc -> (LDO) Bảo Lâm 1 -> (LDO) ĐL 1 Bảo Lộc -> (LDO) 1 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc",
+        "ktc": "KTC Bảo Lộc",
+        "type": "Cố định",
+        "cost_str": "710.281 đ",
+        "cost": 710281.0,
+        "trips_equivalent": 1,
+        "trip_code": "E26100513330BTV",
         "ontime": "100,00%"
       },
       {
@@ -11183,6 +11243,66 @@
         "cost": 913219.0,
         "trips_equivalent": 1,
         "trip_code": "E261004H3F1LUIV",
+        "ontime": "100,00%"
+      },
+      {
+        "ncc": "Công Định",
+        "date": "05/10/2026",
+        "date_iso": "2026-10-05",
+        "truck": "49H-04910",
+        "capacity": "1900",
+        "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc",
+        "ktc": "KTC Bảo Lộc",
+        "type": "Cố định",
+        "cost_str": "1.014.687 đ",
+        "cost": 1014687.0,
+        "trips_equivalent": 1,
+        "trip_code": "E2610048NRRASSE",
+        "ontime": "100,00%"
+      },
+      {
+        "ncc": "Công Định",
+        "date": "05/10/2026",
+        "date_iso": "2026-10-05",
+        "truck": "49H-04910",
+        "capacity": "1900",
+        "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc",
+        "ktc": "KTC Bảo Lộc",
+        "type": "Cố định",
+        "cost_str": "913.219 đ",
+        "cost": 913219.0,
+        "trips_equivalent": 1,
+        "trip_code": "E261004B0FZMD4K",
+        "ontime": "100,00%"
+      },
+      {
+        "ncc": "Công Định",
+        "date": "06/10/2026",
+        "date_iso": "2026-10-06",
+        "truck": "49H-04910",
+        "capacity": "1900",
+        "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc",
+        "ktc": "KTC Bảo Lộc",
+        "type": "Cố định",
+        "cost_str": "1.014.687 đ",
+        "cost": 1014687.0,
+        "trips_equivalent": 1,
+        "trip_code": "E261005H18WL7CA",
+        "ontime": "80,00%"
+      },
+      {
+        "ncc": "Công Định",
+        "date": "06/10/2026",
+        "date_iso": "2026-10-06",
+        "truck": "49H-04910",
+        "capacity": "1900",
+        "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) Hòa Ninh -> Kho Chuyển Tiếp Bảo Lộc",
+        "ktc": "KTC Bảo Lộc",
+        "type": "Cố định",
+        "cost_str": "913.219 đ",
+        "cost": 913219.0,
+        "trips_equivalent": 1,
+        "trip_code": "E2610056CAZDMIR",
         "ontime": "100,00%"
       },
       {
@@ -11588,6 +11708,96 @@
         "cost": 913219.0,
         "trips_equivalent": 1,
         "trip_code": "E261003ZKBQ3RW2",
+        "ontime": "100,00%"
+      },
+      {
+        "ncc": "Công Định",
+        "date": "04/10/2026",
+        "date_iso": "2026-10-04",
+        "truck": "49H09142",
+        "capacity": "1900",
+        "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> Kho Chuyển Tiếp Bảo Lộc",
+        "ktc": "KTC Bảo Lộc",
+        "type": "Cố định",
+        "cost_str": "710.281 đ",
+        "cost": 710281.0,
+        "trips_equivalent": 1,
+        "trip_code": "E261003BOJQ3HRE",
+        "ontime": "100,00%"
+      },
+      {
+        "ncc": "Công Định",
+        "date": "04/10/2026",
+        "date_iso": "2026-10-04",
+        "truck": "49H09142",
+        "capacity": "1900",
+        "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> (LDO) B'Lao -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc",
+        "ktc": "KTC Bảo Lộc",
+        "type": "Cố định",
+        "cost_str": "913.219 đ",
+        "cost": 913219.0,
+        "trips_equivalent": 1,
+        "trip_code": "E261004YKQ7MGNU",
+        "ontime": "100,00%"
+      },
+      {
+        "ncc": "Công Định",
+        "date": "05/10/2026",
+        "date_iso": "2026-10-05",
+        "truck": "49H09142",
+        "capacity": "1900",
+        "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> Kho Chuyển Tiếp Bảo Lộc",
+        "ktc": "KTC Bảo Lộc",
+        "type": "Cố định",
+        "cost_str": "710.281 đ",
+        "cost": 710281.0,
+        "trips_equivalent": 1,
+        "trip_code": "E261004HGVL1RQE",
+        "ontime": "100,00%"
+      },
+      {
+        "ncc": "Công Định",
+        "date": "05/10/2026",
+        "date_iso": "2026-10-05",
+        "truck": "49H09142",
+        "capacity": "1900",
+        "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> (LDO) ĐL B'Lao 1 -> (LDO) B'Lao -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc",
+        "ktc": "KTC Bảo Lộc",
+        "type": "Cố định",
+        "cost_str": "913.219 đ",
+        "cost": 913219.0,
+        "trips_equivalent": 1,
+        "trip_code": "E261004QY4XHWT9",
+        "ontime": "100,00%"
+      },
+      {
+        "ncc": "Công Định",
+        "date": "06/10/2026",
+        "date_iso": "2026-10-06",
+        "truck": "49H09142",
+        "capacity": "1900",
+        "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> Kho Chuyển Tiếp Bảo Lộc",
+        "ktc": "KTC Bảo Lộc",
+        "type": "Cố định",
+        "cost_str": "710.281 đ",
+        "cost": 710281.0,
+        "trips_equivalent": 1,
+        "trip_code": "E261005WUINI1JU",
+        "ontime": "100,00%"
+      },
+      {
+        "ncc": "Công Định",
+        "date": "06/10/2026",
+        "date_iso": "2026-10-06",
+        "truck": "49H09142",
+        "capacity": "1900",
+        "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> (LDO) ĐL B'Lao 1 -> (LDO) ĐL B'Lao -> (LDO) B'Lao -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc",
+        "ktc": "KTC Bảo Lộc",
+        "type": "Cố định",
+        "cost_str": "913.219 đ",
+        "cost": 913219.0,
+        "trips_equivalent": 1,
+        "trip_code": "E261005GSW8CBP0",
         "ontime": "100,00%"
       },
       {
@@ -39026,7 +39236,7 @@
         "ontime": "100%"
       }
     ],
-    "all_trips_count": 1879
+    "all_trips_count": 1893
   },
   "kinh_doanh": {
     "am": [
