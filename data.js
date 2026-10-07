@@ -10642,7 +10642,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 60,
-      "last_updated": "10:22 - 07/10/2026"
+      "last_updated": "10:58 - 07/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 1945.11,
@@ -10729,7 +10729,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 76.74,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Công Định",
+        "primary_ncc": "Công Định, NAK",
         "truck_count": 6
       },
       {
