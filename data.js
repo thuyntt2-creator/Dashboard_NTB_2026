@@ -10634,20 +10634,20 @@ window.DASHBOARD_DATA = {
   },
   "transport_costs": {
     "region": {
-      "total_cost": 2007.81,
-      "total_cost_formatted": "2.007.806.594 đ",
-      "total_trips": 2092,
+      "total_cost": 2009.04,
+      "total_cost_formatted": "2.009.039.981 đ",
+      "total_trips": 2094,
       "avg_cost_per_trip": 0.96,
-      "avg_cost_per_trip_formatted": "959.755 đ/chuyến",
+      "avg_cost_per_trip_formatted": "959.427 đ/chuyến",
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 60,
-      "last_updated": "16:39 - 08/10/2026"
+      "last_updated": "17:14 - 08/10/2026"
     },
     "surge_fixed": {
-      "fixed_cost": 2007.81,
+      "fixed_cost": 2009.04,
       "fixed_cost_pct": 100.0,
-      "fixed_trips": 2092,
+      "fixed_trips": 2094,
       "surge_cost": 0.0,
       "surge_cost_pct": 0.0,
       "surge_trips": 0,
@@ -10656,15 +10656,15 @@ window.DASHBOARD_DATA = {
     "ktcs": [
       {
         "ktc": "KTC Khánh Hòa",
-        "total_cost": 701.35,
-        "total_cost_raw": 701354480.3000005,
-        "total_trips": 559,
+        "total_cost": 701.74,
+        "total_cost_raw": 701735917.1000005,
+        "total_trips": 560,
         "cost_per_trip": 1.25,
-        "cost_per_trip_raw": 1254659.1776386413,
-        "fixed_cost": 701.35,
+        "cost_per_trip_raw": 1253099.8519642865,
+        "fixed_cost": 701.74,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 23
       },
       {
@@ -10682,12 +10682,12 @@ window.DASHBOARD_DATA = {
       },
       {
         "ktc": "KTC Đức Trọng",
-        "total_cost": 292.13,
-        "total_cost_raw": 292125981.9999998,
+        "total_cost": 292.57,
+        "total_cost_raw": 292566081.9999998,
         "total_trips": 219,
-        "cost_per_trip": 1.33,
-        "cost_per_trip_raw": 1333908.593607305,
-        "fixed_cost": 292.13,
+        "cost_per_trip": 1.34,
+        "cost_per_trip_raw": 1335918.182648401,
+        "fixed_cost": 292.57,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "primary_ncc": "Mạnh Cường, NAK",
@@ -10695,25 +10695,25 @@ window.DASHBOARD_DATA = {
       },
       {
         "ktc": "KTC Đắk Nông",
-        "total_cost": 200.54,
-        "total_cost_raw": 200535375.99999967,
+        "total_cost": 200.57,
+        "total_cost_raw": 200569849.5999997,
         "total_trips": 182,
         "cost_per_trip": 1.1,
-        "cost_per_trip_raw": 1101842.7252747235,
-        "fixed_cost": 200.54,
+        "cost_per_trip_raw": 1102032.140659339,
+        "fixed_cost": 200.57,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Tốt và Rẻ, Trâm Hoá",
+        "primary_ncc": "Lâm Ngọc Thành, Tốt và Rẻ",
         "truck_count": 5
       },
       {
         "ktc": "KTC Bảo Lộc",
-        "total_cost": 99.78,
-        "total_cost_raw": 99778840.0,
+        "total_cost": 99.77,
+        "total_cost_raw": 99774780.0,
         "total_trips": 88,
         "cost_per_trip": 1.13,
-        "cost_per_trip_raw": 1133850.4545454546,
-        "fixed_cost": 99.78,
+        "cost_per_trip_raw": 1133804.3181818181,
+        "fixed_cost": 99.77,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "primary_ncc": "Công Định, NAK",
@@ -10721,16 +10721,16 @@ window.DASHBOARD_DATA = {
       },
       {
         "ktc": "KTC Nam Nha Trang",
-        "total_cost": 57.34,
-        "total_cost_raw": 57336276.00000009,
-        "total_trips": 210,
+        "total_cost": 57.72,
+        "total_cost_raw": 57717712.80000009,
+        "total_trips": 211,
         "cost_per_trip": 0.27,
-        "cost_per_trip_raw": 273029.8857142861,
-        "fixed_cost": 57.34,
+        "cost_per_trip_raw": 273543.6625592421,
+        "fixed_cost": 57.72,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "primary_ncc": "Mạnh Cường",
-        "truck_count": 9
+        "truck_count": 10
       },
       {
         "ktc": "KTC Bắc Nha Trang",
@@ -10742,45 +10742,45 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 51.61,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 11
       }
     ],
     "nccs": [
       {
         "ncc": "Mạnh Cường",
-        "total_cost": 1415.99,
-        "total_cost_raw": 1415987532.8999965,
-        "total_trips": 1484,
+        "total_cost": 1416.75,
+        "total_cost_raw": 1416750406.4999964,
+        "total_trips": 1486,
         "cost_per_trip": 0.95,
-        "cost_per_trip_raw": 954169.49656334,
-        "fixed_cost": 1415.99,
+        "cost_per_trip_raw": 953398.6584791362,
+        "fixed_cost": 1416.75,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 38,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Nam Nha Trang, KTC Bình Thuận, KTC Đức Trọng"
+        "active_ktcs": "KTC Bắc Nha Trang, KTC Bình Thuận, KTC Đức Trọng, KTC Nam Nha Trang, KTC Khánh Hòa"
       },
       {
         "ncc": "NAK",
-        "total_cost": 275.35,
-        "total_cost_raw": 275352179.0,
+        "total_cost": 275.79,
+        "total_cost_raw": 275788219.0,
         "total_trips": 212,
         "cost_per_trip": 1.3,
-        "cost_per_trip_raw": 1298831.033018868,
-        "fixed_cost": 275.35,
+        "cost_per_trip_raw": 1300887.825471698,
+        "fixed_cost": 275.79,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 9,
-        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
+        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
       },
       {
         "ncc": "Lâm Ngọc Thành",
-        "total_cost": 117.62,
-        "total_cost_raw": 117624840.20000014,
+        "total_cost": 117.66,
+        "total_cost_raw": 117659313.80000013,
         "total_trips": 90,
         "cost_per_trip": 1.31,
-        "cost_per_trip_raw": 1306942.6688888904,
-        "fixed_cost": 117.62,
+        "cost_per_trip_raw": 1307325.7088888905,
+        "fixed_cost": 117.66,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 3,
@@ -12818,7 +12818,7 @@ window.DASHBOARD_DATA = {
         "cost": 2043231.0,
         "trips_equivalent": 1,
         "trip_code": "E2609302UDH4WBT",
-        "ontime": ""
+        "ontime": "0,8333"
       },
       {
         "ncc": "NAK",
@@ -12833,7 +12833,7 @@ window.DASHBOARD_DATA = {
         "cost": 2043231.0,
         "trips_equivalent": 1,
         "trip_code": "E261001CXR0YY08",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -12848,7 +12848,7 @@ window.DASHBOARD_DATA = {
         "cost": 2043231.0,
         "trips_equivalent": 1,
         "trip_code": "E261002PZHF1JC4",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -12863,7 +12863,7 @@ window.DASHBOARD_DATA = {
         "cost": 2043231.0,
         "trips_equivalent": 1,
         "trip_code": "E26100388MXCUTA",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -12878,7 +12878,7 @@ window.DASHBOARD_DATA = {
         "cost": 2043231.0,
         "trips_equivalent": 1,
         "trip_code": "E261004ADZE7YXB",
-        "ontime": ""
+        "ontime": "0,8333"
       },
       {
         "ncc": "NAK",
@@ -12893,7 +12893,7 @@ window.DASHBOARD_DATA = {
         "cost": 2043231.0,
         "trips_equivalent": 1,
         "trip_code": "E261005T8Z2ZTGV",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -12908,7 +12908,7 @@ window.DASHBOARD_DATA = {
         "cost": 2043231.0,
         "trips_equivalent": 1,
         "trip_code": "E26100664WHQP0N",
-        "ontime": ""
+        "ontime": "0,8333"
       },
       {
         "ncc": "NAK",
@@ -12998,7 +12998,7 @@ window.DASHBOARD_DATA = {
         "cost": 1161763.0,
         "trips_equivalent": 1,
         "trip_code": "E261001HRUJK9IJ",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13013,7 +13013,7 @@ window.DASHBOARD_DATA = {
         "cost": 1161763.0,
         "trips_equivalent": 1,
         "trip_code": "E261002PTVH3Q0O",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13028,7 +13028,7 @@ window.DASHBOARD_DATA = {
         "cost": 1090738.0,
         "trips_equivalent": 1,
         "trip_code": "E261003S8OMXD0X",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13043,7 +13043,7 @@ window.DASHBOARD_DATA = {
         "cost": 1161763.0,
         "trips_equivalent": 1,
         "trip_code": "E261004MRUZULFE",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13058,7 +13058,7 @@ window.DASHBOARD_DATA = {
         "cost": 1090738.0,
         "trips_equivalent": 1,
         "trip_code": "E261005O8LPA1R3",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13073,7 +13073,7 @@ window.DASHBOARD_DATA = {
         "cost": 1090738.0,
         "trips_equivalent": 1,
         "trip_code": "E261006S4UYS0ER",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13088,7 +13088,7 @@ window.DASHBOARD_DATA = {
         "cost": 1161763.0,
         "trips_equivalent": 1,
         "trip_code": "E261007PHKVWQKZ",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13163,7 +13163,7 @@ window.DASHBOARD_DATA = {
         "cost": 890347.0,
         "trips_equivalent": 1,
         "trip_code": "E260930L3XA4WMB",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13178,7 +13178,7 @@ window.DASHBOARD_DATA = {
         "cost": 890347.0,
         "trips_equivalent": 1,
         "trip_code": "E261001V3ZVM15B",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13193,7 +13193,7 @@ window.DASHBOARD_DATA = {
         "cost": 890347.0,
         "trips_equivalent": 1,
         "trip_code": "E261002SQ17XZ3M",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13208,7 +13208,7 @@ window.DASHBOARD_DATA = {
         "cost": 890347.0,
         "trips_equivalent": 1,
         "trip_code": "E261003LS9GAR63",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13216,14 +13216,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-06",
         "truck": "29H-81791",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đức Trọng -> Kho Giao Hàng Nặng - TP Đà Lạt - Lâm Đồng -> Kho Chuyển Tiếp Đức Trọng",
+        "route": "Kho Chuyển Tiếp Đức Trọng -> Kho Giao Hàng Nặng - TP Đà Lạt - Lâm Đồng -> Kho Chuyển Tiếp Đức Trọng -> Kho Giao Hàng Nặng - TP Đà Lạt - Lâm Đồng",
         "ktc": "KTC Đức Trọng",
         "type": "Cố định",
-        "cost_str": "890.347 đ",
-        "cost": 890347.0,
+        "cost_str": "1.330.447 đ",
+        "cost": 1330447.0,
         "trips_equivalent": 1,
         "trip_code": "E2610052MRFV4MW",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13238,7 +13238,7 @@ window.DASHBOARD_DATA = {
         "cost": 890347.0,
         "trips_equivalent": 1,
         "trip_code": "E2610060OSKQFU3",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13328,7 +13328,7 @@ window.DASHBOARD_DATA = {
         "cost": 390636.0,
         "trips_equivalent": 1,
         "trip_code": "E260930K68CB58D",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13343,7 +13343,7 @@ window.DASHBOARD_DATA = {
         "cost": 390636.0,
         "trips_equivalent": 1,
         "trip_code": "E2610018WGHAZ8B",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13358,7 +13358,7 @@ window.DASHBOARD_DATA = {
         "cost": 390636.0,
         "trips_equivalent": 1,
         "trip_code": "E261002T437UGDV",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13373,7 +13373,7 @@ window.DASHBOARD_DATA = {
         "cost": 390636.0,
         "trips_equivalent": 1,
         "trip_code": "E261003N4UTFVGV",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13388,7 +13388,7 @@ window.DASHBOARD_DATA = {
         "cost": 390636.0,
         "trips_equivalent": 1,
         "trip_code": "E2610045HK0LADX",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13403,7 +13403,7 @@ window.DASHBOARD_DATA = {
         "cost": 390636.0,
         "trips_equivalent": 1,
         "trip_code": "E2610050A89B4KO",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13418,7 +13418,7 @@ window.DASHBOARD_DATA = {
         "cost": 390636.0,
         "trips_equivalent": 1,
         "trip_code": "E2610065FD0FCJJ",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13508,7 +13508,7 @@ window.DASHBOARD_DATA = {
         "cost": 947420.0,
         "trips_equivalent": 1,
         "trip_code": "E260930AUN0B5XW",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13523,7 +13523,7 @@ window.DASHBOARD_DATA = {
         "cost": 947420.0,
         "trips_equivalent": 1,
         "trip_code": "E2610016JZEKTDK",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13538,7 +13538,7 @@ window.DASHBOARD_DATA = {
         "cost": 985469.0,
         "trips_equivalent": 1,
         "trip_code": "E261003MSXGL8I3",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13553,7 +13553,7 @@ window.DASHBOARD_DATA = {
         "cost": 947420.0,
         "trips_equivalent": 1,
         "trip_code": "E261003YP52LF3X",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13568,7 +13568,7 @@ window.DASHBOARD_DATA = {
         "cost": 1065372.0,
         "trips_equivalent": 1,
         "trip_code": "E261005OR9PBJF3",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13583,7 +13583,7 @@ window.DASHBOARD_DATA = {
         "cost": 1065372.0,
         "trips_equivalent": 1,
         "trip_code": "E261006DNO76SH5",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13598,7 +13598,7 @@ window.DASHBOARD_DATA = {
         "cost": 947420.0,
         "trips_equivalent": 1,
         "trip_code": "E261006AQFOYONK",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13688,7 +13688,7 @@ window.DASHBOARD_DATA = {
         "cost": 979128.0,
         "trips_equivalent": 1,
         "trip_code": "E260930Q3Y6J2CS",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13703,7 +13703,7 @@ window.DASHBOARD_DATA = {
         "cost": 979128.0,
         "trips_equivalent": 1,
         "trip_code": "E261001G0Q5PGKL",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13718,7 +13718,7 @@ window.DASHBOARD_DATA = {
         "cost": 979128.0,
         "trips_equivalent": 1,
         "trip_code": "E2610025J6HI04X",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13733,7 +13733,7 @@ window.DASHBOARD_DATA = {
         "cost": 979128.0,
         "trips_equivalent": 1,
         "trip_code": "E261003S2EBAHKB",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13748,7 +13748,7 @@ window.DASHBOARD_DATA = {
         "cost": 979128.0,
         "trips_equivalent": 1,
         "trip_code": "E261004ON43OJ4T",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13763,7 +13763,7 @@ window.DASHBOARD_DATA = {
         "cost": 979128.0,
         "trips_equivalent": 1,
         "trip_code": "E261005VZ64JNRZ",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13778,7 +13778,7 @@ window.DASHBOARD_DATA = {
         "cost": 979128.0,
         "trips_equivalent": 1,
         "trip_code": "E2610068PPGU9CH",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13868,7 +13868,7 @@ window.DASHBOARD_DATA = {
         "cost": 2256306.0,
         "trips_equivalent": 1,
         "trip_code": "E2609304MHVK7T3",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13883,7 +13883,7 @@ window.DASHBOARD_DATA = {
         "cost": 1452204.0,
         "trips_equivalent": 1,
         "trip_code": "E261001ZCIFGFVF",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13898,7 +13898,7 @@ window.DASHBOARD_DATA = {
         "cost": 1452204.0,
         "trips_equivalent": 1,
         "trip_code": "E261002OR6LH43R",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13913,7 +13913,7 @@ window.DASHBOARD_DATA = {
         "cost": 1452204.0,
         "trips_equivalent": 1,
         "trip_code": "E261003CE9AHF4B",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13928,7 +13928,7 @@ window.DASHBOARD_DATA = {
         "cost": 1452204.0,
         "trips_equivalent": 1,
         "trip_code": "E2610045ZJBS9RM",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13943,7 +13943,7 @@ window.DASHBOARD_DATA = {
         "cost": 1452204.0,
         "trips_equivalent": 1,
         "trip_code": "E261005D6JJ1E14",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -13958,7 +13958,7 @@ window.DASHBOARD_DATA = {
         "cost": 2256306.0,
         "trips_equivalent": 1,
         "trip_code": "E2610065UTCWRFL",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14048,7 +14048,7 @@ window.DASHBOARD_DATA = {
         "cost": 1136397.0,
         "trips_equivalent": 1,
         "trip_code": "E26100196BNBXTN",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14063,7 +14063,7 @@ window.DASHBOARD_DATA = {
         "cost": 1136397.0,
         "trips_equivalent": 1,
         "trip_code": "E261002VG5NABSB",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14078,7 +14078,7 @@ window.DASHBOARD_DATA = {
         "cost": 1136397.0,
         "trips_equivalent": 1,
         "trip_code": "E26100381MC5566",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14093,7 +14093,7 @@ window.DASHBOARD_DATA = {
         "cost": 1136397.0,
         "trips_equivalent": 1,
         "trip_code": "E261004OSYXNHZR",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14108,7 +14108,7 @@ window.DASHBOARD_DATA = {
         "cost": 1136397.0,
         "trips_equivalent": 1,
         "trip_code": "E261005GWOBWLOC",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14123,7 +14123,7 @@ window.DASHBOARD_DATA = {
         "cost": 1136397.0,
         "trips_equivalent": 1,
         "trip_code": "E261006OBZAGVXZ",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14138,7 +14138,7 @@ window.DASHBOARD_DATA = {
         "cost": 1136397.0,
         "trips_equivalent": 1,
         "trip_code": "E26100762BGUA83",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14303,7 +14303,7 @@ window.DASHBOARD_DATA = {
         "cost": 1352008.0,
         "trips_equivalent": 1,
         "trip_code": "E260930BZ3NVMRM",
-        "ontime": ""
+        "ontime": "0,6"
       },
       {
         "ncc": "NAK",
@@ -14318,7 +14318,7 @@ window.DASHBOARD_DATA = {
         "cost": 1041274.0,
         "trips_equivalent": 1,
         "trip_code": "E261001QCSZY7F3",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14333,7 +14333,7 @@ window.DASHBOARD_DATA = {
         "cost": 1352008.0,
         "trips_equivalent": 1,
         "trip_code": "E261001E8BAKM2A",
-        "ontime": ""
+        "ontime": "0,8"
       },
       {
         "ncc": "NAK",
@@ -14348,7 +14348,7 @@ window.DASHBOARD_DATA = {
         "cost": 1041274.0,
         "trips_equivalent": 1,
         "trip_code": "E2610029G2FRSB7",
-        "ontime": ""
+        "ontime": "0,75"
       },
       {
         "ncc": "NAK",
@@ -14363,7 +14363,7 @@ window.DASHBOARD_DATA = {
         "cost": 1352008.0,
         "trips_equivalent": 1,
         "trip_code": "E261002ACMQTLXP",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14378,7 +14378,7 @@ window.DASHBOARD_DATA = {
         "cost": 1352008.0,
         "trips_equivalent": 1,
         "trip_code": "E261003L5FMUM2S",
-        "ontime": ""
+        "ontime": "0,6"
       },
       {
         "ncc": "NAK",
@@ -14393,7 +14393,7 @@ window.DASHBOARD_DATA = {
         "cost": 1041274.0,
         "trips_equivalent": 1,
         "trip_code": "E261004NXHN7736",
-        "ontime": ""
+        "ontime": "0,75"
       },
       {
         "ncc": "NAK",
@@ -14408,7 +14408,7 @@ window.DASHBOARD_DATA = {
         "cost": 1352008.0,
         "trips_equivalent": 1,
         "trip_code": "E261004ZEGDU54T",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14423,7 +14423,7 @@ window.DASHBOARD_DATA = {
         "cost": 890347.0,
         "trips_equivalent": 1,
         "trip_code": "E2610049TWJH950",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14438,7 +14438,7 @@ window.DASHBOARD_DATA = {
         "cost": 1352008.0,
         "trips_equivalent": 1,
         "trip_code": "E2610051NMT9H2B",
-        "ontime": ""
+        "ontime": "0,6"
       },
       {
         "ncc": "NAK",
@@ -14453,7 +14453,7 @@ window.DASHBOARD_DATA = {
         "cost": 1352008.0,
         "trips_equivalent": 1,
         "trip_code": "E2610066IS16PXZ",
-        "ontime": ""
+        "ontime": "0,8"
       },
       {
         "ncc": "NAK",
@@ -14468,7 +14468,7 @@ window.DASHBOARD_DATA = {
         "cost": 1041274.0,
         "trips_equivalent": 1,
         "trip_code": "E261007S2P4P4VU",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14558,7 +14558,7 @@ window.DASHBOARD_DATA = {
         "cost": 2036503.0,
         "trips_equivalent": 1,
         "trip_code": "E260930AY8JNEGN",
-        "ontime": ""
+        "ontime": "0,8571"
       },
       {
         "ncc": "NAK",
@@ -14573,7 +14573,7 @@ window.DASHBOARD_DATA = {
         "cost": 2036503.0,
         "trips_equivalent": 1,
         "trip_code": "E261001QEDSKY5H",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14588,7 +14588,7 @@ window.DASHBOARD_DATA = {
         "cost": 2036503.0,
         "trips_equivalent": 1,
         "trip_code": "E261002PMS3JS9Q",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14599,11 +14599,11 @@ window.DASHBOARD_DATA = {
         "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Đạ Huoai -> (LDO) Đạ Tẻh -> (LDO) Cát Tiên -> (LDO) Đạ Tẻh -> (LDO) ĐG Bảo Lâm 5 -> Kho Chuyển Tiếp Bảo Lộc",
         "ktc": "KTC Bảo Lộc",
         "type": "Cố định",
-        "cost_str": "2.036.503 đ",
-        "cost": 2036503.0,
+        "cost_str": "2.035.488 đ",
+        "cost": 2035488.0,
         "trips_equivalent": 1,
         "trip_code": "E261003S2TSPJTZ",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14614,11 +14614,11 @@ window.DASHBOARD_DATA = {
         "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Đạ Huoai -> (LDO) Đạ Tẻh -> (LDO) Cát Tiên -> (LDO) Đạ Tẻh -> (LDO) ĐG Bảo Lâm 5 -> Kho Chuyển Tiếp Bảo Lộc",
         "ktc": "KTC Bảo Lộc",
         "type": "Cố định",
-        "cost_str": "2.036.503 đ",
-        "cost": 2036503.0,
+        "cost_str": "2.035.488 đ",
+        "cost": 2035488.0,
         "trips_equivalent": 1,
         "trip_code": "E261004153N7RVY",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14629,11 +14629,11 @@ window.DASHBOARD_DATA = {
         "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Đạ Huoai -> (LDO) Đạ Tẻh -> (LDO) Cát Tiên -> (LDO) Đạ Tẻh -> (LDO) ĐG Bảo Lâm 5 -> Kho Chuyển Tiếp Bảo Lộc",
         "ktc": "KTC Bảo Lộc",
         "type": "Cố định",
-        "cost_str": "2.036.503 đ",
-        "cost": 2036503.0,
+        "cost_str": "2.035.488 đ",
+        "cost": 2035488.0,
         "trips_equivalent": 1,
         "trip_code": "E261005EBA6ZT8S",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14644,11 +14644,11 @@ window.DASHBOARD_DATA = {
         "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Đạ Huoai -> (LDO) Đạ Tẻh -> (LDO) Cát Tiên -> (LDO) Đạ Tẻh -> (LDO) ĐG Bảo Lâm 5 -> Kho Chuyển Tiếp Bảo Lộc",
         "ktc": "KTC Bảo Lộc",
         "type": "Cố định",
-        "cost_str": "2.036.503 đ",
-        "cost": 2036503.0,
+        "cost_str": "2.035.488 đ",
+        "cost": 2035488.0,
         "trips_equivalent": 1,
         "trip_code": "E2610068IFQT9TC",
-        "ontime": ""
+        "ontime": "0,8571"
       },
       {
         "ncc": "NAK",
@@ -14738,7 +14738,7 @@ window.DASHBOARD_DATA = {
         "cost": 1788916.0,
         "trips_equivalent": 1,
         "trip_code": "E26100164FWFK5M",
-        "ontime": ""
+        "ontime": "0,75"
       },
       {
         "ncc": "NAK",
@@ -14753,7 +14753,7 @@ window.DASHBOARD_DATA = {
         "cost": 1788916.0,
         "trips_equivalent": 1,
         "trip_code": "E261001466WDVWX",
-        "ontime": ""
+        "ontime": "0,875"
       },
       {
         "ncc": "NAK",
@@ -14768,7 +14768,7 @@ window.DASHBOARD_DATA = {
         "cost": 1788916.0,
         "trips_equivalent": 1,
         "trip_code": "E2610031PG1JRY4",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14783,7 +14783,7 @@ window.DASHBOARD_DATA = {
         "cost": 1782828.0,
         "trips_equivalent": 1,
         "trip_code": "E261003BGZP734A",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14798,7 +14798,7 @@ window.DASHBOARD_DATA = {
         "cost": 1788916.0,
         "trips_equivalent": 1,
         "trip_code": "E261004IH7VCMST",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14813,7 +14813,7 @@ window.DASHBOARD_DATA = {
         "cost": 1788916.0,
         "trips_equivalent": 1,
         "trip_code": "E261005XXLCDR0Y",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14828,7 +14828,7 @@ window.DASHBOARD_DATA = {
         "cost": 1788916.0,
         "trips_equivalent": 1,
         "trip_code": "E2610066U8CX1TJ",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14918,7 +14918,7 @@ window.DASHBOARD_DATA = {
         "cost": 2319721.0,
         "trips_equivalent": 1,
         "trip_code": "E260930VZPZNAKU",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14933,7 +14933,7 @@ window.DASHBOARD_DATA = {
         "cost": 2319721.0,
         "trips_equivalent": 1,
         "trip_code": "E2610019XFYBWTL",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14948,7 +14948,7 @@ window.DASHBOARD_DATA = {
         "cost": 2319721.0,
         "trips_equivalent": 1,
         "trip_code": "E261002XHTK7Q73",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14963,7 +14963,7 @@ window.DASHBOARD_DATA = {
         "cost": 2319721.0,
         "trips_equivalent": 1,
         "trip_code": "E261003C51YCIO0",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14978,7 +14978,7 @@ window.DASHBOARD_DATA = {
         "cost": 2319721.0,
         "trips_equivalent": 1,
         "trip_code": "E261004PW8EMMYK",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -14993,7 +14993,7 @@ window.DASHBOARD_DATA = {
         "cost": 2319721.0,
         "trips_equivalent": 1,
         "trip_code": "E261005V55WDRMY",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15008,7 +15008,7 @@ window.DASHBOARD_DATA = {
         "cost": 2319721.0,
         "trips_equivalent": 1,
         "trip_code": "E2610061PM6750T",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15098,7 +15098,7 @@ window.DASHBOARD_DATA = {
         "cost": 838346.0,
         "trips_equivalent": 1,
         "trip_code": "E2610018UC0MKM5",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15113,7 +15113,7 @@ window.DASHBOARD_DATA = {
         "cost": 838346.0,
         "trips_equivalent": 1,
         "trip_code": "E261002YQQVYDNR",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15128,7 +15128,7 @@ window.DASHBOARD_DATA = {
         "cost": 838346.0,
         "trips_equivalent": 1,
         "trip_code": "E2610031L76VPVA",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15143,7 +15143,7 @@ window.DASHBOARD_DATA = {
         "cost": 838346.0,
         "trips_equivalent": 1,
         "trip_code": "E261004Q3R1MMOV",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15158,7 +15158,7 @@ window.DASHBOARD_DATA = {
         "cost": 838346.0,
         "trips_equivalent": 1,
         "trip_code": "E261005JTHASMRR",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15173,7 +15173,7 @@ window.DASHBOARD_DATA = {
         "cost": 838346.0,
         "trips_equivalent": 1,
         "trip_code": "E261006499Q2IS1",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15188,7 +15188,7 @@ window.DASHBOARD_DATA = {
         "cost": 838346.0,
         "trips_equivalent": 1,
         "trip_code": "E261007QV830X1U",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15278,7 +15278,7 @@ window.DASHBOARD_DATA = {
         "cost": 810444.0,
         "trips_equivalent": 1,
         "trip_code": "E260930ZEGI25WZ",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15293,7 +15293,7 @@ window.DASHBOARD_DATA = {
         "cost": 810444.0,
         "trips_equivalent": 1,
         "trip_code": "E261001YIKVWMMI",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15308,7 +15308,7 @@ window.DASHBOARD_DATA = {
         "cost": 1367227.0,
         "trips_equivalent": 1,
         "trip_code": "E2610021HC0TSLH",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15323,7 +15323,7 @@ window.DASHBOARD_DATA = {
         "cost": 1367227.0,
         "trips_equivalent": 1,
         "trip_code": "E261003UGK4GZY1",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15338,7 +15338,7 @@ window.DASHBOARD_DATA = {
         "cost": 1367227.0,
         "trips_equivalent": 1,
         "trip_code": "E261004BCQJPH72",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15353,7 +15353,7 @@ window.DASHBOARD_DATA = {
         "cost": 1367227.0,
         "trips_equivalent": 1,
         "trip_code": "E261005KASY4K82",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15368,7 +15368,7 @@ window.DASHBOARD_DATA = {
         "cost": 1367227.0,
         "trips_equivalent": 1,
         "trip_code": "E261006B900TTK0",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15458,7 +15458,7 @@ window.DASHBOARD_DATA = {
         "cost": 1382447.0,
         "trips_equivalent": 1,
         "trip_code": "E261001TEEJOJ3P",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15473,7 +15473,7 @@ window.DASHBOARD_DATA = {
         "cost": 1382447.0,
         "trips_equivalent": 1,
         "trip_code": "E261002789E2BRP",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15488,7 +15488,7 @@ window.DASHBOARD_DATA = {
         "cost": 1327910.0,
         "trips_equivalent": 1,
         "trip_code": "E26100388G71J2F",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15503,7 +15503,7 @@ window.DASHBOARD_DATA = {
         "cost": 1226446.0,
         "trips_equivalent": 1,
         "trip_code": "E2610048Q9XKQ8D",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15518,7 +15518,7 @@ window.DASHBOARD_DATA = {
         "cost": 1327910.0,
         "trips_equivalent": 1,
         "trip_code": "E261005I7UXYN1R",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15533,7 +15533,7 @@ window.DASHBOARD_DATA = {
         "cost": 1327910.0,
         "trips_equivalent": 1,
         "trip_code": "E261006WJDSNFJU",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15548,7 +15548,7 @@ window.DASHBOARD_DATA = {
         "cost": 1226446.0,
         "trips_equivalent": 1,
         "trip_code": "E261007GJMQWCIM",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15638,7 +15638,7 @@ window.DASHBOARD_DATA = {
         "cost": 1631034.0,
         "trips_equivalent": 1,
         "trip_code": "E261001F83S1S8I",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15653,7 +15653,7 @@ window.DASHBOARD_DATA = {
         "cost": 1631034.0,
         "trips_equivalent": 1,
         "trip_code": "E26100216KWX0HM",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15661,14 +15661,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-03",
         "truck": "29H-76917",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Đơn Dương -> (LDO) D'Ran -> (LDO) Nam Ban Lâm Hà -> (LDO) Tân Hà Lâm Hà -> (LDO) Đinh Văn Lâm Hà -> Kho Chuyển Tiếp Đức Trọng",
+        "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Hiệp Thạnh -> (LDO) Đơn Dương -> (LDO) D'Ran -> (LDO) Nam Ban Lâm Hà -> (LDO) Tân Hà Lâm Hà -> (LDO) Đinh Văn Lâm Hà -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
         "type": "Cố định",
         "cost_str": "1.631.034 đ",
         "cost": 1631034.0,
         "trips_equivalent": 1,
         "trip_code": "E261003OB4MG4RF",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15676,14 +15676,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-04",
         "truck": "29H-76917",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Đơn Dương -> (LDO) D'Ran -> (LDO) Nam Ban Lâm Hà -> (LDO) Tân Hà Lâm Hà -> (LDO) Đinh Văn Lâm Hà -> Kho Chuyển Tiếp Đức Trọng",
+        "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Hiệp Thạnh -> (LDO) Đơn Dương -> (LDO) D'Ran -> (LDO) Nam Ban Lâm Hà -> (LDO) Tân Hà Lâm Hà -> (LDO) Đinh Văn Lâm Hà -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
         "type": "Cố định",
         "cost_str": "1.631.034 đ",
         "cost": 1631034.0,
         "trips_equivalent": 1,
         "trip_code": "E261004WXJZU93T",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15691,14 +15691,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-05",
         "truck": "29H-76917",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Đơn Dương -> (LDO) D'Ran -> (LDO) Nam Ban Lâm Hà -> (LDO) Tân Hà Lâm Hà -> (LDO) Đinh Văn Lâm Hà -> Kho Chuyển Tiếp Đức Trọng",
+        "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Hiệp Thạnh -> (LDO) Đơn Dương -> (LDO) D'Ran -> (LDO) Nam Ban Lâm Hà -> (LDO) Tân Hà Lâm Hà -> (LDO) Đinh Văn Lâm Hà -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
         "type": "Cố định",
         "cost_str": "1.631.034 đ",
         "cost": 1631034.0,
         "trips_equivalent": 1,
         "trip_code": "E261005DGIB3HOT",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15706,14 +15706,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-06",
         "truck": "29H-76917",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Đơn Dương -> (LDO) D'Ran -> (LDO) Nam Ban Lâm Hà -> (LDO) Tân Hà Lâm Hà -> (LDO) Đinh Văn Lâm Hà -> Kho Chuyển Tiếp Đức Trọng",
+        "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Hiệp Thạnh -> (LDO) Đơn Dương -> (LDO) D'Ran -> (LDO) Nam Ban Lâm Hà -> (LDO) Tân Hà Lâm Hà -> (LDO) Đinh Văn Lâm Hà -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
         "type": "Cố định",
         "cost_str": "1.631.034 đ",
         "cost": 1631034.0,
         "trips_equivalent": 1,
         "trip_code": "E261006L23OGDL2",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15721,14 +15721,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-07",
         "truck": "29H-76917",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Đơn Dương -> (LDO) D'Ran -> (LDO) Nam Ban Lâm Hà -> (LDO) Tân Hà Lâm Hà -> (LDO) Đinh Văn Lâm Hà -> Kho Chuyển Tiếp Đức Trọng",
+        "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Hiệp Thạnh -> (LDO) Đơn Dương -> (LDO) D'Ran -> (LDO) Nam Ban Lâm Hà -> (LDO) Tân Hà Lâm Hà -> (LDO) Đinh Văn Lâm Hà -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
         "type": "Cố định",
         "cost_str": "1.631.034 đ",
         "cost": 1631034.0,
         "trips_equivalent": 1,
         "trip_code": "E2610079RYLLKRD",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15818,7 +15818,7 @@ window.DASHBOARD_DATA = {
         "cost": 632882.0,
         "trips_equivalent": 1,
         "trip_code": "E260930EHV6OV5Y",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15833,7 +15833,7 @@ window.DASHBOARD_DATA = {
         "cost": 632882.0,
         "trips_equivalent": 1,
         "trip_code": "E261001YZDP0018",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15848,7 +15848,7 @@ window.DASHBOARD_DATA = {
         "cost": 632882.0,
         "trips_equivalent": 1,
         "trip_code": "E261002TE54FFTN",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15863,7 +15863,7 @@ window.DASHBOARD_DATA = {
         "cost": 632882.0,
         "trips_equivalent": 1,
         "trip_code": "E261003XFW3MMV2",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15878,7 +15878,7 @@ window.DASHBOARD_DATA = {
         "cost": 632882.0,
         "trips_equivalent": 1,
         "trip_code": "E261004GNMZ4EIG",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15893,7 +15893,7 @@ window.DASHBOARD_DATA = {
         "cost": 632882.0,
         "trips_equivalent": 1,
         "trip_code": "E261005D5ZCK6MO",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "NAK",
@@ -15908,7 +15908,7 @@ window.DASHBOARD_DATA = {
         "cost": 632882.0,
         "trips_equivalent": 1,
         "trip_code": "E2610063I8LIFOM",
-        "ontime": ""
+        "ontime": "1"
       },
       {
         "ncc": "Lâm Ngọc Thành",
@@ -16486,7 +16486,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-04",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16501,7 +16501,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-05",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16516,7 +16516,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-06",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16531,14 +16531,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-07",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
         "cost": 681811.2,
         "trips_equivalent": 1,
         "trip_code": "E261006J74AF6JM",
-        "ontime": ""
+        "ontime": "100,00%"
       },
       {
         "ncc": "Lâm Ngọc Thành",
@@ -16546,7 +16546,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-08",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16561,7 +16561,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-09",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16576,7 +16576,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-10",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16591,7 +16591,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-11",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16606,7 +16606,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-12",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16621,7 +16621,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-13",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16636,7 +16636,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-14",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16651,7 +16651,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-15",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16666,7 +16666,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-16",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16681,7 +16681,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-17",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16696,7 +16696,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-18",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16711,7 +16711,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-19",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16726,7 +16726,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-20",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16741,7 +16741,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-21",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16756,7 +16756,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-22",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16771,7 +16771,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-23",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16786,7 +16786,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-24",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16801,7 +16801,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-25",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "681.811 đ",
@@ -16913,7 +16913,7 @@ window.DASHBOARD_DATA = {
         "cost": 882907.2,
         "trips_equivalent": 1,
         "trip_code": "E261001UDKOHCFI",
-        "ontime": "70,00%"
+        "ontime": "66,67%"
       },
       {
         "ncc": "Lâm Ngọc Thành",
@@ -16921,11 +16921,11 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-03",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "882.907 đ",
-        "cost": 882907.2,
+        "cost_str": "900.144 đ",
+        "cost": 900144.0,
         "trips_equivalent": 1,
         "trip_code": "E261002S230XJTP",
         "ontime": "100,00%"
@@ -16936,11 +16936,11 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-04",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "882.907 đ",
-        "cost": 882907.2,
+        "cost_str": "900.144 đ",
+        "cost": 900144.0,
         "trips_equivalent": 1,
         "trip_code": "E2610038WSZRMW1",
         "ontime": "90,00%"
@@ -16951,7 +16951,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-05",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
@@ -16966,7 +16966,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-06",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
@@ -16981,14 +16981,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-07",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
         "cost": 882907.2,
         "trips_equivalent": 1,
         "trip_code": "E261006PAM96AXZ",
-        "ontime": ""
+        "ontime": "100,00%"
       },
       {
         "ncc": "Lâm Ngọc Thành",
@@ -16996,7 +16996,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-08",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
@@ -17011,7 +17011,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-09",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
@@ -17026,7 +17026,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-10",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
@@ -17041,7 +17041,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-11",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
@@ -17056,7 +17056,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-12",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
@@ -17071,7 +17071,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-13",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
@@ -17086,7 +17086,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-14",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
@@ -17101,7 +17101,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-15",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
@@ -17116,7 +17116,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-16",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
@@ -17131,7 +17131,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-17",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
@@ -17146,7 +17146,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-18",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
@@ -17161,7 +17161,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-19",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
@@ -17176,7 +17176,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-20",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
@@ -17191,7 +17191,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-21",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
@@ -17206,7 +17206,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-22",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
@@ -17221,7 +17221,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-23",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
@@ -17236,7 +17236,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-24",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
@@ -17251,7 +17251,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-25",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "882.907 đ",
@@ -37962,6 +37962,36 @@ window.DASHBOARD_DATA = {
       },
       {
         "ncc": "Mạnh Cường",
+        "date": "07/10/2026",
+        "date_iso": "2026-10-07",
+        "truck": "79H-10144",
+        "capacity": "1900",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO)Nha Trang-> (KHO)Nha Trang 3->(KHO) Cam Lâm 1 -> Kho Trung Chuyển Khánh Hòa",
+        "ktc": "KTC Khánh Hòa",
+        "type": "Cố định",
+        "cost_str": "381.437 đ",
+        "cost": 381436.8,
+        "trips_equivalent": 1,
+        "trip_code": "E2610078JWPDM0C",
+        "ontime": "100,0%"
+      },
+      {
+        "ncc": "Mạnh Cường",
+        "date": "08/10/2026",
+        "date_iso": "2026-10-08",
+        "truck": "79H-10144",
+        "capacity": "1900",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO)Nha Trang-> (KHO) Nam Nha Trang 3->(KHO) Cam Lâm 1 -> Kho Trung Chuyển Khánh Hòa",
+        "ktc": "KTC Nam Nha Trang",
+        "type": "Cố định",
+        "cost_str": "381.437 đ",
+        "cost": 381436.8,
+        "trips_equivalent": 1,
+        "trip_code": "E261007PVR43I4D",
+        "ontime": ""
+      },
+      {
+        "ncc": "Mạnh Cường",
         "date": "13/10/2026",
         "date_iso": "2026-10-13",
         "truck": "79H-09922",
@@ -40046,7 +40076,7 @@ window.DASHBOARD_DATA = {
         "ontime": "100%"
       }
     ],
-    "all_trips_count": 1947
+    "all_trips_count": 1949
   },
   "kinh_doanh": {
     "am": [
