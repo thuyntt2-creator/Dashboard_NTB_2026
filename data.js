@@ -10635,14 +10635,14 @@ window.DASHBOARD_DATA = {
   "transport_costs": {
     "region": {
       "total_cost": 1958.73,
-      "total_cost_formatted": "1.958.734.488 đ",
+      "total_cost_formatted": "1.958.727.466 đ",
       "total_trips": 2008,
       "avg_cost_per_trip": 0.98,
-      "avg_cost_per_trip_formatted": "975.465 đ/chuyến",
+      "avg_cost_per_trip_formatted": "975.462 đ/chuyến",
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 61,
-      "last_updated": "08:33 - 08/10/2026"
+      "last_updated": "09:07 - 08/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 1958.73,
@@ -10690,7 +10690,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 234.88,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, NAK",
+        "primary_ncc": "NAK, Mạnh Cường",
         "truck_count": 9
       },
       {
@@ -10703,7 +10703,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 200.54,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
+        "primary_ncc": "Lâm Ngọc Thành, Tốt và Rẻ",
         "truck_count": 5
       },
       {
@@ -10722,10 +10722,10 @@ window.DASHBOARD_DATA = {
       {
         "ktc": "KTC Bắc Nha Trang",
         "total_cost": 62.9,
-        "total_cost_raw": 62904061.60000005,
+        "total_cost_raw": 62897039.200000055,
         "total_trips": 232,
         "cost_per_trip": 0.27,
-        "cost_per_trip_raw": 271138.1965517244,
+        "cost_per_trip_raw": 271107.9275862071,
         "fixed_cost": 62.9,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
@@ -10750,15 +10750,15 @@ window.DASHBOARD_DATA = {
       {
         "ncc": "Mạnh Cường",
         "total_cost": 1404.1,
-        "total_cost_raw": 1404102994.2999969,
+        "total_cost_raw": 1404095971.8999968,
         "total_trips": 1482,
         "cost_per_trip": 0.95,
-        "cost_per_trip_raw": 947437.9178812394,
+        "cost_per_trip_raw": 947433.1794197009,
         "fixed_cost": 1404.1,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 38,
-        "active_ktcs": "KTC Nam Nha Trang, KTC Bình Thuận, KTC Khánh Hòa, KTC Bắc Nha Trang, KTC Đức Trọng"
+        "active_ktcs": "KTC Bình Thuận, KTC Khánh Hòa, KTC Nam Nha Trang, KTC Đức Trọng, KTC Bắc Nha Trang"
       },
       {
         "ncc": "NAK",
@@ -10797,7 +10797,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 4,
-        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
       },
       {
         "ncc": "Tốt và Rẻ",
@@ -17108,7 +17108,7 @@ window.DASHBOARD_DATA = {
         "cost": 2021701.4,
         "trips_equivalent": 1,
         "trip_code": "E2610053N8PAOKE",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -18038,7 +18038,7 @@ window.DASHBOARD_DATA = {
         "cost": 228547.2,
         "trips_equivalent": 1,
         "trip_code": "E261006FS5G6M3Q",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -18503,7 +18503,7 @@ window.DASHBOARD_DATA = {
         "cost": 233016.0,
         "trips_equivalent": 1,
         "trip_code": "E26100540A9J1SX",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -18961,14 +18961,14 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-07",
         "truck": "50E-19875",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Bắc Nha Trang -> (KHO) Nam Nha Trang 3 -> (KHO) Nam Nha Trang 5 -> Kho Trung Chuyển Khánh Hòa",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Bắc Nha Trang -> (KHO) Nam Nha Trang 5 -> Kho Trung Chuyển Khánh Hòa",
         "ktc": "KTC Bắc Nha Trang",
         "type": "Cố định",
-        "cost_str": "298.133 đ",
-        "cost": 298132.8,
+        "cost_str": "291.110 đ",
+        "cost": 291110.4,
         "trips_equivalent": 1,
         "trip_code": "E261006Z7ELU28G",
-        "ontime": ""
+        "ontime": "75,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -20303,7 +20303,7 @@ window.DASHBOARD_DATA = {
         "cost": 500505.6,
         "trips_equivalent": 1,
         "trip_code": "E26100798RM4C99",
-        "ontime": ""
+        "ontime": "85,7%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -20768,7 +20768,7 @@ window.DASHBOARD_DATA = {
         "cost": 326860.8,
         "trips_equivalent": 1,
         "trip_code": "E2610058ANPVXE5",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -21698,7 +21698,7 @@ window.DASHBOARD_DATA = {
         "cost": 1616685.0,
         "trips_equivalent": 1,
         "trip_code": "E261006DX5L957C",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -22628,7 +22628,7 @@ window.DASHBOARD_DATA = {
         "cost": 2309516.0,
         "trips_equivalent": 1,
         "trip_code": "E261006G8ZL5L0K",
-        "ontime": ""
+        "ontime": "62,5%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -23858,7 +23858,7 @@ window.DASHBOARD_DATA = {
         "cost": 125126.4,
         "trips_equivalent": 1,
         "trip_code": "E261005XP66N15L",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -26453,7 +26453,7 @@ window.DASHBOARD_DATA = {
         "cost": 120657.6,
         "trips_equivalent": 1,
         "trip_code": "E260924BGJDQNRG",
-        "ontime": "100,0%"
+        "ontime": ""
       },
       {
         "ncc": "Mạnh Cường",
@@ -26633,7 +26633,7 @@ window.DASHBOARD_DATA = {
         "cost": 292387.2,
         "trips_equivalent": 1,
         "trip_code": "E261006OHOGUO62",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27098,7 +27098,7 @@ window.DASHBOARD_DATA = {
         "cost": 195350.4,
         "trips_equivalent": 1,
         "trip_code": "E2610068CBPM0MR",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27968,7 +27968,7 @@ window.DASHBOARD_DATA = {
         "cost": 4157145.2,
         "trips_equivalent": 1,
         "trip_code": "E26100677HD2DEL",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -28898,7 +28898,7 @@ window.DASHBOARD_DATA = {
         "cost": 1115742.0,
         "trips_equivalent": 1,
         "trip_code": "E261006L116MT2J",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -29828,7 +29828,7 @@ window.DASHBOARD_DATA = {
         "cost": 1835053.0,
         "trips_equivalent": 1,
         "trip_code": "E261006HVRNZLSM",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -30293,7 +30293,7 @@ window.DASHBOARD_DATA = {
         "cost": 936458.4,
         "trips_equivalent": 1,
         "trip_code": "E261006W748VBF8",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -30758,7 +30758,7 @@ window.DASHBOARD_DATA = {
         "cost": 1449493.1,
         "trips_equivalent": 1,
         "trip_code": "E261006T4FM0G4Q",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -31223,7 +31223,7 @@ window.DASHBOARD_DATA = {
         "cost": 969021.6,
         "trips_equivalent": 1,
         "trip_code": "E261006JJTI2PAZ",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -32618,7 +32618,7 @@ window.DASHBOARD_DATA = {
         "cost": 1711450.0,
         "trips_equivalent": 1,
         "trip_code": "E261006UHEMACT4",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -33548,7 +33548,7 @@ window.DASHBOARD_DATA = {
         "cost": 723559.2,
         "trips_equivalent": 1,
         "trip_code": "E261006CVAPSUQI",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34013,7 +34013,7 @@ window.DASHBOARD_DATA = {
         "cost": 601629.6,
         "trips_equivalent": 1,
         "trip_code": "E261006OHGDWDJ2",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34478,7 +34478,7 @@ window.DASHBOARD_DATA = {
         "cost": 996794.4,
         "trips_equivalent": 1,
         "trip_code": "E2610061ENUKWAD",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -35873,7 +35873,7 @@ window.DASHBOARD_DATA = {
         "cost": 181944.0,
         "trips_equivalent": 1,
         "trip_code": "E261006AGV7Y0TU",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -37133,7 +37133,7 @@ window.DASHBOARD_DATA = {
         "cost": 490310.8,
         "trips_equivalent": 1,
         "trip_code": "E2610066GR6WY3E",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -37148,7 +37148,7 @@ window.DASHBOARD_DATA = {
         "cost": 576635.1,
         "trips_equivalent": 1,
         "trip_code": "E261006WYV59OCB",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39158,7 +39158,7 @@ window.DASHBOARD_DATA = {
         "cost": 120657.6,
         "trips_equivalent": 1,
         "trip_code": "E26092561A0RSO7",
-        "ontime": "100,0%"
+        "ontime": ""
       },
       {
         "ncc": "Mạnh Cường (BCCK)",
