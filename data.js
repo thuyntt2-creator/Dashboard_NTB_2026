@@ -10642,7 +10642,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 61,
-      "last_updated": "07:23 - 08/10/2026"
+      "last_updated": "07:58 - 08/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 1958.73,
@@ -10690,7 +10690,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 234.88,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, NAK",
         "truck_count": 9
       },
       {
@@ -10703,7 +10703,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 200.54,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Lâm Ngọc Thành, Trâm Hoá",
+        "primary_ncc": "Lâm Ngọc Thành, Tốt và Rẻ",
         "truck_count": 5
       },
       {
@@ -10716,7 +10716,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 88.3,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Công Định",
+        "primary_ncc": "Công Định, NAK",
         "truck_count": 6
       },
       {
@@ -10758,7 +10758,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 38,
-        "active_ktcs": "KTC Đức Trọng, KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Nam Nha Trang, KTC Bình Thuận"
+        "active_ktcs": "KTC Bình Thuận, KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Nam Nha Trang, KTC Đức Trọng"
       },
       {
         "ncc": "NAK",
@@ -10771,7 +10771,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 9,
-        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
+        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
       },
       {
         "ncc": "Lâm Ngọc Thành",
@@ -10797,7 +10797,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 4,
-        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
       },
       {
         "ncc": "Tốt và Rẻ",
