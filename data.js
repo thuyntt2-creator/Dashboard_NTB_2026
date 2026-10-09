@@ -10634,20 +10634,20 @@ window.DASHBOARD_DATA = {
   },
   "transport_costs": {
     "region": {
-      "total_cost": 2022.09,
-      "total_cost_formatted": "2.022.087.308 đ",
-      "total_trips": 2104,
+      "total_cost": 2024.73,
+      "total_cost_formatted": "2.024.725.495 đ",
+      "total_trips": 2107,
       "avg_cost_per_trip": 0.96,
-      "avg_cost_per_trip_formatted": "961.068 đ/chuyến",
+      "avg_cost_per_trip_formatted": "960.952 đ/chuyến",
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 59,
-      "last_updated": "16:47 - 09/10/2026"
+      "last_updated": "17:22 - 09/10/2026"
     },
     "surge_fixed": {
-      "fixed_cost": 2022.09,
+      "fixed_cost": 2024.73,
       "fixed_cost_pct": 100.0,
-      "fixed_trips": 2104,
+      "fixed_trips": 2107,
       "surge_cost": 0.0,
       "surge_cost_pct": 0.0,
       "surge_trips": 0,
@@ -10664,7 +10664,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 704.82,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 23
       },
       {
@@ -10690,7 +10690,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 292.57,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, NAK",
+        "primary_ncc": "NAK, Mạnh Cường",
         "truck_count": 9
       },
       {
@@ -10703,20 +10703,20 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 200.59,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Trâm Hoá, Tốt và Rẻ",
+        "primary_ncc": "Tốt và Rẻ, Trâm Hoá",
         "truck_count": 5
       },
       {
         "ktc": "KTC Bảo Lộc",
-        "total_cost": 106.17,
-        "total_cost_raw": 106167310.0,
-        "total_trips": 96,
-        "cost_per_trip": 1.11,
-        "cost_per_trip_raw": 1105909.4791666667,
-        "fixed_cost": 106.17,
+        "total_cost": 108.81,
+        "total_cost_raw": 108805497.0,
+        "total_trips": 99,
+        "cost_per_trip": 1.1,
+        "cost_per_trip_raw": 1099045.4242424243,
+        "fixed_cost": 108.81,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Công Định, NAK",
+        "primary_ncc": "NAK, Công Định",
         "truck_count": 5
       },
       {
@@ -10742,7 +10742,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 51.4,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 10
       }
     ],
@@ -10758,7 +10758,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 38,
-        "active_ktcs": "KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Đức Trọng, KTC Bình Thuận"
+        "active_ktcs": "KTC Bình Thuận, KTC Khánh Hòa, KTC Bắc Nha Trang, KTC Đức Trọng, KTC Nam Nha Trang"
       },
       {
         "ncc": "NAK",
@@ -10787,6 +10787,19 @@ window.DASHBOARD_DATA = {
         "active_ktcs": "KTC Đắk Nông"
       },
       {
+        "ncc": "Công Định",
+        "total_cost": 62.91,
+        "total_cost_raw": 62910617.0,
+        "total_trips": 75,
+        "cost_per_trip": 0.84,
+        "cost_per_trip_raw": 838808.2266666667,
+        "fixed_cost": 62.91,
+        "surge_cost": 0.0,
+        "surge_pct": 0.0,
+        "truck_count": 4,
+        "active_ktcs": "KTC Bảo Lộc"
+      },
+      {
         "ncc": "Mạnh Cường (BCCK)",
         "total_cost": 62.05,
         "total_cost_raw": 62051606.0,
@@ -10798,19 +10811,6 @@ window.DASHBOARD_DATA = {
         "surge_pct": 0.0,
         "truck_count": 5,
         "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
-      },
-      {
-        "ncc": "Công Định",
-        "total_cost": 60.27,
-        "total_cost_raw": 60272430.0,
-        "total_trips": 72,
-        "cost_per_trip": 0.84,
-        "cost_per_trip_raw": 837117.0833333334,
-        "fixed_cost": 60.27,
-        "surge_cost": 0.0,
-        "surge_pct": 0.0,
-        "truck_count": 4,
-        "active_ktcs": "KTC Bảo Lộc"
       },
       {
         "ncc": "Tốt và Rẻ",
@@ -11592,6 +11592,21 @@ window.DASHBOARD_DATA = {
       },
       {
         "ncc": "Công Định",
+        "date": "08/10/2026",
+        "date_iso": "2026-10-08",
+        "truck": "49H-04926",
+        "capacity": "1900",
+        "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) Hòa Ninh -> (LDO) Di Linh -> (LDO) ĐG Đinh Trang Thượng -> Kho Chuyển Tiếp Bảo Lộc",
+        "ktc": "KTC Bảo Lộc",
+        "type": "Cố định",
+        "cost_str": "1.014.687 đ",
+        "cost": 1014687.0,
+        "trips_equivalent": 1,
+        "trip_code": "E261007CN86E4DV",
+        "ontime": "80,00%"
+      },
+      {
+        "ncc": "Công Định",
         "date": "26/09/2026",
         "date_iso": "2026-09-26",
         "truck": "49H-09142",
@@ -11918,6 +11933,36 @@ window.DASHBOARD_DATA = {
         "cost": 913219.0,
         "trips_equivalent": 1,
         "trip_code": "E26100692HICT91",
+        "ontime": "100,00%"
+      },
+      {
+        "ncc": "Công Định",
+        "date": "08/10/2026",
+        "date_iso": "2026-10-08",
+        "truck": "49H-09142",
+        "capacity": "1900",
+        "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> Kho Chuyển Tiếp Bảo Lộc",
+        "ktc": "KTC Bảo Lộc",
+        "type": "Cố định",
+        "cost_str": "710.281 đ",
+        "cost": 710281.0,
+        "trips_equivalent": 1,
+        "trip_code": "E2610070S91Z3JC",
+        "ontime": "100,00%"
+      },
+      {
+        "ncc": "Công Định",
+        "date": "08/10/2026",
+        "date_iso": "2026-10-08",
+        "truck": "49H-09142",
+        "capacity": "1900",
+        "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> (LDO) B'Lao -> Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> Kho Chuyển Tiếp Bảo Lộc",
+        "ktc": "KTC Bảo Lộc",
+        "type": "Cố định",
+        "cost_str": "913.219 đ",
+        "cost": 913219.0,
+        "trips_equivalent": 1,
+        "trip_code": "E261007IPDOA6HT",
         "ontime": "100,00%"
       },
       {
@@ -40226,7 +40271,7 @@ window.DASHBOARD_DATA = {
         "ontime": "100%"
       }
     ],
-    "all_trips_count": 1959
+    "all_trips_count": 1962
   },
   "kinh_doanh": {
     "am": [
