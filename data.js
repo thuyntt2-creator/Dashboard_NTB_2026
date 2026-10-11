@@ -10642,7 +10642,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 59,
-      "last_updated": "11:24 - 11/10/2026"
+      "last_updated": "15:09 - 11/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 2036.82,
@@ -10703,7 +10703,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 200.59,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Tốt và Rẻ, Trâm Hoá",
+        "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
         "truck_count": 5
       },
       {
@@ -10758,7 +10758,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 38,
-        "active_ktcs": "KTC Bình Thuận, KTC Nam Nha Trang, KTC Khánh Hòa, KTC Bắc Nha Trang, KTC Đức Trọng"
+        "active_ktcs": "KTC Bắc Nha Trang, KTC Bình Thuận, KTC Khánh Hòa, KTC Nam Nha Trang, KTC Đức Trọng"
       },
       {
         "ncc": "NAK",
