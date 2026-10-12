@@ -1401,6 +1401,8 @@
     } else if (tabId === 'tab-aging') {
       renderAgingTab();
       renderAgingChart();
+    try { renderAgingDonutChart(); } catch(e) {}
+    try { renderAgingProgressChart(); } catch(e) {}
     } else if (tabId === 'tab-commercial') {
       renderCommercialTab();
       renderKdDoanhThuChart();
@@ -6681,6 +6683,8 @@
     updateAgingKPIs(seg);
     renderAgingTab();
     renderAgingChart();
+    try { renderAgingDonutChart(); } catch(e) {}
+    try { renderAgingProgressChart(); } catch(e) {}
     if (window.lucide) lucide.createIcons();
   };
 
@@ -6706,6 +6710,8 @@
 
         renderAgingTab();
         renderAgingChart();
+    try { renderAgingDonutChart(); } catch(e) {}
+    try { renderAgingProgressChart(); } catch(e) {}
         if (typeof showToast === 'function') {
           showToast('Đã cập nhật real-time Aging & Treo Luân Chuyển thành công!', 'success');
         } else {
@@ -6747,6 +6753,8 @@
       }
     });
     renderAgingChart();
+    try { renderAgingDonutChart(); } catch(e) {}
+    try { renderAgingProgressChart(); } catch(e) {}
   };
 
   function updateAgingKPIs(seg) {
@@ -6947,13 +6955,73 @@
       }).join('');
     }
 
-    // 3. Bảng 2: Top Bưu Cục
+    // 3. Bảng 2: Top Bưu Cục %FD (Lọc Sản Lượng Cao & Loại Bỏ Nhiễu)
+    if (!state.fdBcFilter) state.fdBcFilter = 'significant';
+    if (!state.fdBcSortCol) state.fdBcSortCol = 'rate';
+    if (!state.fdBcSortDir) state.fdBcSortDir = 'desc';
+
+    window.filterFdBc = function(f) {
+      state.fdBcFilter = f;
+      document.querySelectorAll('#fd-bc-filter-pills .chart-mode-pill').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-filter') === f);
+      });
+      renderFdTab();
+    };
+
+    window.sortFdBc = function(col) {
+      if (state.fdBcSortCol === col) {
+        state.fdBcSortDir = (state.fdBcSortDir === 'desc') ? 'asc' : 'desc';
+      } else {
+        state.fdBcSortCol = col;
+        state.fdBcSortDir = (col === 'bc' || col === 'am') ? 'asc' : 'desc';
+      }
+      renderFdTab();
+    };
+
     const tblBodyBC = document.querySelector('#table-fd-top-bc tbody');
     if (tblBodyBC && D.fd.top_bc) {
       let listBC = [...D.fd.top_bc];
+
+      // Filter Logic
+      if (state.fdBcFilter === 'significant') {
+        // Chỉ lấy bưu cục có sản lượng đáng kể (>= 500 đơn)
+        listBC = listBC.filter(r => (r.vol || 0) >= 500);
+      } else if (state.fdBcFilter === 'most_return') {
+        // Hố đen hoàn hàng
+        listBC = listBC.filter(r => (r.ret || 0) >= 300);
+      } else if (state.fdBcFilter === 'alert') {
+        listBC = listBC.filter(r => (r.rate || 0) >= 0.12 && (r.vol || 0) >= 500);
+      }
+
       if (state.searchFdBc) {
         const q = state.searchFdBc.toLowerCase();
         listBC = listBC.filter(r => r.bc.toLowerCase().includes(q) || (r.am && r.am.toLowerCase().includes(q)));
+      }
+
+      // Sort Logic
+      const col = state.fdBcSortCol || (state.fdBcFilter === 'most_return' ? 'ret' : 'rate');
+      const isDesc = state.fdBcSortDir === 'desc';
+
+      listBC.sort((a, b) => {
+        let vA = a[col] !== undefined ? a[col] : 0;
+        let vB = b[col] !== undefined ? b[col] : 0;
+
+        if (typeof vA === 'string') {
+          const cmp = vA.localeCompare(vB, 'vi');
+          return isDesc ? -cmp : cmp;
+        }
+        if (vA === vB) {
+          return (b.vol || 0) - (a.vol || 0);
+        }
+        return isDesc ? (vB - vA) : (vA - vB);
+      });
+
+      const countEl = document.getElementById('fd-bc-count');
+      if (countEl) {
+        const fText = state.fdBcFilter === 'significant' ? 'Sản lượng ≥ 500 đơn' :
+                      state.fdBcFilter === 'most_return' ? 'Return ≥ 300 đơn' :
+                      state.fdBcFilter === 'alert' ? '%FD ≥ 12%' : 'Toàn bộ';
+        countEl.textContent = `Đang hiển thị: ${listBC.length} bưu cục (${fText})`;
       }
 
       tblBodyBC.innerHTML = listBC.map((row, i) => {
@@ -6969,11 +7037,11 @@
 
         return `
           <tr data-entity="${row.bc}">
-            <td class="center bold">${row.stt || (i + 1)}</td>
+            <td class="center bold">${i + 1}</td>
             <td class="bold" style="font-weight:800; font-size:13px;">${row.bc}</td>
             <td class="bold" style="font-size:12.5px; color:${isSelected ? '#ef4444' : 'inherit'};">${row.am || '---'}</td>
             <td class="num">${fNum(row.vol)}</td>
-            <td class="num bold" style="color:#ef4444;">${fNum(row.ret)}</td>
+            <td class="num bold" style="color:#ef4444; font-size:13px; font-weight:800;">${fNum(row.ret)}</td>
             <td class="num">${row.rate_prev !== undefined ? fPct(row.rate_prev) : '---'}</td>
             <td class="num bold ${heatClass}">${fPct(row.rate)}</td>
             <td class="num bold">${diffBadge}</td>
@@ -7162,14 +7230,12 @@
         tblHeadAM.innerHTML = `
           <tr style="background: #1e3a8a; color: #ffffff;">
             <th class="center" style="width: 44px; color:#ffffff;">#</th>
-            <th style="color:#ffffff;">AM</th>
-            <th class="num" style="background: #0284c7; color: #ffffff; font-weight:700;">Dưới 24h</th>
+            <th style="color:#ffffff;">AM Phụ Trách</th>
             <th class="num" style="background: #d97706; color: #ffffff; font-weight:700;">24 – 36h</th>
             <th class="num" style="background: #ea580c; color: #ffffff; font-weight:700;">36 – 72h</th>
             <th class="num" style="background: #dc2626; color: #ffffff; font-weight:700;">72 – 120h</th>
             <th class="num" style="background: #991b1b; color: #ffffff; font-weight:700;">Trên 120h</th>
-            <th class="num" style="background: #ef4444; color: #ffffff; font-weight:900; font-size:13.5px;">Treo ≥24h (Sort)</th>
-            <th class="num" style="background: #64748b; color: #ffffff; font-weight:700;">Tổng Luân Chuyển</th>
+            <th class="num" style="background: #1e3a8a; color: #ffffff; font-weight:800;">Tổng Luân Chuyển</th>
           </tr>
         `;
       } else {
@@ -7228,23 +7294,19 @@
             </tr>
           `;
         } else if (isTreo) {
-          const u24 = row.u_24 !== undefined ? row.u_24 : (row.vol - (row.treo_24 || 0));
           const h24 = row.h_24_36 !== undefined ? row.h_24_36 : 0;
           const h36 = row.h_36_72 !== undefined ? row.h_36_72 : 0;
           const h72 = row.h_72_120 !== undefined ? row.h_72_120 : 0;
           const h120 = row.h_120_plus !== undefined ? row.h_120_plus : ((row.h_120_192 || 0) + (row.h_192_plus || 0));
-          const treo24 = row.treo_24 !== undefined ? row.treo_24 : (h24 + h36 + h72 + h120);
 
           return `
             <tr data-entity="${row.am}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightAM('${row.am}')">
               <td class="center">${renderRankPill(i)}</td>
               <td class="bold" style="font-size:13px; font-weight:800; color:${isSelected ? '#ef4444' : 'inherit'};">${row.am} <small style="color:var(--text-muted); font-weight:normal;">(${row.tinh || ''})</small></td>
-              <td class="num" style="background: rgba(2, 132, 199, 0.05); font-weight:600;">${fNum(u24)}</td>
               <td class="num" style="background: rgba(217, 119, 6, 0.05); font-weight:600; color:${h24 > 0 ? '#d97706' : '#64748b'};">${fNum(h24)}</td>
               <td class="num" style="background: rgba(234, 88, 12, 0.05); font-weight:600; color:${h36 > 0 ? '#ea580c' : '#64748b'};">${fNum(h36)}</td>
               <td class="num" style="background: rgba(220, 38, 38, 0.06); font-weight:600; color:${h72 > 0 ? '#dc2626' : '#64748b'};">${fNum(h72)}</td>
               <td class="num bold" style="background: rgba(153, 27, 27, 0.08); color:${h120 > 0 ? '#991b1b' : '#64748b'};">${fNum(h120)}</td>
-              <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size:13.5px; font-weight:900;">${fNum(treo24)}</td>
               <td class="num bold" style="background: rgba(0,0,0,0.02); color: #475569; font-size:13px; font-weight:700;">${fNum(row.vol)}</td>
             </tr>
           `;
@@ -7313,14 +7375,12 @@
         tblHeadBC.innerHTML = `
           <tr style="background: #1e3a8a; color: #ffffff;">
             <th class="center" style="width: 44px; color:#ffffff;">#</th>
-            <th style="color:#ffffff;">Bưu Cục</th>
-            <th class="num" style="background: #0284c7; color: #ffffff; font-weight:700;">Dưới 24h</th>
+            <th style="color:#ffffff;">Bưu Cục Điểm Nóng</th>
             <th class="num" style="background: #d97706; color: #ffffff; font-weight:700;">24 – 36h</th>
             <th class="num" style="background: #ea580c; color: #ffffff; font-weight:700;">36 – 72h</th>
             <th class="num" style="background: #dc2626; color: #ffffff; font-weight:700;">72 – 120h</th>
             <th class="num" style="background: #991b1b; color: #ffffff; font-weight:700;">Trên 120h</th>
-            <th class="num" style="background: #ef4444; color: #ffffff; font-weight:900; font-size:13.5px;">Treo ≥24h (Sort)</th>
-            <th class="num" style="background: #64748b; color: #ffffff; font-weight:700;">Tổng Luân Chuyển</th>
+            <th class="num" style="background: #1e3a8a; color: #ffffff; font-weight:800;">Tổng Luân Chuyển</th>
           </tr>
         `;
       } else {
@@ -7366,23 +7426,19 @@
             </tr>
           `;
         } else if (isTreo) {
-          const u24 = row.u_24 !== undefined ? row.u_24 : (row.vol - (row.treo_24 || 0));
           const h24 = row.h_24_36 !== undefined ? row.h_24_36 : 0;
           const h36 = row.h_36_72 !== undefined ? row.h_36_72 : 0;
           const h72 = row.h_72_120 !== undefined ? row.h_72_120 : 0;
           const h120 = row.h_120_plus !== undefined ? row.h_120_plus : ((row.h_120_192 || 0) + (row.h_192_plus || 0));
-          const treo24 = row.treo_24 !== undefined ? row.treo_24 : (h24 + h36 + h72 + h120);
 
           return `
             <tr data-entity="${row.am}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightAM('${row.am}')">
               <td class="center">${renderRankPill(i)}</td>
               <td class="bold" style="font-size:13px; font-weight:800;">${row.bc} <small style="color:var(--text-muted);">(${row.am})</small></td>
-              <td class="num" style="background: rgba(2, 132, 199, 0.05); font-weight:600;">${fNum(u24)}</td>
               <td class="num" style="background: rgba(217, 119, 6, 0.05); font-weight:600; color:${h24 > 0 ? '#d97706' : '#64748b'};">${fNum(h24)}</td>
               <td class="num" style="background: rgba(234, 88, 12, 0.05); font-weight:600; color:${h36 > 0 ? '#ea580c' : '#64748b'};">${fNum(h36)}</td>
               <td class="num" style="background: rgba(220, 38, 38, 0.06); font-weight:600; color:${h72 > 0 ? '#dc2626' : '#64748b'};">${fNum(h72)}</td>
               <td class="num bold" style="background: rgba(153, 27, 27, 0.08); color:${h120 > 0 ? '#991b1b' : '#64748b'};">${fNum(h120)}</td>
-              <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size:13.5px; font-weight:900;">${fNum(treo24)}</td>
               <td class="num bold" style="background: rgba(0,0,0,0.02); color: #475569; font-size:13px; font-weight:700;">${fNum(row.vol)}</td>
             </tr>
           `;
@@ -7419,6 +7475,87 @@
       }
       tblBodyBC.innerHTML = bcRowsHtml;
     }
+  }
+
+  
+  function renderAgingDonutChart() {
+    const ctx = document.getElementById('chart-aging-donut');
+    if (!ctx) return;
+    if (charts.agingDonut) charts.agingDonut.destroy();
+
+    const d58 = (D.aging && D.aging.total_5_8) || 328;
+    const d815 = (D.aging && D.aging.total_8_15) || 64;
+    const dgt15 = (D.aging && D.aging.total_gt_15) || 8;
+
+    charts.agingDonut = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['5 – 8 ngày (82%)', '8 – 15 ngày (16%)', 'Trên 15 ngày (2%)'],
+        datasets: [{
+          data: [d58, d815, dgt15],
+          backgroundColor: ['#3b82f6', '#f59e0b', '#ef4444'],
+          borderColor: '#ffffff',
+          borderWidth: 2,
+          hoverOffset: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '72%',
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: c => ` ${c.label}: ${c.parsed} đơn`
+            }
+          }
+        }
+      }
+    });
+  }
+
+  function renderAgingProgressChart() {
+    const ctx = document.getElementById('chart-aging-progress');
+    if (!ctx) return;
+    if (charts.agingProgress) charts.agingProgress.destroy();
+
+    charts.agingProgress = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Đầu W40', 'Hiện tại (W41)'],
+        datasets: [{
+          data: [1420, 400],
+          backgroundColor: ['#94a3b8', '#10b981'],
+          borderRadius: 6,
+          barPercentage: 0.6
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: c => ` ${c.label}: ${c.parsed} đơn tồn Aging`
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 1600,
+            grid: { color: 'rgba(0,0,0,0.05)' },
+            ticks: { font: { size: 10 } }
+          },
+          x: {
+            grid: { display: false },
+            ticks: { font: { size: 11, weight: '700' } }
+          }
+        }
+      }
+    });
   }
 
   function renderAgingChart() {

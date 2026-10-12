@@ -4297,14 +4297,14 @@
 <thead>
 <tr>
 <th class="center" style="width: 44px;">#</th>
-<th>Tên Bưu Cục</th>
-<th>AM Phụ Trách</th>
-<th class="num">Total Đơn</th>
-<th class="num" style="color: #ef4444;">Đơn Return</th>
-<th class="num">FD W39</th>
-<th class="num" style="background: var(--color-red-bg); font-weight:800; color:#b91c1c;">FD W41</th>
-<th class="num">Biến Động (Δ WoW)</th>
-<th class="num">Tỷ Trọng Return</th>
+<th style="cursor: pointer;" onclick="sortFdBc('bc')">Tên Bưu Cục ⬍</th>
+<th style="cursor: pointer;" onclick="sortFdBc('am')">AM Phụ Trách ⬍</th>
+<th class="num" style="cursor: pointer;" onclick="sortFdBc('vol')">Total Đơn ⬍</th>
+<th class="num" style="color: #ef4444; cursor: pointer; font-weight: 800;" onclick="sortFdBc('ret')">📦 Đơn Return ⬍</th>
+<th class="num" style="cursor: pointer;" onclick="sortFdBc('rate_prev')">FD W39 ⬍</th>
+<th class="num" style="background: var(--color-red-bg); font-weight:800; color:#b91c1c; cursor: pointer;" onclick="sortFdBc('rate')">🔥 FD W41 ⬍</th>
+<th class="num" style="cursor: pointer;" onclick="sortFdBc('diff')">Biến Động (Δ WoW) ⬍</th>
+<th class="num" style="cursor: pointer;" onclick="sortFdBc('share_ret')">Tỷ Trọng Return ⬍</th>
 <th class="center">Mức Cảnh Báo</th>
 </tr>
 </thead>
@@ -4717,6 +4717,73 @@
 <div class="kpi-tile-meta" id="kpi-aging-meta-4"><span class="diff-tag diff-neutral">1,142 đơn (48.9%)</span></div>
 </div>
 </div>
+<!-- Grid Row 2 Biểu Đồ Aging: Cơ Cấu Tuổi Hàng & Tiến Độ Giải Tỏa Tồn -->
+<div class="grid-row-2" style="margin-bottom: 20px;">
+  <!-- Biểu đồ 1: Cơ Cấu 400 Đơn Aging >5 Ngày (Biểu đồ tròn Donut) -->
+  <div class="report-card">
+    <div class="report-card-header">
+      <div class="report-card-title">
+        <i data-lucide="pie-chart" style="color: #ef4444;"></i>
+        CƠ CẤU 400 ĐƠN AGING &gt;5 NGÀY THEO NHÓM TUỔI (W41)
+      </div>
+      <span class="badge-tag badge-tag-red" style="font-weight: 800;">Tổng tồn: 400 đơn</span>
+    </div>
+    <div class="report-card-body" style="padding: 16px 20px;">
+      <div style="display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
+        <div style="position: relative; width: 200px; height: 200px;">
+          <canvas id="chart-aging-donut"></canvas>
+          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; pointer-events: none;">
+            <div style="font-size: 26px; font-weight: 900; color: #b91c1c; font-family: var(--font-mono, monospace); line-height: 1;">400</div>
+            <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Đơn tồn</div>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; min-width: 200px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; background: rgba(59, 130, 246, 0.08); border-left: 4px solid #3b82f6; border-radius: 6px;">
+            <span style="font-size: 12.5px; font-weight: 700; color: var(--text-main);">🔹 5 – 8 ngày</span>
+            <span style="font-size: 13px; font-weight: 900; color: #2563eb;">328 đơn (82.0%)</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; border-radius: 6px;">
+            <span style="font-size: 12.5px; font-weight: 700; color: var(--text-main);">🔸 8 – 15 ngày</span>
+            <span style="font-size: 13px; font-weight: 900; color: #d97706;">64 đơn (16.0%)</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; background: rgba(239, 68, 68, 0.08); border-left: 4px solid #ef4444; border-radius: 6px;">
+            <span style="font-size: 12.5px; font-weight: 700; color: var(--text-main);">🔻 Trên 15 ngày</span>
+            <span style="font-size: 13px; font-weight: 900; color: #dc2626;">8 đơn (2.0%) 🟢</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Biểu đồ 2: Tiến Độ Giải Phóng Hàng Tồn Aging (W40 vs W41) -->
+  <div class="report-card">
+    <div class="report-card-header">
+      <div class="report-card-title">
+        <i data-lucide="trending-down" style="color: #10b981;"></i>
+        TIẾN ĐỘ GIẢI PHÓNG HÀNG TỒN AGING (W40 VS W41)
+      </div>
+      <span class="badge-tag badge-tag-green" style="font-weight: 800;">🎉 Giảm -71.8% WoW</span>
+    </div>
+    <div class="report-card-body" style="padding: 16px 20px;">
+      <div style="display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 16px;">
+        <div style="width: 220px; height: 190px;">
+          <canvas id="chart-aging-progress"></canvas>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px; max-width: 240px;">
+          <div style="padding: 10px; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 8px;">
+            <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: #047857;">Nỗ Lực Giải Phóng Hàng Tồn</div>
+            <div style="font-size: 20px; font-weight: 900; color: #059669; margin-top: 2px;">-1,020 ĐƠN</div>
+            <div style="font-size: 11.5px; color: #065f46; margin-top: 2px;">Giảm từ 1,420 đơn (đầu W40) xuống còn 400 đơn!</div>
+          </div>
+          <div style="font-size: 12px; color: var(--text-muted); font-style: italic; line-height: 1.4;">
+            * Nhóm tồn lưu cữu lâu ngày (&gt;15 ngày) cơ bản đã được vét sạch dứt điểm, chỉ còn đúng 8 đơn rải rác!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Aging Combo Chart -->
 <div class="report-card" style="margin-bottom: 20px;">
 <div class="report-card-header">
@@ -5023,39 +5090,40 @@
 <i data-lucide="shield-alert" style="width: 24px; height: 24px;"></i>
 </div>
 <div class="exec-banner-text">
-<h3 id="truythu-banner-title">BÁO CÁO TRUY THU – SO SÁNH BIẾN ĐỘNG 2 TUẦN (Tuần W40 (28/09 - 04/10) vs Tuần W41 (05/10 - 11/10)) | VÙNG NAM TRUNG BỘ</h3>
+<h3 id="truythu-banner-title">BÁO CÁO TRUY THU – SO SÁNH BIẾN ĐỘNG 2 TUẦN (Tuần W39 (21/09 - 27/09) vs Tuần W40 (28/09 - 04/10)) | VÙNG NAM TRUNG BỘ</h3>
 <p id="truythu-banner-p">
-              • <strong>Tổng quan so sánh 2 tuần:</strong> W40 phát sinh <strong>2,424 bản ghi</strong> (giảm 1,652 đơn, -40.5%) với số tiền ban đầu <strong>433.1 Tr ₫</strong> (tăng +36.5%). Cần truy thu thêm <strong>187.1 Tr ₫</strong> (giảm 125.0 Tr ₫ so với 312.1 Tr ₫ W39).<br/>
+              • <strong>Tổng quan kỳ kết luận truy thu mới nhất (Tuần W40):</strong> Phát sinh <strong>2,424 bản ghi</strong> (giảm 1,652 đơn, -40.5%) với số tiền ban đầu <strong>433.1 Tr ₫</strong> (tăng +36.5%). Cần truy thu thêm <strong>187.1 Tr ₫</strong> (giảm mạnh 125.0 Tr ₫ so với 312.1 Tr ₫ của Tuần W39, tương ứng giảm -40.1%).<br/>
               • <strong>Các loại truy thu trọng điểm:</strong> <em>Liên đới chiếm dụng</em> (56.8 Tr ₫ | 4 đơn), <em>Tick mất hàng</em> (41.2 Tr ₫ | 53 đơn), <em>Mất/Thiếu/Tráo sản phẩm</em> (30.9 Tr ₫ | 76 đơn).<br/>
-              • <strong>Top AM có số tiền truy thu lớn nhất:</strong> <strong>Nguyễn Thanh Long</strong> (51.2 Tr ₫ | 72 ticket), <strong>Lê Văn Trường</strong> (26.3 Tr ₫ | 419 ticket), <strong>Trần Văn Phước</strong> (22.9 Tr ₫ | 288 ticket), <strong>Huỳnh Thị Kim Chi</strong> (21.3 Tr ₫ | 110 ticket).
+              • <strong>Top AM có số tiền truy thu lớn nhất:</strong> <strong>Nguyễn Thanh Long</strong> (51.2 Tr ₫ | 72 ticket), <strong>Lê Văn Trường</strong> (26.3 Tr ₫ | 419 ticket), <strong>Trần Văn Phước</strong> (22.9 Tr ₫ | 288 ticket), <strong>Huỳnh Thị Kim Chi</strong> (21.3 Tr ₫ | 110 ticket).<br/>
+              • <em>Ghi chú: Dữ liệu kết luận truy thu tuần W41 hiện đang trong kỳ giải trình / đối soát giữa bưu cục và kiểm toán nội bộ (thường chốt muộn 1 tuần so với vận hành).</em>
             </p>
 </div>
 </div>
 <div class="exec-banner-actions">
 <span class="badge-tag badge-tag-red" id="truythu-banner-badge" style="font-size: 12px; padding: 6px 12px;">
-            Tuần W41: 2,424 Bản Ghi | Cần Thu 187.1 Tr
+            Tuần W40: 2,424 Bản Ghi | Cần Thu 187.1 Tr
           </span>
 </div>
 </div>
 <!-- 4 KPI Comparison Tiles -->
 <div class="kpi-strip" style="margin-bottom: 20px;">
 <div class="kpi-tile kpi-blue">
-<div class="kpi-tile-header" id="kpi-tt-rec-title">Tổng Đơn / Ticket (Tuần W41)</div>
+<div class="kpi-tile-header" id="kpi-tt-rec-title">Tổng Đơn / Ticket (Tuần W40)</div>
 <div class="kpi-tile-value" id="truythu-kpi-records">2,424 <small>đơn</small></div>
 <div class="kpi-tile-meta" id="truythu-kpi-records-meta"><span class="diff-tag diff-down-good">Tuần W39: 4,076 (-1,652 | -40.5%)</span></div>
 </div>
 <div class="kpi-tile kpi-amber">
-<div class="kpi-tile-header" id="kpi-tt-bd-title">Tổng Tiền Ban Đầu (Tuần W41)</div>
+<div class="kpi-tile-header" id="kpi-tt-bd-title">Tổng Tiền Ban Đầu (Tuần W40)</div>
 <div class="kpi-tile-value" id="truythu-kpi-bandau">433.1 <small>Tr ₫</small></div>
 <div class="kpi-tile-meta" id="truythu-kpi-bandau-meta"><span class="diff-tag diff-up-bad">Tuần W39: 317.3 (+115.8 Tr | +36.5%)</span></div>
 </div>
 <div class="kpi-tile kpi-green">
-<div class="kpi-tile-header" id="kpi-tt-dc-title">Tổng Điều Chỉnh (Tuần W41)</div>
+<div class="kpi-tile-header" id="kpi-tt-dc-title">Tổng Điều Chỉnh (Tuần W40)</div>
 <div class="kpi-tile-value" id="truythu-kpi-dieuchinh">-246.0 <small>Tr ₫</small></div>
 <div class="kpi-tile-meta" id="truythu-kpi-dieuchinh-meta"><span class="diff-tag diff-down-good">Tuần W39: -5.2 (-240.8 Tr)</span></div>
 </div>
 <div class="kpi-tile kpi-red">
-<div class="kpi-tile-header" id="kpi-tt-ct-title">Cần Truy Thu Thêm (Tuần W41)</div>
+<div class="kpi-tile-header" id="kpi-tt-ct-title">Cần Truy Thu Thêm (Tuần W40)</div>
 <div class="kpi-tile-value" id="truythu-kpi-canthu">187.1 <small>Tr ₫</small></div>
 <div class="kpi-tile-meta" id="truythu-kpi-canthu-meta"><span class="diff-tag diff-down-good">Tuần W39: 312.1 (-125.0 Tr | -40.1%)</span></div>
 </div>
@@ -5750,7 +5818,7 @@
 </div>
 </div>
 <!-- Scripts -->
-<script src="data.js?v=1791832859"></script>
-<script src="app.js?v=1791832859"></script>
+<script src="data.js?v=1791834943"></script>
+<script src="app.js?v=1791834943"></script>
 </body>
 </html><

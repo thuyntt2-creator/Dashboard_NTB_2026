@@ -49,8 +49,8 @@ tt['da_thu'] = tt['Đã truy thu'].apply(parse_vn)
 tt['can_thu'] = tt['Cần truy thu thêm'].apply(parse_vn)
 
 # Determine weeks dynamically from data.json or arguments
-latest_week = 'W39'
-prev_week = 'W38'
+latest_week = 'W40'
+prev_week = 'W39'
 if os.path.exists('data.json'):
     try:
         with open('data.json', 'r', encoding='utf-8') as f:
@@ -61,8 +61,22 @@ if os.path.exists('data.json'):
     except Exception:
         pass
 
-curr_num = int(re.search(r'\d+', latest_week).group()) if re.search(r'\d+', latest_week) else 39
-prev_num = int(re.search(r'\d+', prev_week).group()) if re.search(r'\d+', prev_week) else (curr_num - 1)
+curr_num = int(re.search(r'\d+', latest_week).group()) if re.search(r'\d+', latest_week) else 40
+curr_start = datetime.fromisocalendar(2026, curr_num, 1)
+curr_end = datetime.fromisocalendar(2026, curr_num, 7)
+
+# Check if target week has data; if 0 rows (e.g. W41 not yet finalized), fall back to latest concluded week in dataset
+valid_dates = tt['date'].dropna()
+max_iso = valid_dates.max().isocalendar()[1] if not valid_dates.empty else 40
+check_rows = tt[(tt['date'] >= curr_start) & (tt['date'] <= curr_end)]
+if len(check_rows) == 0:
+    print(f"⚠️ Tuần {latest_week} chưa có dữ liệu kết luận truy thu. Tự động chuyển sang kỳ kết luận mới nhất: Tuần W{max_iso} vs Tuần W{max_iso - 1}")
+    curr_num = max_iso
+    prev_num = curr_num - 1
+    latest_week = f'W{curr_num}'
+    prev_week = f'W{prev_num}'
+else:
+    prev_num = int(re.search(r'\d+', prev_week).group()) if re.search(r'\d+', prev_week) else (curr_num - 1)
 
 curr_start = datetime.fromisocalendar(2026, curr_num, 1)
 curr_end = datetime.fromisocalendar(2026, curr_num, 7)
