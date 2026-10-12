@@ -1920,7 +1920,11 @@
 
     const latestWeek = D.meta?.latest_week || 'W37';
     const currKey = latestWeek.toLowerCase();
-    const dataT = [...D.san_luong.tinh].sort((a, b) => (a.tinh || "").localeCompare(b.tinh || "", "vi"));
+    const dataT = [...D.san_luong.tinh].sort((a, b) => {
+      const vA = a[currKey] !== undefined ? a[currKey] : (a.vol || 0);
+      const vB = b[currKey] !== undefined ? b[currKey] : (b.vol || 0);
+      return vB - vA;
+    });
     const ttsT = D.san_luong.tinh_tts || [];
     const ttsMap = {};
     ttsT.forEach(t => ttsMap[t.tinh] = t);
@@ -2252,7 +2256,11 @@
     let datasets = [];
     let y1Title = 'Biến Động WoW (Δ Đơn)';
 
-    displayList.sort((a, b) => compareVietnameseNames(a.am, b.am));
+    if (mode === 'w34_vs_w35_tts' || mode === 'w35_vs_w36_tts' || (mode.includes('tts') && !mode.includes('full'))) {
+      displayList.sort((a, b) => (b.vol_tts_w35 || 0) - (a.vol_tts_w35 || 0));
+    } else {
+      displayList.sort((a, b) => (b.vol_full_w35 || 0) - (a.vol_full_w35 || 0));
+    }
     if (mode === 'w34_vs_w35_full' || mode === 'w35_vs_w36_full' || (mode.includes('full') && !mode.includes('tts'))) {
       title = `SẢN LƯỢNG FULL HÀNG (CỘT ${prevLabel} vs ${currLabel} + ĐƯỜNG BIẾN ĐỘNG Δ)`;
 
@@ -2885,7 +2893,11 @@
     let datasets = [];
     let y1Title = 'Biến Động WoW (Δ % p.p)';
     const hasFilter = hlMode !== 'all' || selectedAM;
-    displayList.sort((a, b) => compareVietnameseNames(a.am, b.am));
+    if (seg === 'tts') {
+      displayList.sort((a, b) => (b.tts_w35 || 0) - (a.tts_w35 || 0));
+    } else {
+      displayList.sort((a, b) => (b.full_w35 || 0) - (a.full_w35 || 0));
+    }
 
     if (seg === 'full') {
       datasets = [
@@ -3276,7 +3288,7 @@
     const sortMode = state.gtcTtsCa1Sort || 'diff_asc';
 
     let sorted = getGtcCa1TtsData();
-    sorted.sort((a, b) => compareVietnameseNames(a.am, b.am));
+    sorted.sort((a, b) => (b.w35_pct || 0) - (a.w35_pct || 0));
 
     function checkCa1Match(d) {
       if (selectedAM) return selectedAM === d.am;
@@ -3742,7 +3754,7 @@
     } else if (state.ganFilter === 'ge90') {
       list = list.filter(r => r.tong_pct >= 90.0);
     }
-    list.sort((a, b) => compareVietnameseNames(a.am, b.am));
+    list.sort((a, b) => (b.tong_pct || 0) - (a.tong_pct || 0));
 
     const isUnder80 = state.ganFilter === 'under80';
     const barMaxThick = isUnder80 ? 46 : 28;
@@ -4253,7 +4265,11 @@
     }
     const minRaw = Math.min(...allYVals.filter(v => typeof v === 'number' && !isNaN(v)));
     const yMin = Math.max(0, Math.min(30, Math.floor((minRaw - 5) / 10) * 10));
-    displayList.sort((a, b) => compareVietnameseNames(a.am, b.am));
+    if (seg === 'tts') {
+      displayList.sort((a, b) => (b.tts_w35 || 0) - (a.tts_w35 || 0));
+    } else {
+      displayList.sort((a, b) => (b.full_w35 || 0) - (a.full_w35 || 0));
+    }
 
     if (seg === 'full') {
       datasets = [
@@ -4595,7 +4611,7 @@
         diff_pct: Number((diff_val * 100).toFixed(1)),
         vol: r.vol || 0
       };
-    }).sort((a, b) => compareVietnameseNames(a.am, b.am));
+    }).sort((a, b) => (b.w35_pct || 0) - (a.w35_pct || 0));
 
     charts.ltcBar = new Chart(ctx, {
       type: 'bar',
@@ -5048,7 +5064,7 @@
 
     const selectedAM = state.selectedAM;
     // Sắp xếp A -> Z theo tên AM
-    const ams = [...D.opr_tts.am].sort((a, b) => compareVietnameseNames(a.am, b.am));
+    const ams = [...D.opr_tts.am].sort((a, b) => (getTotalVal(b) || 0) - (getTotalVal(a) || 0));
 
     const diffVals = ams.map(d => Number(((d.diff_total !== undefined ? d.diff_total : ((getTotalVal(d) || 0) - (getPrevTotalVal(d) || 0))) * 100).toFixed(1)));
     const minD = Math.min(...diffVals, 0);
@@ -5463,7 +5479,7 @@
         w35_pct: Number((curr_val * 100).toFixed(2)),
         diff_pct: Number((diff_val * 100).toFixed(2))
       };
-    }).sort((a, b) => compareVietnameseNames(a.am, b.am));
+    }).sort((a, b) => (b.w35_pct || 0) - (a.w35_pct || 0));
 
     charts.rotLcBar = new Chart(ctx, {
       type: 'bar',
@@ -5904,7 +5920,7 @@
       if (name === 'AM Nghĩa') name = 'Nguyễn Đỗ Minh Nghĩa';
       if (name === 'AM Nhi') name = 'Phan Nguyễn Yến Nhi';
       return { ...r, am: name };
-    }).sort((a, b) => compareVietnameseNames(a.am, b.am));
+    }).sort((a, b) => mode === "tts" ? (b.rate_tts || 0) - (a.rate_tts || 0) : (b.rate_full || 0) - (a.rate_full || 0));
 
     const labels = sorted.map(d => d.am);
     const rateData = sorted.map(d => Number(((mode === 'tts' ? d.rate_tts : d.rate_full) * 100).toFixed(2)));
@@ -6361,7 +6377,7 @@
         tinh: r.tinh
       }));
     }
-    dataList.sort((a, b) => compareVietnameseNames(a.am, b.am));
+    dataList.sort((a, b) => (b.vol || 0) - (a.vol || 0));
 
     if (dataList.length === 0) return;
 
@@ -7603,7 +7619,7 @@
     if (charts.kdDoanhThu) charts.kdDoanhThu.destroy();
 
     const selectedAM = state.selectedAM;
-    const sorted = [...D.kinh_doanh.am].sort((a, b) => compareVietnameseNames(a.am, b.am));
+    const sorted = [...D.kinh_doanh.am].sort((a, b) => (b.rev_curr || 0) - (a.rev_curr || 0));
     const latestWeek = D.meta?.latest_week || 'W39';
     const prevWeek = D.meta?.prev_week || 'W38';
 
@@ -7704,7 +7720,7 @@
     if (!ctx || !D.kinh_doanh || !D.kinh_doanh.am) return;
     if (charts.kdGrowthWaterfall) charts.kdGrowthWaterfall.destroy();
 
-    const sorted = [...D.kinh_doanh.am].sort((a, b) => compareVietnameseNames(a.am, b.am));
+    const sorted = [...D.kinh_doanh.am].sort((a, b) => (b.diff_rev || 0) - (a.diff_rev || 0));
     const selectedAM = state.selectedAM;
 
     charts.kdGrowthWaterfall = new Chart(ctx, {
@@ -7762,7 +7778,7 @@
     if (!ctx || !D.f30 || !D.f30.am) return;
     if (charts.f30Shops) charts.f30Shops.destroy();
 
-    const sorted = [...D.f30.am].sort((a, b) => compareVietnameseNames(a.am, b.am));
+    const sorted = [...D.f30.am].sort((a, b) => (b.kh_curr || 0) - (a.kh_curr || 0));
     const selectedAM = state.selectedAM;
     const latestWeek = D.meta?.latest_week || 'W39';
     const prevWeek = D.meta?.prev_week || 'W38';
