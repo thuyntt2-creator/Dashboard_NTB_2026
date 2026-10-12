@@ -1388,6 +1388,7 @@
     } else if (tabId === 'tab-opr-tts') {
       renderOprTab();
       renderOprGroupedChart();
+    try { renderOprBcTable(); } catch(e) { console.error('renderOprBcTable:', e); }
     } else if (tabId === 'tab-rot-lc') {
       renderTransportTab();
       renderRotLcChart();
@@ -9562,7 +9563,11 @@
   // --------------------------------------------------------------------------
   // BẢNG 4: TOP BƯU CỤC OPR TIKTOK SHOP THẤP NHẤT TOÀN VÙNG (TAB 8)
   // --------------------------------------------------------------------------
-  state.oprBcFilter = 'worst';
+  // BẢNG 4: DANH SÁCH ĐIỂM NÓNG OPR TIKTOK SHOP - BƯU CỤC TRỄ SLA NHIỀU NHẤT (TAB 8)
+  // --------------------------------------------------------------------------
+  state.oprBcFilter = 'most_late';
+  state.oprBcSortCol = 'don_tre';
+  state.oprBcSortDir = 'desc';
   state.searchOprBc = '';
 
   window.filterOprBc = function(f) {
@@ -9573,6 +9578,16 @@
     renderOprBcTable();
   };
 
+  window.sortOprBc = function(col) {
+    if (state.oprBcSortCol === col) {
+      state.oprBcSortDir = (state.oprBcSortDir === 'desc') ? 'asc' : 'desc';
+    } else {
+      state.oprBcSortCol = col;
+      state.oprBcSortDir = (col === 'ten_bc' || col === 'am' || col === 'tinh') ? 'asc' : 'desc';
+    }
+    renderOprBcTable();
+  };
+
   window.searchOprBc = function(val) {
     state.searchOprBc = (val || '').toLowerCase().trim();
     renderOprBcTable();
@@ -9580,11 +9595,19 @@
 
   function renderOprBcTable() {
     const tbl = document.querySelector('#table-opr-bc-detailed tbody');
-    if (!tbl || !D.opr || !D.opr.top_bc_opr) return;
+    const rawList = (D.opr_tts && D.opr_tts.top_bc_opr) ? D.opr_tts.top_bc_opr : (D.opr && D.opr.top_bc_opr ? D.opr.top_bc_opr : []);
+    if (!tbl || rawList.length === 0) return;
 
-    let list = [...D.opr.top_bc_opr];
-    if (state.oprBcFilter === 'worst') {
-      list = list.filter(r => (r.pct_opr || 0) < 70.0);
+    let list = [...rawList];
+
+    // Filter Logic
+    if (state.oprBcFilter === 'most_late') {
+      // Ưu tiên các bưu cục có sản lượng đáng kể và số đơn trễ SLA lớn nhất (>= 50 đơn trễ)
+      list = list.filter(r => (r.don_tre || 0) >= 50);
+    } else if (state.oprBcFilter === 'under_kpi') {
+      list = list.filter(r => (r.pct_opr || 0) < 80.0);
+    } else if (state.oprBcFilter === 'night_zero') {
+      list = list.filter(r => (r.opr_night || 0) === 0 && (r.don_night || 0) > 0);
     }
 
     if (state.searchOprBc) {
@@ -9592,22 +9615,55 @@
       list = list.filter(r => (r.ten_bc && r.ten_bc.toLowerCase().includes(q)) || (r.am && r.am.toLowerCase().includes(q)) || (r.tinh && r.tinh.toLowerCase().includes(q)));
     }
 
-    list.sort((a, b) => (a.pct_opr || 0) - (b.pct_opr || 0));
+    // Sorting Logic
+    const col = state.oprBcSortCol || 'don_tre';
+    const isDesc = state.oprBcSortDir === 'desc';
+
+    list.sort((a, b) => {
+      let vA = a[col] !== undefined ? a[col] : 0;
+      let vB = b[col] !== undefined ? b[col] : 0;
+
+      if (typeof vA === 'string') {
+        const cmp = vA.localeCompare(vB, 'vi');
+        return isDesc ? -cmp : cmp;
+      }
+      if (vA === vB) {
+        return (b.don_tre || 0) - (a.don_tre || 0);
+      }
+      return isDesc ? (vB - vA) : (vA - vB);
+    });
 
     const countEl = document.getElementById('opr-bc-count');
-    if (countEl) countEl.textContent = `Đang hiển thị: ${list.length} bưu cục (Tuần W41)`;
+    if (countEl) {
+      const filterTxt = state.oprBcFilter === 'most_late' ? 'Điểm Nóng Trễ ≥ 50 Đơn' : 
+                        state.oprBcFilter === 'under_kpi' ? 'Chưa Đạt KPI (<80%)' :
+                        state.oprBcFilter === 'night_zero' ? 'Tê Liệt Ca Đêm (0%)' : 'Toàn Bộ';
+      countEl.textContent = `Đang hiển thị: ${list.length} bưu cục (${filterTxt} • Xếp theo: ${col === 'don_tre' ? 'Đơn trễ giảm dần' : col})`;
+    }
 
     tbl.innerHTML = list.map((b, i) => {
       const opr_val = b.pct_opr || 0;
       const day_val = b.opr_day || 0;
       const night_val = b.opr_night || 0;
+      const don_tre = b.don_tre || 0;
+      const isNightDead = night_val === 0 && (b.don_night || 0) > 0;
 
       let badge = '<span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span>';
       let rowBg = 'transparent';
       let rateBg = '#dcfce7';
       let rateColor = '#16a34a';
 
-      if (opr_val < 40.0) {
+      if (don_tre >= 100) {
+        badge = '<span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px; background:#dc2626; color:#fff;">🔥 Hố Đen SLA (&gt;100 trễ)</span>';
+        rowBg = 'rgba(239, 68, 68, 0.12)';
+        rateBg = '#dc2626';
+        rateColor = '#ffffff';
+      } else if (isNightDead) {
+        badge = '<span class="badge-tag badge-tag-purple" style="font-weight:800; font-size:11px; background:#7c3aed; color:#fff;">🌙 Liệt Ca Đêm (0%)</span>';
+        rowBg = 'rgba(124, 58, 237, 0.05)';
+        rateBg = '#fee2e2';
+        rateColor = '#b91c1c';
+      } else if (opr_val < 40.0) {
         badge = '<span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Tê Liệt (&lt;40%)</span>';
         rowBg = 'rgba(239, 68, 68, 0.08)';
         rateBg = '#dc2626';
@@ -9625,17 +9681,20 @@
 
       return `
         <tr style="cursor: pointer; background: ${rowBg};" onclick="selectAndHighlightAM('${b.am}')">
-          <td class="center" style="font-weight:800; color:${opr_val < 65.0 ? '#dc2626' : 'inherit'};">${i + 1}</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:${opr_val < 65.0 ? '#b91c1c' : '#1e293b'};">${b.ten_bc}</td>
+          <td class="center" style="font-weight:800; color:${don_tre >= 50 ? '#dc2626' : 'inherit'};">${i + 1}</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:${don_tre >= 100 ? '#991b1b' : (opr_val < 65.0 ? '#b91c1c' : '#1e293b')};">${b.ten_bc}</td>
           <td style="font-weight:700; color:#2563eb;">${b.am}</td>
           <td style="color:#64748b; font-size:12px;">${b.tinh || ''}</td>
           <td class="num bold">${(b.don_total || 0).toLocaleString()}</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">${(b.don_tre || 0).toLocaleString()}</td>
+          <td class="num bold" style="background: ${don_tre >= 100 ? '#dc2626' : 'rgba(239, 68, 68, 0.12)'}; color: ${don_tre >= 100 ? '#ffffff' : '#dc2626'}; font-size: 13.5px; font-weight: 900;">${don_tre.toLocaleString()}</td>
           <td class="num bold" style="background: ${rateBg}; color: ${rateColor}; font-size: 13.5px; font-weight: 900;">${opr_val.toFixed(1)}%</td>
           <td class="num" style="font-weight:700; color:${day_val < 80 ? '#dc2626' : '#16a34a'};">${day_val.toFixed(1)}%</td>
-          <td class="num bold" style="background: ${night_val < 50 ? '#fee2e2' : 'transparent'}; color:${night_val < 50 ? '#dc2626' : '#ea580c'}; font-weight:800;">${night_val.toFixed(1)}%</td>
+          <td class="num bold" style="background: ${isNightDead ? '#fee2e2' : (night_val < 50 ? '#fff1f2' : 'transparent')}; color:${isNightDead ? '#dc2626' : (night_val < 50 ? '#dc2626' : '#ea580c')}; font-weight:800;">
+            ${night_val.toFixed(1)}% ${isNightDead ? '🚨' : ''}
+          </td>
           <td class="center">${badge}</td>
         </tr>
       `;
     }).join('');
   }
+

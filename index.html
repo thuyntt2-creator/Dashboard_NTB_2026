@@ -3091,11 +3091,17 @@
   <div class="report-card-header" style="background: linear-gradient(135deg, #fef2f2, #ffffff); border-bottom: 2px solid #fee2e2; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
     <div class="report-card-title" style="color: #b91c1c; font-weight: 900; font-size: 15.5px; display: flex; align-items: center; gap: 8px;">
       <i data-lucide="alert-octagon" style="color: #dc2626; width: 22px; height: 22px;"></i>
-      BẢNG 4: TOP BƯU CỤC CÓ TỶ LỆ OPR TIKTOK SHOP THẤP NHẤT TOÀN VÙNG (ĐIỂM NÓNG TRỄ SLA SÀN TUẦN W41)
+      BẢNG 4: DANH SÁCH ĐIỂM NÓNG OPR TIKTOK SHOP - BƯU CỤC CÓ SỐ ĐƠN TRỄ SLA NHIỀU NHẤT VÙNG (TUẦN W41)
     </div>
-    <div style="display: flex; align-items: center; gap: 8px;" id="opr-bc-filter-pills">
-      <button class="chart-mode-pill active" data-filter="worst" onclick="filterOprBc('worst')" style="font-size: 12px; font-weight: 700; padding: 4px 10px; cursor: pointer;">
-        🔥 Bưu Cục Tệ Nhất (OPR &lt; 70%)
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;" id="opr-bc-filter-pills">
+      <button class="chart-mode-pill active" data-filter="most_late" onclick="filterOprBc('most_late')" style="font-size: 12px; font-weight: 700; padding: 4px 10px; cursor: pointer;">
+        🔥 Đơn Trễ SLA Cao Nhất (Trễ ≥ 50 đơn)
+      </button>
+      <button class="chart-mode-pill" data-filter="under_kpi" onclick="filterOprBc('under_kpi')" style="font-size: 12px; font-weight: 700; padding: 4px 10px; cursor: pointer;">
+        ⚠️ Chưa Đạt KPI (%OPR &lt; 80%)
+      </button>
+      <button class="chart-mode-pill" data-filter="night_zero" onclick="filterOprBc('night_zero')" style="font-size: 12px; font-weight: 700; padding: 4px 10px; cursor: pointer;">
+        🌙 Tê Liệt Ca Đêm (Đêm = 0%)
       </button>
       <button class="chart-mode-pill" data-filter="all" onclick="filterOprBc('all')" style="font-size: 12px; font-weight: 700; padding: 4px 10px; cursor: pointer;">
         📑 Toàn Bộ Bưu Cục (61 BC)
@@ -3122,604 +3128,702 @@
         <thead>
           <tr style="background: #1e3a8a; color: #ffffff;">
             <th class="center" style="width: 44px; color: #ffffff;">#</th>
-            <th style="color: #ffffff;">Bưu Cục Điểm Nóng (W41)</th>
-            <th style="color: #ffffff;">AM Quản Lý</th>
-            <th style="color: #ffffff;">Tỉnh</th>
-            <th class="num" style="color: #ffffff;">Tổng Đơn TTS</th>
-            <th class="num" style="color: #ffffff; background: #dc2626; font-weight: 900;">Đơn Trễ SLA</th>
-            <th class="num" style="color: #ffffff; background: #b91c1c; font-weight: 900;">% OPR Tuần</th>
-            <th class="num" style="color: #ffffff;">% OPR Ngày (9h–19h)</th>
-            <th class="num" style="color: #ffffff; background: #991b1b;">% OPR Đêm (19h–9h)</th>
+            <th style="color: #ffffff; cursor: pointer;" onclick="sortOprBc('ten_bc')">Bưu Cục Điểm Nóng (W41) ⬍</th>
+            <th style="color: #ffffff; cursor: pointer;" onclick="sortOprBc('am')">AM Quản Lý ⬍</th>
+            <th style="color: #ffffff; cursor: pointer;" onclick="sortOprBc('tinh')">Tỉnh ⬍</th>
+            <th class="num" style="color: #ffffff; cursor: pointer;" onclick="sortOprBc('don_total')">Tổng Đơn TTS ⬍</th>
+            <th class="num" style="color: #ffffff; background: #dc2626; font-weight: 900; cursor: pointer;" onclick="sortOprBc('don_tre')">🔥 Đơn Trễ SLA ⬍</th>
+            <th class="num" style="color: #ffffff; background: #b91c1c; font-weight: 900; cursor: pointer;" onclick="sortOprBc('pct_opr')">% OPR Tuần ⬍</th>
+            <th class="num" style="color: #ffffff; cursor: pointer;" onclick="sortOprBc('opr_day')">% OPR Ngày (9h–19h) ⬍</th>
+            <th class="num" style="color: #ffffff; background: #991b1b; cursor: pointer;" onclick="sortOprBc('opr_night')">% OPR Đêm (19h–9h) ⬍</th>
             <th class="center" style="width: 170px; color: #ffffff;">Đánh Giá SLA (≥80%)</th>
           </tr>
         </thead>
         <tbody>
-        <tr style="cursor: pointer; background: rgba(239, 68, 68, 0.08);" onclick="selectAndHighlightAM('Trần Thị Nhung')">
+        <tr style="cursor: pointer; background: rgba(239, 68, 68, 0.12);" onclick="selectAndHighlightAM('Lê Thanh Nhựt')">
           <td class="center" style="font-weight:800; color:#dc2626;">1</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(DNO) Cư Jút</td>
-          <td style="font-weight:700; color:#2563eb;">Trần Thị Nhung</td>
-          <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
-          <td class="num bold">135</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">114</td>
-          <td class="num bold" style="background: $#dc2626; color: $#ffffff; font-size: 13.5px; font-weight: 900;">15.6%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">0.0%</td>
-          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Tê Liệt (&lt;40%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: rgba(239, 68, 68, 0.08);" onclick="selectAndHighlightAM('Huỳnh Thị Kim Chi')">
-          <td class="center" style="font-weight:800; color:#dc2626;">2</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(LDO) Đinh Văn Lâm Hà</td>
-          <td style="font-weight:700; color:#2563eb;">Huỳnh Thị Kim Chi</td>
-          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
-          <td class="num bold">12</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">10</td>
-          <td class="num bold" style="background: $#dc2626; color: $#ffffff; font-size: 13.5px; font-weight: 900;">16.7%</td>
-          <td class="num" style="font-weight:700; color:#dc2626;">50.0%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">0.0%</td>
-          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Tê Liệt (&lt;40%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: rgba(239, 68, 68, 0.08);" onclick="selectAndHighlightAM('Huỳnh Thúc Duân')">
-          <td class="center" style="font-weight:800; color:#dc2626;">3</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(DNO) Bắc Gia Nghĩa</td>
-          <td style="font-weight:700; color:#2563eb;">Huỳnh Thúc Duân</td>
-          <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
-          <td class="num bold">41</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">33</td>
-          <td class="num bold" style="background: $#dc2626; color: $#ffffff; font-size: 13.5px; font-weight: 900;">19.5%</td>
-          <td class="num" style="font-weight:700; color:#dc2626;">57.1%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">11.8%</td>
-          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Tê Liệt (&lt;40%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: rgba(239, 68, 68, 0.08);" onclick="selectAndHighlightAM('Lê Văn Trường')">
-          <td class="center" style="font-weight:800; color:#dc2626;">4</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(LDO) Xuân Trường - Đà Lạt</td>
-          <td style="font-weight:700; color:#2563eb;">Lê Văn Trường</td>
-          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
-          <td class="num bold">423</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">336</td>
-          <td class="num bold" style="background: $#dc2626; color: $#ffffff; font-size: 13.5px; font-weight: 900;">20.6%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">94.6%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">0.0%</td>
-          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Tê Liệt (&lt;40%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: rgba(239, 68, 68, 0.08);" onclick="selectAndHighlightAM('Trần Thị Nhung')">
-          <td class="center" style="font-weight:800; color:#dc2626;">5</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(DNO) Đức Lập</td>
-          <td style="font-weight:700; color:#2563eb;">Trần Thị Nhung</td>
-          <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
-          <td class="num bold">76</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">55</td>
-          <td class="num bold" style="background: $#dc2626; color: $#ffffff; font-size: 13.5px; font-weight: 900;">27.6%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">0.0%</td>
-          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Tê Liệt (&lt;40%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: rgba(239, 68, 68, 0.08);" onclick="selectAndHighlightAM('Trần Thị Nhung')">
-          <td class="center" style="font-weight:800; color:#dc2626;">6</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(DNO) Krông Nô</td>
-          <td style="font-weight:700; color:#2563eb;">Trần Thị Nhung</td>
-          <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
-          <td class="num bold">92</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">66</td>
-          <td class="num bold" style="background: $#dc2626; color: $#ffffff; font-size: 13.5px; font-weight: 900;">28.3%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">0.0%</td>
-          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Tê Liệt (&lt;40%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: rgba(239, 68, 68, 0.08);" onclick="selectAndHighlightAM('Hồng Bích Nga')">
-          <td class="center" style="font-weight:800; color:#dc2626;">7</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(DNO) Kiến Đức</td>
-          <td style="font-weight:700; color:#2563eb;">Hồng Bích Nga</td>
-          <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
-          <td class="num bold">53</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">36</td>
-          <td class="num bold" style="background: $#dc2626; color: $#ffffff; font-size: 13.5px; font-weight: 900;">32.1%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">89.5%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">0.0%</td>
-          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Tê Liệt (&lt;40%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: rgba(239, 68, 68, 0.08);" onclick="selectAndHighlightAM('Lê Văn Trường')">
-          <td class="center" style="font-weight:800; color:#dc2626;">8</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(LDO) Lâm Viên - Đà Lạt 1</td>
-          <td style="font-weight:700; color:#2563eb;">Lê Văn Trường</td>
-          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
-          <td class="num bold">297</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">200</td>
-          <td class="num bold" style="background: $#dc2626; color: $#ffffff; font-size: 13.5px; font-weight: 900;">32.7%</td>
-          <td class="num" style="font-weight:700; color:#dc2626;">59.6%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">4.8%</td>
-          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Tê Liệt (&lt;40%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: rgba(239, 68, 68, 0.08);" onclick="selectAndHighlightAM('Lê Thanh Nhựt')">
-          <td class="center" style="font-weight:800; color:#dc2626;">9</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(BTH) Tuyên Quang</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#991b1b;">(BTH) Tuyên Quang</td>
           <td style="font-weight:700; color:#2563eb;">Lê Thanh Nhựt</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">512</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">337</td>
-          <td class="num bold" style="background: $#dc2626; color: $#ffffff; font-size: 13.5px; font-weight: 900;">34.2%</td>
+          <td class="num bold" style="background: #dc2626; color: #ffffff; font-size: 13.5px; font-weight: 900;">337</td>
+          <td class="num bold" style="background: #dc2626; color: #ffffff; font-size: 13.5px; font-weight: 900;">34.2%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">30.1%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">41.4%</td>
-          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Tê Liệt (&lt;40%)</span></td>
+          <td class="num bold" style="background: #fff1f2; color:#dc2626; font-weight:800;">
+            41.4% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px; background:#dc2626; color:#fff;">🔥 Hố Đen SLA (&gt;100 trễ)</span></td>
         </tr>
-        <tr style="cursor: pointer; background: rgba(254, 242, 242, 0.6);" onclick="selectAndHighlightAM('Huỳnh Thúc Duân')">
-          <td class="center" style="font-weight:800; color:#dc2626;">10</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(DNO) Nhân Cơ 1</td>
-          <td style="font-weight:700; color:#2563eb;">Huỳnh Thúc Duân</td>
-          <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
-          <td class="num bold">84</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">50</td>
-          <td class="num bold" style="background: $#fee2e2; color: $#b91c1c; font-size: 13.5px; font-weight: 900;">40.5%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">89.5%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">0.0%</td>
-          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:800; font-size:11px;">🔴 Báo Động Đỏ (&lt;65%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: rgba(254, 242, 242, 0.6);" onclick="selectAndHighlightAM('Phan Đình Duy')">
-          <td class="center" style="font-weight:800; color:#dc2626;">11</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(KHO) Nha Trang</td>
-          <td style="font-weight:700; color:#2563eb;">Phan Đình Duy</td>
-          <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
-          <td class="num bold">40</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">21</td>
-          <td class="num bold" style="background: $#fee2e2; color: $#b91c1c; font-size: 13.5px; font-weight: 900;">47.5%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">95.0%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">0.0%</td>
-          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:800; font-size:11px;">🔴 Báo Động Đỏ (&lt;65%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: rgba(254, 242, 242, 0.6);" onclick="selectAndHighlightAM('Cao Thị Thanh Thủy')">
-          <td class="center" style="font-weight:800; color:#dc2626;">12</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(BTH) Phước Hội</td>
-          <td style="font-weight:700; color:#2563eb;">Cao Thị Thanh Thủy</td>
-          <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
-          <td class="num bold">175</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">88</td>
-          <td class="num bold" style="background: $#fee2e2; color: $#b91c1c; font-size: 13.5px; font-weight: 900;">49.7%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">14.6%</td>
-          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:800; font-size:11px;">🔴 Báo Động Đỏ (&lt;65%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: rgba(254, 242, 242, 0.6);" onclick="selectAndHighlightAM('Lê Văn Trường')">
-          <td class="center" style="font-weight:800; color:#dc2626;">13</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(LDO) Lâm Viên - Đà Lạt 2</td>
+        <tr style="cursor: pointer; background: rgba(239, 68, 68, 0.12);" onclick="selectAndHighlightAM('Lê Văn Trường')">
+          <td class="center" style="font-weight:800; color:#dc2626;">2</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#991b1b;">(LDO) Xuân Trường - Đà Lạt</td>
           <td style="font-weight:700; color:#2563eb;">Lê Văn Trường</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
-          <td class="num bold">148</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">73</td>
-          <td class="num bold" style="background: $#fee2e2; color: $#b91c1c; font-size: 13.5px; font-weight: 900;">50.7%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">84.0%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">16.4%</td>
-          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:800; font-size:11px;">🔴 Báo Động Đỏ (&lt;65%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: rgba(254, 242, 242, 0.6);" onclick="selectAndHighlightAM('Thái Thị Thanh Thư')">
-          <td class="center" style="font-weight:800; color:#dc2626;">14</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(KHO) Nam Nha Trang 5</td>
-          <td style="font-weight:700; color:#2563eb;">Thái Thị Thanh Thư</td>
-          <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
-          <td class="num bold">41</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">16</td>
-          <td class="num bold" style="background: $#fee2e2; color: $#b91c1c; font-size: 13.5px; font-weight: 900;">61.0%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">86.2%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">0.0%</td>
-          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:800; font-size:11px;">🔴 Báo Động Đỏ (&lt;65%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: rgba(254, 242, 242, 0.6);" onclick="selectAndHighlightAM('Nguyễn Duy Long')">
-          <td class="center" style="font-weight:800; color:#dc2626;">15</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(NTH) Bảo An</td>
-          <td style="font-weight:700; color:#2563eb;">Nguyễn Duy Long</td>
-          <td style="color:#64748b; font-size:12px;">Ninh Thuận</td>
-          <td class="num bold">8</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">3</td>
-          <td class="num bold" style="background: $#fee2e2; color: $#b91c1c; font-size: 13.5px; font-weight: 900;">62.5%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">40.0%</td>
-          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:800; font-size:11px;">🔴 Báo Động Đỏ (&lt;65%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Lê Văn Trường')">
-          <td class="center" style="font-weight:800; color:inherit;">16</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) Lang Biang - Đà Lạt 2</td>
-          <td style="font-weight:700; color:#2563eb;">Lê Văn Trường</td>
-          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
-          <td class="num bold">219</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">73</td>
-          <td class="num bold" style="background: $#fef3c7; color: $#b45309; font-size: 13.5px; font-weight: 900;">66.7%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">29.8%</td>
-          <td class="center"><span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Không Đạt (&lt;80%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Hồng Bích Nga')">
-          <td class="center" style="font-weight:800; color:inherit;">17</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) Hòa Ninh</td>
-          <td style="font-weight:700; color:#2563eb;">Hồng Bích Nga</td>
-          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
-          <td class="num bold">65</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">19</td>
-          <td class="num bold" style="background: $#fef3c7; color: $#b45309; font-size: 13.5px; font-weight: 900;">70.8%</td>
-          <td class="num" style="font-weight:700; color:#dc2626;">51.5%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">90.6%</td>
-          <td class="center"><span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Không Đạt (&lt;80%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Lê Thanh Nhựt')">
-          <td class="center" style="font-weight:800; color:inherit;">18</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(BTH) Hàm Thuận</td>
-          <td style="font-weight:700; color:#2563eb;">Lê Thanh Nhựt</td>
-          <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
-          <td class="num bold">220</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">60</td>
-          <td class="num bold" style="background: $#fef3c7; color: $#b45309; font-size: 13.5px; font-weight: 900;">72.7%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">97.9%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">23.0%</td>
-          <td class="center"><span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Không Đạt (&lt;80%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Thái Thị Thanh Thư')">
-          <td class="center" style="font-weight:800; color:inherit;">19</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(KHO) Nam Nha Trang 3</td>
-          <td style="font-weight:700; color:#2563eb;">Thái Thị Thanh Thư</td>
-          <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
-          <td class="num bold">285</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">77</td>
-          <td class="num bold" style="background: $#fef3c7; color: $#b45309; font-size: 13.5px; font-weight: 900;">73.0%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">94.8%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">28.0%</td>
-          <td class="center"><span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Không Đạt (&lt;80%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Lê Thanh Nhựt')">
-          <td class="center" style="font-weight:800; color:inherit;">20</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(BTH) Đức Linh</td>
-          <td style="font-weight:700; color:#2563eb;">Lê Thanh Nhựt</td>
-          <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
-          <td class="num bold">245</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">66</td>
-          <td class="num bold" style="background: $#fef3c7; color: $#b45309; font-size: 13.5px; font-weight: 900;">73.1%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">82.2%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">64.6%</td>
-          <td class="center"><span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Không Đạt (&lt;80%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Hồng Bích Nga')">
-          <td class="center" style="font-weight:800; color:inherit;">21</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) 1 Bảo Lộc</td>
-          <td style="font-weight:700; color:#2563eb;">Hồng Bích Nga</td>
-          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
-          <td class="num bold">16</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">4</td>
-          <td class="num bold" style="background: $#fef3c7; color: $#b45309; font-size: 13.5px; font-weight: 900;">75.0%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">33.3%</td>
-          <td class="center"><span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Không Đạt (&lt;80%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Cao Thị Thanh Thủy')">
-          <td class="center" style="font-weight:800; color:inherit;">22</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(BTH) Hàm Thuận Nam</td>
-          <td style="font-weight:700; color:#2563eb;">Cao Thị Thanh Thủy</td>
-          <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
-          <td class="num bold">41</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">10</td>
-          <td class="num bold" style="background: $#fef3c7; color: $#b45309; font-size: 13.5px; font-weight: 900;">75.6%</td>
-          <td class="num" style="font-weight:700; color:#dc2626;">78.4%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">50.0%</td>
-          <td class="center"><span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Không Đạt (&lt;80%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Duy Long')">
-          <td class="center" style="font-weight:800; color:inherit;">23</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(NTH) Ninh Chử</td>
-          <td style="font-weight:700; color:#2563eb;">Nguyễn Duy Long</td>
-          <td style="color:#64748b; font-size:12px;">Ninh Thuận</td>
-          <td class="num bold">102</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">22</td>
-          <td class="num bold" style="background: $#fef3c7; color: $#b45309; font-size: 13.5px; font-weight: 900;">78.4%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">56.9%</td>
-          <td class="center"><span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Không Đạt (&lt;80%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Hoàng Phi')">
-          <td class="center" style="font-weight:800; color:inherit;">24</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(KHO) Diên Khánh 1</td>
-          <td style="font-weight:700; color:#2563eb;">Nguyễn Hoàng Phi</td>
-          <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
-          <td class="num bold">83</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">17</td>
-          <td class="num bold" style="background: $#fef3c7; color: $#b45309; font-size: 13.5px; font-weight: 900;">79.5%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">98.4%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">23.8%</td>
-          <td class="center"><span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Không Đạt (&lt;80%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Thái Thị Thanh Thư')">
-          <td class="center" style="font-weight:800; color:inherit;">25</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(KHO) Nam Nha Trang 1</td>
-          <td style="font-weight:700; color:#2563eb;">Thái Thị Thanh Thư</td>
-          <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
-          <td class="num bold">238</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">37</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">84.5%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">98.1%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">59.0%</td>
-          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Hoàng Phi')">
-          <td class="center" style="font-weight:800; color:inherit;">26</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(KHO) Ninh Hòa 2</td>
-          <td style="font-weight:700; color:#2563eb;">Nguyễn Hoàng Phi</td>
-          <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
-          <td class="num bold">403</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">62</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">84.6%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">88.3%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">78.2%</td>
-          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Cao Thị Thanh Thủy')">
-          <td class="center" style="font-weight:800; color:inherit;">27</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(BTH) Hàm Tân</td>
-          <td style="font-weight:700; color:#2563eb;">Cao Thị Thanh Thủy</td>
-          <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">423</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">64</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">84.9%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">95.9%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">75.2%</td>
-          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
+          <td class="num bold" style="background: #dc2626; color: #ffffff; font-size: 13.5px; font-weight: 900;">336</td>
+          <td class="num bold" style="background: #dc2626; color: #ffffff; font-size: 13.5px; font-weight: 900;">20.6%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">94.6%</td>
+          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">
+            0.0% 🚨
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px; background:#dc2626; color:#fff;">🔥 Hố Đen SLA (&gt;100 trễ)</span></td>
         </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Lê Thanh Nhựt')">
-          <td class="center" style="font-weight:800; color:inherit;">28</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(BTH) Đồng Kho</td>
-          <td style="font-weight:700; color:#2563eb;">Lê Thanh Nhựt</td>
-          <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
-          <td class="num bold">564</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">84</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">85.1%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">96.2%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">75.6%</td>
-          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
+        <tr style="cursor: pointer; background: rgba(239, 68, 68, 0.12);" onclick="selectAndHighlightAM('Lê Văn Trường')">
+          <td class="center" style="font-weight:800; color:#dc2626;">3</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#991b1b;">(LDO) Lâm Viên - Đà Lạt 1</td>
+          <td style="font-weight:700; color:#2563eb;">Lê Văn Trường</td>
+          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
+          <td class="num bold">297</td>
+          <td class="num bold" style="background: #dc2626; color: #ffffff; font-size: 13.5px; font-weight: 900;">200</td>
+          <td class="num bold" style="background: #dc2626; color: #ffffff; font-size: 13.5px; font-weight: 900;">32.7%</td>
+          <td class="num" style="font-weight:700; color:#dc2626;">59.6%</td>
+          <td class="num bold" style="background: #fff1f2; color:#dc2626; font-weight:800;">
+            4.8% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px; background:#dc2626; color:#fff;">🔥 Hố Đen SLA (&gt;100 trễ)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: rgba(239, 68, 68, 0.12);" onclick="selectAndHighlightAM('Trần Thị Nhung')">
+          <td class="center" style="font-weight:800; color:#dc2626;">4</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#991b1b;">(DNO) Cư Jút</td>
+          <td style="font-weight:700; color:#2563eb;">Trần Thị Nhung</td>
+          <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
+          <td class="num bold">135</td>
+          <td class="num bold" style="background: #dc2626; color: #ffffff; font-size: 13.5px; font-weight: 900;">114</td>
+          <td class="num bold" style="background: #dc2626; color: #ffffff; font-size: 13.5px; font-weight: 900;">15.6%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
+          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">
+            0.0% 🚨
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px; background:#dc2626; color:#fff;">🔥 Hố Đen SLA (&gt;100 trễ)</span></td>
         </tr>
         <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Ngọc Khánh')">
-          <td class="center" style="font-weight:800; color:inherit;">29</td>
+          <td class="center" style="font-weight:800; color:#dc2626;">5</td>
           <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(BTH) Bắc Bình</td>
           <td style="font-weight:700; color:#2563eb;">Nguyễn Ngọc Khánh</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">907</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">92</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">89.9%</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">92</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">89.9%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">90.1%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">77.8%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            77.8% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Ngọc Khánh')">
-          <td class="center" style="font-weight:800; color:inherit;">30</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(BTH) Hàm Thắng</td>
-          <td style="font-weight:700; color:#2563eb;">Nguyễn Ngọc Khánh</td>
+        <tr style="cursor: pointer; background: rgba(254, 242, 242, 0.6);" onclick="selectAndHighlightAM('Cao Thị Thanh Thủy')">
+          <td class="center" style="font-weight:800; color:#dc2626;">6</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(BTH) Phước Hội</td>
+          <td style="font-weight:700; color:#2563eb;">Cao Thị Thanh Thủy</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
-          <td class="num bold">105</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">10</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">90.5%</td>
+          <td class="num bold">175</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">88</td>
+          <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size: 13.5px; font-weight: 900;">49.7%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">80.0%</td>
+          <td class="num bold" style="background: #fff1f2; color:#dc2626; font-weight:800;">
+            14.6% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:800; font-size:11px;">🔴 Báo Động Đỏ (&lt;65%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Lê Thanh Nhựt')">
+          <td class="center" style="font-weight:800; color:#dc2626;">7</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(BTH) Đồng Kho</td>
+          <td style="font-weight:700; color:#2563eb;">Lê Thanh Nhựt</td>
+          <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
+          <td class="num bold">564</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">84</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">85.1%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">96.2%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            75.6% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Lê Văn Trường')">
-          <td class="center" style="font-weight:800; color:inherit;">31</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) Xuân Hương - Đà Lạt</td>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Thái Thị Thanh Thư')">
+          <td class="center" style="font-weight:800; color:#dc2626;">8</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(KHO) Nam Nha Trang 3</td>
+          <td style="font-weight:700; color:#2563eb;">Thái Thị Thanh Thư</td>
+          <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
+          <td class="num bold">285</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">77</td>
+          <td class="num bold" style="background: #fef3c7; color: #b45309; font-size: 13.5px; font-weight: 900;">73.0%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">94.8%</td>
+          <td class="num bold" style="background: #fff1f2; color:#dc2626; font-weight:800;">
+            28.0% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Không Đạt (&lt;80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: rgba(254, 242, 242, 0.6);" onclick="selectAndHighlightAM('Lê Văn Trường')">
+          <td class="center" style="font-weight:800; color:#dc2626;">9</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(LDO) Lâm Viên - Đà Lạt 2</td>
           <td style="font-weight:700; color:#2563eb;">Lê Văn Trường</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
-          <td class="num bold">11</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">90.9%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">90.9%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">0.0%</td>
+          <td class="num bold">148</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">73</td>
+          <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size: 13.5px; font-weight: 900;">50.7%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">84.0%</td>
+          <td class="num bold" style="background: #fff1f2; color:#dc2626; font-weight:800;">
+            16.4% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:800; font-size:11px;">🔴 Báo Động Đỏ (&lt;65%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Lê Văn Trường')">
+          <td class="center" style="font-weight:800; color:#dc2626;">10</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) Lang Biang - Đà Lạt 2</td>
+          <td style="font-weight:700; color:#2563eb;">Lê Văn Trường</td>
+          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
+          <td class="num bold">219</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">73</td>
+          <td class="num bold" style="background: #fef3c7; color: #b45309; font-size: 13.5px; font-weight: 900;">66.7%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
+          <td class="num bold" style="background: #fff1f2; color:#dc2626; font-weight:800;">
+            29.8% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Không Đạt (&lt;80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: rgba(124, 58, 237, 0.05);" onclick="selectAndHighlightAM('Trần Thị Nhung')">
+          <td class="center" style="font-weight:800; color:#dc2626;">11</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(DNO) Krông Nô</td>
+          <td style="font-weight:700; color:#2563eb;">Trần Thị Nhung</td>
+          <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
+          <td class="num bold">92</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">66</td>
+          <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size: 13.5px; font-weight: 900;">28.3%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
+          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">
+            0.0% 🚨
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-purple" style="font-weight:800; font-size:11px; background:#7c3aed; color:#fff;">🌙 Liệt Ca Đêm (0%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Lê Thanh Nhựt')">
+          <td class="center" style="font-weight:800; color:#dc2626;">12</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(BTH) Đức Linh</td>
+          <td style="font-weight:700; color:#2563eb;">Lê Thanh Nhựt</td>
+          <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
+          <td class="num bold">245</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">66</td>
+          <td class="num bold" style="background: #fef3c7; color: #b45309; font-size: 13.5px; font-weight: 900;">73.1%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">82.2%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            64.6% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Không Đạt (&lt;80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Cao Thị Thanh Thủy')">
+          <td class="center" style="font-weight:800; color:#dc2626;">13</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(BTH) Hàm Tân</td>
+          <td style="font-weight:700; color:#2563eb;">Cao Thị Thanh Thủy</td>
+          <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
+          <td class="num bold">423</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">64</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">84.9%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">95.9%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            75.2% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Hoàng Phi')">
+          <td class="center" style="font-weight:800; color:#dc2626;">14</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(KHO) Ninh Hòa 2</td>
+          <td style="font-weight:700; color:#2563eb;">Nguyễn Hoàng Phi</td>
+          <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
+          <td class="num bold">403</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">62</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">84.6%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">88.3%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            78.2% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
         <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Ngọc Khánh')">
-          <td class="center" style="font-weight:800; color:inherit;">32</td>
+          <td class="center" style="font-weight:800; color:#dc2626;">15</td>
           <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(BTH) Phú Thủy</td>
           <td style="font-weight:700; color:#2563eb;">Nguyễn Ngọc Khánh</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">702</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">61</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">91.3%</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">61</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">91.3%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.4%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">73.9%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            73.9% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Đỗ Minh Nghĩa')">
-          <td class="center" style="font-weight:800; color:inherit;">33</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) Đạ Huoai</td>
-          <td style="font-weight:700; color:#2563eb;">Nguyễn Đỗ Minh Nghĩa</td>
-          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
-          <td class="num bold">138</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">12</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">91.3%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">94.2%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">72.2%</td>
-          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Huỳnh Thúc Duân')">
-          <td class="center" style="font-weight:800; color:inherit;">34</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(DNO) Đông Gia Nghĩa</td>
-          <td style="font-weight:700; color:#2563eb;">Huỳnh Thúc Duân</td>
-          <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
-          <td class="num bold">185</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">14</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">92.4%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">92.4%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">0.0%</td>
-          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Lê Nguyên Vũ')">
-          <td class="center" style="font-weight:800; color:inherit;">35</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) 3 Bảo Lộc</td>
-          <td style="font-weight:700; color:#2563eb;">Nguyễn Lê Nguyên Vũ</td>
-          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
-          <td class="num bold">105</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">8</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">92.4%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">98.7%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">75.9%</td>
-          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Đỗ Minh Nghĩa')">
-          <td class="center" style="font-weight:800; color:inherit;">36</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) Cát Tiên</td>
-          <td style="font-weight:700; color:#2563eb;">Nguyễn Đỗ Minh Nghĩa</td>
-          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
-          <td class="num bold">196</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">14</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">92.9%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">0.0%</td>
-          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Duy Long')">
-          <td class="center" style="font-weight:800; color:inherit;">37</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(NTH) Phước Dinh</td>
-          <td style="font-weight:700; color:#2563eb;">Nguyễn Duy Long</td>
-          <td style="color:#64748b; font-size:12px;">Ninh Thuận</td>
-          <td class="num bold">848</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">55</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">93.5%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">99.3%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">81.1%</td>
-          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Hồng Bích Nga')">
-          <td class="center" style="font-weight:800; color:inherit;">38</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) B'Lao</td>
-          <td style="font-weight:700; color:#2563eb;">Hồng Bích Nga</td>
-          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
-          <td class="num bold">410</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">26</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">93.7%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">93.1%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">94.8%</td>
-          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Lê Nguyên Vũ')">
-          <td class="center" style="font-weight:800; color:inherit;">39</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) Đức Trọng 1</td>
-          <td style="font-weight:700; color:#2563eb;">Nguyễn Lê Nguyên Vũ</td>
-          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
-          <td class="num bold">339</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">19</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">94.4%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">98.7%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">28.6%</td>
-          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Duy Long')">
-          <td class="center" style="font-weight:800; color:inherit;">40</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(NTH) Phan Rang</td>
-          <td style="font-weight:700; color:#2563eb;">Nguyễn Duy Long</td>
-          <td style="color:#64748b; font-size:12px;">Ninh Thuận</td>
-          <td class="num bold">782</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">37</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">95.3%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">94.1%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">97.2%</td>
-          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Lê Thanh Nhựt')">
+          <td class="center" style="font-weight:800; color:#dc2626;">16</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(BTH) Hàm Thuận</td>
+          <td style="font-weight:700; color:#2563eb;">Lê Thanh Nhựt</td>
+          <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
+          <td class="num bold">220</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">60</td>
+          <td class="num bold" style="background: #fef3c7; color: #b45309; font-size: 13.5px; font-weight: 900;">72.7%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">97.9%</td>
+          <td class="num bold" style="background: #fff1f2; color:#dc2626; font-weight:800;">
+            23.0% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Không Đạt (&lt;80%)</span></td>
         </tr>
         <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Thái Thị Thanh Thư')">
-          <td class="center" style="font-weight:800; color:inherit;">41</td>
+          <td class="center" style="font-weight:800; color:#dc2626;">17</td>
           <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(KHO) Bắc Nha Trang</td>
           <td style="font-weight:700; color:#2563eb;">Thái Thị Thanh Thư</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">1,215</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">56</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">95.4%</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">56</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">95.4%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">93.4%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">96.9%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            96.9% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Thị Tuyết Thơ')">
-          <td class="center" style="font-weight:800; color:inherit;">42</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) Hiệp Thạnh</td>
-          <td style="font-weight:700; color:#2563eb;">Nguyễn Thị Tuyết Thơ</td>
-          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
-          <td class="num bold">225</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">10</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">95.6%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">93.7%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">98.8%</td>
+        <tr style="cursor: pointer; background: rgba(124, 58, 237, 0.05);" onclick="selectAndHighlightAM('Trần Thị Nhung')">
+          <td class="center" style="font-weight:800; color:#dc2626;">18</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(DNO) Đức Lập</td>
+          <td style="font-weight:700; color:#2563eb;">Trần Thị Nhung</td>
+          <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
+          <td class="num bold">76</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">55</td>
+          <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size: 13.5px; font-weight: 900;">27.6%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
+          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">
+            0.0% 🚨
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-purple" style="font-weight:800; font-size:11px; background:#7c3aed; color:#fff;">🌙 Liệt Ca Đêm (0%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Duy Long')">
+          <td class="center" style="font-weight:800; color:#dc2626;">19</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(NTH) Phước Dinh</td>
+          <td style="font-weight:700; color:#2563eb;">Nguyễn Duy Long</td>
+          <td style="color:#64748b; font-size:12px;">Ninh Thuận</td>
+          <td class="num bold">848</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">55</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">93.5%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">99.3%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            81.1% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: rgba(124, 58, 237, 0.05);" onclick="selectAndHighlightAM('Huỳnh Thúc Duân')">
+          <td class="center" style="font-weight:800; color:#dc2626;">20</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(DNO) Nhân Cơ 1</td>
+          <td style="font-weight:700; color:#2563eb;">Huỳnh Thúc Duân</td>
+          <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
+          <td class="num bold">84</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">50</td>
+          <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size: 13.5px; font-weight: 900;">40.5%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">89.5%</td>
+          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">
+            0.0% 🚨
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-purple" style="font-weight:800; font-size:11px; background:#7c3aed; color:#fff;">🌙 Liệt Ca Đêm (0%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Thái Thị Thanh Thư')">
+          <td class="center" style="font-weight:800; color:inherit;">21</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(KHO) Nam Nha Trang 1</td>
+          <td style="font-weight:700; color:#2563eb;">Thái Thị Thanh Thư</td>
+          <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
+          <td class="num bold">238</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">37</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">84.5%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">98.1%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            59.0% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
         <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Duy Long')">
-          <td class="center" style="font-weight:800; color:inherit;">43</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(BTH) Liên Hương</td>
+          <td class="center" style="font-weight:800; color:inherit;">22</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(NTH) Phan Rang</td>
           <td style="font-weight:700; color:#2563eb;">Nguyễn Duy Long</td>
-          <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
-          <td class="num bold">77</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">2</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">97.4%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">97.4%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">0.0%</td>
+          <td style="color:#64748b; font-size:12px;">Ninh Thuận</td>
+          <td class="num bold">782</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">37</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">95.3%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">94.1%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            97.2% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Đỗ Minh Nghĩa')">
-          <td class="center" style="font-weight:800; color:inherit;">44</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) Đạ Tẻh</td>
+        <tr style="cursor: pointer; background: rgba(124, 58, 237, 0.05);" onclick="selectAndHighlightAM('Hồng Bích Nga')">
+          <td class="center" style="font-weight:800; color:inherit;">23</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(DNO) Kiến Đức</td>
+          <td style="font-weight:700; color:#2563eb;">Hồng Bích Nga</td>
+          <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
+          <td class="num bold">53</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">36</td>
+          <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size: 13.5px; font-weight: 900;">32.1%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">89.5%</td>
+          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">
+            0.0% 🚨
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-purple" style="font-weight:800; font-size:11px; background:#7c3aed; color:#fff;">🌙 Liệt Ca Đêm (0%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: rgba(239, 68, 68, 0.08);" onclick="selectAndHighlightAM('Huỳnh Thúc Duân')">
+          <td class="center" style="font-weight:800; color:inherit;">24</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(DNO) Bắc Gia Nghĩa</td>
+          <td style="font-weight:700; color:#2563eb;">Huỳnh Thúc Duân</td>
+          <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
+          <td class="num bold">41</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">33</td>
+          <td class="num bold" style="background: #dc2626; color: #ffffff; font-size: 13.5px; font-weight: 900;">19.5%</td>
+          <td class="num" style="font-weight:700; color:#dc2626;">57.1%</td>
+          <td class="num bold" style="background: #fff1f2; color:#dc2626; font-weight:800;">
+            11.8% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Tê Liệt (&lt;40%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Hồng Bích Nga')">
+          <td class="center" style="font-weight:800; color:inherit;">25</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) B'Lao</td>
+          <td style="font-weight:700; color:#2563eb;">Hồng Bích Nga</td>
+          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
+          <td class="num bold">410</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">26</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">93.7%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">93.1%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            94.8% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Duy Long')">
+          <td class="center" style="font-weight:800; color:inherit;">26</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(NTH) Ninh Chử</td>
+          <td style="font-weight:700; color:#2563eb;">Nguyễn Duy Long</td>
+          <td style="color:#64748b; font-size:12px;">Ninh Thuận</td>
+          <td class="num bold">102</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">22</td>
+          <td class="num bold" style="background: #fef3c7; color: #b45309; font-size: 13.5px; font-weight: 900;">78.4%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            56.9% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Không Đạt (&lt;80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: rgba(124, 58, 237, 0.05);" onclick="selectAndHighlightAM('Phan Đình Duy')">
+          <td class="center" style="font-weight:800; color:inherit;">27</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(KHO) Nha Trang</td>
+          <td style="font-weight:700; color:#2563eb;">Phan Đình Duy</td>
+          <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
+          <td class="num bold">40</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">21</td>
+          <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size: 13.5px; font-weight: 900;">47.5%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">95.0%</td>
+          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">
+            0.0% 🚨
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-purple" style="font-weight:800; font-size:11px; background:#7c3aed; color:#fff;">🌙 Liệt Ca Đêm (0%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Hồng Bích Nga')">
+          <td class="center" style="font-weight:800; color:inherit;">28</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) Hòa Ninh</td>
+          <td style="font-weight:700; color:#2563eb;">Hồng Bích Nga</td>
+          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
+          <td class="num bold">65</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">19</td>
+          <td class="num bold" style="background: #fef3c7; color: #b45309; font-size: 13.5px; font-weight: 900;">70.8%</td>
+          <td class="num" style="font-weight:700; color:#dc2626;">51.5%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            90.6% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Không Đạt (&lt;80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Lê Nguyên Vũ')">
+          <td class="center" style="font-weight:800; color:inherit;">29</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) Đức Trọng 1</td>
+          <td style="font-weight:700; color:#2563eb;">Nguyễn Lê Nguyên Vũ</td>
+          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
+          <td class="num bold">339</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">19</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">94.4%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">98.7%</td>
+          <td class="num bold" style="background: #fff1f2; color:#dc2626; font-weight:800;">
+            28.6% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Hoàng Phi')">
+          <td class="center" style="font-weight:800; color:inherit;">30</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(KHO) Diên Khánh 1</td>
+          <td style="font-weight:700; color:#2563eb;">Nguyễn Hoàng Phi</td>
+          <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
+          <td class="num bold">83</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">17</td>
+          <td class="num bold" style="background: #fef3c7; color: #b45309; font-size: 13.5px; font-weight: 900;">79.5%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">98.4%</td>
+          <td class="num bold" style="background: #fff1f2; color:#dc2626; font-weight:800;">
+            23.8% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Không Đạt (&lt;80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: rgba(124, 58, 237, 0.05);" onclick="selectAndHighlightAM('Thái Thị Thanh Thư')">
+          <td class="center" style="font-weight:800; color:inherit;">31</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(KHO) Nam Nha Trang 5</td>
+          <td style="font-weight:700; color:#2563eb;">Thái Thị Thanh Thư</td>
+          <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
+          <td class="num bold">41</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">16</td>
+          <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size: 13.5px; font-weight: 900;">61.0%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">86.2%</td>
+          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">
+            0.0% 🚨
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-purple" style="font-weight:800; font-size:11px; background:#7c3aed; color:#fff;">🌙 Liệt Ca Đêm (0%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Huỳnh Thúc Duân')">
+          <td class="center" style="font-weight:800; color:inherit;">32</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(DNO) Đông Gia Nghĩa</td>
+          <td style="font-weight:700; color:#2563eb;">Huỳnh Thúc Duân</td>
+          <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
+          <td class="num bold">185</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">14</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">92.4%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">92.4%</td>
+          <td class="num bold" style="background: #fff1f2; color:#dc2626; font-weight:800;">
+            0.0% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: rgba(124, 58, 237, 0.05);" onclick="selectAndHighlightAM('Nguyễn Đỗ Minh Nghĩa')">
+          <td class="center" style="font-weight:800; color:inherit;">33</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) Cát Tiên</td>
           <td style="font-weight:700; color:#2563eb;">Nguyễn Đỗ Minh Nghĩa</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
-          <td class="num bold">237</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">6</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">97.5%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">98.3%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">95.0%</td>
-          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
-        </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Thị Tuyết Thơ')">
-          <td class="center" style="font-weight:800; color:inherit;">45</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) Đức Trọng 2</td>
-          <td style="font-weight:700; color:#2563eb;">Nguyễn Thị Tuyết Thơ</td>
-          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
-          <td class="num bold">362</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">8</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">97.8%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">97.9%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">97.6%</td>
-          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
+          <td class="num bold">196</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">14</td>
+          <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size: 13.5px; font-weight: 900;">92.9%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
+          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">
+            0.0% 🚨
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-purple" style="font-weight:800; font-size:11px; background:#7c3aed; color:#fff;">🌙 Liệt Ca Đêm (0%)</span></td>
         </tr>
         <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Cao Thị Thanh Thủy')">
-          <td class="center" style="font-weight:800; color:inherit;">46</td>
+          <td class="center" style="font-weight:800; color:inherit;">34</td>
           <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(BTH) Tân Hải</td>
           <td style="font-weight:700; color:#2563eb;">Cao Thị Thanh Thủy</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">615</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">13</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">97.9%</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">13</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">97.9%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">93.6%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            93.6% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
-        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Phan Đình Duy')">
-          <td class="center" style="font-weight:800; color:inherit;">47</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(KHO) Đông Ninh Hòa</td>
-          <td style="font-weight:700; color:#2563eb;">Phan Đình Duy</td>
-          <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
-          <td class="num bold">107</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">2</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">98.1%</td>
-          <td class="num" style="font-weight:700; color:#16a34a;">98.0%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">100.0%</td>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Đỗ Minh Nghĩa')">
+          <td class="center" style="font-weight:800; color:inherit;">35</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) Đạ Huoai</td>
+          <td style="font-weight:700; color:#2563eb;">Nguyễn Đỗ Minh Nghĩa</td>
+          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
+          <td class="num bold">138</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">12</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">91.3%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">94.2%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            72.2% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
         <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Lê Thanh Nhựt')">
-          <td class="center" style="font-weight:800; color:inherit;">48</td>
+          <td class="center" style="font-weight:800; color:inherit;">36</td>
           <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(BTH) Hàm Liêm</td>
           <td style="font-weight:700; color:#2563eb;">Lê Thanh Nhựt</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">756</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">11</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">98.5%</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">11</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">98.5%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.3%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">100.0%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            100.0% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
+        <tr style="cursor: pointer; background: rgba(124, 58, 237, 0.05);" onclick="selectAndHighlightAM('Huỳnh Thị Kim Chi')">
+          <td class="center" style="font-weight:800; color:inherit;">37</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(LDO) Đinh Văn Lâm Hà</td>
+          <td style="font-weight:700; color:#2563eb;">Huỳnh Thị Kim Chi</td>
+          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
+          <td class="num bold">12</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">10</td>
+          <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size: 13.5px; font-weight: 900;">16.7%</td>
+          <td class="num" style="font-weight:700; color:#dc2626;">50.0%</td>
+          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">
+            0.0% 🚨
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-purple" style="font-weight:800; font-size:11px; background:#7c3aed; color:#fff;">🌙 Liệt Ca Đêm (0%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Cao Thị Thanh Thủy')">
+          <td class="center" style="font-weight:800; color:inherit;">38</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(BTH) Hàm Thuận Nam</td>
+          <td style="font-weight:700; color:#2563eb;">Cao Thị Thanh Thủy</td>
+          <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
+          <td class="num bold">41</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">10</td>
+          <td class="num bold" style="background: #fef3c7; color: #b45309; font-size: 13.5px; font-weight: 900;">75.6%</td>
+          <td class="num" style="font-weight:700; color:#dc2626;">78.4%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            50.0% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Không Đạt (&lt;80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Ngọc Khánh')">
+          <td class="center" style="font-weight:800; color:inherit;">39</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(BTH) Hàm Thắng</td>
+          <td style="font-weight:700; color:#2563eb;">Nguyễn Ngọc Khánh</td>
+          <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
+          <td class="num bold">105</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">10</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">90.5%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            80.0% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Thị Tuyết Thơ')">
+          <td class="center" style="font-weight:800; color:inherit;">40</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) Hiệp Thạnh</td>
+          <td style="font-weight:700; color:#2563eb;">Nguyễn Thị Tuyết Thơ</td>
+          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
+          <td class="num bold">225</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">10</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">95.6%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">93.7%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            98.8% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Lê Nguyên Vũ')">
+          <td class="center" style="font-weight:800; color:inherit;">41</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) 3 Bảo Lộc</td>
+          <td style="font-weight:700; color:#2563eb;">Nguyễn Lê Nguyên Vũ</td>
+          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
+          <td class="num bold">105</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">8</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">92.4%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">98.7%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            75.9% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Thị Tuyết Thơ')">
+          <td class="center" style="font-weight:800; color:inherit;">42</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) Đức Trọng 2</td>
+          <td style="font-weight:700; color:#2563eb;">Nguyễn Thị Tuyết Thơ</td>
+          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
+          <td class="num bold">362</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">8</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">97.8%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">97.9%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            97.6% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Đỗ Minh Nghĩa')">
+          <td class="center" style="font-weight:800; color:inherit;">43</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) Đạ Tẻh</td>
+          <td style="font-weight:700; color:#2563eb;">Nguyễn Đỗ Minh Nghĩa</td>
+          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
+          <td class="num bold">237</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">6</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">97.5%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">98.3%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            95.0% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Hồng Bích Nga')">
+          <td class="center" style="font-weight:800; color:inherit;">44</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) 1 Bảo Lộc</td>
+          <td style="font-weight:700; color:#2563eb;">Hồng Bích Nga</td>
+          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
+          <td class="num bold">16</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">4</td>
+          <td class="num bold" style="background: #fef3c7; color: #b45309; font-size: 13.5px; font-weight: 900;">75.0%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
+          <td class="num bold" style="background: #fff1f2; color:#dc2626; font-weight:800;">
+            33.3% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Không Đạt (&lt;80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: rgba(254, 242, 242, 0.6);" onclick="selectAndHighlightAM('Nguyễn Duy Long')">
+          <td class="center" style="font-weight:800; color:inherit;">45</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">(NTH) Bảo An</td>
+          <td style="font-weight:700; color:#2563eb;">Nguyễn Duy Long</td>
+          <td style="color:#64748b; font-size:12px;">Ninh Thuận</td>
+          <td class="num bold">8</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">3</td>
+          <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size: 13.5px; font-weight: 900;">62.5%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
+          <td class="num bold" style="background: #fff1f2; color:#dc2626; font-weight:800;">
+            40.0% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:800; font-size:11px;">🔴 Báo Động Đỏ (&lt;65%)</span></td>
+        </tr>
         <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Phan Đình Duy')">
-          <td class="center" style="font-weight:800; color:inherit;">49</td>
+          <td class="center" style="font-weight:800; color:inherit;">46</td>
           <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(KHO) Tu Bông</td>
           <td style="font-weight:700; color:#2563eb;">Phan Đình Duy</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">299</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">3</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">99.0%</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">3</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">99.0%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.4%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">100.0%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            100.0% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Duy Long')">
+          <td class="center" style="font-weight:800; color:inherit;">47</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(BTH) Liên Hương</td>
+          <td style="font-weight:700; color:#2563eb;">Nguyễn Duy Long</td>
+          <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
+          <td class="num bold">77</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">2</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">97.4%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">97.4%</td>
+          <td class="num bold" style="background: #fff1f2; color:#dc2626; font-weight:800;">
+            0.0% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Phan Đình Duy')">
+          <td class="center" style="font-weight:800; color:inherit;">48</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(KHO) Đông Ninh Hòa</td>
+          <td style="font-weight:700; color:#2563eb;">Phan Đình Duy</td>
+          <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
+          <td class="num bold">107</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">2</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">98.1%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">98.0%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            100.0% 
+          </td>
+          <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
+        </tr>
+        <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Lê Văn Trường')">
+          <td class="center" style="font-weight:800; color:inherit;">49</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:#1e293b;">(LDO) Xuân Hương - Đà Lạt</td>
+          <td style="font-weight:700; color:#2563eb;">Lê Văn Trường</td>
+          <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
+          <td class="num bold">11</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">1</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">90.9%</td>
+          <td class="num" style="font-weight:700; color:#16a34a;">90.9%</td>
+          <td class="num bold" style="background: #fff1f2; color:#dc2626; font-weight:800;">
+            0.0% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
         <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Hoàng Phi')">
@@ -3728,10 +3832,12 @@
           <td style="font-weight:700; color:#2563eb;">Nguyễn Hoàng Phi</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">144</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">99.3%</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">1</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">99.3%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">98.5%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            98.5% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
         <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Duy Long')">
@@ -3740,10 +3846,12 @@
           <td style="font-weight:700; color:#2563eb;">Nguyễn Duy Long</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">86</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">0</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">0</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">100.0%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            100.0% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
         <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Trần Thị Nhung')">
@@ -3752,10 +3860,12 @@
           <td style="font-weight:700; color:#2563eb;">Trần Thị Nhung</td>
           <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
           <td class="num bold">2</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">0</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">0</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">100.0%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            100.0% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
         <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Thanh Long')">
@@ -3764,10 +3874,12 @@
           <td style="font-weight:700; color:#2563eb;">Nguyễn Thanh Long</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">46</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">0</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">0</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">100.0%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            100.0% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
         <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Thanh Long')">
@@ -3776,10 +3888,12 @@
           <td style="font-weight:700; color:#2563eb;">Nguyễn Thanh Long</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">7</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">0</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">0</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">0.0%</td>
+          <td class="num bold" style="background: #fff1f2; color:#dc2626; font-weight:800;">
+            0.0% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
         <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Hoàng Phi')">
@@ -3788,10 +3902,12 @@
           <td style="font-weight:700; color:#2563eb;">Nguyễn Hoàng Phi</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">189</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">0</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">0</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">100.0%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            100.0% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
         <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Phan Đình Duy')">
@@ -3800,10 +3916,12 @@
           <td style="font-weight:700; color:#2563eb;">Phan Đình Duy</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">48</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">0</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">0</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">100.0%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            100.0% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
         <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Hồng Bích Nga')">
@@ -3812,10 +3930,12 @@
           <td style="font-weight:700; color:#2563eb;">Hồng Bích Nga</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">64</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">0</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">0</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">100.0%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            100.0% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
         <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Huỳnh Thị Kim Chi')">
@@ -3824,10 +3944,12 @@
           <td style="font-weight:700; color:#2563eb;">Huỳnh Thị Kim Chi</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">1</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">0</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">0</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">0.0%</td>
+          <td class="num bold" style="background: #fff1f2; color:#dc2626; font-weight:800;">
+            0.0% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
         <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Thị Tuyết Thơ')">
@@ -3836,10 +3958,12 @@
           <td style="font-weight:700; color:#2563eb;">Nguyễn Thị Tuyết Thơ</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">29</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">0</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">0</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">100.0%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            100.0% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
         <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Phan Nguyễn Yến Nhi')">
@@ -3848,10 +3972,12 @@
           <td style="font-weight:700; color:#2563eb;">Phan Nguyễn Yến Nhi</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">1</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">0</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">0</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: #fee2e2; color:#dc2626; font-weight:800;">0.0%</td>
+          <td class="num bold" style="background: #fff1f2; color:#dc2626; font-weight:800;">
+            0.0% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
         <tr style="cursor: pointer; background: transparent;" onclick="selectAndHighlightAM('Nguyễn Duy Long')">
@@ -3860,10 +3986,12 @@
           <td style="font-weight:700; color:#2563eb;">Nguyễn Duy Long</td>
           <td style="color:#64748b; font-size:12px;">Ninh Thuận</td>
           <td class="num bold">5</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">0</td>
-          <td class="num bold" style="background: $#dcfce7; color: $#16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13.5px; font-weight: 900;">0</td>
+          <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">100.0%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">100.0%</td>
-          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">100.0%</td>
+          <td class="num bold" style="background: transparent; color:#ea580c; font-weight:800;">
+            100.0% 
+          </td>
           <td class="center"><span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span></td>
         </tr>
         </tbody>
@@ -5622,7 +5750,7 @@
 </div>
 </div>
 <!-- Scripts -->
-<script src="data.js?v=1791830766"></script>
-<script src="app.js?v=1791830766"></script>
+<script src="data.js?v=1791832859"></script>
+<script src="app.js?v=1791832859"></script>
 </body>
 </html><
