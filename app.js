@@ -59,12 +59,18 @@
   }
 
   const charts = {
-    tinhVol4Weeks: null,};
+    tinhVol4Weeks: null,
+    tinhGtc4Weeks: null,
+    tinhOdr4Weeks: null,};
 
   // App State - LIGHT THEME BY DEFAULT & 12 DEDICATED SECTIONS
   const state = {
     tinhVolChannel: 'full',
     tinhVolType: 'bar',
+    tinhGtcChannel: 'full',
+    tinhGtcType: 'bar',
+    tinhOdrChannel: 'full',
+    tinhOdrType: 'bar',
     week: D.meta?.latest_week || 'W37',
     province: 'ALL',
     am: 'ALL',
@@ -1352,6 +1358,7 @@
       renderTinhVol4WeeksChart();
       renderVolAMChart();
     } else if (tabId === 'tab-gtc-tong') {
+      renderTinhGtc4WeeksChart();
       renderGtcTongBarChart();
     } else if (tabId === 'tab-gtc-tts-ca1') {
       renderGtcTtsCa1Tab();
@@ -1361,6 +1368,7 @@
       renderGanOverviewChart();
       renderGanBarChart();
     } else if (tabId === 'tab-odr') {
+      renderTinhOdr4WeeksChart();
       renderOdrChart();
     } else if (tabId === 'tab-ltc') {
       renderLtcTab();
@@ -2064,7 +2072,7 @@
             <td class="bold" style="font-size:13px; font-weight:800; color:${isSelected ? '#ef4444' : 'inherit'};">${row.am}</td>
             <td class="num">${fNum(row.prev_val)}</td>
             <td class="num bold" style="background: var(--color-blue-bg); font-weight:800;">${fNum(row.curr_val)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
         `;
@@ -2117,7 +2125,7 @@
             <td class="bold" style="font-size:13px; font-weight:800; color:${isSelected ? '#ef4444' : 'inherit'};">${row.am}</td>
             <td class="num">${fNum(row.prev_val)}</td>
             <td class="num bold" style="background: var(--color-amber-bg); color:#ea580c; font-weight:800;">${fNum(row.curr_val)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
             <td class="num" style="font-weight:700;">${fPct(row.rate_tts)}</td>
             <td class="center">${evalBadge}</td>
           </tr>
@@ -2142,6 +2150,10 @@
       tblBodyTinhFull.innerHTML = listTinhFull.map((row, i) => {
         const isSelected = state.selectedProvince === row.tinh;
         const rowClass = isSelected ? 'province-laser-box' : '';
+        const v1 = row[wKeys[0]] !== undefined ? row[wKeys[0]] : (row.w34 || row.w38 || 0);
+        const v2 = row[wKeys[1]] !== undefined ? row[wKeys[1]] : (row.w35 || row.w39 || 0);
+        const v3 = row[wKeys[2]] !== undefined ? row[wKeys[2]] : (row.w36 || row.w40 || 0);
+        const v4 = row[wKeys[3]] !== undefined ? row[wKeys[3]] : (row.w37 || row.w41 || row.vol || 0);
         const diffBadge = renderDeltaBadge(row.diff_val, true, false);
         const prevWVal = v3 || 0;
         const pctWoW = prevWVal > 0 ? ((v4 - prevWVal) / prevWVal * 100) : 0;
@@ -2150,11 +2162,6 @@
         const evalBadge = row.diff_val > 0
           ? '<span class="badge-tag badge-tag-green">🟢 Tăng Trưởng</span>'
           : '<span class="badge-tag badge-tag-blue">Giảm Nhẹ</span>';
-
-        const v1 = row[wKeys[0]] !== undefined ? row[wKeys[0]] : (row.w34 || 0);
-        const v2 = row[wKeys[1]] !== undefined ? row[wKeys[1]] : (row.w35 || 0);
-        const v3 = row[wKeys[2]] !== undefined ? row[wKeys[2]] : (row.w36 || 0);
-        const v4 = row[wKeys[3]] !== undefined ? row[wKeys[3]] : (row.w37 || row.vol || 0);
 
         return `
           <tr data-province="${row.tinh}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightProvince('${row.tinh}')">
@@ -2195,6 +2202,11 @@
       tblBodyTinhTTS.innerHTML = listTinhTTS.map((row, i) => {
         const isSelected = state.selectedProvince === row.tinh;
         const rowClass = isSelected ? 'province-laser-box' : '';
+        const wKeys = (D.meta?.weeks || ['W38', 'W39', 'W40', 'W41']).map(w => w.toLowerCase());
+        const v1 = row[wKeys[0]] !== undefined ? row[wKeys[0]] : (row.w34 || row.w38 || 0);
+        const v2 = row[wKeys[1]] !== undefined ? row[wKeys[1]] : (row.w35 || row.w39 || 0);
+        const v3 = row[wKeys[2]] !== undefined ? row[wKeys[2]] : (row.w36 || row.w40 || 0);
+        const v4 = row[wKeys[3]] !== undefined ? row[wKeys[3]] : (row.w37 || row.w41 || row.vol || 0);
         const diffBadge = renderDeltaBadge(row.diff_val, true, false);
         const prevWVal = v3 || 0;
         const pctWoW = prevWVal > 0 ? ((v4 - prevWVal) / prevWVal * 100) : 0;
@@ -2203,12 +2215,6 @@
         const evalBadge = row.diff_val > 0
           ? '<span class="badge-tag badge-tag-green">🟢 Tăng Trưởng</span>'
           : '<span class="badge-tag badge-tag-amber">Ổn Định</span>';
-
-        const wKeys = (D.meta?.weeks || ['W34', 'W35', 'W36', 'W37']).map(w => w.toLowerCase());
-        const v1 = row[wKeys[0]] !== undefined ? row[wKeys[0]] : (row.w34 || 0);
-        const v2 = row[wKeys[1]] !== undefined ? row[wKeys[1]] : (row.w35 || 0);
-        const v3 = row[wKeys[2]] !== undefined ? row[wKeys[2]] : (row.w36 || 0);
-        const v4 = row[wKeys[3]] !== undefined ? row[wKeys[3]] : (row.w37 !== undefined ? row.w37 : (row.vol || 0));
 
         return `
           <tr data-province="${row.tinh}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightProvince('${row.tinh}')">
@@ -2502,19 +2508,27 @@
     }
   }
 
-  window.switchTinhVolChannel = function(ch) {
+    window.switchTinhVolChannel = function(ch) {
     state.tinhVolChannel = ch;
-    document.querySelectorAll('#tinh-vol-channel-pills .chart-pill-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.getAttribute('data-channel') === ch || (ch === 'full' && btn.id === 'btn-tinh-channel-full') || (ch === 'tts' && btn.id === 'btn-tinh-channel-tts'));
-    });
+    const btnFull = document.getElementById('btn-tinh-channel-full');
+    const btnTTS = document.getElementById('btn-tinh-channel-tts');
+    if (btnFull) btnFull.classList.toggle('active', ch === 'full');
+    if (btnTTS) btnTTS.classList.toggle('active', ch === 'tts');
+    const titleEl = document.getElementById('tinh-vol-chart-header-title');
+    if (titleEl) {
+      titleEl.textContent = (ch === 'tts') 
+        ? 'BIỂU ĐỒ SẢN LƯỢNG 5 TỈNH QUA 4 TUẦN (W38 – W41) — TIKTOK SHOP & TỶ LỆ TĂNG TRƯỞNG % WoW'
+        : 'BIỂU ĐỒ SẢN LƯỢNG 5 TỈNH QUA 4 TUẦN (W38 – W41) — FULL HÀNG & TỶ LỆ TĂNG TRƯỞNG % WoW';
+    }
     renderTinhVol4WeeksChart();
   };
 
   window.switchTinhVolType = function(t) {
     state.tinhVolType = t;
-    document.querySelectorAll('#tinh-vol-type-pills .chart-pill-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.getAttribute('data-type') === t || (t === 'bar' && btn.id === 'btn-tinh-type-bar') || (t === 'line' && btn.id === 'btn-tinh-type-line'));
-    });
+    const btnBar = document.getElementById('btn-tinh-type-bar');
+    const btnLine = document.getElementById('btn-tinh-type-line');
+    if (btnBar) btnBar.classList.toggle('active', t === 'bar');
+    if (btnLine) btnLine.classList.toggle('active', t === 'line');
     renderTinhVol4WeeksChart();
   };
 
@@ -2928,7 +2942,7 @@
             <td class="num">${fNum(row.vol)}</td>
             <td class="num">${fPct(row.prev_val)}</td>
             <td class="num bold ${heatCurr}">${fPct(row.curr_val)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
         `;
@@ -2972,7 +2986,7 @@
             <td class="num">${fNum(row.vol)}</td>
             <td class="num">${fPct(row.prev_val)}</td>
             <td class="num bold ${heatCurr}">${fPct(row.curr_val)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
         `;
@@ -3014,7 +3028,7 @@
             <td class="num">${fPct(v2)}</td>
             <td class="num">${fPct(v3)}</td>
             <td class="num bold ${heatClass}">${fPct(v4)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
         `;
@@ -3056,7 +3070,7 @@
             <td class="num">${fPct(v2)}</td>
             <td class="num">${fPct(v3)}</td>
             <td class="num bold ${heatClass}">${fPct(v4)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
         `;
@@ -3106,7 +3120,7 @@
           <td class="bold" style="color: var(--color-blue);">${row.am || '---'}</td>
           <td class="num" style="background: rgba(2, 132, 199, 0.05); font-weight:600;">${row.gtc_w36.toFixed(1)}%</td>
           <td class="num bold" style="background: rgba(220, 38, 38, 0.12); color: #dc2626; font-size:13.5px; font-weight:900;">${row.gtc_w37.toFixed(1)}%</td>
-          <td class="num bold">${diffBadge} ${pctBadge}</td>
+          <td class="num bold">${diffBadge}</td>
           <td class="num" style="color: #64748b; font-weight:600;">${row.gtc_best.toFixed(1)}%</td>
           <td class="center">${daysWarnBadge}</td>
           <td class="num bold" style="color: #1e293b;">${fNum(row.backlog)} <small>đơn</small></td>
@@ -3121,6 +3135,323 @@
       tblBody.innerHTML = rowsHtml;
     });
   }
+
+  
+  // --------------------------------------------------------------------------
+  // CHART: %GTC 5 TỈNH QUA 4 TUẦN (W38 - W41) & BIẾN ĐỘNG Δ %p WoW
+  // --------------------------------------------------------------------------
+  function renderTinhGtc4WeeksChart() {
+    const ctx = document.getElementById('chart-gtc-tinh-4weeks');
+    if (!ctx || !D.gtc_tong) return;
+    if (charts.tinhGtc4Weeks) charts.tinhGtc4Weeks.destroy();
+
+    const isTTS = (state.tinhGtcChannel === 'tts');
+    const isLine = (state.tinhGtcType === 'line');
+    const rawData = isTTS ? (D.gtc_tong.tinh_tts || []) : (D.gtc_tong.tinh_full || D.gtc_tong.tinh || []);
+
+    const wKeys = (D.meta?.weeks || ['W38', 'W39', 'W40', 'W41']).map(w => w.toLowerCase());
+    const weekLabels = D.meta?.weeks || ['W38', 'W39', 'W40', 'W41'];
+
+    // Sort provinces by W41 %GTC descending
+    const sortedProvinces = [...rawData].sort((a, b) => {
+      const vA = a[wKeys[3]] !== undefined ? a[wKeys[3]] : (a.w41 || a.curr_val || 0);
+      const vB = b[wKeys[3]] !== undefined ? b[wKeys[3]] : (b.w41 || b.curr_val || 0);
+      return vB - vA;
+    });
+
+    const labels = sortedProvinces.map(p => p.tinh);
+
+    // Update summary badge
+    const badgeEl = document.getElementById('gtc-tinh-summary-badge');
+    if (badgeEl) {
+      if (isTTS) {
+        badgeEl.innerHTML = '🛒 TikTok Shop W41: <strong>63,55%</strong> (+0,17%p WoW — Vượt Target)';
+        badgeEl.style.color = '#ea580c';
+        badgeEl.style.background = '#fff7ed';
+        badgeEl.style.borderColor = 'rgba(234, 88, 12, 0.3)';
+      } else {
+        badgeEl.innerHTML = '🎯 Toàn vùng W41: <strong>61,24%</strong> (+0,37%p WoW — Vượt Target)';
+        badgeEl.style.color = '#2563eb';
+        badgeEl.style.background = '#dbeafe';
+        badgeEl.style.borderColor = 'rgba(37, 99, 235, 0.3)';
+      }
+    }
+
+    if (!isLine) {
+      // GROUPED BAR CHART: 4 columns per province (W38, W39, W40, W41)
+      const dataW38 = sortedProvinces.map(p => {
+        const v = p[wKeys[0]] !== undefined ? p[wKeys[0]] : (p.w38 || 0);
+        return parseFloat((v * 100).toFixed(1));
+      });
+      const dataW39 = sortedProvinces.map(p => {
+        const v = p[wKeys[1]] !== undefined ? p[wKeys[1]] : (p.w39 || 0);
+        return parseFloat((v * 100).toFixed(1));
+      });
+      const dataW40 = sortedProvinces.map(p => {
+        const v = p[wKeys[2]] !== undefined ? p[wKeys[2]] : (p.w40 || 0);
+        return parseFloat((v * 100).toFixed(1));
+      });
+      const dataW41 = sortedProvinces.map(p => {
+        const v = p[wKeys[3]] !== undefined ? p[wKeys[3]] : (p.w41 || p.curr_val || 0);
+        return parseFloat((v * 100).toFixed(1));
+      });
+
+      charts.tinhGtc4Weeks = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: `${weekLabels[0]}`,
+              data: dataW38,
+              backgroundColor: '#94a3b8',
+              borderRadius: 4,
+              maxBarThickness: 32,
+              datalabels: {
+                anchor: 'end',
+                align: 'top',
+                offset: 2,
+                color: '#64748b',
+                font: { size: 10, weight: '600' },
+                formatter: (val) => val.toFixed(1) + '%'
+              }
+            },
+            {
+              label: `${weekLabels[1]}`,
+              data: dataW39,
+              backgroundColor: '#60a5fa',
+              borderRadius: 4,
+              maxBarThickness: 32,
+              datalabels: {
+                anchor: 'end',
+                align: 'top',
+                offset: 2,
+                color: '#2563eb',
+                font: { size: 10, weight: '600' },
+                formatter: (val) => val.toFixed(1) + '%'
+              }
+            },
+            {
+              label: `${weekLabels[2]}`,
+              data: dataW40,
+              backgroundColor: '#1e40af',
+              borderRadius: 4,
+              maxBarThickness: 32,
+              datalabels: {
+                anchor: 'end',
+                align: 'top',
+                offset: 2,
+                color: '#1e3a8a',
+                font: { size: 10.5, weight: '700' },
+                formatter: (val) => val.toFixed(1) + '%'
+              }
+            },
+            {
+              label: `${weekLabels[3]} (Hiện tại)`,
+              data: dataW41,
+              backgroundColor: '#22c55e',
+              borderColor: '#16a34a',
+              borderWidth: 2,
+              borderRadius: 6,
+              maxBarThickness: 36,
+              datalabels: {
+                anchor: 'end',
+                align: 'top',
+                offset: 4,
+                color: (ctx2) => {
+                  const idx = ctx2.dataIndex;
+                  const prev = dataW40[idx] || 0;
+                  return dataW41[idx] >= prev ? '#16a34a' : '#dc2626';
+                },
+                font: { size: 11.5, weight: '800' },
+                formatter: (val, ctx2) => {
+                  const idx = ctx2.dataIndex;
+                  const prevVal = dataW40[idx] || 0;
+                  const diffP = val - prevVal;
+                  const sign = diffP >= 0 ? '+' : '';
+                  return [`${val.toFixed(1)}%`, `${sign}${diffP.toFixed(1)}%p`];
+                }
+              }
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          layout: {
+            padding: { top: 32, bottom: 8, left: 10, right: 10 }
+          },
+          plugins: {
+            legend: {
+              position: 'top',
+              labels: {
+                boxWidth: 10,
+                boxHeight: 10,
+                font: { weight: '700', size: 12 }
+              }
+            },
+            tooltip: {
+              backgroundColor: 'rgba(15, 23, 42, 0.95)',
+              titleFont: { size: 13, weight: '700' },
+              bodyFont: { size: 12 },
+              padding: 12,
+              cornerRadius: 8,
+              callbacks: {
+                label: function (c) {
+                  const val = c.raw || 0;
+                  const idx = c.dataIndex;
+                  if (c.datasetIndex === 3) {
+                    const prev = dataW40[idx] || 0;
+                    const diff = val - prev;
+                    const sign = diff >= 0 ? '+' : '';
+                    return ` ${c.dataset.label}: ${val.toFixed(2)}% (${sign}${diff.toFixed(2)}%p WoW)`;
+                  }
+                  return ` ${c.dataset.label}: ${val.toFixed(2)}%`;
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: {
+                font: { weight: '800', size: 12.5 },
+                color: '#0f172a'
+              }
+            },
+            y: {
+              beginAtZero: false,
+              min: 40,
+              max: 80,
+              grid: { color: 'rgba(226, 232, 240, 0.6)' },
+              ticks: {
+                callback: v => v + '%',
+                font: { size: 11 }
+              }
+            }
+          }
+        }
+      });
+    } else {
+      // LINE TREND CHART
+      const palette = [
+        { stroke: '#2563eb' },
+        { stroke: '#16a34a' },
+        { stroke: '#ea580c' },
+        { stroke: '#8b5cf6' },
+        { stroke: '#06b6d4' }
+      ];
+
+      const datasets = sortedProvinces.map((p, idx) => {
+        const col = palette[idx % palette.length];
+        const vW38 = parseFloat(((p[wKeys[0]] !== undefined ? p[wKeys[0]] : (p.w38 || 0)) * 100).toFixed(1));
+        const vW39 = parseFloat(((p[wKeys[1]] !== undefined ? p[wKeys[1]] : (p.w39 || 0)) * 100).toFixed(1));
+        const vW40 = parseFloat(((p[wKeys[2]] !== undefined ? p[wKeys[2]] : (p.w40 || 0)) * 100).toFixed(1));
+        const vW41 = parseFloat(((p[wKeys[3]] !== undefined ? p[wKeys[3]] : (p.w41 || p.curr_val || 0)) * 100).toFixed(1));
+        const diffP = vW41 - vW40;
+        const sign = diffP >= 0 ? '+' : '';
+
+        return {
+          label: `${p.tinh} (${sign}${diffP.toFixed(1)}%p)`,
+          data: [vW38, vW39, vW40, vW41],
+          borderColor: col.stroke,
+          backgroundColor: col.stroke,
+          borderWidth: 3,
+          tension: 0.35,
+          pointRadius: 6,
+          pointHoverRadius: 8,
+          datalabels: {
+            anchor: 'end',
+            align: 'top',
+            offset: 4,
+            color: col.stroke,
+            font: { size: 11, weight: '700' },
+            formatter: (val, ctx2) => {
+              if (ctx2.dataIndex === 3) {
+                return `${val.toFixed(1)}% (${sign}${diffP.toFixed(1)}%p)`;
+              }
+              return val.toFixed(1) + '%';
+            }
+          }
+        };
+      });
+
+      charts.tinhGtc4Weeks = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: weekLabels,
+          datasets: datasets
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          layout: {
+            padding: { top: 32, bottom: 8, left: 10, right: 10 }
+          },
+          plugins: {
+            legend: {
+              position: 'top',
+              labels: {
+                boxWidth: 10,
+                boxHeight: 10,
+                font: { weight: '700', size: 12 }
+              }
+            },
+            tooltip: {
+              backgroundColor: 'rgba(15, 23, 42, 0.95)',
+              padding: 12,
+              cornerRadius: 8,
+              callbacks: {
+                label: function (c) {
+                  return ` ${c.dataset.label}: ${c.raw.toFixed(2)}%`;
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: { font: { weight: '800', size: 12.5 } }
+            },
+            y: {
+              beginAtZero: false,
+              min: 40,
+              max: 80,
+              grid: { color: 'rgba(226, 232, 240, 0.6)' },
+              ticks: {
+                callback: v => v + '%',
+                font: { size: 11 }
+              }
+            }
+          }
+        }
+      });
+    }
+  }
+
+  window.switchTinhGtcChannel = function(ch) {
+    state.tinhGtcChannel = ch;
+    const btnFull = document.getElementById('btn-gtc-tinh-channel-full');
+    const btnTTS = document.getElementById('btn-gtc-tinh-channel-tts');
+    if (btnFull) btnFull.classList.toggle('active', ch === 'full');
+    if (btnTTS) btnTTS.classList.toggle('active', ch === 'tts');
+    const titleEl = document.getElementById('gtc-tinh-chart-header-title');
+    if (titleEl) {
+      titleEl.textContent = (ch === 'tts') 
+        ? 'BIỂU ĐỒ %GTC 5 TỈNH QUA 4 TUẦN (W38 – W41) — TIKTOK SHOP & BIẾN ĐỘNG Δ %p WoW'
+        : 'BIỂU ĐỒ %GTC 5 TỈNH QUA 4 TUẦN (W38 – W41) — FULL HÀNG & BIẾN ĐỘNG Δ %p WoW (TARGET ≥ 60.0%)';
+    }
+    renderTinhGtc4WeeksChart();
+  };
+
+  window.switchTinhGtcType = function(t) {
+    state.tinhGtcType = t;
+    const btnBar = document.getElementById('btn-gtc-tinh-type-bar');
+    const btnLine = document.getElementById('btn-gtc-tinh-type-line');
+    if (btnBar) btnBar.classList.toggle('active', t === 'bar');
+    if (btnLine) btnLine.classList.toggle('active', t === 'line');
+    renderTinhGtc4WeeksChart();
+  };
 
   function renderGtcTongBarChart() {
     const ctx = document.getElementById('chart-gtc-tong-bar');
@@ -3580,7 +3911,7 @@
             <td class="num">${fNum(row.vol)}</td>
             <td class="num">${fPct(row.prev_val)}</td>
             <td class="num bold ${heatCls}" style="font-size:13.5px; font-weight:800;">${fPct(row.curr_val)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
           </tr>
         `;
       }).join('');
@@ -3827,7 +4158,7 @@
             <td class="num" style="${getCellBg(v2)}">${fPct(v2)}</td>
             <td class="num" style="${getCellBg(v3)}">${fPct(v3)}</td>
             <td class="num bold" style="${getCellBg(v4)} font-size:13.5px; border-left: 2px solid #ffffff;">${fPct(v4)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
           </tr>
         `;
       }).join('');
@@ -3877,7 +4208,7 @@
             <td class="num">${fNum(row.vol)}</td>
             <td class="num">${fPct(row.prev_val)}</td>
             <td class="num bold ${heatW}">${fPct(row.curr_val)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
         `;
@@ -3924,7 +4255,7 @@
             <td class="num">${fNum(row.vol)}</td>
             <td class="num">${fPct(row.prev_val)}</td>
             <td class="num bold ${heatTong}" style="font-weight:800;">${fPct(row.curr_val)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
         `;
@@ -4341,7 +4672,7 @@
             <td class="num">${fNum(row.vol)}</td>
             <td class="num">${fPct(row.prev_val)}</td>
             <td class="num bold ${heatCurr}">${fPct(row.curr_val)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
         `;
@@ -4385,7 +4716,7 @@
             <td class="num">${fNum(row.vol)}</td>
             <td class="num">${fPct(row.prev_val)}</td>
             <td class="num bold ${heatCurr}">${fPct(row.curr_val)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
         `;
@@ -4427,7 +4758,7 @@
             <td class="num">${fPct(v2)}</td>
             <td class="num">${fPct(v3)}</td>
             <td class="num bold ${heatClass}">${fPct(v4)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
         `;
@@ -4469,13 +4800,330 @@
             <td class="num">${fPct(v2)}</td>
             <td class="num">${fPct(v3)}</td>
             <td class="num bold ${heatClass}">${fPct(v4)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
         `;
       }).join('');
     }
   }
+
+  
+  // --------------------------------------------------------------------------
+  // CHART: %ODR 5 TỈNH QUA 4 TUẦN (W38 - W41) & BIẾN ĐỘNG Δ %p WoW
+  // --------------------------------------------------------------------------
+  function renderTinhOdr4WeeksChart() {
+    const ctx = document.getElementById('chart-odr-tinh-4weeks');
+    if (!ctx || !D.odr) return;
+    if (charts.tinhOdr4Weeks) charts.tinhOdr4Weeks.destroy();
+
+    const isTTS = (state.tinhOdrChannel === 'tts');
+    const isLine = (state.tinhOdrType === 'line');
+    const rawData = isTTS ? (D.odr.tinh_tts || []) : (D.odr.tinh_full || D.odr.tinh || []);
+
+    const wKeys = (D.meta?.weeks || ['W38', 'W39', 'W40', 'W41']).map(w => w.toLowerCase());
+    const weekLabels = D.meta?.weeks || ['W38', 'W39', 'W40', 'W41'];
+
+    // Sort provinces by W41 %ODR descending
+    const sortedProvinces = [...rawData].sort((a, b) => {
+      const vA = a[wKeys[3]] !== undefined ? a[wKeys[3]] : (a.w41 || a.curr_val || 0);
+      const vB = b[wKeys[3]] !== undefined ? b[wKeys[3]] : (b.w41 || b.curr_val || 0);
+      return vB - vA;
+    });
+
+    const labels = sortedProvinces.map(p => p.tinh);
+
+    // Update summary badge
+    const badgeEl = document.getElementById('odr-tinh-summary-badge');
+    if (badgeEl) {
+      if (isTTS) {
+        badgeEl.innerHTML = '🛒 TikTok Shop W41: <strong>94,80%</strong> — Đạt chuẩn cam kết SLA ≥ 92.0%';
+        badgeEl.style.color = '#ea580c';
+        badgeEl.style.background = '#fff7ed';
+        badgeEl.style.borderColor = 'rgba(234, 88, 12, 0.3)';
+      } else {
+        badgeEl.innerHTML = '🎯 Toàn vùng W41: <strong>94,09%</strong> (+0,96%p WoW — Thiết lập kỷ lục SLA mới)';
+        badgeEl.style.color = '#059669';
+        badgeEl.style.background = '#dcfce7';
+        badgeEl.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+      }
+    }
+
+    if (!isLine) {
+      // GROUPED BAR CHART: 4 columns per province (W38, W39, W40, W41)
+      const dataW38 = sortedProvinces.map(p => {
+        const v = p[wKeys[0]] !== undefined ? p[wKeys[0]] : (p.w38 || 0);
+        return parseFloat((v * 100).toFixed(1));
+      });
+      const dataW39 = sortedProvinces.map(p => {
+        const v = p[wKeys[1]] !== undefined ? p[wKeys[1]] : (p.w39 || 0);
+        return parseFloat((v * 100).toFixed(1));
+      });
+      const dataW40 = sortedProvinces.map(p => {
+        const v = p[wKeys[2]] !== undefined ? p[wKeys[2]] : (p.w40 || 0);
+        return parseFloat((v * 100).toFixed(1));
+      });
+      const dataW41 = sortedProvinces.map(p => {
+        const v = p[wKeys[3]] !== undefined ? p[wKeys[3]] : (p.w41 || p.curr_val || 0);
+        return parseFloat((v * 100).toFixed(1));
+      });
+
+      charts.tinhOdr4Weeks = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: `${weekLabels[0]}`,
+              data: dataW38,
+              backgroundColor: '#94a3b8',
+              borderRadius: 4,
+              maxBarThickness: 32,
+              datalabels: {
+                anchor: 'end',
+                align: 'top',
+                offset: 2,
+                color: '#64748b',
+                font: { size: 10, weight: '600' },
+                formatter: (val) => val.toFixed(1) + '%'
+              }
+            },
+            {
+              label: `${weekLabels[1]}`,
+              data: dataW39,
+              backgroundColor: '#60a5fa',
+              borderRadius: 4,
+              maxBarThickness: 32,
+              datalabels: {
+                anchor: 'end',
+                align: 'top',
+                offset: 2,
+                color: '#2563eb',
+                font: { size: 10, weight: '600' },
+                formatter: (val) => val.toFixed(1) + '%'
+              }
+            },
+            {
+              label: `${weekLabels[2]}`,
+              data: dataW40,
+              backgroundColor: '#1e40af',
+              borderRadius: 4,
+              maxBarThickness: 32,
+              datalabels: {
+                anchor: 'end',
+                align: 'top',
+                offset: 2,
+                color: '#1e3a8a',
+                font: { size: 10.5, weight: '700' },
+                formatter: (val) => val.toFixed(1) + '%'
+              }
+            },
+            {
+              label: `${weekLabels[3]} (Kỷ Lục Mới)`,
+              data: dataW41,
+              backgroundColor: '#10b981',
+              borderColor: '#059669',
+              borderWidth: 2,
+              borderRadius: 6,
+              maxBarThickness: 36,
+              datalabels: {
+                anchor: 'end',
+                align: 'top',
+                offset: 4,
+                color: (ctx2) => {
+                  const idx = ctx2.dataIndex;
+                  const prev = dataW40[idx] || 0;
+                  return dataW41[idx] >= prev ? '#059669' : '#dc2626';
+                },
+                font: { size: 11.5, weight: '800' },
+                formatter: (val, ctx2) => {
+                  const idx = ctx2.dataIndex;
+                  const prevVal = dataW40[idx] || 0;
+                  const diffP = val - prevVal;
+                  const sign = diffP >= 0 ? '+' : '';
+                  return [`${val.toFixed(1)}%`, `${sign}${diffP.toFixed(1)}%p`];
+                }
+              }
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          layout: {
+            padding: { top: 32, bottom: 8, left: 10, right: 10 }
+          },
+          plugins: {
+            legend: {
+              position: 'top',
+              labels: {
+                boxWidth: 10,
+                boxHeight: 10,
+                font: { weight: '700', size: 12 }
+              }
+            },
+            tooltip: {
+              backgroundColor: 'rgba(15, 23, 42, 0.95)',
+              titleFont: { size: 13, weight: '700' },
+              bodyFont: { size: 12 },
+              padding: 12,
+              cornerRadius: 8,
+              callbacks: {
+                label: function (c) {
+                  const val = c.raw || 0;
+                  const idx = c.dataIndex;
+                  if (c.datasetIndex === 3) {
+                    const prev = dataW40[idx] || 0;
+                    const diff = val - prev;
+                    const sign = diff >= 0 ? '+' : '';
+                    return ` ${c.dataset.label}: ${val.toFixed(2)}% (${sign}${diff.toFixed(2)}%p WoW)`;
+                  }
+                  return ` ${c.dataset.label}: ${val.toFixed(2)}%`;
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: {
+                font: { weight: '800', size: 12.5 },
+                color: '#0f172a'
+              }
+            },
+            y: {
+              beginAtZero: false,
+              min: 80,
+              max: 100,
+              grid: { color: 'rgba(226, 232, 240, 0.6)' },
+              ticks: {
+                callback: v => v + '%',
+                font: { size: 11 }
+              }
+            }
+          }
+        }
+      });
+    } else {
+      // LINE TREND CHART
+      const palette = [
+        { stroke: '#059669' },
+        { stroke: '#2563eb' },
+        { stroke: '#ea580c' },
+        { stroke: '#8b5cf6' },
+        { stroke: '#06b6d4' }
+      ];
+
+      const datasets = sortedProvinces.map((p, idx) => {
+        const col = palette[idx % palette.length];
+        const vW38 = parseFloat(((p[wKeys[0]] !== undefined ? p[wKeys[0]] : (p.w38 || 0)) * 100).toFixed(1));
+        const vW39 = parseFloat(((p[wKeys[1]] !== undefined ? p[wKeys[1]] : (p.w39 || 0)) * 100).toFixed(1));
+        const vW40 = parseFloat(((p[wKeys[2]] !== undefined ? p[wKeys[2]] : (p.w40 || 0)) * 100).toFixed(1));
+        const vW41 = parseFloat(((p[wKeys[3]] !== undefined ? p[wKeys[3]] : (p.w41 || p.curr_val || 0)) * 100).toFixed(1));
+        const diffP = vW41 - vW40;
+        const sign = diffP >= 0 ? '+' : '';
+
+        return {
+          label: `${p.tinh} (${sign}${diffP.toFixed(1)}%p)`,
+          data: [vW38, vW39, vW40, vW41],
+          borderColor: col.stroke,
+          backgroundColor: col.stroke,
+          borderWidth: 3,
+          tension: 0.35,
+          pointRadius: 6,
+          pointHoverRadius: 8,
+          datalabels: {
+            anchor: 'end',
+            align: 'top',
+            offset: 4,
+            color: col.stroke,
+            font: { size: 11, weight: '700' },
+            formatter: (val, ctx2) => {
+              if (ctx2.dataIndex === 3) {
+                return `${val.toFixed(1)}% (${sign}${diffP.toFixed(1)}%p)`;
+              }
+              return val.toFixed(1) + '%';
+            }
+          }
+        };
+      });
+
+      charts.tinhOdr4Weeks = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: weekLabels,
+          datasets: datasets
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          layout: {
+            padding: { top: 32, bottom: 8, left: 10, right: 10 }
+          },
+          plugins: {
+            legend: {
+              position: 'top',
+              labels: {
+                boxWidth: 10,
+                boxHeight: 10,
+                font: { weight: '700', size: 12 }
+              }
+            },
+            tooltip: {
+              backgroundColor: 'rgba(15, 23, 42, 0.95)',
+              padding: 12,
+              cornerRadius: 8,
+              callbacks: {
+                label: function (c) {
+                  return ` ${c.dataset.label}: ${c.raw.toFixed(2)}%`;
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: { font: { weight: '800', size: 12.5 } }
+            },
+            y: {
+              beginAtZero: false,
+              min: 80,
+              max: 100,
+              grid: { color: 'rgba(226, 232, 240, 0.6)' },
+              ticks: {
+                callback: v => v + '%',
+                font: { size: 11 }
+              }
+            }
+          }
+        }
+      });
+    }
+  }
+
+  window.switchTinhOdrChannel = function(ch) {
+    state.tinhOdrChannel = ch;
+    const btnFull = document.getElementById('btn-odr-tinh-channel-full');
+    const btnTTS = document.getElementById('btn-odr-tinh-channel-tts');
+    if (btnFull) btnFull.classList.toggle('active', ch === 'full');
+    if (btnTTS) btnTTS.classList.toggle('active', ch === 'tts');
+    const titleEl = document.getElementById('odr-tinh-chart-header-title');
+    if (titleEl) {
+      titleEl.textContent = (ch === 'tts') 
+        ? 'BIỂU ĐỒ %ODR 5 TỈNH QUA 4 TUẦN (W38 – W41) — TIKTOK SHOP & BIẾN ĐỘNG Δ %p WoW'
+        : 'BIỂU ĐỒ %ODR 5 TỈNH QUA 4 TUẦN (W38 – W41) — FULL HÀNG & BIẾN ĐỘNG Δ %p WoW (TARGET ≥ 92.0%)';
+    }
+    renderTinhOdr4WeeksChart();
+  };
+
+  window.switchTinhOdrType = function(t) {
+    state.tinhOdrType = t;
+    const btnBar = document.getElementById('btn-odr-tinh-type-bar');
+    const btnLine = document.getElementById('btn-odr-tinh-type-line');
+    if (btnBar) btnBar.classList.toggle('active', t === 'bar');
+    if (btnLine) btnLine.classList.toggle('active', t === 'line');
+    renderTinhOdr4WeeksChart();
+  };
 
   function renderOdrChart() {
     const ctx = document.getElementById('chart-odr-bar');
@@ -4846,7 +5494,7 @@
             <td class="num">${fPct(v2)}</td>
             <td class="num">${fPct(v3)}</td>
             <td class="num bold ${heatClass}">${fPct(v4)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
         `;
@@ -4892,7 +5540,7 @@
             <td class="num">${fPct(v2)}</td>
             <td class="num">${fPct(v3)}</td>
             <td class="num bold ${heatClass}">${fPct(v4)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
         `;
@@ -5261,7 +5909,7 @@
             <td class="num">${fNum(row.vol_day)}</td>
             <td class="num">${fPct(row.prev_val)}</td>
             <td class="num bold ${heatW}">${fPct(row.curr_val)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
         `;
@@ -5296,7 +5944,7 @@
             <td class="num">${fNum(row.vol_night)}</td>
             <td class="num">${fPct(row.prev_val)}</td>
             <td class="num bold ${heatW}">${fPct(row.curr_val)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
         `;
@@ -5680,7 +6328,7 @@
             <td class="num bold" style="background: var(--color-amber-bg); color: #ea580c; font-weight: 800; font-size: 13px;">${fPct(row.rate_rot, 1)}</td>
             <td class="num">${fPct(row.wPrev, 2)}</td>
             <td class="num bold ${heatCurr}">${fPct(row.wCurr, 2)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
         `;
@@ -5729,7 +6377,7 @@
             <td class="num bold" style="background: var(--color-amber-bg); color: #ea580c; font-weight: 800; font-size: 13px;">${fPct(row.rate_rot, 1)}</td>
             <td class="num">${fPct(row.wPrev, 2)}</td>
             <td class="num bold ${heatCurr}">${fPct(row.wCurr, 2)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
             <td class="center">${evalBadge}</td>
           </tr>
         `;
@@ -6207,7 +6855,7 @@
             <td class="num bold" style="color:#ef4444;">${fNum(row.ret)}</td>
             <td class="num">${row.rate_prev !== undefined ? fPct(row.rate_prev) : '---'}</td>
             <td class="num bold ${heatClass}">${fPct(row.rate)}</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
             <td class="num bold" style="color:var(--text-muted);">${fPct(row.share_ret)}</td>
             <td class="center">${badge}</td>
           </tr>
@@ -7770,7 +8418,7 @@
           <td class="num bold" style="color: #059669; font-size: 13.5px;">${fNum(s.mtd)}</td>
           <td class="center bold" style="color: #4b5563;">${s.pct_mtd_m1}</td>
           ${datesTds}
-          <td class="num bold">${diffBadge} ${pctBadge}</td>
+          <td class="num bold">${diffBadge}</td>
         </tr>
       `;
     }).join('');
@@ -7889,7 +8537,7 @@
             <td class="num">${fNum(r.vol_curr)} đơn</td>
             <td class="num bold" style="color: var(--color-green); font-size:13px;">${fMoney(r.rev_curr)}</td>
             <td class="num bold">${r.pct_rev}%</td>
-            <td class="num bold">${diffBadge} ${pctBadge}</td>
+            <td class="num bold">${diffBadge}</td>
           </tr>
         `;
       }).join('');

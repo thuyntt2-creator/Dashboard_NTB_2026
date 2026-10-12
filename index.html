@@ -431,12 +431,12 @@
           </div>
           <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
             <div class="chart-mode-pills" id="tinh-vol-channel-pills">
-              <button class="chart-pill-btn active" id="btn-tinh-channel-full">📦 Full Hàng</button>
-              <button class="chart-pill-btn" id="btn-tinh-channel-tts">🛒 TikTok Shop</button>
+              <button class="chart-pill-btn active" id="btn-tinh-channel-full" onclick="window.switchTinhVolChannel('full')">📦 Full Hàng</button>
+              <button class="chart-pill-btn" id="btn-tinh-channel-tts" onclick="window.switchTinhVolChannel('tts')">🛒 TikTok Shop</button>
             </div>
             <div class="chart-mode-pills" id="tinh-vol-type-pills">
-              <button class="chart-pill-btn active" id="btn-tinh-type-bar">📊 Cột Nhóm 4 Tuần</button>
-              <button class="chart-pill-btn" id="btn-tinh-type-line">📈 Đường Xu Hướng</button>
+              <button class="chart-pill-btn active" id="btn-tinh-type-bar" onclick="window.switchTinhVolType('bar')">📊 Cột Nhóm 4 Tuần</button>
+              <button class="chart-pill-btn" id="btn-tinh-type-line" onclick="window.switchTinhVolType('line')">📈 Đường Xu Hướng</button>
             </div>
           </div>
         </div>
@@ -658,7 +658,43 @@
           Khánh Hòa • Lâm Đồng • Bình Thuận • Đắk Nông • Ninh Thuận
         </span>
 </div>
-<div class="grid-row-2" style="margin-bottom: 20px;">
+<!-- BIỂU ĐỒ %GTC 5 TỈNH QUA 4 TUẦN (W38 – W41) & BIẾN ĐỘNG Δ %p WoW (TARGET ≥ 60.0%) -->
+      <div class="report-card" style="margin-bottom: 20px; border: 1.5px solid rgba(37, 99, 235, 0.25); box-shadow: 0 4px 14px rgba(37, 99, 235, 0.06);">
+        <div class="report-card-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; background: linear-gradient(to right, #ffffff, #eff6ff);">
+          <div class="report-card-title">
+            <i data-lucide="bar-chart-3" style="color: var(--color-blue);"></i>
+            <span id="gtc-tinh-chart-header-title">BIỂU ĐỒ %GTC 5 TỈNH QUA 4 TUẦN (W38 – W41) & BIẾN ĐỘNG Δ %p WoW (TARGET ≥ 60.0%)</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <div class="chart-mode-pills" id="gtc-tinh-channel-pills">
+              <button class="chart-pill-btn active" id="btn-gtc-tinh-channel-full" onclick="window.switchTinhGtcChannel('full')">📦 Full Hàng</button>
+              <button class="chart-pill-btn" id="btn-gtc-tinh-channel-tts" onclick="window.switchTinhGtcChannel('tts')">🛒 TikTok Shop</button>
+            </div>
+            <div class="chart-mode-pills" id="gtc-tinh-type-pills">
+              <button class="chart-pill-btn active" id="btn-gtc-tinh-type-bar" onclick="window.switchTinhGtcType('bar')">📊 Cột Nhóm 4 Tuần</button>
+              <button class="chart-pill-btn" id="btn-gtc-tinh-type-line" onclick="window.switchTinhGtcType('line')">📈 Đường Xu Hướng</button>
+            </div>
+          </div>
+        </div>
+        <div class="report-card-body">
+          <div style="position: relative; height: 350px; width: 100%;">
+            <canvas id="chart-gtc-tinh-4weeks"></canvas>
+          </div>
+          <div style="margin-top: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: var(--text-sub); border-top: 1px dashed var(--border); padding-top: 10px;">
+            <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+              <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 12px; height: 12px; background: #94a3b8; border-radius: 3px; display: inline-block;"></span> W38</span>
+              <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 12px; height: 12px; background: #60a5fa; border-radius: 3px; display: inline-block;"></span> W39</span>
+              <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 12px; height: 12px; background: #1e40af; border-radius: 3px; display: inline-block;"></span> W40</span>
+              <span style="display: flex; align-items: center; gap: 6px; font-weight: 800; color: #16a34a;"><span style="width: 12px; height: 12px; background: #22c55e; border-radius: 3px; display: inline-block;"></span> W41 (Hiện tại)</span>
+              <span style="display: flex; align-items: center; gap: 6px; font-weight: 700; color: #dc2626;"><span style="border-top: 2px dashed #dc2626; width: 18px; display: inline-block;"></span> Ngưỡng Target SLA 60.0%</span>
+            </div>
+            <div id="gtc-tinh-summary-badge" style="font-weight: 700; color: #2563eb; background: #dbeafe; padding: 4px 12px; border-radius: 999px; border: 1px solid rgba(37, 99, 235, 0.3);">
+              🎯 Toàn vùng W41: 61,24% (+0,37%p WoW — Vượt Target)
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid-row-2" style="margin-bottom: 20px;">
 <!-- BẢNG 2A: %GTC 5 TỈNH (FULL HÀNG) -->
 <div class="report-card">
 <div class="report-card-header">
@@ -1182,7 +1218,43 @@
           Khánh Hòa • Lâm Đồng • Bình Thuận • Đắk Nông • Ninh Thuận
         </span>
 </div>
-<div class="grid-row-2" style="margin-bottom: 20px;">
+<!-- BIỂU ĐỒ %ODR 5 TỈNH QUA 4 TUẦN (W38 – W41) & BIẾN ĐỘNG Δ %p WoW (TARGET ≥ 92.0%) -->
+      <div class="report-card" style="margin-bottom: 20px; border: 1.5px solid rgba(16, 185, 129, 0.25); box-shadow: 0 4px 14px rgba(16, 185, 129, 0.06);">
+        <div class="report-card-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; background: linear-gradient(to right, #ffffff, #f0fdf4);">
+          <div class="report-card-title">
+            <i data-lucide="bar-chart-3" style="color: #059669;"></i>
+            <span id="odr-tinh-chart-header-title">BIỂU ĐỒ %ODR 5 TỈNH QUA 4 TUẦN (W38 – W41) & BIẾN ĐỘNG Δ %p WoW (TARGET ≥ 92.0%)</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <div class="chart-mode-pills" id="odr-tinh-channel-pills">
+              <button class="chart-pill-btn active" id="btn-odr-tinh-channel-full" onclick="window.switchTinhOdrChannel('full')">📦 Full Hàng</button>
+              <button class="chart-pill-btn" id="btn-odr-tinh-channel-tts" onclick="window.switchTinhOdrChannel('tts')">🛒 TikTok Shop</button>
+            </div>
+            <div class="chart-mode-pills" id="odr-tinh-type-pills">
+              <button class="chart-pill-btn active" id="btn-odr-tinh-type-bar" onclick="window.switchTinhOdrType('bar')">📊 Cột Nhóm 4 Tuần</button>
+              <button class="chart-pill-btn" id="btn-odr-tinh-type-line" onclick="window.switchTinhOdrType('line')">📈 Đường Xu Hướng</button>
+            </div>
+          </div>
+        </div>
+        <div class="report-card-body">
+          <div style="position: relative; height: 350px; width: 100%;">
+            <canvas id="chart-odr-tinh-4weeks"></canvas>
+          </div>
+          <div style="margin-top: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: var(--text-sub); border-top: 1px dashed var(--border); padding-top: 10px;">
+            <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+              <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 12px; height: 12px; background: #94a3b8; border-radius: 3px; display: inline-block;"></span> W38</span>
+              <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 12px; height: 12px; background: #60a5fa; border-radius: 3px; display: inline-block;"></span> W39</span>
+              <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 12px; height: 12px; background: #1e40af; border-radius: 3px; display: inline-block;"></span> W40</span>
+              <span style="display: flex; align-items: center; gap: 6px; font-weight: 800; color: #059669;"><span style="width: 12px; height: 12px; background: #10b981; border-radius: 3px; display: inline-block;"></span> W41 (Kỷ Lục Mới)</span>
+              <span style="display: flex; align-items: center; gap: 6px; font-weight: 700; color: #dc2626;"><span style="border-top: 2px dashed #dc2626; width: 18px; display: inline-block;"></span> Ngưỡng Target SLA 92.0%</span>
+            </div>
+            <div id="odr-tinh-summary-badge" style="font-weight: 700; color: #059669; background: #dcfce7; padding: 4px 12px; border-radius: 999px; border: 1px solid rgba(16, 185, 129, 0.3);">
+              🎯 Toàn vùng W41: 94,09% (+0,96%p WoW — Vượt kỷ lục Target 92.0%)
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid-row-2" style="margin-bottom: 20px;">
 <!-- BẢNG 2A: %ODR 5 TỈNH (FULL HÀNG) -->
 <div class="report-card">
 <div class="report-card-header">
@@ -3371,7 +3443,7 @@
 </div>
 </div>
 <!-- Scripts -->
-<script src="data.js?v=1791801496"></script>
-<script src="app.js?v=1791801496"></script>
+<script src="data.js?v=1791803573"></script>
+<script src="app.js?v=1791803573"></script>
 </body>
 </html>
