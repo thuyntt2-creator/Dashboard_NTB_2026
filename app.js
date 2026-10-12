@@ -1044,6 +1044,14 @@
       });
     }
 
+    const searchGtcBatOn = document.getElementById('search-gtc-bat-on');
+    if (searchGtcBatOn) {
+      searchGtcBatOn.addEventListener('input', e => {
+        state.searchGtcBatOn = e.target.value.trim();
+        renderGtcTongTab();
+      });
+    }
+
     const searchOpr = document.getElementById('search-opr-am');
     if (searchOpr) {
       searchOpr.addEventListener('input', e => {
@@ -2908,37 +2916,75 @@
     if (tblBatOn && D.gtc_tong && D.gtc_tong.buu_cuc_bat_on) {
       let listBatOn = [...D.gtc_tong.buu_cuc_bat_on];
 
-      if (state.gtcBatOnFilter === 'red') {
-        listBatOn = listBatOn.filter(r => r.gtc_7d < 45.0);
-      } else if (state.gtcBatOnFilter === 'gap') {
-        listBatOn = listBatOn.filter(r => r.gap >= 20.0);
-      } else {
-        // default show top 15 worst
-        listBatOn = listBatOn.sort((a, b) => a.gtc_7d - b.gtc_7d).slice(0, 16);
+      const filterMode = state.gtcBatOnFilter || 'warn';
+      if (filterMode === 'red') {
+        listBatOn = listBatOn.filter(r => r.trang_thai === 'Nằm TOP Bất ổn' || r.gtc_7d < 45.0);
+      } else if (filterMode === 'ratio70') {
+        listBatOn = listBatOn.filter(r => r.ratio < 70.0);
+      } else if (filterMode === 'n1') {
+        listBatOn = listBatOn.filter(r => r.trang_thai === 'GTC N-1 < 50%' || (r.d11_val > 0 && r.d11_val < 50.0));
+      } else if (filterMode === 'warn') {
+        listBatOn = listBatOn.filter(r => r.trang_thai !== 'Bình thường' || r.nguyen_nhan !== 'Bình thường' || r.gtc_7d < 45.0 || r.ratio < 70.0 || (r.d11_val > 0 && r.d11_val < 50.0));
+      }
+
+      // Search filtering
+      if (state.searchGtcBatOn) {
+        const q = state.searchGtcBatOn.toLowerCase();
+        listBatOn = listBatOn.filter(r => (r.ten_bc && r.ten_bc.toLowerCase().includes(q)) || (r.am && r.am.toLowerCase().includes(q)) || (r.id && r.id.includes(q)));
+      }
+
+      // Sort by gtc_7d ascending (worst first)
+      listBatOn.sort((a, b) => (a.gtc_7d || 0) - (b.gtc_7d || 0));
+
+      const countEl = document.getElementById('gtc-baton-table-count');
+      if (countEl) {
+        countEl.textContent = `Đang hiển thị: ${listBatOn.length} bưu cục`;
       }
 
       tblBatOn.innerHTML = listBatOn.map((row, i) => {
         const isRed = row.gtc_7d < 45.0;
-        const statusBadge = isRed
-          ? '<span class="badge-tag badge-tag-red" style="font-weight:800; font-size:11px;">🚨 Báo Động Đỏ (&lt;45%)</span>'
-          : (row.gap >= 20.0
-            ? '<span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">⚠️ Sụt Giảm Sâu (≥20%p)</span>'
-            : '<span class="badge-tag badge-tag-blue" style="font-size:11px;">Nguy Cơ (&lt;50%)</span>');
+        const isRatioLow = row.ratio < 70.0;
+        const isN1Low = row.d11_val > 0 && row.d11_val < 50.0;
+        const isSelected = state.selectedAM === row.am;
 
-        const d11Color = row.d11_10 < 45.0 ? '#dc2626' : (row.d11_10 < 55.0 ? '#ea580c' : '#16a34a');
+        // Trạng thái badge
+        let statusBadge = '<span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Bình thường</span>';
+        if (row.trang_thai === 'Nằm TOP Bất ổn' || isRed) {
+          statusBadge = '<span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Nằm TOP Bất ổn</span>';
+        } else if (row.trang_thai === 'Chuẩn bị nhảy nhóm') {
+          statusBadge = '<span class="badge-tag badge-tag-amber" style="font-weight:800; font-size:11.5px;">⚠️ Chuẩn bị nhảy nhóm</span>';
+        } else if (row.trang_thai === 'GTC N-1 < 50%' || isN1Low) {
+          statusBadge = '<span class="badge-tag" style="background:#fef3c7; color:#b45309; border:1px solid #fde68a; font-weight:800; font-size:11.5px;">🟡 GTC N-1 &lt; 50%</span>';
+        }
+
+        // Nguyên nhân badge
+        let causeBadge = '<span style="color:#64748b; font-size:11.5px;">Bình thường</span>';
+        if (row.nguyen_nhan && row.nguyen_nhan.includes('< 45%')) {
+          causeBadge = '<span class="bold" style="color:#dc2626; font-size:11.5px; font-weight:800;">🔴 Cảnh báo GTC &lt; 45%</span>';
+        }
+
+        const ratioColor = isRatioLow ? '#dc2626' : (row.ratio < 80.0 ? '#ea580c' : '#16a34a');
+        const d11Color = row.d11_val < 45.0 ? '#dc2626' : (row.d11_val < 50.0 ? '#ea580c' : '#16a34a');
 
         return `
-          <tr style="cursor: pointer;" onclick="selectAndHighlightAM('${row.am}')">
+          <tr style="cursor: pointer; ${isSelected ? 'background: #eff6ff;' : ''}" onclick="selectAndHighlightAM('${row.am}')">
             <td class="center" style="font-weight:800; color:${isRed ? '#dc2626' : 'inherit'};">${i + 1}</td>
-            <td class="bold" style="font-size:13.5px; font-weight:800; color:${isRed ? '#b91c1c' : '#1e293b'};">${row.ten_bc}</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:${isRed ? '#b91c1c' : (isSelected ? '#2563eb' : '#1e293b')};">
+              ${row.ten_bc}
+            </td>
             <td style="font-weight:700; color:#2563eb;">${row.am}</td>
-            <td class="num bold" style="background:${isRed ? 'rgba(239,68,68,0.12)' : 'rgba(254,240,138,0.25)'}; color:${isRed ? '#b91c1c' : '#ea580c'}; font-size:13.5px; font-weight:900;">
+            <td class="num bold" style="background:${isRed ? 'rgba(239,68,68,0.12)' : 'rgba(254,240,138,0.2)'}; color:${isRed ? '#b91c1c' : '#ea580c'}; font-size:13.5px; font-weight:900;">
               ${row.gtc_7d_str}
             </td>
             <td class="num" style="font-weight:600; color:#64748b;">${row.gtc_best_str}</td>
-            <td class="num bold" style="color:#dc2626; font-size:12.5px;">-${row.gap.toFixed(1)}%p</td>
-            <td class="num bold" style="color:${d11Color}; font-size:12px;">${row.d11_10_str}</td>
+            <td class="num bold" style="background:${isRatioLow ? 'rgba(254,226,226,0.5)' : '#fff7ed'}; color:${ratioColor}; font-size:13px; font-weight:800;">
+              ${row.ratio_str}
+              ${isRatioLow ? ' <span style="font-size:10px; color:#dc2626;">(&lt;70%)</span>' : ''}
+            </td>
+            <td class="num bold" style="color:#ea580c; font-size:12.5px;">-${row.gap.toFixed(1)}%p</td>
+            <td class="num bold" style="color:${d11Color}; font-size:12.5px; background:${isN1Low ? 'rgba(254,243,199,0.35)' : 'inherit'};">${row.d11}</td>
             <td class="center">${statusBadge}</td>
+            <td class="center">${causeBadge}</td>
           </tr>
         `;
       }).join('');

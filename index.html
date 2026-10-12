@@ -940,28 +940,92 @@
         <div class="report-card-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; background: linear-gradient(to right, #ffffff, #fef2f2); border-left: 5px solid #ef4444; border-radius: 8px 8px 0 0;">
           <div class="report-card-title">
             <i data-lucide="alert-octagon" style="color: #dc2626;"></i>
-            <span style="color: #b91c1c; font-weight: 900; letter-spacing: 0.3px;">3. DANH SÁCH BƯU CỤC GTC BẤT ỔN ĐIỂN HÌNH W41 (SHEET NTBo — CẢNH BÁO ĐỎ &lt; 45% &amp; SỤT GIẢM SÂU)</span>
+            <span style="color: #b91c1c; font-weight: 900; letter-spacing: 0.3px;">3. BẢNG THEO DÕI BƯU CỤC BẤT ỔN W41 (SHEET NTBO — THEO QUY CHUẨN ĐIỀU HÀNH VẬN HÀNH)</span>
           </div>
           <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
             <div class="chart-mode-pills" id="gtc-baton-filter-pills">
-              <button class="chart-pill-btn active" data-filter="all" onclick="window.filterGtcBatOn('all')">Tất Cả Cảnh Báo (15 BC)</button>
-              <button class="chart-pill-btn" data-filter="red" onclick="window.filterGtcBatOn('red')" style="color: #dc2626; font-weight: 800;">🚨 Báo Động Đỏ (&lt; 45%)</button>
-              <button class="chart-pill-btn" data-filter="gap" onclick="window.filterGtcBatOn('gap')" style="color: #ea580c; font-weight: 700;">📉 Sụt Giảm Sâu (Gap ≥ 20%p)</button>
+              <button class="chart-pill-btn active" data-filter="warn" onclick="window.filterGtcBatOn('warn')">Tất Cả Cảnh Báo (18 BC)</button>
+              <button class="chart-pill-btn" data-filter="red" onclick="window.filterGtcBatOn('red')" style="color: #dc2626; font-weight: 800;">🚨 TOP Bất Ổn (7 BC &lt; 45%)</button>
+              <button class="chart-pill-btn" data-filter="ratio70" onclick="window.filterGtcBatOn('ratio70')" style="color: #ea580c; font-weight: 700;">📉 So Sánh Đỉnh &lt; 70% (5 BC)</button>
+              <button class="chart-pill-btn" data-filter="n1" onclick="window.filterGtcBatOn('n1')" style="color: #d97706; font-weight: 700;">🟡 N-1 &lt; 50% (10 BC)</button>
+              <button class="chart-pill-btn" data-filter="all" onclick="window.filterGtcBatOn('all')">📋 Toàn Bộ 86 BC NTB</button>
             </div>
-            <a href="https://docs.google.com/spreadsheets/d/1lmQv8KwHJzDFs_RMz64ydu4SOmG3M1YAzILNFGtzFec/edit?gid=957775572#gid=957775572" target="_blank" class="badge-tag badge-tag-red" style="font-size: 11.5px; padding: 5px 12px; text-decoration: none; display: flex; align-items: center; gap: 5px;">
-              <i data-lucide="external-link" style="width: 13px; height: 13px;"></i> Sheet NTBo Gốc
+            <a href="https://docs.google.com/spreadsheets/d/1lmQv8KwHJzDFs_RMz64ydu4SOmG3M1YAzILNFGtzFec/edit?gid=957775572#gid=957775572" target="_blank" class="badge-tag badge-tag-red" style="font-size: 11.5px; padding: 6px 14px; text-decoration: none; display: flex; align-items: center; gap: 6px;">
+              <i data-lucide="external-link" style="width: 14px; height: 14px;"></i> Mở Sheet NTBo Gốc
             </a>
           </div>
         </div>
-        <div class="report-card-body">
-          <div style="background: #fff7ed; border: 1px solid rgba(234, 88, 12, 0.25); border-radius: 8px; padding: 10px 16px; margin-bottom: 16px; font-size: 13px; color: #9a3412; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
-            <div>
-              <strong>📌 Tiêu chuẩn kiểm soát Bưu Cục Bất Ổn Vùng NTB:</strong> %GTC 7 ngày gần nhất &lt; 45% (hoặc &lt; 70% mốc lịch sử tốt nhất) ➔ <em>Yêu cầu AM trực tiếp can thiệp điều phối hiện trường, rà soát lộ trình và kiểm soát xuất kho ca 2!</em>
+
+        <div class="report-card-body" style="padding: 20px;">
+          <!-- BANNER LOGIC QUY CHUẨN ĐÁNH GIÁ BẤT ỔN -->
+          <div style="background: linear-gradient(135deg, #fffbeb 0%, #fef2f2 100%); border: 1.5px solid #fecaca; border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; box-shadow: 0 4px 14px rgba(239, 68, 68, 0.06);">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-bottom: 1px dashed rgba(239,68,68,0.25); padding-bottom: 12px; margin-bottom: 14px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 22px;">📌</span>
+                <div>
+                  <div style="font-size: 15px; font-weight: 900; color: #991b1b; text-transform: uppercase; letter-spacing: 0.5px;">BỘ QUY CHUẨN ĐÁNH GIÁ BƯU CỤC BẤT ỔN TOÀN QUỐC (OPERATIONS STANDARD LOGIC)</div>
+                  <div style="font-size: 12px; color: #7f1d1d; margin-top: 2px;">Áp dụng chính thức cho hệ thống điều hành toàn quốc — AM cần nắm rõ để kiểm soát bưu cục!</div>
+                </div>
+              </div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span class="badge-tag badge-tag-red" style="font-weight: 800; font-size: 12px;">🚨 7 BC Chạm Ngưỡng Đỏ (&lt;45%)</span>
+                <span class="badge-tag badge-tag-amber" style="font-weight: 800; font-size: 12px;">⚠️ 1 BC Chuẩn Bị Nhảy Nhóm</span>
+                <span class="badge-tag badge-tag-blue" style="font-weight: 800; font-size: 12px;">🟡 10 BC Rủi Ro N-1 &lt; 50%</span>
+              </div>
             </div>
-            <div id="gtc-baton-count-badge" style="font-weight: 800; background: #fee2e2; color: #b91c1c; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(220, 38, 38, 0.3);">
-              🚨 7 BC Chạm Ngưỡng Báo Động Đỏ
+
+            <!-- 3 CỘT QUY TẮC CHI TIẾT -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; font-size: 13px;">
+              <div style="background: #ffffff; padding: 12px 14px; border-radius: 8px; border-left: 4px solid #3b82f6; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                <div style="font-weight: 800; color: #1e40af; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                  <span>📦</span> 1. Cơ Sở Dữ Liệu &amp; Cơ Cấu Hàng
+                </div>
+                <div style="color: #475569; line-height: 1.55;">
+                  • Chu kỳ đánh giá: <strong>%GTC 7 ngày gần nhất (W41: 05/10 - 11/10/2026)</strong>.<br>
+                  • <strong>HN &amp; HCM:</strong> Lấy Full Hàng mới + Hàng tồn.<br>
+                  • <strong style="color: #dc2626;">Các tỉnh khác (bao gồm cả NTB):</strong> Lấy <strong>Hàng mới Ca 1 + Hàng tồn</strong> <em>(Không tính hàng mới ca 2 xuất phát muộn)</em>.
+                </div>
+              </div>
+
+              <div style="background: #ffffff; padding: 12px 14px; border-radius: 8px; border-left: 4px solid #ef4444; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                <div style="font-weight: 800; color: #b91c1c; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                  <span>🚨</span> 2. Tiêu Chuẩn Kích Hoạt Cảnh Báo
+                </div>
+                <div style="color: #475569; line-height: 1.55;">
+                  • <strong>HN &amp; HCM:</strong> Nếu %GTC &lt; <strong>50%</strong> ➔ Cảnh báo.<br>
+                  • <strong style="color: #dc2626;">Các tỉnh khác (NTB):</strong> Nếu %GTC &lt; <strong style="color: #dc2626; font-size: 14px;">45%</strong> ➔ <strong style="color: #b91c1c;">NẰM TOP BẤT ỔN</strong>.<br>
+                  • <strong>Toàn quốc:</strong> Nếu %GTC 7 ngày &lt; <strong>70%</strong> Mốc Lịch sử tốt nhất (Tỷ lệ so sánh <strong style="color: #ea580c;">(1)/(2) &lt; 70%</strong>) ➔ <strong>Cảnh báo sụt giảm phong độ</strong>.
+                </div>
+              </div>
+
+              <div style="background: #ffffff; padding: 12px 14px; border-radius: 8px; border-left: 4px solid #ea580c; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                <div style="font-weight: 800; color: #c2410c; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                  <span>⚠️</span> 3. Lưu Ý Quản Trị Vận Hành Cho AM
+                </div>
+                <div style="color: #475569; line-height: 1.55;">
+                  • <strong>Chuẩn bị nhảy nhóm:</strong> Tỷ lệ so sánh đỉnh tiệm cận ngưỡng rơi &lt; 70% hoặc N-1 rớt mạnh (VD: <em>Nha Trang</em>).<br>
+                  • <strong>GTC N-1 &lt; 50%:</strong> Ngày 11/10 rớt sâu <em>(&lt; 50%)</em>, nguy cơ lan sang W42.<br>
+                  • <strong>Hành động:</strong> AM trực tiếp can thiệp hiện trường, kiểm soát xuất kho ca 1 và chia lộ trình bưu tá!
+                </div>
+              </div>
             </div>
           </div>
+
+          <!-- SEARCH & STATS ROW -->
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 14px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div class="search-box" style="position: relative; width: 320px;">
+                <input type="text" id="search-gtc-bat-on" placeholder="🔍 Tìm kiếm theo Tên Bưu Cục hoặc AM..." style="width: 100%; padding: 8px 12px 8px 36px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 13px; outline: none; transition: all 0.2s;">
+                <i data-lucide="search" style="position: absolute; left: 10px; top: 9px; width: 16px; height: 16px; color: #94a3b8;"></i>
+              </div>
+              <span id="gtc-baton-table-count" style="font-size: 13px; font-weight: 700; color: #64748b;">Đang hiển thị: 18 bưu cục</span>
+            </div>
+            <div style="font-size: 12px; color: #64748b;">
+              * Nhấp vào bất kỳ hàng nào để <strong>Focus Highlight AM</strong> tương ứng trong toàn bộ Dashboard.
+            </div>
+          </div>
+
+          <!-- TABLE -->
           <div class="bi-table-wrap">
             <table class="bi-table" id="table-gtc-bat-on-detailed">
               <thead>
@@ -969,11 +1033,13 @@
                   <th class="center" style="width: 44px;">#</th>
                   <th>Bưu Cục Điểm Nóng</th>
                   <th>AM Phụ Trách</th>
-                  <th class="num" style="background: #fee2e2; color: #b91c1c; font-weight: 800;">%GTC 7 Ngày (W41)</th>
-                  <th class="num">GTC Lịch Sử Tốt Nhất</th>
+                  <th class="num" style="background: #fee2e2; color: #b91c1c; font-weight: 900;">%GTC 7 Ngày (1)</th>
+                  <th class="num">GTC Lịch Sử Tốt Nhất (2)</th>
+                  <th class="num" style="background: #fff7ed; color: #c2410c; font-weight: 800;">So Sánh (1)/(2)</th>
                   <th class="num" style="color: #ea580c; font-weight: 700;">Độ Tụt Dốc (Gap %p)</th>
-                  <th class="num" style="color: #4b5563;">Chốt Ngày 11/10</th>
-                  <th class="center">Đánh Giá Bất Ổn</th>
+                  <th class="num" style="color: #4b5563;">Chốt Ngày 11/10 (N-1)</th>
+                  <th class="center" style="width: 170px;">Trạng Thái (Sheet)</th>
+                  <th class="center" style="width: 150px;">Nguyên Nhân</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -3490,7 +3556,7 @@
 </div>
 </div>
 <!-- Scripts -->
-<script src="data.js?v=1791807772"></script>
-<script src="app.js?v=1791807772"></script>
+<script src="data.js?v=1791809889"></script>
+<script src="app.js?v=1791809889"></script>
 </body>
 </html>
