@@ -11171,7 +11171,7 @@
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 60,
-      "last_updated": "15:53 - 12/10/2026"
+      "last_updated": "16:28 - 12/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 2207.98,
@@ -11232,7 +11232,7 @@
         "fixed_cost": 200.59,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Trâm Hoá, Tốt và Rẻ",
+        "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
         "truck_count": 5
       },
       {
@@ -11245,7 +11245,7 @@
         "fixed_cost": 139.32,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Công Định, NAK",
+        "primary_ncc": "NAK, Công Định",
         "truck_count": 5
       },
       {
@@ -11300,7 +11300,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 10,
-        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
+        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
       },
       {
         "ncc": "Mạnh Cường (BCCK)",
@@ -11313,7 +11313,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 5,
-        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
       },
       {
         "ncc": "Lâm Ngọc Thành",
@@ -42635,8 +42635,406 @@
         "pct_diff": -0.009233209323297067
       }
     ],
-    "churn_top10": [],
-    "churn_zero": [],
+    "churn_top10": [
+      {
+        "stt": 1,
+        "makh": "5099749",
+        "tenkh": "Công Ty TNHH Khởi Phát Thịnh",
+        "am": "Thái Thị Thanh Thư",
+        "bc": "22363000 - (KHO) Nam Nha Trang 3",
+        "nhom": "A",
+        "vol_curr": 277,
+        "vol_prev": 332,
+        "diff": -55,
+        "pct_diff": -16.6
+      },
+      {
+        "stt": 3,
+        "makh": "3950975",
+        "tenkh": "Bếp vườn nhà Trinh",
+        "am": "Phan Đình Duy",
+        "bc": "21046000 - (KHO) Vạn Ninh",
+        "nhom": "BCD",
+        "vol_curr": 24,
+        "vol_prev": 59,
+        "diff": -35,
+        "pct_diff": -59.3
+      },
+      {
+        "stt": 4,
+        "makh": "4126766",
+        "tenkh": "Thỏ Ami Boutique",
+        "am": "Nguyễn Lê Nguyên Vũ",
+        "bc": "21468000 - (LDO) 3 Bảo Lộc",
+        "nhom": "BCD",
+        "vol_curr": 20,
+        "vol_prev": 54,
+        "diff": -34,
+        "pct_diff": -63.0
+      },
+      {
+        "stt": 5,
+        "makh": "5523071",
+        "tenkh": "Shop Đồ Bộ",
+        "am": "Huỳnh Thúc Duân",
+        "bc": "22242000 - (DNO) Bắc Gia Nghĩa",
+        "nhom": "BCD",
+        "vol_curr": 9,
+        "vol_prev": 33,
+        "diff": -24,
+        "pct_diff": -72.7
+      },
+      {
+        "stt": 6,
+        "makh": "5197975",
+        "tenkh": "TIÊN HUỲNH US",
+        "am": "Nguyễn Duy Long",
+        "bc": "20499000 - (NTH) Phước Dinh",
+        "nhom": "A",
+        "vol_curr": 71,
+        "vol_prev": 88,
+        "diff": -17,
+        "pct_diff": -19.3
+      },
+      {
+        "stt": 8,
+        "makh": "2999465",
+        "tenkh": "Shop vải ký bảo ngọc",
+        "am": "Trần Thị Nhung",
+        "bc": "22086000 - (DNO) Trường Xuân",
+        "nhom": "EF",
+        "vol_curr": 2,
+        "vol_prev": 17,
+        "diff": -15,
+        "pct_diff": -88.2
+      },
+      {
+        "stt": 10,
+        "makh": "3924022",
+        "tenkh": "Sop vải hồng nhung",
+        "am": "Lê Thanh Nhựt",
+        "bc": "2357 - (BTH) Đồng Kho",
+        "nhom": "BCD",
+        "vol_curr": 29,
+        "vol_prev": 41,
+        "diff": -12,
+        "pct_diff": -29.3
+      },
+      {
+        "stt": 12,
+        "makh": "4264387",
+        "tenkh": "Thuý Vân",
+        "am": "Huỳnh Thúc Duân",
+        "bc": "22242000 - (DNO) Bắc Gia Nghĩa",
+        "nhom": "A",
+        "vol_curr": 159,
+        "vol_prev": 171,
+        "diff": -12,
+        "pct_diff": -7.0
+      },
+      {
+        "stt": 13,
+        "makh": "510659",
+        "tenkh": "Nguyen thi thanh thuong",
+        "am": "Nguyễn Duy Long",
+        "bc": "20316000 - (NTH) Ninh Sơn",
+        "nhom": "EF",
+        "vol_curr": 11,
+        "vol_prev": 22,
+        "diff": -11,
+        "pct_diff": -50.0
+      },
+      {
+        "stt": 14,
+        "makh": "5116001",
+        "tenkh": "Đồng phục buôn mê thuột",
+        "am": "Phan Đình Duy",
+        "bc": "20495000 - (KHO) Nha Trang",
+        "nhom": "BCD",
+        "vol_curr": 13,
+        "vol_prev": 23,
+        "diff": -10,
+        "pct_diff": -43.5
+      },
+      {
+        "stt": 15,
+        "makh": "3418916",
+        "tenkh": "Thuy  Huỳnh",
+        "am": "Phan Đình Duy",
+        "bc": "21569000 - (KHO) Đông Ninh Hòa",
+        "nhom": "BCD",
+        "vol_curr": 1,
+        "vol_prev": 11,
+        "diff": -10,
+        "pct_diff": -90.9
+      },
+      {
+        "stt": 16,
+        "makh": "5111438",
+        "tenkh": "Hương shop",
+        "am": "Nguyễn Lê Nguyên Vũ",
+        "bc": "1896 - (LDO) Đạ Huoai",
+        "nhom": "EF",
+        "vol_curr": 10,
+        "vol_prev": 19,
+        "diff": -9,
+        "pct_diff": -47.4
+      },
+      {
+        "stt": 18,
+        "makh": "5039882",
+        "tenkh": "Lucy",
+        "am": "Huỳnh Thị Kim Chi",
+        "bc": "21458000 - (LDO) Nam Ban Lâm Hà",
+        "nhom": "BCD",
+        "vol_curr": 15,
+        "vol_prev": 24,
+        "diff": -9,
+        "pct_diff": -37.5
+      },
+      {
+        "stt": 20,
+        "makh": "2919874",
+        "tenkh": "Navykids",
+        "am": "Nguyễn Lê Nguyên Vũ",
+        "bc": "1896 - (LDO) Đạ Huoai",
+        "nhom": "EF",
+        "vol_curr": 1,
+        "vol_prev": 9,
+        "diff": -8,
+        "pct_diff": -88.9
+      },
+      {
+        "stt": 21,
+        "makh": "3394629",
+        "tenkh": "Nhung Huỳnh",
+        "am": "",
+        "bc": "",
+        "nhom": "EF",
+        "vol_curr": 4,
+        "vol_prev": 12,
+        "diff": -8,
+        "pct_diff": -66.7
+      },
+      {
+        "stt": 22,
+        "makh": "5042751",
+        "tenkh": "Hiệp hạnh",
+        "am": "Nguyễn Ngọc Khánh",
+        "bc": "20144000 - (BTH) Mũi Né",
+        "nhom": "EF",
+        "vol_curr": 5,
+        "vol_prev": 13,
+        "diff": -8,
+        "pct_diff": -61.5
+      },
+      {
+        "stt": 23,
+        "makh": "4374504",
+        "tenkh": "Shop soda",
+        "am": "Cao Thị Thanh Thủy",
+        "bc": "21067000 - (BTH) Tân Hải",
+        "nhom": "EF",
+        "vol_curr": 5,
+        "vol_prev": 13,
+        "diff": -8,
+        "pct_diff": -61.5
+      },
+      {
+        "stt": 25,
+        "makh": "4161938",
+        "tenkh": "Bích Liên",
+        "am": "",
+        "bc": "",
+        "nhom": "EF",
+        "vol_curr": 3,
+        "vol_prev": 10,
+        "diff": -7,
+        "pct_diff": -70.0
+      },
+      {
+        "stt": 27,
+        "makh": "4010424",
+        "tenkh": "giày dép An An",
+        "am": "Nguyễn Duy Long",
+        "bc": "22861000 - (NTH) Phan Rang",
+        "nhom": "BCD",
+        "vol_curr": 10,
+        "vol_prev": 17,
+        "diff": -7,
+        "pct_diff": -41.2
+      },
+      {
+        "stt": 28,
+        "makh": "3950796",
+        "tenkh": "Shop annhien",
+        "am": "Lê Thanh Nhựt",
+        "bc": "2357 - (BTH) Đồng Kho",
+        "nhom": "EF",
+        "vol_curr": 12,
+        "vol_prev": 19,
+        "diff": -7,
+        "pct_diff": -36.8
+      },
+      {
+        "stt": 29,
+        "makh": "5388184",
+        "tenkh": "Vivi shop",
+        "am": "Cao Thị Thanh Thủy",
+        "bc": "21594000 - (BTH) Phước Hội",
+        "nhom": "EF",
+        "vol_curr": 5,
+        "vol_prev": 12,
+        "diff": -7,
+        "pct_diff": -58.3
+      },
+      {
+        "stt": 31,
+        "makh": "4188668",
+        "tenkh": "Vải Nhật Xuất Dư",
+        "am": "Lê Thanh Nhựt",
+        "bc": "21403000 - (BTH) Hàm Liêm",
+        "nhom": "EF",
+        "vol_curr": 4,
+        "vol_prev": 10,
+        "diff": -6,
+        "pct_diff": -60.0
+      },
+      {
+        "stt": 32,
+        "makh": "4514027",
+        "tenkh": "Thanh Lành",
+        "am": "Phan Đình Duy",
+        "bc": "20320000 - (KHO) Tây Nha Trang",
+        "nhom": "EF",
+        "vol_curr": 1,
+        "vol_prev": 6,
+        "diff": -5,
+        "pct_diff": -83.3
+      },
+      {
+        "stt": 33,
+        "makh": "5442325",
+        "tenkh": "Neoseafood",
+        "am": "Cao Thị Thanh Thủy",
+        "bc": "21067000 - (BTH) Tân Hải",
+        "nhom": "EF",
+        "vol_curr": 2,
+        "vol_prev": 7,
+        "diff": -5,
+        "pct_diff": -71.4
+      }
+    ],
+    "churn_zero": [
+      {
+        "stt": 2,
+        "makh": "5234277",
+        "tenkh": "Phụ Kiện Hoa Nguyễn Bích",
+        "am": "Lê Thanh Nhựt",
+        "bc": "21403000 - (BTH) Hàm Liêm",
+        "nhom": "A",
+        "vol_curr": 0,
+        "vol_prev": 42,
+        "diff": -42,
+        "pct_diff": -100.0
+      },
+      {
+        "stt": 7,
+        "makh": "5053816",
+        "tenkh": "vy hạnh",
+        "am": "Cao Thị Thanh Thủy",
+        "bc": "21067000 - (BTH) Tân Hải",
+        "nhom": "EF",
+        "vol_curr": 0,
+        "vol_prev": 17,
+        "diff": -17,
+        "pct_diff": -100.0
+      },
+      {
+        "stt": 9,
+        "makh": "4883648",
+        "tenkh": "Cty TNHH sản xuất và thương mại Minh Hiền",
+        "am": "Nguyễn Hoàng Phi",
+        "bc": "22793000 - (KHO) Diên Thọ",
+        "nhom": "BCD",
+        "vol_curr": 0,
+        "vol_prev": 13,
+        "diff": -13,
+        "pct_diff": -100.0
+      },
+      {
+        "stt": 11,
+        "makh": "3542409",
+        "tenkh": "ThuongUnisexDaLat",
+        "am": "Huỳnh Thị Kim Chi",
+        "bc": "21294000 - (LDO) Đinh Văn Lâm Hà",
+        "nhom": "G",
+        "vol_curr": 0,
+        "vol_prev": 12,
+        "diff": -12,
+        "pct_diff": -100.0
+      },
+      {
+        "stt": 17,
+        "makh": "4181284",
+        "tenkh": "mai thị hồng",
+        "am": "Thái Thị Thanh Thư",
+        "bc": "2502 - (KHO) Nam Nha Trang 5",
+        "nhom": "EF",
+        "vol_curr": 0,
+        "vol_prev": 9,
+        "diff": -9,
+        "pct_diff": -100.0
+      },
+      {
+        "stt": 19,
+        "makh": "3061352",
+        "tenkh": "YODY NHA TRANG",
+        "am": "Phan Đình Duy",
+        "bc": "20495000 - (KHO) Nha Trang",
+        "nhom": "EF",
+        "vol_curr": 0,
+        "vol_prev": 8,
+        "diff": -8,
+        "pct_diff": -100.0
+      },
+      {
+        "stt": 24,
+        "makh": "4520548",
+        "tenkh": "Sỉ chăn ra miền trung",
+        "am": "",
+        "bc": "",
+        "nhom": "EF",
+        "vol_curr": 0,
+        "vol_prev": 8,
+        "diff": -8,
+        "pct_diff": -100.0
+      },
+      {
+        "stt": 26,
+        "makh": "5190537",
+        "tenkh": "Alo shop",
+        "am": "Huỳnh Thúc Duân",
+        "bc": "22242000 - (DNO) Bắc Gia Nghĩa",
+        "nhom": "EF",
+        "vol_curr": 0,
+        "vol_prev": 7,
+        "diff": -7,
+        "pct_diff": -100.0
+      },
+      {
+        "stt": 30,
+        "makh": "5375888",
+        "tenkh": "Sen Đá Út Quyên",
+        "am": "Lê Văn Trường",
+        "bc": "21537000 - (LDO) Lâm Viên - Đà Lạt 2",
+        "nhom": "EF",
+        "vol_curr": 0,
+        "vol_prev": 7,
+        "diff": -7,
+        "pct_diff": -100.0
+      }
+    ],
     "khach_hang_a": {
       "dates": [
         "01/09",
