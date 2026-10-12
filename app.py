@@ -8072,6 +8072,91 @@ def send_telegram_ai_briefing():
         traceback.print_exc()
         return jsonify({"error": f"Lỗi gửi bản tin AI: {str(e)}"}), 500
 
+@app.route('/api/sync-ntbo', methods=['GET', 'POST'])
+def sync_ntbo_api():
+    try:
+        import gspread
+        from google.oauth2.credentials import Credentials
+        import datetime
+        creds_path = r'C:\Users\lap4all\Documents\Auto report\authorized_user.json'
+        creds = Credentials.from_authorized_user_file(creds_path, scopes=['https://www.googleapis.com/auth/spreadsheets'])
+        gc = gspread.authorize(creds)
+        sh = gc.open_by_key('1lmQv8KwHJzDFs_RMz64ydu4SOmG3M1YAzILNFGtzFec')
+        ws = sh.worksheet('NTBo')
+        data = ws.get_all_values()
+        
+        # update time from row 0
+        update_time_str = data[0][2].strip() if len(data[0]) > 2 and data[0][2].strip() else datetime.datetime.now().strftime('%d/%m/%Y')
+        
+        headers = data[4] if len(data) > 4 else []
+        n1_col_name = headers[9].strip() if len(headers) > 9 else 'N-1'
+
+        parsed = []
+        for r in data[5:]:
+            if len(r) >= 15 and r[2].strip():
+                am = r[0].strip()
+                bc_id = r[1].strip()
+                ten_bc = r[2].strip()
+                d_latest = r[9].strip() if len(r) > 9 else ''
+                gtc_7d_str = r[10].strip()
+                gtc_best_str = r[11].strip()
+                ratio_str = r[12].strip()
+                trang_thai = r[13].strip()
+                nguyen_nhan = r[14].strip()
+
+                try: gtc_7d = float(gtc_7d_str.replace('%', ''))
+                except: gtc_7d = 0.0
+                try: gtc_best = float(gtc_best_str.replace('%', ''))
+                except: gtc_best = 0.0
+                try: ratio = float(ratio_str.replace('%', ''))
+                except: ratio = 0.0
+                try: d11_val = float(d_latest.replace('%', ''))
+                except: d11_val = 0.0
+
+                gap = round(gtc_best - gtc_7d, 1)
+
+                parsed.append({
+                    'am': am, 'id': bc_id, 'ten_bc': ten_bc,
+                    'd11': d_latest, 'd11_val': d11_val,
+                    'gtc_7d': gtc_7d, 'gtc_7d_str': gtc_7d_str,
+                    'gtc_best': gtc_best, 'gtc_best_str': gtc_best_str,
+                    'ratio': ratio, 'ratio_str': ratio_str,
+                    'gap': gap, 'trang_thai': trang_thai, 'nguyen_nhan': nguyen_nhan
+                })
+
+        root_dir = os.path.dirname(os.path.abspath(__file__))
+        d_json_p = os.path.join(root_dir, 'data.json')
+        d_js_p = os.path.join(root_dir, 'data.js')
+
+        with open(d_json_p, 'r', encoding='utf-8') as f:
+            d_all = json.load(f)
+
+        if 'gtc_tong' not in d_all: d_all['gtc_tong'] = {}
+        d_all['gtc_tong']['buu_cuc_bat_on'] = parsed
+        d_all['gtc_tong']['ntbo_update_time'] = update_time_str
+        d_all['gtc_tong']['n1_date_label'] = n1_col_name
+
+        with open(d_json_p, 'w', encoding='utf-8') as f:
+            json.dump(d_all, f, ensure_ascii=False, indent=2)
+
+        with open(d_js_p, 'w', encoding='utf-8') as f:
+            f.write('window.DASHBOARD_DATA = ' + json.dumps(d_all, ensure_ascii=False) + ';\n')
+            f.write('window.DATA = window.DASHBOARD_DATA;\n')
+            f.write('const REPORT_DATA = window.DASHBOARD_DATA;\n')
+
+        return jsonify({
+            'success': True,
+            'message': f'Đồng bộ realtime thành công {len(parsed)} bưu cục từ Sheet NTBo!',
+            'update_time': update_time_str,
+            'n1_label': n1_col_name,
+            'count': len(parsed),
+            'bcs': parsed
+        })
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({'success': False, 'error': str(e)}), 500
+
 @app.route('/kichban')
 def serve_kichban():
     root_dir = os.path.dirname(os.path.abspath(__file__))

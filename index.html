@@ -948,9 +948,18 @@
         <div class="report-card-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; background: linear-gradient(to right, #ffffff, #fef2f2); border-left: 5px solid #ef4444; border-radius: 8px 8px 0 0;">
           <div class="report-card-title">
             <i data-lucide="alert-octagon" style="color: #dc2626;"></i>
-            <span style="color: #b91c1c; font-weight: 900; letter-spacing: 0.3px;">3. BẢNG THEO DÕI BƯU CỤC BẤT ỔN W41 (SHEET NTBO — THEO QUY CHUẨN ĐIỀU HÀNH VẬN HÀNH)</span>
+            <span style="color: #b91c1c; font-weight: 900; letter-spacing: 0.3px;">3. BẢNG THEO DÕI BƯU CỤC BẤT ỔN VÙNG NTB (SHEET NTBO — DỮ LIỆU REALTIME)</span>
           </div>
           <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <button class="bi-btn" id="btn-sync-ntbo-realtime" onclick="window.syncNtboRealtime()" style="background: #ffffff; color: #dc2626; border: 1.5px solid #fca5a5; font-weight: 700; padding: 6px 12px; border-radius: 8px; font-size: 12px; display: flex; align-items: center; gap: 6px; cursor: pointer; transition: all 0.2s;" title="Nhấp để đồng bộ dữ liệu mới nhất từ Google Sheet NTBo">
+                <i data-lucide="refresh-cw" id="icon-sync-ntbo" style="width: 13px; height: 13px;"></i>
+                <span id="text-sync-ntbo">🔄 Đồng Bộ Realtime Sheet NTBo</span>
+              </button>
+              <span id="badge-ntbo-updated" style="font-size: 11.5px; color: #991b1b; font-weight: 700; background: #fee2e2; padding: 5px 10px; border-radius: 6px; border: 1px solid #fca5a5; display: flex; align-items: center; gap: 4px;">
+                📅 Dữ liệu: 12/10/2026 (Chốt ngày 11/10)
+              </span>
+            </div>
             <div class="chart-mode-pills" id="gtc-baton-filter-pills">
               <button class="chart-pill-btn active" data-filter="warn" onclick="window.filterGtcBatOn('warn')">Tất Cả Cảnh Báo (18 BC)</button>
               <button class="chart-pill-btn" data-filter="red" onclick="window.filterGtcBatOn('red')" style="color: #dc2626; font-weight: 800;">🚨 TOP Bất Ổn (7 BC &lt; 45%)</button>
@@ -971,8 +980,8 @@
               <div style="display: flex; align-items: center; gap: 10px;">
                 <span style="font-size: 22px;">📌</span>
                 <div>
-                  <div style="font-size: 15px; font-weight: 900; color: #991b1b; text-transform: uppercase; letter-spacing: 0.5px;">BỘ QUY CHUẨN ĐÁNH GIÁ BƯU CỤC BẤT ỔN TOÀN QUỐC (OPERATIONS STANDARD LOGIC)</div>
-                  <div style="font-size: 12px; color: #7f1d1d; margin-top: 2px;">Áp dụng chính thức cho hệ thống điều hành toàn quốc — AM cần nắm rõ để kiểm soát bưu cục!</div>
+                  <div style="font-size: 15px; font-weight: 900; color: #991b1b; text-transform: uppercase; letter-spacing: 0.5px;">BỘ QUY CHUẨN ĐÁNH GIÁ BƯU CỤC BẤT ỔN — VÙNG NAM TRUNG BỘ</div>
+                  <div style="font-size: 12px; color: #7f1d1d; margin-top: 2px;">Chuẩn hóa tiêu chí điều hành vận hành NTB — Cập nhật realtime theo Google Sheet NTBo</div>
                 </div>
               </div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap;">
@@ -982,27 +991,26 @@
               </div>
             </div>
 
-            <!-- 3 CỘT QUY TẮC CHI TIẾT -->
+            <!-- 3 CỘT QUY TẮC CHI TIẾT (RIÊNG CHO NTB) -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; font-size: 13px;">
               <div style="background: #ffffff; padding: 12px 14px; border-radius: 8px; border-left: 4px solid #3b82f6; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
                 <div style="font-weight: 800; color: #1e40af; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
-                  <span>📦</span> 1. Cơ Sở Dữ Liệu &amp; Cơ Cấu Hàng
+                  <span>📦</span> 1. Cơ Cấu Hàng Vùng NTB
                 </div>
                 <div style="color: #475569; line-height: 1.55;">
-                  • Chu kỳ đánh giá: <strong>%GTC 7 ngày gần nhất (W41: 05/10 - 11/10/2026)</strong>.<br>
-                  • <strong>HN &amp; HCM:</strong> Lấy Full Hàng mới + Hàng tồn.<br>
-                  • <strong style="color: #dc2626;">Các tỉnh khác (bao gồm cả NTB):</strong> Lấy <strong>Hàng mới Ca 1 + Hàng tồn</strong> <em>(Không tính hàng mới ca 2 xuất phát muộn)</em>.
+                  • Chu kỳ đánh giá: <strong>%GTC trung bình 7 ngày gần nhất</strong>.<br>
+                  • <strong style="color: #dc2626;">Cơ cấu tính của NTB:</strong> Chỉ tính <strong>Hàng mới Ca 1 + Hàng tồn</strong> <em>(Không tính hàng mới ca 2 xuất phát muộn)</em>.<br>
+                  • <em>Cơ hội gỡ điểm của bưu cục nằm trọn vẹn ở khâu ra quân ca sáng!</em>
                 </div>
               </div>
 
               <div style="background: #ffffff; padding: 12px 14px; border-radius: 8px; border-left: 4px solid #ef4444; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
                 <div style="font-weight: 800; color: #b91c1c; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
-                  <span>🚨</span> 2. Tiêu Chuẩn Kích Hoạt Cảnh Báo
+                  <span>🚨</span> 2. Tiêu Chuẩn Kích Hoạt Cảnh Báo NTB
                 </div>
                 <div style="color: #475569; line-height: 1.55;">
-                  • <strong>HN &amp; HCM:</strong> Nếu %GTC &lt; <strong>50%</strong> ➔ Cảnh báo.<br>
-                  • <strong style="color: #dc2626;">Các tỉnh khác (NTB):</strong> Nếu %GTC &lt; <strong style="color: #dc2626; font-size: 14px;">45%</strong> ➔ <strong style="color: #b91c1c;">NẰM TOP BẤT ỔN</strong>.<br>
-                  • <strong>Toàn quốc:</strong> Nếu %GTC 7 ngày &lt; <strong>70%</strong> Mốc Lịch sử tốt nhất (Tỷ lệ so sánh <strong style="color: #ea580c;">(1)/(2) &lt; 70%</strong>) ➔ <strong>Cảnh báo sụt giảm phong độ</strong>.
+                  • <strong style="color: #dc2626;">Báo Động Đỏ Tuyệt Đối:</strong> %GTC 7 ngày &lt; <strong style="color: #dc2626; font-size: 14px;">45%</strong> ➔ <strong style="color: #b91c1c;">NẰM TOP BẤT ỔN</strong>.<br>
+                  • <strong style="color: #ea580c;">Cảnh Báo Sụt Giảm Phong Độ:</strong> %GTC 7 ngày &lt; <strong>70%</strong> Mốc Lịch sử tốt nhất (Tỷ lệ so sánh <strong style="color: #ea580c;">(1)/(2) &lt; 70%</strong>).
                 </div>
               </div>
 
@@ -1012,8 +1020,8 @@
                 </div>
                 <div style="color: #475569; line-height: 1.55;">
                   • <strong>Chuẩn bị nhảy nhóm:</strong> Tỷ lệ so sánh đỉnh tiệm cận ngưỡng rơi &lt; 70% hoặc N-1 rớt mạnh (VD: <em>Nha Trang</em>).<br>
-                  • <strong>GTC N-1 &lt; 50%:</strong> Ngày 11/10 rớt sâu <em>(&lt; 50%)</em>, nguy cơ lan sang W42.<br>
-                  • <strong>Hành động:</strong> AM trực tiếp can thiệp hiện trường, kiểm soát xuất kho ca 1 và chia lộ trình bưu tá!
+                  • <strong>GTC N-1 &lt; 50%:</strong> Ngày chốt gần nhất rớt sâu <em>(&lt; 50%)</em>, nguy cơ lan sang tuần tới.<br>
+                  • <strong>Hành động:</strong> AM trực tiếp can thiệp hiện trường, dọn tồn trước 8h30 và kiểm soát xuất kho ca 1!
                 </div>
               </div>
             </div>
@@ -3564,7 +3572,7 @@
 </div>
 </div>
 <!-- Scripts -->
-<script src="data.js?v=1791818306"></script>
-<script src="app.js?v=1791818306"></script>
+<script src="data.js?v=1791820379"></script>
+<script src="app.js?v=1791820379"></script>
 </body>
 </html>

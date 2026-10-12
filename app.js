@@ -2912,6 +2912,16 @@
     }
 
     // 3. BẢNG BƯU CỤC BẤT ỔN ĐIỂN HÌNH W41 (SHEET NTBo)
+    // Update dynamic date badge and table header if available
+    const badgeNtbo = document.getElementById('badge-ntbo-updated');
+    if (badgeNtbo && D.gtc_tong && D.gtc_tong.ntbo_update_time) {
+      badgeNtbo.textContent = `📅 Dữ liệu: ${D.gtc_tong.ntbo_update_time} (Chốt ngày ${D.gtc_tong.n1_date_label || '11/10'})`;
+    }
+    const thN1 = document.querySelector('#table-gtc-bat-on-detailed thead th:nth-child(8)');
+    if (thN1 && D.gtc_tong && D.gtc_tong.n1_date_label) {
+      thN1.textContent = `Chốt Ngày ${D.gtc_tong.n1_date_label}`;
+    }
+
     const tblBatOn = document.querySelector('#table-gtc-bat-on-detailed tbody');
     if (tblBatOn && D.gtc_tong && D.gtc_tong.buu_cuc_bat_on) {
       let listBatOn = [...D.gtc_tong.buu_cuc_bat_on];
@@ -9402,6 +9412,44 @@
   document.addEventListener('DOMContentLoaded', init);
 })();
 
+
+    // REALTIME SYNC FOR SHEET NTBo
+  window.syncNtboRealtime = async function() {
+    const btn = document.getElementById('btn-sync-ntbo-realtime');
+    const txt = document.getElementById('text-sync-ntbo');
+    const icon = document.getElementById('icon-sync-ntbo');
+    const badge = document.getElementById('badge-ntbo-updated');
+
+    if (btn) btn.disabled = true;
+    if (txt) txt.textContent = 'Đang đồng bộ...';
+
+    try {
+      const res = await fetch('/api/sync-ntbo');
+      const data = await res.json();
+      if (data.success && data.bcs) {
+        if (!D.gtc_tong) D.gtc_tong = {};
+        D.gtc_tong.buu_cuc_bat_on = data.bcs;
+        D.gtc_tong.ntbo_update_time = data.update_time;
+        D.gtc_tong.n1_date_label = data.n1_label;
+
+        if (badge) {
+          badge.textContent = `📅 Dữ liệu: ${data.update_time} (Chốt ngày ${data.n1_label})`;
+        }
+
+        renderGtcTongTab();
+        alert(`✅ ${data.message}\nCập nhật lúc: ${data.update_time} (Chốt ngày: ${data.n1_label})`);
+      } else {
+        alert('❌ Lỗi đồng bộ: ' + (data.error || 'Không thể tải dữ liệu'));
+      }
+    } catch (err) {
+      console.error('syncNtboRealtime error:', err);
+      alert('❌ Lỗi kết nối API đồng bộ: ' + err.message);
+    } finally {
+      if (btn) btn.disabled = false;
+      if (txt) txt.textContent = '🔄 Đồng Bộ Realtime Sheet NTBo';
+      if (window.lucide) lucide.createIcons();
+    }
+  };
 
   window.filterGtcBatOn = function(f) {
     state.gtcBatOnFilter = f;
