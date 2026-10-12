@@ -2973,6 +2973,9 @@
           causeBadge = '<span class="bold" style="color:#dc2626; font-size:11.5px; font-weight:800;">🔴 Cảnh báo GTC &lt; 45%</span>';
         }
 
+        const isTtsOff = row.ten_bc && (row.ten_bc.includes('Đơn Dương') || row.ten_bc.includes('Tân Hà') || row.ten_bc.includes('Lang Biang - Đà Lạt 1'));
+        const ttsOffTag = isTtsOff ? '<span style="background:#fee2e2; color:#b91c1c; font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:4px; border:1px solid #fca5a5; margin-left:6px; display:inline-block; vertical-align:middle;">🔕 Đang Tắt Tuyến TTS</span>' : '';
+
         const ratioColor = isRatioLow ? '#dc2626' : (row.ratio < 80.0 ? '#ea580c' : '#16a34a');
         const d11Color = row.d11_val < 45.0 ? '#dc2626' : (row.d11_val < 50.0 ? '#ea580c' : '#16a34a');
 
@@ -2980,7 +2983,7 @@
           <tr style="cursor: pointer; ${isSelected ? 'background: #eff6ff;' : ''}" onclick="selectAndHighlightAM('${row.am}')">
             <td class="center" style="font-weight:800; color:${isRed ? '#dc2626' : 'inherit'};">${i + 1}</td>
             <td class="bold" style="font-size:13.5px; font-weight:800; color:${isRed ? '#b91c1c' : (isSelected ? '#2563eb' : '#1e293b')};">
-              ${row.ten_bc}
+              ${row.ten_bc} ${ttsOffTag}
             </td>
             <td style="font-weight:700; color:#2563eb;">${row.am}</td>
             <td class="num bold" style="background:${isRed ? 'rgba(239,68,68,0.12)' : 'rgba(254,240,138,0.2)'}; color:${isRed ? '#b91c1c' : '#ea580c'}; font-size:13.5px; font-weight:900;">
