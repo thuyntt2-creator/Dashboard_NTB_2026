@@ -69,6 +69,7 @@
     tinhVolType: 'bar',
     tinhGtcChannel: 'full',
     tinhGtcType: 'bar',
+    gtcBatOnFilter: 'all',
     tinhOdrChannel: 'full',
     tinhOdrType: 'bar',
     week: D.meta?.latest_week || 'W37',
@@ -1330,23 +1331,23 @@
   };
 
   function renderAll() {
-    renderOverviewTab();
-    renderBcCanhBaoTable();
-    renderVolumeTab();
-    renderGtcTongTab();
-    renderGtcTtsCa1Tab();
-    renderGanTab();
-    renderOdrTab();
-    renderLtcTab();
-    renderOprTab();
-    renderTransportTab();
-    renderFdTab();
-    renderKtcTab();
-    renderAgingTab();
-    renderControlTab();
-    renderTruyThuTab();
-    renderCommercialTab();
-    renderAllCharts();
+    try { renderOverviewTab(); } catch(e) { console.error('renderOverviewTab:', e); }
+    try { renderBcCanhBaoTable(); } catch(e) { console.error('renderBcCanhBaoTable:', e); }
+    try { renderVolumeTab(); } catch(e) { console.error('renderVolumeTab:', e); }
+    try { renderGtcTongTab(); } catch(e) { console.error('renderGtcTongTab:', e); }
+    try { renderGtcTtsCa1Tab(); } catch(e) { console.error('renderGtcTtsCa1Tab:', e); }
+    try { renderGanTab(); } catch(e) { console.error('renderGanTab:', e); }
+    try { renderOdrTab(); } catch(e) { console.error('renderOdrTab:', e); }
+    try { renderLtcTab(); } catch(e) { console.error('renderLtcTab:', e); }
+    try { renderOprTab(); } catch(e) { console.error('renderOprTab:', e); }
+    try { renderTransportTab(); } catch(e) { console.error('renderTransportTab:', e); }
+    try { renderFdTab(); } catch(e) { console.error('renderFdTab:', e); }
+    try { renderKtcTab(); } catch(e) { console.error('renderKtcTab:', e); }
+    try { renderAgingTab(); } catch(e) { console.error('renderAgingTab:', e); }
+    try { renderControlTab(); } catch(e) { console.error('renderControlTab:', e); }
+    try { renderTruyThuTab(); } catch(e) { console.error('renderTruyThuTab:', e); }
+    try { renderCommercialTab(); } catch(e) { console.error('renderCommercialTab:', e); }
+    try { renderAllCharts(); } catch(e) { console.error('renderAllCharts:', e); }
   }
 
   function renderTabCharts(tabId) {
@@ -1355,9 +1356,11 @@
       renderTrendRatesChart();
       renderSanLuongTinhChart();
     } else if (tabId === 'tab-volume') {
+      renderVolumeTab();
       renderTinhVol4WeeksChart();
       renderVolAMChart();
     } else if (tabId === 'tab-gtc-tong') {
+      renderGtcTongTab();
       renderTinhGtc4WeeksChart();
       renderGtcTongBarChart();
     } else if (tabId === 'tab-gtc-tts-ca1') {
@@ -1368,14 +1371,17 @@
       renderGanOverviewChart();
       renderGanBarChart();
     } else if (tabId === 'tab-odr') {
+      renderOdrTab();
       renderTinhOdr4WeeksChart();
       renderOdrChart();
     } else if (tabId === 'tab-ltc') {
       renderLtcTab();
       renderLtcChart();
     } else if (tabId === 'tab-opr-tts') {
+      renderOprTab();
       renderOprGroupedChart();
     } else if (tabId === 'tab-rot-lc') {
+      renderTransportTab();
       renderRotLcChart();
     } else if (tabId === 'tab-fd') {
       renderFdTab();
@@ -1384,6 +1390,7 @@
       renderKtcTab();
       renderFillRateChart();
     } else if (tabId === 'tab-aging') {
+      renderAgingTab();
       renderAgingChart();
     } else if (tabId === 'tab-commercial') {
       renderCommercialTab();
@@ -2894,7 +2901,49 @@
         • <strong>Bứt phá tăng trưởng WoW:</strong> ${topGrow}.<br>
         • <strong>Nhóm AM cần cải thiện GTC:</strong> ${bottomAms}.
       `;
+    
+    // 3. BẢNG BƯU CỤC BẤT ỔN ĐIỂN HÌNH W41 (SHEET NTBo)
+    const tblBatOn = document.querySelector('#table-gtc-bat-on-detailed tbody');
+    if (tblBatOn && D.gtc_tong && D.gtc_tong.buu_cuc_bat_on) {
+      let listBatOn = [...D.gtc_tong.buu_cuc_bat_on];
+
+      if (state.gtcBatOnFilter === 'red') {
+        listBatOn = listBatOn.filter(r => r.gtc_7d < 45.0);
+      } else if (state.gtcBatOnFilter === 'gap') {
+        listBatOn = listBatOn.filter(r => r.gap >= 20.0);
+      } else {
+        // default show top 15 worst
+        listBatOn = listBatOn.sort((a, b) => a.gtc_7d - b.gtc_7d).slice(0, 16);
+      }
+
+      tblBatOn.innerHTML = listBatOn.map((row, i) => {
+        const isRed = row.gtc_7d < 45.0;
+        const statusBadge = isRed
+          ? '<span class="badge-tag badge-tag-red" style="font-weight:800; font-size:11px;">🚨 Báo Động Đỏ (&lt;45%)</span>'
+          : (row.gap >= 20.0
+            ? '<span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">⚠️ Sụt Giảm Sâu (≥20%p)</span>'
+            : '<span class="badge-tag badge-tag-blue" style="font-size:11px;">Nguy Cơ (&lt;50%)</span>');
+
+        const d11Color = row.d11_10 < 45.0 ? '#dc2626' : (row.d11_10 < 55.0 ? '#ea580c' : '#16a34a');
+
+        return `
+          <tr style="cursor: pointer;" onclick="selectAndHighlightAM('${row.am}')">
+            <td class="center" style="font-weight:800; color:${isRed ? '#dc2626' : 'inherit'};">${i + 1}</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:${isRed ? '#b91c1c' : '#1e293b'};">${row.ten_bc}</td>
+            <td style="font-weight:700; color:#2563eb;">${row.am}</td>
+            <td class="num bold" style="background:${isRed ? 'rgba(239,68,68,0.12)' : 'rgba(254,240,138,0.25)'}; color:${isRed ? '#b91c1c' : '#ea580c'}; font-size:13.5px; font-weight:900;">
+              ${row.gtc_7d_str}
+            </td>
+            <td class="num" style="font-weight:600; color:#64748b;">${row.gtc_best_str}</td>
+            <td class="num bold" style="color:#dc2626; font-size:12.5px;">-${row.gap.toFixed(1)}%p</td>
+            <td class="num bold" style="color:${d11Color}; font-size:12px;">${row.d11_10_str}</td>
+            <td class="center">${statusBadge}</td>
+          </tr>
+        `;
+      }).join('');
     }
+
+  }
 
     // Helper evaluation badge for %GTC (Target >= 60%)
     function getGtcEvalBadge(v) {
@@ -9307,3 +9356,12 @@
   // Run on load
   document.addEventListener('DOMContentLoaded', init);
 })();
+
+
+  window.filterGtcBatOn = function(f) {
+    state.gtcBatOnFilter = f;
+    document.querySelectorAll('#gtc-baton-filter-pills .chart-pill-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-filter') === f);
+    });
+    renderGtcTongTab();
+  };
