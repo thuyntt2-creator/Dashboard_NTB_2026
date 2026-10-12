@@ -2923,18 +2923,29 @@
     }
 
     const tblBatOn = document.querySelector('#table-gtc-bat-on-detailed tbody');
-    if (tblBatOn && D.gtc_tong && D.gtc_tong.buu_cuc_bat_on) {
+    if (tblBatOn) {
+      if (!D.gtc_tong || !D.gtc_tong.buu_cuc_bat_on || D.gtc_tong.buu_cuc_bat_on.length === 0) {
+        // Fetch async if missing
+        fetch('/api/sync-ntbo').then(res => res.json()).then(resData => {
+          if (resData && resData.bcs) {
+            if (!D.gtc_tong) D.gtc_tong = {};
+            D.gtc_tong.buu_cuc_bat_on = resData.bcs;
+            D.gtc_tong.ntbo_update_time = resData.update_time;
+            D.gtc_tong.n1_date_label = resData.n1_label;
+            renderGtcTongTab();
+          }
+        }).catch(e => console.warn('Auto fetch ntbo error:', e));
+      }
+    }
+    if (tblBatOn && D.gtc_tong && D.gtc_tong.buu_cuc_bat_on && D.gtc_tong.buu_cuc_bat_on.length > 0) {
       let listBatOn = [...D.gtc_tong.buu_cuc_bat_on];
 
       const filterMode = state.gtcBatOnFilter || 'warn';
-      if (filterMode === 'red') {
-        listBatOn = listBatOn.filter(r => r.trang_thai === 'Nằm TOP Bất ổn' || r.gtc_7d < 45.0);
-      } else if (filterMode === 'ratio70') {
-        listBatOn = listBatOn.filter(r => r.ratio < 70.0);
-      } else if (filterMode === 'n1') {
-        listBatOn = listBatOn.filter(r => r.trang_thai === 'GTC N-1 < 50%' || (r.d11_val > 0 && r.d11_val < 50.0));
-      } else if (filterMode === 'warn') {
-        listBatOn = listBatOn.filter(r => r.trang_thai !== 'Bình thường' || r.nguyen_nhan !== 'Bình thường' || r.gtc_7d < 45.0 || r.ratio < 70.0 || (r.d11_val > 0 && r.d11_val < 50.0));
+      if (filterMode === 'warn') {
+        // Chỉ lọc đúng 7 bưu cục rơi vào Nhóm Cảnh Báo theo chuẩn (%GTC 7d < 45% HOẶC So sánh đỉnh < 70%)
+        listBatOn = listBatOn.filter(r => r.gtc_7d < 45.0 || r.ratio < 70.0 || r.trang_thai === 'Nằm TOP Bất ổn');
+      } else {
+        // 'all': Hiển thị toàn bộ 86 bưu cục NTB
       }
 
       // Search filtering
@@ -2957,20 +2968,20 @@
         const isN1Low = row.d11_val > 0 && row.d11_val < 50.0;
         const isSelected = state.selectedAM === row.am;
 
-        // Trạng thái badge
-        let statusBadge = '<span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Bình thường</span>';
-        if (row.trang_thai === 'Nằm TOP Bất ổn' || isRed) {
-          statusBadge = '<span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Nằm TOP Bất ổn</span>';
-        } else if (row.trang_thai === 'Chuẩn bị nhảy nhóm') {
-          statusBadge = '<span class="badge-tag badge-tag-amber" style="font-weight:800; font-size:11.5px;">⚠️ Chuẩn bị nhảy nhóm</span>';
-        } else if (row.trang_thai === 'GTC N-1 < 50%' || isN1Low) {
-          statusBadge = '<span class="badge-tag" style="background:#fef3c7; color:#b45309; border:1px solid #fde68a; font-weight:800; font-size:11.5px;">🟡 GTC N-1 &lt; 50%</span>';
-        }
-
-        // Nguyên nhân badge
+        // Trạng thái badge theo chuẩn điều hành (%GTC 7d < 45% hoặc Tỷ lệ đỉnh < 70%)
+        const isWarned = isRed || isRatioLow || row.trang_thai === 'Nằm TOP Bất ổn';
+        let statusBadge = '<span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 An Toàn</span>';
         let causeBadge = '<span style="color:#64748b; font-size:11.5px;">Bình thường</span>';
-        if (row.nguyen_nhan && row.nguyen_nhan.includes('< 45%')) {
-          causeBadge = '<span class="bold" style="color:#dc2626; font-size:11.5px; font-weight:800;">🔴 Cảnh báo GTC &lt; 45%</span>';
+
+        if (isWarned) {
+          statusBadge = '<span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span>';
+          if (isRed && isRatioLow) {
+            causeBadge = '<span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC &lt; 45% &amp; Đỉnh &lt; 70%</span>';
+          } else if (isRed) {
+            causeBadge = '<span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC 7N &lt; 45%</span>';
+          } else {
+            causeBadge = '<span class="bold" style="color:#ea580c; font-size:11px; font-weight:800;">📉 Rơi Phong Độ (&lt;70%)</span>';
+          }
         }
 
         const isTtsOff = row.ten_bc && (row.ten_bc.includes('Đơn Dương') || row.ten_bc.includes('Tân Hà') || row.ten_bc.includes('Lang Biang - Đà Lạt 1'));

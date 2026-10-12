@@ -961,11 +961,8 @@
               </span>
             </div>
             <div class="chart-mode-pills" id="gtc-baton-filter-pills">
-              <button class="chart-pill-btn active" data-filter="warn" onclick="window.filterGtcBatOn('warn')">Tất Cả Cảnh Báo (18 BC)</button>
-              <button class="chart-pill-btn" data-filter="red" onclick="window.filterGtcBatOn('red')" style="color: #dc2626; font-weight: 800;">🚨 TOP Bất Ổn (7 BC &lt; 45%)</button>
-              <button class="chart-pill-btn" data-filter="ratio70" onclick="window.filterGtcBatOn('ratio70')" style="color: #ea580c; font-weight: 700;">📉 So Sánh Đỉnh &lt; 70% (5 BC)</button>
-              <button class="chart-pill-btn" data-filter="n1" onclick="window.filterGtcBatOn('n1')" style="color: #d97706; font-weight: 700;">🟡 N-1 &lt; 50% (10 BC)</button>
-              <button class="chart-pill-btn" data-filter="all" onclick="window.filterGtcBatOn('all')">📋 Toàn Bộ 86 BC NTB</button>
+              <button class="chart-pill-btn active" data-filter="warn" onclick="window.filterGtcBatOn('warn')" style="color: #dc2626; font-weight: 800;">🚨 Nhóm Cảnh Báo Bất Ổn (7 BC)</button>
+              <button class="chart-pill-btn" data-filter="all" onclick="window.filterGtcBatOn('all')">🏛️ Toàn Bộ Vùng NTB (86 BC)</button>
             </div>
             <a href="https://docs.google.com/spreadsheets/d/1lmQv8KwHJzDFs_RMz64ydu4SOmG3M1YAzILNFGtzFec/edit?gid=957775572#gid=957775572" target="_blank" class="badge-tag badge-tag-red" style="font-size: 11.5px; padding: 6px 14px; text-decoration: none; display: flex; align-items: center; gap: 6px;">
               <i data-lucide="external-link" style="width: 14px; height: 14px;"></i> Mở Sheet NTBo Gốc
@@ -985,9 +982,8 @@
                 </div>
               </div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                <span class="badge-tag badge-tag-red" style="font-weight: 800; font-size: 12px;">🚨 7 BC Chạm Ngưỡng Đỏ (&lt;45%)</span>
-                <span class="badge-tag badge-tag-amber" style="font-weight: 800; font-size: 12px;">⚠️ 1 BC Chuẩn Bị Nhảy Nhóm</span>
-                <span class="badge-tag badge-tag-blue" style="font-weight: 800; font-size: 12px;">🟡 10 BC Rủi Ro N-1 &lt; 50%</span>
+                <span class="badge-tag badge-tag-red" style="font-weight: 800; font-size: 12.5px;">🚨 7 BC Thuộc Diện Cảnh Báo Bất Ổn (&lt;45% hoặc Đỉnh &lt;70%)</span>
+                <span class="badge-tag badge-tag-green" style="font-weight: 800; font-size: 12.5px;">🟢 79 BC Ngoài Diện Cảnh Báo (An Toàn)</span>
               </div>
             </div>
 
@@ -1034,7 +1030,7 @@
                 <input type="text" id="search-gtc-bat-on" placeholder="🔍 Tìm kiếm theo Tên Bưu Cục hoặc AM..." style="width: 100%; padding: 8px 12px 8px 36px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 13px; outline: none; transition: all 0.2s;">
                 <i data-lucide="search" style="position: absolute; left: 10px; top: 9px; width: 16px; height: 16px; color: #94a3b8;"></i>
               </div>
-              <span id="gtc-baton-table-count" style="font-size: 13px; font-weight: 700; color: #64748b;">Đang hiển thị: 18 bưu cục</span>
+              <span id="gtc-baton-table-count" style="font-size: 13px; font-weight: 700; color: #64748b;">Đang hiển thị: 7 bưu cục</span>
             </div>
             <div style="font-size: 12px; color: #64748b;">
               * Nhấp vào bất kỳ hàng nào để <strong>Focus Highlight AM</strong> tương ứng trong toàn bộ Dashboard.
@@ -1058,7 +1054,134 @@
                   <th class="center" style="width: 150px;">Nguyên Nhân</th>
                 </tr>
               </thead>
-              <tbody></tbody>
+              <tbody>
+          <tr style="cursor: pointer;" onclick="selectAndHighlightAM('Nguyễn Lê Nguyên Vũ')">
+            <td class="center" style="font-weight:800; color:#dc2626;">1</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">
+              (LDO) Đức Trọng 1 
+            </td>
+            <td style="font-weight:700; color:#2563eb;">Nguyễn Lê Nguyên Vũ</td>
+            <td class="num bold" style="background:rgba(239,68,68,0.12); color:#b91c1c; font-size:13.5px; font-weight:900;">
+              31.34%
+            </td>
+            <td class="num" style="font-weight:600; color:#64748b;">60.42%</td>
+            <td class="num bold" style="background:rgba(254,226,226,0.5); color:#dc2626; font-size:13px; font-weight:800;">
+              51.87% <span style="font-size:10px; color:#dc2626;">(&lt;70%)</span>
+            </td>
+            <td class="num bold" style="color:#ea580c; font-size:12.5px;">-29.1%p</td>
+            <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC &lt; 45% &amp; Đỉnh &lt; 70%</span></td>
+          </tr>
+          <tr style="cursor: pointer;" onclick="selectAndHighlightAM('Nguyễn Ngọc Khánh')">
+            <td class="center" style="font-weight:800; color:#dc2626;">2</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">
+              (BTH) Phú Quý 
+            </td>
+            <td style="font-weight:700; color:#2563eb;">Nguyễn Ngọc Khánh</td>
+            <td class="num bold" style="background:rgba(239,68,68,0.12); color:#b91c1c; font-size:13.5px; font-weight:900;">
+              34.16%
+            </td>
+            <td class="num" style="font-weight:600; color:#64748b;">88.55%</td>
+            <td class="num bold" style="background:rgba(254,226,226,0.5); color:#dc2626; font-size:13px; font-weight:800;">
+              38.58% <span style="font-size:10px; color:#dc2626;">(&lt;70%)</span>
+            </td>
+            <td class="num bold" style="color:#ea580c; font-size:12.5px;">-54.4%p</td>
+            <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC &lt; 45% &amp; Đỉnh &lt; 70%</span></td>
+          </tr>
+          <tr style="cursor: pointer;" onclick="selectAndHighlightAM('Lê Minh Lợi')">
+            <td class="center" style="font-weight:800; color:#dc2626;">3</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">
+              (LDO) Lang Biang - Đà Lạt 1 <span style="background:#fee2e2; color:#b91c1c; font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:4px; border:1px solid #fca5a5; margin-left:6px; display:inline-block; vertical-align:middle;">🔕 Đang Tắt Tuyến TTS</span>
+            </td>
+            <td style="font-weight:700; color:#2563eb;">Lê Minh Lợi</td>
+            <td class="num bold" style="background:rgba(239,68,68,0.12); color:#b91c1c; font-size:13.5px; font-weight:900;">
+              35.60%
+            </td>
+            <td class="num" style="font-weight:600; color:#64748b;">48.04%</td>
+            <td class="num bold" style="background:#fff7ed; color:#ea580c; font-size:13px; font-weight:800;">
+              74.12% 
+            </td>
+            <td class="num bold" style="color:#ea580c; font-size:12.5px;">-12.4%p</td>
+            <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC 7N &lt; 45%</span></td>
+          </tr>
+          <tr style="cursor: pointer;" onclick="selectAndHighlightAM('Nguyễn Thanh Long')">
+            <td class="center" style="font-weight:800; color:#dc2626;">4</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">
+              (KHO) Bắc Cam Ranh 
+            </td>
+            <td style="font-weight:700; color:#2563eb;">Nguyễn Thanh Long</td>
+            <td class="num bold" style="background:rgba(239,68,68,0.12); color:#b91c1c; font-size:13.5px; font-weight:900;">
+              37.93%
+            </td>
+            <td class="num" style="font-weight:600; color:#64748b;">67.58%</td>
+            <td class="num bold" style="background:rgba(254,226,226,0.5); color:#dc2626; font-size:13px; font-weight:800;">
+              56.12% <span style="font-size:10px; color:#dc2626;">(&lt;70%)</span>
+            </td>
+            <td class="num bold" style="color:#ea580c; font-size:12.5px;">-29.6%p</td>
+            <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC &lt; 45% &amp; Đỉnh &lt; 70%</span></td>
+          </tr>
+          <tr style="cursor: pointer;" onclick="selectAndHighlightAM('Phan Đình Duy')">
+            <td class="center" style="font-weight:800; color:#dc2626;">5</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">
+              (KHO) Tây Nha Trang 
+            </td>
+            <td style="font-weight:700; color:#2563eb;">Phan Đình Duy</td>
+            <td class="num bold" style="background:rgba(239,68,68,0.12); color:#b91c1c; font-size:13.5px; font-weight:900;">
+              40.31%
+            </td>
+            <td class="num" style="font-weight:600; color:#64748b;">68.64%</td>
+            <td class="num bold" style="background:rgba(254,226,226,0.5); color:#dc2626; font-size:13px; font-weight:800;">
+              58.74% <span style="font-size:10px; color:#dc2626;">(&lt;70%)</span>
+            </td>
+            <td class="num bold" style="color:#ea580c; font-size:12.5px;">-28.3%p</td>
+            <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC &lt; 45% &amp; Đỉnh &lt; 70%</span></td>
+          </tr>
+          <tr style="cursor: pointer;" onclick="selectAndHighlightAM('Huỳnh Thị Kim Chi')">
+            <td class="center" style="font-weight:800; color:#dc2626;">6</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">
+              (LDO) Tân Hà Lâm Hà <span style="background:#fee2e2; color:#b91c1c; font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:4px; border:1px solid #fca5a5; margin-left:6px; display:inline-block; vertical-align:middle;">🔕 Đang Tắt Tuyến TTS</span>
+            </td>
+            <td style="font-weight:700; color:#2563eb;">Huỳnh Thị Kim Chi</td>
+            <td class="num bold" style="background:rgba(239,68,68,0.12); color:#b91c1c; font-size:13.5px; font-weight:900;">
+              41.91%
+            </td>
+            <td class="num" style="font-weight:600; color:#64748b;">49.67%</td>
+            <td class="num bold" style="background:#fff7ed; color:#16a34a; font-size:13px; font-weight:800;">
+              84.37% 
+            </td>
+            <td class="num bold" style="color:#ea580c; font-size:12.5px;">-7.8%p</td>
+            <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC 7N &lt; 45%</span></td>
+          </tr>
+          <tr style="cursor: pointer;" onclick="selectAndHighlightAM('Phan Nguyễn Yến Nhi')">
+            <td class="center" style="font-weight:800; color:#dc2626;">7</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">
+              (LDO) Đơn Dương <span style="background:#fee2e2; color:#b91c1c; font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:4px; border:1px solid #fca5a5; margin-left:6px; display:inline-block; vertical-align:middle;">🔕 Đang Tắt Tuyến TTS</span>
+            </td>
+            <td style="font-weight:700; color:#2563eb;">Phan Nguyễn Yến Nhi</td>
+            <td class="num bold" style="background:rgba(239,68,68,0.12); color:#b91c1c; font-size:13.5px; font-weight:900;">
+              43.56%
+            </td>
+            <td class="num" style="font-weight:600; color:#64748b;">65.83%</td>
+            <td class="num bold" style="background:rgba(254,226,226,0.5); color:#dc2626; font-size:13px; font-weight:800;">
+              66.17% <span style="font-size:10px; color:#dc2626;">(&lt;70%)</span>
+            </td>
+            <td class="num bold" style="color:#ea580c; font-size:12.5px;">-22.3%p</td>
+            <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC &lt; 45% &amp; Đỉnh &lt; 70%</span></td>
+          </tr>
+          </tbody>
             </table>
           </div>
         </div>
@@ -3572,7 +3695,2695 @@
 </div>
 </div>
 <!-- Scripts -->
-<script src="data.js?v=1791824536"></script>
-<script src="app.js?v=1791824536"></script>
+<script src="data.js?v=1791826621"></script>
+<script src="app.js?v=1791826621"></script>
+</body>
+</html><div style="background: white; border-radius: 8px; padding: 12px 14px; border-left: 4px solid #ea580c; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                <div style="font-weight: 800; color: #ea580c; font-size: 13.5px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                  <span>🎯</span> 3. Phân Hóa Nguyên Nhân &amp; Hành Động Thoát Nhóm W42
+                </div>
+                <div style="color: #475569; line-height: 1.55;">
+                  • <strong>Chủ động tắt tuyến TTS (3 BC):</strong> Đơn Dương, Tân Hà, Lang Biang 1 — Dọn dứt điểm tồn ca 1 để đề xuất mở lại tuyến TTS!<br>
+                  • <strong>Tồn đè tồn &amp; sau Mega Sale (4 BC):</strong> Đức Trọng 1, Bắc Cam Ranh, Tây Nha Trang, Phú Quý — Tách shipper chuyên trị tồn cũ.<br>
+                  • <strong>Mục tiêu sống còn:</strong> 100% bưu tá ra quân ca sáng trước 8h30, dọn sạch tồn để giải cứu toàn bộ 7 bưu cục!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SEARCH & STATS ROW -->
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 14px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div class="search-box" style="position: relative; width: 320px;">
+                <input type="text" id="search-gtc-bat-on" placeholder="🔍 Tìm kiếm theo Tên Bưu Cục hoặc AM..." style="width: 100%; padding: 8px 12px 8px 36px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 13px; outline: none; transition: all 0.2s;">
+                <i data-lucide="search" style="position: absolute; left: 10px; top: 9px; width: 16px; height: 16px; color: #94a3b8;"></i>
+              </div>
+              <span id="gtc-baton-table-count" style="font-size: 13px; font-weight: 700; color: #64748b;">Đang hiển thị: 7 bưu cục</span>
+            </div>
+            <div style="font-size: 12px; color: #64748b;">
+              * Nhấp vào bất kỳ hàng nào để <strong>Focus Highlight AM</strong> tương ứng trong toàn bộ Dashboard.
+            </div>
+          </div>
+
+          <!-- TABLE -->
+          <div class="bi-table-wrap">
+            <table class="bi-table" id="table-gtc-bat-on-detailed">
+              <thead>
+                <tr>
+                  <th class="center" style="width: 44px;">#</th>
+                  <th>Bưu Cục Điểm Nóng</th>
+                  <th>AM Phụ Trách</th>
+                  <th class="num" style="background: #fee2e2; color: #b91c1c; font-weight: 900;">%GTC 7 Ngày (1)</th>
+                  <th class="num">GTC Lịch Sử Tốt Nhất (2)</th>
+                  <th class="num" style="background: #fff7ed; color: #c2410c; font-weight: 800;">So Sánh Với Đỉnh</th>
+                  <th class="num" style="color: #ea580c; font-weight: 700;">Độ Tụt Dốc (Gap %p)</th>
+                  <th class="num" style="color: #4b5563;">Chốt Ngày 11/10 (N-1)</th>
+                  <th class="center" style="width: 170px;">Trạng Thái (Sheet)</th>
+                  <th class="center" style="width: 150px;">Nguyên Nhân</th>
+                </tr>
+              </thead>
+              <tbody>
+          <tr style="cursor: pointer;" onclick="selectAndHighlightAM('Nguyễn Lê Nguyên Vũ')">
+            <td class="center" style="font-weight:800; color:#dc2626;">1</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">
+              (LDO) Đức Trọng 1 
+            </td>
+            <td style="font-weight:700; color:#2563eb;">Nguyễn Lê Nguyên Vũ</td>
+            <td class="num bold" style="background:rgba(239,68,68,0.12); color:#b91c1c; font-size:13.5px; font-weight:900;">
+              31.34%
+            </td>
+            <td class="num" style="font-weight:600; color:#64748b;">60.42%</td>
+            <td class="num bold" style="background:rgba(254,226,226,0.5); color:#dc2626; font-size:13px; font-weight:800;">
+              51.87% <span style="font-size:10px; color:#dc2626;">(&lt;70%)</span>
+            </td>
+            <td class="num bold" style="color:#ea580c; font-size:12.5px;">-29.1%p</td>
+            <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC &lt; 45% &amp; Đỉnh &lt; 70%</span></td>
+          </tr>
+          <tr style="cursor: pointer;" onclick="selectAndHighlightAM('Nguyễn Ngọc Khánh')">
+            <td class="center" style="font-weight:800; color:#dc2626;">2</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">
+              (BTH) Phú Quý 
+            </td>
+            <td style="font-weight:700; color:#2563eb;">Nguyễn Ngọc Khánh</td>
+            <td class="num bold" style="background:rgba(239,68,68,0.12); color:#b91c1c; font-size:13.5px; font-weight:900;">
+              34.16%
+            </td>
+            <td class="num" style="font-weight:600; color:#64748b;">88.55%</td>
+            <td class="num bold" style="background:rgba(254,226,226,0.5); color:#dc2626; font-size:13px; font-weight:800;">
+              38.58% <span style="font-size:10px; color:#dc2626;">(&lt;70%)</span>
+            </td>
+            <td class="num bold" style="color:#ea580c; font-size:12.5px;">-54.4%p</td>
+            <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC &lt; 45% &amp; Đỉnh &lt; 70%</span></td>
+          </tr>
+          <tr style="cursor: pointer;" onclick="selectAndHighlightAM('Lê Minh Lợi')">
+            <td class="center" style="font-weight:800; color:#dc2626;">3</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">
+              (LDO) Lang Biang - Đà Lạt 1 <span style="background:#fee2e2; color:#b91c1c; font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:4px; border:1px solid #fca5a5; margin-left:6px; display:inline-block; vertical-align:middle;">🔕 Đang Tắt Tuyến TTS</span>
+            </td>
+            <td style="font-weight:700; color:#2563eb;">Lê Minh Lợi</td>
+            <td class="num bold" style="background:rgba(239,68,68,0.12); color:#b91c1c; font-size:13.5px; font-weight:900;">
+              35.60%
+            </td>
+            <td class="num" style="font-weight:600; color:#64748b;">48.04%</td>
+            <td class="num bold" style="background:#fff7ed; color:#ea580c; font-size:13px; font-weight:800;">
+              74.12% 
+            </td>
+            <td class="num bold" style="color:#ea580c; font-size:12.5px;">-12.4%p</td>
+            <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC 7N &lt; 45%</span></td>
+          </tr>
+          <tr style="cursor: pointer;" onclick="selectAndHighlightAM('Nguyễn Thanh Long')">
+            <td class="center" style="font-weight:800; color:#dc2626;">4</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">
+              (KHO) Bắc Cam Ranh 
+            </td>
+            <td style="font-weight:700; color:#2563eb;">Nguyễn Thanh Long</td>
+            <td class="num bold" style="background:rgba(239,68,68,0.12); color:#b91c1c; font-size:13.5px; font-weight:900;">
+              37.93%
+            </td>
+            <td class="num" style="font-weight:600; color:#64748b;">67.58%</td>
+            <td class="num bold" style="background:rgba(254,226,226,0.5); color:#dc2626; font-size:13px; font-weight:800;">
+              56.12% <span style="font-size:10px; color:#dc2626;">(&lt;70%)</span>
+            </td>
+            <td class="num bold" style="color:#ea580c; font-size:12.5px;">-29.6%p</td>
+            <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC &lt; 45% &amp; Đỉnh &lt; 70%</span></td>
+          </tr>
+          <tr style="cursor: pointer;" onclick="selectAndHighlightAM('Phan Đình Duy')">
+            <td class="center" style="font-weight:800; color:#dc2626;">5</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">
+              (KHO) Tây Nha Trang 
+            </td>
+            <td style="font-weight:700; color:#2563eb;">Phan Đình Duy</td>
+            <td class="num bold" style="background:rgba(239,68,68,0.12); color:#b91c1c; font-size:13.5px; font-weight:900;">
+              40.31%
+            </td>
+            <td class="num" style="font-weight:600; color:#64748b;">68.64%</td>
+            <td class="num bold" style="background:rgba(254,226,226,0.5); color:#dc2626; font-size:13px; font-weight:800;">
+              58.74% <span style="font-size:10px; color:#dc2626;">(&lt;70%)</span>
+            </td>
+            <td class="num bold" style="color:#ea580c; font-size:12.5px;">-28.3%p</td>
+            <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC &lt; 45% &amp; Đỉnh &lt; 70%</span></td>
+          </tr>
+          <tr style="cursor: pointer;" onclick="selectAndHighlightAM('Huỳnh Thị Kim Chi')">
+            <td class="center" style="font-weight:800; color:#dc2626;">6</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">
+              (LDO) Tân Hà Lâm Hà <span style="background:#fee2e2; color:#b91c1c; font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:4px; border:1px solid #fca5a5; margin-left:6px; display:inline-block; vertical-align:middle;">🔕 Đang Tắt Tuyến TTS</span>
+            </td>
+            <td style="font-weight:700; color:#2563eb;">Huỳnh Thị Kim Chi</td>
+            <td class="num bold" style="background:rgba(239,68,68,0.12); color:#b91c1c; font-size:13.5px; font-weight:900;">
+              41.91%
+            </td>
+            <td class="num" style="font-weight:600; color:#64748b;">49.67%</td>
+            <td class="num bold" style="background:#fff7ed; color:#16a34a; font-size:13px; font-weight:800;">
+              84.37% 
+            </td>
+            <td class="num bold" style="color:#ea580c; font-size:12.5px;">-7.8%p</td>
+            <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC 7N &lt; 45%</span></td>
+          </tr>
+          <tr style="cursor: pointer;" onclick="selectAndHighlightAM('Phan Nguyễn Yến Nhi')">
+            <td class="center" style="font-weight:800; color:#dc2626;">7</td>
+            <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">
+              (LDO) Đơn Dương <span style="background:#fee2e2; color:#b91c1c; font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:4px; border:1px solid #fca5a5; margin-left:6px; display:inline-block; vertical-align:middle;">🔕 Đang Tắt Tuyến TTS</span>
+            </td>
+            <td style="font-weight:700; color:#2563eb;">Phan Nguyễn Yến Nhi</td>
+            <td class="num bold" style="background:rgba(239,68,68,0.12); color:#b91c1c; font-size:13.5px; font-weight:900;">
+              43.56%
+            </td>
+            <td class="num" style="font-weight:600; color:#64748b;">65.83%</td>
+            <td class="num bold" style="background:rgba(254,226,226,0.5); color:#dc2626; font-size:13px; font-weight:800;">
+              66.17% <span style="font-size:10px; color:#dc2626;">(&lt;70%)</span>
+            </td>
+            <td class="num bold" style="color:#ea580c; font-size:12.5px;">-22.3%p</td>
+            <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC &lt; 45% &amp; Đỉnh &lt; 70%</span></td>
+          </tr>
+          </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+</div>
+<!-- ==================================================================== -->
+<!-- TAB 4: %GTC TIKTOK SHOP CA 1 (TARGET ≥ 76.0%) -->
+<!-- ==================================================================== -->
+<div class="tab-view" id="tab-gtc-tts-ca1">
+<div class="exec-banner" style="border-left-color: var(--color-amber);">
+<div class="exec-banner-content">
+<div class="exec-banner-icon" style="background: rgba(245, 158, 11, 0.2); color: var(--color-amber);">
+<i data-lucide="award" style="width: 24px; height: 24px;"></i>
+</div>
+<div class="exec-banner-text">
+<h3>PHÂN TÍCH CHUYÊN SÂU %GTC CA 1 TIKTOK SHOP (TARGET SLA ≥ 76.0%) (W41)</h3>
+<p id="banner-gtc-ca1-summary">
+              • <strong>Toàn Vùng TTS Ca 1 (W41):</strong> Ca 1 thuần sáng bứt phá ngoạn mục đạt <strong>81.34%</strong> (tăng mạnh <strong>+6.17%p WoW</strong> so với 75.16% W39), vượt xa cam kết SLA ≥ 76.0%! Ca 1 + Tồn đạt <strong>66.47%</strong> (+6.58%p WoW).<br/>
+              • <strong>Đánh Giá:</strong> Hiệu suất giao ca 1 sáng TikTok Shop đồng loạt khởi sắc trên toàn mạng, khẳng định sự tập trung dồn lực xuất sắc của đội ngũ AM.
+            </p>
+</div>
+</div>
+<div class="exec-banner-actions">
+<span class="badge-tag badge-tag-amber" style="font-size: 12px; padding: 6px 12px;">
+            Target ≥ 76.0% (W40: 81.34%)
+          </span>
+</div>
+</div>
+<!-- Lọc Điểm Nhấn %GTC TTS Ca 1 -->
+<div class="view-mode-bar" style="margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; background: var(--bg-surface); padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+<span style="font-size: 12px; font-weight: 700; color: var(--text-muted);">🎯 LỌC ĐIỂM NHẤN TTS CA 1:</span>
+<div class="btn-group">
+<button class="btn btn-sm btn-secondary active" id="btn-gtcttsca1-hl-all" onclick="setGtcTtsCa1Highlight('all')">Tất Cả 19 AM</button>
+<button class="btn btn-sm btn-secondary" id="btn-gtcttsca1-hl-top" onclick="setGtcTtsCa1Highlight('top')" style="color: #047857; font-weight: 800;">🏆 Top Xuất Sắc (≥85%)</button>
+<button class="btn btn-sm btn-secondary" id="btn-gtcttsca1-hl-pass" onclick="setGtcTtsCa1Highlight('pass')" style="color: #10b981; font-weight: 800;">🟢 Đạt SLA (≥76%)</button>
+<button class="btn btn-sm btn-secondary" id="btn-gtcttsca1-hl-fail" onclick="setGtcTtsCa1Highlight('fail')" style="color: #b91c1c; font-weight: 800;">⚠️ Chưa Đạt SLA (&lt;76%)</button>
+</div>
+</div>
+<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+<span style="font-size: 12px; font-weight: 700; color: var(--text-muted);">🔃 THỨ TỰ BIỂU ĐỒ:</span>
+<div class="btn-group">
+<button class="btn btn-sm btn-secondary active" id="btn-gtcttsca1-sort-diff-asc" onclick="setGtcTtsCa1Sort('diff_asc')" style="color: #ea580c; font-weight: 800;">📉 Biến Động A → Z (Tăng dần)</button>
+<button class="btn btn-sm btn-secondary" id="btn-gtcttsca1-sort-diff-desc" onclick="setGtcTtsCa1Sort('diff_desc')">📈 Biến Động Z → A (Giảm dần)</button>
+<button class="btn btn-sm btn-secondary" id="btn-gtcttsca1-sort-gtc-desc" onclick="setGtcTtsCa1Sort('gtc_desc')">🏆 %GTC Ca 1 (Cao → Thấp)</button>
+</div>
+</div>
+</div>
+<!-- Chart %GTC TTS Ca 1 -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="bar-chart-3" style="color: var(--color-amber);"></i>
+            %GTC CA 1 TIKTOK SHOP THEO 19 AM (TARGET SLA ≥ 76.0% + ĐƯỜNG BIẾN ĐỘNG Δ)
+          </div>
+</div>
+<div class="report-card-body">
+<div class="chart-box chart-box-tall">
+<canvas id="chart-gtc-tts-ca1-bar"></canvas>
+</div>
+</div>
+</div>
+<!-- Bảng Chi Tiết %GTC TTS Ca 1 -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="table-properties" style="color: var(--color-amber);"></i>
+            BẢNG ĐIỀU HÀNH %GTC CA 1 TIKTOK SHOP 19 AM (SORT BIẾN ĐỘNG GIẢM DẦN)
+          </div>
+<div class="report-card-tools">
+<span class="badge-tag badge-tag-green">🟢 ≥76% Đạt Target SLA</span>
+<span class="badge-tag badge-tag-red">🔴 &lt;76% Cần Thúc Đẩy</span>
+</div>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-gtc-tts-ca1-detailed">
+<thead>
+<tr>
+<th class="center" style="width: 50px;">Hạng</th>
+<th>AM Phụ Trách</th>
+<th class="num">Sản Lượng TTS Ca 1</th>
+<th class="num">%GTC TTS Ca 1 (W39)</th>
+<th class="num" style="background: var(--color-amber-bg); font-weight:800; color:#c2410c;">%GTC TTS Ca 1 (W41)</th>
+<th class="num">Biến Động WoW (Δ)</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- ==================================================================== -->
+<!-- ==================================================================== -->
+<!-- TAB 5: % GÁN VẬN HÀNH (GÁN CA 1, GÁN CA 2 & GÁN TỔNG) -->
+<!-- ==================================================================== -->
+<div class="tab-view" id="tab-gan">
+<div class="exec-banner" style="border-left-color: var(--color-purple);">
+<div class="exec-banner-content">
+<div class="exec-banner-icon" style="background: rgba(168, 85, 247, 0.2); color: var(--color-purple);">
+<i data-lucide="user-check" style="width: 24px; height: 24px;"></i>
+</div>
+<div class="exec-banner-text">
+<h3 id="banner-gan-title">TỶ LỆ GÁN VẬN HÀNH TOÀN MẠNG THEO CA 1, CA 2 &amp; GÁN TỔNG (TARGET ≥ 90.0%) (W41)</h3>
+<p id="banner-gan-summary">
+              • <strong>Gán Tổng (Ca1+Ca2+Tồn W41):</strong> Full hàng đạt <strong>86.32%</strong> (+3.86%p WoW so với 82.47% W39); TTS đạt <strong>87.99%</strong> (+5.17%p WoW so với 82.83% W39).<br/>
+              • <strong>Gán Ca 1 + Tồn:</strong> Full hàng bứt phá đạt <strong>92.77%</strong> (+5.32%p WoW, vượt chuẩn ≥ 90%); TTS đạt <strong>94.80%</strong> (+6.58%p WoW, vượt chuẩn ≥ 90%).<br/>
+              • <strong>Gán Ca 2:</strong> Full hàng đạt <strong>62.87%</strong> (+3.59%p WoW); TTS đạt <strong>63.54%</strong> (+4.98%p WoW).
+            </p>
+</div>
+</div>
+<div class="exec-banner-actions">
+<span class="badge-tag badge-tag-purple" style="font-size: 12px; padding: 6px 12px;">
+            Gán Tổng W40: 86.3% (Target ≥ 90.0%)
+          </span>
+</div>
+</div>
+<!-- Khối Tổng Quan Vùng NTB: Bảng 6 Chỉ Tiêu & Chart Xu Hướng 4 Tuần W34-W37 -->
+<div class="grid-row-2" style="margin-bottom: 20px;">
+<!-- Bảng Tổng Quan Vùng NTB -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="layout-grid" style="color: var(--ghn-orange);"></i>
+              TỔNG QUAN VÙNG NTB — TỶ LỆ % GÁN (4 TUẦN W37 – W40)
+            </div>
+<span class="badge-tag badge-tag-blue">Toàn Vùng NTB</span>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-gan-overview-region">
+<thead><tr style="background: #1e3a8a; color: #ffffff;">
+<th style="color: #ffffff;">Chỉ tiêu</th>
+<th class="num" style="color: #ffffff;">W37</th>
+<th class="num" style="color: #ffffff;">W38</th>
+<th class="num" style="color: #ffffff;">W39</th>
+<th class="num" style="color: #ffffff; background: rgba(255,255,255,0.2); font-weight:800;">W40</th>
+<th class="num" style="color: #ffffff;">Δ W40/W39</th>
+</tr></thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Biểu Đồ Xu Hướng 4 Tuần Toàn Vùng NTB -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="trending-up" style="color: var(--color-purple);"></i>
+              BIỂU ĐỒ XU HƯỚNG 4 TUẦN % GÁN TOÀN VÙNG (FULL HÀNG vs TTS)
+            </div>
+<span class="badge-tag badge-tag-purple">W37 ➔ W40</span>
+</div>
+<div class="report-card-body">
+<div class="chart-box chart-box-tall">
+<canvas id="chart-gan-overview-bar"></canvas>
+</div>
+</div>
+</div>
+</div>
+<div class="report-card" style="margin-bottom: 20px;">
+<div class="report-card-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+<div class="report-card-title">
+<i data-lucide="bar-chart-3" style="color: var(--color-purple);"></i>
+            SO SÁNH TỶ LỆ GÁN 19 AM: % GÁN CA 1+TỒN vs % GÁN CA 2 vs % GÁN TỔNG (W41)
+          </div>
+<div class="chart-mode-pills" id="gan-chart-mode-pills" style="margin: 0; display: flex; flex-wrap: wrap; gap: 6px;">
+<button class="chart-mode-pill active" data-gan-filter="all" onclick="window.setGanFilter('all')">
+  📊 Tất Cả (19 AM)
+</button>
+<button class="chart-mode-pill" data-gan-filter="under80" onclick="window.setGanFilter('under80')" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; border: 1.5px solid #ef4444; font-weight: 800;">
+  🚨 AM Gán Tổng &lt; 80% (6 AM)
+</button>
+<button class="chart-mode-pill" data-gan-filter="80to90" onclick="window.setGanFilter('80to90')">
+  🟡 80% – 90% (6 AM)
+</button>
+<button class="chart-mode-pill" data-gan-filter="ge90" onclick="window.setGanFilter('ge90')">
+  🟢 ≥ 90% (7 AM)
+</button>
+</div>
+</div>
+<div id="gan-filter-callout" style="display: none; margin: 12px 20px 0 20px; padding: 10px 16px; background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.35); border-left: 4px solid #ef4444; border-radius: 8px; font-size: 13px; color: #b91c1c; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+  <div>
+    <strong>🚨 Danh Sách 6 AM Gán Tổng &lt; 80%:</strong> 
+    Nguyễn Lê Nguyên Vũ (<strong>72.8%</strong>), Huỳnh Thúc Duân (<strong>75.5%</strong>), Lê Văn Trường (<strong>75.9%</strong>), Huỳnh Thị Kim Chi (<strong>77.6%</strong>), Lê Minh Lợi (<strong>78.2%</strong>), Nguyễn Thanh Long (<strong>79.7%</strong>).
+  </div>
+  <button onclick="window.setGanFilter('all')" style="border: none; background: #dc2626; color: #ffffff; border-radius: 6px; padding: 4px 10px; font-size: 11.5px; font-weight: 700; cursor: pointer;">✕ Bỏ Lọc (Xem 19 AM)</button>
+</div>
+<div class="report-card-body">
+<div class="chart-box chart-box-tall">
+<canvas id="chart-gan-am-bar"></canvas>
+</div>
+</div>
+</div>
+<!-- 2 Bảng Đối Xứng: Gán Ca 1 vs Gán Ca 2 & Gán Tổng -->
+<div class="grid-row-2">
+<!-- Bảng 1: Gán Ca 1+Tồn -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="sun" style="color: var(--ghn-orange);"></i>
+              BẢNG 1: TỶ LỆ % GÁN CA 1 + TỒN (SORT CAO XUỐNG THẤP)
+            </div>
+<span class="badge-tag badge-tag-amber">Ca 1+Tồn</span>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-gan-ca1-detailed">
+<thead>
+<tr>
+<th class="center" style="width: 44px;">#</th>
+<th>AM Phụ Trách</th>
+<th class="num">Sản Lượng</th>
+<th class="num">Ca 1+Tồn W39</th>
+<th class="num" style="background: var(--color-amber-bg); font-weight:800;">Ca 1+Tồn W40</th>
+<th class="num">Biến Động (Δ)</th>
+<th class="center">Đánh Giá SLA</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Bảng 2: Gán Tổng -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="moon" style="color: var(--color-purple);"></i>
+              BẢNG 2: TỶ LỆ % GÁN TỔNG (SORT CAO XUỐNG THẤP)
+            </div>
+<span class="badge-tag badge-tag-purple">Gán Tổng</span>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-gan-ca2-detailed">
+<thead>
+<tr>
+<th class="center" style="width: 44px;">#</th>
+<th>AM Phụ Trách</th>
+<th class="num">Sản Lượng</th>
+<th class="num">Tổng W39</th>
+<th class="num" style="background: var(--color-purple-bg); font-weight:800; color:#7e22ce;">Gán Tổng W40</th>
+<th class="num">Biến Động (Δ)</th>
+<th class="center">Đánh Giá SLA</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ==================================================================== -->
+<!-- TAB 6: %ODR - GIAO ĐÚNG HẸN SLA (TARGET ≥ 92.0%) -->
+<!-- ==================================================================== -->
+<div class="tab-view" id="tab-odr">
+<div class="exec-banner" style="border-left-color: var(--color-green);">
+<div class="exec-banner-content">
+<div class="exec-banner-icon" style="background: rgba(16, 185, 129, 0.2); color: var(--color-green);">
+<i data-lucide="clock" style="width: 24px; height: 24px;"></i>
+</div>
+<div class="exec-banner-text">
+<h3 id="banner-odr-title">PHÂN TÍCH HIỆU SUẤT %ODR (GIAO ĐÚNG HẸN SLA) TOÀN VÙNG (TARGET ≥ 92.0%) (W41)</h3>
+<p id="banner-odr-summary">
+              • <strong>Toàn Vùng W41:</strong> Full Hàng đạt kỷ lục <strong>94.09%</strong> (+0.96%p WoW) và TTS đạt <strong>94.8%</strong> — Thiết lập đỉnh mới, vượt xa chuẩn cam kết SLA ≥ 92.0%!<br>
+              • <strong>Theo 5 Tỉnh:</strong> Bình Thuận (97.1%), Ninh Thuận (96.9%), Khánh Hòa (96.2%) duy trì đẳng cấp xuất sắc; Đắk Nông và Lâm Đồng tăng trưởng tích cực.
+            </p>
+</div>
+</div>
+<div class="exec-banner-actions">
+<span class="badge-tag badge-tag-green" style="font-size: 12px; padding: 6px 12px;">
+            ODR Full: 93.1% | TTS: 94.2% (Target ≥ 92.0%)
+          </span>
+</div>
+</div>
+<!-- KHỐI 1: BẢNG ĐIỀU HÀNH %ODR THEO 5 TỈNH THÀNH -->
+<div style="font-size: 14px; font-weight: 800; color: var(--ghn-navy); margin: 20px 0 12px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+<div style="display: flex; align-items: center; gap: 8px;">
+<i data-lucide="map-pin" style="width: 18px; height: 18px; color: var(--color-green);"></i>
+<span>1. TỔNG QUAN CHỈ SỐ %ODR 5 TỈNH THÀNH (FULL HÀNG vs TIKTOK SHOP)</span>
+</div>
+<span class="badge-tag badge-tag-green" style="font-size: 11.5px; padding: 4px 10px;">
+          Khánh Hòa • Lâm Đồng • Bình Thuận • Đắk Nông • Ninh Thuận
+        </span>
+</div>
+<!-- BIỂU ĐỒ %ODR 5 TỈNH QUA 4 TUẦN (W38 – W41) & BIẾN ĐỘNG Δ %p WoW (TARGET ≥ 92.0%) -->
+      <div class="report-card" style="margin-bottom: 20px; border: 1.5px solid rgba(16, 185, 129, 0.25); box-shadow: 0 4px 14px rgba(16, 185, 129, 0.06);">
+        <div class="report-card-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; background: linear-gradient(to right, #ffffff, #f0fdf4);">
+          <div class="report-card-title">
+            <i data-lucide="bar-chart-3" style="color: #059669;"></i>
+            <span id="odr-tinh-chart-header-title">BIỂU ĐỒ %ODR 5 TỈNH QUA 4 TUẦN (W38 – W41) & BIẾN ĐỘNG Δ %p WoW (TARGET ≥ 92.0%)</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <div class="chart-mode-pills" id="odr-tinh-channel-pills">
+              <button class="chart-pill-btn active" id="btn-odr-tinh-channel-full" onclick="window.switchTinhOdrChannel('full')">📦 Full Hàng</button>
+              <button class="chart-pill-btn" id="btn-odr-tinh-channel-tts" onclick="window.switchTinhOdrChannel('tts')">🛒 TikTok Shop</button>
+            </div>
+            <div class="chart-mode-pills" id="odr-tinh-type-pills">
+              <button class="chart-pill-btn active" id="btn-odr-tinh-type-bar" onclick="window.switchTinhOdrType('bar')">📊 Cột Nhóm 4 Tuần</button>
+              <button class="chart-pill-btn" id="btn-odr-tinh-type-line" onclick="window.switchTinhOdrType('line')">📈 Đường Xu Hướng</button>
+            </div>
+          </div>
+        </div>
+        <div class="report-card-body">
+          <div style="position: relative; height: 350px; width: 100%;">
+            <canvas id="chart-odr-tinh-4weeks"></canvas>
+          </div>
+          <div style="margin-top: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: var(--text-sub); border-top: 1px dashed var(--border); padding-top: 10px;">
+            <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+              <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 12px; height: 12px; background: #94a3b8; border-radius: 3px; display: inline-block;"></span> W38</span>
+              <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 12px; height: 12px; background: #60a5fa; border-radius: 3px; display: inline-block;"></span> W39</span>
+              <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 12px; height: 12px; background: #1e40af; border-radius: 3px; display: inline-block;"></span> W40</span>
+              <span style="display: flex; align-items: center; gap: 6px; font-weight: 800; color: #059669;"><span style="width: 12px; height: 12px; background: #10b981; border-radius: 3px; display: inline-block;"></span> W41 (Kỷ Lục Mới)</span>
+              <span style="display: flex; align-items: center; gap: 6px; font-weight: 700; color: #dc2626;"><span style="border-top: 2px dashed #dc2626; width: 18px; display: inline-block;"></span> Ngưỡng Target SLA 92.0%</span>
+            </div>
+            <div id="odr-tinh-summary-badge" style="font-weight: 700; color: #059669; background: #dcfce7; padding: 4px 12px; border-radius: 999px; border: 1px solid rgba(16, 185, 129, 0.3);">
+              🎯 Toàn vùng W41: 94,09% (+0,96%p WoW — Vượt kỷ lục Target 92.0%)
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid-row-2" style="margin-bottom: 20px;">
+<!-- BẢNG 2A: %ODR 5 TỈNH (FULL HÀNG) -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="package" style="color: var(--color-blue);"></i>
+              BẢNG 2A: %ODR 5 TỈNH (FULL HÀNG)
+            </div>
+<span class="badge-tag badge-tag-blue">5 Tỉnh Thành</span>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-odr-tinh-full">
+<thead>
+<tr>
+<th class="center" style="width: 44px;">#</th>
+<th>Tỉnh / Thành Phố</th>
+<th class="num">Sản Lượng</th>
+<th class="num">W37</th>
+<th class="num">W38</th>
+<th class="num">W39</th>
+<th class="num" style="background: var(--color-green-bg); font-weight: 800;">%ODR W40</th>
+<th class="num">Biến Động (Δ)</th>
+<th class="center">Đánh Giá SLA</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- BẢNG 2B: %ODR 5 TỈNH (TIKTOK SHOP) -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="truck" style="color: var(--ghn-orange);"></i>
+              BẢNG 2B: %ODR 5 TỈNH (TIKTOK SHOP)
+            </div>
+<span class="badge-tag badge-tag-amber">TikTok Shop</span>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-odr-tinh-tts">
+<thead>
+<tr>
+<th class="center" style="width: 44px;">#</th>
+<th>Tỉnh / Thành Phố</th>
+<th class="num">Sản Lượng</th>
+<th class="num">W37</th>
+<th class="num">W38</th>
+<th class="num">W39</th>
+<th class="num" style="background: var(--color-amber-bg); font-weight: 800; color: #ea580c;">%ODR W40</th>
+<th class="num">Biến Động (Δ)</th>
+<th class="center">Đánh Giá SLA</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- KHỐI 2: PHÂN TÍCH CHỈ SỐ %ODR THEO 19 AM PHỤ TRÁCH -->
+<div style="font-size: 14px; font-weight: 800; color: var(--ghn-navy); margin: 24px 0 12px 0; display: flex; align-items: center; gap: 8px;">
+<i data-lucide="users" style="width: 18px; height: 18px; color: var(--ghn-orange);"></i>
+<span>2. BÓC TÁCH CHỈ SỐ %ODR THEO 19 AM PHỤ TRÁCH (CỘT W40 vs W41 + LINE Δ)</span>
+</div>
+<!-- Segment Selector: Full Hàng vs TikTok Shop (TTS) vs Compare -->
+<div class="view-mode-bar" style="margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; background: var(--bg-surface); padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+<div style="display: flex; align-items: center; gap: 8px;">
+<span style="font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">PHÂN KHÚC HIỂN THỊ:</span>
+<div class="btn-group" id="odr-segment-group">
+<button class="btn btn-sm btn-primary active" id="btn-odr-full" onclick="setOdrSegment('full')">
+<i data-lucide="package" style="width: 14px; height: 14px;"></i> 📦 %ODR Full Hàng
+            </button>
+<button class="btn btn-sm btn-secondary" id="btn-odr-tts" onclick="setOdrSegment('tts')">
+<i data-lucide="award" style="width: 14px; height: 14px;"></i> 🛍️ %ODR TikTok Shop (TTS)
+            </button>
+<button class="btn btn-sm btn-secondary" id="btn-odr-compare" onclick="setOdrSegment('compare')">
+<i data-lucide="split" style="width: 14px; height: 14px;"></i> ⚡ So Sánh Full vs TTS (W41)
+            </button>
+</div>
+</div>
+<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+<span style="font-size: 12px; font-weight: 700; color: var(--text-muted);">🎯 LỌC ĐIỂM NHẤN %ODR:</span>
+<div class="btn-group">
+<button class="btn btn-sm btn-secondary active" id="btn-odr-hl-all" onclick="setOdrHighlight('all')">Tất Cả 19 AM</button>
+<button class="btn btn-sm btn-secondary" id="btn-odr-hl-pass" onclick="setOdrHighlight('pass')" style="color: #047857; font-weight: 800;">🟢 Đạt SLA (≥92%)</button>
+<button class="btn btn-sm btn-secondary" id="btn-odr-hl-fail" onclick="setOdrHighlight('fail')" style="color: #b91c1c; font-weight: 800;">⚠️ Chưa Đạt SLA (&lt;92%)</button>
+<button class="btn btn-sm btn-secondary" id="btn-odr-hl-grow" onclick="setOdrHighlight('grow')" style="color: #0284c7; font-weight: 800;">🟢 Bứt Phá Tăng Trưởng</button>
+</div>
+</div>
+</div>
+<!-- ODR Bar Chart -->
+<div class="report-card" style="margin-bottom: 20px;">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="bar-chart-3" style="color: var(--color-green);"></i>
+<span id="chart-odr-title">BIỂU ĐỒ %ODR GIAO ĐÚNG HẸN THEO 19 AM (FULL HÀNG)</span>
+</div>
+<span class="badge-tag badge-tag-green" id="badge-odr-segment">SLA Target ≥ 92.0%</span>
+</div>
+<div class="report-card-body">
+<div class="chart-box chart-box-tall">
+<canvas id="chart-odr-bar"></canvas>
+</div>
+</div>
+<!-- View Mode Filter for Tab 6 Tables -->
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+<div style="font-size: 13px; font-weight: 800; color: var(--ghn-navy); display: flex; align-items: center; gap: 6px;">
+<i data-lucide="split" style="width: 16px; height: 16px; color: var(--ghn-orange);"></i>
+          BẢNG ĐIỀU HÀNH %ODR GIAO ĐÚNG HẸN 19 AM (ĐỐI XỨNG FULL HÀNG vs TIKTOK SHOP)
+        </div>
+<div class="chart-mode-pills" id="odr-table-mode-pills">
+<button class="chart-mode-pill active" data-table-view="split" onclick="setOdrTableView('split')">📊 2 Bảng Đối Xứng Song Song (Full vs TTS)</button>
+<button class="chart-mode-pill" data-table-view="full_only" onclick="setOdrTableView('full_only')">📦 Chỉ Xem Bảng Full Hàng</button>
+<button class="chart-mode-pill" data-table-view="tts_only" onclick="setOdrTableView('tts_only')">⚡ Chỉ Xem Bảng TikTok Shop</button>
+</div>
+</div>
+<!-- 2 BẢNG ĐỐI XỨNG 19 AM: FULL HÀNG vs TIKTOK SHOP -->
+<div class="grid-row-2" id="odr-am-grid" style="margin-bottom: 20px;">
+<!-- BẢNG 1A: %ODR FULL HÀNG 19 AM -->
+<div class="report-card" id="card-odr-full">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="package" style="color: var(--color-blue);"></i>
+              BẢNG 1A: %ODR FULL HÀNG (19 AM)
+            </div>
+<span class="badge-tag badge-tag-blue">Full Hàng</span>
+</div>
+<div class="report-card-body">
+<div class="table-toolbar">
+<div class="table-search-box">
+<i class="table-search-icon" data-lucide="search" style="width: 14px; height: 14px;"></i>
+<input class="table-search-input" id="search-odr-full-am" placeholder="Tìm AM Full..." type="text"/>
+</div>
+</div>
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-odr-full-detailed">
+<thead>
+<tr>
+<th class="center" style="width: 44px;">#</th>
+<th>AM Phụ Trách</th>
+<th class="num">Sản Lượng</th>
+<th class="num">W39</th>
+<th class="num" style="background: var(--color-blue-bg); font-weight: 800;">W40</th>
+<th class="num">Biến Động (Δ)</th>
+<th class="center">Đánh Giá SLA</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- BẢNG 1B: %ODR TIKTOK SHOP 19 AM -->
+<div class="report-card" id="card-odr-tts">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="truck" style="color: var(--ghn-orange);"></i>
+              BẢNG 1B: %ODR TIKTOK SHOP (19 AM)
+            </div>
+<span class="badge-tag badge-tag-amber">TikTok Shop</span>
+</div>
+<div class="report-card-body">
+<div class="table-toolbar">
+<div class="table-search-box">
+<i class="table-search-icon" data-lucide="search" style="width: 14px; height: 14px;"></i>
+<input class="table-search-input" id="search-odr-tts-am" placeholder="Tìm AM TTS..." type="text"/>
+</div>
+</div>
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-odr-tts-detailed">
+<thead>
+<tr>
+<th class="center" style="width: 44px;">#</th>
+<th>AM Phụ Trách</th>
+<th class="num">Sản Lượng</th>
+<th class="num">TTS W39</th>
+<th class="num" style="background: var(--color-amber-bg); font-weight: 800; color: #ea580c;">TTS W41</th>
+<th class="num" style="background: var(--color-amber-bg); font-weight: 800; color: #ea580c;">TTS W41</th>
+<th class="num">Biến Động (Δ)</th>
+<th class="center">Đánh Giá SLA</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ==================================================================== -->
+<!-- TAB 7: %LTC - LẤY THÀNH CÔNG (TARGET ≥ 90.0%) -->
+<!-- ==================================================================== -->
+<div class="tab-view" id="tab-ltc">
+<div class="exec-banner" style="border-left-color: var(--color-blue);">
+<div class="exec-banner-content">
+<div class="exec-banner-icon" style="background: rgba(37, 99, 235, 0.2); color: var(--color-blue);">
+<i data-lucide="archive" style="width: 24px; height: 24px;"></i>
+</div>
+<div class="exec-banner-text">
+<h3 id="banner-ltc-title">PHÂN TÍCH CHỈ SỐ %LTC (LẤY THÀNH CÔNG) THEO 19 AM &amp; 5 TỈNH (TARGET ≥ 90.0%) (W41)</h3>
+<p id="banner-ltc-summary">
+              • <strong>Toàn Vùng W40:</strong> Full hàng đạt <strong>91.35%</strong> (+1.22%p WoW so với 90.13% W39); TTS đạt <strong>94.97%</strong> (+0.39%p WoW) — Tiếp tục giữ vững và vượt chuẩn cam kết Target ≥ 90.0%.<br/>
+              • <strong>Đánh Giá:</strong> Tiến độ thu gom hàng và xử lý ca lấy được kiểm soát nhịp nhàng trên toàn địa bàn 5 tỉnh thành.
+            </p>
+</div>
+</div>
+<div class="exec-banner-actions">
+<span class="badge-tag badge-tag-blue" style="font-size: 12px; padding: 6px 12px;">
+            Full: 91.4% | TTS: 95.0% (Target ≥ 90.0%)
+          </span>
+</div>
+</div>
+<!-- LTC Bar Chart -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="bar-chart-3" style="color: var(--color-blue);"></i>
+            TỶ LỆ %LTC (LẤY THÀNH CÔNG) THEO 19 AM (SORT CAO XUỐNG THẤP)
+          </div>
+<span class="badge-tag badge-tag-blue">Target SLA ≥ 90.0%</span>
+</div>
+<div class="report-card-body">
+<div class="chart-box chart-box-tall">
+<canvas id="chart-ltc-bar"></canvas>
+</div>
+</div>
+</div>
+<!-- 2 Bảng Đối Xứng: 19 AM (Trái) vs 5 Tỉnh (Phải) -->
+<div class="grid-row-2">
+<!-- Bảng 1: %LTC 19 AM -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="table-properties" style="color: var(--color-blue);"></i>
+              BẢNG 1: %LTC THEO 19 AM (SORT BIẾN ĐỘNG Δ)
+            </div>
+<span class="badge-tag badge-tag-blue">19 AM</span>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-ltc-detailed">
+<thead>
+<tr>
+<th class="center" style="width: 44px;">#</th>
+<th>AM Phụ Trách</th>
+<th class="num">Sản Lượng</th>
+<th class="num">W37</th>
+<th class="num">W38</th>
+<th class="num">W39</th>
+<th class="num" style="background: var(--color-blue-bg); font-weight:800;">%LTC W40</th>
+<th class="num">Biến Động (Δ)</th>
+<th class="center">Đánh Giá SLA</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Bảng 2: %LTC 5 Tỉnh Thành -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="map-pin" style="color: var(--ghn-navy);"></i>
+<span id="title-ltc-tinh-mode">BẢNG 2: %LTC THEO 5 TỈNH THÀNH (FULL HÀNG)</span>
+</div>
+<div class="chart-mode-pills" id="ltc-tinh-segment-pills" style="margin: 0;">
+<button class="chart-mode-pill active" id="btn-ltc-tinh-full" onclick="setLtcTinhSegment('full')">Full Hàng</button>
+<button class="chart-mode-pill" id="btn-ltc-tinh-tts" onclick="setLtcTinhSegment('tts')">TikTok Shop</button>
+</div>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-ltc-tinh-detailed">
+<thead>
+<tr>
+<th class="center" style="width: 44px;">#</th>
+<th>Tỉnh / Thành Phố</th>
+<th class="num">Sản Lượng</th>
+<th class="num">W37</th>
+<th class="num">W38</th>
+<th class="num">W39</th>
+<th class="num" style="background: var(--color-blue-bg); font-weight:800;">%LTC W40</th>
+<th class="num">Biến Động (Δ)</th>
+<th class="center">Đánh Giá SLA</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- TAB 8: %OPR TIKTOK SHOP (NGÀY 9H-19H vs ĐÊM 19H-9H) -->
+<!-- ==================================================================== -->
+<div class="tab-view" id="tab-opr-tts">
+<div class="exec-banner" style="border-left-color: #ef4444;">
+<div class="exec-banner-content">
+<div class="exec-banner-icon" style="background: rgba(239, 68, 68, 0.15); color: #ef4444;">
+<i data-lucide="sun-moon" style="width: 24px; height: 24px;"></i>
+</div>
+<div class="exec-banner-text">
+<h3 id="banner-opr-title">PHÂN TÍCH CHỈ SỐ %OPR TIKTOK SHOP TOÀN VÙNG (TARGET KPI ≥ 80.0%) (W41)</h3>
+<p id="banner-opr-summary">
+              • <strong>Toàn Vùng W41 (Tổng Ngày + Đêm):</strong> Đạt <strong>83.45%</strong> (tăng mạnh <strong>+4.3%p WoW</strong> so với 79.1% W39) — <strong style="color:#10b981;">Chính Thức Vượt Target KPI ≥ 80.0%</strong>! • <strong>Khung Giờ Ngày vs Đêm:</strong> Ca Ngày (9h–19h) đạt <strong>91.8%</strong> (+0.8%p WoW); Ca Đêm (19h–9h) bứt phá lên <strong>71.2%</strong> (tăng <strong>+10.1%p WoW</strong> so với 61.1% W39).<br/>
+              • <strong>Đánh Giá:</strong> Điểm nghẽn ca đêm đã được giải quyết cơ bản, đưa toàn vùng về chuẩn KPI cam kết.
+            </p>
+</div>
+</div>
+<div class="exec-banner-actions">
+<span class="badge-tag badge-tag-red" style="font-size: 12px; padding: 6px 12px; font-weight:800;">
+            OPR TTS W41: 83.5% (Vượt Target KPI ≥ 80.0%)
+          </span>
+</div>
+</div>
+<!-- Container tổng OPR TTS Toàn Vùng được render động -->
+<div id="opr-tts-vung-total"></div>
+<!-- Container Danh sách các AM chưa đạt KPI OPR TTS (< 80%) -->
+<div id="opr-failed-ams-container"></div>
+<!-- OPR TTS Phân Tích Khung Giờ Chart -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="sun-moon" style="color: var(--color-amber);"></i>
+            BIỂU ĐỒ %OPR TTS THEO KHUNG GIỜ TẠO ĐƠN (NGÀY 9H–19H vs ĐÊM 19H–9H) THEO 19 AM
+          </div>
+<span class="badge-tag badge-tag-red" style="font-weight:700;">Đường Chuẩn KPI ≥ 80.0%</span>
+</div>
+<div class="report-card-body">
+<div class="chart-box chart-box-tall">
+<canvas id="chart-opr-tts-grouped"></canvas>
+</div>
+</div>
+</div>
+<!-- 2 Bảng Đối Xứng: OPR Ca Ngày (Trái) vs OPR Ca Đêm (Phải) -->
+<div class="grid-row-2">
+<!-- Bảng 1: OPR Ca Ngày -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="sun" style="color: var(--ghn-orange);"></i>
+              BẢNG 1: %OPR CA NGÀY (9H–19H - SORT BIẾN ĐỘNG Δ)
+            </div>
+<span class="badge-tag badge-tag-green">Ca Ngày (KPI ≥ 80%)</span>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-opr-day-detailed">
+<thead>
+<tr>
+<th class="center" style="width: 44px;">#</th>
+<th>AM Phụ Trách</th>
+<th class="num">Đơn Ngày</th>
+<th class="num">W39</th>
+<th class="num" style="background: var(--color-blue-bg); font-weight:800;">%OPR W40</th>
+<th class="num">Biến Động (Δ)</th>
+<th class="center">Đánh Giá KPI</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Bảng 2: OPR Ca Đêm -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="moon" style="color: var(--color-purple);"></i>
+              BẢNG 2: %OPR CA ĐÊM (19H–9H - SORT BIẾN ĐỘNG Δ)
+            </div>
+<span class="badge-tag badge-tag-purple">Ca Đêm (KPI ≥ 80%)</span>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-opr-night-detailed">
+<thead>
+<tr>
+<th class="center" style="width: 44px;">#</th>
+<th>AM Phụ Trách</th>
+<th class="num">Đơn Đêm</th>
+<th class="num">W39</th>
+<th class="num" style="background: var(--color-amber-bg); font-weight:800; color:#ea580c;">%OPR W40</th>
+<th class="num">Biến Động (Δ)</th>
+<th class="center">Đánh Giá SLA</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- Bảng Chi Tiết OPR TTS -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="table-properties" style="color: var(--color-amber);"></i>
+            CHI TIẾT CHỈ SỐ OPR TTS THEO TỪNG AM (SORT THEO BIẾN ĐỘNG CA NGÀY &amp; ĐÊM)
+          </div>
+</div>
+<div class="report-card-body">
+<div class="table-toolbar">
+<div class="table-search-box">
+<i class="table-search-icon" data-lucide="search" style="width: 14px; height: 14px;"></i>
+<input class="table-search-input" id="search-opr-am" placeholder="Tìm tên AM..." type="text"/>
+</div>
+</div>
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-opr-tts-data">
+<thead>
+<tr>
+<th class="center" style="width: 50px;">#</th>
+<th>AM Phụ Trách</th>
+<th class="num">Đơn Ngày (9h–19h)</th>
+<th class="num">%OPR 9h–19h (W39)</th>
+<th class="num" style="background: var(--color-blue-bg); font-weight:800;">%OPR 9h–19h (W41)</th>
+<th class="num">Δ Ngày</th>
+<th class="num">Đơn Đêm (19h–9h)</th>
+<th class="num">%OPR 19h–9h (W39)</th>
+<th class="num" style="background: var(--color-amber-bg); font-weight:800;">%OPR 19h–9h (W41)</th>
+<th class="num">Δ Đêm</th>
+<th class="num" style="font-weight: 800;">Tổng Đơn TTS</th>
+<th class="num" style="background: rgba(239, 68, 68, 0.08); font-weight:800; color:#b91c1c;">Đơn Trễ OPR</th>
+<th class="num" style="background: var(--color-amber-bg); font-weight:800; color:#ea580c;" title="Tỷ trọng đóng góp vào tổng đơn rớt/trễ OPR toàn vùng (Tổng = 100%)">% Tỷ Trọng Rớt</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- ==================================================================== -->
+<!-- ==================================================================== -->
+<!-- TAB 9: RỚT LUÂN CHUYỂN (TRANSIT LOSS & TRANSPORT) -->
+<!-- ==================================================================== -->
+<div class="tab-view" id="tab-rot-lc">
+<!-- Executive Banner: Phân tích Tỷ Trọng Rớt LC -->
+<div class="exec-banner" style="border-left-color: var(--color-red); margin-bottom: 20px;">
+<div class="exec-banner-content">
+<div class="exec-banner-icon" style="background: rgba(239, 68, 68, 0.15); color: #ef4444;">
+<i data-lucide="alert-triangle" style="width: 24px; height: 24px;"></i>
+</div>
+<div class="exec-banner-text">
+<h3 id="banner-rot-lc-title">PHÂN TÍCH TỶ TRỌNG RỚT ĐƠN LUÂN CHUYỂN THEO AM &amp; TỈNH THÀNH (W41)</h3>
+<p id="banner-rot-lc-summary">
+              • <strong>Tổng đơn rớt toàn vùng W41:</strong> Tỷ lệ rớt đạt <strong>1.69%</strong> (tổng 219 đơn rớt / 12,934 đơn cần LC, tăng nhẹ +0.18%p WoW so với 1.52% W39) — Tiếp tục kiểm soát rất tốt dưới ngưỡng Target ≤ 2.00%!<br/>
+              • <strong>Đánh Giá:</strong> Các bưu cục và trung tâm khai thác phối hợp đồng bộ, hạn chế tối đa rớt kết nối ca luân chuyển.
+            </p>
+</div>
+</div>
+<div class="exec-banner-actions">
+<span class="badge-tag badge-tag-red" id="banner-rot-lc-badge" style="font-size: 12px; padding: 6px 12px;">
+            Tổng rớt W40: 219 đơn (1.69%)
+          </span>
+</div>
+</div>
+<!-- Chart Rớt LC 19 AM -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="bar-chart-3" style="color: var(--color-red);"></i>
+            % RỚT LUÂN CHUYỂN THEO 19 AM PHỤ TRÁCH (W41)
+          </div>
+<span class="badge-tag badge-tag-red">19 AM</span>
+</div>
+<div class="report-card-body">
+<div class="chart-box chart-box-tall">
+<canvas id="chart-rot-lc-bar"></canvas>
+</div>
+</div>
+</div>
+<!-- 2 Bảng Đối Xứng: 19 AM (Trái) vs 5 Tỉnh (Phải) -->
+<div class="grid-row-2" style="margin-bottom: 20px;">
+<!-- Bảng 1: Rớt LC 19 AM -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="table-properties" style="color: var(--color-red);"></i>
+              BẢNG 1: % RỚT LUÂN CHUYỂN &amp; TỶ TRỌNG THEO 19 AM
+            </div>
+<span class="badge-tag badge-tag-red">19 AM</span>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-rot-am-detailed">
+<thead>
+<tr>
+<th class="center" style="width: 44px;">#</th>
+<th>AM Phụ Trách</th>
+<th class="num">Vol Cần LC</th>
+<th class="num" style="background: rgba(239, 68, 68, 0.08); font-weight:800; color:#b91c1c;">Đơn Rớt</th>
+<th class="num" style="background: var(--color-amber-bg); font-weight:800; color:#ea580c;" title="Tỷ trọng đóng góp vào tổng đơn rớt toàn vùng (Tổng = 100%)">% Tỷ Trọng Rớt</th>
+<th class="num">% Rớt W39</th>
+<th class="num" style="background: var(--color-red-bg); font-weight:800; color:#b91c1c;">% Rớt W40</th>
+<th class="num">Biến Động (Δ)</th>
+<th class="center">Mức Cảnh Báo</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Bảng 2: Rớt LC 5 Tỉnh -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="map-pin" style="color: var(--ghn-navy);"></i>
+              BẢNG 2: % RỚT LUÂN CHUYỂN &amp; TỶ TRỌNG THEO 5 TỈNH THÀNH
+            </div>
+<span class="badge-tag badge-tag-blue">5 Tỉnh Thành</span>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-rot-tinh-detailed">
+<thead>
+<tr>
+<th class="center" style="width: 44px;">#</th>
+<th>Tỉnh / Thành Phố</th>
+<th class="num">Vol Cần LC</th>
+<th class="num" style="background: rgba(239, 68, 68, 0.08); font-weight:800; color:#b91c1c;">Đơn Rớt</th>
+<th class="num" style="background: var(--color-amber-bg); font-weight:800; color:#ea580c;" title="Tỷ trọng đóng góp vào tổng đơn rớt toàn vùng (Tổng = 100%)">% Tỷ Trọng Rớt</th>
+<th class="num">% Rớt W39</th>
+<th class="num" style="background: var(--color-red-bg); font-weight:800; color:#b91c1c;">% Rớt W40</th>
+<th class="num">Biến Động (Δ)</th>
+<th class="center">Mức Cảnh Báo</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- Top 20 Bưu Cục Rớt LC -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="alert-octagon" style="color: var(--color-red);"></i>
+            DANH SÁCH TOP 20 BƯU CỤC CÓ TỶ LỆ RỚT LUÂN CHUYỂN CAO NHẤT (W41)
+          </div>
+<span class="badge-tag badge-tag-red">≥5% Nghiêm Trọng | 2–5% Cảnh Báo</span>
+</div>
+<div class="report-card-body">
+<div class="table-toolbar">
+<div class="table-search-box">
+<i class="table-search-icon" data-lucide="search" style="width: 14px; height: 14px;"></i>
+<input class="table-search-input" id="search-rotlc-bc" placeholder="Tìm tên Bưu Cục..." type="text"/>
+</div>
+</div>
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-rot-lc-top-bc">
+<thead>
+<tr>
+<th class="center" style="width: 50px;">#</th>
+<th>Bưu Cục</th>
+<th>AM Phụ Trách</th>
+<th class="num">Vol Cần LC</th>
+<th class="num">Vol Rớt LC (đơn)</th>
+<th class="num" style="background: var(--color-red-bg); font-weight:800; color:#b91c1c;">% Rớt LC (W41)</th>
+<th class="center">Đánh Giá &amp; Cảnh Báo</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- ==================================================================== -->
+<!-- TAB 10: BÁO CÁO %FD (RETURN / HOÀN TRẢ) - FULL HÀNG & TIKTOK SHOP -->
+<!-- ==================================================================== -->
+<div class="tab-view" id="tab-fd">
+<!-- Executive Banner -->
+<div class="exec-banner" style="border-left-color: #8b5cf6;">
+<div class="exec-banner-content">
+<div class="exec-banner-icon" style="background: rgba(139, 92, 246, 0.15); color: #8b5cf6;">
+<i data-lucide="rotate-ccw" style="width: 24px; height: 24px;"></i>
+</div>
+<div class="exec-banner-text">
+<h3 id="banner-fd-title">BÁO CÁO TỶ LỆ %FD (RETURN / HOÀN TRẢ) — VÙNG NAM TRUNG BỘ (W41)</h3>
+<p class="exec-banner-desc" id="banner-fd-summary">
+              Chu kỳ W41 (05/10 – 11/10/2026)  |  So sánh biến động WoW với tuần trước (W40)  |  Tách riêng Full Hàng và TikTok Shop
+            </p>
+</div>
+</div>
+<div class="exec-banner-meta">
+<span class="badge-tag badge-tag-purple" style="font-weight: 800;">Target Toàn Vùng ≤ 6.0%</span>
+<span class="badge-tag badge-tag-blue">84 Bưu Cục / 19 AM</span>
+</div>
+</div>
+<!-- FD KPI Cards Strip (Native Polished Tiles) -->
+<div class="kpi-strip" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 20px;">
+<div class="kpi-tile" style="border-left: 4px solid var(--color-blue);">
+<div class="kpi-tile-header">
+<span>Sản Lượng Giao Full Hàng</span>
+<div class="kpi-tile-icon" style="background: rgba(37, 99, 235, 0.12); color: var(--color-blue);">
+<i data-lucide="package" style="width: 16px; height: 16px;"></i>
+</div>
+</div>
+<div class="kpi-tile-value" id="kpi-fd-vol-full">311,503 <small>đơn W40</small></div>
+<div class="kpi-tile-meta">
+<span class="badge-tag badge-tag-blue">Toàn Mạng NTB</span>
+<span style="color: var(--text-muted); font-size: 11.5px;">W39: 331,313 đ (-6.0%)</span>
+</div>
+</div>
+<div class="kpi-tile kpi-red" style="border-left: 4px solid #ef4444;">
+<div class="kpi-tile-header">
+<span>%FD Return Full Hàng (W40 vs W39)</span>
+<div class="kpi-tile-icon" style="background: rgba(239, 68, 68, 0.12); color: #ef4444;">
+<i data-lucide="alert-triangle" style="width: 16px; height: 16px;"></i>
+</div>
+</div>
+<div class="kpi-tile-value" id="kpi-fd-rate-full" style="color: #ef4444;">7.54% <small style="color: var(--text-muted); font-size: 13px; font-weight: 600;">(W35: 7.42%)</small></div>
+<div class="kpi-tile-meta">
+<span class="diff-tag diff-up-bad">▲ +0.12% WoW</span>
+<span style="color: var(--text-muted); font-size: 11.5px;">22,954 đ return (Mục tiêu ≤ 6.0%)</span>
+</div>
+</div>
+<div class="kpi-tile kpi-amber" style="border-left: 4px solid #ea580c;">
+<div class="kpi-tile-header">
+<span>Sản Lượng TikTok Shop (TTS)</span>
+<div class="kpi-tile-icon" style="background: rgba(234, 88, 12, 0.12); color: #ea580c;">
+<i data-lucide="flame" style="width: 16px; height: 16px;"></i>
+</div>
+</div>
+<div class="kpi-tile-value" id="kpi-fd-vol-tts">72,253 <small>đơn W40</small></div>
+<div class="kpi-tile-meta">
+<span class="badge-tag badge-tag-amber">21.1% Sản Lượng</span>
+<span style="color: var(--text-muted); font-size: 11.5px;">W39: 73,443 đ (-1.6%)</span>
+</div>
+</div>
+<div class="kpi-tile kpi-purple" style="border-left: 4px solid #8b5cf6;">
+<div class="kpi-tile-header">
+<span>%FD Return TikTok Shop (W40 vs W39)</span>
+<div class="kpi-tile-icon" style="background: rgba(139, 92, 246, 0.12); color: #8b5cf6;">
+<i data-lucide="repeat" style="width: 16px; height: 16px;"></i>
+</div>
+</div>
+<div class="kpi-tile-value" id="kpi-fd-rate-tts" style="color: #8b5cf6;">6.80% <small style="color: var(--text-muted); font-size: 13px; font-weight: 600;">(W35: 6.72%)</small></div>
+<div class="kpi-tile-meta">
+<span class="diff-tag diff-up-bad">▲ +0.08% WoW</span>
+<span style="color: var(--text-muted); font-size: 11.5px;">4,365 đ return TTS</span>
+</div>
+</div>
+</div>
+<!-- FD Analytical Chart with Mode Switcher -->
+<div class="report-card" style="margin-bottom: 20px;">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="bar-chart-2" style="color: #8b5cf6;"></i>
+<span id="chart-fd-title">BIỂU ĐỒ %FD THEO 19 AM (CỘT %FD RETURN + MIỀN SẢN LƯỢNG GIAO + ĐƯỜNG BIẾN ĐỘNG Δ)</span>
+</div>
+<div class="chart-mode-group">
+<button class="chart-mode-pill active" id="btn-fd-full" onclick="setFdChartMode('full')">
+              📊 %FD Full Hàng (Sort %FD ↓)
+            </button>
+<button class="chart-mode-pill" id="btn-fd-tts" onclick="setFdChartMode('tts')">
+              ⚡ %FD TikTok Shop (Sort %FD ↓)
+            </button>
+</div>
+</div>
+<div class="report-card-body">
+<div style="height: 380px; position: relative;">
+<canvas id="chart-fd-bar"></canvas>
+</div>
+</div>
+</div>
+<!-- Bảng 1: Bảng 19 AM (Full Hàng vs TTS - Đầy Đủ W36 vs W37) -->
+<div class="report-card" style="margin-bottom: 20px;">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="users" style="color: var(--ghn-navy);"></i>
+            BẢNG 1: ĐIỀU HÀNH %FD 19 AM (FULL HÀNG vs TIKTOK SHOP — SO SÁNH W40 vs W41)
+          </div>
+<span class="badge-tag badge-tag-blue">19 AM Phụ Trách</span>
+</div>
+<div class="report-card-body">
+<div class="table-toolbar">
+<div class="table-search-box">
+<i class="table-search-icon" data-lucide="search" style="width: 14px; height: 14px;"></i>
+<input class="table-search-input" id="search-fd-am" placeholder="Tìm tên AM..." type="text"/>
+</div>
+</div>
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-fd-am-detailed">
+<thead>
+<tr>
+<th class="center" style="width: 44px;">#</th>
+<th>AM Phụ Trách</th>
+<th class="num">Vol Full</th>
+<th class="num">Full W39</th>
+<th class="num" style="background: var(--color-blue-bg); font-weight:800;">Full W41</th>
+<th class="num">Biến Động (Δ)</th>
+<th class="num">Vol TTS</th>
+<th class="num">TTS W39</th>
+<th class="num" style="background: var(--color-amber-bg); font-weight: 800; color: #ea580c;">TTS W41</th>
+<th class="num" style="background: var(--color-amber-bg); font-weight:800; color:#ea580c;">TTS W41</th>
+<th class="num">Biến Động (Δ)</th>
+<th class="num">Tỷ Trọng Return</th>
+<th class="center">Đánh Giá</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Bảng 2: Top Bưu Cục %FD Cao Nhất -->
+<div class="report-card" style="margin-bottom: 20px;">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="alert-octagon" style="color: #ef4444;"></i>
+            BẢNG 2: TOP BƯU CỤC CÓ TỶ LỆ %FD CAO NHẤT (SO SÁNH W40 vs W39)
+          </div>
+<span class="badge-tag badge-tag-red">≥10% Cảnh Báo | ≥15% Nghiêm Trọng</span>
+</div>
+<div class="report-card-body">
+<div class="table-toolbar">
+<div class="table-search-box">
+<i class="table-search-icon" data-lucide="search" style="width: 14px; height: 14px;"></i>
+<input class="table-search-input" id="search-fd-bc" placeholder="Tìm tên Bưu Cục..." type="text"/>
+</div>
+</div>
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-fd-top-bc">
+<thead>
+<tr>
+<th class="center" style="width: 44px;">#</th>
+<th>Tên Bưu Cục</th>
+<th>AM Phụ Trách</th>
+<th class="num">Total Đơn</th>
+<th class="num" style="color: #ef4444;">Đơn Return</th>
+<th class="num">FD W39</th>
+<th class="num" style="background: var(--color-red-bg); font-weight:800; color:#b91c1c;">FD W41</th>
+<th class="num">Biến Động (Δ WoW)</th>
+<th class="num">Tỷ Trọng Return</th>
+<th class="center">Mức Cảnh Báo</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- ==================================================================== -->
+<!-- TAB 11: BÁO CÁO KTC & VẬN TẢI (BACKLOG, LEADTIME & TỶ LỆ LẤP ĐẦY XE) -->
+<!-- ==================================================================== -->
+<div class="tab-view" id="tab-ktc">
+<!-- Executive Banner -->
+<div class="exec-banner" style="border-left-color: #0284c7;">
+<div class="exec-banner-content">
+<div class="exec-banner-icon" style="background: rgba(2, 132, 199, 0.15); color: #0284c7;">
+<i data-lucide="truck" style="width: 24px; height: 24px;"></i>
+</div>
+<div class="exec-banner-text">
+<h2 style="margin: 0; font-size: 16px; font-weight: 800; color: var(--text-main);">
+              BÁO CÁO ĐIỀU HÀNH KTC &amp; VẬN TẢI — VÙNG NAM TRUNG BỘ (W41)
+            </h2>
+<p style="margin: 4px 0 0 0; font-size: 12.5px; color: var(--text-muted); line-height: 1.5;">
+              • <strong>Backlog KTC:</strong> Toàn mạng ghi nhận <strong>16,207 đơn</strong> luân chuyển, trong đó <strong>381 đơn treo trên 36h</strong> chưa đóng kiện (tập trung tại KTC Khánh Hòa do AM Nguyễn Tiến Lực quản lý).<br/>
+              • <strong>Leadtime KTC/KCT:</strong> Thời gian nhận xuất trung bình đạt <strong>3.31h</strong> (P50: 2.24h, P95: 7.09h); Tỷ lệ tồn &gt;12h đạt <strong>2.1%</strong> (662 đơn), tồn &gt;24h chỉ <strong>0.1%</strong> (46 đơn).<br/>
+              • <strong>Tỷ Lệ Lấp Đầy Thùng / Xe:</strong> Tuần W41 đạt <strong>49.5%</strong> (527 chuyến, 107 chuyến &lt;30% thùng xe). </p>
+</div>
+</div>
+<div class="exec-banner-meta">
+<span class="badge-tag badge-tag-blue" style="font-weight: 800;">5 KTC/KCT Trọng Điểm</span>
+<span class="badge-tag badge-tag-amber">Cập nhật lúc 21:24</span>
+</div>
+</div>
+<!-- KTC KPI Cards Strip -->
+<div class="kpi-strip" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 20px;">
+<div class="kpi-tile" style="border-left: 4px solid var(--color-blue);">
+<div class="kpi-tile-header">
+<span>Tổng Backlog KTC (0-192h+)</span>
+<div class="kpi-tile-icon" style="background: rgba(37, 99, 235, 0.12); color: var(--color-blue);">
+<i data-lucide="package" style="width: 16px; height: 16px;"></i>
+</div>
+</div>
+<div class="kpi-tile-value">16,207 <small>đơn</small></div>
+<div class="kpi-tile-meta">
+<span class="diff-tag diff-up-bad">+15,826 đ so trước</span>
+<span style="color: var(--text-muted); font-size: 11.5px;">5 KTC / KCT</span>
+</div>
+</div>
+<div class="kpi-tile kpi-red" style="border-left: 4px solid #ef4444;">
+<div class="kpi-tile-header">
+<span>Treo &gt;36h Chưa Đóng Kiện</span>
+<div class="kpi-tile-icon" style="background: rgba(239, 68, 68, 0.12); color: #ef4444;">
+<i data-lucide="alert-triangle" style="width: 16px; height: 16px;"></i>
+</div>
+</div>
+<div class="kpi-tile-value" style="color: #ef4444;">381 <small>đơn</small></div>
+<div class="kpi-tile-meta">
+<span class="badge-tag badge-tag-red">100% KTC Khánh Hòa</span>
+<span style="color: var(--text-muted); font-size: 11.5px;">AM Nguyễn Tiến Lực</span>
+</div>
+</div>
+<div class="kpi-tile kpi-green" style="border-left: 4px solid #10b981;">
+<div class="kpi-tile-header">
+<span>Tỷ Lệ Tồn &gt;12h KTC/KCT</span>
+<div class="kpi-tile-icon" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">
+<i data-lucide="clock" style="width: 16px; height: 16px;"></i>
+</div>
+</div>
+<div class="kpi-tile-value" style="color: #10b981;">2.1% <small style="color: var(--text-muted); font-size: 12px;">(662 đ)</small></div>
+<div class="kpi-tile-meta">
+<span class="badge-tag badge-tag-green">Tồn &gt;24h: 0.1% (46 đ)</span>
+<span style="color: var(--text-muted); font-size: 11.5px;">LT TB: 3.31h</span>
+</div>
+</div>
+<div class="kpi-tile kpi-amber" style="border-left: 4px solid #ea580c;">
+<div class="kpi-tile-header">
+<span>TLLĐ Xe Bình Quân (W41)</span>
+<div class="kpi-tile-icon" style="background: rgba(234, 88, 12, 0.12); color: #ea580c;">
+<i data-lucide="truck" style="width: 16px; height: 16px;"></i>
+</div>
+</div>
+<div class="kpi-tile-value" style="color: #10b981;">54.8% <small style="color: var(--text-muted); font-size: 13px; font-weight: 600;">(W36: 48.1%)</small></div>
+<div class="kpi-tile-meta">
+<span class="badge-tag badge-tag-green">▲ +6.7%p WoW</span>
+<span style="color: var(--text-muted); font-size: 11.5px;">80 chuyến &lt;30%</span>
+</div>
+</div>
+</div>
+<!-- Segment Switcher for 3 Sub-Views -->
+<div class="view-mode-bar" style="margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; background: var(--bg-surface); padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+<div style="display: flex; align-items: center; gap: 8px;">
+<span style="font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">CHỌN BÁO CÁO KTC:</span>
+<div class="btn-group" id="ktc-subtab-group">
+<button class="btn btn-sm btn-primary active" id="btn-ktc-backlog" onclick="setKtcSubTab('backlog')">
+<i data-lucide="clock" style="width: 14px; height: 14px;"></i> ⏱️ 1. Backlog Theo Khung Giờ
+            </button>
+<button class="btn btn-sm btn-secondary" id="btn-ktc-leadtime" onclick="setKtcSubTab('leadtime')">
+<i data-lucide="hourglass" style="width: 14px; height: 14px;"></i> ⏳ 2. Tổng Quan Leadtime KTC/KCT
+            </button>
+<button class="btn btn-sm btn-secondary" id="btn-ktc-fillrate" onclick="setKtcSubTab('fillrate')">
+<i data-lucide="truck" style="width: 14px; height: 14px;"></i> 🚚 3. Tỷ Lệ Lấp Đầy Thùng/Xe (W40 vs W41)
+            </button>
+</div>
+</div>
+</div>
+<!-- ======================================================= -->
+<!-- SUB-VIEW 1: BACKLOG THEO KHUNG GIỜ -->
+<!-- ======================================================= -->
+<div class="ktc-subview" id="ktc-subview-backlog">
+<!-- Bảng 1: Đơn treo >36h theo AM -->
+<div class="report-card" style="margin-bottom: 20px;">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="users" style="color: var(--ghn-navy);"></i>
+              ĐƠN TREO LUÂN CHUYỂN GIAO/TRẢ TRÊN 36H (CHƯA/KHÔNG CẦN ĐÓNG KIỆN) THEO AM
+            </div>
+<span class="badge-tag badge-tag-blue">Cập nhật lúc 21:24</span>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-ktc-backlog-am">
+<thead>
+<tr>
+<th class="center" style="width: 44px;">#</th>
+<th>AM Phụ Trách</th>
+<th class="num">0 - 6h</th>
+<th class="num">6 - 12h</th>
+<th class="num">12 - 24h</th>
+<th class="num">24 - 36h</th>
+<th class="num">36 - 72h</th>
+<th class="num">72 - 120h</th>
+<th class="num">120 - 192h</th>
+<th class="num">192h+</th>
+<th class="num" style="background: var(--color-red-bg); font-weight: 800; color: #b91c1c;">Treo &gt;36h</th>
+<th class="num" style="background: var(--color-blue-bg); font-weight: 800;">Tổng</th>
+<th class="num">+/- So Với Trước</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Bảng 2: Backlog KTC theo Kho -->
+<div class="report-card" style="margin-bottom: 20px;">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="warehouse" style="color: #0284c7;"></i>
+              BACKLOG KTC THEO KHO / BƯU CỤC
+            </div>
+<span class="badge-tag badge-tag-blue">5 Điểm Kho Luân Chuyển</span>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-ktc-backlog-kho">
+<thead>
+<tr>
+<th class="center" style="width: 44px;">#</th>
+<th>Bưu Cục / Kho</th>
+<th>AM Quản Lý</th>
+<th class="num">0 - 6h</th>
+<th class="num">6 - 12h</th>
+<th class="num">12 - 24h</th>
+<th class="num">24 - 36h</th>
+<th class="num">36 - 72h</th>
+<th class="num">72 - 120h</th>
+<th class="num">120 - 192h</th>
+<th class="num">192h+</th>
+<th class="num" style="background: var(--color-red-bg); font-weight: 800; color: #b91c1c;">Treo &gt;36h</th>
+<th class="num" style="background: var(--color-blue-bg); font-weight: 800;">Tổng</th>
+<th class="num">+/- So Với Trước</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Bảng 3: Đơn treo >24h theo ngày -->
+<div class="report-card" style="margin-bottom: 20px;">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="calendar" style="color: #ea580c;"></i>
+              ĐƠN TREO LUÂN CHUYỂN GIAO/TRẢ &gt;24H — MỐC 7H30 HẰNG NGÀY (31/08 – 07/09)
+            </div>
+<span class="badge-tag badge-tag-amber">8 Ngày Gần Nhất</span>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-ktc-trend-days">
+<thead>
+<tr>
+<th class="center" style="width: 44px;">#</th>
+<th>AM Phụ Trách</th>
+<th class="center">Ngày N (07/09)</th>
+<th class="center">Ngày N-1 (06/09)</th>
+<th class="center">Ngày N-2 (05/09)</th>
+<th class="center">Ngày N-3 (04/09)</th>
+<th class="center">Ngày N-4 (03/09)</th>
+<th class="center">Ngày N-5 (02/09)</th>
+<th class="center">Ngày N-6 (01/09)</th>
+<th class="center">Ngày N-7 (31/08)</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- ======================================================= -->
+<!-- SUB-VIEW 2: TỔNG QUAN LEADTIME KTC/KCT -->
+<!-- ======================================================= -->
+<div class="ktc-subview" id="ktc-subview-leadtime" style="display: none;">
+<div class="report-card" style="margin-bottom: 20px;">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="gauge" style="color: #10b981;"></i>
+              TỔNG QUAN LEADTIME KTC / KCT (THEO SHEET RAW)
+            </div>
+<div style="display: flex; align-items: center; gap: 8px;">
+<span style="font-size: 11px; font-weight: 700; color: var(--text-muted);">KỲ BÁO CÁO:</span>
+<div class="btn-group" id="leadtime-mode-group">
+<button class="btn btn-xs btn-primary active" id="btn-lt-snapshot" onclick="setLeadtimeMode('snapshot')">
+                  📌 Snapshot Chuẩn (31,542 đơn)
+                </button>
+<button class="btn btn-xs btn-secondary" id="btn-lt-w36" onclick="setLeadtimeMode('w36')">
+                  📅 Tuần W41 (Lũy Kế 7 Ngày)
+                </button>
+</div>
+</div>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-ktc-leadtime">
+<thead>
+<tr>
+<th>Loại Kho</th>
+<th>Tên Kho</th>
+<th class="num">Tổng Đơn</th>
+<th class="num" style="color: #ef4444;">Tồn &gt;12h</th>
+<th class="num" style="background: var(--color-red-bg); font-weight: 800; color: #b91c1c;">% Tồn &gt;12h</th>
+<th class="num" style="color: #ef4444;">Tồn &gt;24h</th>
+<th class="num" style="background: var(--color-red-bg); font-weight: 800; color: #b91c1c;">% Tồn &gt;24h</th>
+<th class="num" style="background: var(--color-blue-bg); font-weight: 800;">LT TB (h)</th>
+<th class="num">LT P50 (h)</th>
+<th class="num">LT P95 (h)</th>
+<th class="center">Đánh Giá SLA</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- ======================================================= -->
+<!-- SUB-VIEW 3: TỶ LỆ LẤP ĐẦY THÙNG / XE (FILL RATE) -->
+<!-- ======================================================= -->
+<div class="ktc-subview" id="ktc-subview-fillrate" style="display: none;">
+<!-- Header Controls for Fill Rate -->
+<div class="report-card" style="margin-bottom: 20px;">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="bar-chart-3" style="color: #ea580c;"></i>
+<span id="fillrate-title">BÁO CÁO DAILY TỶ LỆ LẤP ĐẦY XE - VÙNG NTB (05/09/2026 vs 06/09/2026)</span>
+</div>
+<div class="btn-group" id="fillrate-mode-group">
+<button class="btn btn-sm btn-primary active" id="btn-fr-daily" onclick="setFillRateMode('daily')">
+                📅 Daily (05/09 vs 06/09)
+              </button>
+<button class="btn btn-sm btn-secondary" id="btn-fr-weekly" onclick="setFillRateMode('weekly')">
+                📊 Tuần (W40 vs W41)
+              </button>
+</div>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-ktc-fillrate">
+<thead id="table-ktc-fillrate-thead"></thead>
+<tbody id="table-ktc-fillrate-tbody"></tbody>
+</table>
+</div>
+<div style="margin-top: 10px; font-size: 11.5px; color: var(--text-muted); font-style: italic;">
+              * Số liệu trích xuất trực tiếp từ Google Sheet "TỶ LỆ LẤP ĐẦY VÙNG NTB". Các mốc chuyến lấp đầy &lt;10%, 10%–&lt;20%, 20%–&lt;30% được phân tầng chuẩn xác.
+            </div>
+</div>
+</div>
+<!-- Xu hướng TLLĐ 6 tuần + số chuyến -->
+<div class="report-card" style="margin-bottom: 20px;">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="trending-up" style="color: #f59e0b;"></i>
+              XU HƯỚNG TLLĐ TB &amp; SỐ CHUYẾN — 7 TUẦN (T31 → T37)
+            </div>
+<span class="badge-tag badge-tag-amber">W39: 47.7% → W40: 48.2% (▲ +0.5%p)</span>
+</div>
+<div class="report-card-body">
+<div style="height: 300px; position: relative;">
+<canvas id="chart-fillrate-trend"></canvas>
+</div>
+</div>
+</div>
+<!-- Bảng Phân Tích Nguyên Nhân Chuyến <30% TLLĐ -->
+<div class="report-card" style="margin-bottom: 20px;">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="alert-circle" style="color: #ef4444;"></i>
+              ĐÚC KẾT NGUYÊN NHÂN CÁC CHUYẾN &lt; 30% TLLĐ TOÀN VÙNG NTB
+            </div>
+<span class="badge-tag badge-tag-red">Phân Nhóm Theo KTC</span>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-ktc-fillrate-causes">
+<thead>
+<tr>
+<th class="center" style="width: 44px;">#</th>
+<th>Nhóm Nguyên Nhân</th>
+<th class="num">KTC Khánh Hòa</th>
+<th class="num">KCT Đức Trọng</th>
+<th class="num">KCT Đắk Nông</th>
+<th class="num">KCT Bình Thuận</th>
+<th class="num">KCT Bảo Lộc</th>
+<th class="num bold" style="background: var(--color-blue-bg);">Tổng Chuyến</th>
+<th class="num bold" style="color: #ef4444;">Tỷ Trọng (%)</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- TAB 8: AGING TỒN ĐỌNG & TREO LUÂN CHUYỂN (BACKLOG & AGING) -->
+<!-- ==================================================================== -->
+<div class="tab-view" id="tab-aging">
+<div class="exec-banner" style="border-left-color: var(--color-red);">
+<div class="exec-banner-content">
+<div class="exec-banner-icon" style="background: rgba(239, 68, 68, 0.2); color: var(--color-red);">
+<i data-lucide="alert-octagon" style="width: 24px; height: 24px;"></i>
+</div>
+<div class="exec-banner-text">
+<h3 id="aging-banner-title">ĐIỀU HÀNH XỬ LÝ HÀNG AGING TỒN ĐỌNG &amp; TREO LUÂN CHUYỂN</h3>
+<p id="aging-banner-desc">
+              • <strong>Aging Tồn Kho (&gt;5 ngày):</strong> Toàn vùng ghi nhận <strong>431 đơn</strong> (5–8 ngày: <strong>365 đ / 84,7%</strong>; 8–15 ngày: <strong>59 đ / 13,7%</strong>; &gt;15 ngày: <strong>7 đ / 1,6%</strong>). Top AM: Nguyễn Văn B (78 đ).<br/>
+              • <strong>Hàng Treo Luân Chuyển:</strong> Toàn vùng có <strong>4.660 đơn</strong> đang lưu chuyển, trong đó <strong>92,0% (4.287 đơn)</strong> luân chuyển đúng hạn &lt;24h. Đơn tồn <strong>Treo ≥24h: 373 đơn (8,0%)</strong>, trễ nặng <strong>≥36h: 208 đơn (4,5%)</strong>. Điểm nóng treo: AM Nguyễn Văn B (45 đơn treo) tại BC Cẩm Lệ (18 đơn treo).
+            </p>
+</div>
+</div>
+<div class="exec-banner-actions" style="display: flex; align-items: center; gap: 8px;">
+<span class="badge-tag badge-tag-red" id="aging-badge-summary" style="font-size: 12px; padding: 6px 12px;">
+            Aging (&gt;5N): 431 đơn | Treo LC (≥24h): 373 / 4.660 đơn
+          </span>
+<button class="btn btn-sm btn-primary" id="btn-sync-realtime-aging" onclick="syncRealtimeAgingTreo()" style="font-size: 12px; font-weight: 700; padding: 6px 12px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+<i data-lucide="refresh-cw" style="width: 14px; height: 14px;"></i> ⚡ Làm Mới Real-time
+          </button>
+</div>
+</div>
+<!-- Segment Selector: Aging vs Treo LC vs Compare -->
+<div class="view-mode-bar" style="margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; background: var(--bg-surface); padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+<div style="display: flex; align-items: center; gap: 8px;">
+<span style="font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">CHỌN BÁO CÁO:</span>
+<div class="btn-group" id="aging-segment-group">
+<button class="btn btn-sm btn-primary active" id="btn-aging-aging" onclick="setAgingSegment('aging')">
+<i data-lucide="clock" style="width: 14px; height: 14px;"></i> ⏱️ Báo Cáo Aging (&gt;5 Ngày)
+            </button>
+<button class="btn btn-sm btn-secondary" id="btn-aging-treo" onclick="setAgingSegment('treo_lc')">
+<i data-lucide="truck" style="width: 14px; height: 14px;"></i> 🚚 Báo Cáo Treo Luân Chuyển (LC)
+            </button>
+<button class="btn btn-sm btn-secondary" id="btn-aging-compare" onclick="setAgingSegment('compare')">
+<i data-lucide="split" style="width: 14px; height: 14px;"></i> ⚡ Đối Chiếu Song Song Cả 2
+            </button>
+<button class="btn btn-sm btn-secondary" id="btn-aging-canhbao" onclick="window.switchTabDirect('tab-bc-canhbao')" style="color: #dc2626; font-weight: 800; border-color: #ef4444; background: rgba(239, 68, 68, 0.08);">
+<i data-lucide="alert-triangle" style="width: 14px; height: 14px; color: #dc2626;"></i> 🚨 13 Bưu Cục Cảnh Báo
+            </button>
+</div>
+</div>
+<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+<span style="font-size: 12px; font-weight: 700; color: var(--text-muted);">🎯 LỌC CẢNH BÁO:</span>
+<div class="btn-group">
+<button class="btn btn-sm btn-secondary active" id="btn-aging-hl-all" onclick="setAgingHighlight('all')">Tất Cả</button>
+<button class="btn btn-sm btn-secondary" id="btn-aging-hl-danger" onclick="setAgingHighlight('danger')" style="color: #b91c1c; font-weight: 800;">🔴 Điểm Nóng Nguy Hiểm</button>
+<button class="btn btn-sm btn-secondary" id="btn-aging-hl-warning" onclick="setAgingHighlight('warning')" style="color: #d97706; font-weight: 800;">🟡 Cảnh Báo Tồn</button>
+</div>
+</div>
+</div>
+<!-- 4 KPI Strip Aging -->
+<div class="kpi-strip" id="aging-kpi-strip" style="margin-bottom: 20px;">
+<div class="kpi-tile kpi-red">
+<div class="kpi-tile-header" id="kpi-aging-title-1">Tổng Đơn Tồn Đọng</div>
+<div class="kpi-tile-value" id="kpi-aging-val-1">2,337 <small>đơn</small></div>
+<div class="kpi-tile-meta" id="kpi-aging-meta-1"><span class="diff-tag diff-up-bad">Cần giải tỏa dứt điểm</span></div>
+</div>
+<div class="kpi-tile kpi-red">
+<div class="kpi-tile-header" id="kpi-aging-title-2">Top 1 AM Nhiều Đơn Nhất</div>
+<div class="kpi-tile-value" id="kpi-aging-val-2" style="font-size: 18px;">Lê Văn Trường</div>
+<div class="kpi-tile-meta" id="kpi-aging-meta-2"><span class="diff-tag diff-up-bad">610 đơn (26.1%)</span></div>
+</div>
+<div class="kpi-tile kpi-red">
+<div class="kpi-tile-header" id="kpi-aging-title-3">Top 1 Bưu Cục Điểm Nóng</div>
+<div class="kpi-tile-value" id="kpi-aging-val-3" style="font-size: 16px;">(DNO) Quảng Tín</div>
+<div class="kpi-tile-meta" id="kpi-aging-meta-3"><span class="diff-tag diff-up-bad">562 đơn (24.0%)</span></div>
+</div>
+<div class="kpi-tile kpi-amber">
+<div class="kpi-tile-header" id="kpi-aging-title-4">Tỉnh Tồn Đọng Nhiều Nhất</div>
+<div class="kpi-tile-value" id="kpi-aging-val-4" style="font-size: 18px;">Đắk Nông</div>
+<div class="kpi-tile-meta" id="kpi-aging-meta-4"><span class="diff-tag diff-neutral">1,142 đơn (48.9%)</span></div>
+</div>
+</div>
+<!-- Aging Combo Chart -->
+<div class="report-card" style="margin-bottom: 20px;">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="bar-chart-3" style="color: var(--color-red);"></i>
+<span id="chart-aging-title">BIỂU ĐỒ TOP AM NHIỀU ĐƠN AGING &gt;5 NGÀY VÀ MIỀN TỶ TRỌNG</span>
+</div>
+<span class="badge-tag badge-tag-red" id="badge-aging-chart">Xử lý giải tỏa</span>
+</div>
+<div class="report-card-body">
+<div class="chart-box chart-box-tall">
+<canvas id="chart-aging-bar"></canvas>
+</div>
+</div>
+</div>
+<!-- 2 BẢNG ĐỐI XỨNG SONG SONG: TOP AM (Trái) vs TOP BƯU CỤC (Phải) -->
+<div class="grid-row-2" style="margin-bottom: 20px;">
+<!-- BẢNG 1: TOP AM -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="users" style="color: var(--color-red);"></i>
+<span id="table-aging-am-title">BẢNG 1: TOP AM NHIỀU ĐƠN AGING &gt;5 NGÀY NHẤT</span>
+</div>
+<span class="badge-tag badge-tag-red">Theo AM</span>
+</div>
+<div class="report-card-body">
+<div class="table-toolbar">
+<div class="table-search-box">
+<i class="table-search-icon" data-lucide="search" style="width: 14px; height: 14px;"></i>
+<input class="table-search-input" id="search-aging-am" placeholder="Tìm tên AM..." type="text"/>
+</div>
+</div>
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-aging-am-detailed">
+<thead>
+<tr>
+<th class="center" style="width: 44px;">#</th>
+<th>AM Phụ Trách</th>
+<th>Tỉnh / TP</th>
+<th class="num" style="background: var(--color-red-bg); color: var(--color-red-dark); font-weight:800;">Số Đơn Tồn</th>
+<th class="num">Tỷ Trọng (%)</th>
+<th class="num">Thời Gian TB</th>
+<th class="center">Mức Độ Cảnh Báo</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- BẢNG 2: TOP BƯU CỤC -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="building-2" style="color: var(--ghn-orange);"></i>
+<span id="table-aging-bc-title">BẢNG 2: TOP BƯU CỤC (BC) CẦN GIẢI CỨU XỬ LÝ GẤP</span>
+</div>
+<span class="badge-tag badge-tag-amber">Top 30 Bưu Cục</span>
+</div>
+<div class="report-card-body">
+<div class="table-toolbar">
+<div class="table-search-box">
+<i class="table-search-icon" data-lucide="search" style="width: 14px; height: 14px;"></i>
+<input class="table-search-input" id="search-aging-bc" placeholder="Tìm bưu cục..." type="text"/>
+</div>
+</div>
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-aging-bc-detailed">
+<thead>
+<tr>
+<th class="center" style="width: 44px;">#</th>
+<th>Bưu Cục Điểm Nóng</th>
+<th>Tỉnh / TP</th>
+<th>AM Phụ Trách</th>
+<th class="num" style="background: var(--color-red-bg); color: var(--color-red-dark); font-weight:800;">Số Đơn Tồn</th>
+<th class="num">Tỷ Trọng (%)</th>
+<th class="center">Biện Pháp Xử Lý</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ==================================================================== -->
+<!-- TAB 13: QR CODE & COD TIỀN MẶT (4 SHEET GOOGLE SHEETS) -->
+<!-- ==================================================================== -->
+<div class="tab-view" id="tab-control">
+<!-- Action Banner -->
+<div class="exec-banner" style="border-left-color: var(--color-blue);">
+<div class="exec-banner-content">
+<div class="exec-banner-icon" style="background: rgba(2, 132, 199, 0.2); color: #0284c7;">
+<i data-lucide="wallet" style="width: 24px; height: 24px;"></i>
+</div>
+<div class="exec-banner-text">
+<h3 id="cod-banner-title">BÁO CÁO COD – SO SÁNH BIẾN ĐỘNG 2 TUẦN (Tuần W40 vs Tuần W41) | VÙNG NTB</h3>
+<p id="cod-summary-banner-desc">
+              Đang tải dữ liệu COD...
+            </p>
+</div>
+</div>
+<div class="exec-banner-actions">
+<span class="badge-tag badge-tag-amber" id="cod-summary-banner-badge" style="font-size: 12px; padding: 6px 12px;">
+            Tổng COD: 77,502.0 Tr ₫ | % TM: 40.4%
+          </span>
+</div>
+</div>
+<!-- Segment Selector: 4 COD Sheets -->
+<div class="view-mode-bar" style="margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; background: var(--bg-surface); padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+<span style="font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">CHỌN BÁO CÁO COD:</span>
+<div class="btn-group" id="cod-segment-group">
+<button class="btn btn-sm btn-primary active" id="btn-cod-trend" onclick="setCodSegment('trend')">
+<i data-lucide="trending-up" style="width: 14px; height: 14px;"></i> 📈 1. Xu Hướng 2 Tuần
+            </button>
+<button class="btn btn-sm btn-secondary" id="btn-cod-am" onclick="setCodSegment('am')">
+<i data-lucide="users" style="width: 14px; height: 14px;"></i> 👥 2. AM So Sánh 2 Tuần
+            </button>
+<button class="btn btn-sm btn-secondary" id="btn-cod-bc" onclick="setCodSegment('bc')">
+<i data-lucide="building-2" style="width: 14px; height: 14px;"></i> 🏢 3. Chi Tiết BC 2 Tuần
+            </button>
+<button class="btn btn-sm btn-secondary" id="btn-cod-action" onclick="setCodSegment('action')">
+<i data-lucide="clipboard-check" style="width: 14px; height: 14px;"></i> 🎯 4. Hướng Xử Lý AM
+            </button>
+</div>
+</div>
+</div>
+<!-- PANEL 1: XU HƯỚNG 2 TUẦN -->
+<div class="cod-panel" id="cod-panel-trend">
+<!-- 4 COD Summary KPI Tiles -->
+<div class="kpi-strip" style="margin-bottom: 20px;">
+<div class="kpi-tile kpi-blue">
+<div class="kpi-tile-header" id="kpi-cod-total-title">Tổng COD Thu Hộ Tuần N</div>
+<div class="kpi-tile-value" id="kpi-cod-total-val">-- <small>Tr ₫</small></div>
+<div class="kpi-tile-meta" id="kpi-cod-total-meta"><span class="diff-tag diff-neutral">--</span></div>
+</div>
+<div class="kpi-tile kpi-amber">
+<div class="kpi-tile-header" id="kpi-cod-cash-title">Tiền Mặt Tuần N</div>
+<div class="kpi-tile-value" id="kpi-cod-cash-val">-- <small>Tr ₫</small></div>
+<div class="kpi-tile-meta" id="kpi-cod-cash-meta"><span class="diff-tag diff-neutral">--</span></div>
+</div>
+<div class="kpi-tile kpi-green">
+<div class="kpi-tile-header" id="kpi-cod-bank-title">Chuyển Khoản Tuần N</div>
+<div class="kpi-tile-value" id="kpi-cod-bank-val">-- <small>Tr ₫</small></div>
+<div class="kpi-tile-meta" id="kpi-cod-bank-meta"><span class="diff-tag diff-neutral">--</span></div>
+</div>
+<div class="kpi-tile kpi-red">
+<div class="kpi-tile-header" id="kpi-cod-rate-title">Tỷ Lệ Tiền Mặt (% TM)</div>
+<div class="kpi-tile-value" id="kpi-cod-rate-val">--%</div>
+<div class="kpi-tile-meta" id="kpi-cod-rate-meta"><span class="diff-tag diff-up-bad">--</span></div>
+</div>
+</div>
+<div class="grid-row-2">
+<!-- Bảng Đối Chiếu 2 Tuần -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="table" style="color: var(--color-blue);"></i>
+                BẢNG ĐỐI CHIẾU CÁC CHỈ SỐ COD CHÍNH (TUẦN W39 vs TUẦN W40)
+              </div>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-cod-trend-metrics">
+<thead>
+<tr style="background: #1e3a8a; color: #ffffff;">
+<th style="color:#ffffff;">Chỉ Số</th>
+<th class="num" id="th-cod-prev" style="color:#ffffff;">Tuần N-1</th>
+<th class="num" id="th-cod-curr" style="background: #0284c7; color:#ffffff; font-weight:800;">Tuần N</th>
+<th class="num" style="color:#ffffff;">Chênh Lệch (Tr ₫)</th>
+<th class="num" style="color:#ffffff;">Biến Động (%)</th>
+<th class="center" style="color:#ffffff;">Đánh Giá</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Biểu đồ cơ cấu -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="pie-chart" style="color: var(--color-purple);"></i>
+                CƠ CẤU HÌNH THỨC THANH TOÁN (TIỀN MẶT vs CHUYỂN KHOẢN)
+              </div>
+</div>
+<div class="report-card-body">
+<div class="chart-box">
+<canvas id="chart-cod-tm-am-bar"></canvas>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- PANEL 2: AM SO SÁNH 2 TUẦN -->
+<div class="cod-panel" id="cod-panel-am" style="display: none;">
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="users" style="color: var(--color-blue);"></i>
+              BẢNG SO SÁNH TỶ LỆ TIỀN MẶT THEO 19 AM (TUẦN W39 vs TUẦN W40)
+            </div>
+<span class="badge-tag badge-tag-red">🔴 ≥70% | 🟡 50-70% | 🟢 &lt;50%</span>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-cod-am-sheet">
+<thead>
+<tr style="background: #1e3a8a; color: #ffffff;">
+<th class="center" style="width: 44px; color:#ffffff;">#</th>
+<th style="color:#ffffff;">AM Phụ Trách</th>
+<th class="num" style="color:#ffffff;">Tuần N-1 (% TM)</th>
+<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Tuần N (% TM)</th>
+<th class="num" style="color:#ffffff;">Thay Đổi (% p)</th>
+<th class="center" style="color:#ffffff;">Xu Hướng</th>
+<th class="center" style="color:#ffffff;">Mức Độ Tuần N</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- PANEL 3: CHI TIẾT BƯU CỤC 2 TUẦN -->
+<div class="cod-panel" id="cod-panel-bc" style="display: none;">
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="building-2" style="color: var(--ghn-orange);"></i>
+              CHI TIẾT TOÀN BỘ BƯU CỤC – SO SÁNH % TIỀN MẶT TUẦN N-1 vs TUẦN N
+            </div>
+<span class="badge-tag badge-tag-blue">106 Bưu Cục</span>
+</div>
+<div class="report-card-body">
+<div class="table-toolbar">
+<div class="table-search-box">
+<i class="table-search-icon" data-lucide="search" style="width: 14px; height: 14px;"></i>
+<input class="table-search-input" id="search-cod-bc" placeholder="Tìm tên bưu cục hoặc AM phụ trách..." type="text"/>
+</div>
+</div>
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-cod-bc-sheet">
+<thead>
+<tr style="background: #1e3a8a; color: #ffffff;">
+<th class="center" style="width: 44px; color:#ffffff;">#</th>
+<th style="color:#ffffff;">AM Phụ Trách</th>
+<th style="color:#ffffff;">Bưu Cục</th>
+<th class="num" style="color:#ffffff;">Tuần N-1 (% TM)</th>
+<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Tuần N (% TM)</th>
+<th class="num" style="color:#ffffff;">Biến Động</th>
+<th class="num" style="color:#ffffff;">Tiền Mặt N (Tr ₫)</th>
+<th class="center" style="color:#ffffff;">Mức Độ N</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- PANEL 4: HƯỚNG XỬ LÝ AM -->
+<div class="cod-panel" id="cod-panel-action" style="display: none;">
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="alert-triangle" style="color: var(--color-red);"></i>
+              HƯỚNG XỬ LÝ CÁC AM CÓ TỶ LỆ TIỀN MẶT CAO TRONG TUẦN N (≥ 50%)
+            </div>
+<span class="badge-tag badge-tag-red">Kế Hoạch &amp; Deadline Cụ Thể</span>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-cod-action-sheet">
+<thead>
+<tr style="background: #1e3a8a; color: #ffffff;">
+<th style="color:#ffffff; width: 160px;">AM Phụ Trách</th>
+<th class="num" style="color:#ffffff; width: 110px;">Tuần N-1</th>
+<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800; width: 110px;">Tuần N (% TM)</th>
+<th class="num" style="color:#ffffff; width: 100px;">Biến Động</th>
+<th style="color:#ffffff;">Hành Động Yêu Cầu Xử Lý</th>
+<th class="center" style="color:#ffffff; width: 140px;">Deadline</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ==================================================================== -->
+<!-- TAB 14: BÁO CÁO TRUY THU (SO SÁNH 2 TUẦN) -->
+<!-- ==================================================================== -->
+<div class="tab-view" id="tab-truythu">
+<!-- Action Banner -->
+<div class="exec-banner" style="border-left-color: var(--color-red);">
+<div class="exec-banner-content">
+<div class="exec-banner-icon" style="background: rgba(239, 68, 68, 0.2); color: var(--color-red);">
+<i data-lucide="shield-alert" style="width: 24px; height: 24px;"></i>
+</div>
+<div class="exec-banner-text">
+<h3 id="truythu-banner-title">BÁO CÁO TRUY THU – SO SÁNH BIẾN ĐỘNG 2 TUẦN (Tuần W40 (28/09 - 04/10) vs Tuần W41 (05/10 - 11/10)) | VÙNG NAM TRUNG BỘ</h3>
+<p id="truythu-banner-p">
+              • <strong>Tổng quan so sánh 2 tuần:</strong> W40 phát sinh <strong>2,424 bản ghi</strong> (giảm 1,652 đơn, -40.5%) với số tiền ban đầu <strong>433.1 Tr ₫</strong> (tăng +36.5%). Cần truy thu thêm <strong>187.1 Tr ₫</strong> (giảm 125.0 Tr ₫ so với 312.1 Tr ₫ W39).<br/>
+              • <strong>Các loại truy thu trọng điểm:</strong> <em>Liên đới chiếm dụng</em> (56.8 Tr ₫ | 4 đơn), <em>Tick mất hàng</em> (41.2 Tr ₫ | 53 đơn), <em>Mất/Thiếu/Tráo sản phẩm</em> (30.9 Tr ₫ | 76 đơn).<br/>
+              • <strong>Top AM có số tiền truy thu lớn nhất:</strong> <strong>Nguyễn Thanh Long</strong> (51.2 Tr ₫ | 72 ticket), <strong>Lê Văn Trường</strong> (26.3 Tr ₫ | 419 ticket), <strong>Trần Văn Phước</strong> (22.9 Tr ₫ | 288 ticket), <strong>Huỳnh Thị Kim Chi</strong> (21.3 Tr ₫ | 110 ticket).
+            </p>
+</div>
+</div>
+<div class="exec-banner-actions">
+<span class="badge-tag badge-tag-red" id="truythu-banner-badge" style="font-size: 12px; padding: 6px 12px;">
+            Tuần W41: 2,424 Bản Ghi | Cần Thu 187.1 Tr
+          </span>
+</div>
+</div>
+<!-- 4 KPI Comparison Tiles -->
+<div class="kpi-strip" style="margin-bottom: 20px;">
+<div class="kpi-tile kpi-blue">
+<div class="kpi-tile-header" id="kpi-tt-rec-title">Tổng Đơn / Ticket (Tuần W41)</div>
+<div class="kpi-tile-value" id="truythu-kpi-records">2,424 <small>đơn</small></div>
+<div class="kpi-tile-meta" id="truythu-kpi-records-meta"><span class="diff-tag diff-down-good">Tuần W39: 4,076 (-1,652 | -40.5%)</span></div>
+</div>
+<div class="kpi-tile kpi-amber">
+<div class="kpi-tile-header" id="kpi-tt-bd-title">Tổng Tiền Ban Đầu (Tuần W41)</div>
+<div class="kpi-tile-value" id="truythu-kpi-bandau">433.1 <small>Tr ₫</small></div>
+<div class="kpi-tile-meta" id="truythu-kpi-bandau-meta"><span class="diff-tag diff-up-bad">Tuần W39: 317.3 (+115.8 Tr | +36.5%)</span></div>
+</div>
+<div class="kpi-tile kpi-green">
+<div class="kpi-tile-header" id="kpi-tt-dc-title">Tổng Điều Chỉnh (Tuần W41)</div>
+<div class="kpi-tile-value" id="truythu-kpi-dieuchinh">-246.0 <small>Tr ₫</small></div>
+<div class="kpi-tile-meta" id="truythu-kpi-dieuchinh-meta"><span class="diff-tag diff-down-good">Tuần W39: -5.2 (-240.8 Tr)</span></div>
+</div>
+<div class="kpi-tile kpi-red">
+<div class="kpi-tile-header" id="kpi-tt-ct-title">Cần Truy Thu Thêm (Tuần W41)</div>
+<div class="kpi-tile-value" id="truythu-kpi-canthu">187.1 <small>Tr ₫</small></div>
+<div class="kpi-tile-meta" id="truythu-kpi-canthu-meta"><span class="diff-tag diff-down-good">Tuần W39: 312.1 (-125.0 Tr | -40.1%)</span></div>
+</div>
+</div>
+<!-- Segment Selector: 4 Truy Thu Views -->
+<div class="view-mode-bar" style="margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; background: var(--bg-surface); padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+<span style="font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">CHỌN GÓC NHÌN SO SÁNH 2 TUẦN:</span>
+<div class="btn-group" id="truythu-segment-group">
+<button class="btn btn-sm btn-primary active" id="btn-tt-loai" onclick="setTruyThuSegment('loai')">
+<i data-lucide="pie-chart" style="width: 14px; height: 14px;"></i> 📊 1. So Sánh Loại Vi Phạm (2 Tuần)
+            </button>
+<button class="btn btn-sm btn-secondary" id="btn-tt-amticket" onclick="setTruyThuSegment('amticket')">
+<i data-lucide="users" style="width: 14px; height: 14px;"></i> 👥 2. So Sánh AM Phụ Trách (2 Tuần)
+            </button>
+<button class="btn btn-sm btn-secondary" id="btn-tt-bcgiao" onclick="setTruyThuSegment('bcgiao')">
+<i data-lucide="truck" style="width: 14px; height: 14px;"></i> 🏢 3. Top Bưu Cục &amp; Tỉnh (2 Tuần)
+            </button>
+<button class="btn btn-sm btn-secondary" id="btn-tt-bcticket" onclick="setTruyThuSegment('bcticket')">
+<i data-lucide="map-pin" style="width: 14px; height: 14px;"></i> 📍 4. BC Theo Ticket
+            </button>
+</div>
+</div>
+</div>
+<!-- PANEL 1: THEO LOẠI TRUY THU -->
+<div class="truythu-panel" id="truythu-panel-loai">
+<div class="grid-row-2">
+<div class="report-card">
+<div class="report-card-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+<div class="report-card-title">
+<i data-lucide="table" style="color: var(--color-blue);"></i>
+                BẢNG XẾP HẠNG CÁC LOẠI TRUY THU (TUẦN W39 vs TUẦN W40)
+              </div>
+<div style="display: flex; gap: 6px; align-items: center;">
+<span style="font-size: 11px; font-weight: 700; color: var(--text-muted);">Xếp hạng theo:</span>
+<button class="btn btn-xs btn-primary" id="btn-sort-tt-tien" onclick="sortTruyThuLoai('tien')" style="font-size: 11.5px; padding: 4px 10px; font-weight: 700;">💰 Tiền Cần Thu</button>
+<button class="btn btn-xs btn-secondary" id="btn-sort-tt-don" onclick="sortTruyThuLoai('don')" style="font-size: 11.5px; padding: 4px 10px;">📦 Số Lượng Đơn</button>
+<button class="btn btn-xs btn-secondary" id="btn-sort-tt-diff" onclick="sortTruyThuLoai('diff')" style="font-size: 11.5px; padding: 4px 10px;">📈 Mức Tăng Tiền (Δ)</button>
+</div>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-truythu-by-loai">
+<thead>
+<tr style="background: #1e3a8a; color: #ffffff;">
+<th class="center" style="width: 44px; color:#ffffff;">#</th>
+<th style="color:#ffffff;">Loại Truy Thu</th>
+<th class="num" id="th-tt-loai-dp" style="color:#ffffff;">Đơn W39</th>
+<th class="num" id="th-tt-loai-dc" style="background: #0284c7; color:#ffffff; font-weight:800;">Đơn W41</th>
+<th class="num" style="color:#ffffff;">Biến Động Đơn</th>
+<th class="num" id="th-tt-loai-cp" style="color:#ffffff;">Cần Thu W39 (Tr ₫)</th>
+<th class="num" id="th-tt-loai-cc" style="background: #dc2626; color:#ffffff; font-weight:800;">Cần Thu W41 (Tr ₫)</th>
+<th class="num" style="color:#ffffff;">Biến Động (Tr ₫)</th>
+<th class="num" style="color:#ffffff;">% Biến Động</th>
+<th class="center" style="color:#ffffff;">Đánh Giá</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="bar-chart-3" style="color: var(--color-red);"></i>
+                SO SÁNH TIỀN CẦN TRUY THU THEO LOẠI VI PHẠM (TUẦN W39 vs TUẦN W40)
+              </div>
+<span class="badge-tag badge-tag-red">Cột Xám: Tuần W39 | Cột Đỏ: Tuần W41</span>
+</div>
+<div class="report-card-body">
+<div class="chart-box" style="height: 420px;">
+<canvas id="chart-truythu-loai-bar"></canvas>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- PANEL 2: TOP BC GIAO & TỈNH -->
+<div class="truythu-panel" id="truythu-panel-bcgiao" style="display: none;">
+<!-- So sánh theo Tỉnh -->
+<div class="report-card" style="margin-bottom: 20px;">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="map" style="color: var(--color-blue);"></i>
+              SO SÁNH TRUY THU THEO 5 TỈNH THÀNH (TUẦN W39 vs TUẦN W40)
+            </div>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-truythu-by-province">
+<thead>
+<tr style="background: #1e3a8a; color: #ffffff;">
+<th class="center" style="width: 44px; color:#ffffff;">#</th>
+<th style="color:#ffffff;">Tỉnh / Thành Phố</th>
+<th class="num" style="color:#ffffff;">Đơn Tuần W39</th>
+<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Đơn Tuần W41</th>
+<th class="num" style="color:#ffffff;">Biến Động Đơn</th>
+<th class="num" style="color:#ffffff;">Cần Thu W39 (Tr ₫)</th>
+<th class="num" style="background: #dc2626; color:#ffffff; font-weight:800;">Cần Thu W41 (Tr ₫)</th>
+<th class="num" style="color:#ffffff;">Biến Động Tiền (Tr ₫)</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Chart Top 15 BC Giao -->
+<div class="report-card" style="margin-bottom: 20px;">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="bar-chart-3" style="color: var(--ghn-orange);"></i>
+              BIỂU ĐỒ TOP 15 BƯU CỤC GIAO CẦN TRUY THU CAO NHẤT (TUẦN W39 vs TUẦN W40)
+            </div>
+<span class="badge-tag badge-tag-blue">Cột Xám: W39 (Tr ₫) | Cột Cam: W40 (Tr ₫)</span>
+</div>
+<div class="report-card-body">
+<div class="chart-box" style="height: 340px;">
+<canvas id="chart-truythu-bcgiao-bar"></canvas>
+</div>
+</div>
+</div>
+<!-- Table Top 25 BC Giao -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="award" style="color: var(--ghn-orange);"></i>
+              TOP 25 BƯU CỤC GIAO CÓ SỐ TIỀN CẦN TRUY THU NHIỀU NHẤT (SO SÁNH 2 TUẦN)
+            </div>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-truythu-top-bc-giao">
+<thead>
+<tr style="background: #1e3a8a; color: #ffffff;">
+<th class="center" style="width: 44px; color:#ffffff;">#</th>
+<th style="color:#ffffff;">Bưu Cục Giao</th>
+<th style="color:#ffffff;">AM Phụ Trách</th>
+<th style="color:#ffffff;">Tỉnh / TP</th>
+<th class="num" style="color:#ffffff;">Đơn W39</th>
+<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Đơn W41</th>
+<th class="num" style="color:#ffffff;">Biến Động Đơn</th>
+<th class="num" style="color:#ffffff;">Cần Thu W39 (Tr ₫)</th>
+<th class="num" style="background: #dc2626; color:#ffffff; font-weight:900;">Cần Thu W41 (Tr ₫)</th>
+<th class="num" style="color:#ffffff;">Biến Động (Tr ₫)</th>
+<th class="num" style="color:#ffffff;">% Biến Động</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- PANEL 3: TOP AM THEO TICKET & TIỀN -->
+<div class="truythu-panel" id="truythu-panel-amticket" style="display: none;">
+<!-- Chart AM Dual Axis -->
+<div class="report-card" style="margin-bottom: 20px;">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="bar-chart-2" style="color: var(--color-blue);"></i>
+              BIỂU ĐỒ SO SÁNH TIỀN CẦN THU VÀ SỐ TICKET THEO AM (TUẦN W39 vs TUẦN W40)
+            </div>
+<span class="badge-tag badge-tag-blue">Cột Xám: Tiền W39 | Cột Đỏ: Tiền W40 | Đường: Ticket W41</span>
+</div>
+<div class="report-card-body">
+<div class="chart-box" style="height: 380px;">
+<canvas id="chart-truythu-am-dual"></canvas>
+</div>
+</div>
+</div>
+<!-- Table AM -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="users" style="color: var(--color-blue);"></i>
+              BẢNG SO SÁNH TRUY THU THEO AM (TUẦN W39 vs TUẦN W40)
+            </div>
+<span class="badge-tag badge-tag-amber">Xếp hạng theo Tiền Cần Thu Tuần W41</span>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-truythu-top-am">
+<thead>
+<tr style="background: #1e3a8a; color: #ffffff;">
+<th class="center" style="width: 44px; color:#ffffff;">#</th>
+<th style="color:#ffffff;">AM Phụ Trách</th>
+<th class="num" style="color:#ffffff;">Ticket W39</th>
+<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Ticket W41</th>
+<th class="num" style="color:#ffffff;">Biến Động Ticket</th>
+<th class="num" style="color:#ffffff;">Cần Thu W39 (Tr ₫)</th>
+<th class="num" style="background: #dc2626; color:#ffffff; font-weight:900;">Cần Thu W41 (Tr ₫)</th>
+<th class="num" style="color:#ffffff;">Biến Động (Tr ₫)</th>
+<th class="num" style="color:#ffffff;">% Biến Động</th>
+<th class="center" style="color:#ffffff;">Mức Độ</th>
+<th style="color:#ffffff;">Bưu Cục Trọng Điểm</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- PANEL 4: TOP BC THEO TICKET -->
+<div class="truythu-panel" id="truythu-panel-bcticket" style="display: none;">
+<!-- Chart BC Ticket -->
+<div class="report-card" style="margin-bottom: 20px;">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="bar-chart" style="color: var(--color-red);"></i>
+              TOP 15 NƠI VI PHẠM PHÁT SINH NHIỀU TICKET NHẤT
+            </div>
+<span class="badge-tag badge-tag-red">Điểm Nóng Ticket Vùng NTB</span>
+</div>
+<div class="report-card-body">
+<div class="chart-box" style="height: 350px;">
+<canvas id="chart-truythu-bcticket-bar"></canvas>
+</div>
+</div>
+</div>
+<!-- Table BC Ticket -->
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="map-pin" style="color: var(--color-red);"></i>
+              CHI TIẾT 30 NƠI VI PHẠM PHÁT SINH NHIỀU TICKET NHẤT
+            </div>
+<span class="badge-tag badge-tag-blue">Chi Tiết</span>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-truythu-bc-ticket">
+<thead>
+<tr style="background: #1e3a8a; color: #ffffff;">
+<th class="center" style="width: 44px; color:#ffffff;">#</th>
+<th style="color:#ffffff;">Nơi Vi Phạm</th>
+<th style="color:#ffffff;">AM Phụ Trách</th>
+<th style="color:#ffffff;">Tỉnh / TP</th>
+<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Số Lượng Ticket</th>
+<th class="num" style="color:#ffffff;">% Ticket</th>
+<th class="num" style="background: #dc2626; color:#ffffff; font-weight:900;">Cần Thu Thêm (VNĐ)</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ==================================================================== -->
+<!-- TAB 13: KINH DOANH & KHÁCH HÀNG MỚI (F30) -->
+<!-- ==================================================================== -->
+<div class="tab-view" id="tab-commercial">
+<!-- Action Banner -->
+<div class="exec-banner" style="border-left-color: var(--color-green);">
+<div class="exec-banner-content">
+<div class="exec-banner-icon" style="background: rgba(16, 185, 129, 0.2); color: var(--color-green);">
+<i data-lucide="trending-up" style="width: 24px; height: 24px;"></i>
+</div>
+<div class="exec-banner-text">
+<h3>PHÂN TÍCH DOANH THU KINH DOANH &amp; TĂNG TRƯỞNG KHÁCH HÀNG MỚI (F30) | VÙNG NAM TRUNG BỘ (W41)</h3>
+<p id="kd-banner-summary">
+              • <strong>Doanh Thu Toàn Vùng Kỳ 27/9–03/10 (W41):</strong> Đạt <strong>1.120,5 triệu VNĐ</strong> (Kỳ 20–26/9: 1.162,6 triệu ➔ Giảm <strong>-42,1 triệu VNĐ / -3,6% WoW</strong>).<br/>
+              • <strong>Tổng Volume Giao Kinh Doanh:</strong> Đạt <strong>35.334 đơn</strong> (Kỳ 20–26/9: 37.391 đơn ➔ Giảm <strong>-2.057 đơn / -5,5% WoW</strong>).<br/>
+              • <strong>Tăng Trưởng Khách Hàng Mới (F30):</strong> Đạt <strong>111 shop mới</strong> (+19 shop / +20,7% WoW) mang lại <strong>9,4 triệu VNĐ</strong> (+62,8% WoW).
+            </p>
+</div>
+</div>
+<div class="exec-banner-actions">
+<span class="badge-tag badge-tag-blue" id="kd-banner-badge" style="font-size: 12px; padding: 6px 12px;">
+            Doanh Thu W40: 1.120,5 Tr (-3,6%) | Volume: 35.334 đ (-5,5%) | F30: 111 Shop (+20,7%)
+          </span>
+</div>
+</div>
+<!-- 4 KPI Cards -->
+<div class="kpi-strip" style="margin-bottom: 20px;">
+<div class="kpi-tile kpi-green">
+<div class="kpi-tile-header" id="kd-kpi-rev-header">Tổng Doanh Thu Kỳ Này (27/9–03/10 - W40)</div>
+<div class="kpi-tile-value" id="kd-kpi-rev-val">1.120,5 <small>Tr ₫</small></div>
+<div class="kpi-tile-meta" id="kd-kpi-rev-meta"><span class="diff-tag diff-down-bad">▼ -42.1 Tr (-3.6%)</span></div>
+</div>
+<div class="kpi-tile kpi-blue">
+<div class="kpi-tile-header" id="kd-kpi-vol-header">Tổng Volume Giao (27/9–03/10 - W40)</div>
+<div class="kpi-tile-value" id="kd-kpi-vol-val">35.334 <small>đơn</small></div>
+<div class="kpi-tile-meta" id="kd-kpi-vol-meta"><span class="diff-tag diff-down-bad">▼ -2.057 đơn (-5.5%)</span></div>
+</div>
+<div class="kpi-tile kpi-purple">
+<div class="kpi-tile-header" id="kd-kpi-f30-header">Khách Hàng Mới (F30)</div>
+<div class="kpi-tile-value" id="kd-kpi-f30-val">111 <small>Shop</small></div>
+<div class="kpi-tile-meta" id="kd-kpi-f30-meta"><span class="diff-tag diff-up-good">▲ +19 shop (+20.7%)</span></div>
+</div>
+<div class="kpi-tile kpi-amber">
+<div class="kpi-tile-header" id="kd-kpi-f30rev-header">Doanh Thu Shop Mới F30</div>
+<div class="kpi-tile-value" id="kd-kpi-f30rev-val">9.4 <small>Tr ₫</small></div>
+<div class="kpi-tile-meta" id="kd-kpi-f30rev-meta"><span class="diff-tag diff-up-good">▲ +3.6 Tr (+62.8%)</span></div>
+</div>
+</div>
+<!-- ROW 1: CHARTS (DOANH THU SO SÁNH & TỶ TRỌNG) -->
+<div class="grid-row-2" style="margin-bottom: 20px;">
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="bar-chart-3" style="color: var(--color-green);"></i>
+              SO SÁNH DOANH THU 2 KỲ GẦN NHẤT THEO AM (TRIỆU VNĐ)
+            </div>
+<span class="badge-tag badge-tag-blue">Kỳ 20–26/9 (W39) vs Kỳ 27/9–03/10 (W41)</span>
+</div>
+<div class="report-card-body">
+<div class="chart-box" style="height: 350px;">
+<canvas id="chart-kd-doanh-thu"></canvas>
+</div>
+</div>
+</div>
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="pie-chart" style="color: var(--color-purple);"></i>
+              CƠ CẤU TỶ TRỌNG DOANH THU TOÀN VÙNG NAM TRUNG BỘ
+            </div>
+<span class="badge-tag badge-tag-purple">% Đóng Góp Doanh Thu</span>
+</div>
+<div class="report-card-body">
+<div class="chart-box" style="height: 350px;">
+<canvas id="chart-kd-doanhthu-pie"></canvas>
+</div>
+</div>
+</div>
+</div>
+<!-- ROW 2: CHARTS (BIẾN ĐỘNG DOANH THU & SHOP MỚI F30) -->
+<div class="grid-row-2" style="margin-bottom: 20px;">
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="activity" style="color: var(--ghn-orange);"></i>
+              BIẾN ĐỘNG DOANH THU (± TRIỆU VNĐ) KỲ NÀY SO VỚI KỲ TRƯỚC
+            </div>
+<span class="badge-tag badge-tag-green">Xanh: Tăng Trưởng | Đỏ: Sụt Giảm</span>
+</div>
+<div class="report-card-body">
+<div class="chart-box" style="height: 340px;">
+<canvas id="chart-kd-growth-waterfall"></canvas>
+</div>
+</div>
+</div>
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="users" style="color: var(--color-blue);"></i>
+              SỐ LƯỢNG KHÁCH HÀNG MỚI (F30) PHÁT TRIỂN THEO AM
+            </div>
+<span class="badge-tag badge-tag-blue">Kỳ Trước vs Kỳ Này</span>
+</div>
+<div class="report-card-body">
+<div class="chart-box" style="height: 340px;">
+<canvas id="chart-f30-shops"></canvas>
+</div>
+</div>
+</div>
+</div>
+<!-- ================================================================ -->
+<!-- SECTION: DOANH THU KHÁCH HÀNG NHÓM A THEO SHOP & AM (LOOKER DB) -->
+<!-- ================================================================ -->
+<div class="report-card" style="margin-bottom: 20px; border-left: 4px solid #10b981;">
+<div class="report-card-header" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(59, 130, 246, 0.08)); border-bottom: 1px solid rgba(16, 185, 129, 0.2);">
+<div class="report-card-title" style="color: #065f46; font-weight: 800; font-size: 15px;">
+<i data-lucide="crown" style="color: #10b981;"></i>
+            THEO DÕI DOANH THU KHÁCH HÀNG NHÓM A THEO SHOP &amp; AM (LOOKER DB - GID 652503222)
+          </div>
+<div style="display: flex; gap: 8px; align-items: center;">
+<span class="badge-tag badge-tag-green">👑 10 Shop Nhóm A NTB</span>
+<span class="badge-tag badge-tag-blue" id="kha-badge-mtd">MTD: 8.840 Tr ₫</span>
+<span class="badge-tag badge-tag-purple">Cập nhật: 04/10 (N-1)</span>
+</div>
+</div>
+<div class="report-card-body">
+<!-- 4 Sub-KPI cards for Group A -->
+<div class="kpi-strip" style="margin-bottom: 16px;">
+<div class="kpi-tile kpi-green" style="padding: 12px 16px;">
+<div class="kpi-tile-header">Tổng Doanh Thu MTD Nhóm A</div>
+<div class="kpi-tile-value" id="kha-kpi-mtd" style="font-size: 22px;">8,840 <small>Tr ₫</small></div>
+<div class="kpi-tile-meta"><span class="diff-tag diff-up-good">10 Shop Trọng Điểm NTB</span></div>
+</div>
+<div class="kpi-tile kpi-blue" style="padding: 12px 16px;">
+<div class="kpi-tile-header">Doanh Thu Ngày N-1 (04/10)</div>
+<div class="kpi-tile-value" id="kha-kpi-n1" style="font-size: 22px;">1,991 <small>Tr ₫</small></div>
+<div class="kpi-tile-meta"><span class="diff-tag diff-neutral">Cập nhật ngày 04/10</span></div>
+</div>
+<div class="kpi-tile kpi-purple" style="padding: 12px 16px;">
+<div class="kpi-tile-header">Top 1 Shop Doanh Thu</div>
+<div class="kpi-tile-value" style="font-size: 16px; font-weight: 800;">Vận Chuyển Online</div>
+<div class="kpi-tile-meta"><span class="diff-tag diff-neutral">5,688 Tr MTD • AM Phan Đình Duy</span></div>
+</div>
+<div class="kpi-tile kpi-amber" style="padding: 12px 16px;">
+<div class="kpi-tile-header">Tiến Độ Tháng MTD</div>
+<div class="kpi-tile-value" style="font-size: 22px;">4 / 31 <small>ngày</small></div>
+<div class="kpi-tile-meta"><span class="diff-tag diff-neutral">12.9% Số ngày trong tháng 10</span></div>
+</div>
+</div>
+<!-- Bảng chi tiết doanh thu 9 shop nhóm A -->
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-kd-nhom-a">
+<thead>
+<tr style="background: #1e3a8a; color: #ffffff;">
+<th class="center" style="width: 36px; color:#ffffff;">#</th>
+<th style="color:#ffffff;">AM Phụ Trách</th>
+<th style="color:#ffffff;">Bưu Cục Quản Lý</th>
+<th style="color:#ffffff;">Mã KH</th>
+<th style="color:#ffffff;">Tên Shop / Khách Hàng</th>
+<th class="center" style="color:#ffffff;">Hạng</th>
+<th class="center" style="color:#ffffff;">% Trụ Hạng</th>
+<th class="num" style="background: #059669; color:#ffffff; font-weight:800;">MTD (Tr ₫)</th>
+<th class="center" style="color:#ffffff;">% vs MTD M-1</th>
+<th class="num" style="color:#ffffff;">01/09 (W-1)</th>
+<th class="num" style="color:#ffffff;">02/09</th>
+<th class="num" style="color:#ffffff;">03/09</th>
+<th class="num" style="color:#ffffff;">04/09</th>
+<th class="num" style="color:#ffffff;">05/09</th>
+<th class="num" style="color:#ffffff;">06/09</th>
+<th class="num" style="color:#ffffff;">07/09</th>
+<th class="num" style="background: #2563eb; color:#ffffff; font-weight:800;">08/09 (N-1)</th>
+<th class="num" style="color:#ffffff;">Δ vs W-1</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- BẢNG CẢNH BÁO SHOP NHÓM A SỤT GIẢM / KHÔNG LÊN ĐƠN -->
+<div class="report-card" style="margin-bottom: 20px; border-left: 4px solid #ef4444;">
+<div class="report-card-header" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(245, 158, 11, 0.08)); border-bottom: 1px solid rgba(239, 68, 68, 0.2);">
+<div class="report-card-title" style="color: #b91c1c; font-weight: 800; font-size: 15px;">
+<i data-lucide="alert-triangle" style="color: #ef4444;"></i>
+            CẢNH BÁO: SHOP NHÓM A CÓ NGUY CƠ RỚT HẠNG / SỤT GIẢM ĐƠN HÀNG NGÀY N-1
+          </div>
+<div style="display: flex; gap: 8px; align-items: center;">
+<span class="badge-tag badge-tag-red">🔴 Cần AM can thiệp ngay</span>
+<span class="badge-tag badge-tag-blue">Theo dõi sát</span>
+</div>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-kd-nhom-a-warning">
+<thead>
+<tr style="background: #1e293b; color: #ffffff;">
+<th class="center" style="width: 36px; color:#ffffff;">#</th>
+<th style="color:#ffffff;">Mã Shop</th>
+<th style="color:#ffffff;">Tên Shop / Khách Hàng</th>
+<th style="color:#ffffff;">AM Phụ Trách</th>
+<th style="color:#ffffff;">Bưu Cục Quản Lý</th>
+<th class="center" style="color:#ffffff;">Phân Hạng</th>
+<th class="num" style="color:#ffffff;">Cam Kết</th>
+<th class="num" style="color:#ffffff;">MTD Lũy Kế</th>
+<th class="center" style="color:#ffffff;">% vs MTD M-1</th>
+<th class="center" style="color:#ffffff;">Ngày Gần Nhất</th>
+<th class="num" style="background: #ef4444; color:#ffffff; font-weight:800;">Doanh Thu (Tr ₫)</th>
+<th class="center" style="color:#ffffff;">Đánh Giá / Tình Trạng</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- ROW 3: ANALYTICAL TABLES -->
+<div class="grid-row-2">
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="table" style="color: var(--color-green);"></i>
+              CHI TIẾT DOANH THU &amp; SẢN LƯỢNG KINH DOANH THEO AM
+            </div>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-kd-doanh-thu-data">
+<thead>
+<tr style="background: #1e3a8a; color: #ffffff;">
+<th style="color:#ffffff;">AM Phụ Trách</th>
+<th class="num" style="color:#ffffff;">Sản Lượng</th>
+<th class="num" style="background: #059669; color:#ffffff; font-weight:800;">Doanh Thu (VNĐ)</th>
+<th class="num" style="color:#ffffff;">% Tỷ Trọng</th>
+<th class="num" style="color:#ffffff;">Biến Động Doanh Thu</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="report-card">
+<div class="report-card-header">
+<div class="report-card-title">
+<i data-lucide="award" style="color: var(--color-purple);"></i>
+              CHI TIẾT KHÁCH HÀNG MỚI (F30) &amp; DOANH THU MỚI
+            </div>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-f30-khach-moi-data">
+<thead>
+<tr style="background: #1e3a8a; color: #ffffff;">
+<th style="color:#ffffff;">AM Phụ Trách</th>
+<th class="num" style="background: #7c3aed; color:#ffffff; font-weight:800;">Số Shop F30</th>
+<th class="num" style="color:#ffffff;">Doanh Thu F30 (VNĐ)</th>
+<th class="num" style="color:#ffffff;">Biến Động Shop</th>
+<th class="num" style="color:#ffffff;">Biến Động Doanh Thu</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- ROW 4: TOP KHÁCH HÀNG GIẢM ĐƠN / RỜI BỎ (CHURN ANALYSIS) -->
+<div class="report-card" style="margin-top: 16px;">
+<div class="report-card-header" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(245, 158, 11, 0.08)); border-bottom: 1px solid rgba(239, 68, 68, 0.2);">
+<div class="report-card-title" style="color: #b91c1c; font-weight: 800; font-size: 15px;">
+<i data-lucide="user-x" style="color: #ef4444;"></i>
+            TOP 10 KHÁCH HÀNG CÓ SẢN LƯỢNG GIẢM / RỜI BỎ LỚN NHẤT (W41)
+          </div>
+<div style="display: flex; gap: 8px; align-items: center;">
+<span class="badge-tag badge-tag-red">🔴 Rời Bỏ / Giảm Đơn Cao</span>
+<span class="badge-tag badge-tag-blue">Chuẩn Kỳ Kinh Doanh</span>
+</div>
+</div>
+<div class="report-card-body">
+<div class="bi-table-wrap">
+<table class="bi-table" id="table-kd-churn-top10">
+<thead>
+<tr style="background: #1e293b; color: #ffffff;">
+<th class="center" style="width: 44px; color:#ffffff;">#</th>
+<th style="color:#ffffff;">Mã KH</th>
+<th style="color:#ffffff;">Tên Shop / Khách Hàng</th>
+<th style="color:#ffffff;">AM Phụ Trách</th>
+<th style="color:#ffffff;">Bưu Cục Quản Lý</th>
+<th class="num" style="color:#ffffff;">Kỳ Trước (W39)</th>
+<th class="num" style="background: #ef4444; color:#ffffff; font-weight:800;">Kỳ Này (W41)</th>
+<th class="num" style="color:#ffffff;">Biến Động (Δ Đơn)</th>
+<th class="num" style="color:#ffffff;">% Giảm</th>
+<th class="center" style="color:#ffffff;">Tình Trạng</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- ==================================================================== -->
+<!-- TAB 15: BƯU CỤC TRONG NHÓM CẢNH BÁO BẤT ỔN (GOOGLE SHEETS) -->
+<!-- ==================================================================== -->
+<div class="tab-view" id="tab-bc-canhbao">
+<!-- Executive Warning Banner -->
+<div class="exec-banner" style="border-left: 5px solid #dc2626; border-top: 1px solid #fee2e2; border-right: 1px solid #fee2e2; border-bottom: 1px solid #fee2e2; background: #ffffff; box-shadow: 0 4px 14px rgba(220, 38, 38, 0.08); border-radius: 10px; padding: 18px 24px; margin-bottom: 20px;">
+<div class="exec-banner-content" style="display: flex; align-items: flex-start; gap: 16px;">
+<div class="exec-banner-icon" style="background: #fef2f2; color: #dc2626; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid #fecaca;">
+<i data-lucide="alert-triangle" style="width: 24px; height: 24px;"></i>
+</div>
+<div class="exec-banner-text" style="flex: 1;">
+<div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+<h3 id="banner-canhbao-title" style="color: #991b1b; font-size: 16px; font-weight: 800; margin: 0; display: flex; align-items: center; gap: 8px;">
+                ĐIỀU HÀNH TRỌNG ĐIỂM: DANH SÁCH BƯU CỤC CẢNH BÁO BẤT ỔN (TUẦN W41)
+              </h3>
+<a class="btn btn-sm" href="https://docs.google.com/spreadsheets/d/1lmQv8KwHJzDFs_RMz64ydu4SOmG3M1YAzILNFGtzFec/edit?gid=250113221#gid=250113221" style="background: #dc2626; color: #ffffff; font-weight: 700; padding: 6px 14px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border-radius: 6px; font-size: 12px; box-shadow: 0 2px 6px rgba(220,38,38,0.25);" target="_blank">
+<i data-lucide="external-link" style="width: 13px; height: 13px;"></i> Mở Google Sheets Gốc
+              </a>
+</div>
+<p id="banner-canhbao-summary" style="color: #1e293b; font-size: 13px; line-height: 1.65; margin: 0;">
+              • <strong style="color: #b45309;">Tiêu chí phân loại cảnh báo:</strong> (1) %GTC 7 ngày gần nhất &lt; 45% (10 bưu cục), hoặc (2) %GTC &lt; 70% so với mốc kỷ lục tốt nhất lịch sử của bưu cục (3 bưu cục).<br/>
+              • <strong style="color: #b91c1c;">Top điểm nóng nguy hiểm cần giải cứu khẩn cấp:</strong> <strong>(DNO) Quảng Tín</strong> (%GTC: <strong>18.1%</strong> | Cảnh báo <strong>100 ngày</strong> | Backlog <strong>1.224</strong> đơn | &gt;5N: <strong>490</strong> đơn), <strong>(LDO) Đức Trọng 1</strong> (<strong>20.1%</strong> | Cảnh báo <strong>84 ngày</strong> | Backlog <strong>1.223</strong> đơn), <strong>(DNO) Kiến Đức</strong> (<strong>29.9%</strong> | Cảnh báo <strong>80 ngày</strong> | Backlog <strong>1.035</strong> đơn), <strong>(LDO) Xuân Hương - Đà Lạt</strong> (<strong>30.2%</strong> / <strong>-21.4% WoW</strong> | Backlog <strong>2.165</strong> đơn | &gt;5N: <strong>310</strong> đơn), <strong>(KHO) Cam Linh</strong> (<strong>30.7%</strong> | Cảnh báo <strong>108 ngày</strong> | Backlog <strong>2.433</strong> đơn).
+            </p>
+</div>
+</div>
+</div>
+<!-- 4 Warning KPI Tiles -->
+<div class="kpi-strip" style="margin-bottom: 20px;">
+<div class="kpi-tile kpi-red">
+<div class="kpi-tile-header">Tổng Bưu Cục Cảnh Báo</div>
+<div class="kpi-tile-value" style="color: #dc2626;">13 <small>bưu cục</small></div>
+<div class="kpi-tile-meta"><span class="diff-tag diff-up-bad">10 BC &lt; 45% | 3 BC &lt; 70% kỷ lục</span></div>
+</div>
+<div class="kpi-tile kpi-red">
+<div class="kpi-tile-header">%GTC Thấp Nhất Vùng</div>
+<div class="kpi-tile-value" style="font-size: 20px; color: #dc2626;">18.1%</div>
+<div class="kpi-tile-meta"><span class="diff-tag diff-neutral">(DNO) Quảng Tín (W36: 15.2%)</span></div>
+</div>
+<div class="kpi-tile kpi-amber">
+<div class="kpi-tile-header">Nằm Cảnh Báo Lâu Nhất</div>
+<div class="kpi-tile-value" style="font-size: 20px; color: #d97706;">108 <small>ngày</small></div>
+<div class="kpi-tile-meta"><span class="diff-tag diff-up-bad">(KHO) Cam Linh &amp; Lang Biang 1</span></div>
+</div>
+<div class="kpi-tile kpi-red">
+<div class="kpi-tile-header">Tổng Backlog Điểm Nóng</div>
+<div class="kpi-tile-value" style="color: #dc2626;">19,020 <small>đơn</small></div>
+<div class="kpi-tile-meta"><span class="diff-tag diff-up-bad">1.774 đơn tồn &gt;5 ngày</span></div>
+</div>
+</div>
+<!-- Main Warning Table Card -->
+<div class="report-card" style="border: 2px solid #ef4444; box-shadow: 0 4px 16px rgba(239, 68, 68, 0.12);">
+<div class="report-card-header" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.12) 0%, rgba(249, 115, 22, 0.08) 100%);">
+<div class="report-card-title" style="color: #b91c1c; font-size: 14px; font-weight: 800;">
+<i data-lucide="alert-triangle" style="color: #dc2626;"></i>
+            BẢNG CHI TIẾT: 13 BƯU CỤC TRONG DIỆN CẢNH BÁO BẤT ỔN — SO SÁNH W40 vs W41 &amp; SỐ NGÀY NẰM TRONG DANH SÁCH
+          </div>
+<div style="display: flex; gap: 8px; align-items: center;">
+<span class="badge-tag badge-tag-red" style="font-weight: 800; font-size: 12px;">🚨 13 Bưu Cục</span>
+</div>
+</div>
+<div class="report-card-body">
+<div class="table-toolbar" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+<div class="table-search-box">
+<i class="table-search-icon" data-lucide="search" style="width: 14px; height: 14px;"></i>
+<input class="table-search-input search-bc-input" id="search-bc-canhbao-tab" placeholder="Tìm bưu cục, AM, tỉnh..." type="text"/>
+</div>
+<div style="font-size: 12px; color: var(--text-muted);">
+              Cập nhật đồng bộ trực tiếp từ Google Sheets | Tuần W41
+            </div>
+</div>
+<div class="bi-table-wrap">
+<table class="bi-table table-bc-canhbao-grid" id="table-bc-canhbao-tab">
+<thead><tr style="background: #1e3a8a; color: #ffffff;">
+<th class="center" style="width: 44px; color: #ffffff;">#</th>
+<th style="color: #ffffff;">Bưu Cục Điểm Nóng</th>
+<th style="color: #ffffff;">Tỉnh / TP</th>
+<th style="color: #ffffff;">AM Phụ Trách</th>
+<th class="num" style="background: #0284c7; color: #ffffff; font-weight: 700;">%GTC W39</th>
+<th class="num" style="background: #dc2626; color: #ffffff; font-weight: 800;">%GTC W41</th>
+<th class="num" style="background: #ea580c; color: #ffffff; font-weight: 700;">Biến Động WoW (Δ)</th>
+<th class="num" style="background: #475569; color: #ffffff;">Mốc Tốt Nhất</th>
+<th class="center" style="background: #d97706; color: #ffffff; font-weight: 800;">Số Ngày Cảnh Báo (3T)</th>
+<th class="num" style="background: #334155; color: #ffffff;">Backlog Tồn</th>
+<th class="num" style="background: #991b1b; color: #ffffff;">Tồn &gt; 5 Ngày</th>
+<th class="center" style="background: #0d9488; color: #ffffff;">Dự Kiến Clear</th>
+<th class="center" style="color: #ffffff;">Tiêu Chí Cảnh Báo</th>
+</tr></thead>
+<tbody class="table-bc-canh-bao-body"></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Upload Modal -->
+<div class="modal-backdrop" id="modal-upload">
+<div class="modal-dialog">
+<div class="modal-header">
+<div class="modal-title">
+<i data-lucide="file-spreadsheet" style="color: var(--ghn-orange);"></i> NẠP FILE DỮ LIỆU EXCEL
+        </div>
+<button class="bi-btn" id="btn-close-upload" style="border:none; padding:4px;">✕</button>
+</div>
+<div class="modal-body">
+<div class="upload-dropzone" id="excel-drop-zone">
+<i data-lucide="upload-cloud" style="width: 44px; height: 44px; color: var(--ghn-orange); margin-bottom: 8px;"></i>
+<p style="font-weight: 700; font-size: 14px; color: var(--text-main); margin-bottom: 4px;">Kéo thả file Excel vào đây hoặc nhấp để chọn</p>
+<p style="font-size: 12px; color: var(--text-muted);">Hỗ trợ file: w35.xlsx, NTB_Bao_Cao_Van_Hanh.xlsx</p>
+<input accept=".xlsx,.xls,.csv" id="excel-file-input" style="display: none;" type="file"/>
+</div>
+<div id="upload-status" style="margin-top: 14px; font-size: 12.5px; text-align: center;"></div>
+</div>
+<div class="modal-footer">
+<button class="bi-btn" id="btn-cancel-upload">Đóng</button>
+</div>
+</div>
+</div>
+<!-- Sheets Sync Modal -->
+<div class="modal-backdrop" id="modal-sheets">
+<div class="modal-dialog">
+<div class="modal-header">
+<div class="modal-title">
+<i data-lucide="refresh-cw" style="color: var(--color-blue);"></i> ĐỒNG BỘ GOOGLE SHEETS TRỰC TIẾP
+        </div>
+<button class="bi-btn" id="btn-close-sheets" style="border:none; padding:4px;">✕</button>
+</div>
+<div class="modal-body">
+<p style="font-size: 13px; color: var(--text-body); margin-bottom: 12px;">
+          Hệ thống sẽ kết nối trực tiếp đến Google Sheets qua OAuth 2.0 và tự động nạp toàn bộ 23 Tab dữ liệu mới nhất (GTC, ODR, LTC, OPR, Aging, Treo LC, COD 4 sheet, Truy thu...).
+        </p>
+<div style="background: var(--bg-surface-alt); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); font-size: 12px; color: var(--text-muted);">
+          🔗 Sheet ID: <code>1j6Xm7JRemUGRSfbL-wc8DMwt7qfR7j79w9q79_snVnU</code> (Vùng Nam Trung Bộ - OAuth 2.0)
+        </div>
+</div>
+<div class="modal-footer">
+<button class="bi-btn" id="btn-cancel-sheets">Hủy</button>
+<button class="bi-btn bi-btn-primary" id="btn-do-sync">🚀 Bắt Đầu Đồng Bộ</button>
+</div>
+</div>
+</div>
+<!-- Scripts -->
+<script src="data.js?v=1791826621"></script>
+<script src="app.js?v=1791826621"></script>
 </body>
 </html>
