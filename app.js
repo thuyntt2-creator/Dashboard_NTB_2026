@@ -2901,7 +2901,8 @@
         • <strong>Bứt phá tăng trưởng WoW:</strong> ${topGrow}.<br>
         • <strong>Nhóm AM cần cải thiện GTC:</strong> ${bottomAms}.
       `;
-    
+    }
+
     // 3. BẢNG BƯU CỤC BẤT ỔN ĐIỂN HÌNH W41 (SHEET NTBo)
     const tblBatOn = document.querySelector('#table-gtc-bat-on-detailed tbody');
     if (tblBatOn && D.gtc_tong && D.gtc_tong.buu_cuc_bat_on) {
@@ -2942,8 +2943,6 @@
         `;
       }).join('');
     }
-
-  }
 
     // Helper evaluation badge for %GTC (Target >= 60%)
     function getGtcEvalBadge(v) {
