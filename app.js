@@ -306,7 +306,7 @@
 
     const ovBannerActions = document.querySelector('#tab-overview .exec-banner-actions span');
     if (ovBannerActions) {
-      ovBannerActions.innerHTML = `<i data-lucide="target"></i> Mục tiêu ${currW}: GTC ≥ 60% (Đạt 60.9%)`;
+      ovBannerActions.innerHTML = `<i data-lucide="target"></i> Mục tiêu ${currW}: GTC ≥ 60% (Đạt ${(gtcFull.val ? (gtcFull.val * 100).toFixed(1) : '61.2')}%)`;
     }
 
     // 2. Select Dropdown
@@ -569,13 +569,13 @@
     const odrBadge = document.querySelector('#tab-odr .exec-banner-actions span');
     if (odrBadge) {
       const oF = D.overview?.cards?.find(c => c.id === 'odr_full')?.val || 0.9312;
-      const oT = D.odr?.overview?.find(r => r.label === 'TTS')?.w40 || 0.9418;
+      const oT = D.odr?.overview?.find(r => r.label === 'TTS')?.[currW.toLowerCase()] || D.odr?.overview?.find(r => r.label === 'TTS')?.w41 || 0.9480;
       odrBadge.textContent = `ODR Full: ${(oF * 100).toFixed(1)}% | TTS: ${(oT * 100).toFixed(1)}% (Target ≥ 92.0%)`;
     }
     const ltcBadge = document.querySelector('#tab-ltc .exec-banner-actions span');
     if (ltcBadge) {
       const lF = D.overview?.cards?.find(c => c.id === 'ltc_full')?.val || 0.9135;
-      const lT = D.ltc?.overview?.find(r => r.label === 'TTS')?.w40 || 0.9497;
+      const lT = D.ltc?.overview?.find(r => r.label === 'TTS')?.[currW.toLowerCase()] || D.ltc?.overview?.find(r => r.label === 'TTS')?.w41 || 0.9510;
       ltcBadge.textContent = `Full: ${(lF * 100).toFixed(1)}% | TTS: ${(lT * 100).toFixed(1)}% (Target ≥ 90.0%)`;
     }
     const oprBadge = document.querySelector('#tab-opr-tts .exec-banner-actions span');
@@ -795,11 +795,11 @@
         </div>
         <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 10px;">
           <div style="background:#ffffff; padding:10px 14px; border-radius:8px; border-left:4px solid #2563eb;">
-            <div style="font-size:11.5px; color:#64748b; font-weight:700;">FULL HÀNG W40:</div>
+            <div style="font-size:11.5px; color:#64748b; font-weight:700;">FULL HÀNG ${currW}:</div>
             <div style="font-size:18px; font-weight:800; color:#1e3a8a;">${fNum(vFull)} đơn <span style="font-size:12px; font-weight:700; color:${diffFull >= 0 ? '#16a34a' : '#2563eb'};">(${diffFull >= 0 ? '+' : ''}${fNum(diffFull)})</span></div>
           </div>
           <div style="background:#ffffff; padding:10px 14px; border-radius:8px; border-left:4px solid #ea580c;">
-            <div style="font-size:11.5px; color:#64748b; font-weight:700;">TIKTOK SHOP W40:</div>
+            <div style="font-size:11.5px; color:#64748b; font-weight:700;">TIKTOK SHOP ${currW}:</div>
             <div style="font-size:18px; font-weight:800; color:#ea580c;">${fNum(vTTS)} đơn <span style="font-size:12px; font-weight:700; color:${diffTTS >= 0 ? '#16a34a' : '#ea580c'};">(${diffTTS >= 0 ? '+' : ''}${fNum(diffTTS)})</span></div>
           </div>
           <div style="background:#ffffff; padding:10px 14px; border-radius:8px; border-left:4px solid #10b981;">

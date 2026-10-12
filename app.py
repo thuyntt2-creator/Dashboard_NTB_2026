@@ -4847,17 +4847,20 @@ def showcase_slide():
 
 @app.route('/kich-ban')
 @app.route('/script')
+@app.route('/kich-ban-w41')
 @app.route('/kich-ban-w40')
 @app.route('/kich-ban-w39')
 @app.route('/kich-ban-w38')
 def meeting_script_w38():
     root_dir = os.path.dirname(os.path.abspath(__file__))
-    target_file = 'KICH_BAN_THUYET_TRINH_W40_NAM_TRUNG_BO.html' if os.path.exists(os.path.join(root_dir, 'KICH_BAN_THUYET_TRINH_W40_NAM_TRUNG_BO.html')) else ('KICH_BAN_THUYET_TRINH_W39_NAM_TRUNG_BO.html' if os.path.exists(os.path.join(root_dir, 'KICH_BAN_THUYET_TRINH_W39_NAM_TRUNG_BO.html')) else 'KICH_BAN_THUYET_TRINH_W38_NAM_TRUNG_BO.html')
+    target_file = "KICH_BAN_THUYET_TRINH_W41_NAM_TRUNG_BO.html"
+    for f_cand in ["KICH_BAN_THUYET_TRINH_W41_NAM_TRUNG_BO.html", "KICH_BAN_THUYET_TRINH_W40_NAM_TRUNG_BO.html", "KICH_BAN_THUYET_TRINH_W39_NAM_TRUNG_BO.html", "KICH_BAN_THUYET_TRINH_W38_NAM_TRUNG_BO.html"]:
+        if os.path.exists(os.path.join(root_dir, f_cand)):
+            target_file = f_cand
+            break
     response = send_from_directory(root_dir, target_file)
-    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     return response
-
-@app.route('/kich-ban-w37')
 def meeting_script():
     root_dir = os.path.dirname(os.path.abspath(__file__))
     response = send_from_directory(root_dir, 'KICH_BAN_THUYET_TRINH_W37_NAM_TRUNG_BO.html')
@@ -4869,6 +4872,7 @@ def meeting_script():
 @app.route('/data.js')
 @app.route('/data.json')
 @app.route('/download-doc')
+@app.route('/KICH_BAN_THUYET_TRINH_W41_NAM_TRUNG_BO.docx')
 @app.route('/KICH_BAN_THUYET_TRINH_W40_NAM_TRUNG_BO.docx')
 @app.route('/KICH_BAN_CANH_BAO_BUU_CUC_W38_VS_W39.docx')
 @app.route('/KICH_BAN_THUYET_TRINH_MOI_NHAT.docx')
@@ -4885,7 +4889,10 @@ def serve_meeting_assets():
     root_dir = os.path.dirname(os.path.abspath(__file__))
     req_file = request.path.lstrip('/')
     if req_file == 'download-doc':
-        req_file = 'KICH_BAN_THUYET_TRINH_W40_NAM_TRUNG_BO.docx' if os.path.exists(os.path.join(root_dir, 'KICH_BAN_THUYET_TRINH_W40_NAM_TRUNG_BO.docx')) else ('KICH_BAN_THUYET_TRINH_W39_NAM_TRUNG_BO.docx' if os.path.exists(os.path.join(root_dir, 'KICH_BAN_THUYET_TRINH_W39_NAM_TRUNG_BO.docx')) else 'KICH_BAN_THUYET_TRINH_W38_NAM_TRUNG_BO.docx')
+        for cand in ['KICH_BAN_THUYET_TRINH_W41_NAM_TRUNG_BO.docx', 'KICH_BAN_THUYET_TRINH_W40_NAM_TRUNG_BO.docx', 'KICH_BAN_THUYET_TRINH_W39_NAM_TRUNG_BO.docx', 'KICH_BAN_THUYET_TRINH_W38_NAM_TRUNG_BO.docx']:
+            if os.path.exists(os.path.join(root_dir, cand)):
+                req_file = cand
+                break
     response = send_from_directory(root_dir, req_file, as_attachment=True if req_file.endswith('.docx') else False)
     response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
     response.headers['Pragma'] = 'no-cache'
