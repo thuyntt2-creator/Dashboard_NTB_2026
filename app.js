@@ -2922,8 +2922,8 @@
       thN1.textContent = `Chốt Ngày ${D.gtc_tong.n1_date_label}`;
     }
 
-    const tblBatOn = document.querySelector('#table-gtc-bat-on-detailed tbody');
-    if (tblBatOn) {
+    const allTblBatOn = document.querySelectorAll('#table-gtc-bat-on-detailed tbody');
+    if (allTblBatOn.length > 0) {
       if (!D.gtc_tong || !D.gtc_tong.buu_cuc_bat_on || D.gtc_tong.buu_cuc_bat_on.length === 0) {
         // Fetch async if missing
         fetch('/api/sync-ntbo').then(res => res.json()).then(resData => {
@@ -2937,7 +2937,7 @@
         }).catch(e => console.warn('Auto fetch ntbo error:', e));
       }
     }
-    if (tblBatOn && D.gtc_tong && D.gtc_tong.buu_cuc_bat_on && D.gtc_tong.buu_cuc_bat_on.length > 0) {
+    if (allTblBatOn.length > 0 && D.gtc_tong && D.gtc_tong.buu_cuc_bat_on && D.gtc_tong.buu_cuc_bat_on.length > 0) {
       let listBatOn = [...D.gtc_tong.buu_cuc_bat_on];
 
       const filterMode = state.gtcBatOnFilter || 'warn';
@@ -2957,12 +2957,11 @@
       // Sort by gtc_7d ascending (worst first)
       listBatOn.sort((a, b) => (a.gtc_7d || 0) - (b.gtc_7d || 0));
 
-      const countEl = document.getElementById('gtc-baton-table-count');
-      if (countEl) {
-        countEl.textContent = `Đang hiển thị: ${listBatOn.length} bưu cục`;
-      }
+      document.querySelectorAll('#gtc-baton-table-count').forEach(el => {
+        el.textContent = `Đang hiển thị: ${listBatOn.length} bưu cục`;
+      });
 
-      tblBatOn.innerHTML = listBatOn.map((row, i) => {
+      const generatedRowsHtml = listBatOn.map((row, i) => {
         const isRed = row.gtc_7d < 45.0;
         const isRatioLow = row.ratio < 70.0;
         const isN1Low = row.d11_val > 0 && row.d11_val < 50.0;
@@ -3012,6 +3011,7 @@
           </tr>
         `;
       }).join('');
+      allTblBatOn.forEach(tbl => tbl.innerHTML = generatedRowsHtml);
     }
 
     // Helper evaluation badge for %GTC (Target >= 60%)
@@ -4283,6 +4283,8 @@
     }
 
     renderGanOverviewChart();
+
+    renderGanBcTable();
 
     // 1. BẢNG 1: GÁN CA 1+TỒN
     const tblBodyCa1 = document.querySelector('#table-gan-ca1-detailed tbody');
@@ -9472,3 +9474,87 @@
     });
     renderGtcTongTab();
   };
+
+
+  // --------------------------------------------------------------------------
+  // BẢNG 3: BƯU CỤC CÓ TỶ LỆ GÁN THẤP NHẤT TOÀN VÙNG (TAB 5)
+  // --------------------------------------------------------------------------
+  state.ganBcFilter = 'worst';
+  state.searchGanBc = '';
+
+  window.filterGanBc = function(f) {
+    state.ganBcFilter = f;
+    document.querySelectorAll('#gan-bc-filter-pills .chart-mode-pill').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-filter') === f);
+    });
+    renderGanBcTable();
+  };
+
+  window.searchGanBc = function(val) {
+    state.searchGanBc = (val || '').toLowerCase().trim();
+    renderGanBcTable();
+  };
+
+  function renderGanBcTable() {
+    const tbl = document.querySelector('#table-gan-bc-detailed tbody');
+    if (!tbl || !D.gan || !D.gan.top_bc_chua_gan) return;
+
+    let list = [...D.gan.top_bc_chua_gan];
+    if (state.ganBcFilter === 'worst') {
+      list = list.filter(r => r.gan_rate < 65.0);
+    }
+
+    if (state.searchGanBc) {
+      const q = state.searchGanBc;
+      list = list.filter(r => (r.ten_bc && r.ten_bc.toLowerCase().includes(q)) || (r.am && r.am.toLowerCase().includes(q)));
+    }
+
+    // Sắp xếp tăng dần theo tỷ lệ gán (thấp nhất lên đầu)
+    list.sort((a, b) => (a.gan_rate || 0) - (b.gan_rate || 0));
+
+    const countEl = document.getElementById('gan-bc-count');
+    if (countEl) countEl.textContent = `Đang hiển thị: ${list.length} bưu cục`;
+
+    tbl.innerHTML = list.map((b, i) => {
+      const gr = b.gan_rate;
+      const cgr = b.chua_gan_rate;
+      let badge = '<span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt Chuẩn</span>';
+      let rowBg = 'transparent';
+      let rateBg = '#dcfce7';
+      let rateColor = '#16a34a';
+
+      if (gr < 20.0) {
+        badge = '<span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Tê Liệt Hoàn Toàn (&lt;20%)</span>';
+        rowBg = 'rgba(239, 68, 68, 0.08)';
+        rateBg = '#dc2626';
+        rateColor = '#ffffff';
+      } else if (gr < 45.0) {
+        badge = '<span class="badge-tag badge-tag-red" style="font-weight:800; font-size:11px;">🔴 Báo Động Đỏ (&lt;45%)</span>';
+        rowBg = 'rgba(254, 242, 242, 0.6)';
+        rateBg = '#fee2e2';
+        rateColor = '#b91c1c';
+      } else if (gr < 60.0) {
+        badge = '<span class="badge-tag badge-tag-amber" style="font-weight:800; font-size:11px;">⚠️ Rất Kém (&lt;60%)</span>';
+        rateBg = '#fef3c7';
+        rateColor = '#b45309';
+      } else if (gr < 75.0) {
+        badge = '<span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Chậm Trễ (&lt;75%)</span>';
+        rateBg = '#fff7ed';
+        rateColor = '#c2410c';
+      }
+
+      return `
+        <tr style="cursor: pointer; background: ${rowBg};" onclick="selectAndHighlightAM('${b.am}')">
+          <td class="center" style="font-weight:800; color:${gr < 45.0 ? '#dc2626' : 'inherit'};">${i + 1}</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:${gr < 45.0 ? '#b91c1c' : '#1e293b'};">${b.ten_bc}</td>
+          <td style="font-weight:700; color:#2563eb;">${b.am}</td>
+          <td class="num bold">${(b.vol || 0).toLocaleString()}</td>
+          <td class="num">${(b.da_gan || 0).toLocaleString()}</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">${(b.chua_gan || 0).toLocaleString()}</td>
+          <td class="num bold" style="background: ${rateBg}; color: ${rateColor}; font-size: 13.5px; font-weight: 900;">${gr.toFixed(1)}%</td>
+          <td class="num bold" style="color: #ea580c; font-size: 12.5px;">${cgr.toFixed(1)}%</td>
+          <td class="center">${badge}</td>
+        </tr>
+      `;
+    }).join('');
+  }
