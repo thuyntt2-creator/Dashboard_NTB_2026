@@ -4847,6 +4847,8 @@ def showcase_slide():
 
 @app.route('/kich-ban')
 @app.route('/script')
+@app.route('/KICH_BAN_THUYET_TRINH_W41_NAM_TRUNG_BO.html')
+@app.route('/KICH_BAN_THUYET_TRINH_W40_NAM_TRUNG_BO.html')
 @app.route('/kich-ban-w41')
 @app.route('/kich-ban-w40')
 @app.route('/kich-ban-w39')
@@ -8072,7 +8074,8 @@ def send_telegram_ai_briefing():
 
 @app.route('/kichban')
 def serve_kichban():
-    return send_from_directory(os.getcwd(), 'KICH_BAN_THUYET_TRINH_CHIEU_SAU_W35.html')
+    root_dir = os.path.dirname(os.path.abspath(__file__))
+    return send_from_directory(root_dir, 'KICH_BAN_THUYET_TRINH_W41_NAM_TRUNG_BO.html')
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 3000))
