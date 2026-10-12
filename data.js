@@ -10642,7 +10642,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 60,
-      "last_updated": "10:40 - 12/10/2026"
+      "last_updated": "11:15 - 12/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 2203.91,
@@ -10664,7 +10664,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 729.16,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 23
       },
       {
@@ -10703,7 +10703,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 200.59,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Lâm Ngọc Thành, Trâm Hoá",
+        "primary_ncc": "Lâm Ngọc Thành, Tốt và Rẻ",
         "truck_count": 5
       },
       {
@@ -10729,7 +10729,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 93.62,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 11
       },
       {
@@ -10758,7 +10758,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 38,
-        "active_ktcs": "KTC Nam Nha Trang, KTC Đức Trọng, KTC Bình Thuận, KTC Bắc Nha Trang, KTC Khánh Hòa"
+        "active_ktcs": "KTC Đức Trọng, KTC Bình Thuận, KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Khánh Hòa"
       },
       {
         "ncc": "NAK",
@@ -10771,7 +10771,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 10,
-        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
+        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
       },
       {
         "ncc": "Mạnh Cường (BCCK)",
@@ -48505,12 +48505,6 @@ window.DASHBOARD_DATA = {
     "fill_rate": {
       "history": [
         {
-          "week": "Tuần 35 (24/08-30/08)",
-          "trips": 538,
-          "rate": 0.518,
-          "low_trips": 93
-        },
-        {
           "week": "Tuần 36 (31/08-06/09)",
           "trips": 516,
           "rate": 0.48100000000000004,
@@ -48539,6 +48533,12 @@ window.DASHBOARD_DATA = {
           "trips": 513,
           "rate": 0.456,
           "low_trips": 124
+        },
+        {
+          "week": "Tuần 41 (05/10-11/10)",
+          "trips": 523,
+          "rate": 0.47700000000000004,
+          "low_trips": 104
         }
       ],
       "weekly": {
@@ -48547,38 +48547,38 @@ window.DASHBOARD_DATA = {
           {
             "kho": "KTC Khánh Hòa",
             "short_name": "KTC Khánh Hòa",
-            "chuyen_prev": 205,
-            "chuyen_curr": 193,
-            "chuyen_w37": 205,
-            "chuyen_w38": 193,
-            "diff_chuyen": -12,
-            "tld_prev": 54.9,
-            "tld_curr": 52.3,
-            "tld_w37": 54.9,
-            "tld_w38": 52.3,
-            "diff_tld": -2.6,
-            "under_30": 20,
+            "chuyen_prev": 193,
+            "chuyen_curr": 199,
+            "chuyen_w37": 193,
+            "chuyen_w38": 199,
+            "diff_chuyen": 6,
+            "tld_prev": 52.3,
+            "tld_curr": 51.8,
+            "tld_w37": 52.3,
+            "tld_w38": 51.8,
+            "diff_tld": -0.5,
+            "under_30": 21,
             "u10": 0,
             "u20": 0,
-            "u30": 20
+            "u30": 21
           },
           {
             "kho": "KCT Đức Trọng-Lâm Đồng",
             "short_name": "KCT Đức Trọng-Lâm Đồng",
-            "chuyen_prev": 109,
-            "chuyen_curr": 110,
-            "chuyen_w37": 109,
-            "chuyen_w38": 110,
+            "chuyen_prev": 110,
+            "chuyen_curr": 111,
+            "chuyen_w37": 110,
+            "chuyen_w38": 111,
             "diff_chuyen": 1,
-            "tld_prev": 45.1,
-            "tld_curr": 40.6,
-            "tld_w37": 45.1,
-            "tld_w38": 40.6,
-            "diff_tld": -4.5,
-            "under_30": 43,
+            "tld_prev": 40.6,
+            "tld_curr": 45.5,
+            "tld_w37": 40.6,
+            "tld_w38": 45.5,
+            "diff_tld": 4.8,
+            "under_30": 33,
             "u10": 0,
             "u20": 0,
-            "u30": 43
+            "u30": 33
           },
           {
             "kho": "KCT Đắk Nông",
@@ -48588,78 +48588,72 @@ window.DASHBOARD_DATA = {
             "chuyen_w37": 42,
             "chuyen_w38": 42,
             "diff_chuyen": 0,
-            "tld_prev": 33.2,
-            "tld_curr": 31.3,
-            "tld_w37": 33.2,
-            "tld_w38": 31.3,
-            "diff_tld": -1.9,
-            "under_30": 22,
+            "tld_prev": 31.3,
+            "tld_curr": 33.7,
+            "tld_w37": 31.3,
+            "tld_w38": 33.7,
+            "diff_tld": 2.4,
+            "under_30": 23,
             "u10": 0,
             "u20": 0,
-            "u30": 22
+            "u30": 23
           },
           {
             "kho": "KCT Bình Thuận",
             "short_name": "KCT Bình Thuận",
             "chuyen_prev": 113,
-            "chuyen_curr": 113,
+            "chuyen_curr": 115,
             "chuyen_w37": 113,
-            "chuyen_w38": 113,
-            "diff_chuyen": 0,
-            "tld_prev": 46.6,
-            "tld_curr": 47.7,
-            "tld_w37": 46.6,
-            "tld_w38": 47.7,
-            "diff_tld": 1.1,
-            "under_30": 20,
+            "chuyen_w38": 115,
+            "diff_chuyen": 2,
+            "tld_prev": 47.7,
+            "tld_curr": 50.5,
+            "tld_w37": 47.7,
+            "tld_w38": 50.5,
+            "diff_tld": 2.8,
+            "under_30": 15,
             "u10": 0,
             "u20": 0,
-            "u30": 20
+            "u30": 15
           },
           {
             "kho": "KCT Bảo Lộc-Lâm Đồng",
             "short_name": "KCT Bảo Lộc-Lâm Đồng",
-            "chuyen_prev": 58,
-            "chuyen_curr": 55,
-            "chuyen_w37": 58,
-            "chuyen_w38": 55,
-            "diff_chuyen": -3,
-            "tld_prev": 39.8,
-            "tld_curr": 38.2,
-            "tld_w37": 39.8,
-            "tld_w38": 38.2,
-            "diff_tld": -1.6,
-            "under_30": 19,
+            "chuyen_prev": 55,
+            "chuyen_curr": 56,
+            "chuyen_w37": 55,
+            "chuyen_w38": 56,
+            "diff_chuyen": 1,
+            "tld_prev": 38.2,
+            "tld_curr": 42.2,
+            "tld_w37": 38.2,
+            "tld_w38": 42.2,
+            "diff_tld": 4.0,
+            "under_30": 12,
             "u10": 0,
             "u20": 0,
-            "u30": 19
+            "u30": 12
           }
         ],
         "total": {
           "kho": "TỔNG CỘNG (5 KTC)",
-          "chuyen_prev": 527,
-          "chuyen_curr": 513,
-          "chuyen_w37": 527,
-          "chuyen_w38": 513,
-          "diff_chuyen": -14,
-          "tld_prev": 47.7,
-          "tld_curr": 45.6,
-          "tld_w37": 47.7,
-          "tld_w38": 45.6,
-          "diff_tld": -2.1,
-          "under_30": 124,
+          "chuyen_prev": 513,
+          "chuyen_curr": 523,
+          "chuyen_w37": 513,
+          "chuyen_w38": 523,
+          "diff_chuyen": 10,
+          "tld_prev": 45.6,
+          "tld_curr": 47.7,
+          "tld_w37": 45.6,
+          "tld_w38": 47.7,
+          "diff_tld": 2.1,
+          "under_30": 104,
           "u10": 7,
           "u20": 32,
           "u30": 37
         }
       },
       "trend_6w": [
-        {
-          "week": "Tuần 35 (24/08-30/08)",
-          "tld": 51.8,
-          "chuyen": 538,
-          "under30": 93
-        },
         {
           "week": "Tuần 36 (31/08-06/09)",
           "tld": 48.1,
@@ -48689,6 +48683,12 @@ window.DASHBOARD_DATA = {
           "tld": 45.6,
           "chuyen": 513,
           "under30": 124
+        },
+        {
+          "week": "Tuần 41 (05/10-11/10)",
+          "tld": 47.7,
+          "chuyen": 523,
+          "under30": 104
         }
       ],
       "causes": [
