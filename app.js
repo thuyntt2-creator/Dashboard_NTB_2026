@@ -9501,58 +9501,139 @@
 
     let list = [...D.gan.top_bc_chua_gan];
     if (state.ganBcFilter === 'worst') {
-      list = list.filter(r => r.gan_rate < 65.0);
+      list = list.filter(r => (r.gan_rate || 0) < 75.0);
     }
 
     if (state.searchGanBc) {
       const q = state.searchGanBc;
-      list = list.filter(r => (r.ten_bc && r.ten_bc.toLowerCase().includes(q)) || (r.am && r.am.toLowerCase().includes(q)));
+      list = list.filter(r => (r.ten_bc && r.ten_bc.toLowerCase().includes(q)) || (r.am && r.am.toLowerCase().includes(q)) || (r.tinh && r.tinh.toLowerCase().includes(q)));
     }
 
     // Sắp xếp tăng dần theo tỷ lệ gán (thấp nhất lên đầu)
     list.sort((a, b) => (a.gan_rate || 0) - (b.gan_rate || 0));
 
     const countEl = document.getElementById('gan-bc-count');
-    if (countEl) countEl.textContent = `Đang hiển thị: ${list.length} bưu cục`;
+    if (countEl) countEl.textContent = `Đang hiển thị: ${list.length} bưu cục (Tuần W41)`;
 
     tbl.innerHTML = list.map((b, i) => {
-      const gr = b.gan_rate;
-      const cgr = b.chua_gan_rate;
+      const gr = b.gan_rate || 0;
+      const cgr = b.chua_gan_rate || (100 - gr);
+      const ca1 = b.gan_rate_ca1 || 0;
+      const ca2 = b.gan_rate_ca2 || 0;
       let badge = '<span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt Chuẩn</span>';
       let rowBg = 'transparent';
       let rateBg = '#dcfce7';
       let rateColor = '#16a34a';
 
-      if (gr < 20.0) {
-        badge = '<span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Tê Liệt Hoàn Toàn (&lt;20%)</span>';
+      if (gr < 60.0) {
+        badge = '<span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ (&lt;60%)</span>';
         rowBg = 'rgba(239, 68, 68, 0.08)';
         rateBg = '#dc2626';
         rateColor = '#ffffff';
-      } else if (gr < 45.0) {
-        badge = '<span class="badge-tag badge-tag-red" style="font-weight:800; font-size:11px;">🔴 Báo Động Đỏ (&lt;45%)</span>';
+      } else if (gr < 70.0) {
+        badge = '<span class="badge-tag badge-tag-amber" style="font-weight:800; font-size:11px;">⚠️ Rất Kém (&lt;70%)</span>';
         rowBg = 'rgba(254, 242, 242, 0.6)';
         rateBg = '#fee2e2';
         rateColor = '#b91c1c';
-      } else if (gr < 60.0) {
-        badge = '<span class="badge-tag badge-tag-amber" style="font-weight:800; font-size:11px;">⚠️ Rất Kém (&lt;60%)</span>';
-        rateBg = '#fef3c7';
-        rateColor = '#b45309';
-      } else if (gr < 75.0) {
-        badge = '<span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Chậm Trễ (&lt;75%)</span>';
+      } else if (gr < 80.0) {
+        badge = '<span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Chậm Trễ (&lt;80%)</span>';
         rateBg = '#fff7ed';
         rateColor = '#c2410c';
       }
 
       return `
         <tr style="cursor: pointer; background: ${rowBg};" onclick="selectAndHighlightAM('${b.am}')">
-          <td class="center" style="font-weight:800; color:${gr < 45.0 ? '#dc2626' : 'inherit'};">${i + 1}</td>
-          <td class="bold" style="font-size:13.5px; font-weight:800; color:${gr < 45.0 ? '#b91c1c' : '#1e293b'};">${b.ten_bc}</td>
+          <td class="center" style="font-weight:800; color:${gr < 60.0 ? '#dc2626' : 'inherit'};">${i + 1}</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:${gr < 60.0 ? '#b91c1c' : '#1e293b'};">${b.ten_bc}</td>
           <td style="font-weight:700; color:#2563eb;">${b.am}</td>
+          <td style="color:#64748b; font-size:12px;">${b.tinh || ''}</td>
           <td class="num bold">${(b.vol || 0).toLocaleString()}</td>
           <td class="num">${(b.da_gan || 0).toLocaleString()}</td>
           <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">${(b.chua_gan || 0).toLocaleString()}</td>
           <td class="num bold" style="background: ${rateBg}; color: ${rateColor}; font-size: 13.5px; font-weight: 900;">${gr.toFixed(1)}%</td>
-          <td class="num bold" style="color: #ea580c; font-size: 12.5px;">${cgr.toFixed(1)}%</td>
+          <td class="num" style="font-weight:700; color:${ca1 < 80 ? '#dc2626' : '#16a34a'};">${ca1.toFixed(1)}%</td>
+          <td class="num" style="font-weight:700; color:${ca2 < 30 ? '#dc2626' : '#ea580c'};">${ca2 > 0 ? ca2.toFixed(1) + '%' : '--'}</td>
+          <td class="center">${badge}</td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  // --------------------------------------------------------------------------
+  // BẢNG 4: TOP BƯU CỤC OPR TIKTOK SHOP THẤP NHẤT TOÀN VÙNG (TAB 8)
+  // --------------------------------------------------------------------------
+  state.oprBcFilter = 'worst';
+  state.searchOprBc = '';
+
+  window.filterOprBc = function(f) {
+    state.oprBcFilter = f;
+    document.querySelectorAll('#opr-bc-filter-pills .chart-mode-pill').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-filter') === f);
+    });
+    renderOprBcTable();
+  };
+
+  window.searchOprBc = function(val) {
+    state.searchOprBc = (val || '').toLowerCase().trim();
+    renderOprBcTable();
+  };
+
+  function renderOprBcTable() {
+    const tbl = document.querySelector('#table-opr-bc-detailed tbody');
+    if (!tbl || !D.opr || !D.opr.top_bc_opr) return;
+
+    let list = [...D.opr.top_bc_opr];
+    if (state.oprBcFilter === 'worst') {
+      list = list.filter(r => (r.pct_opr || 0) < 70.0);
+    }
+
+    if (state.searchOprBc) {
+      const q = state.searchOprBc;
+      list = list.filter(r => (r.ten_bc && r.ten_bc.toLowerCase().includes(q)) || (r.am && r.am.toLowerCase().includes(q)) || (r.tinh && r.tinh.toLowerCase().includes(q)));
+    }
+
+    list.sort((a, b) => (a.pct_opr || 0) - (b.pct_opr || 0));
+
+    const countEl = document.getElementById('opr-bc-count');
+    if (countEl) countEl.textContent = `Đang hiển thị: ${list.length} bưu cục (Tuần W41)`;
+
+    tbl.innerHTML = list.map((b, i) => {
+      const opr_val = b.pct_opr || 0;
+      const day_val = b.opr_day || 0;
+      const night_val = b.opr_night || 0;
+
+      let badge = '<span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt KPI (≥80%)</span>';
+      let rowBg = 'transparent';
+      let rateBg = '#dcfce7';
+      let rateColor = '#16a34a';
+
+      if (opr_val < 40.0) {
+        badge = '<span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Tê Liệt (&lt;40%)</span>';
+        rowBg = 'rgba(239, 68, 68, 0.08)';
+        rateBg = '#dc2626';
+        rateColor = '#ffffff';
+      } else if (opr_val < 65.0) {
+        badge = '<span class="badge-tag badge-tag-red" style="font-weight:800; font-size:11px;">🔴 Báo Động Đỏ (&lt;65%)</span>';
+        rowBg = 'rgba(254, 242, 242, 0.6)';
+        rateBg = '#fee2e2';
+        rateColor = '#b91c1c';
+      } else if (opr_val < 80.0) {
+        badge = '<span class="badge-tag badge-tag-amber" style="font-weight:700; font-size:11px;">🟡 Không Đạt (&lt;80%)</span>';
+        rateBg = '#fef3c7';
+        rateColor = '#b45309';
+      }
+
+      return `
+        <tr style="cursor: pointer; background: ${rowBg};" onclick="selectAndHighlightAM('${b.am}')">
+          <td class="center" style="font-weight:800; color:${opr_val < 65.0 ? '#dc2626' : 'inherit'};">${i + 1}</td>
+          <td class="bold" style="font-size:13.5px; font-weight:800; color:${opr_val < 65.0 ? '#b91c1c' : '#1e293b'};">${b.ten_bc}</td>
+          <td style="font-weight:700; color:#2563eb;">${b.am}</td>
+          <td style="color:#64748b; font-size:12px;">${b.tinh || ''}</td>
+          <td class="num bold">${(b.don_total || 0).toLocaleString()}</td>
+          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">${(b.don_tre || 0).toLocaleString()}</td>
+          <td class="num bold" style="background: ${rateBg}; color: ${rateColor}; font-size: 13.5px; font-weight: 900;">${opr_val.toFixed(1)}%</td>
+          <td class="num" style="font-weight:700; color:${day_val < 80 ? '#dc2626' : '#16a34a'};">${day_val.toFixed(1)}%</td>
+          <td class="num bold" style="background: ${night_val < 50 ? '#fee2e2' : 'transparent'}; color:${night_val < 50 ? '#dc2626' : '#ea580c'}; font-weight:800;">${night_val.toFixed(1)}%</td>
           <td class="center">${badge}</td>
         </tr>
       `;
