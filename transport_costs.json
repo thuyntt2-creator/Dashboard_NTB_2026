@@ -8,7 +8,7 @@
     "ncc_count": 7,
     "ktc_count": 7,
     "total_trucks": 60,
-    "last_updated": "16:37 - 13/10/2026"
+    "last_updated": "17:11 - 13/10/2026"
   },
   "surge_fixed": {
     "fixed_cost": 2240.19,
@@ -56,7 +56,7 @@
       "fixed_cost": 371.81,
       "surge_cost": 0.0,
       "surge_pct": 0.0,
-      "primary_ncc": "Mạnh Cường, NAK",
+      "primary_ncc": "NAK, Mạnh Cường",
       "truck_count": 10
     },
     {
@@ -69,7 +69,7 @@
       "fixed_cost": 200.59,
       "surge_cost": 0.0,
       "surge_pct": 0.0,
-      "primary_ncc": "Lâm Ngọc Thành, Trâm Hoá",
+      "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
       "truck_count": 5
     },
     {
@@ -82,7 +82,7 @@
       "fixed_cost": 139.32,
       "surge_cost": 0.0,
       "surge_pct": 0.0,
-      "primary_ncc": "NAK, Công Định",
+      "primary_ncc": "Công Định, NAK",
       "truck_count": 5
     },
     {
@@ -124,7 +124,7 @@
       "surge_cost": 0.0,
       "surge_pct": 0.0,
       "truck_count": 38,
-      "active_ktcs": "KTC Đức Trọng, KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Nam Nha Trang, KTC Bình Thuận"
+      "active_ktcs": "KTC Nam Nha Trang, KTC Bình Thuận, KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Đức Trọng"
     },
     {
       "ncc": "NAK",
@@ -137,7 +137,7 @@
       "surge_cost": 0.0,
       "surge_pct": 0.0,
       "truck_count": 10,
-      "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
+      "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
     },
     {
       "ncc": "Mạnh Cường (BCCK)",
@@ -2724,7 +2724,7 @@
       "cost": 2043231.0,
       "trips_equivalent": 1,
       "trip_code": "E2610074OXKK9JH",
-      "ontime": ""
+      "ontime": "0,8333"
     },
     {
       "ncc": "NAK",
@@ -2739,7 +2739,7 @@
       "cost": 2043231.0,
       "trips_equivalent": 1,
       "trip_code": "E2610086WDKRJ8A",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -2754,7 +2754,7 @@
       "cost": 2043231.0,
       "trips_equivalent": 1,
       "trip_code": "E261009BGPHZENL",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -2769,7 +2769,7 @@
       "cost": 2043231.0,
       "trips_equivalent": 1,
       "trip_code": "E261010SSDQQE42",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -2964,7 +2964,7 @@
       "cost": 1161763.0,
       "trips_equivalent": 1,
       "trip_code": "E2610085P9W1SEO",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -2979,7 +2979,7 @@
       "cost": 1161763.0,
       "trips_equivalent": 1,
       "trip_code": "E261009EJGI06NP",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -2994,7 +2994,7 @@
       "cost": 1161763.0,
       "trips_equivalent": 1,
       "trip_code": "E261010YTHA5JVP",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -3009,7 +3009,7 @@
       "cost": 1161763.0,
       "trips_equivalent": 1,
       "trip_code": "E261011S7QN9TYU",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -3174,7 +3174,7 @@
       "cost": 890347.0,
       "trips_equivalent": 1,
       "trip_code": "E261007XOLR8RI7",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -3189,7 +3189,7 @@
       "cost": 1330447.0,
       "trips_equivalent": 1,
       "trip_code": "E261008JRICYPQF",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -3204,7 +3204,7 @@
       "cost": 890347.0,
       "trips_equivalent": 1,
       "trip_code": "E261009PP0SPLNG",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -3219,7 +3219,7 @@
       "cost": 890347.0,
       "trips_equivalent": 1,
       "trip_code": "E261010Q5P4PKVP",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -3414,7 +3414,7 @@
       "cost": 390636.0,
       "trips_equivalent": 1,
       "trip_code": "E261007OTJUA1AQ",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -3429,7 +3429,7 @@
       "cost": 390636.0,
       "trips_equivalent": 1,
       "trip_code": "E261008UQKQKOP8",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -3444,7 +3444,7 @@
       "cost": 1041274.0,
       "trips_equivalent": 1,
       "trip_code": "E2610095ILPTYX9",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -3459,7 +3459,7 @@
       "cost": 390636.0,
       "trips_equivalent": 1,
       "trip_code": "E261009POXLHRJ7",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -3474,7 +3474,7 @@
       "cost": 390636.0,
       "trips_equivalent": 1,
       "trip_code": "E261010E3GES79H",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -3669,7 +3669,7 @@
       "cost": 947420.0,
       "trips_equivalent": 1,
       "trip_code": "E261007MGV5AHW8",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -3684,7 +3684,7 @@
       "cost": 947420.0,
       "trips_equivalent": 1,
       "trip_code": "E2610089EABRA8W",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -3699,7 +3699,7 @@
       "cost": 947420.0,
       "trips_equivalent": 1,
       "trip_code": "E261009RCESYVKG",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -3714,7 +3714,7 @@
       "cost": 947420.0,
       "trips_equivalent": 1,
       "trip_code": "E26101021ITZLYF",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -3909,7 +3909,7 @@
       "cost": 979128.0,
       "trips_equivalent": 1,
       "trip_code": "E261007I3EMUOAK",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -3924,7 +3924,7 @@
       "cost": 979128.0,
       "trips_equivalent": 1,
       "trip_code": "E2610081D4T37UY",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -3939,7 +3939,7 @@
       "cost": 979128.0,
       "trips_equivalent": 1,
       "trip_code": "E2610093GDNTT35",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -3954,7 +3954,7 @@
       "cost": 979128.0,
       "trips_equivalent": 1,
       "trip_code": "E261010AEH49TR7",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -4149,7 +4149,7 @@
       "cost": 1452204.0,
       "trips_equivalent": 1,
       "trip_code": "E261007XZM91POR",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -4164,7 +4164,7 @@
       "cost": 1452204.0,
       "trips_equivalent": 1,
       "trip_code": "E261008JQUI66QZ",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -4179,7 +4179,7 @@
       "cost": 1452204.0,
       "trips_equivalent": 1,
       "trip_code": "E261009K53A9USO",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -4194,7 +4194,7 @@
       "cost": 1452204.0,
       "trips_equivalent": 1,
       "trip_code": "E261010RC9QYKFJ",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -4389,7 +4389,7 @@
       "cost": 1136397.0,
       "trips_equivalent": 1,
       "trip_code": "E261009K07W19OR",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -4404,7 +4404,7 @@
       "cost": 1136397.0,
       "trips_equivalent": 1,
       "trip_code": "E2610104YQ8UTI8",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -4419,7 +4419,7 @@
       "cost": 1136397.0,
       "trips_equivalent": 1,
       "trip_code": "E2610113ZHGETSF",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -4764,7 +4764,7 @@
       "cost": 1352008.0,
       "trips_equivalent": 1,
       "trip_code": "E261007GXUY38YS",
-      "ontime": ""
+      "ontime": "0,4"
     },
     {
       "ncc": "NAK",
@@ -4779,7 +4779,7 @@
       "cost": 1041274.0,
       "trips_equivalent": 1,
       "trip_code": "E261008Y2D7OBQQ",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -4794,7 +4794,7 @@
       "cost": 1352008.0,
       "trips_equivalent": 1,
       "trip_code": "E261008I03569BH",
-      "ontime": ""
+      "ontime": "0,4"
     },
     {
       "ncc": "NAK",
@@ -4824,7 +4824,7 @@
       "cost": 1352008.0,
       "trips_equivalent": 1,
       "trip_code": "E261009WS1DWC3E",
-      "ontime": ""
+      "ontime": "0,8"
     },
     {
       "ncc": "NAK",
@@ -4839,7 +4839,7 @@
       "cost": 1041274.0,
       "trips_equivalent": 1,
       "trip_code": "E261010UXXSDL5B",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -4854,7 +4854,7 @@
       "cost": 1352008.0,
       "trips_equivalent": 1,
       "trip_code": "E261010LS1S2EMM",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -4869,7 +4869,7 @@
       "cost": 1041274.0,
       "trips_equivalent": 1,
       "trip_code": "E26101179A09NLG",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5064,7 +5064,7 @@
       "cost": 2035488.0,
       "trips_equivalent": 1,
       "trip_code": "E2610070ZT14762",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5079,7 +5079,7 @@
       "cost": 2035488.0,
       "trips_equivalent": 1,
       "trip_code": "E261008COFCBTUY",
-      "ontime": ""
+      "ontime": "0,8571"
     },
     {
       "ncc": "NAK",
@@ -5094,7 +5094,7 @@
       "cost": 2035488.0,
       "trips_equivalent": 1,
       "trip_code": "E261009AJH9GZL1",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5109,7 +5109,7 @@
       "cost": 2035488.0,
       "trips_equivalent": 1,
       "trip_code": "E261010RGTVAYTX",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5304,7 +5304,7 @@
       "cost": 1788916.0,
       "trips_equivalent": 1,
       "trip_code": "E261007S6IYBQXE",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5319,7 +5319,7 @@
       "cost": 1788916.0,
       "trips_equivalent": 1,
       "trip_code": "E2610086H56RDAG",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5334,7 +5334,7 @@
       "cost": 1788916.0,
       "trips_equivalent": 1,
       "trip_code": "E261009X5KNIAB5",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5349,7 +5349,7 @@
       "cost": 1788916.0,
       "trips_equivalent": 1,
       "trip_code": "E2610102W76KRQ9",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5544,7 +5544,7 @@
       "cost": 2319721.0,
       "trips_equivalent": 1,
       "trip_code": "E261007CDFGXK4G",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5559,7 +5559,7 @@
       "cost": 2319721.0,
       "trips_equivalent": 1,
       "trip_code": "E261008DGAYXZXT",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5574,7 +5574,7 @@
       "cost": 2319721.0,
       "trips_equivalent": 1,
       "trip_code": "E261009MWGTU5S0",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5589,7 +5589,7 @@
       "cost": 2319721.0,
       "trips_equivalent": 1,
       "trip_code": "E261010HS8CBQMD",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5784,7 +5784,7 @@
       "cost": 838346.0,
       "trips_equivalent": 1,
       "trip_code": "E2610087JM3HFKN",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5799,7 +5799,7 @@
       "cost": 838346.0,
       "trips_equivalent": 1,
       "trip_code": "E2610097XMZMJ33",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5814,7 +5814,7 @@
       "cost": 838346.0,
       "trips_equivalent": 1,
       "trip_code": "E2610102T3THLOX",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5829,7 +5829,7 @@
       "cost": 838346.0,
       "trips_equivalent": 1,
       "trip_code": "E261011DEEK3BR2",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -6024,7 +6024,7 @@
       "cost": 1367227.0,
       "trips_equivalent": 1,
       "trip_code": "E261007OAKH4SW8",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -6039,7 +6039,7 @@
       "cost": 1367227.0,
       "trips_equivalent": 1,
       "trip_code": "E261008ADH45N7Q",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -6054,7 +6054,7 @@
       "cost": 1367227.0,
       "trips_equivalent": 1,
       "trip_code": "E261009MEU1AY5N",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -6069,7 +6069,7 @@
       "cost": 1367227.0,
       "trips_equivalent": 1,
       "trip_code": "E2610101XUQXSXW",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -6264,7 +6264,7 @@
       "cost": 1226446.0,
       "trips_equivalent": 1,
       "trip_code": "E261008T34G6E6A",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -6279,7 +6279,7 @@
       "cost": 1226446.0,
       "trips_equivalent": 1,
       "trip_code": "E2610092AD4293V",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -6294,7 +6294,7 @@
       "cost": 1226446.0,
       "trips_equivalent": 1,
       "trip_code": "E261010PUX6ANGG",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -6309,7 +6309,7 @@
       "cost": 1226446.0,
       "trips_equivalent": 1,
       "trip_code": "E2610115BB0PT3B",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -6504,7 +6504,7 @@
       "cost": 1631034.0,
       "trips_equivalent": 1,
       "trip_code": "E261008PJ6VZQJG",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -6519,7 +6519,7 @@
       "cost": 1631034.0,
       "trips_equivalent": 1,
       "trip_code": "E261009383ZBHNC",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -6534,7 +6534,7 @@
       "cost": 1631034.0,
       "trips_equivalent": 1,
       "trip_code": "E26101013X1HVGH",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -6549,7 +6549,7 @@
       "cost": 1631034.0,
       "trips_equivalent": 1,
       "trip_code": "E261011B6L1VZ10",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -6744,7 +6744,7 @@
       "cost": 632882.0,
       "trips_equivalent": 1,
       "trip_code": "E261007EZUJ6YUW",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -6759,7 +6759,7 @@
       "cost": 632882.0,
       "trips_equivalent": 1,
       "trip_code": "E2610084U894LIJ",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -6774,7 +6774,7 @@
       "cost": 632882.0,
       "trips_equivalent": 1,
       "trip_code": "E2610099WVESGPC",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -6789,7 +6789,7 @@
       "cost": 632882.0,
       "trips_equivalent": 1,
       "trip_code": "E261010BGSDATW5",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "Lâm Ngọc Thành",
