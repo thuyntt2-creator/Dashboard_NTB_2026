@@ -1,15 +1,43 @@
 Tỉnh,Quận/ huyện,Phường/xã cần tắt,ID phường/xã,Bưu Cục,AM,Kết quả (KA) update,Thời gian tắt (KA),Thời gian mở (KA)
-Lâm Đồng,Huyện Đơn Dương,Thị trấn Thạnh Mỹ,420502,(LDO) Đơn Dương,Lê Văn Trường,DUYỆT,09/04/2026,10/12/2026
-Lâm Đồng,Huyện Đơn Dương,Xã Ka Đô,420504,(LDO) Đơn Dương,Lê Văn Trường,DUYỆT,9/4/2026,10/12/2026
-Lâm Đồng,Huyện Đơn Dương,Xã Lạc Lâm,420506,(LDO) Đơn Dương,Lê Văn Trường,DUYỆT,9/4/2026,10/12/2026
-Lâm Đồng,Huyện Đơn Dương,Xã Tu Tra,420510,(LDO) Đơn Dương,Lê Văn Trường,DUYỆT,9/4/2026,12/10/2026
-Lâm Đồng,Huyện Đơn Dương,Xã Đạ Ròn,420503,(LDO) Đơn Dương,Lê Văn Trường,DUYỆT,9/4/2026,10/12/2026
-Đắk Nông,Thành phố Gia Nghĩa,Phường Nghĩa Phú,630102,(DNO) Bắc Gia Nghĩa,Huỳnh Thúc Duân,DUYỆT,07/09/2026,12/10/2026
-Đắk Nông,Thành phố Gia Nghĩa,Phường Nghĩa Thành,630104,(DNO) Bắc Gia Nghĩa,Huỳnh Thúc Duân,DUYỆT,07/09/2026,12/10/2026
-Đắk Nông,Thành phố Gia Nghĩa,Xã Quảng Thành,630108,(DNO) Bắc Gia Nghĩa,Huỳnh Thúc Duân,DUYỆT,07/09/2026,12/10/2026
-Đắk Nông,Thành phố Gia Nghĩa,Xã Đăk R'Moan,630107,(DNO) Bắc Gia Nghĩa,Huỳnh Thúc Duân,DUYỆT,07/09/2026,12/10/2026
-Đắk Nông,Huyện Đắk Glong,Xã Đắk Ha,630701,(DNO) Quảng Sơn,Trần Thị Nhung,DUYỆT,07/09/2026,12/10/2026
-Đắk Nông,Thành phố Gia Nghĩa,Phường Nghĩa Trung,630105,(DNO) Đông Gia Nghĩa,Huỳnh Thúc Duân,DUYỆT,9/4/2026,10/12/2026
-Đắk Nông,Thành phố Gia Nghĩa,Phường Nghĩa Tân,630103,(DNO) Đông Gia Nghĩa,Huỳnh Thúc Duân,DUYỆT,07/09/2026,12/10/2026
-Đắk Nông,Thành phố Gia Nghĩa,Phường Nghĩa Đức,630101,(DNO) Đông Gia Nghĩa,Huỳnh Thúc Duân,DUYỆT,9/4/2026,10/12/2026
-Đắk Nông,Thành phố Gia Nghĩa,Xã Đắk Nia,630106,(DNO) Đông Gia Nghĩa,Huỳnh Thúc Duân,DUYỆT,9/4/2026,10/12/2026
+29-09-2026,NTB,Lâm Đồng,Thành phố Đà Lạt,Phường 12,Tỉnh Lâm Đồng,Phường Lâm Viên - Đà Lạt,30/09/2026,19/10/2026
+29-09-2026,NTB,Lâm Đồng,Thành phố Đà Lạt,Phường 8,Tỉnh Lâm Đồng,Phường Lâm Viên - Đà Lạt,30/09/2026,19/10/2026
+29-09-2026,NTB,Lâm Đồng,Thành phố Đà Lạt,Phường 9,Tỉnh Lâm Đồng,Phường Lâm Viên - Đà Lạt,30/09/2026,19/10/2026
+12/10/2026,NTB,Khánh Hòa,Thành phố Cam Ranh,Phường Cam Linh,Tỉnh Khánh Hòa,Phường Cam Linh,12/10/2026,26/10/2026
+12/10/2026,NTB,Khánh Hòa,Thành phố Cam Ranh,Phường Cam Lợi,Tỉnh Khánh Hòa,Phường Cam Linh,12/10/2026,26/10/2026
+12/10/2026,NTB,Khánh Hòa,Thành phố Cam Ranh,Phường Cam Thuận,Tỉnh Khánh Hòa,Phường Cam Linh,12/10/2026,26/10/2026
+12/10/2026,NTB,Đắk Nông,Thành phố Gia Nghĩa,Phường Nghĩa Đức,Tỉnh Lâm Đồng,Phường Bắc Gia Nghĩa,12/10/2026,26/10/2026
+12/10/2026,NTB,Đắk Nông,Thành phố Gia Nghĩa,Phường Nghĩa Thành,Tỉnh Lâm Đồng,Phường Bắc Gia Nghĩa,12/10/2026,26/10/2026
+12/10/2026,NTB,Đắk Nông,Thành phố Gia Nghĩa,Phường Quảng Thành,Tỉnh Lâm Đồng,Phường Bắc Gia Nghĩa,12/10/2026,26/10/2026
+12/10/2026,NTB,Đắk Nông,Huyện Đăk Glong,Xã Đắk Ha,Tỉnh Lâm Đồng,Phường Bắc Gia Nghĩa,12/10/2026,26/10/2026
+12/10/2026,NTB,Đắk Nông,Huyện Đắk Glong,Xã Đắk Ha,Tỉnh Lâm Đồng,Phường Bắc Gia Nghĩa,12/10/2026,26/10/2026
+12/10/2026,NTB,Đắk Nông,Thị Xã Gia Nghĩa,Phường Nghĩa Đức,Tỉnh Lâm Đồng,Phường Bắc Gia Nghĩa,12/10/2026,26/10/2026
+12/10/2026,NTB,Đắk Nông,Thị Xã Gia Nghĩa,Phường Nghĩa Thành,Tỉnh Lâm Đồng,Phường Bắc Gia Nghĩa,12/10/2026,26/10/2026
+12/10/2026,NTB,Đắk Nông,Thị Xã Gia Nghĩa,Xã Quảng Thành,Tỉnh Lâm Đồng,Phường Bắc Gia Nghĩa,12/10/2026,26/10/2026
+12/10/2026,NTB,Đắk Nông,Thành phố Gia Nghĩa,Phường Nghĩa Phú,Tỉnh Lâm Đồng,Phường Nam Gia Nghĩa,12/10/2026,26/10/2026
+12/10/2026,NTB,Đắk Nông,Thành phố Gia Nghĩa,Phường Nghĩa Tân,Tỉnh Lâm Đồng,Phường Nam Gia Nghĩa,12/10/2026,26/10/2026
+12/10/2026,NTB,Đắk Nông,Thành phố Gia Nghĩa,Xã Đăk R'moan,Tỉnh Lâm Đồng,Phường Nam Gia Nghĩa,12/10/2026,26/10/2026
+12/10/2026,NTB,Đắk Nông,Thị Xã Gia Nghĩa,Phường Nghĩa Phú,Tỉnh Lâm Đồng,Phường Nam Gia Nghĩa,12/10/2026,26/10/2026
+12/10/2026,NTB,Đắk Nông,Thị Xã Gia Nghĩa,Phường Nghĩa Tân,Tỉnh Lâm Đồng,Phường Nam Gia Nghĩa,12/10/2026,26/10/2026
+12/10/2026,NTB,Đắk Nông,Thị Xã Gia Nghĩa,Xã Đăk R'Moan,Tỉnh Lâm Đồng,Phường Nam Gia Nghĩa,12/10/2026,26/10/2026
+12/10/2026,NTB,Đắk Nông,Thành phố Gia Nghĩa,Phường Nghĩa Trung,Tỉnh Lâm Đồng,Phường Đông Gia Nghĩa,12/10/2026,26/10/2026
+12/10/2026,NTB,Đắk Nông,Thành phố Gia Nghĩa,Xã Đắk Nia,Tỉnh Lâm Đồng,Phường Đông Gia Nghĩa,12/10/2026,26/10/2026
+12/10/2026,NTB,Đắk Nông,Thị Xã Gia Nghĩa,Phường Nghĩa Trung,Tỉnh Lâm Đồng,Phường Đông Gia Nghĩa,12/10/2026,26/10/2026
+12/10/2026,NTB,Đắk Nông,Thị Xã Gia Nghĩa,Xã Đắk Nia,Tỉnh Lâm Đồng,Phường Đông Gia Nghĩa,12/10/2026,26/10/2026
+12/10/2026,NTB,Lâm Đồng,Huyện Đơn Dương,Xã Ka Đô,Tỉnh Lâm Đồng,Xã Ka Đô,12/10/2026,26/10/2026
+12/10/2026,NTB,Lâm Đồng,Huyện Đơn Dương,Xã Lạc Lâm,Tỉnh Lâm Đồng,Xã Ka Đô,12/10/2026,26/10/2026
+12/10/2026,NTB,Lâm Đồng,Huyện Đơn Dương,Thị trấn Thạnh Mỹ,Tỉnh Lâm Đồng,Xã Đơn Dương,12/10/2026,26/10/2026
+12/10/2026,NTB,Lâm Đồng,Huyện Đơn Dương,Xã Đạ Ròn,Tỉnh Lâm Đồng,Xã Đơn Dương,12/10/2026,26/10/2026
+12/10/2026,NTB,Lâm Đồng,Huyện Đơn Dương,Xã Tu Tra,Tỉnh Lâm Đồng,Xã Đơn Dương,12/10/2026,26/10/2026
+12/10/2026,NTB,Lâm Đồng,Huyện Đơn Dương,Thị Trấn Thạnh Mỹ,Tỉnh Lâm Đồng,Xã Đơn Dương,12/10/2026,26/10/2026
+12/10/2026,NTB,Khánh Hòa,Thành phố Cam Ranh,Phường Cam Nghĩa,Tỉnh Khánh Hòa,Phường Bắc Cam Ranh,13/10/2026,20/10/2026
+12/10/2026,NTB,Khánh Hòa,Thành phố Cam Ranh,Phường Cam Phúc Bắc,Tỉnh Khánh Hòa,Phường Bắc Cam Ranh,13/10/2026,20/10/2026
+12/10/2026,NTB,Khánh Hòa,Thành phố Cam Ranh,Xã Cam Thành Nam,Tỉnh Khánh Hòa,Phường Bắc Cam Ranh,13/10/2026,20/10/2026
+12/10/2026,NTB,Lâm Đồng,Huyện Đức Trọng,Xã N'thol Hạ,Tỉnh Lâm Đồng,Xã Tân Hội,13/10/2026,20/10/2026
+12/10/2026,NTB,Lâm Đồng,Huyện Đức Trọng,Xã Tân Hội,Tỉnh Lâm Đồng,Xã Tân Hội,13/10/2026,20/10/2026
+12/10/2026,NTB,Lâm Đồng,Huyện Đức Trọng,Xã Tân Thành,Tỉnh Lâm Đồng,Xã Tân Hội,13/10/2026,20/10/2026
+12/10/2026,NTB,Lâm Đồng,Huyện Đức Trọng,Xã N'Thol Hạ,Tỉnh Lâm Đồng,Xã Tân Hội,13/10/2026,20/10/2026
+12/10/2026,NTB,Lâm Đồng,Huyện Lạc Dương,Phường 7,Tỉnh Lâm Đồng,Phường Lang Biang - Đà Lạt,13/10/2026,26/10/2026
+12/10/2026,NTB,Lâm Đồng,Thành phố Đà Lạt,Phường 7,Tỉnh Lâm Đồng,Phường Lang Biang - Đà Lạt,13/10/2026,26/10/2026
+12/10/2026,NTB,Lâm Đồng,Huyện Lạc Dương,Thị trấn Lạc Dương,Tỉnh Lâm Đồng,Phường Lang Biang - Đà Lạt,13/10/2026,26/10/2026
+12/10/2026,NTB,Lâm Đồng,Huyện Lạc Dương,Xã Lát,Tỉnh Lâm Đồng,Phường Lang Biang - Đà Lạt,13/10/2026,26/10/2026
+12/10/2026,NTB,Lâm Đồng,Huyện Lạc Dương,Thị Trấn Lạc Dương,Tỉnh Lâm Đồng,Phường Lang Biang - Đà Lạt,13/10/2026,26/10/2026
