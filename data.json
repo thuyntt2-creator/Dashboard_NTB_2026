@@ -12193,7 +12193,7 @@
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 60,
-      "last_updated": "13:29 - 14/10/2026"
+      "last_updated": "14:05 - 14/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 2266.67,
@@ -12215,7 +12215,7 @@
         "fixed_cost": 730.63,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 23
       },
       {
@@ -12254,7 +12254,7 @@
         "fixed_cost": 200.59,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Trâm Hoá, Tốt và Rẻ",
+        "primary_ncc": "Lâm Ngọc Thành, Tốt và Rẻ",
         "truck_count": 5
       },
       {
@@ -12267,7 +12267,7 @@
         "fixed_cost": 149.57,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Công Định, NAK",
+        "primary_ncc": "NAK, Công Định",
         "truck_count": 5
       },
       {
@@ -12280,7 +12280,7 @@
         "fixed_cost": 93.45,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 11
       },
       {
@@ -12309,7 +12309,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 38,
-        "active_ktcs": "KTC Bình Thuận, KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Nam Nha Trang, KTC Đức Trọng"
+        "active_ktcs": "KTC Bình Thuận, KTC Đức Trọng, KTC Nam Nha Trang, KTC Khánh Hòa, KTC Bắc Nha Trang"
       },
       {
         "ncc": "NAK",
@@ -12322,7 +12322,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 10,
-        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
+        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
       },
       {
         "ncc": "Mạnh Cường (BCCK)",
@@ -12335,7 +12335,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 5,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
+        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Lâm Ngọc Thành",
@@ -21164,7 +21164,7 @@
         "cost": 2021701.4,
         "trips_equivalent": 1,
         "trip_code": "E261006JGBP3NMG",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -21179,7 +21179,7 @@
         "cost": 2021701.4,
         "trips_equivalent": 1,
         "trip_code": "E2610074UYRASGG",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -21194,7 +21194,7 @@
         "cost": 2021701.4,
         "trips_equivalent": 1,
         "trip_code": "E261008YYZQUPX9",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -21209,7 +21209,7 @@
         "cost": 2021701.4,
         "trips_equivalent": 1,
         "trip_code": "E261009XROQVTOD",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -21224,7 +21224,7 @@
         "cost": 2021701.4,
         "trips_equivalent": 1,
         "trip_code": "E2610102OWTP2DZ",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -21239,7 +21239,7 @@
         "cost": 2021701.4,
         "trips_equivalent": 1,
         "trip_code": "E2610117MXMY7HM",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -21629,7 +21629,7 @@
         "cost": 1126791.5,
         "trips_equivalent": 1,
         "trip_code": "E26100677V73O0Z",
-        "ontime": ""
+        "ontime": "85,7%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -21644,7 +21644,7 @@
         "cost": 1126791.5,
         "trips_equivalent": 1,
         "trip_code": "E261007K90VK4YA",
-        "ontime": ""
+        "ontime": "85,7%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -21652,14 +21652,14 @@
         "date_iso": "2026-10-10",
         "truck": "72H-00679",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Vạn Ninh -> (KHO) Tu Bông -> (KHO) Vạn Ninh -> (KHO) Đông Ninh Hòa -> (KHO) Ninh Hòa 2 -> Kho Trung Chuyển Khánh Hòa",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Vạn Ninh -> (KHO) Tu Bông -> (KHO) Vạn Ninh -> (KHO) Đông Ninh Hòa -> Kho Trung Chuyển Khánh Hòa",
         "ktc": "KTC Khánh Hòa",
         "type": "Cố định",
         "cost_str": "1.126.792 đ",
         "cost": 1126791.5,
         "trips_equivalent": 1,
         "trip_code": "E261009THITHPAA",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -21667,14 +21667,14 @@
         "date_iso": "2026-10-11",
         "truck": "72H-00679",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Vạn Ninh -> (KHO) Tu Bông -> (KHO) Vạn Ninh -> (KHO) Đông Ninh Hòa -> (KHO) Ninh Hòa 2 -> Kho Trung Chuyển Khánh Hòa",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Vạn Ninh -> (KHO) Tu Bông -> (KHO) Vạn Ninh -> (KHO) Đông Ninh Hòa -> Kho Trung Chuyển Khánh Hòa",
         "ktc": "KTC Khánh Hòa",
         "type": "Cố định",
         "cost_str": "1.126.792 đ",
         "cost": 1126791.5,
         "trips_equivalent": 1,
         "trip_code": "E261010YDI8UT12",
-        "ontime": ""
+        "ontime": "83,3%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -22094,7 +22094,7 @@
         "cost": 228547.2,
         "trips_equivalent": 1,
         "trip_code": "E261007V1DRGX4T",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -22109,7 +22109,7 @@
         "cost": 228547.2,
         "trips_equivalent": 1,
         "trip_code": "E261008VB0926BQ",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -22124,7 +22124,7 @@
         "cost": 228547.2,
         "trips_equivalent": 1,
         "trip_code": "E261009B1W4ZS52",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -22139,7 +22139,7 @@
         "cost": 228547.2,
         "trips_equivalent": 1,
         "trip_code": "E261010ZQ8BS4ZS",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -22154,7 +22154,7 @@
         "cost": 228547.2,
         "trips_equivalent": 1,
         "trip_code": "E2610112GC87NYW",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -22169,7 +22169,7 @@
         "cost": 228547.2,
         "trips_equivalent": 1,
         "trip_code": "E2610124JE8XMOA",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -22559,7 +22559,7 @@
         "cost": 233016.0,
         "trips_equivalent": 1,
         "trip_code": "E261006X0HPYAW6",
-        "ontime": ""
+        "ontime": "75,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -22574,7 +22574,7 @@
         "cost": 233016.0,
         "trips_equivalent": 1,
         "trip_code": "E261007KRP0ED98",
-        "ontime": ""
+        "ontime": "75,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -22589,7 +22589,7 @@
         "cost": 233016.0,
         "trips_equivalent": 1,
         "trip_code": "E261008K24PWYOW",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -22604,7 +22604,7 @@
         "cost": 233016.0,
         "trips_equivalent": 1,
         "trip_code": "E2610095S2PHG0O",
-        "ontime": ""
+        "ontime": "75,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -22619,7 +22619,7 @@
         "cost": 233016.0,
         "trips_equivalent": 1,
         "trip_code": "E261010B6HFJPXJ",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -22634,7 +22634,7 @@
         "cost": 233016.0,
         "trips_equivalent": 1,
         "trip_code": "E261011MZB6D9PJ",
-        "ontime": ""
+        "ontime": "75,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -23024,7 +23024,7 @@
         "cost": 291110.4,
         "trips_equivalent": 1,
         "trip_code": "E2610072RMG4U13",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -23039,7 +23039,7 @@
         "cost": 291110.4,
         "trips_equivalent": 1,
         "trip_code": "E261008121ZJ33J",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -23054,7 +23054,7 @@
         "cost": 291110.4,
         "trips_equivalent": 1,
         "trip_code": "E2610096OZB66CL",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -23069,7 +23069,7 @@
         "cost": 291110.4,
         "trips_equivalent": 1,
         "trip_code": "E261010YD2PP724",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -23084,7 +23084,7 @@
         "cost": 291110.4,
         "trips_equivalent": 1,
         "trip_code": "E261011WMRO7PPE",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -23099,7 +23099,7 @@
         "cost": 291110.4,
         "trips_equivalent": 1,
         "trip_code": "E2610128ZCZTSDF",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -23459,7 +23459,7 @@
         "cost": 278980.8,
         "trips_equivalent": 1,
         "trip_code": "E2610073QH60MSH",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -23474,7 +23474,7 @@
         "cost": 278980.8,
         "trips_equivalent": 1,
         "trip_code": "E261008LEMBF567",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -23489,7 +23489,7 @@
         "cost": 278980.8,
         "trips_equivalent": 1,
         "trip_code": "E26100958BSOZ83",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -23504,7 +23504,7 @@
         "cost": 283449.6,
         "trips_equivalent": 1,
         "trip_code": "E261010MNQ1YP06",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -23519,7 +23519,7 @@
         "cost": 278980.8,
         "trips_equivalent": 1,
         "trip_code": "E261011RA0LEDBA",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -23534,7 +23534,7 @@
         "cost": 283449.6,
         "trips_equivalent": 1,
         "trip_code": "E261012Q0XB2FT2",
-        "ontime": ""
+        "ontime": "83,3%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -23909,7 +23909,7 @@
         "cost": 1775856.2,
         "trips_equivalent": 1,
         "trip_code": "E261008UB2HC1QW",
-        "ontime": ""
+        "ontime": "63,6%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -23924,7 +23924,7 @@
         "cost": 1594631.9,
         "trips_equivalent": 1,
         "trip_code": "E261008OE9FKHCK",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -23939,7 +23939,7 @@
         "cost": 1588650.9,
         "trips_equivalent": 1,
         "trip_code": "E261009H8YYATMR",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -23954,7 +23954,7 @@
         "cost": 1553961.1,
         "trips_equivalent": 1,
         "trip_code": "E261010WP5ZVD5G",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -23969,7 +23969,7 @@
         "cost": 1594631.9,
         "trips_equivalent": 1,
         "trip_code": "E261011XQHFMTBS",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -23984,7 +23984,7 @@
         "cost": 1594631.9,
         "trips_equivalent": 1,
         "trip_code": "E26101229C4IK3V",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -24374,7 +24374,7 @@
         "cost": 363249.6,
         "trips_equivalent": 1,
         "trip_code": "E26100788YMCD11",
-        "ontime": ""
+        "ontime": "57,1%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -24389,7 +24389,7 @@
         "cost": 363249.6,
         "trips_equivalent": 1,
         "trip_code": "E261008YB47U732",
-        "ontime": ""
+        "ontime": "85,7%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -24404,7 +24404,7 @@
         "cost": 363249.6,
         "trips_equivalent": 1,
         "trip_code": "E261009YQPLKWNO",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -24419,7 +24419,7 @@
         "cost": 363249.6,
         "trips_equivalent": 1,
         "trip_code": "E261010L8LO3WZE",
-        "ontime": ""
+        "ontime": "85,7%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -24434,7 +24434,7 @@
         "cost": 363249.6,
         "trips_equivalent": 1,
         "trip_code": "E2610119MMH1W3X",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -24449,7 +24449,7 @@
         "cost": 363249.6,
         "trips_equivalent": 1,
         "trip_code": "E261012V9GY5G7O",
-        "ontime": ""
+        "ontime": "85,7%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -24839,7 +24839,7 @@
         "cost": 326860.8,
         "trips_equivalent": 1,
         "trip_code": "E261006VXXIOSHI",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -24854,7 +24854,7 @@
         "cost": 326860.8,
         "trips_equivalent": 1,
         "trip_code": "E261007EX564ZG1",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -24869,7 +24869,7 @@
         "cost": 326860.8,
         "trips_equivalent": 1,
         "trip_code": "E261008AVO1DQDD",
-        "ontime": ""
+        "ontime": "75,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -24884,7 +24884,7 @@
         "cost": 326860.8,
         "trips_equivalent": 1,
         "trip_code": "E261009367GKY32",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -24899,7 +24899,7 @@
         "cost": 326860.8,
         "trips_equivalent": 1,
         "trip_code": "E2610109FJQXSBL",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -24914,7 +24914,7 @@
         "cost": 326860.8,
         "trips_equivalent": 1,
         "trip_code": "E26101193EQCTXS",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -25304,7 +25304,7 @@
         "cost": 903422.4,
         "trips_equivalent": 1,
         "trip_code": "E2610075V803DMR",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -25319,7 +25319,7 @@
         "cost": 903422.4,
         "trips_equivalent": 1,
         "trip_code": "E261008UPX2C28Q",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -25334,7 +25334,7 @@
         "cost": 903422.4,
         "trips_equivalent": 1,
         "trip_code": "E2610091G664YZ3",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -25349,7 +25349,7 @@
         "cost": 903422.4,
         "trips_equivalent": 1,
         "trip_code": "E261010Q6MP15L5",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -25364,7 +25364,7 @@
         "cost": 903422.4,
         "trips_equivalent": 1,
         "trip_code": "E261011E4US8KA9",
-        "ontime": ""
+        "ontime": "50,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -25379,7 +25379,7 @@
         "cost": 903422.4,
         "trips_equivalent": 1,
         "trip_code": "E2610129LF4VL7O",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -25769,7 +25769,7 @@
         "cost": 1616685.0,
         "trips_equivalent": 1,
         "trip_code": "E261007GVR0WLUV",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -25784,7 +25784,7 @@
         "cost": 1616685.0,
         "trips_equivalent": 1,
         "trip_code": "E2610087P2B7Q5F",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -25799,7 +25799,7 @@
         "cost": 1616685.0,
         "trips_equivalent": 1,
         "trip_code": "E261009CU9T92J6",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -25814,7 +25814,7 @@
         "cost": 1673760.0,
         "trips_equivalent": 1,
         "trip_code": "E261010IVZ2R7PW",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -25829,7 +25829,7 @@
         "cost": 1616685.0,
         "trips_equivalent": 1,
         "trip_code": "E261011CIN02YHB",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -25844,7 +25844,7 @@
         "cost": 1616685.0,
         "trips_equivalent": 1,
         "trip_code": "E261012YZGUXUJS",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -26234,7 +26234,7 @@
         "cost": 540724.8,
         "trips_equivalent": 1,
         "trip_code": "E261006MRSH7HXD",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -26249,7 +26249,7 @@
         "cost": 540724.8,
         "trips_equivalent": 1,
         "trip_code": "E261007TYWWGPC8",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -26264,7 +26264,7 @@
         "cost": 540724.8,
         "trips_equivalent": 1,
         "trip_code": "E2610087PWTCGO5",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -26279,7 +26279,7 @@
         "cost": 650529.6,
         "trips_equivalent": 1,
         "trip_code": "E261010SBUYQFKD",
-        "ontime": ""
+        "ontime": "80,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -26294,7 +26294,7 @@
         "cost": 540724.8,
         "trips_equivalent": 1,
         "trip_code": "E2610109GPGHUUN",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -26699,7 +26699,7 @@
         "cost": 2309516.0,
         "trips_equivalent": 1,
         "trip_code": "E261007H8ZNPRVU",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -26714,7 +26714,7 @@
         "cost": 2309516.0,
         "trips_equivalent": 1,
         "trip_code": "E261008X3H4OTPN",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -26729,7 +26729,7 @@
         "cost": 2309516.0,
         "trips_equivalent": 1,
         "trip_code": "E261009D9XGZIQD",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -26744,7 +26744,7 @@
         "cost": 2309516.0,
         "trips_equivalent": 1,
         "trip_code": "E2610118FDXUVJN",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -26759,7 +26759,7 @@
         "cost": 2309516.0,
         "trips_equivalent": 1,
         "trip_code": "E261011FX9PAXA9",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -26774,7 +26774,7 @@
         "cost": 2309516.0,
         "trips_equivalent": 1,
         "trip_code": "E261012VOKSED5J",
-        "ontime": ""
+        "ontime": "62,5%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27134,7 +27134,7 @@
         "cost": 174283.2,
         "trips_equivalent": 1,
         "trip_code": "E261007648TUDPS",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27149,7 +27149,7 @@
         "cost": 174283.2,
         "trips_equivalent": 1,
         "trip_code": "E261008CXH3QE7E",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27164,7 +27164,7 @@
         "cost": 174283.2,
         "trips_equivalent": 1,
         "trip_code": "E261009WGNPUINI",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27179,7 +27179,7 @@
         "cost": 174283.2,
         "trips_equivalent": 1,
         "trip_code": "E2610107YGDKM71",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27194,7 +27194,7 @@
         "cost": 174283.2,
         "trips_equivalent": 1,
         "trip_code": "E261011RNVN7SV0",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27209,7 +27209,7 @@
         "cost": 174283.2,
         "trips_equivalent": 1,
         "trip_code": "E261012JGP8MMLE",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27524,7 +27524,7 @@
         "cost": 1250925.5,
         "trips_equivalent": 1,
         "trip_code": "E261007WZTLLQQ8",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27539,7 +27539,7 @@
         "cost": 1250925.5,
         "trips_equivalent": 1,
         "trip_code": "E261008NRWQBWNM",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27554,7 +27554,7 @@
         "cost": 1250925.5,
         "trips_equivalent": 1,
         "trip_code": "E261009OKRL9H5R",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27569,7 +27569,7 @@
         "cost": 1287962.5,
         "trips_equivalent": 1,
         "trip_code": "E2610115ZW9BCC7",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27584,7 +27584,7 @@
         "cost": 1219484.0,
         "trips_equivalent": 1,
         "trip_code": "E2610115W5NZ0V3",
-        "ontime": ""
+        "ontime": "66,7%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27959,7 +27959,7 @@
         "cost": 291110.4,
         "trips_equivalent": 1,
         "trip_code": "E261006BTFVCFHC",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27974,7 +27974,7 @@
         "cost": 125126.4,
         "trips_equivalent": 1,
         "trip_code": "E261007JCMJA18T",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27989,7 +27989,7 @@
         "cost": 125126.4,
         "trips_equivalent": 1,
         "trip_code": "E261008DQGUU8Y2",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -28004,7 +28004,7 @@
         "cost": 125126.4,
         "trips_equivalent": 1,
         "trip_code": "E261009I6EH4QNE",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -28019,7 +28019,7 @@
         "cost": 125126.4,
         "trips_equivalent": 1,
         "trip_code": "E261010C6L8VHFU",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -28034,7 +28034,7 @@
         "cost": 125126.4,
         "trips_equivalent": 1,
         "trip_code": "E261011HNGGG3VG",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -28424,7 +28424,7 @@
         "cost": 1029555.0,
         "trips_equivalent": 1,
         "trip_code": "E261006YQIGRKER",
-        "ontime": ""
+        "ontime": "75,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -28439,7 +28439,7 @@
         "cost": 1029555.0,
         "trips_equivalent": 1,
         "trip_code": "E2610075NSCGNMM",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -28454,7 +28454,7 @@
         "cost": 1035103.5,
         "trips_equivalent": 1,
         "trip_code": "E2610081J7O9UT9",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -28469,7 +28469,7 @@
         "cost": 1035103.5,
         "trips_equivalent": 1,
         "trip_code": "E2610094MS0RM29",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -28484,7 +28484,7 @@
         "cost": 1035103.5,
         "trips_equivalent": 1,
         "trip_code": "E261010GDFG9F2F",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -28499,7 +28499,7 @@
         "cost": 1035103.5,
         "trips_equivalent": 1,
         "trip_code": "E2610116IEZ8VA1",
-        "ontime": ""
+        "ontime": "80,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -28889,7 +28889,7 @@
         "cost": 1494008.6,
         "trips_equivalent": 1,
         "trip_code": "E261006ZI0R6K1F",
-        "ontime": ""
+        "ontime": "75,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -28904,7 +28904,7 @@
         "cost": 1494008.6,
         "trips_equivalent": 1,
         "trip_code": "E261007ZTKPPIRN",
-        "ontime": ""
+        "ontime": "75,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -28919,7 +28919,7 @@
         "cost": 1494008.6,
         "trips_equivalent": 1,
         "trip_code": "E261008Q72HGXTP",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -28934,7 +28934,7 @@
         "cost": 1494008.6,
         "trips_equivalent": 1,
         "trip_code": "E261009ZGHE9K2L",
-        "ontime": ""
+        "ontime": "75,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -28949,7 +28949,7 @@
         "cost": 1494008.6,
         "trips_equivalent": 1,
         "trip_code": "E261010LVTWKMXM",
-        "ontime": ""
+        "ontime": "50,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -29354,7 +29354,7 @@
         "cost": 695227.4,
         "trips_equivalent": 1,
         "trip_code": "E2610067TPGT5VO",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -29369,7 +29369,7 @@
         "cost": 695227.4,
         "trips_equivalent": 1,
         "trip_code": "E261007YDPYA4EL",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -29384,7 +29384,7 @@
         "cost": 695227.4,
         "trips_equivalent": 1,
         "trip_code": "E261008Z6VKH57C",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -29399,7 +29399,7 @@
         "cost": 695227.4,
         "trips_equivalent": 1,
         "trip_code": "E261009NWHXRAH6",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -29414,7 +29414,7 @@
         "cost": 693950.6,
         "trips_equivalent": 1,
         "trip_code": "E26101041TAAYUU",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -29819,7 +29819,7 @@
         "cost": 143001.6,
         "trips_equivalent": 1,
         "trip_code": "E261007077N4YIB",
-        "ontime": ""
+        "ontime": "40,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -29834,7 +29834,7 @@
         "cost": 143001.6,
         "trips_equivalent": 1,
         "trip_code": "E2610087EQ3FBFV",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -29849,7 +29849,7 @@
         "cost": 136617.6,
         "trips_equivalent": 1,
         "trip_code": "E261009FX366A1E",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -29864,7 +29864,7 @@
         "cost": 143001.6,
         "trips_equivalent": 1,
         "trip_code": "E261010TRLX6XYH",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -29879,7 +29879,7 @@
         "cost": 143001.6,
         "trips_equivalent": 1,
         "trip_code": "E261011O236K2Y5",
-        "ontime": ""
+        "ontime": "40,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -30284,7 +30284,7 @@
         "cost": 120657.6,
         "trips_equivalent": 1,
         "trip_code": "E261007333UO5YL",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -30299,7 +30299,7 @@
         "cost": 120657.6,
         "trips_equivalent": 1,
         "trip_code": "E261008LFWT0XTL",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -30314,7 +30314,7 @@
         "cost": 120657.6,
         "trips_equivalent": 1,
         "trip_code": "E261009U2KCI4WN",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -30329,7 +30329,7 @@
         "cost": 120657.6,
         "trips_equivalent": 1,
         "trip_code": "E26101085NVEEN8",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -30344,7 +30344,7 @@
         "cost": 120657.6,
         "trips_equivalent": 1,
         "trip_code": "E2610119AOXS8PZ",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -30359,7 +30359,7 @@
         "cost": 120657.6,
         "trips_equivalent": 1,
         "trip_code": "E261012LVM36AZF",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -30749,7 +30749,7 @@
         "cost": 292387.2,
         "trips_equivalent": 1,
         "trip_code": "E261007UFOHSKTM",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -30764,7 +30764,7 @@
         "cost": 292387.2,
         "trips_equivalent": 1,
         "trip_code": "E261008U3H7N5C1",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -30779,7 +30779,7 @@
         "cost": 292387.2,
         "trips_equivalent": 1,
         "trip_code": "E261009OXAPLXQO",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -30794,7 +30794,7 @@
         "cost": 292387.2,
         "trips_equivalent": 1,
         "trip_code": "E261010KERLVJRW",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -30809,7 +30809,7 @@
         "cost": 195350.4,
         "trips_equivalent": 1,
         "trip_code": "E261010FZBC2KWC",
-        "ontime": ""
+        "ontime": "50,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -30824,7 +30824,7 @@
         "cost": 292387.2,
         "trips_equivalent": 1,
         "trip_code": "E261012PH5VWDL0",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -31214,7 +31214,7 @@
         "cost": 195350.4,
         "trips_equivalent": 1,
         "trip_code": "E261007LJ1UCHH6",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -31229,7 +31229,7 @@
         "cost": 252168.0,
         "trips_equivalent": 1,
         "trip_code": "E261009N1UA96J1",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -31244,7 +31244,7 @@
         "cost": 252168.0,
         "trips_equivalent": 1,
         "trip_code": "E261010JPXBBU0X",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -31259,7 +31259,7 @@
         "cost": 195350.4,
         "trips_equivalent": 1,
         "trip_code": "E2610107RST70BI",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -31274,7 +31274,7 @@
         "cost": 252168.0,
         "trips_equivalent": 1,
         "trip_code": "E2610122D4V4G8N",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -31289,7 +31289,7 @@
         "cost": 195350.4,
         "trips_equivalent": 1,
         "trip_code": "E26101282LNEDKZ",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -31649,7 +31649,7 @@
         "cost": 194712.0,
         "trips_equivalent": 1,
         "trip_code": "E261007WTBB141E",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -31664,7 +31664,7 @@
         "cost": 194712.0,
         "trips_equivalent": 1,
         "trip_code": "E261008OEH7IG0Q",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -31679,7 +31679,7 @@
         "cost": 194712.0,
         "trips_equivalent": 1,
         "trip_code": "E26100958L0ATAX",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -31694,7 +31694,7 @@
         "cost": 194712.0,
         "trips_equivalent": 1,
         "trip_code": "E261010VW5V80T9",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -31709,7 +31709,7 @@
         "cost": 194712.0,
         "trips_equivalent": 1,
         "trip_code": "E261011RJP9QUT7",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -31724,7 +31724,7 @@
         "cost": 194712.0,
         "trips_equivalent": 1,
         "trip_code": "E261012YSXACG9A",
-        "ontime": ""
+        "ontime": "40,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -32099,7 +32099,7 @@
         "cost": 4141388.8,
         "trips_equivalent": 1,
         "trip_code": "E261006OG87FRKU",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -32114,7 +32114,7 @@
         "cost": 4141388.8,
         "trips_equivalent": 1,
         "trip_code": "E26100791REVUAT",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -32129,7 +32129,7 @@
         "cost": 4141388.8,
         "trips_equivalent": 1,
         "trip_code": "E261008LCJS6VEW",
-        "ontime": ""
+        "ontime": "85,7%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -32144,7 +32144,7 @@
         "cost": 4141388.8,
         "trips_equivalent": 1,
         "trip_code": "E261009NCN4UYK4",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -32159,7 +32159,7 @@
         "cost": 4141388.8,
         "trips_equivalent": 1,
         "trip_code": "E261010YQC78JK2",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -32564,7 +32564,7 @@
         "cost": 3436355.8,
         "trips_equivalent": 1,
         "trip_code": "E261007RGVNE4ID",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -32579,7 +32579,7 @@
         "cost": 3436355.8,
         "trips_equivalent": 1,
         "trip_code": "E2610087JFO21VJ",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -32594,7 +32594,7 @@
         "cost": 3436355.8,
         "trips_equivalent": 1,
         "trip_code": "E26100906F6AZ7T",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -32609,7 +32609,7 @@
         "cost": 3436355.8,
         "trips_equivalent": 1,
         "trip_code": "E261010DG6K6JAD",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -32624,7 +32624,7 @@
         "cost": 3436355.8,
         "trips_equivalent": 1,
         "trip_code": "E26101151O0Z4O2",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -32639,7 +32639,7 @@
         "cost": 3443669.6,
         "trips_equivalent": 1,
         "trip_code": "E261012V77G66AY",
-        "ontime": ""
+        "ontime": "90,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -33029,7 +33029,7 @@
         "cost": 1115742.0,
         "trips_equivalent": 1,
         "trip_code": "E261007KSUUSLOU",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -33044,7 +33044,7 @@
         "cost": 1115742.0,
         "trips_equivalent": 1,
         "trip_code": "E2610084L9Z24AI",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -33059,7 +33059,7 @@
         "cost": 1115742.0,
         "trips_equivalent": 1,
         "trip_code": "E261009XYR4SVYZ",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -33074,7 +33074,7 @@
         "cost": 1115742.0,
         "trips_equivalent": 1,
         "trip_code": "E2610101QUPZJM3",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -33089,7 +33089,7 @@
         "cost": 1115742.0,
         "trips_equivalent": 1,
         "trip_code": "E26101173EGL76T",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -33104,7 +33104,7 @@
         "cost": 1115742.0,
         "trips_equivalent": 1,
         "trip_code": "E26101249DSZ3GY",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -33494,7 +33494,7 @@
         "cost": 449424.0,
         "trips_equivalent": 1,
         "trip_code": "E26100732KEELUW",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -33509,7 +33509,7 @@
         "cost": 449424.0,
         "trips_equivalent": 1,
         "trip_code": "E2610084HYV8XUK",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -33524,7 +33524,7 @@
         "cost": 449424.0,
         "trips_equivalent": 1,
         "trip_code": "E2610092K42Q0GA",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -33539,7 +33539,7 @@
         "cost": 449424.0,
         "trips_equivalent": 1,
         "trip_code": "E2610104N44IYSD",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -33554,7 +33554,7 @@
         "cost": 449424.0,
         "trips_equivalent": 1,
         "trip_code": "E261011YOTPM5EZ",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -33569,7 +33569,7 @@
         "cost": 449424.0,
         "trips_equivalent": 1,
         "trip_code": "E261012UT59O6N1",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -33959,7 +33959,7 @@
         "cost": 1835053.0,
         "trips_equivalent": 1,
         "trip_code": "E2610079CP95U0O",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -33974,7 +33974,7 @@
         "cost": 1835053.0,
         "trips_equivalent": 1,
         "trip_code": "E2610086LC6LHU1",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -33989,7 +33989,7 @@
         "cost": 1835053.0,
         "trips_equivalent": 1,
         "trip_code": "E2610090PY5JRAZ",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34004,7 +34004,7 @@
         "cost": 1835053.0,
         "trips_equivalent": 1,
         "trip_code": "E261010T6MMXKZI",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34019,7 +34019,7 @@
         "cost": 1835053.0,
         "trips_equivalent": 1,
         "trip_code": "E261011V6PDHHXR",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34034,7 +34034,7 @@
         "cost": 1835053.0,
         "trips_equivalent": 1,
         "trip_code": "E261012PLCAYUPL",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34424,7 +34424,7 @@
         "cost": 936458.4,
         "trips_equivalent": 1,
         "trip_code": "E261007SGG8JE86",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34439,7 +34439,7 @@
         "cost": 936458.4,
         "trips_equivalent": 1,
         "trip_code": "E2610081VEJ9HCS",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34454,7 +34454,7 @@
         "cost": 936458.4,
         "trips_equivalent": 1,
         "trip_code": "E261009TMS8C4SC",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34469,7 +34469,7 @@
         "cost": 936458.4,
         "trips_equivalent": 1,
         "trip_code": "E2610102LG4DTMR",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34484,7 +34484,7 @@
         "cost": 936458.4,
         "trips_equivalent": 1,
         "trip_code": "E2610118SO6E6PW",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34499,7 +34499,7 @@
         "cost": 936458.4,
         "trips_equivalent": 1,
         "trip_code": "E2610124XJA926S",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34874,7 +34874,7 @@
         "cost": 1449493.1,
         "trips_equivalent": 1,
         "trip_code": "E261007JGLIFTLF",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34889,7 +34889,7 @@
         "cost": 1449493.1,
         "trips_equivalent": 1,
         "trip_code": "E261008GL3ZSYPW",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34904,7 +34904,7 @@
         "cost": 1449493.1,
         "trips_equivalent": 1,
         "trip_code": "E2610094I0ISH1G",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34919,7 +34919,7 @@
         "cost": 1449493.1,
         "trips_equivalent": 1,
         "trip_code": "E2610103D1Z56BM",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34934,7 +34934,7 @@
         "cost": 1449493.1,
         "trips_equivalent": 1,
         "trip_code": "E2610113VP8HAB3",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34949,7 +34949,7 @@
         "cost": 1449493.1,
         "trips_equivalent": 1,
         "trip_code": "E261012IQE2S5OZ",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -35324,7 +35324,7 @@
         "cost": 969021.6,
         "trips_equivalent": 1,
         "trip_code": "E261007DYJMGATO",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -35339,7 +35339,7 @@
         "cost": 969021.6,
         "trips_equivalent": 1,
         "trip_code": "E261008NEC5XLW9",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -35354,7 +35354,7 @@
         "cost": 969021.6,
         "trips_equivalent": 1,
         "trip_code": "E261009OK94XRFZ",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -35369,7 +35369,7 @@
         "cost": 969021.6,
         "trips_equivalent": 1,
         "trip_code": "E261010A1T40WOY",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -35384,7 +35384,7 @@
         "cost": 969021.6,
         "trips_equivalent": 1,
         "trip_code": "E261011BFXRCCFC",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -35399,7 +35399,7 @@
         "cost": 969021.6,
         "trips_equivalent": 1,
         "trip_code": "E261012WPKOE0HH",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -35774,7 +35774,7 @@
         "cost": 487024.8,
         "trips_equivalent": 1,
         "trip_code": "E261007F4HOFXGM",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -35789,7 +35789,7 @@
         "cost": 487024.8,
         "trips_equivalent": 1,
         "trip_code": "E2610083SZM22R5",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -35804,7 +35804,7 @@
         "cost": 487024.8,
         "trips_equivalent": 1,
         "trip_code": "E261009OCF913LW",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -35819,7 +35819,7 @@
         "cost": 487024.8,
         "trips_equivalent": 1,
         "trip_code": "E261010C8J5Q00Y",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -35834,7 +35834,7 @@
         "cost": 487024.8,
         "trips_equivalent": 1,
         "trip_code": "E261012UVKKPXO9",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -35849,7 +35849,7 @@
         "cost": 487024.8,
         "trips_equivalent": 1,
         "trip_code": "E261012SNVNIX44",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -36224,7 +36224,7 @@
         "cost": 398668.8,
         "trips_equivalent": 1,
         "trip_code": "E261007WG7VLDQU",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -36239,7 +36239,7 @@
         "cost": 398668.8,
         "trips_equivalent": 1,
         "trip_code": "E261008TPAQIK0A",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -36254,7 +36254,7 @@
         "cost": 398668.8,
         "trips_equivalent": 1,
         "trip_code": "E261009STIMNFCL",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -36269,7 +36269,7 @@
         "cost": 398668.8,
         "trips_equivalent": 1,
         "trip_code": "E261010T3R8PN2O",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -36284,7 +36284,7 @@
         "cost": 398668.8,
         "trips_equivalent": 1,
         "trip_code": "E261011ZTXWPS2E",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -36299,7 +36299,7 @@
         "cost": 398668.8,
         "trips_equivalent": 1,
         "trip_code": "E261012UTS2YW6D",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -36674,7 +36674,7 @@
         "cost": 1711450.0,
         "trips_equivalent": 1,
         "trip_code": "E2610073H6QV60U",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -36689,7 +36689,7 @@
         "cost": 1711450.0,
         "trips_equivalent": 1,
         "trip_code": "E261008KCDORECH",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -36704,7 +36704,7 @@
         "cost": 1711450.0,
         "trips_equivalent": 1,
         "trip_code": "E261009LY63VB7B",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -36719,7 +36719,7 @@
         "cost": 1711450.0,
         "trips_equivalent": 1,
         "trip_code": "E261010EWYCSBWA",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -36734,7 +36734,7 @@
         "cost": 1711450.0,
         "trips_equivalent": 1,
         "trip_code": "E261011QQV0HS7M",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -36749,7 +36749,7 @@
         "cost": 1711450.0,
         "trips_equivalent": 1,
         "trip_code": "E2610129WWFR53N",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -37139,7 +37139,7 @@
         "cost": 1024917.0,
         "trips_equivalent": 1,
         "trip_code": "E261007FK778TA6",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -37154,7 +37154,7 @@
         "cost": 1024917.0,
         "trips_equivalent": 1,
         "trip_code": "E261008XWEOKF7N",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -37169,7 +37169,7 @@
         "cost": 1024917.0,
         "trips_equivalent": 1,
         "trip_code": "E2610093JT82TBK",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -37184,7 +37184,7 @@
         "cost": 1024917.0,
         "trips_equivalent": 1,
         "trip_code": "E2610102C212MZH",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -37199,7 +37199,7 @@
         "cost": 1024917.0,
         "trips_equivalent": 1,
         "trip_code": "E261011GYC75U5V",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -37214,7 +37214,7 @@
         "cost": 1024917.0,
         "trips_equivalent": 1,
         "trip_code": "E261012S2MR5S3L",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -37589,7 +37589,7 @@
         "cost": 723559.2,
         "trips_equivalent": 1,
         "trip_code": "E2610076GSFJJ5Q",
-        "ontime": ""
+        "ontime": "75,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -37604,7 +37604,7 @@
         "cost": 723559.2,
         "trips_equivalent": 1,
         "trip_code": "E2610082IPF6ZE9",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -37619,7 +37619,7 @@
         "cost": 723559.2,
         "trips_equivalent": 1,
         "trip_code": "E261009XT4BXQCV",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -37634,7 +37634,7 @@
         "cost": 723559.2,
         "trips_equivalent": 1,
         "trip_code": "E261010AJ1CYCZX",
-        "ontime": ""
+        "ontime": "75,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -37649,7 +37649,7 @@
         "cost": 723559.2,
         "trips_equivalent": 1,
         "trip_code": "E261011DPO9N6GK",
-        "ontime": ""
+        "ontime": "75,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -37664,7 +37664,7 @@
         "cost": 723559.2,
         "trips_equivalent": 1,
         "trip_code": "E261012GS9P3M0Y",
-        "ontime": ""
+        "ontime": "75,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -38039,7 +38039,7 @@
         "cost": 601629.6,
         "trips_equivalent": 1,
         "trip_code": "E2610075XRP8PVV",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -38054,7 +38054,7 @@
         "cost": 601629.6,
         "trips_equivalent": 1,
         "trip_code": "E2610089ZSU2YXO",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -38069,7 +38069,7 @@
         "cost": 601629.6,
         "trips_equivalent": 1,
         "trip_code": "E261009FIXI7WID",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -38084,7 +38084,7 @@
         "cost": 601629.6,
         "trips_equivalent": 1,
         "trip_code": "E261010BZXKGB86",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -38099,7 +38099,7 @@
         "cost": 601629.6,
         "trips_equivalent": 1,
         "trip_code": "E261011H57E0FIX",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -38114,7 +38114,7 @@
         "cost": 601629.6,
         "trips_equivalent": 1,
         "trip_code": "E261012KJ5GC2OR",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -38504,7 +38504,7 @@
         "cost": 996794.4,
         "trips_equivalent": 1,
         "trip_code": "E261007FB8MHHRI",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -38519,7 +38519,7 @@
         "cost": 996794.4,
         "trips_equivalent": 1,
         "trip_code": "E261008MBSV1M21",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -38534,7 +38534,7 @@
         "cost": 996794.4,
         "trips_equivalent": 1,
         "trip_code": "E261009RPWOXH07",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -38549,7 +38549,7 @@
         "cost": 996794.4,
         "trips_equivalent": 1,
         "trip_code": "E261010ZUFBUJSC",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -38564,7 +38564,7 @@
         "cost": 996794.4,
         "trips_equivalent": 1,
         "trip_code": "E261011NVDX6FNC",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -38579,7 +38579,7 @@
         "cost": 996794.4,
         "trips_equivalent": 1,
         "trip_code": "E261012YJVNJHN0",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -38954,7 +38954,7 @@
         "cost": 960410.4,
         "trips_equivalent": 1,
         "trip_code": "E261007O2KGRM4U",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -38969,7 +38969,7 @@
         "cost": 960410.4,
         "trips_equivalent": 1,
         "trip_code": "E261008U7S3U72N",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -38984,7 +38984,7 @@
         "cost": 960410.4,
         "trips_equivalent": 1,
         "trip_code": "E261009RU5A0LNR",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -38999,7 +38999,7 @@
         "cost": 960410.4,
         "trips_equivalent": 1,
         "trip_code": "E261010WBQD866X",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39014,7 +39014,7 @@
         "cost": 960410.4,
         "trips_equivalent": 1,
         "trip_code": "E261011QSFI2LHP",
-        "ontime": ""
+        "ontime": "83,3%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39029,7 +39029,7 @@
         "cost": 960410.4,
         "trips_equivalent": 1,
         "trip_code": "E261012MJC43SVS",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39404,7 +39404,7 @@
         "cost": 1252025.1,
         "trips_equivalent": 1,
         "trip_code": "E261007T9ADBPXT",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39419,7 +39419,7 @@
         "cost": 1252025.1,
         "trips_equivalent": 1,
         "trip_code": "E261008YAWOSWPG",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39434,7 +39434,7 @@
         "cost": 1252025.1,
         "trips_equivalent": 1,
         "trip_code": "E2610094G0B1JKK",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39449,7 +39449,7 @@
         "cost": 1252025.1,
         "trips_equivalent": 1,
         "trip_code": "E261010F5OO7MBC",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39464,7 +39464,7 @@
         "cost": 1252025.1,
         "trips_equivalent": 1,
         "trip_code": "E261011RHIICBV0",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39479,7 +39479,7 @@
         "cost": 1252025.1,
         "trips_equivalent": 1,
         "trip_code": "E261012JJFE3PZC",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39854,7 +39854,7 @@
         "cost": 181944.0,
         "trips_equivalent": 1,
         "trip_code": "E261007L2DYDSU4",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39869,7 +39869,7 @@
         "cost": 181944.0,
         "trips_equivalent": 1,
         "trip_code": "E261008KPPWNQZK",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39884,7 +39884,7 @@
         "cost": 181944.0,
         "trips_equivalent": 1,
         "trip_code": "E261009HZM5SLFZ",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39899,7 +39899,7 @@
         "cost": 181944.0,
         "trips_equivalent": 1,
         "trip_code": "E2610101GLNAT6F",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39914,7 +39914,7 @@
         "cost": 181944.0,
         "trips_equivalent": 1,
         "trip_code": "E261011174W9BXO",
-        "ontime": ""
+        "ontime": "60,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39929,7 +39929,7 @@
         "cost": 181944.0,
         "trips_equivalent": 1,
         "trip_code": "E261012UQWFOVDP",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -41324,7 +41324,7 @@
         "cost": 336436.8,
         "trips_equivalent": 1,
         "trip_code": "E261007PVR43I4D",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -41354,7 +41354,7 @@
         "cost": 336436.8,
         "trips_equivalent": 1,
         "trip_code": "E261008DUFH0X38",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -41414,7 +41414,7 @@
         "cost": 336436.8,
         "trips_equivalent": 1,
         "trip_code": "E261009CJCBY5DM",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -41429,7 +41429,7 @@
         "cost": 384316.8,
         "trips_equivalent": 1,
         "trip_code": "E261010ZACJG6GS",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -41444,7 +41444,7 @@
         "cost": 384316.8,
         "trips_equivalent": 1,
         "trip_code": "E2610116J2CO1P7",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -43139,7 +43139,7 @@
         "cost": 123849.6,
         "trips_equivalent": 1,
         "trip_code": "E261007BA08JYAL",
-        "ontime": ""
+        "ontime": "75,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -43154,7 +43154,7 @@
         "cost": 123849.6,
         "trips_equivalent": 1,
         "trip_code": "E2610085AA4ISAJ",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -43169,7 +43169,7 @@
         "cost": 120657.6,
         "trips_equivalent": 1,
         "trip_code": "E26100941U3VU49",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -43184,7 +43184,7 @@
         "cost": 123849.6,
         "trips_equivalent": 1,
         "trip_code": "E261010KUKU54SW",
-        "ontime": ""
+        "ontime": "75,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -43199,7 +43199,7 @@
         "cost": 123849.6,
         "trips_equivalent": 1,
         "trip_code": "E26101154LLDUTX",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -43214,7 +43214,7 @@
         "cost": 123849.6,
         "trips_equivalent": 1,
         "trip_code": "E261012RDKCTHW6",
-        "ontime": ""
+        "ontime": "75,0%"
       },
       {
         "ncc": "Mạnh Cường",
