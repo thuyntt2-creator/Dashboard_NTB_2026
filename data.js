@@ -12193,7 +12193,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 60,
-      "last_updated": "10:22 - 15/10/2026"
+      "last_updated": "10:56 - 15/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 2334.54,
@@ -12215,7 +12215,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 730.63,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 23
       },
       {
@@ -12241,7 +12241,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 429.33,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, NAK",
         "truck_count": 10
       },
       {
@@ -12254,7 +12254,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 200.61,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Tốt và Rẻ, Trâm Hoá",
+        "primary_ncc": "Lâm Ngọc Thành, Tốt và Rẻ",
         "truck_count": 5
       },
       {
@@ -12280,8 +12280,8 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 93.45,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
-        "truck_count": 11
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "truck_count": 10
       },
       {
         "ktc": "KTC Nam Nha Trang",
@@ -12309,7 +12309,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 38,
-        "active_ktcs": "KTC Bình Thuận, KTC Đức Trọng, KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Khánh Hòa"
+        "active_ktcs": "KTC Nam Nha Trang, KTC Bình Thuận, KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Đức Trọng"
       },
       {
         "ncc": "NAK",
@@ -30202,7 +30202,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-11",
         "truck": "79H-10144",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Ninh Hòa 2 -> (KHO) Tân Định  -> (KHO) Đông Ninh Hòa -> Kho Trung Chuyển Khánh Hòa",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Tân Định -> (KHO) Đông Ninh Hòa -> Kho Trung Chuyển Khánh Hòa",
         "ktc": "KTC Khánh Hòa",
         "type": "Cố định",
         "cost_str": "695.227 đ",
@@ -32017,7 +32017,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-08",
         "truck": "79H-09826",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 1 -> (KHO) Nam Nha Trang 2 ->  Kho Trung Chuyển Khánh Hòa",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 1 -> (KHO) Nam Nha Trang 2 -> Kho Trung Chuyển Khánh Hòa",
         "ktc": "KTC Nam Nha Trang",
         "type": "Cố định",
         "cost_str": "195.350 đ",
@@ -32032,7 +32032,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-09",
         "truck": "79H-09826",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 1 -> (KHO) Nam Nha Trang 2 ->(KHO) Nam Nha Trang 1 ->  Kho Trung Chuyển Khánh Hòa",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 1 -> (KHO) Nam Nha Trang 2 -> (KHO) Nam Nha Trang 1 -> Kho Trung Chuyển Khánh Hòa",
         "ktc": "KTC Nam Nha Trang",
         "type": "Cố định",
         "cost_str": "252.168 đ",
@@ -32047,7 +32047,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-10",
         "truck": "79H-09826",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 1 -> (KHO) Nam Nha Trang 2 ->(KHO) Nam Nha Trang 1 ->  Kho Trung Chuyển Khánh Hòa",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 1 -> (KHO) Nam Nha Trang 2 -> (KHO) Nam Nha Trang 1 -> Kho Trung Chuyển Khánh Hòa",
         "ktc": "KTC Nam Nha Trang",
         "type": "Cố định",
         "cost_str": "252.168 đ",
@@ -32062,7 +32062,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-11",
         "truck": "79H-09826",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 1 -> (KHO) Nam Nha Trang 2 ->  Kho Trung Chuyển Khánh Hòa",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 1 -> (KHO) Nam Nha Trang 2 -> Kho Trung Chuyển Khánh Hòa",
         "ktc": "KTC Nam Nha Trang",
         "type": "Cố định",
         "cost_str": "195.350 đ",
@@ -32077,7 +32077,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-12",
         "truck": "79H-09826",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 1 -> (KHO) Nam Nha Trang 2 ->(KHO) Nam Nha Trang 1 ->  Kho Trung Chuyển Khánh Hòa",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 1 -> (KHO) Nam Nha Trang 2 -> (KHO) Nam Nha Trang 1 -> Kho Trung Chuyển Khánh Hòa",
         "ktc": "KTC Nam Nha Trang",
         "type": "Cố định",
         "cost_str": "252.168 đ",
@@ -32092,7 +32092,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-13",
         "truck": "79H-09826",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 1 -> (KHO) Nam Nha Trang 2 ->  Kho Trung Chuyển Khánh Hòa",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 1 -> (KHO) Nam Nha Trang 2 -> Kho Trung Chuyển Khánh Hòa",
         "ktc": "KTC Nam Nha Trang",
         "type": "Cố định",
         "cost_str": "195.350 đ",
@@ -32932,7 +32932,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-10",
         "truck": "79E-00392",
         "capacity": "5000",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Cam Linh -> (NTH) Phan Rang -> (NTH) Phước Dinh -> Kho Chuyển Tiếp Bình Thuận -> Kho Giao Hàng Nặng - Tuy Phong - Bình Thuận -> Kho Giao Hàng Nặng - Phan Rang - Ninh Thuận -> Kho Trung Chuyển Khánh Hòa",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (NTH) Phan Rang -> (NTH) Phước Dinh -> Kho Chuyển Tiếp Bình Thuận -> Kho Giao Hàng Nặng - Tuy Phong - Bình Thuận -> Kho Giao Hàng Nặng - Phan Rang - Ninh Thuận -> Kho Trung Chuyển Khánh Hòa",
         "ktc": "KTC Khánh Hòa",
         "type": "Cố định",
         "cost_str": "4.141.389 đ",
@@ -33442,7 +33442,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-13",
         "truck": "79H-01908",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (NTH) Phan Rang -> (NTH) Thuận Nam -> Kho Chuyển Tiếp Bình Thuận -> Kho Giao Hàng Nặng - Phan Rang - Ninh Thuận ->  (NTH) Phan Rang -> (KHO) ĐL Bắc Cam Ranh -> (KHO) Bắc Cam Ranh -> (KHO) Cam Lâm 2 -> (KHO) Cam Lâm 1 -> Kho Trung Chuyển Khánh Hòa",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (NTH) Phan Rang -> (NTH) Thuận Nam -> Kho Chuyển Tiếp Bình Thuận -> Kho Giao Hàng Nặng - Phan Rang - Ninh Thuận -> (NTH) Phan Rang -> (KHO) ĐL Bắc Cam Ranh -> (KHO) Bắc Cam Ranh -> (KHO) Cam Lâm 2 -> Kho Trung Chuyển Khánh Hòa",
         "ktc": "KTC Khánh Hòa",
         "type": "Cố định",
         "cost_str": "3.443.670 đ",
@@ -43953,8 +43953,8 @@ window.DASHBOARD_DATA = {
       },
       {
         "ncc": "Mạnh Cường",
-        "date": "09/10/2026",
-        "date_iso": "2026-10-09",
+        "date": "10/10/2026",
+        "date_iso": "2026-10-10",
         "truck": "79C-16983",
         "capacity": "1900",
         "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) CK Bắc Nha Trang -> Kho Giao Hàng Nặng - Nha Trang - Khánh Hoà -> Kho Trung Chuyển Khánh Hòa",
@@ -44015,7 +44015,7 @@ window.DASHBOARD_DATA = {
         "ncc": "Mạnh Cường",
         "date": "13/10/2026",
         "date_iso": "2026-10-13",
-        "truck": "79H-01922",
+        "truck": "79C-16983",
         "capacity": "1900",
         "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) CK Bắc Nha Trang -> Kho Giao Hàng Nặng - Nha Trang - Khánh Hoà -> Kho Trung Chuyển Khánh Hòa",
         "ktc": "KTC Bắc Nha Trang",
