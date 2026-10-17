@@ -12185,20 +12185,20 @@ window.DASHBOARD_DATA = {
   },
   "transport_costs": {
     "region": {
-      "total_cost": 2362.69,
-      "total_cost_formatted": "2.362.692.447 đ",
-      "total_trips": 2326,
-      "avg_cost_per_trip": 1.02,
-      "avg_cost_per_trip_formatted": "1.015.775 đ/chuyến",
+      "total_cost": 2395.15,
+      "total_cost_formatted": "2.395.154.232 đ",
+      "total_trips": 2333,
+      "avg_cost_per_trip": 1.03,
+      "avg_cost_per_trip_formatted": "1.026.641 đ/chuyến",
       "ncc_count": 7,
       "ktc_count": 7,
-      "total_trucks": 62,
-      "last_updated": "12:31 - 17/10/2026"
+      "total_trucks": 61,
+      "last_updated": "13:07 - 17/10/2026"
     },
     "surge_fixed": {
-      "fixed_cost": 2362.69,
+      "fixed_cost": 2395.15,
       "fixed_cost_pct": 100.0,
-      "fixed_trips": 2326,
+      "fixed_trips": 2333,
       "surge_cost": 0.0,
       "surge_cost_pct": 0.0,
       "surge_trips": 0,
@@ -12207,12 +12207,12 @@ window.DASHBOARD_DATA = {
     "ktcs": [
       {
         "ktc": "KTC Khánh Hòa",
-        "total_cost": 735.89,
-        "total_cost_raw": 735893383.8000001,
-        "total_trips": 607,
-        "cost_per_trip": 1.21,
-        "cost_per_trip_raw": 1212344.9485996705,
-        "fixed_cost": 735.89,
+        "total_cost": 739.89,
+        "total_cost_raw": 739889129.4000001,
+        "total_trips": 618,
+        "cost_per_trip": 1.2,
+        "cost_per_trip_raw": 1197231.6009708738,
+        "fixed_cost": 739.89,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
@@ -12220,12 +12220,12 @@ window.DASHBOARD_DATA = {
       },
       {
         "ktc": "KTC Bình Thuận",
-        "total_cost": 678.29,
-        "total_cost_raw": 678286123.1999996,
-        "total_trips": 580,
-        "cost_per_trip": 1.17,
-        "cost_per_trip_raw": 1169458.8331034475,
-        "fixed_cost": 678.29,
+        "total_cost": 712.31,
+        "total_cost_raw": 712313265.1999996,
+        "total_trips": 586,
+        "cost_per_trip": 1.22,
+        "cost_per_trip_raw": 1215551.6470989755,
+        "fixed_cost": 712.31,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "primary_ncc": "Mạnh Cường",
@@ -12242,7 +12242,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "primary_ncc": "Mạnh Cường, NAK",
-        "truck_count": 10
+        "truck_count": 9
       },
       {
         "ktc": "KTC Đắk Nông",
@@ -12254,7 +12254,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 200.41,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Trâm Hoá, Lâm Ngọc Thành",
+        "primary_ncc": "Tốt và Rẻ, Trâm Hoá",
         "truck_count": 7
       },
       {
@@ -12272,12 +12272,12 @@ window.DASHBOARD_DATA = {
       },
       {
         "ktc": "KTC Bắc Nha Trang",
-        "total_cost": 93.21,
-        "total_cost_raw": 93210370.60000005,
-        "total_trips": 263,
+        "total_cost": 93.22,
+        "total_cost_raw": 93217393.00000006,
+        "total_trips": 264,
         "cost_per_trip": 0.35,
-        "cost_per_trip_raw": 354412.0555133082,
-        "fixed_cost": 93.21,
+        "cost_per_trip_raw": 353096.18560606084,
+        "fixed_cost": 93.22,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
@@ -12285,12 +12285,12 @@ window.DASHBOARD_DATA = {
       },
       {
         "ktc": "KTC Nam Nha Trang",
-        "total_cost": 55.96,
-        "total_cost_raw": 55955893.30000008,
-        "total_trips": 211,
-        "cost_per_trip": 0.27,
-        "cost_per_trip_raw": 265193.8071090051,
-        "fixed_cost": 55.96,
+        "total_cost": 50.39,
+        "total_cost_raw": 50387768.500000015,
+        "total_trips": 200,
+        "cost_per_trip": 0.25,
+        "cost_per_trip_raw": 251938.8425000001,
+        "fixed_cost": 50.39,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "primary_ncc": "Mạnh Cường",
@@ -12300,16 +12300,16 @@ window.DASHBOARD_DATA = {
     "nccs": [
       {
         "ncc": "Mạnh Cường",
-        "total_cost": 1501.57,
-        "total_cost_raw": 1501574356.8999968,
-        "total_trips": 1512,
-        "cost_per_trip": 0.99,
-        "cost_per_trip_raw": 993104.7333994687,
-        "fixed_cost": 1501.57,
+        "total_cost": 1534.04,
+        "total_cost_raw": 1534036142.0999968,
+        "total_trips": 1519,
+        "cost_per_trip": 1.01,
+        "cost_per_trip_raw": 1009898.7110599057,
+        "fixed_cost": 1534.04,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 38,
-        "active_ktcs": "KTC Đức Trọng, KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Bình Thuận, KTC Nam Nha Trang"
+        "active_ktcs": "KTC Đức Trọng, KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Nam Nha Trang, KTC Bình Thuận"
       },
       {
         "ncc": "NAK",
@@ -12321,8 +12321,8 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 441.99,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "truck_count": 10,
-        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
+        "truck_count": 9,
+        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
       },
       {
         "ncc": "Mạnh Cường (BCCK)",
@@ -17600,7 +17600,7 @@ window.DASHBOARD_DATA = {
         "ncc": "NAK",
         "date": "08/10/2026",
         "date_iso": "2026-10-08",
-        "truck": "29H85348",
+        "truck": "29H-85348",
         "capacity": "1900",
         "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Lang Biang - Đà Lạt 2 -> (LDO) Xuân Trường - Đà Lạt -> (LDO) ĐG Xuân Trường - Đà Lạt -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
@@ -17615,7 +17615,7 @@ window.DASHBOARD_DATA = {
         "ncc": "NAK",
         "date": "08/10/2026",
         "date_iso": "2026-10-08",
-        "truck": "29H85348",
+        "truck": "29H-85348",
         "capacity": "1900",
         "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Xuân Trường - Đà Lạt -> (LDO) Xuân Hương - Đà Lạt -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
@@ -17630,7 +17630,7 @@ window.DASHBOARD_DATA = {
         "ncc": "NAK",
         "date": "09/10/2026",
         "date_iso": "2026-10-09",
-        "truck": "29H85348",
+        "truck": "29H-85348",
         "capacity": "1900",
         "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Lang Biang - Đà Lạt 2 -> (LDO) Xuân Trường - Đà Lạt -> (LDO) ĐG Xuân Trường - Đà Lạt -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
@@ -17645,7 +17645,7 @@ window.DASHBOARD_DATA = {
         "ncc": "NAK",
         "date": "10/10/2026",
         "date_iso": "2026-10-10",
-        "truck": "29H85348",
+        "truck": "29H-85348",
         "capacity": "1900",
         "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Lang Biang - Đà Lạt 2 -> (LDO) Xuân Trường - Đà Lạt -> (LDO) ĐG Xuân Trường - Đà Lạt -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
@@ -17660,7 +17660,7 @@ window.DASHBOARD_DATA = {
         "ncc": "NAK",
         "date": "10/10/2026",
         "date_iso": "2026-10-10",
-        "truck": "29H85348",
+        "truck": "29H-85348",
         "capacity": "1900",
         "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Xuân Trường - Đà Lạt -> (LDO) Xuân Hương - Đà Lạt -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
@@ -17675,7 +17675,7 @@ window.DASHBOARD_DATA = {
         "ncc": "NAK",
         "date": "11/10/2026",
         "date_iso": "2026-10-11",
-        "truck": "29H85348",
+        "truck": "29H-85348",
         "capacity": "1900",
         "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Lang Biang - Đà Lạt 2 -> (LDO) Xuân Trường - Đà Lạt -> (LDO) ĐG Xuân Trường - Đà Lạt -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
@@ -17690,7 +17690,7 @@ window.DASHBOARD_DATA = {
         "ncc": "NAK",
         "date": "11/10/2026",
         "date_iso": "2026-10-11",
-        "truck": "29H85348",
+        "truck": "29H-85348",
         "capacity": "1900",
         "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Xuân Trường - Đà Lạt -> (LDO) Xuân Hương - Đà Lạt -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
@@ -17705,7 +17705,7 @@ window.DASHBOARD_DATA = {
         "ncc": "NAK",
         "date": "12/10/2026",
         "date_iso": "2026-10-12",
-        "truck": "29H85348",
+        "truck": "29H-85348",
         "capacity": "1900",
         "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Lang Biang - Đà Lạt 2 -> (LDO) Xuân Trường - Đà Lạt -> (LDO) ĐG Xuân Trường - Đà Lạt -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
@@ -17720,7 +17720,7 @@ window.DASHBOARD_DATA = {
         "ncc": "NAK",
         "date": "12/10/2026",
         "date_iso": "2026-10-12",
-        "truck": "29H85348",
+        "truck": "29H-85348",
         "capacity": "1900",
         "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Xuân Trường - Đà Lạt -> (LDO) Xuân Hương - Đà Lạt -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
@@ -17735,7 +17735,7 @@ window.DASHBOARD_DATA = {
         "ncc": "NAK",
         "date": "12/10/2026",
         "date_iso": "2026-10-12",
-        "truck": "29H85348",
+        "truck": "29H-85348",
         "capacity": "1900",
         "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Đức Trọng 2 -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
@@ -17750,7 +17750,7 @@ window.DASHBOARD_DATA = {
         "ncc": "NAK",
         "date": "13/10/2026",
         "date_iso": "2026-10-13",
-        "truck": "29H85348",
+        "truck": "29H-85348",
         "capacity": "1900",
         "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Lang Biang - Đà Lạt 2 -> (LDO) Xuân Trường - Đà Lạt -> (LDO) ĐG Xuân Trường - Đà Lạt -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
@@ -17765,7 +17765,7 @@ window.DASHBOARD_DATA = {
         "ncc": "NAK",
         "date": "13/10/2026",
         "date_iso": "2026-10-13",
-        "truck": "29H85348",
+        "truck": "29H-85348",
         "capacity": "1900",
         "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Xuân Trường - Đà Lạt -> (LDO) Xuân Hương - Đà Lạt -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
@@ -17780,7 +17780,7 @@ window.DASHBOARD_DATA = {
         "ncc": "NAK",
         "date": "14/10/2026",
         "date_iso": "2026-10-14",
-        "truck": "29H85348",
+        "truck": "29H-85348",
         "capacity": "1900",
         "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Lang Biang - Đà Lạt 2 -> (LDO) Xuân Trường - Đà Lạt -> (LDO) ĐG Xuân Trường - Đà Lạt -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
@@ -17795,7 +17795,7 @@ window.DASHBOARD_DATA = {
         "ncc": "NAK",
         "date": "14/10/2026",
         "date_iso": "2026-10-14",
-        "truck": "29H85348",
+        "truck": "29H-85348",
         "capacity": "1900",
         "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Xuân Trường - Đà Lạt -> (LDO) Xuân Hương - Đà Lạt -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
@@ -23143,7 +23143,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "228.547 đ",
         "cost": 228547.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261015XKSOXPZT",
         "ontime": ""
       },
       {
@@ -23158,7 +23158,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "228.547 đ",
         "cost": 228547.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2610166OPAX2PE",
         "ontime": ""
       },
       {
@@ -23593,7 +23593,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "233.016 đ",
         "cost": 233016.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E26101380C6X0M",
         "ontime": ""
       },
       {
@@ -23608,7 +23608,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "233.016 đ",
         "cost": 233016.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261014NND9EKS2",
         "ontime": ""
       },
       {
@@ -23623,7 +23623,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "233.016 đ",
         "cost": 233016.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261015P3TLK12D",
         "ontime": ""
       },
       {
@@ -24067,13 +24067,13 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-16",
         "truck": "50E-19875",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Bắc Nha Trang -> (KHO) Nam Nha Trang 3 -> (KHO) Nam Nha Trang 5 -> Kho Trung Chuyển Khánh Hòa",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Bắc Nha Trang -> (KHO) Nam Nha Trang 5 -> Kho Trung Chuyển Khánh Hòa",
         "ktc": "KTC Bắc Nha Trang",
         "type": "Cố định",
-        "cost_str": "298.133 đ",
-        "cost": 298132.8,
+        "cost_str": "291.110 đ",
+        "cost": 291110.4,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E26101506SQN71J",
         "ontime": ""
       },
       {
@@ -24082,13 +24082,13 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-17",
         "truck": "50E-19875",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Bắc Nha Trang -> (KHO) Nam Nha Trang 3 -> (KHO) Nam Nha Trang 5 -> Kho Trung Chuyển Khánh Hòa",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Bắc Nha Trang -> (KHO) Nam Nha Trang->  Kho Trung Chuyển Khánh Hòa",
         "ktc": "KTC Bắc Nha Trang",
         "type": "Cố định",
-        "cost_str": "298.133 đ",
-        "cost": 298132.8,
+        "cost_str": "303.878 đ",
+        "cost": 303878.4,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2610164NVEJWCV",
         "ontime": ""
       },
       {
@@ -24483,17 +24483,32 @@ window.DASHBOARD_DATA = {
       },
       {
         "ncc": "Mạnh Cường",
+        "date": "15/10/2026",
+        "date_iso": "2026-10-15",
+        "truck": "50E-19875",
+        "capacity": "1900",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Nam Nha Trang 3 -> (KHO) Nam Nha Trang 1 -> (KHO) Nam Nha Trang 5 -> Kho Trung Chuyển Khánh Hòa",
+        "ktc": "KTC Nam Nha Trang",
+        "type": "Cố định",
+        "cost_str": "278.981 đ",
+        "cost": 278980.8,
+        "trips_equivalent": 1,
+        "trip_code": "E261014N3EH125O",
+        "ontime": ""
+      },
+      {
+        "ncc": "Mạnh Cường",
         "date": "16/10/2026",
         "date_iso": "2026-10-16",
         "truck": "50E-19875",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Nam Nha Trang 3 -> (KHO) Nam Nha Trang 1 -> (KHO) Nam Nha Trang 5 -> (KHO) Nam Nha Trang 1 -> Kho Trung Chuyển Khánh Hòa",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Nam Nha Trang 3 -> (KHO) Nam Nha Trang 1 -> (KHO) Nam Nha Trang  -> Kho Trung Chuyển Khánh Hòa",
         "ktc": "KTC Nam Nha Trang",
         "type": "Cố định",
-        "cost_str": "283.450 đ",
-        "cost": 283449.6,
+        "cost_str": "296.856 đ",
+        "cost": 296856.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261016CESBY4KD",
         "ontime": ""
       },
       {
@@ -25402,13 +25417,13 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-15",
         "truck": "79H-02628",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Nam Nha Trang 3 -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
-        "ktc": "KTC Nam Nha Trang",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Diên Thọ -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
+        "ktc": "KTC Khánh Hòa",
         "type": "Cố định",
-        "cost_str": "488.376 đ",
-        "cost": 488376.0,
+        "cost_str": "363.250 đ",
+        "cost": 363249.6,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261014LXB16ZCM",
         "ontime": ""
       },
       {
@@ -25417,13 +25432,13 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-16",
         "truck": "79H-02628",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Nam Nha Trang 3 -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
-        "ktc": "KTC Nam Nha Trang",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Diên Thọ -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
+        "ktc": "KTC Khánh Hòa",
         "type": "Cố định",
-        "cost_str": "488.376 đ",
-        "cost": 488376.0,
+        "cost_str": "363.250 đ",
+        "cost": 363249.6,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261015BYQPOW0W",
         "ontime": ""
       },
       {
@@ -25432,13 +25447,13 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-17",
         "truck": "79H-02628",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Nam Nha Trang 3 -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
-        "ktc": "KTC Nam Nha Trang",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Diên Thọ -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
+        "ktc": "KTC Khánh Hòa",
         "type": "Cố định",
-        "cost_str": "488.376 đ",
-        "cost": 488376.0,
+        "cost_str": "363.250 đ",
+        "cost": 363249.6,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2610168VUDWO89",
         "ontime": ""
       },
       {
@@ -25447,11 +25462,11 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-18",
         "truck": "79H-02628",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Nam Nha Trang 3 -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
-        "ktc": "KTC Nam Nha Trang",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Diên Thọ -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
+        "ktc": "KTC Khánh Hòa",
         "type": "Cố định",
-        "cost_str": "488.376 đ",
-        "cost": 488376.0,
+        "cost_str": "363.250 đ",
+        "cost": 363249.6,
         "trips_equivalent": 1,
         "trip_code": "",
         "ontime": ""
@@ -25462,11 +25477,11 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-19",
         "truck": "79H-02628",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Nam Nha Trang 3 -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
-        "ktc": "KTC Nam Nha Trang",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Diên Thọ -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
+        "ktc": "KTC Khánh Hòa",
         "type": "Cố định",
-        "cost_str": "488.376 đ",
-        "cost": 488376.0,
+        "cost_str": "363.250 đ",
+        "cost": 363249.6,
         "trips_equivalent": 1,
         "trip_code": "",
         "ontime": ""
@@ -25477,11 +25492,11 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-20",
         "truck": "79H-02628",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Nam Nha Trang 3 -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
-        "ktc": "KTC Nam Nha Trang",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Diên Thọ -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
+        "ktc": "KTC Khánh Hòa",
         "type": "Cố định",
-        "cost_str": "488.376 đ",
-        "cost": 488376.0,
+        "cost_str": "363.250 đ",
+        "cost": 363249.6,
         "trips_equivalent": 1,
         "trip_code": "",
         "ontime": ""
@@ -25492,11 +25507,11 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-21",
         "truck": "79H-02628",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Nam Nha Trang 3 -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
-        "ktc": "KTC Nam Nha Trang",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Diên Thọ -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
+        "ktc": "KTC Khánh Hòa",
         "type": "Cố định",
-        "cost_str": "488.376 đ",
-        "cost": 488376.0,
+        "cost_str": "363.250 đ",
+        "cost": 363249.6,
         "trips_equivalent": 1,
         "trip_code": "",
         "ontime": ""
@@ -25507,11 +25522,11 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-22",
         "truck": "79H-02628",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Nam Nha Trang 3 -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
-        "ktc": "KTC Nam Nha Trang",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Diên Thọ -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
+        "ktc": "KTC Khánh Hòa",
         "type": "Cố định",
-        "cost_str": "488.376 đ",
-        "cost": 488376.0,
+        "cost_str": "363.250 đ",
+        "cost": 363249.6,
         "trips_equivalent": 1,
         "trip_code": "",
         "ontime": ""
@@ -25522,11 +25537,11 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-23",
         "truck": "79H-02628",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Nam Nha Trang 3 -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
-        "ktc": "KTC Nam Nha Trang",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Diên Thọ -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
+        "ktc": "KTC Khánh Hòa",
         "type": "Cố định",
-        "cost_str": "488.376 đ",
-        "cost": 488376.0,
+        "cost_str": "363.250 đ",
+        "cost": 363249.6,
         "trips_equivalent": 1,
         "trip_code": "",
         "ontime": ""
@@ -25537,11 +25552,11 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-24",
         "truck": "79H-02628",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Nam Nha Trang 3 -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
-        "ktc": "KTC Nam Nha Trang",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Diên Thọ -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
+        "ktc": "KTC Khánh Hòa",
         "type": "Cố định",
-        "cost_str": "488.376 đ",
-        "cost": 488376.0,
+        "cost_str": "363.250 đ",
+        "cost": 363249.6,
         "trips_equivalent": 1,
         "trip_code": "",
         "ontime": ""
@@ -25552,26 +25567,11 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-25",
         "truck": "79H-02628",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Nam Nha Trang 3 -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
-        "ktc": "KTC Nam Nha Trang",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Diên Thọ -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
+        "ktc": "KTC Khánh Hòa",
         "type": "Cố định",
-        "cost_str": "488.376 đ",
-        "cost": 488376.0,
-        "trips_equivalent": 1,
-        "trip_code": "",
-        "ontime": ""
-      },
-      {
-        "ncc": "Mạnh Cường",
-        "date": "26/10/2026",
-        "date_iso": "2026-10-26",
-        "truck": "79H-02628",
-        "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Diên Khánh 2 -> (KHO) Nam Nha Trang 3 -> (KHO) Khánh Vĩnh -> (KHO) Diên Thọ -> (KHO) Diên Khánh 2 -> Kho Trung Chuyển Khánh Hòa",
-        "ktc": "KTC Nam Nha Trang",
-        "type": "Cố định",
-        "cost_str": "488.376 đ",
-        "cost": 488376.0,
+        "cost_str": "363.250 đ",
+        "cost": 363249.6,
         "trips_equivalent": 1,
         "trip_code": "",
         "ontime": ""
@@ -25888,7 +25888,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "326.861 đ",
         "cost": 326860.8,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261014OMINRZ1Z",
         "ontime": ""
       },
       {
@@ -25903,7 +25903,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "326.861 đ",
         "cost": 326860.8,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261015FHMD33KI",
         "ontime": ""
       },
       {
@@ -26833,7 +26833,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.616.685 đ",
         "cost": 1616685.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2610167PBB9NZU",
         "ontime": ""
       },
       {
@@ -27763,7 +27763,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "2.309.516 đ",
         "cost": 2309516.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2610162XV0X7F6",
         "ontime": ""
       },
       {
@@ -28158,6 +28158,21 @@ window.DASHBOARD_DATA = {
       },
       {
         "ncc": "Mạnh Cường",
+        "date": "15/10/2026",
+        "date_iso": "2026-10-15",
+        "truck": "79H-12193",
+        "capacity": "1900",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Tây Nha Trang -> (KHO) Bắc Nha Trang -> Kho Trung Chuyển Khánh Hòa",
+        "ktc": "KTC Bắc Nha Trang",
+        "type": "Cố định",
+        "cost_str": "174.283 đ",
+        "cost": 174283.2,
+        "trips_equivalent": 1,
+        "trip_code": "E261014C5O03INY",
+        "ontime": ""
+      },
+      {
+        "ncc": "Mạnh Cường",
         "date": "16/10/2026",
         "date_iso": "2026-10-16",
         "truck": "79H-12193",
@@ -28168,7 +28183,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "174.283 đ",
         "cost": 174283.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261015NYCXM7GB",
         "ontime": ""
       },
       {
@@ -28543,7 +28558,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.250.926 đ",
         "cost": 1250925.5,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2610147TFFILJM",
         "ontime": ""
       },
       {
@@ -28558,7 +28573,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.250.926 đ",
         "cost": 1250925.5,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261015QRHVQT5M",
         "ontime": ""
       },
       {
@@ -28573,7 +28588,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.250.926 đ",
         "cost": 1250925.5,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261016SAQWNQCJ",
         "ontime": ""
       },
       {
@@ -29002,13 +29017,13 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-16",
         "truck": "50E-19875",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Bắc Nha Trang -> (KHO) Nam Nha Trang 5 -> Kho Trung Chuyển Khánh Hòa",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Bắc Nha Trang -> Kho Trung Chuyển Khánh Hòa",
         "ktc": "KTC Bắc Nha Trang",
         "type": "Cố định",
-        "cost_str": "291.110 đ",
-        "cost": 291110.4,
+        "cost_str": "125.126 đ",
+        "cost": 125126.4,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261014T7UECCRA",
         "ontime": ""
       },
       {
@@ -29023,7 +29038,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "125.126 đ",
         "cost": 125126.4,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261016ZUFEYE2Q",
         "ontime": ""
       },
       {
@@ -29953,7 +29968,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.496.401 đ",
         "cost": 1496401.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261015PTWVPAMA",
         "ontime": ""
       },
       {
@@ -34093,7 +34108,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.115.742 đ",
         "cost": 1115742.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261015ZRH1BOMV",
         "ontime": ""
       },
       {
@@ -34108,7 +34123,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.115.742 đ",
         "cost": 1115742.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E26101609NMW7ER",
         "ontime": ""
       },
       {
@@ -34543,7 +34558,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "449.424 đ",
         "cost": 449424.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261014A5O4RWZ0",
         "ontime": ""
       },
       {
@@ -34558,7 +34573,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "449.424 đ",
         "cost": 449424.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261015S8AWAW4H",
         "ontime": ""
       },
       {
@@ -34573,7 +34588,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "449.424 đ",
         "cost": 449424.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261016QALJBVH6",
         "ontime": ""
       },
       {
@@ -35008,7 +35023,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.835.053 đ",
         "cost": 1835053.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261014DZJ2EYTZ",
         "ontime": ""
       },
       {
@@ -35023,7 +35038,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.835.053 đ",
         "cost": 1835053.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2610153D8JRLQL",
         "ontime": ""
       },
       {
@@ -35038,7 +35053,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.835.053 đ",
         "cost": 1835053.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261016A4F6BCWY",
         "ontime": ""
       },
       {
@@ -35488,7 +35503,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "936.458 đ",
         "cost": 936458.4,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261015IO611AS8",
         "ontime": ""
       },
       {
@@ -35503,7 +35518,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "936.458 đ",
         "cost": 936458.4,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261016QGG73BJO",
         "ontime": ""
       },
       {
@@ -35923,7 +35938,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.449.493 đ",
         "cost": 1449493.1,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261014YGFPBNX8",
         "ontime": ""
       },
       {
@@ -35938,7 +35953,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.449.493 đ",
         "cost": 1449493.1,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2610156MIFS6ZU",
         "ontime": ""
       },
       {
@@ -35953,7 +35968,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.449.493 đ",
         "cost": 1449493.1,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E26101623KQ2S26",
         "ontime": ""
       },
       {
@@ -36373,7 +36388,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "969.022 đ",
         "cost": 969021.6,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2610148590MZXF",
         "ontime": ""
       },
       {
@@ -36388,7 +36403,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "969.022 đ",
         "cost": 969021.6,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261015KHD3J6MV",
         "ontime": ""
       },
       {
@@ -36403,7 +36418,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "969.022 đ",
         "cost": 969021.6,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2610160E5BHAFL",
         "ontime": ""
       },
       {
@@ -37723,7 +37738,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.711.450 đ",
         "cost": 1711450.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261014V1MURXEO",
         "ontime": ""
       },
       {
@@ -37738,7 +37753,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.711.450 đ",
         "cost": 1711450.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261015RXH418PQ",
         "ontime": ""
       },
       {
@@ -37753,7 +37768,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.711.450 đ",
         "cost": 1711450.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2610166FBS9ARG",
         "ontime": ""
       },
       {
@@ -38188,7 +38203,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.024.917 đ",
         "cost": 1024917.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261014OYQ3FG6K",
         "ontime": ""
       },
       {
@@ -38203,7 +38218,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.024.917 đ",
         "cost": 1024917.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E26101508249D70",
         "ontime": ""
       },
       {
@@ -38218,7 +38233,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.024.917 đ",
         "cost": 1024917.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E26101643JEWJP2",
         "ontime": ""
       },
       {
@@ -38653,7 +38668,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "723.559 đ",
         "cost": 723559.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E26101513UOXF51",
         "ontime": ""
       },
       {
@@ -38668,7 +38683,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "723.559 đ",
         "cost": 723559.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261016AAAWTUWU",
         "ontime": ""
       },
       {
@@ -39553,7 +39568,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "996.794 đ",
         "cost": 996794.4,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261014E4M6XQW9",
         "ontime": ""
       },
       {
@@ -39568,7 +39583,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "996.794 đ",
         "cost": 996794.4,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261015C2M8MVQR",
         "ontime": ""
       },
       {
@@ -39583,7 +39598,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "996.794 đ",
         "cost": 996794.4,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261016QEIRQ49A",
         "ontime": ""
       },
       {
@@ -40468,7 +40483,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.252.025 đ",
         "cost": 1252025.1,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261015L3KCVOT4",
         "ontime": ""
       },
       {
@@ -40483,7 +40498,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.252.025 đ",
         "cost": 1252025.1,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261016XNUKBYMS",
         "ontime": ""
       },
       {
@@ -41403,6 +41418,81 @@ window.DASHBOARD_DATA = {
       },
       {
         "ncc": "Mạnh Cường",
+        "date": "15/10/2026",
+        "date_iso": "2026-10-15",
+        "truck": "79C-16989",
+        "capacity": "1400",
+        "route": "Kho Trung Chuyển Bình Thuận-> Bưu Cục Phú Quý ->Kho Trung Chuyển Bình Thuận",
+        "ktc": "KTC Bình Thuận",
+        "type": "Cố định",
+        "cost_str": "3.336.350 đ",
+        "cost": 3336350.0,
+        "trips_equivalent": 1,
+        "trip_code": "",
+        "ontime": ""
+      },
+      {
+        "ncc": "Mạnh Cường",
+        "date": "15/10/2026",
+        "date_iso": "2026-10-15",
+        "truck": "79C-16989",
+        "capacity": "1400",
+        "route": "Kho Trung Chuyển Bình Thuận-> Bưu Cục Phú Quý ->Kho Trung Chuyển Bình Thuận",
+        "ktc": "KTC Bình Thuận",
+        "type": "Cố định",
+        "cost_str": "1.454.544 đ",
+        "cost": 1454544.0,
+        "trips_equivalent": 1,
+        "trip_code": "",
+        "ontime": ""
+      },
+      {
+        "ncc": "Mạnh Cường",
+        "date": "16/10/2026",
+        "date_iso": "2026-10-16",
+        "truck": "79C-16989",
+        "capacity": "1400",
+        "route": "Kho Trung Chuyển Bình Thuận-> Bưu Cục Phú Quý ->Kho Trung Chuyển Bình Thuận",
+        "ktc": "KTC Bình Thuận",
+        "type": "Cố định",
+        "cost_str": "5.740.885 đ",
+        "cost": 5740885.0,
+        "trips_equivalent": 1,
+        "trip_code": "",
+        "ontime": ""
+      },
+      {
+        "ncc": "Mạnh Cường",
+        "date": "16/10/2026",
+        "date_iso": "2026-10-16",
+        "truck": "79C-16989",
+        "capacity": "1400",
+        "route": "Kho Trung Chuyển Bình Thuận-> Bưu Cục Phú Quý ->Kho Trung Chuyển Bình Thuận",
+        "ktc": "KTC Bình Thuận",
+        "type": "Cố định",
+        "cost_str": "2.181.816 đ",
+        "cost": 2181816.0,
+        "trips_equivalent": 1,
+        "trip_code": "",
+        "ontime": ""
+      },
+      {
+        "ncc": "Mạnh Cường",
+        "date": "17/10/2026",
+        "date_iso": "2026-10-17",
+        "truck": "79C-16989",
+        "capacity": "1400",
+        "route": "Kho Trung Chuyển Bình Thuận-> Bưu Cục Phú Quý ->Kho Trung Chuyển Bình Thuận",
+        "ktc": "KTC Bình Thuận",
+        "type": "Cố định",
+        "cost_str": "3.440.895 đ",
+        "cost": 3440895.0,
+        "trips_equivalent": 1,
+        "trip_code": "",
+        "ontime": ""
+      },
+      {
+        "ncc": "Mạnh Cường",
         "date": "26/09/2026",
         "date_iso": "2026-09-26",
         "truck": "79C-16989",
@@ -41800,6 +41890,81 @@ window.DASHBOARD_DATA = {
         "route": "Kho Trung Chuyển Bình Thuận-> Bưu Cục Phú Quý ->Kho Trung Chuyển Bình Thuận",
         "ktc": "KTC Bình Thuận",
         "type": "Cố định",
+        "cost_str": "7.622.695 đ",
+        "cost": 7622695.0,
+        "trips_equivalent": 1,
+        "trip_code": "",
+        "ontime": ""
+      },
+      {
+        "ncc": "Mạnh Cường",
+        "date": "16/10/2026",
+        "date_iso": "2026-10-16",
+        "truck": "79C-16989",
+        "capacity": "1400",
+        "route": "Kho Trung Chuyển Bình Thuận-> Bưu Cục Phú Quý ->Kho Trung Chuyển Bình Thuận",
+        "ktc": "KTC Bình Thuận",
+        "type": "Cố định",
+        "cost_str": "727.272 đ",
+        "cost": 727272.0,
+        "trips_equivalent": 1,
+        "trip_code": "",
+        "ontime": ""
+      },
+      {
+        "ncc": "Mạnh Cường",
+        "date": "16/10/2026",
+        "date_iso": "2026-10-16",
+        "truck": "79C-16989",
+        "capacity": "1400",
+        "route": "Kho Trung Chuyển Bình Thuận-> Bưu Cục Phú Quý ->Kho Trung Chuyển Bình Thuận",
+        "ktc": "KTC Bình Thuận",
+        "type": "Cố định",
+        "cost_str": "9.922.685 đ",
+        "cost": 9922685.0,
+        "trips_equivalent": 1,
+        "trip_code": "",
+        "ontime": ""
+      },
+      {
+        "ncc": "Mạnh Cường",
+        "date": "17/10/2026",
+        "date_iso": "2026-10-17",
+        "truck": "79C-16989",
+        "capacity": "1400",
+        "route": "Kho Trung Chuyển Bình Thuận-> Bưu Cục Phú Quý ->Kho Trung Chuyển Bình Thuận",
+        "ktc": "KTC Bình Thuận",
+        "type": "Cố định",
+        "cost_str": "200.000 đ",
+        "cost": 200000.0,
+        "trips_equivalent": 1,
+        "trip_code": "",
+        "ontime": ""
+      },
+      {
+        "ncc": "Mạnh Cường",
+        "date": "18/10/2026",
+        "date_iso": "2026-10-18",
+        "truck": "79C-16989",
+        "capacity": "1400",
+        "route": "Kho Trung Chuyển Bình Thuận-> Bưu Cục Phú Quý ->Kho Trung Chuyển Bình Thuận",
+        "ktc": "KTC Bình Thuận",
+        "type": "Cố định",
+        "cost_str": "200.000 đ",
+        "cost": 200000.0,
+        "trips_equivalent": 1,
+        "trip_code": "",
+        "ontime": ""
+      },
+      {
+        "ncc": "Mạnh Cường",
+        "date": "19/10/2026",
+        "date_iso": "2026-10-19",
+        "truck": "79C-16989",
+        "capacity": "1400",
+        "route": "Kho Trung Chuyển Bình Thuận-> Bưu Cục Phú Quý ->Kho Trung Chuyển Bình Thuận",
+        "ktc": "KTC Bình Thuận",
+        "type": "Cố định",
         "cost_str": "200.000 đ",
         "cost": 200000.0,
         "trips_equivalent": 1,
@@ -41838,6 +42003,21 @@ window.DASHBOARD_DATA = {
       },
       {
         "ncc": "Mạnh Cường",
+        "date": "22/10/2026",
+        "date_iso": "2026-10-22",
+        "truck": "79C-16989",
+        "capacity": "1400",
+        "route": "Kho Trung Chuyển Bình Thuận-> Bưu Cục Phú Quý ->Kho Trung Chuyển Bình Thuận",
+        "ktc": "KTC Bình Thuận",
+        "type": "Cố định",
+        "cost_str": "200.000 đ",
+        "cost": 200000.0,
+        "trips_equivalent": 1,
+        "trip_code": "",
+        "ontime": ""
+      },
+      {
+        "ncc": "Mạnh Cường",
         "date": "23/10/2026",
         "date_iso": "2026-10-23",
         "truck": "79C-16989",
@@ -41853,83 +42033,8 @@ window.DASHBOARD_DATA = {
       },
       {
         "ncc": "Mạnh Cường",
-        "date": "24/10/2026",
-        "date_iso": "2026-10-24",
-        "truck": "79C-16989",
-        "capacity": "1400",
-        "route": "Kho Trung Chuyển Bình Thuận-> Bưu Cục Phú Quý ->Kho Trung Chuyển Bình Thuận",
-        "ktc": "KTC Bình Thuận",
-        "type": "Cố định",
-        "cost_str": "200.000 đ",
-        "cost": 200000.0,
-        "trips_equivalent": 1,
-        "trip_code": "",
-        "ontime": ""
-      },
-      {
-        "ncc": "Mạnh Cường",
         "date": "25/10/2026",
         "date_iso": "2026-10-25",
-        "truck": "79C-16989",
-        "capacity": "1400",
-        "route": "Kho Trung Chuyển Bình Thuận-> Bưu Cục Phú Quý ->Kho Trung Chuyển Bình Thuận",
-        "ktc": "KTC Bình Thuận",
-        "type": "Cố định",
-        "cost_str": "200.000 đ",
-        "cost": 200000.0,
-        "trips_equivalent": 1,
-        "trip_code": "",
-        "ontime": ""
-      },
-      {
-        "ncc": "Mạnh Cường",
-        "date": "26/10/2026",
-        "date_iso": "2026-10-26",
-        "truck": "79C-16989",
-        "capacity": "1400",
-        "route": "Kho Trung Chuyển Bình Thuận-> Bưu Cục Phú Quý ->Kho Trung Chuyển Bình Thuận",
-        "ktc": "KTC Bình Thuận",
-        "type": "Cố định",
-        "cost_str": "200.000 đ",
-        "cost": 200000.0,
-        "trips_equivalent": 1,
-        "trip_code": "",
-        "ontime": ""
-      },
-      {
-        "ncc": "Mạnh Cường",
-        "date": "30/10/2026",
-        "date_iso": "2026-10-30",
-        "truck": "79C-16989",
-        "capacity": "1400",
-        "route": "Kho Trung Chuyển Bình Thuận-> Bưu Cục Phú Quý ->Kho Trung Chuyển Bình Thuận",
-        "ktc": "KTC Bình Thuận",
-        "type": "Cố định",
-        "cost_str": "200.000 đ",
-        "cost": 200000.0,
-        "trips_equivalent": 1,
-        "trip_code": "",
-        "ontime": ""
-      },
-      {
-        "ncc": "Mạnh Cường",
-        "date": "31/10/2026",
-        "date_iso": "2026-10-31",
-        "truck": "79C-16989",
-        "capacity": "1400",
-        "route": "Kho Trung Chuyển Bình Thuận-> Bưu Cục Phú Quý ->Kho Trung Chuyển Bình Thuận",
-        "ktc": "KTC Bình Thuận",
-        "type": "Cố định",
-        "cost_str": "200.000 đ",
-        "cost": 200000.0,
-        "trips_equivalent": 1,
-        "trip_code": "",
-        "ontime": ""
-      },
-      {
-        "ncc": "Mạnh Cường",
-        "date": "02/11/2026",
-        "date_iso": "2026-11-02",
         "truck": "79C-16989",
         "capacity": "1400",
         "route": "Kho Trung Chuyển Bình Thuận-> Bưu Cục Phú Quý ->Kho Trung Chuyển Bình Thuận",
@@ -44672,7 +44777,7 @@ window.DASHBOARD_DATA = {
         "ontime": "100%"
       }
     ],
-    "all_trips_count": 2152
+    "all_trips_count": 2159
   },
   "kinh_doanh": {
     "am": [
