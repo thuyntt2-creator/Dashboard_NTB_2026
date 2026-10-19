@@ -357,7 +357,7 @@
 
     // 4. Tab 2: Sản Lượng
     const volChartTitle = document.getElementById('chart-vol-am-title');
-    if (volChartTitle) volChartTitle.textContent = `SẢN LƯỢNG GIAO 19 AM (CỘT ${prevW} vs ${currW} + ĐƯỜNG BIẾN ĐỘNG Δ)`;
+    if (volChartTitle) volChartTitle.textContent = `SẢN LƯỢNG GIAO 20 AM (CỘT ${prevW} vs ${currW} + ĐƯỜNG BIẾN ĐỘNG Δ)`;
     const btnVolFull = document.querySelector('[data-mode="w34_vs_w35_full"]');
     if (btnVolFull) btnVolFull.textContent = `📊 Sản Lượng Full Hàng (Cột ${prevW} vs ${currW} + Đường Line Δ)`;
     const btnVolTts = document.querySelector('[data-mode="w34_vs_w35_tts"]');
@@ -375,7 +375,7 @@
 
     // 5. Tab 3: %GTC Tổng
     const gtcTitle = document.getElementById('chart-gtc-tong-title');
-    if (gtcTitle) gtcTitle.textContent = `BIỂU ĐỒ SO SÁNH %GTC TỔNG ${prevW} vs ${currW} THEO 19 AM (FULL HÀNG)`;
+    if (gtcTitle) gtcTitle.textContent = `BIỂU ĐỒ SO SÁNH %GTC TỔNG ${prevW} vs ${currW} THEO 20 AM (FULL HÀNG)`;
     const thGtcFullPrev = document.querySelector('#table-gtc-full-detailed thead th:nth-child(4)');
     const thGtcFullCurr = document.querySelector('#table-gtc-full-detailed thead th:nth-child(5)');
     if (thGtcFullPrev) thGtcFullPrev.textContent = prevW;
@@ -568,15 +568,15 @@
       } else if (t.includes('TỔNG QUAN VÙNG NTB — TỶ LỆ % GÁN')) {
         el.innerHTML = `<i data-lucide="layout-grid" style="color: var(--ghn-orange);"></i> TỔNG QUAN VÙNG NTB — TỶ LỆ % GÁN (4 TUẦN ${w1} – ${currW})`;
       } else if (t.includes('PHÂN TÍCH SẢN LƯỢNG GIAO TOÀN VÙNG, 5 TỈNH THÀNH')) {
-        el.textContent = `PHÂN TÍCH SẢN LƯỢNG GIAO TOÀN VÙNG, 5 TỈNH THÀNH & 19 AM (${currW})`;
+        el.textContent = `PHÂN TÍCH SẢN LƯỢNG GIAO TOÀN VÙNG, 5 TỈNH THÀNH & 20 AM (${currW})`;
       } else if (t.includes('PHÂN TÍCH HIỆU SUẤT %GTC TỔNG TOÀN MẠNG')) {
-        el.textContent = `PHÂN TÍCH HIỆU SUẤT %GTC TỔNG TOÀN MẠNG THEO 19 AM & 5 TỈNH (${currW})`;
+        el.textContent = `PHÂN TÍCH HIỆU SUẤT %GTC TỔNG TOÀN MẠNG THEO 20 AM & 5 TỈNH (${currW})`;
       } else if (t.includes('PHÂN TÍCH CHUYÊN SÂU %GTC CA 1 TIKTOK SHOP')) {
         el.textContent = `PHÂN TÍCH CHUYÊN SÂU %GTC CA 1 TIKTOK SHOP (TARGET SLA ≥ 76.0%) (${currW})`;
-      } else if (t.includes('SO SÁNH TỶ LỆ GÁN 19 AM:')) {
-        el.textContent = `SO SÁNH TỶ LỆ GÁN 19 AM: % GÁN CA 1+TỒN vs % GÁN CA 2 vs % GÁN TỔNG (${currW})`;
-      } else if (t.includes('% RỚT LUÂN CHUYỂN THEO 19 AM PHỤ TRÁCH')) {
-        el.textContent = `% RỚT LUÂN CHUYỂN THEO 19 AM PHỤ TRÁCH (${currW})`;
+      } else if (t.includes('SO SÁNH TỶ LỆ GÁN 20 AM:')) {
+        el.textContent = `SO SÁNH TỶ LỆ GÁN 20 AM: % GÁN CA 1+TỒN vs % GÁN CA 2 vs % GÁN TỔNG (${currW})`;
+      } else if (t.includes('% RỚT LUÂN CHUYỂN THEO 20 AM PHỤ TRÁCH')) {
+        el.textContent = `% RỚT LUÂN CHUYỂN THEO 20 AM PHỤ TRÁCH (${currW})`;
       } else if (t.includes('DANH SÁCH TOP 20 BƯU CỤC CÓ TỶ LỆ RỚT LUÂN CHUYỂN CAO NHẤT')) {
         el.textContent = `DANH SÁCH TOP 20 BƯU CỤC CÓ TỶ LỆ RỚT LUÂN CHUYỂN CAO NHẤT (${currW})`;
       } else if (t.includes('BÁO CÁO TỶ LỆ %FD (RETURN / HOÀN TRẢ)')) {
@@ -663,7 +663,7 @@
 
   function populateAMFilter() {
     if (!D.gtc_tong || !D.gtc_tong.am) return;
-    selectAM.innerHTML = '<option value="ALL" selected>Tất cả AM (19 AM)</option>';
+    selectAM.innerHTML = '<option value="ALL" selected>Tất cả AM (20 AM)</option>';
     D.gtc_tong.am.forEach(item => {
       const opt = document.createElement('option');
       opt.value = item.am;
@@ -2583,7 +2583,7 @@
     const ttsMap = {};
     amTtsList.forEach(t => ttsMap[t.am] = t);
 
-    // Master 19 AM dataset combining accurate Full and TTS figures
+    // Master 20 AM dataset combining accurate Full and TTS figures
     let list = amFullList.map(r => {
       const tts = ttsMap[r.am] || {};
       const volFullCurr = r[currKey] !== undefined ? r[currKey] : (r.w35 || r.vol || 0);
@@ -2814,12 +2814,12 @@
     if (seg === 'full' && btnFull) {
       btnFull.classList.add('btn-primary', 'active');
       btnFull.classList.remove('btn-secondary');
-      if (titleEl) titleEl.textContent = `BIỂU ĐỒ SO SÁNH %GTC TỔNG ${prevLabel} vs ${currLabel} THEO 19 AM (FULL HÀNG)`;
+      if (titleEl) titleEl.textContent = `BIỂU ĐỒ SO SÁNH %GTC TỔNG ${prevLabel} vs ${currLabel} THEO 20 AM (FULL HÀNG)`;
       if (badgeEl) { badgeEl.textContent = 'Full Hàng'; badgeEl.className = 'badge-tag badge-tag-blue'; }
     } else if (seg === 'tts' && btnTts) {
       btnTts.classList.add('btn-primary', 'active');
       btnTts.classList.remove('btn-secondary');
-      if (titleEl) titleEl.textContent = `BIỂU ĐỒ SO SÁNH %GTC TỔNG ${prevLabel} vs ${currLabel} THEO 19 AM (TIKTOK SHOP)`;
+      if (titleEl) titleEl.textContent = `BIỂU ĐỒ SO SÁNH %GTC TỔNG ${prevLabel} vs ${currLabel} THEO 20 AM (TIKTOK SHOP)`;
       if (badgeEl) { badgeEl.textContent = 'TikTok Shop (TTS)'; badgeEl.className = 'badge-tag badge-tag-green'; }
     } else if (seg === 'compare' && btnCompare) {
       btnCompare.classList.add('btn-primary', 'active');
@@ -3039,7 +3039,7 @@
       return '<span class="badge-tag badge-tag-red">🔴 Chưa Đạt (&lt;50%)</span>';
     }
 
-    // 1. BẢNG 1A: %GTC FULL HÀNG (19 AM)
+    // 1. BẢNG 1A: %GTC FULL HÀNG (20 AM)
     const tblBodyFull = document.querySelector('#table-gtc-full-detailed tbody');
     if (tblBodyFull) {
       const latestKey = D.meta?.latest_week ? D.meta.latest_week.toLowerCase() : 'w37';
@@ -3083,7 +3083,7 @@
       }).join('');
     }
 
-    // 2. BẢNG 1B: %GTC TIKTOK SHOP (19 AM)
+    // 2. BẢNG 1B: %GTC TIKTOK SHOP (20 AM)
     const tblBodyTTS = document.querySelector('#table-gtc-tts-detailed tbody');
     if (tblBodyTTS) {
       const latestKey = D.meta?.latest_week ? D.meta.latest_week.toLowerCase() : 'w37';
@@ -4771,7 +4771,7 @@
       return '<span class="badge-tag badge-tag-red">🔴 Chưa Đạt (&lt;92%)</span>';
     }
 
-    // 1. BẢNG 1A: %ODR FULL HÀNG (19 AM)
+    // 1. BẢNG 1A: %ODR FULL HÀNG (20 AM)
     const tblBodyFull = document.querySelector('#table-odr-full-detailed tbody');
     if (tblBodyFull) {
       const latestKey = D.meta?.latest_week ? D.meta.latest_week.toLowerCase() : 'w37';
@@ -4815,7 +4815,7 @@
       }).join('');
     }
 
-    // 2. BẢNG 1B: %ODR TIKTOK SHOP (19 AM)
+    // 2. BẢNG 1B: %ODR TIKTOK SHOP (20 AM)
     const tblBodyTTS = document.querySelector('#table-odr-tts-detailed tbody');
     if (tblBodyTTS) {
       const latestKey = D.meta?.latest_week ? D.meta.latest_week.toLowerCase() : 'w37';
@@ -5279,7 +5279,7 @@
     if (titleChart) {
       titleChart.textContent = seg === 'compare'
         ? `BIỂU ĐỒ SO SÁNH TRỰC DIỆN %ODR FULL HÀNG vs %ODR TIKTOK SHOP (${currLabel})`
-        : `BIỂU ĐỒ %ODR GIAO ĐÚNG HẸN THEO 19 AM (${seg === 'tts' ? 'TIKTOK SHOP' : 'FULL HÀNG'})`;
+        : `BIỂU ĐỒ %ODR GIAO ĐÚNG HẸN THEO 20 AM (${seg === 'tts' ? 'TIKTOK SHOP' : 'FULL HÀNG'})`;
     }
 
     const amFullList = D.odr.am_full || D.odr.am || [];
@@ -5594,7 +5594,7 @@
   function renderLtcTab() {
     if (!D.ltc) return;
 
-    // 1. BẢNG 1: 19 AM
+    // 1. BẢNG 1: 20 AM
     const tblBodyAM = document.querySelector('#table-ltc-detailed tbody');
     if (tblBodyAM && D.ltc.am) {
       const wKeys = (D.meta?.weeks || ['W34', 'W35', 'W36', 'W37']).map(w => w.toLowerCase());
@@ -6422,7 +6422,7 @@
     const prevKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2].toLowerCase() : 'w37';
     const currKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1].toLowerCase() : 'w38';
 
-    // 1. BẢNG 1: 19 AM
+    // 1. BẢNG 1: 20 AM
     const tblBodyAM = document.querySelector('#table-rot-am-detailed tbody');
     if (tblBodyAM && D.rot_lc.am) {
       const totalRotAM = D.rot_lc.am.reduce((s, r) => {
@@ -6863,8 +6863,8 @@
     }
     if (titleEl) {
       titleEl.innerText = mode === 'tts'
-        ? 'BIỂU ĐỒ %FD THEO 19 AM – PHÂN KHÚC TIKTOK SHOP (CỘT %FD + MIỀN SẢN LƯỢNG + ĐƯỜNG BIẾN ĐỘNG Δ)'
-        : 'BIỂU ĐỒ %FD THEO 19 AM – TOÀN MẠNG FULL HÀNG (CỘT %FD + MIỀN SẢN LƯỢNG + ĐƯỜNG BIẾN ĐỘNG Δ)';
+        ? 'BIỂU ĐỒ %FD THEO 20 AM – PHÂN KHÚC TIKTOK SHOP (CỘT %FD + MIỀN SẢN LƯỢNG + ĐƯỜNG BIẾN ĐỘNG Δ)'
+        : 'BIỂU ĐỒ %FD THEO 20 AM – TOÀN MẠNG FULL HÀNG (CỘT %FD + MIỀN SẢN LƯỢNG + ĐƯỜNG BIẾN ĐỘNG Δ)';
     }
     renderFdTab();
   };
@@ -6923,7 +6923,7 @@
       }
     }
 
-    // 2. Bảng 1: 19 AM (Full Hàng vs TTS)
+    // 2. Bảng 1: 20 AM (Full Hàng vs TTS)
     const tblBodyAM = document.querySelector('#table-fd-am-detailed tbody');
     if (tblBodyAM && D.fd.am) {
       let list = [...D.fd.am];
