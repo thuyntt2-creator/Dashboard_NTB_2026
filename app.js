@@ -418,6 +418,11 @@
     const btnGanAm = document.getElementById('btn-gan-mode-am');
     if (btnGanAm) btnGanAm.innerHTML = `<i data-lucide="split" style="width: 14px; height: 14px;"></i> ⚡ So Sánh Full vs TTS (${currW})`;
 
+    const thGanBcName = document.querySelector('#table-gan-bc-detailed thead th:nth-child(2)');
+    if (thGanBcName) thGanBcName.textContent = `Bưu Cục Điểm Nóng (${currW})`;
+    const thGanBcVol = document.querySelector('#table-gan-bc-detailed thead th:nth-child(5)');
+    if (thGanBcVol) thGanBcVol.textContent = `Tổng Vol Tuần ${currW}`;
+
     // 8. Tab 6: %ODR
     const thOdrFullPrev = document.querySelector('#table-odr-full-detailed thead th:nth-child(4)');
     const thOdrFullCurr = document.querySelector('#table-odr-full-detailed thead th:nth-child(5)');
@@ -9650,8 +9655,14 @@
     // Sắp xếp tăng dần theo tỷ lệ gán (thấp nhất lên đầu)
     list.sort((a, b) => (a.gan_rate || 0) - (b.gan_rate || 0));
 
+    const currW = D.meta?.latest_week || 'W42';
     const countEl = document.getElementById('gan-bc-count');
-    if (countEl) countEl.textContent = `Đang hiển thị: ${list.length} bưu cục (Tuần W41)`;
+    if (countEl) countEl.textContent = `Đang hiển thị: ${list.length} bưu cục (Tuần ${currW})`;
+
+    const allPill = document.querySelector('#gan-bc-filter-pills [data-filter="all"]');
+    if (allPill && D.gan?.top_bc_chua_gan) {
+      allPill.textContent = `📋 Toàn Bộ Bưu Cục (${D.gan.top_bc_chua_gan.length} BC)`;
+    }
 
     tbl.innerHTML = list.map((b, i) => {
       const gr = b.gan_rate || 0;
