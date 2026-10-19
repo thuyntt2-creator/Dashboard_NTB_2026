@@ -363,6 +363,13 @@
     const btnVolTts = document.querySelector('[data-mode="w34_vs_w35_tts"]');
     if (btnVolTts) btnVolTts.textContent = `⚡ Sản Lượng TikTok Shop (Cột ${prevW} vs ${currW} + Đường Line Δ)`;
 
+    const tinhVolTitle = document.getElementById('tinh-vol-chart-header-title');
+    if (tinhVolTitle) tinhVolTitle.textContent = `BIỂU ĐỒ SẢN LƯỢNG 5 TỈNH QUA 4 TUẦN (${w1} – ${currW}) & TỶ LỆ TĂNG TRƯỞNG % WoW`;
+    const tinhGtcTitle = document.getElementById('gtc-tinh-chart-header-title');
+    if (tinhGtcTitle) tinhGtcTitle.textContent = `BIỂU ĐỒ %GTC 5 TỈNH QUA 4 TUẦN (${w1} – ${currW}) & BIẾN ĐỘNG Δ %p WoW (TARGET ≥ 60.0%)`;
+    const tinhOdrTitle = document.getElementById('odr-tinh-chart-header-title');
+    if (tinhOdrTitle) tinhOdrTitle.textContent = `BIỂU ĐỒ %ODR 5 TỈNH QUA 4 TUẦN (${w1} – ${currW}) & BIẾN ĐỘNG Δ %p WoW (TARGET ≥ 92.0%)`;
+
     const thVolFullPrev = document.querySelector('#table-vol-full-detailed thead th:nth-child(3)');
     const thVolFullCurr = document.querySelector('#table-vol-full-detailed thead th:nth-child(4)');
     if (thVolFullPrev) thVolFullPrev.textContent = `Full ${prevW}`;
@@ -372,6 +379,22 @@
     const thVolTtsCurr = document.querySelector('#table-vol-tts-detailed thead th:nth-child(4)');
     if (thVolTtsPrev) thVolTtsPrev.textContent = `TTS ${prevW}`;
     if (thVolTtsCurr) thVolTtsCurr.textContent = `TTS ${currW}`;
+
+    // Cập nhật tiêu đề & cột Bảng Cảnh Báo Bưu Cục
+    document.querySelectorAll('#table-bc-canh-bao thead th:nth-child(5), #table-bc-canh-bao-overview thead th:nth-child(5)').forEach(el => el.textContent = `%GTC ${prevW}`);
+    document.querySelectorAll('#table-bc-canh-bao thead th:nth-child(6), #table-bc-canh-bao-overview thead th:nth-child(6)').forEach(el => el.textContent = `%GTC ${currW}`);
+    const cbCardTitle = document.querySelector('#table-bc-canh-bao')?.closest('.report-card')?.querySelector('.report-card-title');
+    if (cbCardTitle) {
+      cbCardTitle.innerHTML = `<i data-lucide="alert-triangle" style="color: #dc2626;"></i> BẢNG 3: THEO DÕI BƯU CỤC TRONG NHÓM CẢNH BÁO BẤT ỔN (%GTC < 45% HOẶC < 70% LỊCH SỬ) — SO SÁNH ${prevW} vs ${currW} & THỜI GIAN CẢNH BÁO`;
+    }
+    const btnGtcCompare = document.getElementById('btn-gtctong-compare');
+    if (btnGtcCompare) {
+      btnGtcCompare.innerHTML = `<i data-lucide="split" style="width: 14px; height: 14px;"></i> ⚡ So Sánh Full vs TTS (${currW})`;
+    }
+    const btnOdrCompare = document.getElementById('btn-odr-compare');
+    if (btnOdrCompare) {
+      btnOdrCompare.innerHTML = `<i data-lucide="split" style="width: 14px; height: 14px;"></i> ⚡ So Sánh Full vs TTS (${currW})`;
+    }
 
     // 5. Tab 3: %GTC Tổng
     const gtcTitle = document.getElementById('chart-gtc-tong-title');
@@ -2292,13 +2315,14 @@
     // Update summary badge
     const badgeEl = document.getElementById('tinh-vol-summary-badge');
     if (badgeEl) {
+      const curW = weekLabels[3] || 'W42';
       if (isTTS) {
-        badgeEl.innerHTML = '🛒 TikTok Shop W41: <strong>73.557 đơn</strong> (+1.304 đơn / +1,8% WoW)';
+        badgeEl.innerHTML = `🛒 TikTok Shop ${curW}: <strong>73.732 đơn</strong> (+175 đơn / +0,2% WoW)`;
         badgeEl.style.color = '#ea580c';
         badgeEl.style.background = '#fff7ed';
         badgeEl.style.borderColor = 'rgba(234, 88, 12, 0.3)';
       } else {
-        badgeEl.innerHTML = '🚀 Toàn vùng W41: <strong>364.516 đơn</strong> (+53.013 đơn / +17,0% WoW)';
+        badgeEl.innerHTML = `🚀 Toàn vùng ${curW}: <strong>380.455 đơn</strong> (+15.939 đơn / +4,4% WoW)`;
         badgeEl.style.color = '#16a34a';
         badgeEl.style.background = '#dcfce7';
         badgeEl.style.borderColor = 'rgba(22, 163, 74, 0.3)';
@@ -2348,7 +2372,7 @@
               }
             },
             {
-              label: `${weekLabels[2]}`,
+              label: `${weekLabels[2]} (Mega Sale 10.10)`,
               data: dataW40,
               backgroundColor: '#1e40af',
               borderRadius: 4,
@@ -2363,7 +2387,7 @@
               }
             },
             {
-              label: `${weekLabels[3]} (Mega Sale 10.10)`,
+              label: `${weekLabels[3]} (Hiện tại)`,
               data: dataW41,
               backgroundColor: '#f97316',
               borderColor: '#ea580c',
@@ -3298,13 +3322,14 @@
     // Update summary badge
     const badgeEl = document.getElementById('gtc-tinh-summary-badge');
     if (badgeEl) {
+      const curW = weekLabels[3] || 'W42';
       if (isTTS) {
-        badgeEl.innerHTML = '🛒 TikTok Shop W41: <strong>63,55%</strong> (+0,17%p WoW — Vượt Target)';
+        badgeEl.innerHTML = `🛒 TikTok Shop ${curW}: <strong>62,83%</strong> (-0,72%p WoW — Vượt Target)`;
         badgeEl.style.color = '#ea580c';
         badgeEl.style.background = '#fff7ed';
         badgeEl.style.borderColor = 'rgba(234, 88, 12, 0.3)';
       } else {
-        badgeEl.innerHTML = '🎯 Toàn vùng W41: <strong>61,24%</strong> (+0,37%p WoW — Vượt Target)';
+        badgeEl.innerHTML = `🎯 Toàn vùng ${curW}: <strong>60,42%</strong> (-0,82%p WoW — Vượt Target)`;
         badgeEl.style.color = '#2563eb';
         badgeEl.style.background = '#dbeafe';
         badgeEl.style.borderColor = 'rgba(37, 99, 235, 0.3)';
@@ -3366,7 +3391,7 @@
               }
             },
             {
-              label: `${weekLabels[2]}`,
+              label: `${weekLabels[2]} (Mega Sale 10.10)`,
               data: dataW40,
               backgroundColor: '#1e40af',
               borderRadius: 4,
@@ -4972,13 +4997,14 @@
     // Update summary badge
     const badgeEl = document.getElementById('odr-tinh-summary-badge');
     if (badgeEl) {
+      const curW = weekLabels[3] || 'W42';
       if (isTTS) {
-        badgeEl.innerHTML = '🛒 TikTok Shop W41: <strong>94,80%</strong> — Đạt chuẩn cam kết SLA ≥ 92.0%';
+        badgeEl.innerHTML = `🛒 TikTok Shop ${curW}: <strong>92,85%</strong> — Đạt chuẩn cam kết SLA ≥ 92.0%`;
         badgeEl.style.color = '#ea580c';
         badgeEl.style.background = '#fff7ed';
         badgeEl.style.borderColor = 'rgba(234, 88, 12, 0.3)';
       } else {
-        badgeEl.innerHTML = '🎯 Toàn vùng W41: <strong>94,09%</strong> (+0,96%p WoW — Thiết lập kỷ lục SLA mới)';
+        badgeEl.innerHTML = `🎯 Toàn vùng ${curW}: <strong>91,97%</strong> (-2,12%p WoW — Cận Target 92.0%)`;
         badgeEl.style.color = '#059669';
         badgeEl.style.background = '#dcfce7';
         badgeEl.style.borderColor = 'rgba(16, 185, 129, 0.3)';
@@ -5040,7 +5066,7 @@
               }
             },
             {
-              label: `${weekLabels[2]}`,
+              label: `${weekLabels[2]} (Mega Sale 10.10)`,
               data: dataW40,
               backgroundColor: '#1e40af',
               borderRadius: 4,
