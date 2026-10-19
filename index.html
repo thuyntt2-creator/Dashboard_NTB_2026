@@ -410,7 +410,7 @@
           </span>
 </div>
 </div>
-<!-- KHỐI 1: BẢNG ĐIỀU HÀNH SẢN LƯỢNG THEO 5 TỈNH THÀNH (FULL HÀNG vs TIKTOK SHOP) -->
+<!-- KHỐI 1: ĐIỀU HÀNH SẢN LƯỢNG THEO 5 TỈNH THÀNH (FULL HÀNG vs TIKTOK SHOP) -->
       <div style="font-size: 14px; font-weight: 800; color: var(--ghn-navy); margin: 20px 0 12px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
         <div style="display: flex; align-items: center; gap: 8px;">
           <i data-lucide="map-pin" style="width: 18px; height: 18px; color: var(--color-blue);"></i>
@@ -467,11 +467,11 @@
 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
 <div class="report-card-title" id="vol-chart-title">
 <i data-lucide="bar-chart-3" style="color: var(--color-blue);"></i>
-              SẢN LƯỢNG GIAO 19 AM (CỘT W40 vs W41 + ĐƯỜNG BIẾN ĐỘNG Δ)
+              SẢN LƯỢNG GIAO 19 AM (CỘT W41 vs W42 + ĐƯỜNG BIẾN ĐỘNG Δ)
             </div>
 <div class="chart-mode-pills" id="vol-chart-mode-pills">
-<button class="chart-mode-pill active" data-mode="w34_vs_w35_full">📊 Sản Lượng Full Hàng (Cột W40 vs W41 + Đường Line Δ)</button>
-<button class="chart-mode-pill" data-mode="w34_vs_w35_tts">⚡ Sản Lượng TikTok Shop (Cột W40 vs W41 + Đường Line Δ)</button>
+<button class="chart-mode-pill active" data-mode="w34_vs_w35_full">📊 Sản Lượng Full Hàng (Cột W41 vs W42 + Đường Line Δ)</button>
+<button class="chart-mode-pill" data-mode="w34_vs_w35_tts">⚡ Sản Lượng TikTok Shop (Cột W41 vs W42 + Đường Line Δ)</button>
 <button class="chart-mode-pill" data-mode="full_vs_tts">📦 So Sánh Full Hàng vs ⚡ TTS</button>
 </div>
 </div>
@@ -483,88 +483,7 @@
 </div>
 </div>
 </div>
-<!-- View Mode Filter for Tables -->
-<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
-<div style="font-size: 13px; font-weight: 800; color: var(--ghn-navy); display: flex; align-items: center; gap: 6px;">
-<i data-lucide="split" style="width: 16px; height: 16px; color: var(--ghn-orange);"></i>
-          BẢNG ĐIỀU HÀNH SẢN LƯỢNG 19 AM (TÁCH RIÊNG FULL HÀNG vs TIKTOK SHOP)
-        </div>
-<div class="chart-mode-pills" id="vol-table-mode-pills">
-<button class="chart-mode-pill active" data-table-view="split">📊 2 Bảng Đối Xứng Song Song (Full vs TTS)</button>
-<button class="chart-mode-pill" data-table-view="full_only">📦 Chỉ Xem Bảng Full Hàng</button>
-<button class="chart-mode-pill" data-table-view="tts_only">⚡ Chỉ Xem Bảng TikTok Shop</button>
-</div>
-</div>
-<!-- 2 Bảng Đối Xứng Song Song: Bảng Full Hàng (Trái) vs Bảng TTS (Phải) -->
-<div class="grid-row-2" id="vol-tables-split-grid">
-<!-- BẢNG 1: FULL HÀNG (SORT THEO BIẾN ĐỘNG FULL HÀNG Δ) -->
-<div class="report-card" id="card-vol-full">
-<div class="report-card-header">
-<div class="report-card-title">
-<i data-lucide="package" style="color: var(--color-blue);"></i>
-              BẢNG 1: SẢN LƯỢNG FULL HÀNG (XẾP THEO BIẾN ĐỘNG Δ TĂNG TRƯỞNG)
-            </div>
-<span class="badge-tag badge-tag-blue">Toàn Mạng</span>
-</div>
-<div class="report-card-body">
-<div class="table-toolbar">
-<div class="table-search-box">
-<i class="table-search-icon" data-lucide="search" style="width: 14px; height: 14px;"></i>
-<input class="table-search-input" id="search-vol-full-am" placeholder="Tìm AM Full..." type="text"/>
-</div>
-</div>
-<div class="bi-table-wrap">
-<table class="bi-table" id="table-vol-full-detailed">
-<thead>
-<tr>
-<th class="center" style="width: 44px;">#</th>
-<th>AM Phụ Trách</th>
-<th class="num">Full W39</th>
-<th class="num" style="background: var(--color-blue-bg); font-weight:800;">Full W41</th>
-<th class="num">Biến Động (Δ)</th>
-<th class="center">Đánh Giá</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
-</div>
-</div>
-</div>
-<!-- BẢNG 2: TIKTOK SHOP TTS (SORT THEO BIẾN ĐỘNG TTS Δ) -->
-<div class="report-card" id="card-vol-tts">
-<div class="report-card-header">
-<div class="report-card-title">
-<i data-lucide="truck" style="color: var(--ghn-orange);"></i>
-              BẢNG 2: SẢN LƯỢNG TIKTOK SHOP (XẾP THEO BIẾN ĐỘNG TTS Δ)
-            </div>
-<span class="badge-tag badge-tag-amber">TikTok Shop</span>
-</div>
-<div class="report-card-body">
-<div class="table-toolbar">
-<div class="table-search-box">
-<i class="table-search-icon" data-lucide="search" style="width: 14px; height: 14px;"></i>
-<input class="table-search-input" id="search-vol-tts-am" placeholder="Tìm AM TTS..." type="text"/>
-</div>
-</div>
-<div class="bi-table-wrap">
-<table class="bi-table" id="table-vol-tts-detailed">
-<thead>
-<tr>
-<th class="center" style="width: 44px;">#</th>
-<th>AM Phụ Trách</th>
-<th class="num">TTS W39</th>
-<th class="num" style="background: var(--color-amber-bg); font-weight: 800; color: #ea580c;">TTS W41</th>
-<th class="num">Biến Động (Δ)</th>
-<th class="num">% Tỷ Trọng</th>
-<th class="center">Đánh Giá</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
+
 </div>
 <!-- ==================================================================== -->
 <!-- ==================================================================== -->
@@ -1308,65 +1227,6 @@
 <div class="report-card-body">
 <div class="chart-box chart-box-tall">
 <canvas id="chart-gan-am-bar"></canvas>
-</div>
-</div>
-</div>
-<!-- 2 Bảng Đối Xứng: Gán Ca 1 vs Gán Ca 2 & Gán Tổng -->
-<div class="grid-row-2">
-<!-- Bảng 1: Gán Ca 1+Tồn -->
-<div class="report-card">
-<div class="report-card-header">
-<div class="report-card-title">
-<i data-lucide="sun" style="color: var(--ghn-orange);"></i>
-              BẢNG 1: TỶ LỆ % GÁN CA 1 + TỒN (SORT CAO XUỐNG THẤP)
-            </div>
-<span class="badge-tag badge-tag-amber">Ca 1+Tồn</span>
-</div>
-<div class="report-card-body">
-<div class="bi-table-wrap">
-<table class="bi-table" id="table-gan-ca1-detailed">
-<thead>
-<tr>
-<th class="center" style="width: 44px;">#</th>
-<th>AM Phụ Trách</th>
-<th class="num">Sản Lượng</th>
-<th class="num">Ca 1+Tồn W39</th>
-<th class="num" style="background: var(--color-amber-bg); font-weight:800;">Ca 1+Tồn W40</th>
-<th class="num">Biến Động (Δ)</th>
-<th class="center">Đánh Giá SLA</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
-</div>
-</div>
-</div>
-<!-- Bảng 2: Gán Tổng -->
-<div class="report-card">
-<div class="report-card-header">
-<div class="report-card-title">
-<i data-lucide="moon" style="color: var(--color-purple);"></i>
-              BẢNG 2: TỶ LỆ % GÁN TỔNG (SORT CAO XUỐNG THẤP)
-            </div>
-<span class="badge-tag badge-tag-purple">Gán Tổng</span>
-</div>
-<div class="report-card-body">
-<div class="bi-table-wrap">
-<table class="bi-table" id="table-gan-ca2-detailed">
-<thead>
-<tr>
-<th class="center" style="width: 44px;">#</th>
-<th>AM Phụ Trách</th>
-<th class="num">Sản Lượng</th>
-<th class="num">Tổng W39</th>
-<th class="num" style="background: var(--color-purple-bg); font-weight:800; color:#7e22ce;">Gán Tổng W40</th>
-<th class="num">Biến Động (Δ)</th>
-<th class="center">Đánh Giá SLA</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
-</div>
 </div>
 </div>
 </div>
@@ -5767,7 +5627,7 @@
 </div>
 </div>
 <!-- Scripts -->
-<script src="data.js?v=1792399668"></script>
-<script src="app.js?v=1792399668"></script>
+<script src="data.js?v=1792401743"></script>
+<script src="app.js?v=1792401743"></script>
 </body>
 </html><
