@@ -614,9 +614,13 @@
     // Dynamic banner badges and subtitles
     const volBadge = document.getElementById('banner-volume-badge');
     if (volBadge && D.overview?.cards) {
-      const vFull = D.overview.cards.find(c => c.id === 'vol_full')?.val || 311503;
-      const vTts = D.overview.cards.find(c => c.id === 'vol_tts')?.val || 72253;
+      const vFull = D.overview.cards.find(c => c.id === 'vol_full')?.val || 380455;
+      const vTts = D.overview.cards.find(c => c.id === 'vol_tts')?.val || 73732;
       volBadge.textContent = `Full: ${(vFull / 1000).toFixed(1)}k đơn | TTS: ${(vTts / 1000).toFixed(1)}k đơn`;
+    }
+    const volSummary = document.getElementById('banner-volume-summary');
+    if (volSummary) {
+      volSummary.innerHTML = `• <strong>Sản lượng Toàn Mạng (W42):</strong> Full hàng đạt <strong>380,455 đơn</strong> (tăng +15,939 đơn / +4.37% WoW so với W41: 364,516 đơn); Kênh TikTok Shop đạt <strong>73,732 đơn</strong> (+175 đơn / +0.24% WoW).<br>• <strong>Biến động AM:</strong> AM Nguyễn Duy Long dẫn đầu toàn vùng với kỷ lục <strong>50,128 đơn</strong> (+3,252 đơn Full), AM Lê Thanh Nhựt đạt <strong>34,932 đơn</strong> (+1,545 đơn), AM Thái Thị Thanh Thư đạt <strong>33,469 đơn</strong> (+2,464 đơn).`;
     }
     const gtcBadge = document.querySelector('#tab-gtc-tong .exec-banner-actions span');
     if (gtcBadge) {
