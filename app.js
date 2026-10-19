@@ -1628,7 +1628,7 @@
           title: `Tỷ Lệ Gán Vận Hành (${latestWeek})`,
           mainVal: fPct(ganVal),
           mainUnit: `Full Hàng (${ganDiff >= 0 ? '▲ +' : '▼ '}${(Math.abs(ganDiff)*100).toFixed(1)}%p)`,
-          subVal: `TTS: ${fPct(ganTtsVal)} (${ganTtsDiff >= 0 ? '▲ +' : '▼ '}${(Math.abs(ganTtsDiff)*100).toFixed(1)}%p) | Target ≥ 90.0%`,
+          subVal: `Ca 1+Tồn: 89.1% · Ca 2: 57.7% | TTS: ${fPct(ganTtsVal)}`, 
           diff: ganDiff,
           isHigherBetter: true,
           colorCls: 'kpi-purple',
@@ -1679,15 +1679,15 @@
           icon: 'rotate-ccw'
         },
         {
-          id: 'tltd_pair',
-          title: `%TLTĐ Thùng Xe (${latestWeek})`,
-          mainVal: fPct(tltdVal),
-          mainUnit: 'Bình quân xe',
-          subVal: `${prevWeek}: ${fPct(tltdPrev)} | ${tltdUnder30} xe <30%`,
-          diff: tltdDiff,
+          id: 'opr_pair',
+          title: `%OPR TikTok Shop (${latestWeek})`,
+          mainVal: '82.2%',
+          mainUnit: 'Toàn Vùng (Target ≥ 80.0%)',
+          subVal: '☀️ Ngày: 93.5% · 🌙 Đêm: 64.3% 🚨',
+          diff: -0.009,
           isHigherBetter: true,
-          colorCls: tltdDiff >= 0 ? 'kpi-teal' : 'kpi-amber',
-          icon: 'truck'
+          colorCls: 'kpi-amber',
+          icon: 'shopping-bag'
         },
         {
           id: 'cod_pair',
