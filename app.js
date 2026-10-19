@@ -445,6 +445,14 @@
     if (thOprNightPrev) thOprNightPrev.textContent = `%OPR 19h–9h (${prevW})`;
     if (thOprNightCurr) thOprNightCurr.textContent = `%OPR 19h–9h (${currW})`;
 
+    const thOprBcName = document.querySelector('#table-opr-bc-detailed thead th:nth-child(2)');
+    if (thOprBcName) thOprBcName.innerHTML = `Bưu Cục Điểm Nóng (${currW}) &#x2B0D;`;
+
+    const oprCardTitle = document.querySelector('#table-opr-bc-detailed')?.closest('.report-card')?.querySelector('.report-card-title');
+    if (oprCardTitle) {
+      oprCardTitle.innerHTML = `<i data-lucide="alert-octagon" style="color: #dc2626; width: 22px; height: 22px;"></i> BẢNG 4: DANH SÁCH ĐIỂM NÓNG OPR TIKTOK SHOP - BƯU CỤC CÓ SỐ ĐƠN TRỄ SLA NHIỀU NHẤT VÙNG (TUẦN ${currW})`;
+    }
+
     // 11. Tab 9: % Rớt LC
     const thRotAmPrev = document.querySelector('#table-rot-am-detailed thead th:nth-child(6)');
     const thRotAmCurr = document.querySelector('#table-rot-am-detailed thead th:nth-child(7)');
@@ -9781,12 +9789,18 @@
       return isDesc ? (vB - vA) : (vA - vB);
     });
 
+    const currW = D.meta?.latest_week || 'W42';
     const countEl = document.getElementById('opr-bc-count');
     if (countEl) {
       const filterTxt = state.oprBcFilter === 'most_late' ? 'Điểm Nóng Trễ ≥ 50 Đơn' : 
                         state.oprBcFilter === 'under_kpi' ? 'Chưa Đạt KPI (<80%)' :
                         state.oprBcFilter === 'night_zero' ? 'Tê Liệt Ca Đêm (0%)' : 'Toàn Bộ';
-      countEl.textContent = `Đang hiển thị: ${list.length} bưu cục (${filterTxt} • Xếp theo: ${col === 'don_tre' ? 'Đơn trễ giảm dần' : col})`;
+      countEl.textContent = `Đang hiển thị: ${list.length} bưu cục (${filterTxt} • Tuần ${currW})`;
+    }
+
+    const allPill = document.querySelector('#opr-bc-filter-pills [data-filter="all"]');
+    if (allPill && rawList.length) {
+      allPill.textContent = `📑 Toàn Bộ Bưu Cục (${rawList.length} BC)`;
     }
 
     tbl.innerHTML = list.map((b, i) => {
