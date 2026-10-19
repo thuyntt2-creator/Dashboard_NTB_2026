@@ -6444,6 +6444,17 @@
   // --------------------------------------------------------------------------
   function renderTransportTab() {
     if (!D.rot_lc) return;
+    const rTitle = document.getElementById('banner-rot-lc-title');
+    if (rTitle) rTitle.innerHTML = 'PHÂN TÍCH TỶ TRỌNG RỚT ĐƠN LUÂN CHUYỂN THEO AM &amp; TỈNH THÀNH (W42)';
+    const rSummary = document.getElementById('banner-rot-lc-summary');
+    if (rSummary) {
+      rSummary.innerHTML = `
+        • <strong>Tổng đơn rớt toàn vùng W42:</strong> Tỷ lệ rớt đạt <strong>1.39%</strong> (tổng 193 đơn rớt / 13,776 đơn cần LC, giảm <strong>-0.49%p WoW</strong> so với 1.88% W41) — Tiếp tục kiểm soát rất tốt dưới ngưỡng Target ≤ 2.00%!<br/>
+        • <strong>Đánh Giá:</strong> Các bưu cục và trung tâm khai thác phối hợp đồng bộ, hạn chế tối đa rớt kết nối ca luân chuyển.
+      `;
+    }
+    const rBadge = document.getElementById('banner-rot-lc-badge');
+    if (rBadge) rBadge.textContent = 'Tổng rớt W42: 193 đơn (1.39%)';
 
     const prevKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2].toLowerCase() : 'w37';
     const currKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1].toLowerCase() : 'w38';
@@ -6916,6 +6927,10 @@
       const elVolTts = document.getElementById('kpi-fd-vol-tts');
       const elRateTts = document.getElementById('kpi-fd-rate-tts');
       if (elVolFull) elVolFull.innerHTML = `${fNum(s.vol_full)} <small>đơn ${currW}</small>`;
+      const metaVolFull = document.querySelector('#tab-fd .kpi-strip .kpi-tile:nth-child(1) .kpi-tile-meta span:last-child');
+      if (metaVolFull) metaVolFull.textContent = 'W41: 365,628 đ (+3.7% WoW)';
+      const metaVolTts = document.querySelector('#tab-fd .kpi-strip .kpi-tile:nth-child(3) .kpi-tile-meta span:last-child');
+      if (metaVolTts) metaVolTts.textContent = 'W41: 73,443 đ (-6.4% WoW)';
       if (elRateFull) {
         const prevFullTxt = s.rate_full_prev ? ` <small style="color: var(--text-muted); font-size: 13px; font-weight: 600;">(${prevW}: ${fPct(s.rate_full_prev)})</small>` : '';
         elRateFull.innerHTML = `${fPct(s.rate_full)}${prevFullTxt}`;
@@ -8767,6 +8782,21 @@
     renderKdNhomAWarningTable();
 
     // 0. Dynamic KPI cards and header
+    const kdRevHeader = document.getElementById('kd-kpi-rev-header');
+    if (kdRevHeader) kdRevHeader.textContent = 'Tổng Doanh Thu Kỳ Này (11–17/10 - W42)';
+    const kdVolHeader = document.getElementById('kd-kpi-vol-header');
+    if (kdVolHeader) kdVolHeader.textContent = 'Tổng Volume Giao (11–17/10 - W42)';
+    const kdBannerBadge = document.getElementById('kd-banner-badge');
+    if (kdBannerBadge) kdBannerBadge.textContent = 'Doanh Thu W42: 1.088,3 Tr (-2,1%) | Volume: 36.361 đ (+2,1%) | F30: 111 Shop (-0,9%)';
+    const kdBannerSummary = document.getElementById('kd-banner-summary');
+    if (kdBannerSummary) {
+      kdBannerSummary.innerHTML = `
+        • <strong>Doanh Thu Toàn Vùng Kỳ 11–17/10 (W42):</strong> Đạt <strong>1.088,3 triệu VNĐ</strong> (Kỳ 4–10/10 (W41): 1.111,5 triệu ➔ Giảm <strong>-23,1 triệu VNĐ / -2,1% WoW</strong>).<br/>
+        • <strong>Tổng Volume Giao Kinh Doanh:</strong> Đạt <strong>36.361 đơn</strong> (Kỳ 4–10/10 (W41): 35.599 đơn ➔ Tăng <strong>+762 đơn / +2,1% WoW</strong>).<br/>
+        • <strong>Tăng Trưởng Khách Hàng Mới (F30):</strong> Đạt <strong>111 shop mới</strong> (Kỳ 4–10/10: 112 shop ➔ Giảm <strong>-1 shop / -0,9% WoW</strong>) mang lại <strong>8,6 triệu VNĐ</strong> (-48,8% WoW).
+      `;
+    }
+
     if (D.kinh_doanh && D.kinh_doanh.total) {
       const tot = D.kinh_doanh.total;
       const elRev = document.getElementById('kd-kpi-rev-val');
@@ -9878,7 +9908,7 @@
           <td class="num bold" style="background: ${rateBg}; color: ${rateColor}; font-size: 13.5px; font-weight: 900;">${opr_val.toFixed(1)}%</td>
           <td class="num" style="font-weight:700; color:${day_val < 80 ? '#dc2626' : '#16a34a'};">${day_val.toFixed(1)}%</td>
           <td class="num bold" style="background: ${isNightDead ? '#fee2e2' : (night_val < 50 ? '#fff1f2' : 'transparent')}; color:${isNightDead ? '#dc2626' : (night_val < 50 ? '#dc2626' : '#ea580c')}; font-weight:800;">
-            ${night_val.toFixed(1)}% ${isNightDead ? '🚨' : ''}
+            ${(b.don_night || 0) > 0 ? (night_val.toFixed(1) + '%' + (isNightDead ? ' 🚨' : '')) : '--'}
           </td>
           <td class="center">${badge}</td>
         </tr>
