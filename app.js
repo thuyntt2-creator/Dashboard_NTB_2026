@@ -3250,6 +3250,11 @@
   function renderBcCanhBaoTable() {
     const tblBodies = document.querySelectorAll('.table-bc-canh-bao-body, #table-bc-canh-bao tbody, #table-bc-canh-bao-overview tbody, #table-bc-canhbao-tab tbody');
     if (!tblBodies || tblBodies.length === 0) return;
+    document.querySelectorAll('.badge-tag-red').forEach(el => {
+      if (el.textContent && el.textContent.includes('Bưu Cục Cảnh Báo')) {
+        el.textContent = `🚨 ${raw.length} Bưu Cục Cảnh Báo`;
+      }
+    });
     const raw = D.bc_canh_bao || [];
     let list = [...raw];
     if (state.searchBcCanhBao) {
