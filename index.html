@@ -505,7 +505,7 @@
 </div>
 <div class="exec-banner-actions">
 <span class="badge-tag badge-tag-blue" style="font-size: 12px; padding: 6px 12px;">
-            Full: 60.87% | TTS: 63.38% (Target ≥ 60.0%)
+            Full: 60.42% | TTS: 62.83% (Target ≥ 60.0%)
           </span>
 </div>
 </div>
@@ -824,58 +824,6 @@
         </div>
 
         <div class="report-card-body" style="padding: 20px;">
-          <!-- BANNER LOGIC QUY CHUẨN ĐÁNH GIÁ BẤT ỔN -->
-          <div style="background: linear-gradient(135deg, #fffbeb 0%, #fef2f2 100%); border: 1.5px solid #fecaca; border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; box-shadow: 0 4px 14px rgba(239, 68, 68, 0.06);">
-            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-bottom: 1px dashed rgba(239,68,68,0.25); padding-bottom: 12px; margin-bottom: 14px;">
-              <div style="display: flex; align-items: center; gap: 10px;">
-                <span style="font-size: 22px;">📌</span>
-                <div>
-                  <div style="font-size: 15px; font-weight: 900; color: #991b1b; text-transform: uppercase; letter-spacing: 0.5px;">BỘ QUY CHUẨN ĐÁNH GIÁ BƯU CỤC BẤT ỔN — VÙNG NAM TRUNG BỘ</div>
-                  <div style="font-size: 12px; color: #7f1d1d; margin-top: 2px;">Chuẩn hóa tiêu chí điều hành vận hành NTB — Cập nhật realtime theo Google Sheet NTBo</div>
-                </div>
-              </div>
-              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                <span class="badge-tag badge-tag-red" style="font-weight: 800; font-size: 12.5px;">🚨 7 BC Thuộc Diện Cảnh Báo Bất Ổn (&lt;45% hoặc Đỉnh &lt;70%)</span>
-                <span class="badge-tag badge-tag-green" style="font-weight: 800; font-size: 12.5px;">🟢 79 BC Ngoài Diện Cảnh Báo (An Toàn)</span>
-              </div>
-            </div>
-
-            <!-- 3 CỘT QUY TẮC CHI TIẾT (RIÊNG CHO NTB) -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; font-size: 13px;">
-              <div style="background: #ffffff; padding: 12px 14px; border-radius: 8px; border-left: 4px solid #3b82f6; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-                <div style="font-weight: 800; color: #1e40af; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
-                  <span>📦</span> 1. Cơ Cấu Hàng Vùng NTB
-                </div>
-                <div style="color: #475569; line-height: 1.55;">
-                  • Chu kỳ đánh giá: <strong>%GTC trung bình 7 ngày gần nhất</strong>.<br>
-                  • <strong style="color: #dc2626;">Cơ cấu tính của NTB:</strong> Chỉ tính <strong>Hàng mới Ca 1 + Hàng tồn</strong> <em>(Không tính hàng mới ca 2 xuất phát muộn)</em>.<br>
-                  • <em>Cơ hội gỡ điểm của bưu cục nằm trọn vẹn ở khâu ra quân ca sáng!</em>
-                </div>
-              </div>
-
-              <div style="background: #ffffff; padding: 12px 14px; border-radius: 8px; border-left: 4px solid #ef4444; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-                <div style="font-weight: 800; color: #b91c1c; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
-                  <span>🚨</span> 2. Tiêu Chuẩn Kích Hoạt Cảnh Báo NTB
-                </div>
-                <div style="color: #475569; line-height: 1.55;">
-                  • <strong style="color: #dc2626;">Báo Động Đỏ Tuyệt Đối:</strong> %GTC 7 ngày &lt; <strong style="color: #dc2626; font-size: 14px;">45%</strong> ➔ <strong style="color: #b91c1c;">NẰM TOP BẤT ỔN</strong>.<br>
-                  • <strong style="color: #ea580c;">Cảnh Báo Sụt Giảm Phong Độ:</strong> %GTC 7 ngày &lt; <strong>70%</strong> Mốc Lịch sử tốt nhất (Tỷ lệ so sánh <strong style="color: #ea580c;">Với Đỉnh &lt; 70%</strong>).
-                </div>
-              </div>
-
-              <div style="background: #ffffff; padding: 12px 14px; border-radius: 8px; border-left: 4px solid #ea580c; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-                <div style="font-weight: 800; color: #c2410c; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
-                  <span>⚠️</span> 3. Lưu Ý Quản Trị Vận Hành Cho AM
-                </div>
-                <div style="color: #475569; line-height: 1.55;">
-                  • <strong>Chuẩn bị nhảy nhóm:</strong> Tỷ lệ so sánh đỉnh tiệm cận ngưỡng rơi &lt; 70% hoặc N-1 rớt mạnh (VD: <em>Nha Trang</em>).<br>
-                  • <strong>GTC N-1 &lt; 50%:</strong> Ngày chốt gần nhất rớt sâu <em>(&lt; 50%)</em>, nguy cơ lan sang tuần tới.<br>
-                  • <strong>Hành động:</strong> AM trực tiếp can thiệp hiện trường, dọn tồn trước 8h30 và kiểm soát xuất kho ca 1!
-                </div>
-              </div>
-            </div>
-          </div>
-
           <!-- SEARCH & STATS ROW -->
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 14px;">
             <div style="display: flex; align-items: center; gap: 10px;">
@@ -885,9 +833,7 @@
               </div>
               <span id="gtc-baton-table-count" style="font-size: 13px; font-weight: 700; color: #64748b;">Đang hiển thị: 7 bưu cục</span>
             </div>
-            <div style="font-size: 12px; color: #64748b;">
-              * Nhấp vào bất kỳ hàng nào để <strong>Focus Highlight AM</strong> tương ứng trong toàn bộ Dashboard.
-            </div>
+
           </div>
 
           <!-- TABLE -->
@@ -903,7 +849,7 @@
                   <th class="num" style="background: #fff7ed; color: #c2410c; font-weight: 800;">So Sánh Với Đỉnh</th>
                   <th class="num" style="color: #ea580c; font-weight: 700;">Độ Tụt Dốc (Gap %p)</th>
                   <th class="num" style="color: #4b5563;">Chốt Ngày 11/10 (N-1)</th>
-                  <th class="center" style="width: 170px;">Trạng Thái (Sheet)</th>
+                  <th class="center" style="width: 170px;">Trạng Thái</th>
                   <th class="center" style="width: 150px;">Nguyên Nhân</th>
                 </tr>
               </thead>
@@ -923,7 +869,7 @@
             </td>
             <td class="num bold" style="color:#ea580c; font-size:12.5px;">-29.1%p</td>
             <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
-            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🔴 Bất ổn</span></td>
             <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC &lt; 45% &amp; Đỉnh &lt; 70%</span></td>
           </tr>
           <tr style="cursor: pointer;" onclick="selectAndHighlightAM('Nguyễn Ngọc Khánh')">
@@ -941,13 +887,13 @@
             </td>
             <td class="num bold" style="color:#ea580c; font-size:12.5px;">-54.4%p</td>
             <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
-            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🔴 Bất ổn</span></td>
             <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC &lt; 45% &amp; Đỉnh &lt; 70%</span></td>
           </tr>
           <tr style="cursor: pointer;" onclick="selectAndHighlightAM('Lê Minh Lợi')">
             <td class="center" style="font-weight:800; color:#dc2626;">3</td>
             <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">
-              (LDO) Lang Biang - Đà Lạt 1 <span style="background:#fee2e2; color:#b91c1c; font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:4px; border:1px solid #fca5a5; margin-left:6px; display:inline-block; vertical-align:middle;">🔕 Đang Tắt Tuyến TTS</span>
+              (LDO) Lang Biang - Đà Lạt 1 
             </td>
             <td style="font-weight:700; color:#2563eb;">Lê Minh Lợi</td>
             <td class="num bold" style="background:rgba(239,68,68,0.12); color:#b91c1c; font-size:13.5px; font-weight:900;">
@@ -959,7 +905,7 @@
             </td>
             <td class="num bold" style="color:#ea580c; font-size:12.5px;">-12.4%p</td>
             <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
-            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🔴 Bất ổn</span></td>
             <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC 7N &lt; 45%</span></td>
           </tr>
           <tr style="cursor: pointer;" onclick="selectAndHighlightAM('Nguyễn Thanh Long')">
@@ -977,7 +923,7 @@
             </td>
             <td class="num bold" style="color:#ea580c; font-size:12.5px;">-29.6%p</td>
             <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
-            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🔴 Bất ổn</span></td>
             <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC &lt; 45% &amp; Đỉnh &lt; 70%</span></td>
           </tr>
           <tr style="cursor: pointer;" onclick="selectAndHighlightAM('Phan Đình Duy')">
@@ -995,13 +941,13 @@
             </td>
             <td class="num bold" style="color:#ea580c; font-size:12.5px;">-28.3%p</td>
             <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
-            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🔴 Bất ổn</span></td>
             <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC &lt; 45% &amp; Đỉnh &lt; 70%</span></td>
           </tr>
           <tr style="cursor: pointer;" onclick="selectAndHighlightAM('Huỳnh Thị Kim Chi')">
             <td class="center" style="font-weight:800; color:#dc2626;">6</td>
             <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">
-              (LDO) Tân Hà Lâm Hà <span style="background:#fee2e2; color:#b91c1c; font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:4px; border:1px solid #fca5a5; margin-left:6px; display:inline-block; vertical-align:middle;">🔕 Đang Tắt Tuyến TTS</span>
+              (LDO) Tân Hà Lâm Hà 
             </td>
             <td style="font-weight:700; color:#2563eb;">Huỳnh Thị Kim Chi</td>
             <td class="num bold" style="background:rgba(239,68,68,0.12); color:#b91c1c; font-size:13.5px; font-weight:900;">
@@ -1013,13 +959,13 @@
             </td>
             <td class="num bold" style="color:#ea580c; font-size:12.5px;">-7.8%p</td>
             <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
-            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🔴 Bất ổn</span></td>
             <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC 7N &lt; 45%</span></td>
           </tr>
           <tr style="cursor: pointer;" onclick="selectAndHighlightAM('Phan Nguyễn Yến Nhi')">
             <td class="center" style="font-weight:800; color:#dc2626;">7</td>
             <td class="bold" style="font-size:13.5px; font-weight:800; color:#b91c1c;">
-              (LDO) Đơn Dương <span style="background:#fee2e2; color:#b91c1c; font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:4px; border:1px solid #fca5a5; margin-left:6px; display:inline-block; vertical-align:middle;">🔕 Đang Tắt Tuyến TTS</span>
+              (LDO) Đơn Dương 
             </td>
             <td style="font-weight:700; color:#2563eb;">Phan Nguyễn Yến Nhi</td>
             <td class="num bold" style="background:rgba(239,68,68,0.12); color:#b91c1c; font-size:13.5px; font-weight:900;">
@@ -1031,7 +977,7 @@
             </td>
             <td class="num bold" style="color:#ea580c; font-size:12.5px;">-22.3%p</td>
             <td class="num bold" style="color:#dc2626; font-size:12.5px;">0.00%</td>
-            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span></td>
+            <td class="center"><span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🔴 Bất ổn</span></td>
             <td class="center"><span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC &lt; 45% &amp; Đỉnh &lt; 70%</span></td>
           </tr>
           </tbody>
@@ -1050,16 +996,16 @@
 <i data-lucide="award" style="width: 24px; height: 24px;"></i>
 </div>
 <div class="exec-banner-text">
-<h3>PHÂN TÍCH CHUYÊN SÂU %GTC CA 1 TIKTOK SHOP (TARGET SLA ≥ 76.0%) (W41)</h3>
+<h3>PHÂN TÍCH CHUYÊN SÂU %GTC CA 1 TIKTOK SHOP (TARGET SLA ≥ 76.0%) (W42)</h3>
 <p id="banner-gtc-ca1-summary">
-              • <strong>Toàn Vùng TTS Ca 1 (W41):</strong> Ca 1 thuần sáng bứt phá ngoạn mục đạt <strong>81.34%</strong> (tăng mạnh <strong>+6.17%p WoW</strong> so với 75.16% W39), vượt xa cam kết SLA ≥ 76.0%! Ca 1 + Tồn đạt <strong>66.47%</strong> (+6.58%p WoW).<br/>
-              • <strong>Đánh Giá:</strong> Hiệu suất giao ca 1 sáng TikTok Shop đồng loạt khởi sắc trên toàn mạng, khẳng định sự tập trung dồn lực xuất sắc của đội ngũ AM.
+              • <strong>Toàn Vùng TTS Ca 1 (W42):</strong> Ca 1 thuần sáng đạt <strong>79.33%</strong> (-1.21%p WoW so với 80.54% W41), giữ vững cam kết SLA ≥ 76.0%! Ca 1 + Tồn đạt <strong>66.61%</strong> (-0.98%p WoW).<br/>
+              • <strong>Hiện Trường 20 AM:</strong> 12/20 AM đạt chuẩn xanh (dẫn đầu: AM Khánh 89.4%, AM Duy Long 82.2% gánh 11,109 đơn); 8 AM hụt SLA (nặng nhất AM Trường 68.4% do ngợp đơn mở lại tuyến).
             </p>
 </div>
 </div>
 <div class="exec-banner-actions">
-<span class="badge-tag badge-tag-amber" style="font-size: 12px; padding: 6px 12px;">
-            Target ≥ 76.0% (W40: 81.34%)
+<span class="badge-tag badge-tag-emerald" style="font-size: 12px; padding: 6px 12px;">
+            Target ≥ 76.0% (W42: 79.33% — Đạt SLA)
           </span>
 </div>
 </div>
@@ -1268,8 +1214,7 @@
             <th style="color: #ffffff;">AM Quản Lý</th>
             <th style="color: #ffffff;">Tỉnh</th>
             <th class="num" style="color: #ffffff;">Tổng Vol Tuần W42</th>
-            <th class="num" style="color: #ffffff;">Đã Gán</th>
-            <th class="num" style="color: #ffffff; background: #dc2626; font-weight: 900;">Chưa Gán (Tồn Kho)</th>
+
             <th class="num" style="color: #ffffff; background: #b91c1c; font-weight: 900;">% Gán Tuần</th>
             <th class="num" style="color: #ffffff;">% Gán Ca 1+T</th>
             <th class="num" style="color: #ffffff;">% Gán Ca 2</th>
@@ -1283,8 +1228,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Duy</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">24,834</td>
-          <td class="num">10,202</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">14,632</td>
           <td class="num bold" style="background: #dc2626; color: #ffffff; font-size: 13.5px; font-weight: 900;">41.1%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">43.9%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">8.4%</td>
@@ -1296,8 +1239,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Trường</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">19,058</td>
-          <td class="num">9,318</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">9,740</td>
           <td class="num bold" style="background: #dc2626; color: #ffffff; font-size: 13.5px; font-weight: 900;">48.9%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">57.3%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">16.6%</td>
@@ -1309,8 +1250,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Duy</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">1,211</td>
-          <td class="num">595</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">616</td>
           <td class="num bold" style="background: #dc2626; color: #ffffff; font-size: 13.5px; font-weight: 900;">49.1%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">61.7%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">1.2%</td>
@@ -1322,8 +1261,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Trường</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">3,725</td>
-          <td class="num">1,960</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1,765</td>
           <td class="num bold" style="background: #dc2626; color: #ffffff; font-size: 13.5px; font-weight: 900;">52.6%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">52.6%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">100.0%</td>
@@ -1335,8 +1272,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Vũ</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">6,838</td>
-          <td class="num">3,725</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">3,113</td>
           <td class="num bold" style="background: #dc2626; color: #ffffff; font-size: 13.5px; font-weight: 900;">54.5%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">54.5%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">--</td>
@@ -1348,8 +1283,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Long</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">7,503</td>
-          <td class="num">4,355</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">3,148</td>
           <td class="num bold" style="background: #dc2626; color: #ffffff; font-size: 13.5px; font-weight: 900;">58.0%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">62.1%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">12.1%</td>
@@ -1361,8 +1294,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Chi</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">7,112</td>
-          <td class="num">4,430</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">2,682</td>
           <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size: 13.5px; font-weight: 900;">62.3%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">62.3%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">--</td>
@@ -1374,8 +1305,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Duân</td>
           <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
           <td class="num bold">3,028</td>
-          <td class="num">2,075</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">953</td>
           <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size: 13.5px; font-weight: 900;">68.5%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">82.5%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">23.1%</td>
@@ -1387,8 +1316,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nga</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">7,425</td>
-          <td class="num">5,090</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">2,335</td>
           <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size: 13.5px; font-weight: 900;">68.6%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">75.4%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">40.4%</td>
@@ -1400,8 +1327,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Vũ</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">9,961</td>
-          <td class="num">7,200</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">2,761</td>
           <td class="num bold" style="background: #fff7ed; color: #c2410c; font-size: 13.5px; font-weight: 900;">72.3%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">86.6%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">16.8%</td>
@@ -1413,8 +1338,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Phi</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">4,863</td>
-          <td class="num">3,657</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1,206</td>
           <td class="num bold" style="background: #fff7ed; color: #c2410c; font-size: 13.5px; font-weight: 900;">75.2%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">75.2%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">60.0%</td>
@@ -1426,8 +1349,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nhung</td>
           <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
           <td class="num bold">3,390</td>
-          <td class="num">2,556</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">834</td>
           <td class="num bold" style="background: #fff7ed; color: #c2410c; font-size: 13.5px; font-weight: 900;">75.4%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">75.5%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">40.0%</td>
@@ -1439,8 +1360,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Duân</td>
           <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
           <td class="num bold">3,699</td>
-          <td class="num">2,812</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">887</td>
           <td class="num bold" style="background: #fff7ed; color: #c2410c; font-size: 13.5px; font-weight: 900;">76.0%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">94.6%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">24.8%</td>
@@ -1452,8 +1371,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nga</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">4,808</td>
-          <td class="num">3,737</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1,071</td>
           <td class="num bold" style="background: #fff7ed; color: #c2410c; font-size: 13.5px; font-weight: 900;">77.7%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">82.2%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">66.7%</td>
@@ -1465,8 +1382,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Thủy</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">5,721</td>
-          <td class="num">4,459</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1,262</td>
           <td class="num bold" style="background: #fff7ed; color: #c2410c; font-size: 13.5px; font-weight: 900;">77.9%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">99.3%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">25.9%</td>
@@ -1478,8 +1393,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nhung</td>
           <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
           <td class="num bold">5,361</td>
-          <td class="num">4,193</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1,168</td>
           <td class="num bold" style="background: #fff7ed; color: #c2410c; font-size: 13.5px; font-weight: 900;">78.2%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">78.2%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">100.0%</td>
@@ -1491,8 +1404,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nhựt</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">13,065</td>
-          <td class="num">10,337</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">2,728</td>
           <td class="num bold" style="background: #fff7ed; color: #c2410c; font-size: 13.5px; font-weight: 900;">79.1%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">97.4%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">24.5%</td>
@@ -1504,8 +1415,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nga</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">9,496</td>
-          <td class="num">7,528</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1,968</td>
           <td class="num bold" style="background: #fff7ed; color: #c2410c; font-size: 13.5px; font-weight: 900;">79.3%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.5%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">35.7%</td>
@@ -1517,8 +1426,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Duy</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">12,486</td>
-          <td class="num">10,025</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">2,461</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">80.3%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">91.5%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">14.1%</td>
@@ -1530,8 +1437,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Trường</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">6,373</td>
-          <td class="num">5,123</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1,250</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">80.4%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">91.3%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">55.1%</td>
@@ -1543,8 +1448,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nga</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">8,566</td>
-          <td class="num">6,899</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1,667</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">80.5%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">96.5%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">38.7%</td>
@@ -1556,8 +1459,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nhựt</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">12,916</td>
-          <td class="num">10,421</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">2,495</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">80.7%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">99.3%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">31.5%</td>
@@ -1569,8 +1470,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Chi</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">7,605</td>
-          <td class="num">6,191</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1,414</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">81.4%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">95.5%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">55.9%</td>
@@ -1582,8 +1481,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nga</td>
           <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
           <td class="num bold">5,341</td>
-          <td class="num">4,346</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">995</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">81.4%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">82.3%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">46.1%</td>
@@ -1595,8 +1492,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Thủy</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">7,311</td>
-          <td class="num">6,081</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1,230</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">83.2%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">99.4%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">45.9%</td>
@@ -1608,8 +1503,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Phi</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">8,150</td>
-          <td class="num">6,792</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1,358</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">83.3%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">94.0%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">40.3%</td>
@@ -1621,8 +1514,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Long</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">10,883</td>
-          <td class="num">9,115</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1,768</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">83.8%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">83.8%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">84.2%</td>
@@ -1634,8 +1525,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nhung</td>
           <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
           <td class="num bold">6,957</td>
-          <td class="num">5,840</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1,117</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">83.9%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.7%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">20.2%</td>
@@ -1647,8 +1536,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nhựt</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">10,249</td>
-          <td class="num">8,607</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1,642</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">84.0%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.6%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">48.6%</td>
@@ -1660,8 +1547,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Trường</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">4,745</td>
-          <td class="num">3,986</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">759</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">84.0%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">84.0%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">--</td>
@@ -1673,8 +1558,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Thơ</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">8,259</td>
-          <td class="num">6,950</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1,309</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">84.2%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">92.0%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">68.4%</td>
@@ -1686,8 +1569,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nhựt</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">8,200</td>
-          <td class="num">6,905</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1,295</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">84.2%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.7%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">48.6%</td>
@@ -1699,8 +1580,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Lợi</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">4,113</td>
-          <td class="num">3,466</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">647</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">84.3%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">84.3%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">100.0%</td>
@@ -1712,8 +1591,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Duân</td>
           <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
           <td class="num bold">3,825</td>
-          <td class="num">3,228</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">597</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">84.4%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">84.4%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">100.0%</td>
@@ -1725,8 +1602,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Vũ</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">7,781</td>
-          <td class="num">6,674</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1,107</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">85.8%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">97.2%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">65.1%</td>
@@ -1738,8 +1613,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Trường</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">4,869</td>
-          <td class="num">4,235</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">634</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">87.0%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">97.9%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">3.7%</td>
@@ -1751,8 +1624,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Trường</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">8,235</td>
-          <td class="num">7,175</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1,060</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">87.1%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">87.7%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">76.6%</td>
@@ -1764,8 +1635,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Long</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">8,078</td>
-          <td class="num">7,041</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1,037</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">87.2%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">99.3%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">44.5%</td>
@@ -1777,8 +1646,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Khánh</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">6,236</td>
-          <td class="num">5,471</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">765</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">87.7%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">97.7%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">68.3%</td>
@@ -1790,8 +1657,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nghĩa</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">4,788</td>
-          <td class="num">4,214</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">574</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">88.0%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.8%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">43.9%</td>
@@ -1803,8 +1668,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Phi</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">5,214</td>
-          <td class="num">4,592</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">622</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">88.1%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.2%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">44.9%</td>
@@ -1816,8 +1679,6 @@
           <td style="font-weight:700; color:#2563eb;">AM D.Long</td>
           <td style="color:#64748b; font-size:12px;">Ninh Thuận</td>
           <td class="num bold">11,770</td>
-          <td class="num">10,385</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">1,385</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">88.2%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">96.8%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">20.0%</td>
@@ -1829,8 +1690,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nhung</td>
           <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
           <td class="num bold">7,073</td>
-          <td class="num">6,262</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">811</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">88.5%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">99.5%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">37.8%</td>
@@ -1842,8 +1701,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Phi</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">5,817</td>
-          <td class="num">5,155</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">662</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">88.6%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">88.7%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">87.5%</td>
@@ -1855,8 +1712,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Chi</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">3,948</td>
-          <td class="num">3,509</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">439</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">88.9%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.7%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">71.2%</td>
@@ -1868,8 +1723,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nghĩa</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">4,053</td>
-          <td class="num">3,633</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">420</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">89.6%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">99.1%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">13.4%</td>
@@ -1881,8 +1734,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Duy</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">7,331</td>
-          <td class="num">6,603</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">728</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">90.1%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">97.3%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">53.3%</td>
@@ -1894,8 +1745,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Khánh</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">3,817</td>
-          <td class="num">3,467</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">350</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">90.8%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">99.8%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">17.7%</td>
@@ -1907,8 +1756,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nhựt</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">9,358</td>
-          <td class="num">8,502</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">856</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">90.9%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">97.7%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">40.9%</td>
@@ -1920,8 +1767,6 @@
           <td style="font-weight:700; color:#2563eb;">AM D.Long</td>
           <td style="color:#64748b; font-size:12px;">Ninh Thuận</td>
           <td class="num bold">8,571</td>
-          <td class="num">7,793</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">778</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">90.9%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.8%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">54.7%</td>
@@ -1933,8 +1778,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Chi</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">4,886</td>
-          <td class="num">4,471</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">415</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">91.5%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">91.6%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">25.0%</td>
@@ -1946,8 +1789,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nhi</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">4,469</td>
-          <td class="num">4,089</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">380</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">91.5%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">91.5%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">100.0%</td>
@@ -1959,8 +1800,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Phi</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">4,071</td>
-          <td class="num">3,726</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">345</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">91.5%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">93.8%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">81.7%</td>
@@ -1972,8 +1811,6 @@
           <td style="font-weight:700; color:#2563eb;">AM D.Long</td>
           <td style="color:#64748b; font-size:12px;">Ninh Thuận</td>
           <td class="num bold">8,283</td>
-          <td class="num">7,612</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">671</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">91.9%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">91.9%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">60.0%</td>
@@ -1985,8 +1822,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nhung</td>
           <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
           <td class="num bold">3,388</td>
-          <td class="num">3,113</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">275</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">91.9%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">91.9%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">--</td>
@@ -1998,8 +1833,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Thủy</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">3,497</td>
-          <td class="num">3,220</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">277</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">92.1%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">99.1%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">78.7%</td>
@@ -2011,8 +1844,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Thủy</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">9,705</td>
-          <td class="num">8,949</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">756</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">92.2%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.4%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">81.1%</td>
@@ -2024,8 +1855,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Khánh</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">11,973</td>
-          <td class="num">11,051</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">922</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">92.3%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">99.3%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">78.3%</td>
@@ -2037,8 +1866,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Duy</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">5,562</td>
-          <td class="num">5,143</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">419</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">92.5%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.2%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">66.6%</td>
@@ -2050,8 +1877,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Khánh</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">5,316</td>
-          <td class="num">4,924</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">392</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">92.6%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">99.2%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">79.7%</td>
@@ -2063,8 +1888,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Linh</td>
           <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
           <td class="num bold">3,402</td>
-          <td class="num">3,151</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">251</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">92.6%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">93.6%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">69.8%</td>
@@ -2076,8 +1899,6 @@
           <td style="font-weight:700; color:#2563eb;">AM D.Long</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">5,550</td>
-          <td class="num">5,146</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">404</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">92.7%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">99.7%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">77.4%</td>
@@ -2089,8 +1910,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Phi</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">10,502</td>
-          <td class="num">9,823</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">679</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">93.5%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">95.7%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">84.5%</td>
@@ -2102,8 +1921,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Phi</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">2,854</td>
-          <td class="num">2,688</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">166</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">94.2%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">94.2%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">--</td>
@@ -2115,8 +1932,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Khánh</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">9,401</td>
-          <td class="num">8,885</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">516</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">94.5%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.6%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">88.1%</td>
@@ -2128,8 +1943,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nhung</td>
           <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
           <td class="num bold">2,837</td>
-          <td class="num">2,681</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">156</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">94.5%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">95.2%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">93.5%</td>
@@ -2141,8 +1954,6 @@
           <td style="font-weight:700; color:#2563eb;">AM D.Long</td>
           <td style="color:#64748b; font-size:12px;">Ninh Thuận</td>
           <td class="num bold">6,436</td>
-          <td class="num">6,130</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">306</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">95.2%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">99.1%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">78.0%</td>
@@ -2154,8 +1965,6 @@
           <td style="font-weight:700; color:#2563eb;">AM D.Long</td>
           <td style="color:#64748b; font-size:12px;">Ninh Thuận</td>
           <td class="num bold">15,426</td>
-          <td class="num">14,743</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">683</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">95.6%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.7%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">82.9%</td>
@@ -2167,8 +1976,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Thơ</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">3,746</td>
-          <td class="num">3,598</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">148</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">96.0%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">96.0%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">--</td>
@@ -2180,8 +1987,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Thư</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">10,191</td>
-          <td class="num">9,857</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">334</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">96.7%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.7%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">89.0%</td>
@@ -2193,8 +1998,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nhung</td>
           <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
           <td class="num bold">3,553</td>
-          <td class="num">3,437</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">116</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">96.7%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">96.7%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">--</td>
@@ -2206,8 +2009,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nga</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">3,111</td>
-          <td class="num">3,009</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">102</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">96.7%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">97.6%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">95.3%</td>
@@ -2219,8 +2020,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Thơ</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">4,136</td>
-          <td class="num">4,020</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">116</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">97.2%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">97.2%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">100.0%</td>
@@ -2232,8 +2031,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Thư</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">13,923</td>
-          <td class="num">13,597</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">326</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">97.7%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.6%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">94.8%</td>
@@ -2245,8 +2042,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Thư</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">8,841</td>
-          <td class="num">8,670</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">171</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">98.1%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">97.7%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">99.2%</td>
@@ -2258,8 +2053,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Duy</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">5,515</td>
-          <td class="num">5,420</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">95</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">98.3%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">99.1%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">92.5%</td>
@@ -2271,8 +2064,6 @@
           <td style="font-weight:700; color:#2563eb;">AM D.Long</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">7,067</td>
-          <td class="num">6,955</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">112</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">98.4%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.7%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">87.1%</td>
@@ -2284,8 +2075,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Thư</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">1,724</td>
-          <td class="num">1,696</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">28</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">98.4%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.0%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">99.5%</td>
@@ -2297,8 +2086,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Thư</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">6,382</td>
-          <td class="num">6,287</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">95</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">98.5%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.9%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">97.2%</td>
@@ -2310,8 +2097,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nghĩa</td>
           <td style="color:#64748b; font-size:12px;">Lâm Đồng</td>
           <td class="num bold">3,384</td>
-          <td class="num">3,335</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">49</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">98.6%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">98.6%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">100.0%</td>
@@ -2323,8 +2108,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Nhung</td>
           <td style="color:#64748b; font-size:12px;">Đắk Nông</td>
           <td class="num bold">9,428</td>
-          <td class="num">9,335</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">93</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">99.0%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">99.0%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">99.8%</td>
@@ -2336,8 +2119,6 @@
           <td style="font-weight:700; color:#2563eb;">AM D.Long</td>
           <td style="color:#64748b; font-size:12px;">Ninh Thuận</td>
           <td class="num bold">3,928</td>
-          <td class="num">3,893</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">35</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">99.1%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">99.1%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">100.0%</td>
@@ -2349,8 +2130,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Duy</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">2,217</td>
-          <td class="num">2,197</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">20</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">99.1%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">99.1%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">--</td>
@@ -2362,8 +2141,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Thư</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">551</td>
-          <td class="num">548</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">3</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">99.5%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">99.7%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">98.9%</td>
@@ -2375,8 +2152,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Khánh</td>
           <td style="color:#64748b; font-size:12px;">Bình Thuận</td>
           <td class="num bold">3,694</td>
-          <td class="num">3,681</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">13</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">99.6%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">99.0%</td>
           <td class="num" style="font-weight:700; color:#ea580c;">99.9%</td>
@@ -2388,8 +2163,6 @@
           <td style="font-weight:700; color:#2563eb;">AM Thư</td>
           <td style="color:#64748b; font-size:12px;">Khánh Hòa</td>
           <td class="num bold">1,336</td>
-          <td class="num">1,333</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">3</td>
           <td class="num bold" style="background: #dcfce7; color: #16a34a; font-size: 13.5px; font-weight: 900;">99.8%</td>
           <td class="num" style="font-weight:700; color:#16a34a;">99.8%</td>
           <td class="num" style="font-weight:700; color:#dc2626;">--</td>
@@ -2800,8 +2573,9 @@
 <div class="report-card-header">
 <div class="report-card-title">
 <i data-lucide="sun-moon" style="color: var(--color-amber);"></i>
-            BIỂU ĐỒ %OPR TTS THEO KHUNG GIỜ TẠO ĐƠN (NGÀY 9H–19H vs ĐÊM 19H–9H) THEO 20 AM
+            BIỂU ĐỒ %OPR TTS THEO KHUNG GIỜ TẠO ĐƠN (NGÀY 9H–19H vs ĐÊM 19H–9H) — 18 AM PHÁT SINH SẢN LƯỢNG
           </div>
+<span style="font-size:11px; color:#64748b; margin-right:8px;">*(2 AM Vol=0: AM Lê Minh Lợi & AM Trương Quang Linh)*</span>
 <span class="badge-tag badge-tag-red" style="font-weight:700;">Đường Chuẩn KPI ≥ 80.0%</span>
 </div>
 <div class="report-card-body">
@@ -4680,7 +4454,7 @@
 <div class="report-card-header">
 <div class="report-card-title">
 <i data-lucide="table" style="color: var(--color-blue);"></i>
-                BẢNG ĐỐI CHIẾU CÁC CHỈ SỐ COD CHÍNH (TUẦN W39 vs TUẦN W40)
+                BẢNG ĐỐI CHIẾU CÁC CHỈ SỐ COD CHÍNH (TUẦN W41 vs TUẦN W42)
               </div>
 </div>
 <div class="report-card-body">
@@ -4723,7 +4497,7 @@
 <div class="report-card-header">
 <div class="report-card-title">
 <i data-lucide="users" style="color: var(--color-blue);"></i>
-              BẢNG SO SÁNH TỶ LỆ TIỀN MẶT THEO 20 AM (TUẦN W39 vs TUẦN W40)
+              BẢNG SO SÁNH TỶ LỆ TIỀN MẶT THEO 20 AM (TUẦN W41 vs TUẦN W42)
             </div>
 <span class="badge-tag badge-tag-red">🔴 ≥70% | 🟡 50-70% | 🟢 &lt;50%</span>
 </div>
@@ -4734,8 +4508,8 @@
 <tr style="background: #1e3a8a; color: #ffffff;">
 <th class="center" style="width: 44px; color:#ffffff;">#</th>
 <th style="color:#ffffff;">AM Phụ Trách</th>
-<th class="num" style="color:#ffffff;">Tuần N-1 (% TM)</th>
-<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Tuần N (% TM)</th>
+<th class="num" style="color:#ffffff;">Tuần W41 (% TM)</th>
+<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Tuần W42 (% TM)</th>
 <th class="num" style="color:#ffffff;">Thay Đổi (% p)</th>
 <th class="center" style="color:#ffffff;">Xu Hướng</th>
 <th class="center" style="color:#ffffff;">Mức Độ Tuần N</th>
@@ -4771,8 +4545,8 @@
 <th class="center" style="width: 44px; color:#ffffff;">#</th>
 <th style="color:#ffffff;">AM Phụ Trách</th>
 <th style="color:#ffffff;">Bưu Cục</th>
-<th class="num" style="color:#ffffff;">Tuần N-1 (% TM)</th>
-<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Tuần N (% TM)</th>
+<th class="num" style="color:#ffffff;">Tuần W41 (% TM)</th>
+<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Tuần W42 (% TM)</th>
 <th class="num" style="color:#ffffff;">Biến Động</th>
 <th class="num" style="color:#ffffff;">Tiền Mặt N (Tr ₫)</th>
 <th class="center" style="color:#ffffff;">Mức Độ N</th>
@@ -4800,8 +4574,8 @@
 <thead>
 <tr style="background: #1e3a8a; color: #ffffff;">
 <th style="color:#ffffff; width: 160px;">AM Phụ Trách</th>
-<th class="num" style="color:#ffffff; width: 110px;">Tuần N-1</th>
-<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800; width: 110px;">Tuần N (% TM)</th>
+<th class="num" style="color:#ffffff; width: 110px;">Tuần W41</th>
+<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800; width: 110px;">Tuần W42 (% TM)</th>
 <th class="num" style="color:#ffffff; width: 100px;">Biến Động</th>
 <th style="color:#ffffff;">Hành Động Yêu Cầu Xử Lý</th>
 <th class="center" style="color:#ffffff; width: 140px;">Deadline</th>
@@ -4827,7 +4601,7 @@
 <div class="exec-banner-text">
 <h3 id="truythu-banner-title">BÁO CÁO TRUY THU – SO SÁNH BIẾN ĐỘNG 2 TUẦN (Tuần W41 (05/10 - 11/10) vs Tuần W42 (12/10 - 18/10)) | VÙNG NAM TRUNG BỘ</h3>
 <p id="truythu-banner-p">
-              • <strong>Tổng quan kỳ kết luận truy thu mới nhất (Tuần W40):</strong> Phát sinh <strong>2,424 bản ghi</strong> (giảm 1,652 đơn, -40.5%) với số tiền ban đầu <strong>433.1 Tr ₫</strong> (tăng +36.5%). Cần truy thu thêm <strong>187.1 Tr ₫</strong> (giảm mạnh 125.0 Tr ₫ so với 312.1 Tr ₫ của Tuần W39, tương ứng giảm -40.1%).<br/>
+              • <strong>Tổng quan kỳ kết luận truy thu 2 tuần (Tuần W41 vs Tuần W42):</strong> Phát sinh <strong>2,424 bản ghi</strong> (giảm 1,652 đơn, -40.5%) với số tiền ban đầu <strong>433.1 Tr ₫</strong> (tăng +36.5%). Cần truy thu thêm <strong>187.1 Tr ₫</strong> (giảm mạnh 125.0 Tr ₫ so với 77.9 Tr ₫ của Tuần W41, tăng +46.7%).<br/>
               • <strong>Các loại truy thu trọng điểm:</strong> <em>Liên đới chiếm dụng</em> (56.8 Tr ₫ | 4 đơn), <em>Tick mất hàng</em> (41.2 Tr ₫ | 53 đơn), <em>Mất/Thiếu/Tráo sản phẩm</em> (30.9 Tr ₫ | 76 đơn).<br/>
               • <strong>Top AM có số tiền truy thu lớn nhất:</strong> <strong>Nguyễn Thanh Long</strong> (51.2 Tr ₫ | 72 ticket), <strong>Lê Văn Trường</strong> (26.3 Tr ₫ | 419 ticket), <strong>Trần Văn Phước</strong> (22.9 Tr ₫ | 288 ticket), <strong>Huỳnh Thị Kim Chi</strong> (21.3 Tr ₫ | 110 ticket).<br/>
               • <em>Ghi chú: Dữ liệu kết luận truy thu tuần W41 hiện đang trong kỳ giải trình / đối soát giữa bưu cục và kiểm toán nội bộ (thường chốt muộn 1 tuần so với vận hành).</em>
@@ -4888,7 +4662,7 @@
 <div class="report-card-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
 <div class="report-card-title">
 <i data-lucide="table" style="color: var(--color-blue);"></i>
-                BẢNG XẾP HẠNG CÁC LOẠI TRUY THU (TUẦN W39 vs TUẦN W40)
+                BẢNG XẾP HẠNG CÁC LOẠI TRUY THU (TUẦN W41 vs TUẦN W42)
               </div>
 <div style="display: flex; gap: 6px; align-items: center;">
 <span style="font-size: 11px; font-weight: 700; color: var(--text-muted);">Xếp hạng theo:</span>
@@ -4904,11 +4678,11 @@
 <tr style="background: #1e3a8a; color: #ffffff;">
 <th class="center" style="width: 44px; color:#ffffff;">#</th>
 <th style="color:#ffffff;">Loại Truy Thu</th>
-<th class="num" id="th-tt-loai-dp" style="color:#ffffff;">Đơn W39</th>
-<th class="num" id="th-tt-loai-dc" style="background: #0284c7; color:#ffffff; font-weight:800;">Đơn W41</th>
+<th class="num" id="th-tt-loai-dp" style="color:#ffffff;">Đơn W41</th>
+<th class="num" id="th-tt-loai-dc" style="background: #0284c7; color:#ffffff; font-weight:800;">Đơn W42</th>
 <th class="num" style="color:#ffffff;">Biến Động Đơn</th>
-<th class="num" id="th-tt-loai-cp" style="color:#ffffff;">Cần Thu W39 (Tr ₫)</th>
-<th class="num" id="th-tt-loai-cc" style="background: #dc2626; color:#ffffff; font-weight:800;">Cần Thu W41 (Tr ₫)</th>
+<th class="num" id="th-tt-loai-cp" style="color:#ffffff;">Cần Thu W41 (Tr ₫)</th>
+<th class="num" id="th-tt-loai-cc" style="background: #dc2626; color:#ffffff; font-weight:800;">Cần Thu W42 (Tr ₫)</th>
 <th class="num" style="color:#ffffff;">Biến Động (Tr ₫)</th>
 <th class="num" style="color:#ffffff;">% Biến Động</th>
 <th class="center" style="color:#ffffff;">Đánh Giá</th>
@@ -4923,9 +4697,9 @@
 <div class="report-card-header">
 <div class="report-card-title">
 <i data-lucide="bar-chart-3" style="color: var(--color-red);"></i>
-                SO SÁNH TIỀN CẦN TRUY THU THEO LOẠI VI PHẠM (TUẦN W39 vs TUẦN W40)
+                SO SÁNH TIỀN CẦN TRUY THU THEO LOẠI VI PHẠM (TUẦN W41 vs TUẦN W42)
               </div>
-<span class="badge-tag badge-tag-red">Cột Xám: Tuần W39 | Cột Đỏ: Tuần W41</span>
+<span class="badge-tag badge-tag-red">Cột Xám: Tuần W41 | Cột Đỏ: Tuần W42</span>
 </div>
 <div class="report-card-body">
 <div class="chart-box" style="height: 420px;">
@@ -4942,7 +4716,7 @@
 <div class="report-card-header">
 <div class="report-card-title">
 <i data-lucide="map" style="color: var(--color-blue);"></i>
-              SO SÁNH TRUY THU THEO 5 TỈNH THÀNH (TUẦN W39 vs TUẦN W40)
+              SO SÁNH TRUY THU THEO 5 TỈNH THÀNH (TUẦN W41 vs TUẦN W42)
             </div>
 </div>
 <div class="report-card-body">
@@ -4952,11 +4726,11 @@
 <tr style="background: #1e3a8a; color: #ffffff;">
 <th class="center" style="width: 44px; color:#ffffff;">#</th>
 <th style="color:#ffffff;">Tỉnh / Thành Phố</th>
-<th class="num" style="color:#ffffff;">Đơn Tuần W39</th>
-<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Đơn Tuần W41</th>
+<th class="num" style="color:#ffffff;">Đơn Tuần W41</th>
+<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Đơn Tuần W42</th>
 <th class="num" style="color:#ffffff;">Biến Động Đơn</th>
-<th class="num" style="color:#ffffff;">Cần Thu W39 (Tr ₫)</th>
-<th class="num" style="background: #dc2626; color:#ffffff; font-weight:800;">Cần Thu W41 (Tr ₫)</th>
+<th class="num" style="color:#ffffff;">Cần Thu W41 (Tr ₫)</th>
+<th class="num" style="background: #dc2626; color:#ffffff; font-weight:800;">Cần Thu W42 (Tr ₫)</th>
 <th class="num" style="color:#ffffff;">Biến Động Tiền (Tr ₫)</th>
 </tr>
 </thead>
@@ -4970,9 +4744,9 @@
 <div class="report-card-header">
 <div class="report-card-title">
 <i data-lucide="bar-chart-3" style="color: var(--ghn-orange);"></i>
-              BIỂU ĐỒ TOP 15 BƯU CỤC GIAO CẦN TRUY THU CAO NHẤT (TUẦN W39 vs TUẦN W40)
+              BIỂU ĐỒ TOP 15 BƯU CỤC GIAO CẦN TRUY THU CAO NHẤT (TUẦN W41 vs TUẦN W42)
             </div>
-<span class="badge-tag badge-tag-blue">Cột Xám: W39 (Tr ₫) | Cột Cam: W40 (Tr ₫)</span>
+<span class="badge-tag badge-tag-blue">Cột Xám: W41 (Tr ₫) | Cột Đỏ: W42 (Tr ₫)</span>
 </div>
 <div class="report-card-body">
 <div class="chart-box" style="height: 340px;">
@@ -4997,11 +4771,11 @@
 <th style="color:#ffffff;">Bưu Cục Giao</th>
 <th style="color:#ffffff;">AM Phụ Trách</th>
 <th style="color:#ffffff;">Tỉnh / TP</th>
-<th class="num" style="color:#ffffff;">Đơn W39</th>
-<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Đơn W41</th>
+<th class="num" style="color:#ffffff;">Đơn W41</th>
+<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Đơn W42</th>
 <th class="num" style="color:#ffffff;">Biến Động Đơn</th>
-<th class="num" style="color:#ffffff;">Cần Thu W39 (Tr ₫)</th>
-<th class="num" style="background: #dc2626; color:#ffffff; font-weight:900;">Cần Thu W41 (Tr ₫)</th>
+<th class="num" style="color:#ffffff;">Cần Thu W41 (Tr ₫)</th>
+<th class="num" style="background: #dc2626; color:#ffffff; font-weight:900;">Cần Thu W42 (Tr ₫)</th>
 <th class="num" style="color:#ffffff;">Biến Động (Tr ₫)</th>
 <th class="num" style="color:#ffffff;">% Biến Động</th>
 </tr>
@@ -5019,9 +4793,9 @@
 <div class="report-card-header">
 <div class="report-card-title">
 <i data-lucide="bar-chart-2" style="color: var(--color-blue);"></i>
-              BIỂU ĐỒ SO SÁNH TIỀN CẦN THU VÀ SỐ TICKET THEO AM (TUẦN W39 vs TUẦN W40)
+              BIỂU ĐỒ SO SÁNH TIỀN CẦN THU VÀ SỐ TICKET THEO AM (TUẦN W41 vs TUẦN W42)
             </div>
-<span class="badge-tag badge-tag-blue">Cột Xám: Tiền W39 | Cột Đỏ: Tiền W40 | Đường: Ticket W41</span>
+<span class="badge-tag badge-tag-blue">Cột Xám: Tiền W41 | Cột Đỏ: Tiền W42 | Đường: Ticket W42</span>
 </div>
 <div class="report-card-body">
 <div class="chart-box" style="height: 380px;">
@@ -5034,9 +4808,9 @@
 <div class="report-card-header">
 <div class="report-card-title">
 <i data-lucide="users" style="color: var(--color-blue);"></i>
-              BẢNG SO SÁNH TRUY THU THEO AM (TUẦN W39 vs TUẦN W40)
+              BẢNG SO SÁNH TRUY THU THEO AM (TUẦN W41 vs TUẦN W42)
             </div>
-<span class="badge-tag badge-tag-amber">Xếp hạng theo Tiền Cần Thu Tuần W41</span>
+<span class="badge-tag badge-tag-amber">Xếp hạng theo Tiền Cần Thu Tuần W42</span>
 </div>
 <div class="report-card-body">
 <div class="bi-table-wrap">
@@ -5045,11 +4819,11 @@
 <tr style="background: #1e3a8a; color: #ffffff;">
 <th class="center" style="width: 44px; color:#ffffff;">#</th>
 <th style="color:#ffffff;">AM Phụ Trách</th>
-<th class="num" style="color:#ffffff;">Ticket W39</th>
-<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Ticket W41</th>
+<th class="num" style="color:#ffffff;">Ticket W41</th>
+<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Ticket W42</th>
 <th class="num" style="color:#ffffff;">Biến Động Ticket</th>
-<th class="num" style="color:#ffffff;">Cần Thu W39 (Tr ₫)</th>
-<th class="num" style="background: #dc2626; color:#ffffff; font-weight:900;">Cần Thu W41 (Tr ₫)</th>
+<th class="num" style="color:#ffffff;">Cần Thu W41 (Tr ₫)</th>
+<th class="num" style="background: #dc2626; color:#ffffff; font-weight:900;">Cần Thu W42 (Tr ₫)</th>
 <th class="num" style="color:#ffffff;">Biến Động (Tr ₫)</th>
 <th class="num" style="color:#ffffff;">% Biến Động</th>
 <th class="center" style="color:#ffffff;">Mức Độ</th>
@@ -5395,7 +5169,7 @@
 <th style="color:#ffffff;">Tên Shop / Khách Hàng</th>
 <th style="color:#ffffff;">AM Phụ Trách</th>
 <th style="color:#ffffff;">Bưu Cục Quản Lý</th>
-<th class="num" style="color:#ffffff;">Kỳ Trước (W39)</th>
+<th class="num" style="color:#ffffff;">Kỳ Trước (W41)</th>
 <th class="num" style="background: #ef4444; color:#ffffff; font-weight:800;">Kỳ Này (W41)</th>
 <th class="num" style="color:#ffffff;">Biến Động (Δ Đơn)</th>
 <th class="num" style="color:#ffffff;">% Giảm</th>
@@ -5549,7 +5323,7 @@
 </div>
 </div>
 <!-- Scripts -->
-<script src="data.js?v=1792431057"></script>
-<script src="app.js?v=1792431057"></script>
+<script src="data.js?v=1792460146"></script>
+<script src="app.js?v=1792460146"></script>
 </body>
 </html><

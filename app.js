@@ -430,7 +430,8 @@
     if (thGtcCa1Curr) thGtcCa1Curr.textContent = `%GTC TTS Ca 1 (${currW})`;
     const badgeGtcCa1 = document.querySelector('#tab-gtc-tts-ca1 .exec-banner-actions .badge-tag');
     if (badgeGtcCa1) {
-      badgeGtcCa1.textContent = `Target ≥ 76.0% (${currW}: 75.10%)`;
+      badgeGtcCa1.className = 'badge-tag badge-tag-emerald';
+      badgeGtcCa1.textContent = `Target ≥ 76.0% (${currW}: 79.33% — Đạt SLA)`;
     }
 
     // 7. Tab 5: % Gán
@@ -3013,11 +3014,11 @@
 
         // Trạng thái badge theo chuẩn điều hành (%GTC 7d < 45% hoặc Tỷ lệ đỉnh < 70%)
         const isWarned = isRed || isRatioLow || row.trang_thai === 'Nằm TOP Bất ổn';
-        let statusBadge = '<span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 An Toàn</span>';
+        let statusBadge = '<span class="badge-tag badge-tag-green" style="font-size:11.5px; font-weight:700;">🟢 Bình thường</span>';
         let causeBadge = '<span style="color:#64748b; font-size:11.5px;">Bình thường</span>';
 
         if (isWarned) {
-          statusBadge = '<span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ</span>';
+          statusBadge = '<span class="badge-tag badge-tag-red" style="font-weight:800; font-size:11.5px;">🔴 Bất ổn</span>';
           if (isRed && isRatioLow) {
             causeBadge = '<span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC &lt; 45% &amp; Đỉnh &lt; 70%</span>';
           } else if (isRed) {
@@ -3028,7 +3029,7 @@
         }
 
         const isTtsOff = row.ten_bc && (row.ten_bc.includes('Đơn Dương') || row.ten_bc.includes('Tân Hà') || row.ten_bc.includes('Lang Biang - Đà Lạt 1'));
-        const ttsOffTag = isTtsOff ? '<span style="background:#fee2e2; color:#b91c1c; font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:4px; border:1px solid #fca5a5; margin-left:6px; display:inline-block; vertical-align:middle;">🔕 Đang Tắt Tuyến TTS</span>' : '';
+        const ttsOffTag = '';
 
         const ratioColor = isRatioLow ? '#dc2626' : (row.ratio < 80.0 ? '#ea580c' : '#16a34a');
         const d11Color = row.d11_val < 45.0 ? '#dc2626' : (row.d11_val < 50.0 ? '#ea580c' : '#16a34a');
@@ -7809,8 +7810,8 @@
     const report = D.cod_report || {};
 
     // Dynamic Banner & KPIs
-    const prevPeriod = report.prev_period || 'Tuần N-1';
-    const currPeriod = report.curr_period || 'Tuần N';
+    const prevPeriod = report.prev_period || 'Tuần W41 (05/10 - 11/10)';
+    const currPeriod = report.curr_period || 'Tuần W42 (12/10 - 18/10)';
 
     const bannerTitle = document.getElementById('cod-banner-title');
     if (bannerTitle) {
@@ -7990,8 +7991,8 @@
     if (charts.codTmAmBar) charts.codTmAmBar.destroy();
 
     const report = D.cod_report || {};
-    const prevLabel = report.prev_period || 'Tuần N-1';
-    const currLabel = report.curr_period || 'Tuần N';
+    const prevLabel = report.prev_period || 'Tuần W41 (05/10 - 11/10)';
+    const currLabel = report.curr_period || 'Tuần W42 (12/10 - 18/10)';
 
     const cashMetric = (report.metrics || []).find(m => m.chi_so.includes('Tiền mặt') && !m.chi_so.includes('Tỷ lệ'));
     const bankMetric = (report.metrics || []).find(m => m.chi_so.includes('Chuyển khoản'));
@@ -8154,6 +8155,33 @@
     if (thLoaiDc) thLoaiDc.textContent = `Đơn (${currShort})`;
     if (thLoaiCp) thLoaiCp.textContent = `Cần Thu (${prevShort})`;
     if (thLoaiCc) thLoaiCc.textContent = `Cần Thu (${currShort})`;
+
+    // Dynamic headers for Province table
+    const thProv = document.querySelectorAll('#table-truythu-by-province thead th');
+    if (thProv.length >= 6) {
+      thProv[2].textContent = `Đơn ${prevShort}`;
+      thProv[3].textContent = `Đơn ${currShort}`;
+      thProv[5].textContent = `Cần Thu ${prevShort} (Tr ₫)`;
+      thProv[6].textContent = `Cần Thu ${currShort} (Tr ₫)`;
+    }
+
+    // Dynamic headers for Top BC Giao table
+    const thBcGiao = document.querySelectorAll('#table-truythu-top-bc-giao thead th');
+    if (thBcGiao.length >= 8) {
+      thBcGiao[4].textContent = `Đơn ${prevShort}`;
+      thBcGiao[5].textContent = `Đơn ${currShort}`;
+      thBcGiao[7].textContent = `Cần Thu ${prevShort} (Tr ₫)`;
+      thBcGiao[8].textContent = `Cần Thu ${currShort} (Tr ₫)`;
+    }
+
+    // Dynamic headers for Top AM table
+    const thAm = document.querySelectorAll('#table-truythu-top-am thead th');
+    if (thAm.length >= 6) {
+      thAm[2].textContent = `Ticket ${prevShort}`;
+      thAm[3].textContent = `Ticket ${currShort}`;
+      thAm[5].textContent = `Cần Thu ${prevShort} (Tr ₫)`;
+      thAm[6].textContent = `Cần Thu ${currShort} (Tr ₫)`;
+    }
 
     // 1. PANEL 1: THEO LOẠI TRUY THU
     renderTruyThuLoaiTable();
@@ -9765,8 +9793,7 @@
           <td style="font-weight:700; color:#2563eb;">${b.am}</td>
           <td style="color:#64748b; font-size:12px;">${b.tinh || ''}</td>
           <td class="num bold">${(b.vol || 0).toLocaleString()}</td>
-          <td class="num">${(b.da_gan || 0).toLocaleString()}</td>
-          <td class="num bold" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; font-size: 13px; font-weight: 900;">${(b.chua_gan || 0).toLocaleString()}</td>
+
           <td class="num bold" style="background: ${rateBg}; color: ${rateColor}; font-size: 13.5px; font-weight: 900;">${gr.toFixed(1)}%</td>
           <td class="num" style="font-weight:700; color:${ca1 < 80 ? '#dc2626' : '#16a34a'};">${ca1.toFixed(1)}%</td>
           <td class="num" style="font-weight:700; color:${ca2 < 30 ? '#dc2626' : '#ea580c'};">${ca2 > 0 ? ca2.toFixed(1) + '%' : '--'}</td>
