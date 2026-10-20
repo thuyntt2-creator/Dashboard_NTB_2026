@@ -4823,7 +4823,12 @@ def update_all_caches():
 def home():
     if 'csrf_token' not in session:
         session['csrf_token'] = secrets.token_hex(32)
-    return render_template('index.html')
+    root_dir = os.path.dirname(os.path.abspath(__file__))
+    response = send_from_directory(root_dir, 'index.html')
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response
 
 @app.route('/hop')
 @app.route('/meeting')

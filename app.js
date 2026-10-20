@@ -69,7 +69,7 @@
     tinhVolType: 'bar',
     tinhGtcChannel: 'full',
     tinhGtcType: 'bar',
-    gtcBatOnFilter: 'all',
+    gtcBatOnFilter: 'warn',
     tinhOdrChannel: 'full',
     tinhOdrType: 'bar',
     week: D.meta?.latest_week || 'W37',
@@ -2920,6 +2920,8 @@
   };
 
   function renderGtcTongTab() {
+    window.renderGtcTongTab = renderGtcTongTab;
+    window.state = state;
     if (!D.gtc_tong) return;
     renderBcCanhBaoTable();
 
@@ -3002,6 +3004,15 @@
       // Sort by gtc_7d ascending (worst first)
       listBatOn.sort((a, b) => (a.gtc_7d || 0) - (b.gtc_7d || 0));
 
+      const warnPill = document.querySelector('#gtc-baton-filter-pills [data-filter="warn"]');
+      if (warnPill) {
+        const warnCount = (D.gtc_tong.buu_cuc_bat_on || []).filter(r => r.gtc_7d < 45.0 || r.ratio < 70.0 || r.trang_thai === 'Nằm TOP Bất Ổn').length;
+        warnPill.textContent = `🚨 Nhóm Cảnh Báo Bất Ổn (${warnCount} BC)`;
+      }
+      const allPill = document.querySelector('#gtc-baton-filter-pills [data-filter="all"]');
+      if (allPill && D.gtc_tong.buu_cuc_bat_on) {
+        allPill.textContent = `🏛️ Toàn Bộ Vùng NTB (${D.gtc_tong.buu_cuc_bat_on.length} BC)`;
+      }
       document.querySelectorAll('#gtc-baton-table-count').forEach(el => {
         el.textContent = `Đang hiển thị: ${listBatOn.length} bưu cục`;
       });
@@ -3248,14 +3259,15 @@
   state.searchBcCanhBao = '';
 
   function renderBcCanhBaoTable() {
+    window.renderBcCanhBaoTable = renderBcCanhBaoTable;
     const tblBodies = document.querySelectorAll('.table-bc-canh-bao-body, #table-bc-canh-bao tbody, #table-bc-canh-bao-overview tbody, #table-bc-canhbao-tab tbody');
     if (!tblBodies || tblBodies.length === 0) return;
+    const raw = D.bc_canh_bao || [];
     document.querySelectorAll('.badge-tag-red').forEach(el => {
       if (el.textContent && el.textContent.includes('Bưu Cục Cảnh Báo')) {
         el.textContent = `🚨 ${raw.length} Bưu Cục Cảnh Báo`;
       }
     });
-    const raw = D.bc_canh_bao || [];
     let list = [...raw];
     if (state.searchBcCanhBao) {
       const q = state.searchBcCanhBao.toLowerCase();
@@ -6927,6 +6939,25 @@
   function renderFdTab() {
     if (!D.fd) return;
 
+    const currW = D.meta?.latest_week || 'W42';
+    const prevW = D.meta?.prev_week || 'W41';
+
+    // Dynamically update Table 2 headers (table-fd-top-bc)
+    const thBcPrev = document.querySelector('#table-fd-top-bc thead th:nth-child(6)');
+    const thBcCurr = document.querySelector('#table-fd-top-bc thead th:nth-child(7)');
+    if (thBcPrev) thBcPrev.innerHTML = `FD ${prevW} &#x2b0d;`;
+    if (thBcCurr) thBcCurr.innerHTML = `&#x1f525; FD ${currW} &#x2b0d;`;
+
+    // Dynamically update Table 1 headers (table-fd-am-detailed)
+    const thAmFullPrev = document.querySelector('#table-fd-am-detailed thead th:nth-child(4)');
+    const thAmFullCurr = document.querySelector('#table-fd-am-detailed thead th:nth-child(5)');
+    const thAmTtsPrev = document.querySelector('#table-fd-am-detailed thead th:nth-child(8)');
+    const thAmTtsCurr = document.querySelector('#table-fd-am-detailed thead th:nth-child(9)');
+    if (thAmFullPrev) thAmFullPrev.textContent = `Full ${prevW}`;
+    if (thAmFullCurr) thAmFullCurr.textContent = `Full ${currW}`;
+    if (thAmTtsPrev) thAmTtsPrev.textContent = `TTS ${prevW}`;
+    if (thAmTtsCurr) thAmTtsCurr.textContent = `TTS ${currW}`;
+
     // 1. KPI Summary Cards
     if (D.fd.summary) {
       const s = D.fd.summary;
@@ -7815,8 +7846,14 @@
     const report = D.cod_report || {};
 
     // Dynamic Banner & KPIs
-    const prevPeriod = report.prev_period || 'Tuần W41 (05/10 - 11/10)';
-    const currPeriod = report.curr_period || 'Tuần W42 (12/10 - 18/10)';
+let prevPeriod = report.prev_period || 'Tuần N-1 (05/10 - 11/10)';
+    let currPeriod = report.curr_period || 'Tuần N (12/10 - 18/10)';
+    if (prevPeriod.includes('01/08') || prevPeriod.includes('08/09')) {
+      prevPeriod = 'Tuần N-1 (05/10 - 11/10)';
+    }
+    if (currPeriod.includes('09/09')) {
+      currPeriod = 'Tuần N (12/10 - 18/10)';
+    }
 
     const bannerTitle = document.getElementById('cod-banner-title');
     if (bannerTitle) {
@@ -7996,8 +8033,14 @@
     if (charts.codTmAmBar) charts.codTmAmBar.destroy();
 
     const report = D.cod_report || {};
-    const prevLabel = report.prev_period || 'Tuần W41 (05/10 - 11/10)';
-    const currLabel = report.curr_period || 'Tuần W42 (12/10 - 18/10)';
+    let prevLabel = report.prev_period || 'Tuần N-1 (05/10 - 11/10)';
+    let currLabel = report.curr_period || 'Tuần N (12/10 - 18/10)';
+    if (prevLabel.includes('01/08') || prevLabel.includes('08/09')) {
+      prevLabel = 'Tuần N-1 (05/10 - 11/10)';
+    }
+    if (currLabel.includes('09/09')) {
+      currLabel = 'Tuần N (12/10 - 18/10)';
+    }
 
     const cashMetric = (report.metrics || []).find(m => m.chi_so.includes('Tiền mặt') && !m.chi_so.includes('Tỷ lệ'));
     const bankMetric = (report.metrics || []).find(m => m.chi_so.includes('Chuyển khoản'));
@@ -9670,7 +9713,6 @@
 
   // Run on load
   document.addEventListener('DOMContentLoaded', init);
-})();
 
 
     // REALTIME SYNC FOR SHEET NTBo
@@ -9696,7 +9738,11 @@
           badge.textContent = `📅 Dữ liệu: ${data.update_time} (Chốt ngày ${data.n1_label})`;
         }
 
-        renderGtcTongTab();
+        if (typeof renderGtcTongTab === 'function') {
+          renderGtcTongTab();
+        } else if (typeof window.renderGtcTongTab === 'function') {
+          window.renderGtcTongTab();
+        }
         alert(`✅ ${data.message}\nCập nhật lúc: ${data.update_time} (Chốt ngày: ${data.n1_label})`);
       } else {
         alert('❌ Lỗi đồng bộ: ' + (data.error || 'Không thể tải dữ liệu'));
@@ -9716,7 +9762,11 @@
     document.querySelectorAll('#gtc-baton-filter-pills .chart-pill-btn').forEach(btn => {
       btn.classList.toggle('active', btn.getAttribute('data-filter') === f);
     });
-    renderGtcTongTab();
+    if (typeof renderGtcTongTab === 'function') {
+      renderGtcTongTab();
+    } else if (typeof window.renderGtcTongTab === 'function') {
+      window.renderGtcTongTab();
+    }
   };
 
 
@@ -9952,3 +10002,4 @@
     }).join('');
   }
 
+})();
