@@ -810,11 +810,11 @@
                 <span id="text-sync-ntbo">🔄 Đồng Bộ Realtime Sheet NTBo</span>
               </button>
               <span id="badge-ntbo-updated" style="font-size: 11.5px; color: #991b1b; font-weight: 700; background: #fee2e2; padding: 5px 10px; border-radius: 6px; border: 1px solid #fca5a5; display: flex; align-items: center; gap: 4px;">
-                📅 Dữ liệu: 12/10/2026 (Chốt ngày 11/10)
+                📅 Dữ liệu: 20/10/2026 (Chốt ngày 19/10/2026)
               </span>
             </div>
             <div class="chart-mode-pills" id="gtc-baton-filter-pills">
-              <button class="chart-pill-btn active" data-filter="warn" onclick="window.filterGtcBatOn('warn')" style="color: #dc2626; font-weight: 800;">🚨 Nhóm Cảnh Báo Bất Ổn (7 BC)</button>
+              <button class="chart-pill-btn active" data-filter="warn" onclick="window.filterGtcBatOn('warn')" style="color: #dc2626; font-weight: 800;">🚨 Nhóm Cảnh Báo Bất Ổn (8 BC)</button>
               <button class="chart-pill-btn" data-filter="all" onclick="window.filterGtcBatOn('all')">🏛️ Toàn Bộ Vùng NTB (86 BC)</button>
             </div>
             <a href="https://docs.google.com/spreadsheets/d/1lmQv8KwHJzDFs_RMz64ydu4SOmG3M1YAzILNFGtzFec/edit?gid=957775572#gid=957775572" target="_blank" class="badge-tag badge-tag-red" style="font-size: 11.5px; padding: 6px 14px; text-decoration: none; display: flex; align-items: center; gap: 6px;">
@@ -824,6 +824,58 @@
         </div>
 
         <div class="report-card-body" style="padding: 20px;">
+          <!-- BANNER LOGIC QUY CHUẨN ĐÁNH GIÁ BẤT ỔN -->
+          <div style="background: linear-gradient(135deg, #fffbeb 0%, #fef2f2 100%); border: 1.5px solid #fecaca; border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; box-shadow: 0 4px 14px rgba(239, 68, 68, 0.06);">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-bottom: 1px dashed rgba(239,68,68,0.25); padding-bottom: 12px; margin-bottom: 14px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 22px;">📌</span>
+                <div>
+                  <div style="font-size: 15px; font-weight: 900; color: #991b1b; text-transform: uppercase; letter-spacing: 0.5px;">BỘ QUY CHUẨN ĐÁNH GIÁ BƯU CỤC BẤT ỔN — VÙNG NAM TRUNG BỘ</div>
+                  <div style="font-size: 12px; color: #7f1d1d; margin-top: 2px;">Chuẩn hóa tiêu chí điều hành vận hành NTB — Cập nhật realtime theo Google Sheet NTBo</div>
+                </div>
+              </div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span class="badge-tag badge-tag-red" style="font-weight: 800; font-size: 12px;">🚨 8 BC Thuộc Diện Cảnh Báo Bất Ổn (&lt;45% hoặc Đỉnh &lt;70%)</span>
+                <span class="badge-tag badge-tag-green" style="font-weight: 800; font-size: 12px;">🟢 78 BC Ngoài Diện Cảnh Báo (An Toàn)</span>
+              </div>
+            </div>
+
+            <!-- 3 CỘT QUY TẮC CHI TIẾT (RIÊNG CHO NTB) -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; font-size: 13px;">
+              <div style="background: #ffffff; padding: 12px 14px; border-radius: 8px; border-left: 4px solid #3b82f6; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                <div style="font-weight: 800; color: #1e40af; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                  <span>📦</span> 1. Cơ Cấu Hàng Vùng NTB
+                </div>
+                <div style="color: #475569; line-height: 1.55;">
+                  • Chu kỳ đánh giá: <strong>%GTC trung bình 7 ngày gần nhất</strong>.<br>
+                  • <strong style="color: #dc2626;">Cơ cấu tính của NTB:</strong> Chỉ tính <strong>Hàng mới Ca 1 + Hàng tồn</strong> <em>(Không tính hàng mới ca 2 xuất phát muộn)</em>.<br>
+                  • <em>Cơ hội gỡ điểm của bưu cục nằm trọn vẹn ở khâu ra quân ca sáng!</em>
+                </div>
+              </div>
+
+              <div style="background: #ffffff; padding: 12px 14px; border-radius: 8px; border-left: 4px solid #ef4444; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                <div style="font-weight: 800; color: #b91c1c; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                  <span>🚨</span> 2. Tiêu Chuẩn Kích Hoạt Cảnh Báo NTB
+                </div>
+                <div style="color: #475569; line-height: 1.55;">
+                  • <strong style="color: #dc2626;">Báo Động Đỏ Tuyệt Đối:</strong> %GTC 7 ngày &lt; <strong style="color: #dc2626; font-size: 14px;">45%</strong> ➔ <strong style="color: #b91c1c;">NẰM TOP BẤT ỔN</strong>.<br>
+                  • <strong style="color: #ea580c;">Cảnh Báo Sụt Giảm Phong Độ:</strong> %GTC 7 ngày &lt; <strong>70%</strong> Mốc Lịch sử tốt nhất (Tỷ lệ so sánh với Đỉnh &lt; 70%).
+                </div>
+              </div>
+
+              <div style="background: #ffffff; padding: 12px 14px; border-radius: 8px; border-left: 4px solid #ea580c; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                <div style="font-weight: 800; color: #c2410c; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                  <span>⚠️</span> 3. Lưu Ý Quản Trị Vận Hành Cho AM
+                </div>
+                <div style="color: #475569; line-height: 1.55;">
+                  • <strong>Chuẩn bị nhảy nhóm:</strong> Tỷ lệ so sánh đỉnh tiệm cận ngưỡng rơi &lt; 70% hoặc N-1 rớt mạnh (VD: <em>Nha Trang</em>).<br>
+                  • <strong>GTC N-1 &lt; 50%:</strong> Ngày chốt gần nhất rớt sâu <em>(&lt; 50%)</em>, nguy cơ lan sang tuần tới.<br>
+                  • <strong>Hành động:</strong> AM trực tiếp can thiệp hiện trường, dọn tồn trước 8h30 và kiểm soát xuất kho ca 1!
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- SEARCH & STATS ROW -->
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 14px;">
             <div style="display: flex; align-items: center; gap: 10px;">
@@ -848,7 +900,7 @@
                   <th class="num">GTC Lịch Sử Tốt Nhất (2)</th>
                   <th class="num" style="background: #fff7ed; color: #c2410c; font-weight: 800;">So Sánh Với Đỉnh</th>
                   <th class="num" style="color: #ea580c; font-weight: 700;">Độ Tụt Dốc (Gap %p)</th>
-                  <th class="num" style="color: #4b5563;">Chốt Ngày 11/10 (N-1)</th>
+                  <th class="num" style="color: #4b5563;">Chốt Ngày 19/10/2026 (N-1)</th>
                   <th class="center" style="width: 170px;">Trạng Thái</th>
                   <th class="center" style="width: 150px;">Nguyên Nhân</th>
                 </tr>
@@ -5323,7 +5375,7 @@
 </div>
 </div>
 <!-- Scripts -->
-<script src="data.js?v=1792471286"></script>
-<script src="app.js?v=1792471286"></script>
+<script src="data.js?v=1792473368"></script>
+<script src="app.js?v=1792473368"></script>
 </body>
 </html><
