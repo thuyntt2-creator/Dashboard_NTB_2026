@@ -7618,9 +7618,9 @@
     charts.agingProgress = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['Đầu W40', 'Hiện tại (W41)'],
+        labels: ['Tuần W41', 'Tuần W42 (Realtime)'],
         datasets: [{
-          data: [1420, 400],
+          data: [1420, (D.aging && D.aging.total) ? D.aging.total : 856],
           backgroundColor: ['#94a3b8', '#10b981'],
           borderRadius: 6,
           barPercentage: 0.6
