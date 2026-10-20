@@ -4248,8 +4248,8 @@
 <div class="exec-banner-text">
 <h3 id="aging-banner-title">ĐIỀU HÀNH XỬ LÝ HÀNG AGING TỒN ĐỌNG &amp; TREO LUÂN CHUYỂN</h3>
 <p id="aging-banner-desc">
-              • <strong>Aging Tồn Kho (&gt;5 ngày):</strong> Toàn vùng ghi nhận <strong>431 đơn</strong> (5–8 ngày: <strong>365 đ / 84,7%</strong>; 8–15 ngày: <strong>59 đ / 13,7%</strong>; &gt;15 ngày: <strong>7 đ / 1,6%</strong>). Top AM: Nguyễn Văn B (78 đ).<br/>
-              • <strong>Hàng Treo Luân Chuyển:</strong> Toàn vùng có <strong>4.660 đơn</strong> đang lưu chuyển, trong đó <strong>92,0% (4.287 đơn)</strong> luân chuyển đúng hạn &lt;24h. Đơn tồn <strong>Treo ≥24h: 373 đơn (8,0%)</strong>, trễ nặng <strong>≥36h: 208 đơn (4,5%)</strong>. Điểm nóng treo: AM Nguyễn Văn B (45 đơn treo) tại BC Cẩm Lệ (18 đơn treo).
+              • <strong>Aging Tồn Kho (>5 ngày):</strong> Toàn vùng ghi nhận <strong>856 đơn</strong> (5–8 ngày: <strong>729 đ / 85.2%</strong>; 8–15 ngày: <strong>127 đ / 14.8%</strong>; >15 ngày: <strong>0 đ / 0.0% 🟢</strong>). Top 1 AM: <strong>Lê Văn Trường (215 đ / 25.1%)</strong>, BC Lang Biang 2 (191 đ); <strong>Nguyễn Lê Nguyên Vũ (170 đ / 19.9%)</strong>, BC Đức Trọng 1 (150 đ).<br/>
+              • <strong>Hàng Treo Luân Chuyển:</strong> Toàn vùng có <strong>4.103 đơn</strong> đang lưu chuyển, trong đó <strong>89.8% (3.685 đơn)</strong> luân chuyển đúng hạn &lt;24h. Đơn tồn <strong>Treo ≥24h: 418 đơn (10.2%)</strong>, trễ nặng <strong>≥36h: 208 đơn (5.1%)</strong>. Điểm nóng treo: AM <strong>Phan Đình Duy (85 đơn treo / 20.3%)</strong> tại BC Tây Nha Trang (38 đ); AM <strong>Nguyễn Thanh Long (55 đơn treo)</strong> tại BC Cam Linh (44 đ).
             </p>
 </div>
 </div>
@@ -4313,67 +4313,61 @@
 <div class="kpi-tile-meta" id="kpi-aging-meta-4"><span class="diff-tag diff-neutral">1,142 đơn (48.9%)</span></div>
 </div>
 </div>
-<!-- Grid Row 2 Biểu Đồ Aging: Cơ Cấu Tuổi Hàng & Tiến Độ Giải Tỏa Tồn -->
+<!-- Grid Row 2: Cơ Cấu Hàng Tồn / Lưu Chuyển & Kịch Bản Thuyết Trình Hiện Trường -->
 <div class="grid-row-2" style="margin-bottom: 20px;">
-  <!-- Biểu đồ 1: Cơ Cấu 400 Đơn Aging >5 Ngày (Biểu đồ tròn Donut) -->
+  <!-- Card 1: Biểu đồ tròn Donut cơ cấu theo nhóm tuổi / mốc thời gian -->
   <div class="report-card">
     <div class="report-card-header">
       <div class="report-card-title">
-        <i data-lucide="pie-chart" style="color: #ef4444;"></i>
-        CƠ CẤU HÀNG TỒN AGING >5 NGÀY THEO NHÓM TUỔI (W42 - REALTIME 20/10)</div>
-<span class="badge-tag badge-tag-red" id="aging-donut-total-badge" style="font-weight: 800;">Tổng tồn: 856 đơn</span>
+        <i data-lucide="pie-chart" style="color: #ef4444;" id="aging-donut-icon"></i>
+        <span id="aging-donut-title">CƠ CẤU HÀNG TỒN AGING >5 NGÀY THEO NHÓM TUỔI (W42 - REALTIME 20/10)</span>
+      </div>
+      <span class="badge-tag badge-tag-red" id="aging-donut-total-badge" style="font-weight: 800;">Tổng tồn: 856 đơn</span>
     </div>
     <div class="report-card-body" style="padding: 16px 20px;">
       <div style="display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
         <div style="position: relative; width: 200px; height: 200px;">
           <canvas id="chart-aging-donut"></canvas>
           <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; pointer-events: none;">
-            <div style="font-size: 26px; font-weight: 900; color: #b91c1c; font-family: var(--font-mono, monospace); line-height: 1;">856</div>
-            <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Đơn tồn</div>
+            <div id="aging-donut-center-val" style="font-size: 26px; font-weight: 900; color: #b91c1c; font-family: var(--font-mono, monospace); line-height: 1;">856</div>
+            <div id="aging-donut-center-label" style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Đơn tồn</div>
           </div>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 10px; min-width: 200px;">
+        <div id="aging-donut-legend" style="display: flex; flex-direction: column; gap: 10px; min-width: 210px;">
           <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; background: rgba(59, 130, 246, 0.08); border-left: 4px solid #3b82f6; border-radius: 6px;">
             <span style="font-size: 12.5px; font-weight: 700; color: var(--text-main);">🔹 5 – 8 ngày</span>
-            <span style="font-size: 13px; font-weight: 900; color: #2563eb;">328 đơn (82.0%)</span>
+            <span id="legend-ag-val-1" style="font-size: 13px; font-weight: 900; color: #2563eb;">729 đơn (85.2%)</span>
           </div>
           <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; border-radius: 6px;">
             <span style="font-size: 12.5px; font-weight: 700; color: var(--text-main);">🔸 8 – 15 ngày</span>
-            <span style="font-size: 13px; font-weight: 900; color: #d97706;">64 đơn (16.0%)</span>
+            <span id="legend-ag-val-2" style="font-size: 13px; font-weight: 900; color: #d97706;">127 đơn (14.8%)</span>
           </div>
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; background: rgba(239, 68, 68, 0.08); border-left: 4px solid #ef4444; border-radius: 6px;">
-            <span style="font-size: 12.5px; font-weight: 700; color: var(--text-main);">🔻 Trên 15 ngày</span>
-            <span style="font-size: 13px; font-weight: 900; color: #dc2626;">8 đơn (2.0%) 🟢</span>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; background: rgba(16, 185, 129, 0.08); border-left: 4px solid #10b981; border-radius: 6px;">
+            <span style="font-size: 12.5px; font-weight: 700; color: var(--text-main);">🟢 Trên 15 ngày</span>
+            <span id="legend-ag-val-3" style="font-size: 13px; font-weight: 900; color: #059669;">0 đơn (0.0%) 🎉</span>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Biểu đồ 2: Tiến Độ Giải Phóng Hàng Tồn Aging (W40 vs W41) -->
-  <div class="report-card">
-    <div class="report-card-header">
-      <div class="report-card-title">
-        <i data-lucide="trending-down" style="color: #10b981;"></i>
-        TIẾN ĐỘ GIẢI PHÓNG HÀNG TỒN AGING (W41 VS W42)
+  <!-- Card 2: KỊCH BẢN THUYẾT TRÌNH & ĐIỀU HÀNH HIỆN TRƯỜNG (Thay thế ảnh tiến độ sai) -->
+  <div class="report-card" style="display: flex; flex-direction: column;">
+    <div class="report-card-header" style="background: linear-gradient(135deg, #fef2f2, #fff7ed); border-bottom: 1.5px solid #fed7aa;">
+      <div class="report-card-title" style="color: #991b1b; font-weight: 800;">
+        <i data-lucide="mic" style="color: #dc2626;" id="aging-script-icon"></i>
+        <span id="aging-script-title">KỊCH BẢN ĐIỀU HÀNH: AGING >5 NGÀY (REALTIME 20/10)</span>
       </div>
-      <span class="badge-tag badge-tag-green" style="font-weight: 800;">🎉 Giảm -71.8% WoW</span>
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="badge-tag badge-tag-red" id="aging-script-badge" style="font-weight: 800;">Realtime 20/10</span>
+        <a href="/kich-ban" target="_blank" class="bi-btn bi-btn-sm" style="font-size: 11.5px; padding: 3px 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; font-weight: 700;" title="Mở trang kịch bản đầy đủ">
+          <i data-lucide="external-link" style="width: 12px; height: 12px;"></i> Kịch Bản W42
+        </a>
+      </div>
     </div>
-    <div class="report-card-body" style="padding: 16px 20px;">
-      <div style="display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 16px;">
-        <div style="width: 220px; height: 190px;">
-          <canvas id="chart-aging-progress"></canvas>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 8px; max-width: 240px;">
-          <div style="padding: 10px; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 8px;">
-            <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: #047857;">Nỗ Lực Giải Phóng Hàng Tồn</div>
-            <div style="font-size: 20px; font-weight: 900; color: #059669; margin-top: 2px;">-1,020 ĐƠN</div>
-            <div style="font-size: 11.5px; color: #065f46; margin-top: 2px;">Giảm từ 1,420 đơn (đầu W40) xuống còn 400 đơn!</div>
-          </div>
-          <div style="font-size: 12px; color: var(--text-muted); font-style: italic; line-height: 1.4;">
-            * Nhóm tồn lưu cữu lâu ngày (&gt;15 ngày) cơ bản đã được vét sạch dứt điểm, chỉ còn đúng 8 đơn rải rác!
-          </div>
-        </div>
+    <div class="report-card-body" style="padding: 14px 18px; flex: 1; display: flex; flex-direction: column;">
+      <div id="aging-script-content" style="font-size: 12.5px; line-height: 1.6; max-height: 220px; overflow-y: auto; padding-right: 6px; color: var(--text-main);">
+        <!-- Nội dung kịch bản sẽ được app.js render tự động -->
       </div>
     </div>
   </div>
@@ -5409,7 +5403,7 @@
 </div>
 </div>
 <!-- Scripts -->
-<script src="data.js?v=1792477549"></script>
-<script src="app.js?v=1792477549"></script>
+<script src="data.js?v=1792479646"></script>
+<script src="app.js?v=1792479646"></script>
 </body>
 </html><

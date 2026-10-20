@@ -7578,17 +7578,262 @@
     if (!ctx) return;
     if (charts.agingDonut) charts.agingDonut.destroy();
 
-    const d58 = (D.aging && D.aging.total_5_8) || 328;
-    const d815 = (D.aging && D.aging.total_8_15) || 64;
-    const dgt15 = (D.aging && D.aging.total_gt_15) || 8;
+    const seg = state.agingSegment || 'aging';
+    const isAging = seg === 'aging';
+    const isTreo = seg === 'treo_lc';
+    const isCompare = seg === 'compare';
+
+    // 1. DYNAMIC UPDATE HEADER & BADGE FOR DONUT CARD
+    const donutTitle = document.getElementById('aging-donut-title');
+    const donutBadge = document.getElementById('aging-donut-total-badge');
+    const centerVal = document.getElementById('aging-donut-center-val');
+    const centerLbl = document.getElementById('aging-donut-center-label');
+    const donutLegend = document.getElementById('aging-donut-legend');
+
+    // 2. DYNAMIC UPDATE SCRIPT CARD (RIGHT SIDE)
+    const scriptTitle = document.getElementById('aging-script-title');
+    const scriptBadge = document.getElementById('aging-script-badge');
+    const scriptContent = document.getElementById('aging-script-content');
+
+    let chartLabels = [];
+    let chartData = [];
+    let chartColors = [];
+
+    if (isAging) {
+      const d58 = (D.aging && D.aging.total_5_8 !== undefined) ? D.aging.total_5_8 : 729;
+      const d815 = (D.aging && D.aging.total_8_15 !== undefined) ? D.aging.total_8_15 : 127;
+      const dgt15 = (D.aging && D.aging.total_gt_15 !== undefined) ? D.aging.total_gt_15 : 0;
+      const tot = (D.aging && D.aging.total) ? D.aging.total : (d58 + d815 + dgt15);
+
+      const p58 = tot ? (d58 / tot * 100).toFixed(1) : '85.2';
+      const p815 = tot ? (d815 / tot * 100).toFixed(1) : '14.8';
+      const pgt15 = tot ? (dgt15 / tot * 100).toFixed(1) : '0.0';
+
+      if (donutTitle) donutTitle.textContent = 'CƠ CẤU HÀNG TỒN AGING >5 NGÀY THEO NHÓM TUỔI (W42 - REALTIME 20/10)';
+      if (donutBadge) {
+        donutBadge.className = 'badge-tag badge-tag-red';
+        donutBadge.textContent = `Tổng tồn: ${fNum(tot)} đơn`;
+      }
+      if (centerVal) {
+        centerVal.textContent = fNum(tot);
+        centerVal.style.color = '#b91c1c';
+      }
+      if (centerLbl) centerLbl.textContent = 'Đơn tồn';
+
+      if (donutLegend) {
+        donutLegend.innerHTML = `
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; background: rgba(59, 130, 246, 0.08); border-left: 4px solid #3b82f6; border-radius: 6px;">
+            <span style="font-size: 12.5px; font-weight: 700; color: var(--text-main);">🔹 5 – 8 ngày</span>
+            <span style="font-size: 13px; font-weight: 900; color: #2563eb;">${fNum(d58)} đơn (${p58}%)</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; border-radius: 6px;">
+            <span style="font-size: 12.5px; font-weight: 700; color: var(--text-main);">🔸 8 – 15 ngày</span>
+            <span style="font-size: 13px; font-weight: 900; color: #d97706;">${fNum(d815)} đơn (${p815}%)</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; background: rgba(16, 185, 129, 0.08); border-left: 4px solid #10b981; border-radius: 6px;">
+            <span style="font-size: 12.5px; font-weight: 700; color: var(--text-main);">🟢 Trên 15 ngày</span>
+            <span style="font-size: 13px; font-weight: 900; color: #059669;">${fNum(dgt15)} đơn (${pgt15}%) 🎉</span>
+          </div>
+        `;
+      }
+
+      // Update Script Card for Aging
+      if (scriptTitle) scriptTitle.textContent = 'KỊCH BẢN ĐIỀU HÀNH: AGING >5 NGÀY (REALTIME 20/10)';
+      if (scriptBadge) {
+        scriptBadge.className = 'badge-tag badge-tag-red';
+        scriptBadge.textContent = 'Aging Realtime';
+      }
+      if (scriptContent) {
+        scriptContent.innerHTML = `
+          <div style="margin-bottom: 10px; padding: 8px 12px; background: #fee2e2; border-left: 4px solid #ef4444; border-radius: 6px;">
+            <div style="font-weight: 800; color: #991b1b; font-size: 13px;">📦 TỔNG HỢP TỒN AGING (>5 NGÀY): ${fNum(tot)} ĐƠN (REALTIME 20/10)</div>
+            <div style="font-size: 12px; color: #7f1d1d; margin-top: 2px;">
+              • 5–8 ngày: <strong>${fNum(d58)} đơn (${p58}%)</strong> | 8–15 ngày: <strong>${fNum(d815)} đơn (${p815}%)</strong> | >15 ngày: <strong style="color:#059669;">${fNum(dgt15)} đơn (0%) 🟢 Đã giải phóng sạch!</strong>
+            </div>
+          </div>
+          <div style="margin-bottom: 10px;">
+            <strong style="color: #c2410c;">🚨 ĐIỂM DANH TOP 5 AM & BƯU CỤC TỒN CAO NHẤT HÔM NAY:</strong>
+            <ul style="margin: 4px 0 0 16px; padding: 0;">
+              <li><strong>AM Lê Văn Trường:</strong> Tồn 215 đ (25.1%) — Điểm nóng: BC Lang Biang 2 ngâm tới <strong>191 đơn</strong>!</li>
+              <li><strong>AM Nguyễn Lê Nguyên Vũ:</strong> Tồn 170 đ (19.9%) — Điểm nóng: BC Đức Trọng 1 ngâm tới <strong>150 đơn</strong>!</li>
+              <li><strong>AM Hồng Bích Nga:</strong> Tồn 114 đ (13.3%) — Điểm nóng: BC Hòa Ninh ngâm <strong>91 đơn</strong>.</li>
+              <li><strong>AM Huỳnh Thị Kim Chi:</strong> Tồn 108 đ (12.6%) — Điểm nóng: BC Tân Hà Lâm Hà ngâm <strong>92 đơn</strong>.</li>
+              <li><strong>AM Phan Đình Duy:</strong> Tồn 62 đ (BC Nha Trang 24 đ, Tây Nha Trang 17 đ).</li>
+            </ul>
+            <div style="font-size: 11.5px; color: #b91c1c; font-weight: 700; margin-top: 3px;">⚠️ Lưu ý: Tỉnh Lâm Đồng tập trung tới hơn 70% tổng lượng hàng tồn aging của toàn vùng!</div>
+          </div>
+          <div style="margin-bottom: 8px; padding: 6px 10px; background: #fff7ed; border-left: 3px solid #ea580c; border-radius: 4px;">
+            <strong style="color: #ea580c;">🎯 MỆNH LỆNH ĐIỀU HÀNH 48H:</strong>
+            <div style="font-size: 12px; color: #9a3412;">
+              1. AM Trường, Vũ, Chi, Nga trực tiếp xuống 4 kho điểm nóng (Lang Biang 2, Đức Trọng 1, Tân Hà, Hòa Ninh) rà soát vật lý từng kiện, giải phóng tối thiểu 60% lượng tồn trước 17h00 ngày mai!<br/>
+              2. Áp dụng quy tắc "Xếp sọt đảo ngược": Hàng tồn cũ bắt buộc xếp lên miệng sọt xuất ca 1 sáng, không để shipper bốc đơn mới bỏ quên đơn cũ.
+            </div>
+          </div>
+          <div style="padding: 6px 10px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 4px;">
+            <strong style="color: #0f172a;">🎤 LỜI THOẠI TRÌNH BÀY NHANH TẠI CUỘC HỌP:</strong>
+            <div style="font-size: 12px; color: #334155; font-style: italic;">
+              "Thưa các anh chị, toàn vùng hiện có 856 đơn tồn >5 ngày, điểm sáng là nhóm nguy cơ đền bù >15 ngày đã kéo về 0 đơn! Tuy nhiên, hơn 70% lượng tồn dồn tại Lâm Đồng, đặc biệt là 4 bưu cục Lang Biang 2 (191 đ), Đức Trọng 1 (150 đ), Tân Hà (92 đ) và Hòa Ninh (91 đ). Yêu cầu 4 AM phụ trách xuống kho giải tỏa ngay 60% tồn trước 17h chiều mai!"
+            </div>
+          </div>
+        `;
+      }
+
+      chartLabels = [`5 – 8 ngày (${p58}%)`, `8 – 15 ngày (${p815}%)`, `Trên 15 ngày (${pgt15}%)`];
+      chartData = [d58, d815, dgt15];
+      chartColors = ['#3b82f6', '#f59e0b', '#10b981'];
+
+    } else if (isTreo) {
+      const totLC = (D.treo_lc && D.treo_lc.total) ? D.treo_lc.total : 4103;
+      const u24 = (D.treo_lc && D.treo_lc.total_u24) ? D.treo_lc.total_u24 : 3685;
+      const t24 = (D.treo_lc && D.treo_lc.total_24_36) ? D.treo_lc.total_24_36 : 210;
+      const t36 = (D.treo_lc && D.treo_lc.total_36_72) ? D.treo_lc.total_36_72 : 143;
+      const t72 = ((D.treo_lc && D.treo_lc.total_72_120) || 44) + ((D.treo_lc && D.treo_lc.total_120_plus) || 21);
+      const treo24 = (D.treo_lc && D.treo_lc.total_treo_24) ? D.treo_lc.total_treo_24 : (t24 + t36 + t72);
+
+      const pu24 = (u24 / totLC * 100).toFixed(1);
+      const pt24 = (t24 / totLC * 100).toFixed(1);
+      const pt36 = (t36 / totLC * 100).toFixed(1);
+      const pt72 = (t72 / totLC * 100).toFixed(1);
+
+      if (donutTitle) donutTitle.textContent = `CƠ CẤU ${fNum(totLC)} ĐƠN LUÂN CHUYỂN THEO THỜI GIAN (REALTIME 20/10)`;
+      if (donutBadge) {
+        donutBadge.className = 'badge-tag badge-tag-amber';
+        donutBadge.textContent = `Treo ≥24h: ${fNum(treo24)} đơn (${(treo24 / totLC * 100).toFixed(1)}%)`;
+      }
+      if (centerVal) {
+        centerVal.textContent = fNum(totLC);
+        centerVal.style.color = '#0284c7';
+      }
+      if (centerLbl) centerLbl.textContent = 'Đơn LC';
+
+      if (donutLegend) {
+        donutLegend.innerHTML = `
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; background: rgba(16, 185, 129, 0.08); border-left: 4px solid #10b981; border-radius: 6px;">
+            <span style="font-size: 12.5px; font-weight: 700; color: var(--text-main);">🟢 Đúng hạn (&lt;24h)</span>
+            <span style="font-size: 13px; font-weight: 900; color: #059669;">${fNum(u24)} đơn (${pu24}%)</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; border-radius: 6px;">
+            <span style="font-size: 12.5px; font-weight: 700; color: var(--text-main);">🟡 Treo 24 – 36h</span>
+            <span style="font-size: 13px; font-weight: 900; color: #d97706;">${fNum(t24)} đơn (${pt24}%)</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; background: rgba(234, 88, 12, 0.08); border-left: 4px solid #ea580c; border-radius: 6px;">
+            <span style="font-size: 12.5px; font-weight: 700; color: var(--text-main);">🟠 Trễ 36 – 72h</span>
+            <span style="font-size: 13px; font-weight: 900; color: #c2410c;">${fNum(t36)} đơn (${pt36}%)</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; background: rgba(220, 38, 38, 0.08); border-left: 4px solid #dc2626; border-radius: 6px;">
+            <span style="font-size: 12.5px; font-weight: 700; color: var(--text-main);">🔴 Trễ nặng &gt;72h</span>
+            <span style="font-size: 13px; font-weight: 900; color: #b91c1c;">${fNum(t72)} đơn (${pt72}%)</span>
+          </div>
+        `;
+      }
+
+      // Update Script Card for Treo LC
+      if (scriptTitle) scriptTitle.textContent = 'KỊCH BẢN ĐIỀU HÀNH: TREO LUÂN CHUYỂN (REALTIME 20/10)';
+      if (scriptBadge) {
+        scriptBadge.className = 'badge-tag badge-tag-blue';
+        scriptBadge.textContent = 'Treo LC Realtime';
+      }
+      if (scriptContent) {
+        scriptContent.innerHTML = `
+          <div style="margin-bottom: 10px; padding: 8px 12px; background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 6px;">
+            <div style="font-weight: 800; color: #1e40af; font-size: 13px;">🚚 TỔNG HỢP HÀNG TREO LUÂN CHUYỂN: ${fNum(totLC)} ĐƠN (REALTIME 20/10)</div>
+            <div style="font-size: 12px; color: #1e3a8a; margin-top: 2px;">
+              • Lưu thông ổn định (&lt;24h): <strong>${fNum(u24)} đơn (${pu24}%)</strong> | ⚠️ Tồn treo ≥24h: <strong style="color:#ea580c;">${fNum(treo24)} đơn (${(treo24 / totLC * 100).toFixed(1)}%)</strong> | 🚨 Trễ nặng ≥36h: <strong style="color:#dc2626;">208 đơn (5.1%)</strong>
+            </div>
+          </div>
+          <div style="margin-bottom: 10px;">
+            <strong style="color: #b91c1c;">📍 TOP AM & BƯU CỤC ĐIỂM NÓNG TREO ≥24H:</strong>
+            <ul style="margin: 4px 0 0 16px; padding: 0;">
+              <li><strong>AM Phan Đình Duy (Khánh Hòa):</strong> 85 đơn treo ≥24h (20.3% vùng) — Điểm nóng: BC Tây Nha Trang (<strong>38 đơn treo</strong>).</li>
+              <li><strong>AM Nguyễn Thanh Long (Cam Ranh):</strong> 55 đơn treo ≥24h — Điểm nóng số 1: BC Cam Linh có tới <strong>44 đơn treo</strong>!</li>
+              <li><strong>AM Huỳnh Thị Kim Chi (Lâm Hà):</strong> 47 đơn treo ≥24h — BC Đam Rông 3 (<strong>28 đơn treo</strong>).</li>
+              <li><strong>AM Trần Thị Nhung (Đắk Nông):</strong> 44 đơn treo ≥24h.</li>
+              <li><strong>AM Nguyễn Duy Long (Ninh Thuận):</strong> 36 đơn treo ≥24h — BC Phước Dinh (<strong>30 đơn treo</strong>).</li>
+            </ul>
+          </div>
+          <div style="margin-bottom: 8px; padding: 6px 10px; background: #fff7ed; border-left: 3px solid #ea580c; border-radius: 4px;">
+            <strong style="color: #ea580c;">🎯 MỆNH LỆNH VẬN TẢI & KTC:</strong>
+            <div style="font-size: 12px; color: #9a3412;">
+              1. Xe gom KTC rà soát ngay các chuyến xe kết nối Cam Linh, Tây Nha Trang, Đam Rông. Bưu cục phải quét nhận kiện ngay khi xe tới, cấm ngâm bao ảo!<br/>
+              2. Xử lý dứt điểm 208 đơn trễ ≥36h ngay trong ngày hôm nay 20/10!
+            </div>
+          </div>
+          <div style="padding: 6px 10px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 4px;">
+            <strong style="color: #0f172a;">🎤 LỜI THOẠI TRÌNH BÀY NHANH TẠI CUỘC HỌP:</strong>
+            <div style="font-size: 12px; color: #334155; font-style: italic;">
+              "Toàn vùng có 4.103 đơn đang luân chuyển, tỷ lệ đúng hạn đạt gần 90%. Tuy nhiên đang có 418 đơn treo trên 24h, nặng nhất là 208 đơn đã trôi quá 36h! Nặng nhất là anh Phan Đình Duy 85 đơn và anh Nguyễn Thanh Long 44 đơn treo tại bưu cục Cam Linh. Yêu cầu bưu cục quét nhận hàng ngay, không để hàng nằm chết trên xe hay ngâm bao tại bưu cục!"
+            </div>
+          </div>
+        `;
+      }
+
+      chartLabels = [`Đúng hạn <24h (${pu24}%)`, `Treo 24–36h (${pt24}%)`, `Trễ 36–72h (${pt36}%)`, `Trễ nặng >72h (${pt72}%)`];
+      chartData = [u24, t24, t36, t72];
+      chartColors = ['#10b981', '#f59e0b', '#ea580c', '#dc2626'];
+
+    } else if (isCompare) {
+      const totAg = (D.aging && D.aging.total) ? D.aging.total : 856;
+      const totTr = (D.treo_lc && D.treo_lc.total_treo_24) ? D.treo_lc.total_treo_24 : 418;
+      const totBoth = totAg + totTr;
+
+      const pAg = (totAg / totBoth * 100).toFixed(1);
+      const pTr = (totTr / totBoth * 100).toFixed(1);
+
+      if (donutTitle) donutTitle.textContent = 'ĐỐI SOÁT TỒN ĐỌNG: AGING (>5N) VS TREO LUÂN CHUYỂN (≥24H)';
+      if (donutBadge) {
+        donutBadge.className = 'badge-tag badge-tag-amber';
+        donutBadge.textContent = `Tổng tồn đọng: ${fNum(totBoth)} đơn`;
+      }
+      if (centerVal) {
+        centerVal.textContent = fNum(totBoth);
+        centerVal.style.color = '#d97706';
+      }
+      if (centerLbl) centerLbl.textContent = 'Tổng tồn đọng';
+
+      if (donutLegend) {
+        donutLegend.innerHTML = `
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; background: rgba(239, 68, 68, 0.08); border-left: 4px solid #ef4444; border-radius: 6px;">
+            <span style="font-size: 12.5px; font-weight: 700; color: var(--text-main);">🔴 Đơn Aging >5 ngày</span>
+            <span style="font-size: 13px; font-weight: 900; color: #dc2626;">${fNum(totAg)} đơn (${pAg}%)</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; background: rgba(59, 130, 246, 0.08); border-left: 4px solid #3b82f6; border-radius: 6px;">
+            <span style="font-size: 12.5px; font-weight: 700; color: var(--text-main);">🔵 Đơn Treo LC ≥24h</span>
+            <span style="font-size: 13px; font-weight: 900; color: #2563eb;">${fNum(totTr)} đơn (${pTr}%)</span>
+          </div>
+        `;
+      }
+
+      if (scriptTitle) scriptTitle.textContent = 'KỊCH BẢN ĐIỀU HÀNH: ĐỐI SOÁT TỒN ĐỌNG TOÀN DIỆN';
+      if (scriptBadge) {
+        scriptBadge.className = 'badge-tag badge-tag-amber';
+        scriptBadge.textContent = 'Đối Soát Song Song';
+      }
+      if (scriptContent) {
+        scriptContent.innerHTML = `
+          <div style="margin-bottom: 10px; padding: 8px 12px; background: #fffbeb; border-left: 4px solid #f59e0b; border-radius: 6px;">
+            <div style="font-weight: 800; color: #b45309; font-size: 13px;">⚖️ TỔNG TỒN ĐỌNG CẦN XỬ LÝ: ${fNum(totBoth)} ĐƠN</div>
+            <div style="font-size: 12px; color: #92400e; margin-top: 2px;">
+              • Aging tại bưu cục: <strong>${fNum(totAg)} đơn (${pAg}%)</strong> | Treo trên mạng luân chuyển: <strong>${fNum(totTr)} đơn (${pTr}%)</strong>
+            </div>
+          </div>
+          <div style="font-size: 12px; color: var(--text-main); line-height: 1.5;">
+            👉 <strong>Trọng tâm điều hành tuần W42:</strong> Vừa phải kéo hàng tồn aging tại các bưu cục Lâm Đồng (Lang Biang 2, Đức Trọng 1, Tân Hà, Hòa Ninh), vừa phải dọn sạch các điểm nghẽn luân chuyển tại Khánh Hòa (Tây Nha Trang, Cam Linh) để bảo toàn chỉ số SLA toàn vùng!
+          </div>
+        `;
+      }
+
+      chartLabels = [`Aging >5 ngày (${pAg}%)`, `Treo LC ≥24h (${pTr}%)`];
+      chartData = [totAg, totTr];
+      chartColors = ['#ef4444', '#3b82f6'];
+    }
 
     charts.agingDonut = new Chart(ctx, {
       type: 'doughnut',
       data: {
-        labels: ['5 – 8 ngày (82%)', '8 – 15 ngày (16%)', 'Trên 15 ngày (2%)'],
+        labels: chartLabels,
         datasets: [{
-          data: [d58, d815, dgt15],
-          backgroundColor: ['#3b82f6', '#f59e0b', '#ef4444'],
+          data: chartData,
+          backgroundColor: chartColors,
           borderColor: '#ffffff',
           borderWidth: 2,
           hoverOffset: 6
@@ -7602,7 +7847,7 @@
           legend: { display: false },
           tooltip: {
             callbacks: {
-              label: c => ` ${c.label}: ${c.parsed} đơn`
+              label: c => ` ${c.label}: ${fNum(c.parsed)} đơn`
             }
           }
         }
