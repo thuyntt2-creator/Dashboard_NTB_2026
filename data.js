@@ -13128,20 +13128,20 @@ window.DASHBOARD_DATA = {
   },
   "transport_costs": {
     "region": {
-      "total_cost": 2545.44,
-      "total_cost_formatted": "2.545.438.370 đ",
-      "total_trips": 2483,
+      "total_cost": 2546.15,
+      "total_cost_formatted": "2.546.148.651 đ",
+      "total_trips": 2484,
       "avg_cost_per_trip": 1.03,
-      "avg_cost_per_trip_formatted": "1.025.146 đ/chuyến",
+      "avg_cost_per_trip_formatted": "1.025.020 đ/chuyến",
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 61,
-      "last_updated": "21:56 - 21/10/2026"
+      "last_updated": "22:31 - 21/10/2026"
     },
     "surge_fixed": {
-      "fixed_cost": 2545.44,
+      "fixed_cost": 2546.15,
       "fixed_cost_pct": 100.0,
-      "fixed_trips": 2483,
+      "fixed_trips": 2484,
       "surge_cost": 0.0,
       "surge_cost_pct": 0.0,
       "surge_trips": 0,
@@ -13158,7 +13158,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 739.1,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 24
       },
       {
@@ -13184,17 +13184,17 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 513.21,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, NAK",
         "truck_count": 9
       },
       {
         "ktc": "KTC Bảo Lộc",
-        "total_cost": 211.55,
-        "total_cost_raw": 211552239.0,
-        "total_trips": 193,
-        "cost_per_trip": 1.1,
-        "cost_per_trip_raw": 1096125.5906735752,
-        "fixed_cost": 211.55,
+        "total_cost": 212.26,
+        "total_cost_raw": 212262520.0,
+        "total_trips": 194,
+        "cost_per_trip": 1.09,
+        "cost_per_trip_raw": 1094136.701030928,
+        "fixed_cost": 212.26,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "primary_ncc": "NAK, Công Định",
@@ -13223,7 +13223,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 93.87,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 10
       },
       {
@@ -13252,7 +13252,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 38,
-        "active_ktcs": "KTC Khánh Hòa, KTC Đức Trọng, KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Bình Thuận"
+        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang, KTC Bình Thuận, KTC Nam Nha Trang, KTC Đức Trọng"
       },
       {
         "ncc": "NAK",
@@ -13282,12 +13282,12 @@ window.DASHBOARD_DATA = {
       },
       {
         "ncc": "Công Định",
-        "total_cost": 123.59,
-        "total_cost_raw": 123588915.0,
-        "total_trips": 147,
+        "total_cost": 124.3,
+        "total_cost_raw": 124299196.0,
+        "total_trips": 148,
         "cost_per_trip": 0.84,
-        "cost_per_trip_raw": 840740.918367347,
-        "fixed_cost": 123.59,
+        "cost_per_trip_raw": 839859.4324324324,
+        "fixed_cost": 124.3,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 4,
@@ -15538,6 +15538,21 @@ window.DASHBOARD_DATA = {
         "trips_equivalent": 1,
         "trip_code": "E261016RK1O4GA5",
         "ontime": "100,00%"
+      },
+      {
+        "ncc": "Công Định",
+        "date": "18/10/2026",
+        "date_iso": "2026-10-18",
+        "truck": "49H-09142",
+        "capacity": "1900",
+        "route": "Kho Chuyển Tiếp Bảo Lộc -> (LDO) 3 Bảo Lộc -> (LDO) B'Lao -> (LDO) Bảo Lâm 3 -> Kho Chuyển Tiếp Bảo Lộc",
+        "ktc": "KTC Bảo Lộc",
+        "type": "Cố định",
+        "cost_str": "710.281 đ",
+        "cost": 710281.0,
+        "trips_equivalent": 1,
+        "trip_code": "E2610173714SAN3",
+        "ontime": "80,00%"
       },
       {
         "ncc": "Tốt và Rẻ",
@@ -47535,7 +47550,7 @@ window.DASHBOARD_DATA = {
         "ontime": "100%"
       }
     ],
-    "all_trips_count": 2280
+    "all_trips_count": 2281
   },
   "kinh_doanh": {
     "am": [
