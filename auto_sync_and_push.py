@@ -78,6 +78,19 @@ except Exception as e:
 
 # Step 3: Git add, commit, and push
 try:
+    # Safeguard: Ensure templates/index.html is ALWAYS the GHN Ops Dashboard
+    try:
+        tpl_path = os.path.join(cwd, "templates", "index.html")
+        if os.path.exists(tpl_path):
+            with open(tpl_path, "r", encoding="utf-8", errors="ignore") as f_tpl:
+                tpl_head = f_tpl.read(2000)
+            if "BÁO CÁO HỌP TUẦN" in tpl_head or "BAO CAO H" in tpl_head:
+                log("⚠️ CẢNH BÁO: templates/index.html bị ghi đè nhầm, đang tự động khôi phục...")
+                subprocess.run(["git", "checkout", "1596aa8", "--", "templates/index.html"], cwd=cwd)
+                log("✅ Đã tự động bảo vệ và khôi phục templates/index.html về GHN Ops Dashboard!")
+    except Exception as sg_err:
+        log(f"Safeguard error: {sg_err}")
+
     log("Step 3: Git add and commit...")
     subprocess.run(["git", "add", "*.csv", "ops_ca_data.csv", "app.py", "scratch/", "data.js", "data.json", "index.html", "templates/", "transport_costs.json", "app.js", ".gitignore"], cwd=cwd, capture_output=True)
     subprocess.run(["git", "commit", "-m", "Auto update data, DB and /hop weekly report"], cwd=cwd, capture_output=True)
