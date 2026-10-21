@@ -1,17 +1,17 @@
 {
   "region": {
-    "total_cost": 2531.95,
-    "total_cost_formatted": "2.531.948.105 đ",
+    "total_cost": 2522.74,
+    "total_cost_formatted": "2.522.742.647 đ",
     "total_trips": 2443,
-    "avg_cost_per_trip": 1.04,
-    "avg_cost_per_trip_formatted": "1.036.409 đ/chuyến",
+    "avg_cost_per_trip": 1.03,
+    "avg_cost_per_trip_formatted": "1.032.641 đ/chuyến",
     "ncc_count": 7,
     "ktc_count": 7,
     "total_trucks": 61,
-    "last_updated": "08:58 - 21/10/2026"
+    "last_updated": "10:10 - 21/10/2026"
   },
   "surge_fixed": {
-    "fixed_cost": 2531.95,
+    "fixed_cost": 2522.74,
     "fixed_cost_pct": 100.0,
     "fixed_trips": 2443,
     "surge_cost": 0.0,
@@ -20,19 +20,6 @@
     "eval": "An toàn (<20% chi phí xe tăng cường)"
   },
   "ktcs": [
-    {
-      "ktc": "KTC Khánh Hòa",
-      "total_cost": 739.19,
-      "total_cost_raw": 739187389.8000002,
-      "total_trips": 617,
-      "cost_per_trip": 1.2,
-      "cost_per_trip_raw": 1198034.667423015,
-      "fixed_cost": 739.19,
-      "surge_cost": 0.0,
-      "surge_pct": 0.0,
-      "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
-      "truck_count": 23
-    },
     {
       "ktc": "KTC Bình Thuận",
       "total_cost": 730.91,
@@ -45,6 +32,19 @@
       "surge_pct": 0.0,
       "primary_ncc": "Mạnh Cường",
       "truck_count": 16
+    },
+    {
+      "ktc": "KTC Khánh Hòa",
+      "total_cost": 729.98,
+      "total_cost_raw": 729981931.8000002,
+      "total_trips": 617,
+      "cost_per_trip": 1.18,
+      "cost_per_trip_raw": 1183114.9623987037,
+      "fixed_cost": 729.98,
+      "surge_cost": 0.0,
+      "surge_pct": 0.0,
+      "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+      "truck_count": 23
     },
     {
       "ktc": "KTC Đức Trọng",
@@ -69,7 +69,7 @@
       "fixed_cost": 200.41,
       "surge_cost": 0.0,
       "surge_pct": 0.0,
-      "primary_ncc": "Tốt và Rẻ, Trâm Hoá",
+      "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
       "truck_count": 7
     },
     {
@@ -82,7 +82,7 @@
       "fixed_cost": 197.35,
       "surge_cost": 0.0,
       "surge_pct": 0.0,
-      "primary_ncc": "NAK, Công Định",
+      "primary_ncc": "Công Định, NAK",
       "truck_count": 5
     },
     {
@@ -95,7 +95,7 @@
       "fixed_cost": 93.34,
       "surge_cost": 0.0,
       "surge_pct": 0.0,
-      "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+      "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
       "truck_count": 10
     },
     {
@@ -124,7 +124,7 @@
       "surge_cost": 0.0,
       "surge_pct": 0.0,
       "truck_count": 38,
-      "active_ktcs": "KTC Đức Trọng, KTC Bình Thuận, KTC Khánh Hòa, KTC Nam Nha Trang, KTC Bắc Nha Trang"
+      "active_ktcs": "KTC Bình Thuận, KTC Bắc Nha Trang, KTC Đức Trọng, KTC Khánh Hòa, KTC Nam Nha Trang"
     },
     {
       "ncc": "NAK",
@@ -140,19 +140,6 @@
       "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
     },
     {
-      "ncc": "Mạnh Cường (BCCK)",
-      "total_cost": 124.44,
-      "total_cost_raw": 124444157.0,
-      "total_trips": 180,
-      "cost_per_trip": 0.69,
-      "cost_per_trip_raw": 691356.4277777778,
-      "fixed_cost": 124.44,
-      "surge_cost": 0.0,
-      "surge_pct": 0.0,
-      "truck_count": 5,
-      "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
-    },
-    {
       "ncc": "Lâm Ngọc Thành",
       "total_cost": 117.39,
       "total_cost_raw": 117386156.00000013,
@@ -164,6 +151,19 @@
       "surge_pct": 0.0,
       "truck_count": 5,
       "active_ktcs": "KTC Đắk Nông"
+    },
+    {
+      "ncc": "Mạnh Cường (BCCK)",
+      "total_cost": 115.24,
+      "total_cost_raw": 115238699.0,
+      "total_trips": 180,
+      "cost_per_trip": 0.64,
+      "cost_per_trip_raw": 640214.9944444444,
+      "fixed_cost": 115.24,
+      "surge_cost": 0.0,
+      "surge_pct": 0.0,
+      "truck_count": 5,
+      "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
     },
     {
       "ncc": "Công Định",
@@ -34220,8 +34220,8 @@
       "route": "Kho CK Diên Điền đến các điểm giao nội khu vực KV1-Khánh Hòa 1",
       "ktc": "KTC Khánh Hòa",
       "type": "Cố định",
-      "cost_str": "25.570.717 đ",
-      "cost": 25570717.0,
+      "cost_str": "16.365.259 đ",
+      "cost": 16365259.0,
       "trips_equivalent": 30,
       "trip_code": "HĐ_BCCK_5",
       "ontime": "100%"
