@@ -3881,12 +3881,32 @@ def process_ca_report():
     unique_ams = df_parsed['AM'].unique().tolist()
     unique_ams = sorted([a for a in unique_ams if a not in ('nan', '', 'Không xác định')])
 
+    # 4. Extract Warning Post Offices info from buu_cuc_bat_on
+    warning_pos_map = {}
+    try:
+        unstable_data = process_unstable_po()
+        for r in unstable_data.get('records', []):
+            pname = str(r.get('name', '')).strip()
+            if pname:
+                warning_pos_map[pname] = {
+                    'name': pname,
+                    'status': r.get('status', 'Bất ổn'),
+                    'reason': r.get('reason', 'Bưu cục cảnh báo'),
+                    'days_unstable': r.get('days_unstable', 0),
+                    'backlog': r.get('backlog', 0),
+                    'am': r.get('am', ''),
+                    'province': r.get('province', '')
+                }
+    except Exception as _e_unstable:
+        print(f"Warning PO lookup error in process_ca_report: {_e_unstable}")
+
     return {
         "by_bc_daily": clean_nan(pt_daily.to_dict(orient='records')),
         "by_bc": clean_nan(pt_bc.to_dict(orient='records')),
         "by_am": clean_nan(pt_am.to_dict(orient='records')),
         "unique_dates": unique_dates,
-        "unique_ams": unique_ams
+        "unique_ams": unique_ams,
+        "warning_pos": warning_pos_map
     }
 
 

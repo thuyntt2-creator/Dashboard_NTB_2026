@@ -3986,6 +3986,12 @@
                                     <option value="am">AM</option>
                                 </select>
                             </div>
+
+                            <!-- Filter Warning Only -->
+                            <label style="display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color:#dc2626; cursor:pointer; background:#fff5f5; border:1.5px solid #fecaca; padding:5px 11px; border-radius:7px; user-select:none; transition:all 0.2s;" id="ca-toggle-warning-label" title="Chỉ hiển thị các bưu cục thuộc danh sách cảnh báo bất ổn">
+                                <input type="checkbox" id="ca-filter-warning-only" onchange="filterCaTable()" style="accent-color:#dc2626; cursor:pointer; width:14px; height:14px;">
+                                <span><i class="fa-solid fa-triangle-exclamation"></i> Chỉ bưu cục cảnh báo (<span id="ca-warning-badge-count">0</span>)</span>
+                            </label>
                         </div>
                         <div style="display:flex; align-items:center; gap:8px;">
                             <span style="font-size:13px; color:#64748b; font-weight:500;" id="ca-row-count"></span>
@@ -4001,6 +4007,9 @@
                             <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#6366f1;margin-right:5px;"></span>Ca 1</span>
                             <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#10b981;margin-right:5px;"></span>Ca 2</span>
                             <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#f59e0b;margin-right:5px;"></span>Hàng Tồn</span>
+                        </span>
+                        <span id="ca-legend-warning-pill" style="display:inline-flex; align-items:center; gap:5px; background:#fef2f2; color:#dc2626; border:1px solid #fecaca; padding:2px 8px; border-radius:12px; font-size:11px; font-weight:700;">
+                            <i class="fa-solid fa-triangle-exclamation" style="font-size:10px;"></i> Bưu cục cảnh báo: nằm trong danh sách bưu cục bất ổn
                         </span>
                         <span id="ca-legend-gtc-pill" style="display:none; align-items:center; gap:6px; color:#065f46; font-weight:700;">
                             <i class="fa-solid fa-circle-check" style="color:#10b981;"></i> Chế độ thu gọn: <strong>Chỉ coi số GTC Tổng của Bưu cục</strong>
@@ -13236,14 +13245,67 @@
         // ================================================
         // BÁO CÁO SẢN LƯỢNG CA - JAVASCRIPT
         // ================================================
-        // ================================================
-        // BÁO CÁO SẢN LƯỢNG CA - JAVASCRIPT
-        // ================================================
         let caReportRawRows = [];
         window.caReportUniqueDates = [];
+        window.caReportWarningPos = {};
         let caReportSortKey = 'name';
         let caReportSortAsc = true;
         window.lastSelectedCaDate = '';
+
+        function normalizePoName(name) {
+            if (!name) return "";
+            let s = String(name).toLowerCase().trim();
+            const prefixes = ["bưu cục ", "kho giao hàng ", "kho giao ", "kho hàng ", "điểm xử lý ", "giao hàng nhanh ", "ghn "];
+            for (const p of prefixes) {
+                if (s.startsWith(p)) s = s.slice(p.length);
+            }
+            s = s.replace(/^\([a-z0-9_]+\)\s*/i, '');
+            s = s.replace(/[-.,_]/g, ' ');
+            return s.replace(/\s+/g, ' ').trim();
+        }
+
+        function getCaWarningInfo(poName, amName) {
+            if (!poName) return { isWarning: false };
+            const cleanTarget = normalizePoName(poName);
+            
+            // 1. Check from data.warning_pos (returned by /api/ca-report)
+            const map = window.caReportWarningPos || {};
+            for (const k in map) {
+                const w = map[k];
+                const cleanK = normalizePoName(k);
+                if (k === poName || (cleanK && cleanTarget && cleanK === cleanTarget) || (cleanTarget && cleanK && cleanK.includes(cleanTarget)) || (cleanTarget && cleanK && cleanTarget.includes(cleanK))) {
+                    return {
+                        isWarning: true,
+                        reason: w.reason || 'Bưu cục cảnh báo bất ổn',
+                        status: w.status || 'Bất ổn',
+                        days_unstable: w.days_unstable || 0,
+                        backlog: w.backlog || 0
+                    };
+                }
+            }
+            
+            // 2. Fallback check from globalData.unstablePo
+            if (window.globalData && window.globalData.unstablePo && Array.isArray(window.globalData.unstablePo.records)) {
+                for (const r of window.globalData.unstablePo.records) {
+                    const rName = r.name || '';
+                    const cleanR = normalizePoName(rName);
+                    if (rName === poName || (cleanR && cleanTarget && cleanR === cleanTarget) || (cleanTarget && cleanR && cleanR.includes(cleanTarget)) || (cleanTarget && cleanR && cleanTarget.includes(cleanR))) {
+                        const isWarn = (r.status === 'Bất ổn' || r.status === 'Chuẩn bị nhảy nhóm' || (r.reason && r.reason.includes('Cảnh báo')));
+                        if (isWarn) {
+                            return {
+                                isWarning: true,
+                                reason: r.reason || 'Bưu cục cảnh báo bất ổn',
+                                status: r.status || 'Bất ổn',
+                                days_unstable: r.days_unstable || 0,
+                                backlog: r.backlog || 0
+                            };
+                        }
+                    }
+                }
+            }
+
+            return { isWarning: false };
+        }
 
         async function loadCaReportData() {
             const tbody = document.getElementById('ca-table-body');
@@ -13258,9 +13320,10 @@
                     return;
                 }
 
-                // Store raw daily rows
+                // Store raw daily rows and warning info
                 caReportRawRows = data.by_bc_daily || [];
                 window.caReportUniqueDates = data.unique_dates || [];
+                window.caReportWarningPos = data.warning_pos || {};
                 
                 // Populate dropdown filters dynamically
                 populateCaFilters(data.unique_dates || [], data.unique_ams || []);
@@ -13300,7 +13363,9 @@
                 const bcs = [...new Set(caReportRawRows.map(r => r['Bưu Cục']).filter(Boolean))].sort((a,b) => a.localeCompare(b, 'vi'));
                 bcSelect.innerHTML = '<option value="">Tất cả Bưu cục</option>';
                 bcs.forEach(b => {
-                    bcSelect.innerHTML += `<option value="${b}">${b}</option>`;
+                    const warn = getCaWarningInfo(b);
+                    const tag = warn.isWarning ? ' ⚠️ [Cảnh báo]' : '';
+                    bcSelect.innerHTML += `<option value="${b}">${b}${tag}</option>`;
                 });
                 if (currVal && bcs.includes(currVal)) {
                     bcSelect.value = currVal;
@@ -13323,7 +13388,9 @@
                 bcs.sort((a, b) => a.localeCompare(b, 'vi'));
                 bcSelect.innerHTML = '<option value="">Tất cả Bưu cục</option>';
                 bcs.forEach(b => {
-                    bcSelect.innerHTML += `<option value="${b}">${b}</option>`;
+                    const warn = getCaWarningInfo(b);
+                    const tag = warn.isWarning ? ' ⚠️ [Cảnh báo]' : '';
+                    bcSelect.innerHTML += `<option value="${b}">${b}${tag}</option>`;
                 });
                 if (currBc && bcs.includes(currBc)) {
                     bcSelect.value = currBc;
