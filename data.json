@@ -13136,7 +13136,7 @@
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 61,
-      "last_updated": "10:27 - 22/10/2026"
+      "last_updated": "11:03 - 22/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 2612.42,
@@ -13158,7 +13158,7 @@
         "fixed_cost": 739.1,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 24
       },
       {
@@ -13184,7 +13184,7 @@
         "fixed_cost": 568.01,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, NAK",
+        "primary_ncc": "NAK, Mạnh Cường",
         "truck_count": 9
       },
       {
@@ -13197,7 +13197,7 @@
         "fixed_cost": 223.74,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Công Định, NAK",
+        "primary_ncc": "NAK, Công Định",
         "truck_count": 5
       },
       {
@@ -13223,7 +13223,7 @@
         "fixed_cost": 93.87,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 10
       },
       {
@@ -13252,7 +13252,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 38,
-        "active_ktcs": "KTC Đức Trọng, KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Bình Thuận, KTC Khánh Hòa"
+        "active_ktcs": "KTC Bình Thuận, KTC Đức Trọng, KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Khánh Hòa"
       },
       {
         "ncc": "NAK",
@@ -13265,7 +13265,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 9,
-        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
+        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
       },
       {
         "ncc": "Mạnh Cường (BCCK)",
@@ -25647,7 +25647,7 @@
         "cost": 2021701.4,
         "trips_equivalent": 1,
         "trip_code": "E261018VQAHHQL7",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -25662,7 +25662,7 @@
         "cost": 2021701.4,
         "trips_equivalent": 1,
         "trip_code": "E2610192LHL6TXZ",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -26112,7 +26112,7 @@
         "cost": 1181660.0,
         "trips_equivalent": 1,
         "trip_code": "E261019XVOFS1V4",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -26127,7 +26127,7 @@
         "cost": 1181660.0,
         "trips_equivalent": 1,
         "trip_code": "E261020NRVG7Y55",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -26577,7 +26577,7 @@
         "cost": 228547.2,
         "trips_equivalent": 1,
         "trip_code": "E2610195ESDCO7K",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -26592,7 +26592,7 @@
         "cost": 228547.2,
         "trips_equivalent": 1,
         "trip_code": "E261020YQBPUZDD",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27042,7 +27042,7 @@
         "cost": 232377.6,
         "trips_equivalent": 1,
         "trip_code": "E261018O0BE7AJX",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27057,7 +27057,7 @@
         "cost": 232377.6,
         "trips_equivalent": 1,
         "trip_code": "E261019S6IEVX1Y",
-        "ontime": ""
+        "ontime": "50,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27477,7 +27477,7 @@
         "cost": 403468.8,
         "trips_equivalent": 1,
         "trip_code": "E261019NIJDHM2O",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27492,7 +27492,7 @@
         "cost": 303878.4,
         "trips_equivalent": 1,
         "trip_code": "E261019XJI53NZR",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27507,7 +27507,7 @@
         "cost": 303878.4,
         "trips_equivalent": 1,
         "trip_code": "E2610209IG0QRHW",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -27912,7 +27912,7 @@
         "cost": 296856.0,
         "trips_equivalent": 1,
         "trip_code": "E261019LOMJHPEO",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -28377,7 +28377,7 @@
         "cost": 1588650.9,
         "trips_equivalent": 1,
         "trip_code": "E261019Y7J55VV1",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -28842,7 +28842,7 @@
         "cost": 363249.6,
         "trips_equivalent": 1,
         "trip_code": "E261019KQOADFP9",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -28857,7 +28857,7 @@
         "cost": 363249.6,
         "trips_equivalent": 1,
         "trip_code": "E261020KS2EFCJP",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -29292,7 +29292,7 @@
         "cost": 326860.8,
         "trips_equivalent": 1,
         "trip_code": "E261018160FVAM4",
-        "ontime": ""
+        "ontime": "75,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -29307,7 +29307,7 @@
         "cost": 326860.8,
         "trips_equivalent": 1,
         "trip_code": "E2610194OVTOXJH",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -29757,7 +29757,7 @@
         "cost": 903422.4,
         "trips_equivalent": 1,
         "trip_code": "E261019ZI702SOI",
-        "ontime": ""
+        "ontime": "83,3%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -29772,7 +29772,7 @@
         "cost": 903422.4,
         "trips_equivalent": 1,
         "trip_code": "E261020RDH6VE96",
-        "ontime": ""
+        "ontime": "83,3%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -30222,7 +30222,7 @@
         "cost": 1673760.0,
         "trips_equivalent": 1,
         "trip_code": "E261019ZP4SQ31A",
-        "ontime": ""
+        "ontime": "66,7%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -30237,7 +30237,7 @@
         "cost": 1616685.0,
         "trips_equivalent": 1,
         "trip_code": "E261020Q2V27U6O",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -30687,7 +30687,7 @@
         "cost": 650529.6,
         "trips_equivalent": 1,
         "trip_code": "E2610194TQ3HJNT",
-        "ontime": ""
+        "ontime": "80,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -30702,7 +30702,7 @@
         "cost": 650529.6,
         "trips_equivalent": 1,
         "trip_code": "E261020I1IXLKZ7",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -31152,7 +31152,7 @@
         "cost": 2309516.0,
         "trips_equivalent": 1,
         "trip_code": "E261019JQTZY8YW",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -31167,7 +31167,7 @@
         "cost": 2309516.0,
         "trips_equivalent": 1,
         "trip_code": "E2610202LP7YYLO",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -31422,7 +31422,7 @@
         "cost": 429316.8,
         "trips_equivalent": 1,
         "trip_code": "E2610198L87KAF4",
-        "ontime": ""
+        "ontime": "80,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -31437,7 +31437,7 @@
         "cost": 429316.8,
         "trips_equivalent": 1,
         "trip_code": "E261020QA0WM90Z",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -31812,7 +31812,7 @@
         "cost": 174283.2,
         "trips_equivalent": 1,
         "trip_code": "E261019WHHHF7IH",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -32187,7 +32187,7 @@
         "cost": 1324999.5,
         "trips_equivalent": 1,
         "trip_code": "E2610205DV6WV7A",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -32622,7 +32622,7 @@
         "cost": 303878.4,
         "trips_equivalent": 1,
         "trip_code": "E2610189HPZ8X23",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -32637,7 +32637,7 @@
         "cost": 303878.4,
         "trips_equivalent": 1,
         "trip_code": "E261019D1XVWOSF",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -33087,7 +33087,7 @@
         "cost": 1035103.5,
         "trips_equivalent": 1,
         "trip_code": "E261018RBEYFQAR",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -33102,7 +33102,7 @@
         "cost": 1035103.5,
         "trips_equivalent": 1,
         "trip_code": "E261019GGZJYO9E",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -33552,7 +33552,7 @@
         "cost": 1496401.0,
         "trips_equivalent": 1,
         "trip_code": "E261018HVHF2WQF",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -33567,7 +33567,7 @@
         "cost": 1496401.0,
         "trips_equivalent": 1,
         "trip_code": "E261019O07Q1KYU",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34017,7 +34017,7 @@
         "cost": 535627.4,
         "trips_equivalent": 1,
         "trip_code": "E261018FLBT6PHV",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34032,7 +34032,7 @@
         "cost": 693950.6,
         "trips_equivalent": 1,
         "trip_code": "E261019IQXSZEDR",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34482,7 +34482,7 @@
         "cost": 136617.6,
         "trips_equivalent": 1,
         "trip_code": "E2610192RMM2X34",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34497,7 +34497,7 @@
         "cost": 180028.8,
         "trips_equivalent": 1,
         "trip_code": "E261020CSDL4Y1J",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34947,7 +34947,7 @@
         "cost": 120657.6,
         "trips_equivalent": 1,
         "trip_code": "E261019N5DEDZQ3",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -34962,7 +34962,7 @@
         "cost": 120657.6,
         "trips_equivalent": 1,
         "trip_code": "E261020AYSKFV5I",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -35397,7 +35397,7 @@
         "cost": 195350.4,
         "trips_equivalent": 1,
         "trip_code": "E261019V46H14XD",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -35412,7 +35412,7 @@
         "cost": 268766.4,
         "trips_equivalent": 1,
         "trip_code": "E2610206D97P0KB",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -35862,7 +35862,7 @@
         "cost": 195350.4,
         "trips_equivalent": 1,
         "trip_code": "E261019V46H14XD",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -35877,7 +35877,7 @@
         "cost": 195350.4,
         "trips_equivalent": 1,
         "trip_code": "E261020P7LF2XAT",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -36282,7 +36282,7 @@
         "cost": 194712.0,
         "trips_equivalent": 1,
         "trip_code": "E261019DEB1RXB4",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -36747,7 +36747,7 @@
         "cost": 4141388.8,
         "trips_equivalent": 1,
         "trip_code": "E2610194HCEULAJ",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -36762,7 +36762,7 @@
         "cost": 4141388.8,
         "trips_equivalent": 1,
         "trip_code": "E2610203XPN8ZW5",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -37212,7 +37212,7 @@
         "cost": 3436355.8,
         "trips_equivalent": 1,
         "trip_code": "E261019ORVQTNU4",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -37227,7 +37227,7 @@
         "cost": 3436355.8,
         "trips_equivalent": 1,
         "trip_code": "E2610201ZJI14IQ",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39057,7 +39057,7 @@
         "cost": 936458.4,
         "trips_equivalent": 1,
         "trip_code": "E261019TC6AP7LP",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39072,7 +39072,7 @@
         "cost": 936458.4,
         "trips_equivalent": 1,
         "trip_code": "E261020AHK87QK1",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39507,7 +39507,7 @@
         "cost": 1449493.1,
         "trips_equivalent": 1,
         "trip_code": "E2610193E5X4317",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39522,7 +39522,7 @@
         "cost": 1449493.1,
         "trips_equivalent": 1,
         "trip_code": "E261020MVAT3THL",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -42207,7 +42207,7 @@
         "cost": 723559.2,
         "trips_equivalent": 1,
         "trip_code": "E2610197DR9PAAK",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -42222,7 +42222,7 @@
         "cost": 723559.2,
         "trips_equivalent": 1,
         "trip_code": "E261020P6XG6Z5H",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -44457,7 +44457,7 @@
         "cost": 181944.0,
         "trips_equivalent": 1,
         "trip_code": "E261019CZMKRYYP",
-        "ontime": ""
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -44472,7 +44472,7 @@
         "cost": 181944.0,
         "trips_equivalent": 1,
         "trip_code": "E26102072T0G7E8",
-        "ontime": ""
+        "ontime": "60,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -48117,7 +48117,7 @@
         "cost": 123849.6,
         "trips_equivalent": 1,
         "trip_code": "E261019NEYJHM1F",
-        "ontime": ""
+        "ontime": "75,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -49900,176 +49900,13 @@
         "uncollected": 24500000,
         "risk": "Thấp"
       }
-    ],
-    "top_bc_full": [
-      {
-        "bc": "Bưu Cục Quảng Tín",
-        "am": "Trần Văn Phước",
-        "tinh": "Đắk Nông",
-        "orders": 2079,
-        "amount_init": 125000000,
-        "amount_need": 332200000,
-        "pct": 21.3
-      },
-      {
-        "bc": "Bưu Cục Kiến Đức",
-        "am": "Trần Văn Phước",
-        "tinh": "Đắk Nông",
-        "orders": 1650,
-        "amount_init": 98000000,
-        "amount_need": 243500000,
-        "pct": 15.6
-      },
-      {
-        "bc": "Bưu Cục Nam Ban",
-        "am": "Huỳnh Thị Kim Chi",
-        "tinh": "Lâm Đồng",
-        "orders": 1420,
-        "amount_init": 84000000,
-        "amount_need": 227200000,
-        "pct": 14.6
-      },
-      {
-        "bc": "Bưu Cục Tuy Đức",
-        "am": "Huỳnh Thúc Duân",
-        "tinh": "Đắk Nông",
-        "orders": 1180,
-        "amount_init": 71000000,
-        "amount_need": 188800000,
-        "pct": 12.1
-      },
-      {
-        "bc": "Bưu Cục Đắk Song",
-        "am": "Huỳnh Thúc Duân",
-        "tinh": "Đắk Nông",
-        "orders": 890,
-        "amount_init": 52000000,
-        "amount_need": 142400000,
-        "pct": 9.1
-      },
-      {
-        "bc": "Bưu Cục Tân Hà",
-        "am": "Huỳnh Thị Kim Chi",
-        "tinh": "Lâm Đồng",
-        "orders": 740,
-        "amount_init": 44000000,
-        "amount_need": 118400000,
-        "pct": 7.6
-      },
-      {
-        "bc": "Bưu Cục Di Linh",
-        "am": "Trầm Hữu Tiến",
-        "tinh": "Lâm Đồng",
-        "orders": 580,
-        "amount_init": 35000000,
-        "amount_need": 92800000,
-        "pct": 6.0
-      },
-      {
-        "bc": "Bưu Cục Đức Trọng",
-        "am": "Trầm Hữu Tiến",
-        "tinh": "Lâm Đồng",
-        "orders": 490,
-        "amount_init": 29000000,
-        "amount_need": 78400000,
-        "pct": 5.0
-      },
-      {
-        "bc": "Bưu Cục Thạnh Mỹ",
-        "am": "Lê Minh Đại",
-        "tinh": "Lâm Đồng",
-        "orders": 380,
-        "amount_init": 22000000,
-        "amount_need": 60800000,
-        "pct": 3.9
-      },
-      {
-        "bc": "Bưu Cục Hòa Ninh",
-        "am": "Hồng Bích Nga",
-        "tinh": "Lâm Đồng",
-        "orders": 290,
-        "amount_init": 18000000,
-        "amount_need": 46400000,
-        "pct": 3.0
-      },
-      {
-        "bc": "Bưu Cục Ninh Sơn",
-        "am": "Nguyễn Duy Long",
-        "tinh": "Ninh Thuận",
-        "orders": 210,
-        "amount_init": 13000000,
-        "amount_need": 33600000,
-        "pct": 2.2
-      },
-      {
-        "bc": "Bưu Cục Ninh Phước",
-        "am": "Nguyễn Duy Long",
-        "tinh": "Ninh Thuận",
-        "orders": 180,
-        "amount_init": 11000000,
-        "amount_need": 28800000,
-        "pct": 1.8
-      },
-      {
-        "bc": "Bưu Cục Bắc Bình",
-        "am": "Trần Thị Nhung",
-        "tinh": "Bình Thuận",
-        "orders": 150,
-        "amount_init": 9500000,
-        "amount_need": 24000000,
-        "pct": 1.5
-      },
-      {
-        "bc": "Bưu Cục Hàm Thuận Bắc",
-        "am": "Huỳnh Tấn Hiền",
-        "tinh": "Bình Thuận",
-        "orders": 130,
-        "amount_init": 8000000,
-        "amount_need": 20800000,
-        "pct": 1.3
-      },
-      {
-        "bc": "Bưu Cục Cam Ranh",
-        "am": "Cao Thị Thanh Thủy",
-        "tinh": "Khánh Hòa",
-        "orders": 110,
-        "amount_init": 6500000,
-        "amount_need": 17600000,
-        "pct": 1.1
-      }
-    ],
-    "types": [
-      {
-        "type": "Sai cân nặng / kích thước thực tế",
-        "orders": 4850,
-        "amount": 934500000,
-        "pct": 60.0
-      },
-      {
-        "type": "Sai khu vực / tuyến giao nhận",
-        "orders": 1920,
-        "amount": 373800000,
-        "pct": 24.0
-      },
-      {
-        "type": "Khai báo gian dối mã cước",
-        "orders": 890,
-        "amount": 155750000,
-        "pct": 10.0
-      },
-      {
-        "type": "Vi phạm quy cách đóng gói",
-        "orders": 448,
-        "amount": 93450000,
-        "pct": 6.0
-      }
     ]
   },
   "cod_payment": {
     "overview": {
-      "rate_cash": 0.64,
-      "rate_digital": 0.36,
-      "diff_cash": -0.024
+      "rate_cash": 0.396,
+      "rate_digital": 0.604,
+      "diff_cash": 0.011
     },
     "provinces": [
       {
@@ -50096,134 +49933,6 @@
         "tinh": "Khánh Hòa",
         "rate_cash": 0.54,
         "diff": -0.035
-      }
-    ],
-    "am": [
-      {
-        "am": "Huỳnh Thị Kim Chi",
-        "tinh": "Lâm Đồng",
-        "w34_tm": 0.768,
-        "w35_tm": 0.745,
-        "diff": -0.023
-      },
-      {
-        "am": "Huỳnh Thúc Duân",
-        "tinh": "Đắk Nông",
-        "w34_tm": 0.735,
-        "w35_tm": 0.722,
-        "diff": -0.013
-      },
-      {
-        "am": "Trần Thị Nhung",
-        "tinh": "Bình Thuận",
-        "w34_tm": 0.718,
-        "w35_tm": 0.702,
-        "diff": -0.016
-      },
-      {
-        "am": "Trần Văn Phước",
-        "tinh": "Đắk Nông",
-        "w34_tm": 0.705,
-        "w35_tm": 0.691,
-        "diff": -0.014
-      },
-      {
-        "am": "Lê Văn Trường",
-        "tinh": "Đắk Nông",
-        "w34_tm": 0.692,
-        "w35_tm": 0.678,
-        "diff": -0.014
-      },
-      {
-        "am": "Nguyễn Duy Long",
-        "tinh": "Ninh Thuận",
-        "w34_tm": 0.685,
-        "w35_tm": 0.664,
-        "diff": -0.021
-      },
-      {
-        "am": "Lê Minh Đại",
-        "tinh": "Lâm Đồng",
-        "w34_tm": 0.672,
-        "w35_tm": 0.651,
-        "diff": -0.021
-      },
-      {
-        "am": "Hồng Bích Nga",
-        "tinh": "Lâm Đồng",
-        "w34_tm": 0.665,
-        "w35_tm": 0.642,
-        "diff": -0.023
-      },
-      {
-        "am": "Trầm Hữu Tiến",
-        "tinh": "Lâm Đồng",
-        "w34_tm": 0.658,
-        "w35_tm": 0.638,
-        "diff": -0.02
-      },
-      {
-        "am": "Huỳnh Tấn Hiền",
-        "tinh": "Bình Thuận",
-        "w34_tm": 0.645,
-        "w35_tm": 0.621,
-        "diff": -0.024
-      },
-      {
-        "am": "Nguyễn Ngọc Khánh",
-        "tinh": "Bình Thuận",
-        "w34_tm": 0.632,
-        "w35_tm": 0.608,
-        "diff": -0.024
-      },
-      {
-        "am": "Nguyễn Hoàng Phi",
-        "tinh": "Bình Thuận",
-        "w34_tm": 0.62,
-        "w35_tm": 0.595,
-        "diff": -0.025
-      },
-      {
-        "am": "Nguyễn Lê Nguyên Vũ",
-        "tinh": "Ninh Thuận",
-        "w34_tm": 0.605,
-        "w35_tm": 0.582,
-        "diff": -0.023
-      },
-      {
-        "am": "Nguyễn Thị Tuyết Thơ",
-        "tinh": "Khánh Hòa",
-        "w34_tm": 0.592,
-        "w35_tm": 0.565,
-        "diff": -0.027
-      },
-      {
-        "am": "Nguyễn Thanh Long",
-        "tinh": "Khánh Hòa",
-        "w34_tm": 0.58,
-        "w35_tm": 0.552,
-        "diff": -0.028
-      },
-      {
-        "am": "Cao Thị Thanh Thủy",
-        "tinh": "Khánh Hòa",
-        "w34_tm": 0.565,
-        "w35_tm": 0.538,
-        "diff": -0.027
-      },
-      {
-        "am": "Lê Thanh Nhựt",
-        "tinh": "Khánh Hòa",
-        "w34_tm": 0.542,
-        "w35_tm": 0.515,
-        "diff": -0.027
-      },
-      {
-        "am": "Phan Đình Duy",
-        "tinh": "Khánh Hòa",
-        "w34_tm": 0.495,
-        "w35_tm": 0.462,
-        "diff": -0.033
       }
     ]
   },
@@ -52714,2196 +52423,6 @@
       }
     ]
   },
-  "cod_report": {
-    "summary_text": "Tuần N-1 (01/08-08/09): 39.7% TM   ➔   Tuần N (09/09-18/10): 41.0% TM   |   Biến động: +1.3% (Xấu đi ⚠️)",
-    "prev_period": "Tuần N-1 (01/08-08/09)",
-    "curr_period": "Tuần N (09/09-18/10)",
-    "metrics": [
-      {
-        "chi_so": "Tổng COD (Triệu VNĐ)",
-        "prev": "485,476.1",
-        "curr": "483,704.3",
-        "diff_val": "-1,771.8",
-        "diff_pct": "-0.4%",
-        "eval": "–"
-      },
-      {
-        "chi_so": "Tiền mặt (Triệu VNĐ)",
-        "prev": "192,912.2",
-        "curr": "198,414.2",
-        "diff_val": "5,502.0",
-        "diff_pct": "2.9%",
-        "eval": "–"
-      },
-      {
-        "chi_so": "Chuyển khoản (Triệu VNĐ)",
-        "prev": "292,563.9",
-        "curr": "285,290.1",
-        "diff_val": "-7,273.8",
-        "diff_pct": "-2.5%",
-        "eval": "–"
-      },
-      {
-        "chi_so": "Tỷ lệ Tiền mặt (% TM)",
-        "prev": "39.7%",
-        "curr": "41.0%",
-        "diff_val": "1.3%",
-        "diff_pct": "3.2%",
-        "eval": "▲ Xấu (Tăng TM)"
-      },
-      {
-        "chi_so": "Tỷ lệ Chuyển khoản (% CK)",
-        "prev": "60.3%",
-        "curr": "59.0%",
-        "diff_val": "-1.3%",
-        "diff_pct": "-2.1%",
-        "eval": "▼ Xấu (Giảm CK)"
-      }
-    ],
-    "am_comparison": [
-      {
-        "stt": "1",
-        "am": "Lê Thanh Nhựt",
-        "prev_tm": "70.1%",
-        "curr_tm": "79.4%",
-        "diff": "+9.3%",
-        "trend": "▲ Tăng 9.3%",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "2",
-        "am": "Huỳnh Thúc Duân",
-        "prev_tm": "71.6%",
-        "curr_tm": "77.2%",
-        "diff": "+5.6%",
-        "trend": "▲ Tăng 5.6%",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "3",
-        "am": "Huỳnh Thị Kim Chi",
-        "prev_tm": "74.5%",
-        "curr_tm": "74.4%",
-        "diff": "-0.1%",
-        "trend": "→ Không đổi",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "4",
-        "am": "Trương Quang Linh",
-        "prev_tm": "62.2%",
-        "curr_tm": "69.1%",
-        "diff": "+6.9%",
-        "trend": "▲ Tăng 6.9%",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "5",
-        "am": "Trần Thị Nhung",
-        "prev_tm": "71.2%",
-        "curr_tm": "66.1%",
-        "diff": "-5.1%",
-        "trend": "▼ Giảm 5.1%",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "6",
-        "am": "Phan Nguyễn Yến Nhi",
-        "prev_tm": "44.4%",
-        "curr_tm": "58.3%",
-        "diff": "+14.0%",
-        "trend": "▲ Tăng 14.0%",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "7",
-        "am": "Nguyễn Đỗ Minh Nghĩa",
-        "prev_tm": "40.9%",
-        "curr_tm": "56.6%",
-        "diff": "+15.7%",
-        "trend": "▲ Tăng 15.7%",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "8",
-        "am": "Lê Văn Trường",
-        "prev_tm": "44.5%",
-        "curr_tm": "45.0%",
-        "diff": "+0.5%",
-        "trend": "→ Không đổi",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "9",
-        "am": "Nguyễn Thị Tuyết Thơ",
-        "prev_tm": "42.1%",
-        "curr_tm": "44.2%",
-        "diff": "+2.0%",
-        "trend": "▲ Tăng 2.0%",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "10",
-        "am": "Nguyễn Hoàng Phi",
-        "prev_tm": "39.7%",
-        "curr_tm": "40.6%",
-        "diff": "+0.9%",
-        "trend": "▲ Tăng 0.9%",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "11",
-        "am": "Nguyễn Lê Nguyên Vũ",
-        "prev_tm": "40.7%",
-        "curr_tm": "40.1%",
-        "diff": "-0.6%",
-        "trend": "▼ Giảm 0.6%",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "12",
-        "am": "Hồng Bích Nga",
-        "prev_tm": "39.0%",
-        "curr_tm": "39.3%",
-        "diff": "+0.3%",
-        "trend": "→ Không đổi",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "13",
-        "am": "Phan Đình Duy",
-        "prev_tm": "29.8%",
-        "curr_tm": "37.5%",
-        "diff": "+7.7%",
-        "trend": "▲ Tăng 7.7%",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "14",
-        "am": "Lê Minh Lợi",
-        "prev_tm": "33.1%",
-        "curr_tm": "35.4%",
-        "diff": "+2.3%",
-        "trend": "▲ Tăng 2.3%",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "15",
-        "am": "Nguyễn Thanh Long",
-        "prev_tm": "24.8%",
-        "curr_tm": "31.3%",
-        "diff": "+6.5%",
-        "trend": "▲ Tăng 6.5%",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "16",
-        "am": "Nguyễn Ngọc Khánh",
-        "prev_tm": "28.4%",
-        "curr_tm": "31.1%",
-        "diff": "+2.8%",
-        "trend": "▲ Tăng 2.8%",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "17",
-        "am": "Nguyễn Duy Long",
-        "prev_tm": "23.0%",
-        "curr_tm": "24.0%",
-        "diff": "+1.0%",
-        "trend": "▲ Tăng 1.0%",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "18",
-        "am": "Cao Thị Thanh Thủy",
-        "prev_tm": "17.6%",
-        "curr_tm": "16.8%",
-        "diff": "-0.8%",
-        "trend": "▼ Giảm 0.8%",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "19",
-        "am": "Thái Thị Thanh Thư",
-        "prev_tm": "5.8%",
-        "curr_tm": "4.7%",
-        "diff": "-1.1%",
-        "trend": "▼ Giảm 1.1%",
-        "level": "🟢 Ổn"
-      }
-    ],
-    "bc_details": [
-      {
-        "stt": "1",
-        "am": "Huỳnh Thúc Duân",
-        "bc": "(DNO) Bắc Gia Nghĩa",
-        "prev_tm": "91.6%",
-        "curr_tm": "94.7%",
-        "diff": "+3.2%",
-        "cash_m": "2,425.8",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "2",
-        "am": "Trần Thị Nhung",
-        "bc": "(DNO) Quảng Khê",
-        "prev_tm": "93.8%",
-        "curr_tm": "93.8%",
-        "diff": "+0.1%",
-        "cash_m": "2,256.9",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "3",
-        "am": "Lê Thanh Nhựt",
-        "bc": "(BTH) Hàm Thuận",
-        "prev_tm": "85.5%",
-        "curr_tm": "91.3%",
-        "diff": "+5.9%",
-        "cash_m": "7,396.8",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "4",
-        "am": "Lê Thanh Nhựt",
-        "bc": "(BTH) Đồng Kho",
-        "prev_tm": "84.1%",
-        "curr_tm": "85.7%",
-        "diff": "+1.7%",
-        "cash_m": "7,490.6",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "5",
-        "am": "Huỳnh Thị Kim Chi",
-        "bc": "(LDO) Đam Rông 3",
-        "prev_tm": "82.9%",
-        "curr_tm": "84.8%",
-        "diff": "+1.9%",
-        "cash_m": "4,552.9",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "6",
-        "am": "Lê Thanh Nhựt",
-        "bc": "(BTH) Hàm Liêm",
-        "prev_tm": "67.1%",
-        "curr_tm": "83.6%",
-        "diff": "+16.5%",
-        "cash_m": "4,685.2",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "7",
-        "am": "Nguyễn Đỗ Minh Nghĩa",
-        "bc": "(LDO) Cát Tiên",
-        "prev_tm": "49.8%",
-        "curr_tm": "82.7%",
-        "diff": "+32.9%",
-        "cash_m": "2,630.2",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "8",
-        "am": "Huỳnh Thị Kim Chi",
-        "bc": "(LDO) Đinh Văn Lâm Hà",
-        "prev_tm": "77.5%",
-        "curr_tm": "81.8%",
-        "diff": "+4.3%",
-        "cash_m": "5,275.3",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "9",
-        "am": "Trần Thị Nhung",
-        "bc": "(DNO) Đức Lập",
-        "prev_tm": "87.9%",
-        "curr_tm": "80.6%",
-        "diff": "-7.3%",
-        "cash_m": "8,656.9",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "10",
-        "am": "Hồng Bích Nga",
-        "bc": "(DNO) Kiến Đức",
-        "prev_tm": "54.0%",
-        "curr_tm": "80.3%",
-        "diff": "+26.3%",
-        "cash_m": "3,211.6",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "11",
-        "am": "Nguyễn Ngọc Khánh",
-        "bc": "(BTH) Lương Sơn",
-        "prev_tm": "81.0%",
-        "curr_tm": "77.9%",
-        "diff": "-3.1%",
-        "cash_m": "2,628.0",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "12",
-        "am": "Hồng Bích Nga",
-        "bc": "(LDO) Hòa Ninh",
-        "prev_tm": "98.3%",
-        "curr_tm": "77.6%",
-        "diff": "-20.7%",
-        "cash_m": "3,140.5",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "13",
-        "am": "Trần Thị Nhung",
-        "bc": "(DNO) Krông Nô",
-        "prev_tm": "87.7%",
-        "curr_tm": "77.6%",
-        "diff": "-10.1%",
-        "cash_m": "4,547.5",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "14",
-        "am": "Nguyễn Hoàng Phi",
-        "bc": "(KHO) Cam Lâm 1",
-        "prev_tm": "87.9%",
-        "curr_tm": "77.6%",
-        "diff": "-10.3%",
-        "cash_m": "2,822.9",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "15",
-        "am": "Huỳnh Thúc Duân",
-        "bc": "(DNO) Nhân Cơ 1",
-        "prev_tm": "–",
-        "curr_tm": "77.4%",
-        "diff": "–",
-        "cash_m": "769.9",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "16",
-        "am": "Nguyễn Thị Tuyết Thơ",
-        "bc": "(LDO) Ninh Gia",
-        "prev_tm": "68.8%",
-        "curr_tm": "76.4%",
-        "diff": "+7.6%",
-        "cash_m": "3,778.2",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "17",
-        "am": "Nguyễn Hoàng Phi",
-        "bc": "(KHO) Diên Khánh 2",
-        "prev_tm": "73.5%",
-        "curr_tm": "76.1%",
-        "diff": "+2.6%",
-        "cash_m": "4,988.5",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "18",
-        "am": "Lê Thanh Nhựt",
-        "bc": "(BTH) Đức Linh",
-        "prev_tm": "62.3%",
-        "curr_tm": "72.9%",
-        "diff": "+10.6%",
-        "cash_m": "8,380.5",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "19",
-        "am": "Trần Thị Nhung",
-        "bc": "(DNO) Trường Xuân",
-        "prev_tm": "69.9%",
-        "curr_tm": "70.3%",
-        "diff": "+0.4%",
-        "cash_m": "2,066.3",
-        "level": "🔴 Nghiêm trọng"
-      },
-      {
-        "stt": "20",
-        "am": "Trương Quang Linh",
-        "bc": "(DNO) Quảng Tín",
-        "prev_tm": "62.2%",
-        "curr_tm": "69.1%",
-        "diff": "+6.9%",
-        "cash_m": "2,129.1",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "21",
-        "am": "Huỳnh Thúc Duân",
-        "bc": "(DNO) Đông Gia Nghĩa",
-        "prev_tm": "66.8%",
-        "curr_tm": "67.5%",
-        "diff": "+0.6%",
-        "cash_m": "2,226.2",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "22",
-        "am": "Huỳnh Thúc Duân",
-        "bc": "(DNO) Nhân Cơ",
-        "prev_tm": "49.5%",
-        "curr_tm": "66.8%",
-        "diff": "+17.3%",
-        "cash_m": "836.8",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "23",
-        "am": "Trần Thị Nhung",
-        "bc": "(DNO) Tuy Đức",
-        "prev_tm": "65.5%",
-        "curr_tm": "66.6%",
-        "diff": "+1.1%",
-        "cash_m": "2,039.1",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "24",
-        "am": "Huỳnh Thị Kim Chi",
-        "bc": "(LDO) Tân Hà Lâm Hà",
-        "prev_tm": "72.0%",
-        "curr_tm": "65.4%",
-        "diff": "-6.5%",
-        "cash_m": "2,929.7",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "25",
-        "am": "Lê Thanh Nhựt",
-        "bc": "(BTH) Tuyên Quang",
-        "prev_tm": "50.9%",
-        "curr_tm": "65.0%",
-        "diff": "+14.1%",
-        "cash_m": "4,584.6",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "26",
-        "am": "Lê Văn Trường",
-        "bc": "(LDO) Lang Biang - Đà Lạt 2",
-        "prev_tm": "65.2%",
-        "curr_tm": "64.8%",
-        "diff": "-0.4%",
-        "cash_m": "6,243.8",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "27",
-        "am": "Phan Đình Duy",
-        "bc": "(KHO) Tu Bông",
-        "prev_tm": "65.0%",
-        "curr_tm": "64.1%",
-        "diff": "-1.0%",
-        "cash_m": "3,286.9",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "28",
-        "am": "Nguyễn Lê Nguyên Vũ",
-        "bc": "(LDO) Đức Trọng 1",
-        "prev_tm": "61.1%",
-        "curr_tm": "63.3%",
-        "diff": "+2.2%",
-        "cash_m": "1,753.4",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "29",
-        "am": "Nguyễn Ngọc Khánh",
-        "bc": "(BTH) Bắc Bình",
-        "prev_tm": "49.5%",
-        "curr_tm": "63.1%",
-        "diff": "+13.6%",
-        "cash_m": "2,892.8",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "30",
-        "am": "Nguyễn Hoàng Phi",
-        "bc": "(KHO) Diên Thọ",
-        "prev_tm": "53.9%",
-        "curr_tm": "60.3%",
-        "diff": "+6.4%",
-        "cash_m": "2,263.8",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "31",
-        "am": "Nguyễn Lê Nguyên Vũ",
-        "bc": "(LDO) Di Linh",
-        "prev_tm": "63.0%",
-        "curr_tm": "60.0%",
-        "diff": "-3.0%",
-        "cash_m": "4,777.8",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "32",
-        "am": "Phan Nguyễn Yến Nhi",
-        "bc": "(LDO) Đơn Dương",
-        "prev_tm": "44.4%",
-        "curr_tm": "58.3%",
-        "diff": "+14.0%",
-        "cash_m": "4,534.7",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "33",
-        "am": "Trần Thị Nhung",
-        "bc": "(DNO) Quảng Sơn",
-        "prev_tm": "56.7%",
-        "curr_tm": "57.3%",
-        "diff": "+0.7%",
-        "cash_m": "1,937.5",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "34",
-        "am": "Huỳnh Thị Kim Chi",
-        "bc": "(LDO) Nam Ban Lâm Hà",
-        "prev_tm": "60.0%",
-        "curr_tm": "56.9%",
-        "diff": "-3.1%",
-        "cash_m": "2,054.0",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "35",
-        "am": "Phan Đình Duy",
-        "bc": "(KHO) Vạn Ninh",
-        "prev_tm": "46.5%",
-        "curr_tm": "56.0%",
-        "diff": "+9.4%",
-        "cash_m": "3,012.2",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "36",
-        "am": "Nguyễn Duy Long",
-        "bc": "(NTH) Thuận Nam",
-        "prev_tm": "57.2%",
-        "curr_tm": "55.2%",
-        "diff": "-2.0%",
-        "cash_m": "2,205.3",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "37",
-        "am": "Nguyễn Thanh Long",
-        "bc": "(KHO) Cam Linh",
-        "prev_tm": "26.2%",
-        "curr_tm": "53.8%",
-        "diff": "+27.6%",
-        "cash_m": "4,023.6",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "38",
-        "am": "Lê Văn Trường",
-        "bc": "(LDO) D'Ran",
-        "prev_tm": "–",
-        "curr_tm": "52.8%",
-        "diff": "–",
-        "cash_m": "898.7",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "39",
-        "am": "Hồng Bích Nga",
-        "bc": "(LDO) Bảo Lâm 1",
-        "prev_tm": "51.2%",
-        "curr_tm": "51.8%",
-        "diff": "+0.7%",
-        "cash_m": "2,005.6",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "40",
-        "am": "Nguyễn Thị Tuyết Thơ",
-        "bc": "(LDO) Đức Trọng 2",
-        "prev_tm": "51.3%",
-        "curr_tm": "50.7%",
-        "diff": "-0.6%",
-        "cash_m": "3,383.9",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "41",
-        "am": "Nguyễn Đỗ Minh Nghĩa",
-        "bc": "(LDO) Đạ Tẻh",
-        "prev_tm": "28.9%",
-        "curr_tm": "50.3%",
-        "diff": "+21.4%",
-        "cash_m": "2,625.0",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "42",
-        "am": "Nguyễn Duy Long",
-        "bc": "(NTH) Phước Dinh",
-        "prev_tm": "64.0%",
-        "curr_tm": "50.1%",
-        "diff": "-13.9%",
-        "cash_m": "3,621.0",
-        "level": "🟡 Cần cải thiện"
-      },
-      {
-        "stt": "43",
-        "am": "Nguyễn Duy Long",
-        "bc": "(NTH) Phan Rang",
-        "prev_tm": "45.2%",
-        "curr_tm": "49.6%",
-        "diff": "+4.4%",
-        "cash_m": "6,217.4",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "44",
-        "am": "Hồng Bích Nga",
-        "bc": "(LDO) 1 Bảo Lộc",
-        "prev_tm": "50.0%",
-        "curr_tm": "48.3%",
-        "diff": "-1.7%",
-        "cash_m": "2,902.7",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "45",
-        "am": "Cao Thị Thanh Thủy",
-        "bc": "(BTH) Hàm Tân",
-        "prev_tm": "48.3%",
-        "curr_tm": "44.3%",
-        "diff": "-3.9%",
-        "cash_m": "2,195.3",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "46",
-        "am": "Nguyễn Thanh Long",
-        "bc": "(KHO) Bắc Cam Ranh",
-        "prev_tm": "25.5%",
-        "curr_tm": "44.2%",
-        "diff": "+18.7%",
-        "cash_m": "1,700.3",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "47",
-        "am": "Phan Đình Duy",
-        "bc": "(KHO) CK Diên Điền",
-        "prev_tm": "36.2%",
-        "curr_tm": "43.8%",
-        "diff": "+7.6%",
-        "cash_m": "1,870.9",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "48",
-        "am": "Lê Văn Trường",
-        "bc": "(LDO) Lâm Viên - Đà Lạt 1",
-        "prev_tm": "35.0%",
-        "curr_tm": "43.8%",
-        "diff": "+8.8%",
-        "cash_m": "2,635.7",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "49",
-        "am": "Trần Thị Nhung",
-        "bc": "(DNO) Cư Jút",
-        "prev_tm": "62.0%",
-        "curr_tm": "42.1%",
-        "diff": "-19.9%",
-        "cash_m": "2,586.2",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "50",
-        "am": "Phan Đình Duy",
-        "bc": "(KHO) Tây Nha Trang",
-        "prev_tm": "25.5%",
-        "curr_tm": "41.5%",
-        "diff": "+16.0%",
-        "cash_m": "2,962.0",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "51",
-        "am": "Nguyễn Đỗ Minh Nghĩa",
-        "bc": "(LDO) Đạ Huoai",
-        "prev_tm": "46.0%",
-        "curr_tm": "41.4%",
-        "diff": "-4.6%",
-        "cash_m": "1,357.7",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "52",
-        "am": "Nguyễn Lê Nguyên Vũ",
-        "bc": "(LDO) Đạ Huoai",
-        "prev_tm": "–",
-        "curr_tm": "40.9%",
-        "diff": "–",
-        "cash_m": "735.5",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "53",
-        "am": "Phan Đình Duy",
-        "bc": "(KHO) Khánh Sơn",
-        "prev_tm": "36.5%",
-        "curr_tm": "40.8%",
-        "diff": "+4.3%",
-        "cash_m": "1,283.2",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "54",
-        "am": "Nguyễn Ngọc Khánh",
-        "bc": "(BTH) Phú Thủy",
-        "prev_tm": "30.7%",
-        "curr_tm": "38.8%",
-        "diff": "+8.1%",
-        "cash_m": "4,102.8",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "55",
-        "am": "Nguyễn Hoàng Phi",
-        "bc": "(KHO) Diên Khánh 1",
-        "prev_tm": "40.1%",
-        "curr_tm": "38.6%",
-        "diff": "-1.5%",
-        "cash_m": "1,544.6",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "56",
-        "am": "Trần Thị Nhung",
-        "bc": "(DNO) Đức An",
-        "prev_tm": "28.2%",
-        "curr_tm": "38.1%",
-        "diff": "+9.9%",
-        "cash_m": "1,750.7",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "57",
-        "am": "Cao Thị Thanh Thủy",
-        "bc": "(BTH) Hàm Thuận Nam",
-        "prev_tm": "35.3%",
-        "curr_tm": "37.7%",
-        "diff": "+2.4%",
-        "cash_m": "1,378.9",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "58",
-        "am": "Lê Minh Lợi",
-        "bc": "(LDO) Lang Biang - Đà Lạt 1",
-        "prev_tm": "33.1%",
-        "curr_tm": "35.4%",
-        "diff": "+2.3%",
-        "cash_m": "1,350.3",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "59",
-        "am": "Lê Văn Trường",
-        "bc": "(LDO) Xuân Hương - Đà Lạt",
-        "prev_tm": "25.8%",
-        "curr_tm": "34.9%",
-        "diff": "+9.1%",
-        "cash_m": "2,045.1",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "60",
-        "am": "Lê Văn Trường",
-        "bc": "(LDO) Xuân Trường - Đà Lạt",
-        "prev_tm": "49.2%",
-        "curr_tm": "34.9%",
-        "diff": "-14.3%",
-        "cash_m": "1,566.1",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "61",
-        "am": "Nguyễn Hoàng Phi",
-        "bc": "(KHO) Khánh Vĩnh",
-        "prev_tm": "37.4%",
-        "curr_tm": "29.5%",
-        "diff": "-7.9%",
-        "cash_m": "640.3",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "62",
-        "am": "Nguyễn Hoàng Phi",
-        "bc": "(KHO) Tân Định",
-        "prev_tm": "–",
-        "curr_tm": "23.9%",
-        "diff": "–",
-        "cash_m": "465.1",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "63",
-        "am": "Nguyễn Ngọc Khánh",
-        "bc": "(BTH) Hàm Thắng",
-        "prev_tm": "22.6%",
-        "curr_tm": "21.4%",
-        "diff": "-1.2%",
-        "cash_m": "1,930.6",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "64",
-        "am": "Lê Văn Trường",
-        "bc": "(LDO) Lâm Viên - Đà Lạt 2",
-        "prev_tm": "25.5%",
-        "curr_tm": "20.5%",
-        "diff": "-5.0%",
-        "cash_m": "773.1",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "65",
-        "am": "Thái Thị Thanh Thư",
-        "bc": "(KHO) Nam Nha Trang 1",
-        "prev_tm": "20.0%",
-        "curr_tm": "19.8%",
-        "diff": "-0.3%",
-        "cash_m": "1,966.0",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "66",
-        "am": "Phan Đình Duy",
-        "bc": "(KHO) Đông Ninh Hòa",
-        "prev_tm": "2.4%",
-        "curr_tm": "17.3%",
-        "diff": "+14.9%",
-        "cash_m": "883.0",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "67",
-        "am": "Phan Đình Duy",
-        "bc": "(KHO) Nha Trang",
-        "prev_tm": "16.0%",
-        "curr_tm": "16.2%",
-        "diff": "+0.1%",
-        "cash_m": "1,485.3",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "68",
-        "am": "Nguyễn Hoàng Phi",
-        "bc": "(KHO) Ninh Hòa 1",
-        "prev_tm": "15.0%",
-        "curr_tm": "14.8%",
-        "diff": "-0.2%",
-        "cash_m": "195.8",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "69",
-        "am": "Nguyễn Duy Long",
-        "bc": "(NTH) Ninh Sơn",
-        "prev_tm": "3.4%",
-        "curr_tm": "12.5%",
-        "diff": "+9.1%",
-        "cash_m": "697.0",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "70",
-        "am": "Nguyễn Lê Nguyên Vũ",
-        "bc": "(LDO) 3 Bảo Lộc",
-        "prev_tm": "1.5%",
-        "curr_tm": "3.8%",
-        "diff": "+2.3%",
-        "cash_m": "237.7",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "71",
-        "am": "Nguyễn Hoàng Phi",
-        "bc": "(KHO) Ninh Hòa 2",
-        "prev_tm": "1.2%",
-        "curr_tm": "3.1%",
-        "diff": "+1.9%",
-        "cash_m": "285.3",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "72",
-        "am": "Thái Thị Thanh Thư",
-        "bc": "(KHO) Nam Nha Trang 2",
-        "prev_tm": "1.3%",
-        "curr_tm": "2.2%",
-        "diff": "+0.9%",
-        "cash_m": "195.8",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "73",
-        "am": "Nguyễn Duy Long",
-        "bc": "(NTH) Bảo An",
-        "prev_tm": "0.8%",
-        "curr_tm": "1.3%",
-        "diff": "+0.5%",
-        "cash_m": "68.7",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "74",
-        "am": "Hồng Bích Nga",
-        "bc": "(LDO) B'Lao",
-        "prev_tm": "0.1%",
-        "curr_tm": "1.3%",
-        "diff": "+1.2%",
-        "cash_m": "96.4",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "75",
-        "am": "Thái Thị Thanh Thư",
-        "bc": "(KHO) CK Bắc Nha Trang",
-        "prev_tm": "2.0%",
-        "curr_tm": "1.2%",
-        "diff": "-0.8%",
-        "cash_m": "74.4",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "76",
-        "am": "Thái Thị Thanh Thư",
-        "bc": "(KHO) Bắc Nha Trang",
-        "prev_tm": "3.1%",
-        "curr_tm": "0.7%",
-        "diff": "-2.5%",
-        "cash_m": "103.3",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "77",
-        "am": "Thái Thị Thanh Thư",
-        "bc": "(KHO) Nam Nha Trang 3",
-        "prev_tm": "0.4%",
-        "curr_tm": "0.7%",
-        "diff": "+0.3%",
-        "cash_m": "52.8",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "78",
-        "am": "Nguyễn Duy Long",
-        "bc": "(NTH) Ninh Chử",
-        "prev_tm": "0.9%",
-        "curr_tm": "0.5%",
-        "diff": "-0.4%",
-        "cash_m": "39.1",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "79",
-        "am": "Thái Thị Thanh Thư",
-        "bc": "(KHO) Nam Nha Trang 5",
-        "prev_tm": "0.4%",
-        "curr_tm": "0.5%",
-        "diff": "+0.1%",
-        "cash_m": "16.0",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "80",
-        "am": "Nguyễn Thanh Long",
-        "bc": "(KHO) Cam Lâm 2",
-        "prev_tm": "22.9%",
-        "curr_tm": "0.5%",
-        "diff": "-22.4%",
-        "cash_m": "32.0",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "81",
-        "am": "Cao Thị Thanh Thủy",
-        "bc": "(BTH) Phước Hội",
-        "prev_tm": "0.4%",
-        "curr_tm": "0.2%",
-        "diff": "-0.2%",
-        "cash_m": "14.5",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "82",
-        "am": "Cao Thị Thanh Thủy",
-        "bc": "(BTH) Tân Hải",
-        "prev_tm": "2.9%",
-        "curr_tm": "0.2%",
-        "diff": "-2.7%",
-        "cash_m": "6.3",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "83",
-        "am": "Nguyễn Thị Tuyết Thơ",
-        "bc": "(LDO) Hiệp Thạnh",
-        "prev_tm": "0.7%",
-        "curr_tm": "0.0%",
-        "diff": "-0.7%",
-        "cash_m": "0.4",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "84",
-        "am": "Nguyễn Duy Long",
-        "bc": "(BTH) Liên Hương",
-        "prev_tm": "0.0%",
-        "curr_tm": "0.0%",
-        "diff": "-0.0%",
-        "cash_m": "0.1",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "85",
-        "am": "Nguyễn Duy Long",
-        "bc": "(BTH) Phan Rí Cửa",
-        "prev_tm": "0.0%",
-        "curr_tm": "0.0%",
-        "diff": "0.0%",
-        "cash_m": "0.0",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "86",
-        "am": "Nguyễn Ngọc Khánh",
-        "bc": "(BTH) Phú Quý",
-        "prev_tm": "2.0%",
-        "curr_tm": "0.0%",
-        "diff": "-2.0%",
-        "cash_m": "0.0",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "87",
-        "am": "Hồng Bích Nga",
-        "bc": "(LDO) Bảo Lâm 3",
-        "prev_tm": "0.0%",
-        "curr_tm": "0.0%",
-        "diff": "-0.0%",
-        "cash_m": "0.0",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "88",
-        "am": "Nguyễn Ngọc Khánh",
-        "bc": "(BTH) Mũi Né",
-        "prev_tm": "2.5%",
-        "curr_tm": "0.0%",
-        "diff": "-2.5%",
-        "cash_m": "0.0",
-        "level": "🟢 Ổn"
-      },
-      {
-        "stt": "89",
-        "am": "",
-        "bc": "(KHO) Nam Nha Trang",
-        "prev_tm": "–",
-        "curr_tm": "0.0%",
-        "diff": "–",
-        "cash_m": "0.0",
-        "level": "🟢 Ổn"
-      }
-    ],
-    "actions": [
-      {
-        "am": "Lê Thanh Nhựt",
-        "prev_tm": "70.1%",
-        "curr_tm": "79.4%",
-        "diff": "+9.3%",
-        "action": "⚠️ CẢNH BÁO: Tăng 9.3% TM so với tuần trước (70% ➔ 79%).\n• Yêu cầu giải trình biến động tăng ngay trong ngày.\n• Kiểm tra danh sách Shop phát sinh tiền mặt mới.",
-        "deadline": "Gấp trong 24h"
-      },
-      {
-        "am": "Huỳnh Thúc Duân",
-        "prev_tm": "71.6%",
-        "curr_tm": "77.2%",
-        "diff": "+5.6%",
-        "action": "⚠️ CẢNH BÁO: Tăng 5.6% TM so với tuần trước (72% ➔ 77%).\n• Yêu cầu giải trình biến động tăng ngay trong ngày.\n• Kiểm tra danh sách Shop phát sinh tiền mặt mới.",
-        "deadline": "Gấp trong 24h"
-      },
-      {
-        "am": "Huỳnh Thị Kim Chi",
-        "prev_tm": "74.5%",
-        "curr_tm": "74.4%",
-        "diff": "-0.1%",
-        "action": "🔴 Mức rất cao (≥70% TM). Vẫn duy trì mức cao qua 2 tuần.\n• Lập biên bản làm việc 1-1 với AM.\n• Đẩy mạnh cài đặt QR/POS tại các bưu cục trực thuộc.",
-        "deadline": "Trong 3 ngày"
-      },
-      {
-        "am": "Trương Quang Linh",
-        "prev_tm": "62.2%",
-        "curr_tm": "69.1%",
-        "diff": "+6.9%",
-        "action": "⚠️ CẢNH BÁO: Tăng 6.9% TM so với tuần trước (62% ➔ 69%).\n• Yêu cầu giải trình biến động tăng ngay trong ngày.\n• Kiểm tra danh sách Shop phát sinh tiền mặt mới.",
-        "deadline": "Gấp trong 24h"
-      },
-      {
-        "am": "Trần Thị Nhung",
-        "prev_tm": "71.2%",
-        "curr_tm": "66.1%",
-        "diff": "-5.1%",
-        "action": "🟡 Đang ở ngưỡng cảnh báo (50% - 70%).\n• Tiếp tục theo dõi và yêu cầu tối ưu tỷ lệ CK cho các Shop lớn.",
-        "deadline": "Cuối tuần N"
-      },
-      {
-        "am": "Phan Nguyễn Yến Nhi",
-        "prev_tm": "44.4%",
-        "curr_tm": "58.3%",
-        "diff": "+14.0%",
-        "action": "⚠️ CẢNH BÁO: Tăng 14.0% TM so với tuần trước (44% ➔ 58%).\n• Yêu cầu giải trình biến động tăng ngay trong ngày.\n• Kiểm tra danh sách Shop phát sinh tiền mặt mới.",
-        "deadline": "Gấp trong 24h"
-      },
-      {
-        "am": "Nguyễn Đỗ Minh Nghĩa",
-        "prev_tm": "40.9%",
-        "curr_tm": "56.6%",
-        "diff": "+15.7%",
-        "action": "⚠️ CẢNH BÁO: Tăng 15.7% TM so với tuần trước (41% ➔ 57%).\n• Yêu cầu giải trình biến động tăng ngay trong ngày.\n• Kiểm tra danh sách Shop phát sinh tiền mặt mới.",
-        "deadline": "Gấp trong 24h"
-      }
-    ]
-  },
-  "truy_thu_report": {
-    "summary": {
-      "prev_label": "Tuần W41 (05/10 - 11/10)",
-      "curr_label": "Tuần W42 (12/10 - 18/10)",
-      "total_records_prev": 2317,
-      "total_records_curr": 1949,
-      "diff_records": -368,
-      "diff_records_pct": "-15.9%",
-      "ban_dau_prev": 127443413.0,
-      "ban_dau_curr": 119884302.0,
-      "diff_ban_dau": -7559111.0,
-      "diff_ban_dau_pct": "-5.9%",
-      "dieu_chinh_prev": -49540126.0,
-      "dieu_chinh_curr": -5588118.0,
-      "diff_dieu_chinh": 43952008.0,
-      "can_thu_prev": 77903287.0,
-      "can_thu_curr": 114296184.0,
-      "diff_can_thu": 36392897.0,
-      "diff_can_thu_pct": "+46.7%",
-      "banner_desc": "• <strong>Tổng quan so sánh 2 tuần:</strong> W42 phát sinh <strong>1,949 bản ghi</strong> (giảm 368 đơn, -15.9%) với số tiền ban đầu <strong>119.9 Tr ₫</strong> (giảm 5.9%). Cần truy thu thêm <strong>114.3 Tr ₫</strong> (tăng +36.4 Tr ₫ so với 77.9 Tr ₫ W41).<br>• <strong>Các loại truy thu trọng điểm:</strong> <em>Backlog Luân Chuyển Trả</em> (37.2 Tr ₫ | 375 đơn), <em>Backlog Giao Hàng</em> (23.7 Tr ₫ | 125 đơn), <em>Tick mất hàng</em> (9.7 Tr ₫ | 19 đơn).<br>• <strong>Top AM có số tiền truy thu lớn nhất:</strong> <strong>Hồng Bích Nga</strong> (21.7 Tr ₫ | 140 ticket), <strong>Nguyễn Lê Nguyên Vũ</strong> (12.7 Tr ₫ | 77 ticket), <strong>Huỳnh Thị Kim Chi</strong> (12.7 Tr ₫ | 161 ticket), <strong>Lê Văn Trường</strong> (11.4 Tr ₫ | 236 ticket)."
-    },
-    "total_records": 1949,
-    "total_ban_dau": 119884302.0,
-    "total_dieu_chinh": -5588118.0,
-    "total_can_thu": 114296184.0,
-    "by_loai": [
-      {
-        "loai": "Backlog Luân Chuyển Trả",
-        "don_prev": 233,
-        "don_curr": 375,
-        "diff_don": 142,
-        "pct_don_diff": "+60.9%",
-        "can_thu_prev": 2213519.0,
-        "can_thu_curr": 37182654.0,
-        "diff_can_thu": 34969135.0,
-        "pct_can_thu_diff": "+1579.8%",
-        "eval": "🔴 Tăng mạnh (Bất thường)",
-        "ghi_chu": "Tồn đọng vận hành"
-      },
-      {
-        "loai": "Backlog Giao Hàng",
-        "don_prev": 53,
-        "don_curr": 125,
-        "diff_don": 72,
-        "pct_don_diff": "+135.8%",
-        "can_thu_prev": 106101.0,
-        "can_thu_curr": 23661075.0,
-        "diff_can_thu": 23554974.0,
-        "pct_can_thu_diff": "+22200.5%",
-        "eval": "🔴 Tăng mạnh (Bất thường)",
-        "ghi_chu": "Tồn đọng vận hành"
-      },
-      {
-        "loai": "Tick mất hàng",
-        "don_prev": 5,
-        "don_curr": 19,
-        "diff_don": 14,
-        "pct_don_diff": "+280.0%",
-        "can_thu_prev": 6894249.0,
-        "can_thu_curr": 9655061.0,
-        "diff_can_thu": 2760812.0,
-        "pct_can_thu_diff": "+40.0%",
-        "eval": "—",
-        "ghi_chu": "Thất thoát / mất hàng"
-      },
-      {
-        "loai": "Đơn hàng hư hỏng",
-        "don_prev": 111,
-        "don_curr": 203,
-        "diff_don": 92,
-        "pct_don_diff": "+82.9%",
-        "can_thu_prev": 4142701.0,
-        "can_thu_curr": 8836945.0,
-        "diff_can_thu": 4694244.0,
-        "pct_can_thu_diff": "+113.3%",
-        "eval": "—",
-        "ghi_chu": "Hư hỏng hàng hóa"
-      },
-      {
-        "loai": "Mất/Thiếu/Tráo sản phẩm",
-        "don_prev": 67,
-        "don_curr": 97,
-        "diff_don": 30,
-        "pct_don_diff": "+44.8%",
-        "can_thu_prev": 14552854.0,
-        "can_thu_curr": 8077356.0,
-        "diff_can_thu": -6475498.0,
-        "pct_can_thu_diff": "-44.5%",
-        "eval": "🟢 Giảm tốt",
-        "ghi_chu": "Thất thoát / mất hàng"
-      },
-      {
-        "loai": "Backlog Trả Hàng",
-        "don_prev": 564,
-        "don_curr": 21,
-        "diff_don": -543,
-        "pct_don_diff": "-96.3%",
-        "can_thu_prev": 352002.0,
-        "can_thu_curr": 6943572.0,
-        "diff_can_thu": 6591570.0,
-        "pct_can_thu_diff": "+1872.6%",
-        "eval": "⚠️ Cảnh báo tăng",
-        "ghi_chu": "Tồn đọng vận hành"
-      },
-      {
-        "loai": "Backlog Luân Chuyển Giao",
-        "don_prev": 34,
-        "don_curr": 52,
-        "diff_don": 18,
-        "pct_don_diff": "+52.9%",
-        "can_thu_prev": 1137754.0,
-        "can_thu_curr": 5331215.0,
-        "diff_can_thu": 4193461.0,
-        "pct_can_thu_diff": "+368.6%",
-        "eval": "—",
-        "ghi_chu": "Tồn đọng vận hành"
-      },
-      {
-        "loai": "Khiếu nại chưa nhận hàng giao",
-        "don_prev": 41,
-        "don_curr": 38,
-        "diff_don": -3,
-        "pct_don_diff": "-7.3%",
-        "can_thu_prev": 2914525.0,
-        "can_thu_curr": 3926929.0,
-        "diff_can_thu": 1012404.0,
-        "pct_can_thu_diff": "+34.7%",
-        "eval": "—",
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Giao lấy trả sai số lần quy định",
-        "don_prev": 381,
-        "don_curr": 427,
-        "diff_don": 46,
-        "pct_don_diff": "+12.1%",
-        "can_thu_prev": 3992196.0,
-        "can_thu_curr": 3708852.0,
-        "diff_can_thu": -283344.0,
-        "pct_can_thu_diff": "-7.1%",
-        "eval": "—",
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Backlog Bắn Kiểm Giao",
-        "don_prev": 124,
-        "don_curr": 128,
-        "diff_don": 4,
-        "pct_don_diff": "+3.2%",
-        "can_thu_prev": 1839350.0,
-        "can_thu_curr": 3123662.0,
-        "diff_can_thu": 1284312.0,
-        "pct_can_thu_diff": "+69.8%",
-        "eval": "—",
-        "ghi_chu": "Tồn đọng vận hành"
-      },
-      {
-        "loai": "Giao ngoài giờ",
-        "don_prev": 90,
-        "don_curr": 67,
-        "diff_don": -23,
-        "pct_don_diff": "-25.6%",
-        "can_thu_prev": 1096223.0,
-        "can_thu_curr": 1297518.0,
-        "diff_can_thu": 201295.0,
-        "pct_can_thu_diff": "+18.4%",
-        "eval": "—",
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Khiếu nại chưa tick GTC",
-        "don_prev": 4,
-        "don_curr": 3,
-        "diff_don": -1,
-        "pct_don_diff": "-25.0%",
-        "can_thu_prev": 4379002.0,
-        "can_thu_curr": 1210002.0,
-        "diff_can_thu": -3169000.0,
-        "pct_can_thu_diff": "-72.4%",
-        "eval": "—",
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Sai quy trình G1P",
-        "don_prev": 5,
-        "don_curr": 2,
-        "diff_don": -3,
-        "pct_don_diff": "-60.0%",
-        "can_thu_prev": 1011722.0,
-        "can_thu_curr": 359988.0,
-        "diff_can_thu": -651734.0,
-        "pct_can_thu_diff": "-64.4%",
-        "eval": "—",
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Kiện hàng bị thiếu đơn",
-        "don_prev": 90,
-        "don_curr": 122,
-        "diff_don": 32,
-        "pct_don_diff": "+35.6%",
-        "can_thu_prev": 7528335.0,
-        "can_thu_curr": 265251.0,
-        "diff_can_thu": -7263084.0,
-        "pct_can_thu_diff": "-96.5%",
-        "eval": "🟢 Giảm tốt",
-        "ghi_chu": "Thất thoát / mất hàng"
-      },
-      {
-        "loai": "Đơn hàng bị quá hạn toàn trình",
-        "don_prev": 315,
-        "don_curr": 33,
-        "diff_don": -282,
-        "pct_don_diff": "-89.5%",
-        "can_thu_prev": 24823818.0,
-        "can_thu_curr": 259017.0,
-        "diff_can_thu": -24564801.0,
-        "pct_can_thu_diff": "-99.0%",
-        "eval": "🟢 Giảm tốt",
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Tự ý thay đổi KTKL đơn",
-        "don_prev": 1,
-        "don_curr": 4,
-        "diff_don": 3,
-        "pct_don_diff": "+300.0%",
-        "can_thu_prev": 64996.0,
-        "can_thu_curr": 197138.0,
-        "diff_can_thu": 132142.0,
-        "pct_can_thu_diff": "+203.3%",
-        "eval": "—",
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Dán nhầm phiếu",
-        "don_prev": 0,
-        "don_curr": 3,
-        "diff_don": 3,
-        "pct_don_diff": "+100%",
-        "can_thu_prev": 0.0,
-        "can_thu_curr": 165999.0,
-        "diff_can_thu": 165999.0,
-        "pct_can_thu_diff": "+100%",
-        "eval": "—",
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Thu dư tiền",
-        "don_prev": 186,
-        "don_curr": 223,
-        "diff_don": 37,
-        "pct_don_diff": "+19.9%",
-        "can_thu_prev": 83352.0,
-        "can_thu_curr": 59390.0,
-        "diff_can_thu": -23962.0,
-        "pct_can_thu_diff": "-28.7%",
-        "eval": "—",
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Khiếu nại chưa nhận hàng trả",
-        "don_prev": 2,
-        "don_curr": 6,
-        "diff_don": 4,
-        "pct_don_diff": "+200.0%",
-        "can_thu_prev": 9230.0,
-        "can_thu_curr": 34420.0,
-        "diff_can_thu": 25190.0,
-        "pct_can_thu_diff": "+272.9%",
-        "eval": "—",
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Không giao lấy tận nơi",
-        "don_prev": 0,
-        "don_curr": 1,
-        "diff_don": 1,
-        "pct_don_diff": "+100%",
-        "can_thu_prev": 0.0,
-        "can_thu_curr": 140.0,
-        "diff_can_thu": 140.0,
-        "pct_can_thu_diff": "+100%",
-        "eval": "—",
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Backlog Bắn Kiểm Lấy",
-        "don_prev": 4,
-        "don_curr": 0,
-        "diff_don": -4,
-        "pct_don_diff": "-100.0%",
-        "can_thu_prev": 0.0,
-        "can_thu_curr": 0.0,
-        "diff_can_thu": 0.0,
-        "pct_can_thu_diff": "0%",
-        "eval": "🟢 0 ₫",
-        "ghi_chu": "Tồn đọng vận hành"
-      },
-      {
-        "loai": "Kiện thất lạc",
-        "don_prev": 2,
-        "don_curr": 0,
-        "diff_don": -2,
-        "pct_don_diff": "-100.0%",
-        "can_thu_prev": 539750.0,
-        "can_thu_curr": 0.0,
-        "diff_can_thu": -539750.0,
-        "pct_can_thu_diff": "-100.0%",
-        "eval": "—",
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Sai ghi chú bắt buộc",
-        "don_prev": 4,
-        "don_curr": 0,
-        "diff_don": -4,
-        "pct_don_diff": "-100.0%",
-        "can_thu_prev": 206107.0,
-        "can_thu_curr": 0.0,
-        "diff_can_thu": -206107.0,
-        "pct_can_thu_diff": "-100.0%",
-        "eval": "—",
-        "ghi_chu": ""
-      },
-      {
-        "loai": "Đơn hàng đã hoàn tất",
-        "don_prev": 1,
-        "don_curr": 0,
-        "diff_don": -1,
-        "pct_don_diff": "-100.0%",
-        "can_thu_prev": 15501.0,
-        "can_thu_curr": 0.0,
-        "diff_can_thu": -15501.0,
-        "pct_can_thu_diff": "-100.0%",
-        "eval": "—",
-        "ghi_chu": ""
-      }
-    ],
-    "by_am": [
-      {
-        "am": "Hồng Bích Nga",
-        "ticket_prev": 164,
-        "ticket_curr": 140,
-        "diff_ticket": -24,
-        "pct_ticket_diff": "-14.6%",
-        "can_thu_prev": 36051351.0,
-        "can_thu_curr": 21708636.0,
-        "diff_can_thu": -14342715.0,
-        "pct_can_thu_diff": "-39.8%",
-        "level": "🟡 Cần kiểm soát (15-40 Tr)",
-        "top_bc_culprit": "(LDO) Hòa Ninh (10.9 Tr)"
-      },
-      {
-        "am": "Nguyễn Lê Nguyên Vũ",
-        "ticket_prev": 227,
-        "ticket_curr": 77,
-        "diff_ticket": -150,
-        "pct_ticket_diff": "-66.1%",
-        "can_thu_prev": 7058423.0,
-        "can_thu_curr": 12720255.0,
-        "diff_can_thu": 5661832.0,
-        "pct_can_thu_diff": "+80.2%",
-        "level": "🟢 Tốt",
-        "top_bc_culprit": "(LDO) Đức Trọng 1 (6.4 Tr)"
-      },
-      {
-        "am": "Huỳnh Thị Kim Chi",
-        "ticket_prev": 113,
-        "ticket_curr": 161,
-        "diff_ticket": 48,
-        "pct_ticket_diff": "+42.5%",
-        "can_thu_prev": 3519363.0,
-        "can_thu_curr": 12718224.0,
-        "diff_can_thu": 9198861.0,
-        "pct_can_thu_diff": "+261.4%",
-        "level": "🟢 Tốt",
-        "top_bc_culprit": "(LDO) Tân Hà Lâm Hà (9.5 Tr)"
-      },
-      {
-        "am": "Lê Văn Trường",
-        "ticket_prev": 308,
-        "ticket_curr": 236,
-        "diff_ticket": -72,
-        "pct_ticket_diff": "-23.4%",
-        "can_thu_prev": 6510853.0,
-        "can_thu_curr": 11378297.0,
-        "diff_can_thu": 4867444.0,
-        "pct_can_thu_diff": "+74.8%",
-        "level": "🟢 Tốt",
-        "top_bc_culprit": "(LDO) Lang Biang - Đà Lạt 2 (4.0 Tr)"
-      },
-      {
-        "am": "Phan Đình Duy",
-        "ticket_prev": 122,
-        "ticket_curr": 261,
-        "diff_ticket": 139,
-        "pct_ticket_diff": "+113.9%",
-        "can_thu_prev": 3044154.0,
-        "can_thu_curr": 9219135.0,
-        "diff_can_thu": 6174981.0,
-        "pct_can_thu_diff": "+202.8%",
-        "level": "🟢 Tốt",
-        "top_bc_culprit": "(KHO) Tây Nha Trang (4.1 Tr)"
-      },
-      {
-        "am": "Nguyễn Thanh Long",
-        "ticket_prev": 136,
-        "ticket_curr": 151,
-        "diff_ticket": 15,
-        "pct_ticket_diff": "+11.0%",
-        "can_thu_prev": 5332563.0,
-        "can_thu_curr": 7448403.0,
-        "diff_can_thu": 2115840.0,
-        "pct_can_thu_diff": "+39.7%",
-        "level": "🟢 Tốt",
-        "top_bc_culprit": "(KHO) Cam Linh (7.4 Tr)"
-      },
-      {
-        "am": "Huỳnh Thúc Duân",
-        "ticket_prev": 622,
-        "ticket_curr": 90,
-        "diff_ticket": -532,
-        "pct_ticket_diff": "-85.5%",
-        "can_thu_prev": 3728990.0,
-        "can_thu_curr": 7306212.0,
-        "diff_can_thu": 3577222.0,
-        "pct_can_thu_diff": "+95.9%",
-        "level": "🟢 Tốt",
-        "top_bc_culprit": "(DNO) Đông Gia Nghĩa (3.8 Tr)"
-      },
-      {
-        "am": "Nguyễn Hoàng Phi",
-        "ticket_prev": 41,
-        "ticket_curr": 53,
-        "diff_ticket": 12,
-        "pct_ticket_diff": "+29.3%",
-        "can_thu_prev": 516218.0,
-        "can_thu_curr": 6398786.0,
-        "diff_can_thu": 5882568.0,
-        "pct_can_thu_diff": "+1139.6%",
-        "level": "🟢 Tốt",
-        "top_bc_culprit": "(KHO) Cam Lâm 1 (4.7 Tr)"
-      },
-      {
-        "am": "Chưa gán",
-        "ticket_prev": 105,
-        "ticket_curr": 269,
-        "diff_ticket": 164,
-        "pct_ticket_diff": "+156.2%",
-        "can_thu_prev": 2709924.0,
-        "can_thu_curr": 6234817.0,
-        "diff_can_thu": 3524893.0,
-        "pct_can_thu_diff": "+130.1%",
-        "level": "🟢 Tốt",
-        "top_bc_culprit": "Kho Trung Chuyển Khánh Hòa (3.4 Tr)"
-      },
-      {
-        "am": "Lê Thanh Nhựt",
-        "ticket_prev": 41,
-        "ticket_curr": 68,
-        "diff_ticket": 27,
-        "pct_ticket_diff": "+65.9%",
-        "can_thu_prev": 3135016.0,
-        "can_thu_curr": 5222413.0,
-        "diff_can_thu": 2087397.0,
-        "pct_can_thu_diff": "+66.6%",
-        "level": "🟢 Tốt",
-        "top_bc_culprit": "(BTH) Đức Linh (4.2 Tr)"
-      },
-      {
-        "am": "Nguyễn Thị Tuyết Thơ",
-        "ticket_prev": 13,
-        "ticket_curr": 16,
-        "diff_ticket": 3,
-        "pct_ticket_diff": "+23.1%",
-        "can_thu_prev": 28296.0,
-        "can_thu_curr": 4492772.0,
-        "diff_can_thu": 4464476.0,
-        "pct_can_thu_diff": "+15777.8%",
-        "level": "🟢 Tốt",
-        "top_bc_culprit": "(LDO) Ninh Gia (3.5 Tr)"
-      },
-      {
-        "am": "Nguyễn Ngọc Khánh",
-        "ticket_prev": 89,
-        "ticket_curr": 167,
-        "diff_ticket": 78,
-        "pct_ticket_diff": "+87.6%",
-        "can_thu_prev": 817098.0,
-        "can_thu_curr": 3687665.0,
-        "diff_can_thu": 2870567.0,
-        "pct_can_thu_diff": "+351.3%",
-        "level": "🟢 Tốt",
-        "top_bc_culprit": "(BTH) Phú Thủy (2.2 Tr)"
-      },
-      {
-        "am": "Thái Thị Thanh Thư",
-        "ticket_prev": 98,
-        "ticket_curr": 100,
-        "diff_ticket": 2,
-        "pct_ticket_diff": "+2.0%",
-        "can_thu_prev": 2246727.0,
-        "can_thu_curr": 2217185.0,
-        "diff_can_thu": -29542.0,
-        "pct_can_thu_diff": "-1.3%",
-        "level": "🟢 Tốt",
-        "top_bc_culprit": "(KHO) Bắc Nha Trang (0.7 Tr)"
-      },
-      {
-        "am": "Cao Thị Thanh Thủy",
-        "ticket_prev": 29,
-        "ticket_curr": 29,
-        "diff_ticket": 0,
-        "pct_ticket_diff": "+0.0%",
-        "can_thu_prev": 389921.0,
-        "can_thu_curr": 1315893.0,
-        "diff_can_thu": 925972.0,
-        "pct_can_thu_diff": "+237.5%",
-        "level": "🟢 Tốt",
-        "top_bc_culprit": "(BTH) Hàm Tân (1.3 Tr)"
-      },
-      {
-        "am": "Nguyễn Duy Long",
-        "ticket_prev": 26,
-        "ticket_curr": 29,
-        "diff_ticket": 3,
-        "pct_ticket_diff": "+11.5%",
-        "can_thu_prev": 1067636.0,
-        "can_thu_curr": 1018267.0,
-        "diff_can_thu": -49369.0,
-        "pct_can_thu_diff": "-4.6%",
-        "level": "🟢 Tốt",
-        "top_bc_culprit": "(NTH) Phước Dinh (0.5 Tr)"
-      },
-      {
-        "am": "Trần Thị Nhung",
-        "ticket_prev": 57,
-        "ticket_curr": 40,
-        "diff_ticket": -17,
-        "pct_ticket_diff": "-29.8%",
-        "can_thu_prev": 121141.0,
-        "can_thu_curr": 949053.0,
-        "diff_can_thu": 827912.0,
-        "pct_can_thu_diff": "+683.4%",
-        "level": "🟢 Tốt",
-        "top_bc_culprit": "(DNO) Quảng Khê (0.5 Tr)"
-      },
-      {
-        "am": "Trần Văn Phước",
-        "ticket_prev": 87,
-        "ticket_curr": 42,
-        "diff_ticket": -45,
-        "pct_ticket_diff": "-51.7%",
-        "can_thu_prev": 1075476.0,
-        "can_thu_curr": 205533.0,
-        "diff_can_thu": -869943.0,
-        "pct_can_thu_diff": "-80.9%",
-        "level": "🟢 Tốt",
-        "top_bc_culprit": "(DNO) Quảng Tín (0.2 Tr)"
-      },
-      {
-        "am": "Lê Minh Lợi",
-        "ticket_prev": 36,
-        "ticket_curr": 17,
-        "diff_ticket": -19,
-        "pct_ticket_diff": "-52.8%",
-        "can_thu_prev": 390138.0,
-        "can_thu_curr": 52888.0,
-        "diff_can_thu": -337250.0,
-        "pct_can_thu_diff": "-86.4%",
-        "level": "🟢 Tốt",
-        "top_bc_culprit": "(LDO) Lang Biang - Đà Lạt 1 (0.1 Tr)"
-      },
-      {
-        "am": "Phạm Bá Thành Công",
-        "ticket_prev": 0,
-        "ticket_curr": 3,
-        "diff_ticket": 3,
-        "pct_ticket_diff": "+100%",
-        "can_thu_prev": 0.0,
-        "can_thu_curr": 1750.0,
-        "diff_can_thu": 1750.0,
-        "pct_can_thu_diff": "+100%",
-        "level": "🟢 Tốt",
-        "top_bc_culprit": "(KHO) Tân Định (0.0 Tr)"
-      },
-      {
-        "am": "Nguyễn Đỗ Minh Nghĩa",
-        "ticket_prev": 3,
-        "ticket_curr": 0,
-        "diff_ticket": -3,
-        "pct_ticket_diff": "-100.0%",
-        "can_thu_prev": 159999.0,
-        "can_thu_curr": 0.0,
-        "diff_can_thu": -159999.0,
-        "pct_can_thu_diff": "-100.0%",
-        "level": "🟢 Tốt",
-        "top_bc_culprit": "—"
-      }
-    ],
-    "by_province": [
-      {
-        "tinh": "Lâm Đồng",
-        "don_prev": 777,
-        "don_curr": 588,
-        "diff_don": -189,
-        "can_thu_prev": 52077551.0,
-        "can_thu_curr": 57935047.0,
-        "diff_can_thu": 5857496.0
-      },
-      {
-        "tinh": "Khánh Hòa",
-        "don_prev": 420,
-        "don_curr": 597,
-        "diff_don": 177,
-        "can_thu_prev": 11373550.0,
-        "can_thu_curr": 25393526.0,
-        "diff_can_thu": 14019976.0
-      },
-      {
-        "tinh": "Đắk Nông",
-        "don_prev": 850,
-        "don_curr": 236,
-        "diff_don": -614,
-        "can_thu_prev": 6580101.0,
-        "can_thu_curr": 13597463.0,
-        "diff_can_thu": 7017362.0
-      },
-      {
-        "tinh": "Bình Thuận",
-        "don_prev": 97,
-        "don_curr": 148,
-        "diff_don": 51,
-        "can_thu_prev": 3595571.0,
-        "can_thu_curr": 10125765.0,
-        "diff_can_thu": 6530194.0
-      },
-      {
-        "tinh": "Khác",
-        "don_prev": 141,
-        "don_curr": 337,
-        "diff_don": 196,
-        "can_thu_prev": 3206588.0,
-        "can_thu_curr": 5751643.0,
-        "diff_can_thu": 2545055.0
-      },
-      {
-        "tinh": "Ninh Thuận",
-        "don_prev": 32,
-        "don_curr": 43,
-        "diff_don": 11,
-        "can_thu_prev": 1069926.0,
-        "can_thu_curr": 1492740.0,
-        "diff_can_thu": 422814.0
-      }
-    ],
-    "top_bc": [
-      {
-        "bc": "(LDO) Hòa Ninh",
-        "am": "Hồng Bích Nga",
-        "tinh": "Lâm Đồng",
-        "don_prev": 23,
-        "don_curr": 28,
-        "diff_don": 5,
-        "can_thu_prev": 948297.0,
-        "can_thu_curr": 10929419.0,
-        "diff_can_thu": 9981122.0,
-        "pct_can_thu_diff": "+1052.5%"
-      },
-      {
-        "bc": "(LDO) Tân Hà Lâm Hà",
-        "am": "Huỳnh Thị Kim Chi",
-        "tinh": "Lâm Đồng",
-        "don_prev": 81,
-        "don_curr": 138,
-        "diff_don": 57,
-        "can_thu_prev": 3444898.0,
-        "can_thu_curr": 9491648.0,
-        "diff_can_thu": 6046750.0,
-        "pct_can_thu_diff": "+175.5%"
-      },
-      {
-        "bc": "(KHO) Cam Linh",
-        "am": "Nguyễn Thanh Long",
-        "tinh": "Khánh Hòa",
-        "don_prev": 124,
-        "don_curr": 137,
-        "diff_don": 13,
-        "can_thu_prev": 4378762.0,
-        "can_thu_curr": 7396897.0,
-        "diff_can_thu": 3018135.0,
-        "pct_can_thu_diff": "+68.9%"
-      },
-      {
-        "bc": "(LDO) Đức Trọng 1",
-        "am": "Nguyễn Lê Nguyên Vũ",
-        "tinh": "Lâm Đồng",
-        "don_prev": 130,
-        "don_curr": 27,
-        "diff_don": -103,
-        "can_thu_prev": 4048477.0,
-        "can_thu_curr": 6409152.0,
-        "diff_can_thu": 2360675.0,
-        "pct_can_thu_diff": "+58.3%"
-      },
-      {
-        "bc": "(LDO) Di Linh",
-        "am": "Nguyễn Lê Nguyên Vũ",
-        "tinh": "Lâm Đồng",
-        "don_prev": 89,
-        "don_curr": 43,
-        "diff_don": -46,
-        "can_thu_prev": 2995345.0,
-        "can_thu_curr": 6309383.0,
-        "diff_can_thu": 3314038.0,
-        "pct_can_thu_diff": "+110.6%"
-      },
-      {
-        "bc": "(LDO) Bảo Lâm 1",
-        "am": "Hồng Bích Nga",
-        "tinh": "Lâm Đồng",
-        "don_prev": 18,
-        "don_curr": 27,
-        "diff_don": 9,
-        "can_thu_prev": 30866520.0,
-        "can_thu_curr": 5460155.0,
-        "diff_can_thu": -25406365.0,
-        "pct_can_thu_diff": "-82.3%"
-      },
-      {
-        "bc": "(DNO) Kiến Đức",
-        "am": "Hồng Bích Nga",
-        "tinh": "Đắk Nông",
-        "don_prev": 87,
-        "don_curr": 59,
-        "diff_don": -28,
-        "can_thu_prev": 1640872.0,
-        "can_thu_curr": 5136025.0,
-        "diff_can_thu": 3495153.0,
-        "pct_can_thu_diff": "+213.0%"
-      },
-      {
-        "bc": "(KHO) Cam Lâm 1",
-        "am": "Nguyễn Hoàng Phi",
-        "tinh": "Khánh Hòa",
-        "don_prev": 13,
-        "don_curr": 24,
-        "diff_don": 11,
-        "can_thu_prev": 384752.0,
-        "can_thu_curr": 4725868.0,
-        "diff_can_thu": 4341116.0,
-        "pct_can_thu_diff": "+1128.3%"
-      },
-      {
-        "bc": "(BTH) Đức Linh",
-        "am": "Lê Thanh Nhựt",
-        "tinh": "Bình Thuận",
-        "don_prev": 5,
-        "don_curr": 14,
-        "diff_don": 9,
-        "can_thu_prev": 2483375.0,
-        "can_thu_curr": 4198647.0,
-        "diff_can_thu": 1715272.0,
-        "pct_can_thu_diff": "+69.1%"
-      },
-      {
-        "bc": "(KHO) Tây Nha Trang",
-        "am": "Phan Đình Duy",
-        "tinh": "Khánh Hòa",
-        "don_prev": 43,
-        "don_curr": 100,
-        "diff_don": 57,
-        "can_thu_prev": 1176315.0,
-        "can_thu_curr": 4141527.0,
-        "diff_can_thu": 2965212.0,
-        "pct_can_thu_diff": "+252.1%"
-      },
-      {
-        "bc": "(LDO) Lang Biang - Đà Lạt 2",
-        "am": "Lê Văn Trường",
-        "tinh": "Lâm Đồng",
-        "don_prev": 46,
-        "don_curr": 135,
-        "diff_don": 89,
-        "can_thu_prev": 261875.0,
-        "can_thu_curr": 3976927.0,
-        "diff_can_thu": 3715052.0,
-        "pct_can_thu_diff": "+1418.6%"
-      },
-      {
-        "bc": "(DNO) Đông Gia Nghĩa",
-        "am": "Huỳnh Thúc Duân",
-        "tinh": "Đắk Nông",
-        "don_prev": 608,
-        "don_curr": 48,
-        "diff_don": -560,
-        "can_thu_prev": 3726280.0,
-        "can_thu_curr": 3849537.0,
-        "diff_can_thu": 123257.0,
-        "pct_can_thu_diff": "+3.3%"
-      },
-      {
-        "bc": "(LDO) Ninh Gia",
-        "am": "Nguyễn Thị Tuyết Thơ",
-        "tinh": "Lâm Đồng",
-        "don_prev": 1,
-        "don_curr": 3,
-        "diff_don": 2,
-        "can_thu_prev": 110.0,
-        "can_thu_curr": 3490002.0,
-        "diff_can_thu": 3489892.0,
-        "pct_can_thu_diff": "+3172629.1%"
-      },
-      {
-        "bc": "(DNO) Bắc Gia Nghĩa",
-        "am": "Huỳnh Thúc Duân",
-        "tinh": "Đắk Nông",
-        "don_prev": 11,
-        "don_curr": 36,
-        "diff_don": 25,
-        "can_thu_prev": 410.0,
-        "can_thu_curr": 3440775.0,
-        "diff_can_thu": 3440365.0,
-        "pct_can_thu_diff": "+839113.4%"
-      },
-      {
-        "bc": "Kho Trung Chuyển Khánh Hòa",
-        "am": "Chưa gán",
-        "tinh": "Khác",
-        "don_prev": 21,
-        "don_curr": 140,
-        "diff_don": 119,
-        "can_thu_prev": 281548.0,
-        "can_thu_curr": 3396035.0,
-        "diff_can_thu": 3114487.0,
-        "pct_can_thu_diff": "+1106.2%"
-      },
-      {
-        "bc": "(LDO) Lâm Viên - Đà Lạt 2",
-        "am": "Lê Văn Trường",
-        "tinh": "Lâm Đồng",
-        "don_prev": 28,
-        "don_curr": 43,
-        "diff_don": 15,
-        "can_thu_prev": 394441.0,
-        "can_thu_curr": 3236030.0,
-        "diff_can_thu": 2841589.0,
-        "pct_can_thu_diff": "+720.4%"
-      },
-      {
-        "bc": "(LDO) Đam Rông 3",
-        "am": "Huỳnh Thị Kim Chi",
-        "tinh": "Lâm Đồng",
-        "don_prev": 16,
-        "don_curr": 16,
-        "diff_don": 0,
-        "can_thu_prev": 110.0,
-        "can_thu_curr": 3215984.0,
-        "diff_can_thu": 3215874.0,
-        "pct_can_thu_diff": "+2923521.8%"
-      },
-      {
-        "bc": "(KHO) Nha Trang",
-        "am": "Phan Đình Duy",
-        "tinh": "Khánh Hòa",
-        "don_prev": 48,
-        "don_curr": 78,
-        "diff_don": 30,
-        "can_thu_prev": 1341985.0,
-        "can_thu_curr": 2917926.0,
-        "diff_can_thu": 1575941.0,
-        "pct_can_thu_diff": "+117.4%"
-      },
-      {
-        "bc": "(LDO) Đơn Dương",
-        "am": "Lê Văn Trường",
-        "tinh": "Lâm Đồng",
-        "don_prev": 180,
-        "don_curr": 22,
-        "diff_don": -158,
-        "can_thu_prev": 5548370.0,
-        "can_thu_curr": 2720958.0,
-        "diff_can_thu": -2827412.0,
-        "pct_can_thu_diff": "-51.0%"
-      },
-      {
-        "bc": "(BTH) Phú Thủy",
-        "am": "Nguyễn Ngọc Khánh",
-        "tinh": "Bình Thuận",
-        "don_prev": 3,
-        "don_curr": 17,
-        "diff_don": 14,
-        "can_thu_prev": 15501.0,
-        "can_thu_curr": 2226811.0,
-        "diff_can_thu": 2211310.0,
-        "pct_can_thu_diff": "+14265.6%"
-      },
-      {
-        "bc": "(KHO) Vạn Ninh",
-        "am": "Phan Đình Duy",
-        "tinh": "Khánh Hòa",
-        "don_prev": 22,
-        "don_curr": 44,
-        "diff_don": 22,
-        "can_thu_prev": 490157.0,
-        "can_thu_curr": 2083069.0,
-        "diff_can_thu": 1592912.0,
-        "pct_can_thu_diff": "+325.0%"
-      },
-      {
-        "bc": "(KHO) Ninh Hòa 2",
-        "am": "Nguyễn Hoàng Phi",
-        "tinh": "Khánh Hòa",
-        "don_prev": 15,
-        "don_curr": 14,
-        "diff_don": -1,
-        "can_thu_prev": 39360.0,
-        "can_thu_curr": 1649217.0,
-        "diff_can_thu": 1609857.0,
-        "pct_can_thu_diff": "+4090.1%"
-      },
-      {
-        "bc": "(BTH) Hàm Tân",
-        "am": "Cao Thị Thanh Thủy",
-        "tinh": "Bình Thuận",
-        "don_prev": 13,
-        "don_curr": 15,
-        "diff_don": 2,
-        "can_thu_prev": 33829.0,
-        "can_thu_curr": 1308363.0,
-        "diff_can_thu": 1274534.0,
-        "pct_can_thu_diff": "+3767.6%"
-      },
-      {
-        "bc": "Kho Chuyển Tiếp Bình Thuận",
-        "am": "Nguyễn Ngọc Khánh",
-        "tinh": "Khác",
-        "don_prev": 63,
-        "don_curr": 124,
-        "diff_don": 61,
-        "can_thu_prev": 746664.0,
-        "can_thu_curr": 1103958.0,
-        "diff_can_thu": 357294.0,
-        "pct_can_thu_diff": "+47.9%"
-      },
-      {
-        "bc": "(BTH) Hàm Thuận",
-        "am": "Lê Thanh Nhựt",
-        "tinh": "Bình Thuận",
-        "don_prev": 6,
-        "don_curr": 20,
-        "diff_don": 14,
-        "can_thu_prev": 39897.0,
-        "can_thu_curr": 1004376.0,
-        "diff_can_thu": 964479.0,
-        "pct_can_thu_diff": "+2417.4%"
-      },
-      {
-        "bc": "(LDO) Hiệp Thạnh",
-        "am": "Nguyễn Thị Tuyết Thơ",
-        "tinh": "Lâm Đồng",
-        "don_prev": 7,
-        "don_curr": 3,
-        "diff_don": -4,
-        "can_thu_prev": 10450.0,
-        "can_thu_curr": 1000400.0,
-        "diff_can_thu": 989950.0,
-        "pct_can_thu_diff": "+9473.2%"
-      },
-      {
-        "bc": "(BTH) Tân Hải",
-        "am": "Chưa gán",
-        "tinh": "Bình Thuận",
-        "don_prev": 0,
-        "don_curr": 2,
-        "diff_don": 2,
-        "can_thu_prev": 0.0,
-        "can_thu_curr": 1000300.0,
-        "diff_can_thu": 1000300.0,
-        "pct_can_thu_diff": "+100%"
-      },
-      {
-        "bc": "(LDO) Xuân Trường - Đà Lạt",
-        "am": "Lê Văn Trường",
-        "tinh": "Lâm Đồng",
-        "don_prev": 18,
-        "don_curr": 12,
-        "diff_don": -6,
-        "can_thu_prev": 81779.0,
-        "can_thu_curr": 891466.0,
-        "diff_can_thu": 809687.0,
-        "pct_can_thu_diff": "+990.1%"
-      },
-      {
-        "bc": "Kho Chuyển Tiếp Đức Trọng",
-        "am": "Chưa gán",
-        "tinh": "Khác",
-        "don_prev": 28,
-        "don_curr": 56,
-        "diff_don": 28,
-        "can_thu_prev": 535472.0,
-        "can_thu_curr": 776636.0,
-        "diff_can_thu": 241164.0,
-        "pct_can_thu_diff": "+45.0%"
-      },
-      {
-        "bc": "(KHO) Bắc Nha Trang",
-        "am": "Thái Thị Thanh Thư",
-        "tinh": "Khánh Hòa",
-        "don_prev": 42,
-        "don_curr": 47,
-        "diff_don": 5,
-        "can_thu_prev": 1284558.0,
-        "can_thu_curr": 681806.0,
-        "diff_can_thu": -602752.0,
-        "pct_can_thu_diff": "-46.9%"
-      }
-    ]
-  },
   "bc_canh_bao": [
     {
       "id": "20320000",
@@ -55375,379 +52894,6 @@
         "pct_24h": 0.004180938948216804,
         "avg_lt": 5.158727924172209
       }
-    ],
-    "backlog": {
-      "by_am": [
-        {
-          "am": "Nguyễn Tiến Lực",
-          "h0_6": 6290,
-          "h6_12": 128,
-          "h12_24": 77,
-          "h24_36": 10,
-          "h36_72": 2,
-          "h72_120": 3,
-          "h120_192": 0,
-          "h192_plus": 0,
-          "treo_36h": 381,
-          "total": 6510,
-          "diff": 6129
-        },
-        {
-          "am": "Nguyễn Minh Hoàng",
-          "h0_6": 2851,
-          "h6_12": 1889,
-          "h12_24": 73,
-          "h24_36": 12,
-          "h36_72": 4,
-          "h72_120": 0,
-          "h120_192": 0,
-          "h192_plus": 0,
-          "treo_36h": 0,
-          "total": 4829,
-          "diff": 4829
-        },
-        {
-          "am": "Nguyễn Ngọc Khánh",
-          "h0_6": 2545,
-          "h6_12": 912,
-          "h12_24": 167,
-          "h24_36": 5,
-          "h36_72": 4,
-          "h72_120": 1,
-          "h120_192": 0,
-          "h192_plus": 0,
-          "treo_36h": 0,
-          "total": 3634,
-          "diff": 3634
-        },
-        {
-          "am": "Trương Quang Linh",
-          "h0_6": 623,
-          "h6_12": 611,
-          "h12_24": 0,
-          "h24_36": 0,
-          "h36_72": 0,
-          "h72_120": 0,
-          "h120_192": 0,
-          "h192_plus": 0,
-          "treo_36h": 0,
-          "total": 1234,
-          "diff": 1234
-        }
-      ],
-      "total_am": {
-        "am": "TỔNG TOÀN VÙNG",
-        "h0_6": 12309,
-        "h6_12": 3540,
-        "h12_24": 317,
-        "h24_36": 27,
-        "h36_72": 10,
-        "h72_120": 4,
-        "h120_192": 0,
-        "h192_plus": 0,
-        "treo_36h": 381,
-        "total": 16207,
-        "diff": 15826
-      },
-      "by_kho": [
-        {
-          "kho": "Kho Trung Chuyển Khánh Hòa",
-          "am": "Nguyễn Tiến Lực",
-          "h0_6": 6290,
-          "h6_12": 128,
-          "h12_24": 77,
-          "h24_36": 10,
-          "h36_72": 2,
-          "h72_120": 3,
-          "h120_192": 0,
-          "h192_plus": 0,
-          "treo_36h": 381,
-          "total": 6510,
-          "diff": 6129
-        },
-        {
-          "kho": "Kho Chuyển Tiếp Bình Thuận",
-          "am": "Nguyễn Ngọc Khánh",
-          "h0_6": 2545,
-          "h6_12": 912,
-          "h12_24": 167,
-          "h24_36": 5,
-          "h36_72": 4,
-          "h72_120": 1,
-          "h120_192": 0,
-          "h192_plus": 0,
-          "treo_36h": 0,
-          "total": 3634,
-          "diff": 3634
-        },
-        {
-          "kho": "Kho Chuyển Tiếp Bảo Lộc - Lâm Đồng",
-          "am": "Nguyễn Minh Hoàng",
-          "h0_6": 899,
-          "h6_12": 1831,
-          "h12_24": 0,
-          "h24_36": 0,
-          "h36_72": 0,
-          "h72_120": 0,
-          "h120_192": 0,
-          "h192_plus": 0,
-          "treo_36h": 0,
-          "total": 2730,
-          "diff": 2730
-        },
-        {
-          "kho": "Kho Chuyển Tiếp Đức Trọng - Lâm Đồng",
-          "am": "Nguyễn Minh Hoàng",
-          "h0_6": 1952,
-          "h6_12": 58,
-          "h12_24": 73,
-          "h24_36": 12,
-          "h36_72": 4,
-          "h72_120": 0,
-          "h120_192": 0,
-          "h192_plus": 0,
-          "treo_36h": 0,
-          "total": 2099,
-          "diff": 2099
-        },
-        {
-          "kho": "Kho Chuyển Tiếp Đắk Nông",
-          "am": "Trương Quang Linh",
-          "h0_6": 623,
-          "h6_12": 611,
-          "h12_24": 0,
-          "h24_36": 0,
-          "h36_72": 0,
-          "h72_120": 0,
-          "h120_192": 0,
-          "h192_plus": 0,
-          "treo_36h": 0,
-          "total": 1234,
-          "diff": 1234
-        }
-      ],
-      "total_kho": {
-        "kho": "TỔNG CỘNG (5 KTC/KCT)",
-        "am": "Toàn Vùng",
-        "h0_6": 12309,
-        "h6_12": 3540,
-        "h12_24": 317,
-        "h24_36": 27,
-        "h36_72": 10,
-        "h72_120": 4,
-        "h120_192": 0,
-        "h192_plus": 0,
-        "treo_36h": 381,
-        "total": 16207,
-        "diff": 15826
-      },
-      "trend_dates": [
-        "31/08",
-        "01/09",
-        "02/09",
-        "03/09",
-        "04/09",
-        "05/09",
-        "06/09",
-        "07/09"
-      ],
-      "trend_by_am": [
-        {
-          "am": "Nguyễn Tiến Lực",
-          "d_31_08": 106,
-          "d_01_09": {
-            "val": 180,
-            "diff": 74,
-            "pct": 0.7
-          },
-          "d_02_09": {
-            "val": 51,
-            "diff": -129,
-            "pct": -0.72
-          },
-          "d_03_09": {
-            "val": 24,
-            "diff": -27,
-            "pct": -0.53
-          },
-          "d_04_09": {
-            "val": 16,
-            "diff": -8,
-            "pct": -0.33
-          },
-          "d_05_09": {
-            "val": 12,
-            "diff": -4,
-            "pct": -0.25
-          },
-          "d_06_09": {
-            "val": 0,
-            "diff": -12,
-            "pct": -1.0
-          },
-          "d_07_09": {
-            "val": 23,
-            "diff": 23,
-            "pct": 1.0
-          }
-        },
-        {
-          "am": "Nguyễn Minh Hoàng",
-          "d_31_08": 12,
-          "d_01_09": {
-            "val": 11,
-            "diff": -1,
-            "pct": -0.08
-          },
-          "d_02_09": {
-            "val": 23,
-            "diff": 12,
-            "pct": 1.09
-          },
-          "d_03_09": {
-            "val": 5,
-            "diff": -18,
-            "pct": -0.78
-          },
-          "d_04_09": {
-            "val": 5,
-            "diff": 0,
-            "pct": 0.0
-          },
-          "d_05_09": {
-            "val": 13,
-            "diff": 8,
-            "pct": 1.6
-          },
-          "d_06_09": {
-            "val": 0,
-            "diff": -13,
-            "pct": -1.0
-          },
-          "d_07_09": {
-            "val": 38,
-            "diff": 38,
-            "pct": 1.0
-          }
-        },
-        {
-          "am": "Nguyễn Ngọc Khánh",
-          "d_31_08": 22,
-          "d_01_09": {
-            "val": 7,
-            "diff": -15,
-            "pct": -0.68
-          },
-          "d_02_09": {
-            "val": 5,
-            "diff": -2,
-            "pct": -0.29
-          },
-          "d_03_09": {
-            "val": 5,
-            "diff": 0,
-            "pct": 0.0
-          },
-          "d_04_09": {
-            "val": 5,
-            "diff": 0,
-            "pct": 0.0
-          },
-          "d_05_09": {
-            "val": 13,
-            "diff": 8,
-            "pct": 1.6
-          },
-          "d_06_09": {
-            "val": 0,
-            "diff": -13,
-            "pct": -1.0
-          },
-          "d_07_09": {
-            "val": 18,
-            "diff": 18,
-            "pct": 1.0
-          }
-        },
-        {
-          "am": "Trương Quang Linh",
-          "d_31_08": 0,
-          "d_01_09": {
-            "val": 0,
-            "diff": 0,
-            "pct": 0.0
-          },
-          "d_02_09": {
-            "val": 0,
-            "diff": 0,
-            "pct": 0.0
-          },
-          "d_03_09": {
-            "val": 2,
-            "diff": 2,
-            "pct": 1.0
-          },
-          "d_04_09": {
-            "val": 0,
-            "diff": -2,
-            "pct": -1.0
-          },
-          "d_05_09": {
-            "val": 0,
-            "diff": 0,
-            "pct": 0.0
-          },
-          "d_06_09": {
-            "val": 0,
-            "diff": 0,
-            "pct": 0.0
-          },
-          "d_07_09": {
-            "val": 1,
-            "diff": 1,
-            "pct": 1.0
-          }
-        }
-      ],
-      "total_trend": {
-        "am": "TỔNG VÙNG",
-        "d_31_08": 140,
-        "d_01_09": {
-          "val": 198,
-          "diff": 58,
-          "pct": 0.41
-        },
-        "d_02_09": {
-          "val": 79,
-          "diff": -119,
-          "pct": -0.6
-        },
-        "d_03_09": {
-          "val": 36,
-          "diff": -43,
-          "pct": -0.54
-        },
-        "d_04_09": {
-          "val": 26,
-          "diff": -10,
-          "pct": -0.28
-        },
-        "d_05_09": {
-          "val": 38,
-          "diff": 12,
-          "pct": 0.46
-        },
-        "d_06_09": {
-          "val": 0,
-          "diff": -38,
-          "pct": -1.0
-        },
-        "d_07_09": {
-          "val": 80,
-          "diff": 80,
-          "pct": 1.0
-        }
-      }
-    }
+    ]
   }
 }
