@@ -13136,7 +13136,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 62,
-      "last_updated": "16:36 - 22/10/2026"
+      "last_updated": "17:12 - 22/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 2646.7,
@@ -13171,7 +13171,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 738.71,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 24
       },
       {
@@ -13184,7 +13184,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 568.01,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, NAK",
+        "primary_ncc": "NAK, Mạnh Cường",
         "truck_count": 9
       },
       {
@@ -13197,7 +13197,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 228.71,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Công Định",
+        "primary_ncc": "Công Định, NAK",
         "truck_count": 5
       },
       {
@@ -13210,7 +13210,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 200.17,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Tốt và Rẻ, Trâm Hoá",
+        "primary_ncc": "Lâm Ngọc Thành, Tốt và Rẻ",
         "truck_count": 7
       },
       {
@@ -13223,7 +13223,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 93.93,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 11
       },
       {
@@ -13252,7 +13252,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 39,
-        "active_ktcs": "KTC Đức Trọng, KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Nam Nha Trang, KTC Bình Thuận"
+        "active_ktcs": "KTC Bình Thuận, KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Đức Trọng, KTC Khánh Hòa"
       },
       {
         "ncc": "NAK",
@@ -13265,7 +13265,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 9,
-        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
+        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
       },
       {
         "ncc": "Công Định",
@@ -13291,7 +13291,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
+        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Lâm Ngọc Thành",
@@ -15941,7 +15941,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "820.344 đ",
         "cost": 820344.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2610140NND49LD",
         "ontime": "100,00%"
       },
       {
@@ -15956,7 +15956,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "820.344 đ",
         "cost": 820344.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261015A7LV4RBD",
         "ontime": "100,00%"
       },
       {
@@ -15971,7 +15971,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "820.344 đ",
         "cost": 820344.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261016IVKUZOKZ",
         "ontime": "100,00%"
       },
       {
@@ -15986,7 +15986,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "820.344 đ",
         "cost": 820344.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261017F6X3OOOT",
         "ontime": "100,00%"
       },
       {
@@ -16001,7 +16001,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "820.344 đ",
         "cost": 820344.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E26101856LAE28C",
         "ontime": "100,00%"
       },
       {
@@ -16031,7 +16031,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "820.344 đ",
         "cost": 820344.0,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2610200EW83X6D",
         "ontime": "100,00%"
       },
       {
@@ -16406,7 +16406,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "946.648 đ",
         "cost": 946648.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261014BA9NSEU1",
         "ontime": "100,00%"
       },
       {
@@ -16421,7 +16421,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "946.648 đ",
         "cost": 946648.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261015YHAECSVJ",
         "ontime": "100,00%"
       },
       {
@@ -16436,7 +16436,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "946.648 đ",
         "cost": 946648.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261016361AKQX8",
         "ontime": "100,00%"
       },
       {
@@ -16451,7 +16451,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "946.648 đ",
         "cost": 946648.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2610171WUFP7JI",
         "ontime": "100,00%"
       },
       {
@@ -16466,7 +16466,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "946.648 đ",
         "cost": 946648.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E261018L2KZ56T4",
         "ontime": "100,00%"
       },
       {
@@ -16496,7 +16496,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "946.648 đ",
         "cost": 946648.2,
         "trips_equivalent": 1,
-        "trip_code": "",
+        "trip_code": "E2610209L7R67EZ",
         "ontime": "100,00%"
       },
       {
