@@ -13136,7 +13136,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 62,
-      "last_updated": "13:31 - 22/10/2026"
+      "last_updated": "14:08 - 22/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 2646.69,
@@ -13171,7 +13171,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 739.05,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 24
       },
       {
@@ -13210,7 +13210,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 200.15,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
+        "primary_ncc": "Lâm Ngọc Thành, Tốt và Rẻ",
         "truck_count": 7
       },
       {
@@ -13223,7 +13223,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 93.93,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 11
       },
       {
@@ -13252,7 +13252,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 39,
-        "active_ktcs": "KTC Đức Trọng, KTC Nam Nha Trang, KTC Khánh Hòa, KTC Bắc Nha Trang, KTC Bình Thuận"
+        "active_ktcs": "KTC Nam Nha Trang, KTC Khánh Hòa, KTC Bắc Nha Trang, KTC Đức Trọng, KTC Bình Thuận"
       },
       {
         "ncc": "NAK",
@@ -13265,7 +13265,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 9,
-        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
+        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
       },
       {
         "ncc": "Công Định",
@@ -13291,7 +13291,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 6,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
+        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Lâm Ngọc Thành",
@@ -26210,7 +26210,7 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-21",
         "truck": "72H-00679",
         "capacity": "1900",
-        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Đông Ninh Hòa -> (KHO) Vạn Ninh -> (KHO) Tu Bông -> (KHO) Vạn Ninh -> (KHO) Đông Ninh Hòa -> Kho Trung Chuyển Khánh Hòa",
+        "route": "Kho Trung Chuyển Khánh Hòa -> (KHO) Vạn Ninh -> (KHO) Tu Bông -> (KHO) Vạn Ninh -> (KHO) Đông Ninh Hòa -> Kho Trung Chuyển Khánh Hòa",
         "ktc": "KTC Khánh Hòa",
         "type": "Cố định",
         "cost_str": "1.181.660 đ",
