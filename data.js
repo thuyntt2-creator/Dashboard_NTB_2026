@@ -13136,7 +13136,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 62,
-      "last_updated": "14:46 - 22/10/2026"
+      "last_updated": "15:21 - 22/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 2646.67,
@@ -13184,7 +13184,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 568.01,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, NAK",
+        "primary_ncc": "NAK, Mạnh Cường",
         "truck_count": 9
       },
       {
@@ -13197,7 +13197,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 228.71,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Công Định",
+        "primary_ncc": "Công Định, NAK",
         "truck_count": 5
       },
       {
@@ -13210,7 +13210,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 200.15,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Trâm Hoá, Tốt và Rẻ",
+        "primary_ncc": "Lâm Ngọc Thành, Trâm Hoá",
         "truck_count": 7
       },
       {
@@ -13252,7 +13252,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 39,
-        "active_ktcs": "KTC Đức Trọng, KTC Bắc Nha Trang, KTC Bình Thuận, KTC Khánh Hòa, KTC Nam Nha Trang"
+        "active_ktcs": "KTC Đức Trọng, KTC Bình Thuận, KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Nam Nha Trang"
       },
       {
         "ncc": "NAK",
@@ -13265,7 +13265,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 9,
-        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
+        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
       },
       {
         "ncc": "Công Định",
@@ -54886,6 +54886,293 @@ window.DASHBOARD_DATA = {
     }
   ],
   "ktc": {
+    "fill_rate": {
+      "history": [
+        {
+          "week": "Tuần 37 (07/09-13/09)",
+          "trips": 551,
+          "rate": 0.5479999999999999,
+          "low_trips": 80
+        },
+        {
+          "week": "Tuần 38 (14/09-20/09)",
+          "trips": 523,
+          "rate": 0.51,
+          "low_trips": 77
+        },
+        {
+          "week": "Tuần 39 (21/09-27/09)",
+          "trips": 527,
+          "rate": 0.47700000000000004,
+          "low_trips": 107
+        },
+        {
+          "week": "Tuần 40 (28/09-04/10)",
+          "trips": 513,
+          "rate": 0.456,
+          "low_trips": 124
+        },
+        {
+          "week": "Tuần 41 (05/10-11/10)",
+          "trips": 523,
+          "rate": 0.47700000000000004,
+          "low_trips": 104
+        },
+        {
+          "week": "Tuần 42 (12/10-18/10)",
+          "trips": 554,
+          "rate": 0.58,
+          "low_trips": 65
+        }
+      ],
+      "weekly": {
+        "week_comp": "Tuần W37 vs Tuần W38 (07/09 – 20/09/2026)",
+        "items": [
+          {
+            "kho": "KTC Khánh Hòa",
+            "short_name": "KTC Khánh Hòa",
+            "chuyen_prev": 199,
+            "chuyen_curr": 215,
+            "chuyen_w37": 199,
+            "chuyen_w38": 215,
+            "diff_chuyen": 16,
+            "tld_prev": 51.8,
+            "tld_curr": 63.3,
+            "tld_w37": 51.8,
+            "tld_w38": 63.3,
+            "diff_tld": 11.5,
+            "under_30": 13,
+            "u10": 0,
+            "u20": 0,
+            "u30": 13
+          },
+          {
+            "kho": "KCT Đức Trọng-Lâm Đồng",
+            "short_name": "KCT Đức Trọng-Lâm Đồng",
+            "chuyen_prev": 111,
+            "chuyen_curr": 117,
+            "chuyen_w37": 111,
+            "chuyen_w38": 117,
+            "diff_chuyen": 6,
+            "tld_prev": 45.5,
+            "tld_curr": 57.7,
+            "tld_w37": 45.5,
+            "tld_w38": 57.7,
+            "diff_tld": 12.3,
+            "under_30": 17,
+            "u10": 0,
+            "u20": 0,
+            "u30": 17
+          },
+          {
+            "kho": "KCT Đắk Nông",
+            "short_name": "KCT Đắk Nông",
+            "chuyen_prev": 42,
+            "chuyen_curr": 43,
+            "chuyen_w37": 42,
+            "chuyen_w38": 43,
+            "diff_chuyen": 1,
+            "tld_prev": 33.7,
+            "tld_curr": 37.3,
+            "tld_w37": 33.7,
+            "tld_w38": 37.3,
+            "diff_tld": 3.6,
+            "under_30": 21,
+            "u10": 0,
+            "u20": 0,
+            "u30": 21
+          },
+          {
+            "kho": "KCT Bình Thuận",
+            "short_name": "KCT Bình Thuận",
+            "chuyen_prev": 115,
+            "chuyen_curr": 123,
+            "chuyen_w37": 115,
+            "chuyen_w38": 123,
+            "diff_chuyen": 8,
+            "tld_prev": 50.5,
+            "tld_curr": 61.0,
+            "tld_w37": 50.5,
+            "tld_w38": 61.0,
+            "diff_tld": 10.4,
+            "under_30": 9,
+            "u10": 0,
+            "u20": 0,
+            "u30": 9
+          },
+          {
+            "kho": "KCT Bảo Lộc-Lâm Đồng",
+            "short_name": "KCT Bảo Lộc-Lâm Đồng",
+            "chuyen_prev": 56,
+            "chuyen_curr": 56,
+            "chuyen_w37": 56,
+            "chuyen_w38": 56,
+            "diff_chuyen": 0,
+            "tld_prev": 42.2,
+            "tld_curr": 47.0,
+            "tld_w37": 42.2,
+            "tld_w38": 47.0,
+            "diff_tld": 4.9,
+            "under_30": 5,
+            "u10": 0,
+            "u20": 0,
+            "u30": 5
+          }
+        ],
+        "total": {
+          "kho": "TỔNG CỘNG (5 KTC)",
+          "chuyen_prev": 523,
+          "chuyen_curr": 554,
+          "chuyen_w37": 523,
+          "chuyen_w38": 554,
+          "diff_chuyen": 31,
+          "tld_prev": 47.7,
+          "tld_curr": 58.0,
+          "tld_w37": 47.7,
+          "tld_w38": 58.0,
+          "diff_tld": 10.3,
+          "under_30": 65,
+          "u10": 7,
+          "u20": 32,
+          "u30": 37
+        }
+      },
+      "trend_6w": [
+        {
+          "week": "Tuần 37 (07/09-13/09)",
+          "tld": 54.8,
+          "chuyen": 551,
+          "under30": 80
+        },
+        {
+          "week": "Tuần 38 (14/09-20/09)",
+          "tld": 51.0,
+          "chuyen": 523,
+          "under30": 77
+        },
+        {
+          "week": "Tuần 39 (21/09-27/09)",
+          "tld": 47.7,
+          "chuyen": 527,
+          "under30": 107
+        },
+        {
+          "week": "Tuần 40 (28/09-04/10)",
+          "tld": 45.6,
+          "chuyen": 513,
+          "under30": 124
+        },
+        {
+          "week": "Tuần 41 (05/10-11/10)",
+          "tld": 47.7,
+          "chuyen": 523,
+          "under30": 104
+        },
+        {
+          "week": "Tuần 42 (12/10-18/10)",
+          "tld": 58.0,
+          "chuyen": 554,
+          "under30": 65
+        }
+      ],
+      "causes": [
+        {
+          "cause": "Sản lượng bưu cục / hàng lấy về thấp",
+          "kh": 3,
+          "dt": 8,
+          "dn": 19,
+          "bt": 0,
+          "bl": 3,
+          "total": 33,
+          "share": 35.1
+        },
+        {
+          "cause": "Lộ trình ghé nhiều điểm / quãng đường dài nhưng ít hàng",
+          "kh": 0,
+          "dt": 4,
+          "dn": 0,
+          "bt": 7,
+          "bl": 0,
+          "total": 11,
+          "share": 11.7
+        },
+        {
+          "cause": "Chủ động giữ hàng / ghép điểm để tối ưu (giảm chuyến khác)",
+          "kh": 0,
+          "dt": 8,
+          "dn": 0,
+          "bt": 0,
+          "bl": 0,
+          "total": 8,
+          "share": 8.5
+        },
+        {
+          "cause": "Vấn đề vận hành khác (xe trễ, lộ trình bất hợp lý...)",
+          "kh": 1,
+          "dt": 1,
+          "dn": 0,
+          "bt": 5,
+          "bl": 0,
+          "total": 7,
+          "share": 7.4
+        },
+        {
+          "cause": "Sản lượng giảm theo chu kỳ tuần (đầu/cuối tuần)",
+          "kh": 3,
+          "dt": 1,
+          "dn": 0,
+          "bt": 0,
+          "bl": 2,
+          "total": 6,
+          "share": 6.4
+        },
+        {
+          "cause": "Xe trọng tải 5.000kg không đủ hàng để ghép đầy",
+          "kh": 0,
+          "dt": 0,
+          "dn": 0,
+          "bt": 0,
+          "bl": 5,
+          "total": 5,
+          "share": 5.3
+        },
+        {
+          "cause": "Chuyến gom hàng bưu cục (đặc thù, TLLĐ thấp theo thiết kế)",
+          "kh": 5,
+          "dt": 0,
+          "dn": 0,
+          "bt": 0,
+          "bl": 0,
+          "total": 5,
+          "share": 5.3
+        },
+        {
+          "cause": "Chuyến bị hủy / xe phát sinh ngoài kế hoạch",
+          "kh": 2,
+          "dt": 0,
+          "dn": 0,
+          "bt": 3,
+          "bl": 2,
+          "total": 7,
+          "share": 7.4
+        },
+        {
+          "cause": "Khác / chưa rõ nguyên nhân",
+          "kh": 6,
+          "dt": 2,
+          "dn": 1,
+          "bt": 1,
+          "bl": 0,
+          "total": 10,
+          "share": 10.6
+        }
+      ],
+      "daily": {
+        "date_comp": "05/09 vs 06/09",
+        "items": [],
+        "total": {}
+      }
+    },
     "leadtime": [
       {
         "type": "01. KTC",
