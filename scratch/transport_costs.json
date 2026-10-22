@@ -1,17 +1,17 @@
 {
   "region": {
-    "total_cost": 2646.67,
-    "total_cost_formatted": "2.646.671.397 đ",
+    "total_cost": 2646.7,
+    "total_cost_formatted": "2.646.695.018 đ",
     "total_trips": 2545,
     "avg_cost_per_trip": 1.04,
-    "avg_cost_per_trip_formatted": "1.039.949 đ/chuyến",
+    "avg_cost_per_trip_formatted": "1.039.959 đ/chuyến",
     "ncc_count": 7,
     "ktc_count": 7,
     "total_trucks": 62,
-    "last_updated": "15:23 - 22/10/2026"
+    "last_updated": "15:59 - 22/10/2026"
   },
   "surge_fixed": {
-    "fixed_cost": 2646.67,
+    "fixed_cost": 2646.7,
     "fixed_cost_pct": 100.0,
     "fixed_trips": 2545,
     "surge_cost": 0.0,
@@ -56,7 +56,7 @@
       "fixed_cost": 568.01,
       "surge_cost": 0.0,
       "surge_pct": 0.0,
-      "primary_ncc": "Mạnh Cường, NAK",
+      "primary_ncc": "NAK, Mạnh Cường",
       "truck_count": 9
     },
     {
@@ -74,15 +74,15 @@
     },
     {
       "ktc": "KTC Đắk Nông",
-      "total_cost": 200.15,
-      "total_cost_raw": 200146408.5999998,
+      "total_cost": 200.17,
+      "total_cost_raw": 200170029.39999983,
       "total_trips": 183,
       "cost_per_trip": 1.09,
-      "cost_per_trip_raw": 1093696.2218579224,
-      "fixed_cost": 200.15,
+      "cost_per_trip_raw": 1093825.2972677585,
+      "fixed_cost": 200.17,
       "surge_cost": 0.0,
       "surge_pct": 0.0,
-      "primary_ncc": "Tốt và Rẻ, Trâm Hoá",
+      "primary_ncc": "Lâm Ngọc Thành, Tốt và Rẻ",
       "truck_count": 7
     },
     {
@@ -124,7 +124,7 @@
       "surge_cost": 0.0,
       "surge_pct": 0.0,
       "truck_count": 39,
-      "active_ktcs": "KTC Bình Thuận, KTC Đức Trọng, KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Nam Nha Trang"
+      "active_ktcs": "KTC Nam Nha Trang, KTC Đức Trọng, KTC Khánh Hòa, KTC Bình Thuận, KTC Bắc Nha Trang"
     },
     {
       "ncc": "NAK",
@@ -163,16 +163,16 @@
       "surge_cost": 0.0,
       "surge_pct": 0.0,
       "truck_count": 6,
-      "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
+      "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
     },
     {
       "ncc": "Lâm Ngọc Thành",
-      "total_cost": 117.12,
-      "total_cost_raw": 117117768.80000016,
+      "total_cost": 117.14,
+      "total_cost_raw": 117141389.60000016,
       "total_trips": 91,
       "cost_per_trip": 1.29,
-      "cost_per_trip_raw": 1287008.44835165,
-      "fixed_cost": 117.12,
+      "cost_per_trip_raw": 1287268.0175824193,
+      "fixed_cost": 117.14,
       "surge_cost": 0.0,
       "surge_pct": 0.0,
       "truck_count": 5,
@@ -3819,7 +3819,7 @@
       "cost": 495905.0,
       "trips_equivalent": 1,
       "trip_code": "E261019RJ0OXMEX",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -3834,7 +3834,7 @@
       "cost": 2043231.0,
       "trips_equivalent": 1,
       "trip_code": "E261020XU59N0IJ",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -4209,7 +4209,7 @@
       "cost": 1161763.0,
       "trips_equivalent": 1,
       "trip_code": "E261020CZ872N52",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -4224,7 +4224,7 @@
       "cost": 1161763.0,
       "trips_equivalent": 1,
       "trip_code": "E261021XVM7ZKPT",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -4554,7 +4554,7 @@
       "cost": 890347.0,
       "trips_equivalent": 1,
       "trip_code": "E261019JU2X4FJW",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -4569,7 +4569,7 @@
       "cost": 890347.0,
       "trips_equivalent": 1,
       "trip_code": "E2610209ILZT53U",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5034,7 +5034,7 @@
       "cost": 390636.0,
       "trips_equivalent": 1,
       "trip_code": "E2610192E467AXB",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5049,7 +5049,7 @@
       "cost": 390636.0,
       "trips_equivalent": 1,
       "trip_code": "E2610204849MFW2",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5409,7 +5409,7 @@
       "cost": 985469.0,
       "trips_equivalent": 1,
       "trip_code": "E261020AI4KY7G1",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5424,7 +5424,7 @@
       "cost": 947420.0,
       "trips_equivalent": 1,
       "trip_code": "E261020L62RG4TP",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5784,7 +5784,7 @@
       "cost": 979128.0,
       "trips_equivalent": 1,
       "trip_code": "E261019GQUT2RDY",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -5799,7 +5799,7 @@
       "cost": 979128.0,
       "trips_equivalent": 1,
       "trip_code": "E2610208DR28L4K",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -6174,7 +6174,7 @@
       "cost": 1146543.0,
       "trips_equivalent": 1,
       "trip_code": "E2610198BR98RM7",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -6189,7 +6189,7 @@
       "cost": 2256306.0,
       "trips_equivalent": 1,
       "trip_code": "E261020UCN4PZZW",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -6564,7 +6564,7 @@
       "cost": 1145275.0,
       "trips_equivalent": 1,
       "trip_code": "E261020D4S1OVLN",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -6579,7 +6579,7 @@
       "cost": 1136397.0,
       "trips_equivalent": 1,
       "trip_code": "E261021VJFU466T",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -7269,7 +7269,7 @@
       "cost": 1352008.0,
       "trips_equivalent": 1,
       "trip_code": "E261019M8NLWDA4",
-      "ontime": ""
+      "ontime": "0,8"
     },
     {
       "ncc": "NAK",
@@ -7284,7 +7284,7 @@
       "cost": 1352008.0,
       "trips_equivalent": 1,
       "trip_code": "E261020TE8US3KA",
-      "ontime": ""
+      "ontime": "0,8"
     },
     {
       "ncc": "NAK",
@@ -7299,7 +7299,7 @@
       "cost": 1041274.0,
       "trips_equivalent": 1,
       "trip_code": "E261021ETNKS2J2",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -7674,7 +7674,7 @@
       "cost": 2035488.0,
       "trips_equivalent": 1,
       "trip_code": "E261019QR5L2JDA",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -7689,7 +7689,7 @@
       "cost": 2035488.0,
       "trips_equivalent": 1,
       "trip_code": "E261020ROZUZ6MK",
-      "ontime": ""
+      "ontime": "0,2857"
     },
     {
       "ncc": "NAK",
@@ -8064,7 +8064,7 @@
       "cost": 1788916.0,
       "trips_equivalent": 1,
       "trip_code": "E2610193LUQUIBI",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -8079,7 +8079,7 @@
       "cost": 1788916.0,
       "trips_equivalent": 1,
       "trip_code": "E261021A4N50Q2D",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -8454,7 +8454,7 @@
       "cost": 2319721.0,
       "trips_equivalent": 1,
       "trip_code": "E2610196R5649K3",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -8469,7 +8469,7 @@
       "cost": 2319721.0,
       "trips_equivalent": 1,
       "trip_code": "E261020ERJ6BLZV",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -8844,7 +8844,7 @@
       "cost": 838346.0,
       "trips_equivalent": 1,
       "trip_code": "E261020A1Q0IQV1",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -8859,7 +8859,7 @@
       "cost": 838346.0,
       "trips_equivalent": 1,
       "trip_code": "E261021WB7BEDF5",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -9234,7 +9234,7 @@
       "cost": 1367227.0,
       "trips_equivalent": 1,
       "trip_code": "E261019EUNE4RFU",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -9249,7 +9249,7 @@
       "cost": 1367227.0,
       "trips_equivalent": 1,
       "trip_code": "E261020EI4MXL5A",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -9624,7 +9624,7 @@
       "cost": 1365959.0,
       "trips_equivalent": 1,
       "trip_code": "E2610209ZQ07XD7",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -9639,7 +9639,7 @@
       "cost": 1226446.0,
       "trips_equivalent": 1,
       "trip_code": "E261021XR1N3TI1",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -10014,7 +10014,7 @@
       "cost": 1631034.0,
       "trips_equivalent": 1,
       "trip_code": "E2610204OZRYCSY",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -10029,7 +10029,7 @@
       "cost": 1631034.0,
       "trips_equivalent": 1,
       "trip_code": "E261021H58X7HD9",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -10404,7 +10404,7 @@
       "cost": 632882.0,
       "trips_equivalent": 1,
       "trip_code": "E261019I0QHAISB",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "NAK",
@@ -10419,7 +10419,7 @@
       "cost": 632882.0,
       "trips_equivalent": 1,
       "trip_code": "E2610204K0D37AY",
-      "ontime": ""
+      "ontime": "1"
     },
     {
       "ncc": "Lâm Ngọc Thành",
@@ -11687,11 +11687,11 @@
       "date_iso": "2026-10-20",
       "truck": "48H-02221",
       "capacity": "1900",
-      "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+      "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
       "ktc": "KTC Đắk Nông",
       "type": "Cố định",
-      "cost_str": "882.907 đ",
-      "cost": 882907.2,
+      "cost_str": "904.613 đ",
+      "cost": 904612.8,
       "trips_equivalent": 1,
       "trip_code": "E261019FZIN3GV5",
       "ontime": "100,00%"
@@ -11705,8 +11705,8 @@
       "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
       "ktc": "KTC Đắk Nông",
       "type": "Cố định",
-      "cost_str": "882.907 đ",
-      "cost": 882907.2,
+      "cost_str": "884.822 đ",
+      "cost": 884822.4,
       "trips_equivalent": 1,
       "trip_code": "E26102060LMQJYO",
       "ontime": "100,00%"
@@ -12152,7 +12152,7 @@
       "date_iso": "2026-10-20",
       "truck": "47C-01737",
       "capacity": "3500",
-      "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+      "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 1 -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
       "ktc": "KTC Đắk Nông",
       "type": "Cố định",
       "cost_str": "941.729 đ",
@@ -12167,7 +12167,7 @@
       "date_iso": "2026-10-21",
       "truck": "47C-01737",
       "capacity": "3500",
-      "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+      "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 1 -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
       "ktc": "KTC Đắk Nông",
       "type": "Cố định",
       "cost_str": "941.729 đ",
