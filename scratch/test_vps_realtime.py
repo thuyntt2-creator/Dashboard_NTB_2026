@@ -30,10 +30,10 @@ bc_list.sort(key=lambda x: x['pct'])
 print('TOTAL BCS:', len(bc_list))
 print('=== TOP 10 GTC THAP NHAT REALTIME HOM NAY ===')
 for idx, b in enumerate(bc_list[:15], 1):
-    print(f'{idx}. {b[\"bc\"]} (AM {b[\"am\"]}) | Gan: {b[\"gan\"]} | GTC: {b[\"gtc\"]} -> {b[\"pct\"]} %')
+    print(f\"{idx}. {b['bc']} (AM {b['am']}) | Gan: {b['gan']} | GTC: {b['gtc']} -> {b['pct']}%\")
 
 for b in bc_list:
-    if 'Kiến Đức' in b['bc']:
+    if 'Kiến Đức' in b['bc'] or 'Kien Duc' in b['bc']:
         print('KIEN DUC REALTIME:', b)
 "
 """
