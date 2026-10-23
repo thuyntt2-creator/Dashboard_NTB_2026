@@ -17,7 +17,7 @@ bc_gtc = {}
 for am_block in data:
     for bc_name, staff in am_block['bcs']:
         norm = rpt.normalize_clean_name(bc_name)
-        total_gtc = sum(int(nv.get('GTC', 0)) for nv in staff)
+        total_gtc = sum(int(nv.get('tc', 0)) for nv in staff)
         bc_gtc[norm] = (bc_name, total_gtc, am_block['am'])
 
 print('=== TIẾN ĐỘ THOÁT NHÓM BẤT ỔN HÔM NAY (23/10) ===')
