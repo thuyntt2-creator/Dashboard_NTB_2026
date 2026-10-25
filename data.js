@@ -12102,7 +12102,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 61,
-      "last_updated": "17:29 - 25/10/2026"
+      "last_updated": "17:32 - 25/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 2617.77,
@@ -12218,7 +12218,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 37,
-        "active_ktcs": "KTC Đức Trọng, KTC Bình Thuận, KTC Khánh Hòa, KTC Bắc Nha Trang, KTC Nam Nha Trang"
+        "active_ktcs": "KTC Bình Thuận, KTC Đức Trọng, KTC Nam Nha Trang, KTC Khánh Hòa, KTC Bắc Nha Trang"
       },
       {
         "ncc": "NAK",
