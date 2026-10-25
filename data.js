@@ -12102,7 +12102,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 61,
-      "last_updated": "09:26 - 25/10/2026"
+      "last_updated": "09:54 - 25/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 2617.77,
@@ -12137,7 +12137,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 705.27,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 23
       },
       {
@@ -12176,7 +12176,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 200.17,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
+        "primary_ncc": "Trâm Hoá, Lâm Ngọc Thành",
         "truck_count": 7
       },
       {
@@ -12189,7 +12189,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 91.15,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 11
       },
       {
@@ -12218,7 +12218,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 37,
-        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang, KTC Bình Thuận, KTC Đức Trọng, KTC Nam Nha Trang"
+        "active_ktcs": "KTC Bình Thuận, KTC Đức Trọng, KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Nam Nha Trang"
       },
       {
         "ncc": "NAK",
@@ -12231,7 +12231,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 9,
-        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
+        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
       },
       {
         "ncc": "Công Định",
@@ -12257,7 +12257,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 7,
-        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
       },
       {
         "ncc": "Lâm Ngọc Thành",
