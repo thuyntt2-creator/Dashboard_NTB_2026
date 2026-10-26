@@ -11717,7 +11717,7 @@
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 60,
-      "last_updated": "13:39 - 26/10/2026"
+      "last_updated": "13:43 - 26/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 2722.8,
@@ -11752,7 +11752,7 @@
         "fixed_cost": 698.78,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 23
       },
       {
@@ -11791,7 +11791,7 @@
         "fixed_cost": 192.16,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Lâm Ngọc Thành, Trâm Hoá",
+        "primary_ncc": "Trâm Hoá, Tốt và Rẻ",
         "truck_count": 7
       },
       {
@@ -11804,7 +11804,7 @@
         "fixed_cost": 90.76,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 11
       },
       {
@@ -11833,7 +11833,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 36,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Nam Nha Trang, KTC Bình Thuận, KTC Đức Trọng"
+        "active_ktcs": "KTC Khánh Hòa, KTC Đức Trọng, KTC Nam Nha Trang, KTC Bình Thuận, KTC Bắc Nha Trang"
       },
       {
         "ncc": "NAK",
@@ -11846,7 +11846,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 9,
-        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
+        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
       },
       {
         "ncc": "Công Định",
@@ -11872,7 +11872,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 7,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
+        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Lâm Ngọc Thành",
@@ -25121,7 +25121,7 @@
         "date_iso": "2026-10-22",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 1 -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "941.729 đ",
@@ -25136,7 +25136,7 @@
         "date_iso": "2026-10-23",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 1 -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "941.729 đ",
@@ -25151,7 +25151,7 @@
         "date_iso": "2026-10-24",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 1 -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "941.729 đ",
@@ -25166,7 +25166,7 @@
         "date_iso": "2026-10-25",
         "truck": "47C-01737",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Quảng Sơn -> (DNO) Quảng Khê -> (DNO) ĐL Nam Gia Nghĩa 1 -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
         "cost_str": "941.729 đ",
