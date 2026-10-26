@@ -163,27 +163,25 @@
 <button class="tab-item" data-tab="tab-aging">
 <i data-lucide="alert-octagon"></i> 12. Aging &amp; Treo LC
           </button>
-<button class="tab-item" data-tab="tab-control">
-<i data-lucide="qr-code"></i> 13. QR Code &amp; Tiền Mặt
-          </button>
+<!-- Tab 13 COD removed per W43 request -->
 <button class="tab-item" data-tab="tab-truythu">
-<i data-lucide="shield-alert"></i> 14. Báo Cáo Truy Thu (2 Tuần)
+<i data-lucide="shield-alert"></i> 13. Báo Cáo Truy Thu (2 Tuần)
           </button>
 <button class="tab-item" data-tab="tab-commercial">
-<i data-lucide="trending-up"></i> 15. Kinh Doanh &amp; F30
+<i data-lucide="trending-up"></i> 14. Kinh Doanh &amp; F30
           </button>
 <button class="tab-item" data-tab="tab-bc-canhbao" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(249, 115, 22, 0.12) 100%); border: 1.5px solid #ef4444; color: #dc2626; font-weight: 800; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2);">
-<i data-lucide="alert-triangle" style="color: #dc2626;"></i> 16. BC Cảnh Báo (13 BC)
+<i data-lucide="alert-triangle" style="color: #dc2626;"></i> 15. BC Cảnh Báo (13 BC)
           </button>
 </div>
 <!-- Quick Filter Bar -->
 <div class="filter-bar">
 <label style="font-size: 11px; font-weight: 700; color: var(--text-muted);">BỘ LỌC CHÍNH:</label>
 <select class="bi-select" id="filter-week" title="Chọn tuần báo cáo">
-<option selected="" value="W40">Tuần W41 (Hiện tại)</option>
-<option value="W38">Tuần W38 (Tuần trước)</option>
-<option value="W37">Tuần W37</option>
-<option value="W36">Tuần W36</option>
+<option selected="" value="W43">Tuần W43 (Hiện tại)</option>
+<option value="W42">Tuần W42 (Tuần trước)</option>
+<option value="W41">Tuần W41</option>
+<option value="W40">Tuần W40</option>
 </select>
 <select class="bi-select" id="filter-province" title="Lọc theo Tỉnh">
 <option selected="" value="ALL">Tất cả Tỉnh (5 Tỉnh)</option>
@@ -1148,7 +1146,7 @@
 <th class="center" style="width: 50px;">Hạng</th>
 <th>AM Phụ Trách</th>
 <th class="num">Sản Lượng TTS Ca 1</th>
-<th class="num">%GTC TTS Ca 1 (W39)</th>
+<th class="num">%GTC TTS Ca 1 (W43)</th>
 <th class="num" style="background: var(--color-amber-bg); font-weight:800; color:#c2410c;">%GTC TTS Ca 1 (W43)</th>
 <th class="num">Biến Động WoW (Δ)</th>
 </tr>
@@ -2348,7 +2346,7 @@
 <th class="num">W40</th>
 <th class="num">W41</th>
 <th class="num">W42</th>
-<th class="num" style="background: var(--color-green-bg); font-weight: 800;">%ODR W40</th>
+<th class="num" style="background: var(--color-green-bg); font-weight: 800;">%ODR W43</th>
 <th class="num">Biến Động (Δ)</th>
 <th class="center">Đánh Giá SLA</th>
 </tr>
@@ -2378,7 +2376,7 @@
 <th class="num">W40</th>
 <th class="num">W41</th>
 <th class="num">W42</th>
-<th class="num" style="background: var(--color-amber-bg); font-weight: 800; color: #ea580c;">%ODR W40</th>
+<th class="num" style="background: var(--color-amber-bg); font-weight: 800; color: #ea580c;">%ODR W43</th>
 <th class="num">Biến Động (Δ)</th>
 <th class="center">Đánh Giá SLA</th>
 </tr>
@@ -4458,214 +4456,7 @@
 <!-- ==================================================================== -->
 <!-- TAB 13: QR CODE & COD TIỀN MẶT (4 SHEET GOOGLE SHEETS) -->
 <!-- ==================================================================== -->
-<div class="tab-view" id="tab-control">
-<!-- Action Banner -->
-<div class="exec-banner" style="border-left-color: var(--color-blue);">
-<div class="exec-banner-content">
-<div class="exec-banner-icon" style="background: rgba(2, 132, 199, 0.2); color: #0284c7;">
-<i data-lucide="wallet" style="width: 24px; height: 24px;"></i>
-</div>
-<div class="exec-banner-text">
-<h3 id="cod-banner-title">BÁO CÁO COD – SO SÁNH BIẾN ĐỘNG 2 TUẦN (Tuần W42 vs Tuần W43) | VÙNG NTB</h3>
-<p id="cod-summary-banner-desc">
-              Đang tải dữ liệu COD...
-            </p>
-</div>
-</div>
-<div class="exec-banner-actions">
-<span class="badge-tag badge-tag-amber" id="cod-summary-banner-badge" style="font-size: 12px; padding: 6px 12px;">
-            Tổng COD: 77,502.0 Tr ₫ | % TM: 40.4%
-          </span>
-</div>
-</div>
-<!-- Segment Selector: 4 COD Sheets -->
-<div class="view-mode-bar" style="margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; background: var(--bg-surface); padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-<span style="font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">CHỌN BÁO CÁO COD:</span>
-<div class="btn-group" id="cod-segment-group">
-<button class="btn btn-sm btn-primary active" id="btn-cod-trend" onclick="setCodSegment('trend')">
-<i data-lucide="trending-up" style="width: 14px; height: 14px;"></i> 📈 1. Xu Hướng 2 Tuần
-            </button>
-<button class="btn btn-sm btn-secondary" id="btn-cod-am" onclick="setCodSegment('am')">
-<i data-lucide="users" style="width: 14px; height: 14px;"></i> 👥 2. AM So Sánh 2 Tuần
-            </button>
-<button class="btn btn-sm btn-secondary" id="btn-cod-bc" onclick="setCodSegment('bc')">
-<i data-lucide="building-2" style="width: 14px; height: 14px;"></i> 🏢 3. Chi Tiết BC 2 Tuần
-            </button>
-<button class="btn btn-sm btn-secondary" id="btn-cod-action" onclick="setCodSegment('action')">
-<i data-lucide="clipboard-check" style="width: 14px; height: 14px;"></i> 🎯 4. Hướng Xử Lý AM
-            </button>
-</div>
-</div>
-</div>
-<!-- PANEL 1: XU HƯỚNG 2 TUẦN -->
-<div class="cod-panel" id="cod-panel-trend">
-<!-- 4 COD Summary KPI Tiles -->
-<div class="kpi-strip" style="margin-bottom: 20px;">
-<div class="kpi-tile kpi-blue">
-<div class="kpi-tile-header" id="kpi-cod-total-title">Tổng COD Thu Hộ Tuần N</div>
-<div class="kpi-tile-value" id="kpi-cod-total-val">-- <small>Tr ₫</small></div>
-<div class="kpi-tile-meta" id="kpi-cod-total-meta"><span class="diff-tag diff-neutral">--</span></div>
-</div>
-<div class="kpi-tile kpi-amber">
-<div class="kpi-tile-header" id="kpi-cod-cash-title">Tiền Mặt Tuần N</div>
-<div class="kpi-tile-value" id="kpi-cod-cash-val">-- <small>Tr ₫</small></div>
-<div class="kpi-tile-meta" id="kpi-cod-cash-meta"><span class="diff-tag diff-neutral">--</span></div>
-</div>
-<div class="kpi-tile kpi-green">
-<div class="kpi-tile-header" id="kpi-cod-bank-title">Chuyển Khoản Tuần N</div>
-<div class="kpi-tile-value" id="kpi-cod-bank-val">-- <small>Tr ₫</small></div>
-<div class="kpi-tile-meta" id="kpi-cod-bank-meta"><span class="diff-tag diff-neutral">--</span></div>
-</div>
-<div class="kpi-tile kpi-red">
-<div class="kpi-tile-header" id="kpi-cod-rate-title">Tỷ Lệ Tiền Mặt (% TM)</div>
-<div class="kpi-tile-value" id="kpi-cod-rate-val">--%</div>
-<div class="kpi-tile-meta" id="kpi-cod-rate-meta"><span class="diff-tag diff-up-bad">--</span></div>
-</div>
-</div>
-<div class="grid-row-2">
-<!-- Bảng Đối Chiếu 2 Tuần -->
-<div class="report-card">
-<div class="report-card-header">
-<div class="report-card-title">
-<i data-lucide="table" style="color: var(--color-blue);"></i>
-                BẢNG ĐỐI CHIẾU CÁC CHỈ SỐ COD CHÍNH (TUẦN W42 vs TUẦN W43)
-              </div>
-</div>
-<div class="report-card-body">
-<div class="bi-table-wrap">
-<table class="bi-table" id="table-cod-trend-metrics">
-<thead>
-<tr style="background: #1e3a8a; color: #ffffff;">
-<th style="color:#ffffff;">Chỉ Số</th>
-<th class="num" id="th-cod-prev" style="color:#ffffff;">Tuần N-1</th>
-<th class="num" id="th-cod-curr" style="background: #0284c7; color:#ffffff; font-weight:800;">Tuần N</th>
-<th class="num" style="color:#ffffff;">Chênh Lệch (Tr ₫)</th>
-<th class="num" style="color:#ffffff;">Biến Động (%)</th>
-<th class="center" style="color:#ffffff;">Đánh Giá</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
-</div>
-</div>
-</div>
-<!-- Biểu đồ cơ cấu -->
-<div class="report-card">
-<div class="report-card-header">
-<div class="report-card-title">
-<i data-lucide="pie-chart" style="color: var(--color-purple);"></i>
-                CƠ CẤU HÌNH THỨC THANH TOÁN (TIỀN MẶT vs CHUYỂN KHOẢN)
-              </div>
-</div>
-<div class="report-card-body">
-<div class="chart-box">
-<canvas id="chart-cod-tm-am-bar"></canvas>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- PANEL 2: AM SO SÁNH 2 TUẦN -->
-<div class="cod-panel" id="cod-panel-am" style="display: none;">
-<div class="report-card">
-<div class="report-card-header">
-<div class="report-card-title">
-<i data-lucide="users" style="color: var(--color-blue);"></i>
-              BẢNG SO SÁNH TỶ LỆ TIỀN MẶT THEO 20 AM (TUẦN W42 vs TUẦN W43)
-            </div>
-<span class="badge-tag badge-tag-red">🔴 ≥70% | 🟡 50-70% | 🟢 &lt;50%</span>
-</div>
-<div class="report-card-body">
-<div class="bi-table-wrap">
-<table class="bi-table" id="table-cod-am-sheet">
-<thead>
-<tr style="background: #1e3a8a; color: #ffffff;">
-<th class="center" style="width: 44px; color:#ffffff;">#</th>
-<th style="color:#ffffff;">AM Phụ Trách</th>
-<th class="num" style="color:#ffffff;">Tuần W42 (% TM)</th>
-<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Tuần W43 (% TM)</th>
-<th class="num" style="color:#ffffff;">Thay Đổi (% p)</th>
-<th class="center" style="color:#ffffff;">Xu Hướng</th>
-<th class="center" style="color:#ffffff;">Mức Độ Tuần N</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<!-- PANEL 3: CHI TIẾT BƯU CỤC 2 TUẦN -->
-<div class="cod-panel" id="cod-panel-bc" style="display: none;">
-<div class="report-card">
-<div class="report-card-header">
-<div class="report-card-title">
-<i data-lucide="building-2" style="color: var(--ghn-orange);"></i>
-              CHI TIẾT TOÀN BỘ BƯU CỤC – SO SÁNH % TIỀN MẶT TUẦN N-1 vs TUẦN N
-            </div>
-<span class="badge-tag badge-tag-blue">106 Bưu Cục</span>
-</div>
-<div class="report-card-body">
-<div class="table-toolbar">
-<div class="table-search-box">
-<i class="table-search-icon" data-lucide="search" style="width: 14px; height: 14px;"></i>
-<input class="table-search-input" id="search-cod-bc" placeholder="Tìm tên bưu cục hoặc AM phụ trách..." type="text"/>
-</div>
-</div>
-<div class="bi-table-wrap">
-<table class="bi-table" id="table-cod-bc-sheet">
-<thead>
-<tr style="background: #1e3a8a; color: #ffffff;">
-<th class="center" style="width: 44px; color:#ffffff;">#</th>
-<th style="color:#ffffff;">AM Phụ Trách</th>
-<th style="color:#ffffff;">Bưu Cục</th>
-<th class="num" style="color:#ffffff;">Tuần W42 (% TM)</th>
-<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800;">Tuần W43 (% TM)</th>
-<th class="num" style="color:#ffffff;">Biến Động</th>
-<th class="num" style="color:#ffffff;">Tiền Mặt N (Tr ₫)</th>
-<th class="center" style="color:#ffffff;">Mức Độ N</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<!-- PANEL 4: HƯỚNG XỬ LÝ AM -->
-<div class="cod-panel" id="cod-panel-action" style="display: none;">
-<div class="report-card">
-<div class="report-card-header">
-<div class="report-card-title">
-<i data-lucide="alert-triangle" style="color: var(--color-red);"></i>
-              HƯỚNG XỬ LÝ CÁC AM CÓ TỶ LỆ TIỀN MẶT CAO TRONG TUẦN N (≥ 50%)
-            </div>
-<span class="badge-tag badge-tag-red">Kế Hoạch &amp; Deadline Cụ Thể</span>
-</div>
-<div class="report-card-body">
-<div class="bi-table-wrap">
-<table class="bi-table" id="table-cod-action-sheet">
-<thead>
-<tr style="background: #1e3a8a; color: #ffffff;">
-<th style="color:#ffffff; width: 160px;">AM Phụ Trách</th>
-<th class="num" style="color:#ffffff; width: 110px;">Tuần W42</th>
-<th class="num" style="background: #0284c7; color:#ffffff; font-weight:800; width: 110px;">Tuần W43 (% TM)</th>
-<th class="num" style="color:#ffffff; width: 100px;">Biến Động</th>
-<th style="color:#ffffff;">Hành Động Yêu Cầu Xử Lý</th>
-<th class="center" style="color:#ffffff; width: 140px;">Deadline</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- ==================================================================== -->
-<!-- TAB 14: BÁO CÁO TRUY THU (SO SÁNH 2 TUẦN) -->
-<!-- ==================================================================== -->
+<!-- tab-control div removed per W43 request -->
 <div class="tab-view" id="tab-truythu">
 <!-- Action Banner -->
 <div class="exec-banner" style="border-left-color: var(--color-red);">
@@ -5398,7 +5189,7 @@
 </div>
 </div>
 <!-- Scripts -->
-<script src="data.js?v=1793005364"></script>
-<script src="app.js?v=1793005364"></script>
+<script src="data.js?v=1793007294"></script>
+<script src="app.js?v=1793007294"></script>
 </body>
 </html><

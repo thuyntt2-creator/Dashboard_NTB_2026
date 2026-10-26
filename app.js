@@ -1780,17 +1780,6 @@
           isHigherBetter: true,
           colorCls: 'kpi-amber',
           icon: 'shopping-bag'
-        },
-        {
-          id: 'cod_pair',
-          title: `Tỷ Lệ Tiền Mặt COD (${latestWeek})`,
-          mainVal: fPct(codVal),
-          mainUnit: `Tiền mặt (${prevWeek}: ${fPct(codPrev)} | ${codDiff >= 0 ? '▲ +' : '▼ '}${(Math.abs(codDiff)*100).toFixed(1)}%p)`,
-          subVal: `QR/CK: ${fPct(codDigitalVal)} · Tổng COD: ${codTotStr} ₫`,
-          diff: codDiff,
-          isHigherBetter: false,
-          colorCls: codDiff <= 0 ? 'kpi-green' : 'kpi-amber',
-          icon: 'qr-code'
         }
       ];
 
