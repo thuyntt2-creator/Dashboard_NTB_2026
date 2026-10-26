@@ -8186,7 +8186,7 @@ def sync_ntbo_api():
 @app.route('/kichban')
 def serve_kichban():
     root_dir = os.path.dirname(os.path.abspath(__file__))
-    return send_from_directory(root_dir, 'KICH_BAN_THUYET_TRINH_W42_NAM_TRUNG_BO.html')
+    return send_from_directory(root_dir, 'KICH_BAN_THUYET_TRINH_W43_NAM_TRUNG_BO.html')
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 3000))

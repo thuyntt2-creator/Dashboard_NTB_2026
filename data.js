@@ -11709,18 +11709,18 @@ window.DASHBOARD_DATA = {
   },
   "transport_costs": {
     "region": {
-      "total_cost": 2721.78,
-      "total_cost_formatted": "2.721.778.013 đ",
+      "total_cost": 2721.92,
+      "total_cost_formatted": "2.721.922.378 đ",
       "total_trips": 2594,
       "avg_cost_per_trip": 1.05,
-      "avg_cost_per_trip_formatted": "1.049.259 đ/chuyến",
+      "avg_cost_per_trip_formatted": "1.049.315 đ/chuyến",
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 60,
-      "last_updated": "15:27 - 26/10/2026"
+      "last_updated": "15:59 - 26/10/2026"
     },
     "surge_fixed": {
-      "fixed_cost": 2721.78,
+      "fixed_cost": 2721.92,
       "fixed_cost_pct": 100.0,
       "fixed_trips": 2594,
       "surge_cost": 0.0,
@@ -11752,7 +11752,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 698.78,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 23
       },
       {
@@ -11765,7 +11765,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 644.92,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, NAK",
+        "primary_ncc": "NAK, Mạnh Cường",
         "truck_count": 9
       },
       {
@@ -11783,12 +11783,12 @@ window.DASHBOARD_DATA = {
       },
       {
         "ktc": "KTC Đắk Nông",
-        "total_cost": 192.16,
-        "total_cost_raw": 192155412.39999998,
+        "total_cost": 192.3,
+        "total_cost_raw": 192299777.20000005,
         "total_trips": 174,
-        "cost_per_trip": 1.1,
-        "cost_per_trip_raw": 1104341.4505747126,
-        "fixed_cost": 192.16,
+        "cost_per_trip": 1.11,
+        "cost_per_trip_raw": 1105171.1333333335,
+        "fixed_cost": 192.3,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "primary_ncc": "Tốt và Rẻ, Trâm Hoá",
@@ -11804,7 +11804,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 89.74,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 11
       },
       {
@@ -11833,7 +11833,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 36,
-        "active_ktcs": "KTC Bình Thuận, KTC Đức Trọng, KTC Khánh Hòa, KTC Nam Nha Trang, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Nam Nha Trang, KTC Khánh Hòa, KTC Bình Thuận, KTC Bắc Nha Trang, KTC Đức Trọng"
       },
       {
         "ncc": "NAK",
@@ -11846,7 +11846,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 9,
-        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
+        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
       },
       {
         "ncc": "Công Định",
@@ -11872,16 +11872,16 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 7,
-        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
       },
       {
         "ncc": "Lâm Ngọc Thành",
-        "total_cost": 117.14,
-        "total_cost_raw": 117141389.60000016,
+        "total_cost": 117.29,
+        "total_cost_raw": 117285754.40000015,
         "total_trips": 91,
         "cost_per_trip": 1.29,
-        "cost_per_trip_raw": 1287268.0175824193,
-        "fixed_cost": 117.14,
+        "cost_per_trip_raw": 1288854.4439560457,
+        "fixed_cost": 117.29,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 5,
@@ -23801,11 +23801,11 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-25",
         "truck": "47H-00730",
         "capacity": "3500",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> (DNO) Trường Xuân -> (DNO) Đức An -> (DNO) Đức Lập -> (DNO) ĐG Đắk Sắk -> (DNO) ĐG Đắk Mil -> Kho Trung Chuyển Đắk Lắk -> (DNO) Cư Jút -> (DNO) Krông Nô -> (DNO) Đức Lập -> (DNO) Đức An -> (DNO) Trường Xuân -> (DNO) Bắc Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Bắc Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Trường Xuân -> (DNO) Đức An -> (DNO) Đức Lập -> (DNO) ĐG Đắk Sắk -> (DNO) ĐG Đắk Mil -> Kho Trung Chuyển Đắk Lắk -> (DNO) Cư Jút -> (DNO) Krông Nô -> (DNO) Đức Lập -> (DNO) Đức An -> (DNO) Trường Xuân -> (DNO) Bắc Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "2.263.738 đ",
-        "cost": 2263737.6,
+        "cost_str": "2.360.861 đ",
+        "cost": 2360860.8,
         "trips_equivalent": 1,
         "trip_code": "E261024S3M5QB1B",
         "ontime": "81,25%"
@@ -24656,11 +24656,11 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-22",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "882.907 đ",
-        "cost": 882907.2,
+        "cost_str": "904.613 đ",
+        "cost": 904612.8,
         "trips_equivalent": 1,
         "trip_code": "E261021IGI9C7Y8",
         "ontime": "100,00%"
@@ -24674,8 +24674,8 @@ window.DASHBOARD_DATA = {
         "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "882.907 đ",
-        "cost": 882907.2,
+        "cost_str": "884.822 đ",
+        "cost": 884822.4,
         "trips_equivalent": 1,
         "trip_code": "E26102294BMNL3I",
         "ontime": "100,00%"
@@ -24686,11 +24686,11 @@ window.DASHBOARD_DATA = {
         "date_iso": "2026-10-24",
         "truck": "48H-02221",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
+        "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> (DNO) ĐL Nam Gia Nghĩa 2 -> (DNO) ĐL Nam Gia Nghĩa 1 -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "882.907 đ",
-        "cost": 882907.2,
+        "cost_str": "904.613 đ",
+        "cost": 904612.8,
         "trips_equivalent": 1,
         "trip_code": "E261023DVDZEBWM",
         "ontime": "100,00%"
@@ -24704,8 +24704,8 @@ window.DASHBOARD_DATA = {
         "route": "Kho Chuyển Tiếp Đắk Nông -> (DNO) Nhân Cơ 1 -> (DNO) Tuy Đức -> (DNO) Quảng Tín -> (DNO) Kiến Đức -> (DNO) Nhân Cơ 1 -> Kho Chuyển Tiếp Đắk Nông -> (DNO) Đông Gia Nghĩa -> Kho Chuyển Tiếp Đắk Nông",
         "ktc": "KTC Đắk Nông",
         "type": "Cố định",
-        "cost_str": "882.907 đ",
-        "cost": 882907.2,
+        "cost_str": "884.822 đ",
+        "cost": 884822.4,
         "trips_equivalent": 1,
         "trip_code": "E261024FNZRV42B",
         "ontime": "100,00%"

@@ -614,51 +614,138 @@
 
     // Dynamic banner badges and subtitles
     const volBadge = document.getElementById('banner-volume-badge');
-    if (volBadge && D.overview?.cards) {
-      const vFull = D.overview.cards.find(c => c.id === 'vol_full')?.val || 380455;
-      const vTts = D.overview.cards.find(c => c.id === 'vol_tts')?.val || 73732;
+    const vFCard = D.overview?.cards?.find(c => c.id === 'vol_full');
+    const vTCard = D.overview?.cards?.find(c => c.id === 'vol_tts');
+    const vFull = vFCard?.val || 337027;
+    const vTts = vTCard?.val || 72648;
+    if (volBadge) {
       volBadge.textContent = `Full: ${(vFull / 1000).toFixed(1)}k đơn | TTS: ${(vTts / 1000).toFixed(1)}k đơn`;
     }
     const volSummary = document.getElementById('banner-volume-summary');
     if (volSummary) {
-      volSummary.innerHTML = `• <strong>Sản lượng Toàn Mạng (W42):</strong> Full hàng đạt <strong>380,455 đơn</strong> (tăng +15,939 đơn / +4.37% WoW so với W41: 364,516 đơn); Kênh TikTok Shop đạt <strong>73,732 đơn</strong> (+175 đơn / +0.24% WoW).<br>• <strong>Biến động AM:</strong> AM Nguyễn Duy Long dẫn đầu toàn vùng với kỷ lục <strong>50,128 đơn</strong> (+3,252 đơn Full), AM Lê Thanh Nhựt đạt <strong>34,932 đơn</strong> (+1,545 đơn), AM Thái Thị Thanh Thư đạt <strong>33,469 đơn</strong> (+2,464 đơn).`;
+      const vFDiff = vFCard?.diff || -43427;
+      const vFPct = ((vFCard?.diff_pct || -0.1141) * 100).toFixed(2);
+      const vTDiff = vTCard?.diff || -1084;
+      const vTPct = ((vTCard?.diff_pct || -0.0147) * 100).toFixed(2);
+      const topAms = (D.san_luong?.am_full || []).slice().sort((a,b) => (b.vol||0) - (a.vol||0)).slice(0, 3);
+      const am1 = topAms[0] ? `AM ${topAms[0].am} dẫn đầu với <strong>${(topAms[0].vol||0).toLocaleString('vi-VN')} đơn</strong> (${topAms[0].diff >= 0 ? '+' : ''}${(topAms[0].diff||0).toLocaleString('vi-VN')} đơn)` : '';
+      const am2 = topAms[1] ? `AM ${topAms[1].am} đạt <strong>${(topAms[1].vol||0).toLocaleString('vi-VN')} đơn</strong> (${topAms[1].diff >= 0 ? '+' : ''}${(topAms[1].diff||0).toLocaleString('vi-VN')} đơn)` : '';
+      const am3 = topAms[2] ? `AM ${topAms[2].am} đạt <strong>${(topAms[2].vol||0).toLocaleString('vi-VN')} đơn</strong> (${topAms[2].diff >= 0 ? '+' : ''}${(topAms[2].diff||0).toLocaleString('vi-VN')} đơn)` : '';
+      volSummary.innerHTML = `• <strong>Sản lượng Toàn Mạng (${currW}):</strong> Full hàng đạt <strong>${vFull.toLocaleString('vi-VN')} đơn</strong> (${vFDiff >= 0 ? '+' : ''}${vFDiff.toLocaleString('vi-VN')} đơn / ${vFPct}% WoW so với ${prevW}); Kênh TikTok Shop đạt <strong>${vTts.toLocaleString('vi-VN')} đơn</strong> (${vTDiff >= 0 ? '+' : ''}${vTDiff.toLocaleString('vi-VN')} đơn / ${vTPct}% WoW).<br>• <strong>Biến động AM:</strong> ${[am1, am2, am3].filter(Boolean).join(', ')}.`;
     }
+
+    // Dynamic GTC Tổng Banner
     const gtcBadge = document.querySelector('#tab-gtc-tong .exec-banner-actions span');
+    const gFCard = D.overview?.cards?.find(c => c.id === 'gtc_full');
+    const gTCard = D.overview?.cards?.find(c => c.id === 'gtc_tts');
+    const gFVal = gFCard?.val || 0.6286;
+    const gTVal = gTCard?.val || 0.6449;
     if (gtcBadge) {
-      const gF = D.overview?.cards?.find(c => c.id === 'gtc_full')?.val || 0.6087;
-      const gT = D.overview?.cards?.find(c => c.id === 'gtc_tts')?.val || 0.6338;
-      gtcBadge.textContent = `Full: ${(gF * 100).toFixed(2)}% | TTS: ${(gT * 100).toFixed(2)}% (Target ≥ 60.0%)`;
+      gtcBadge.textContent = `Full: ${(gFVal * 100).toFixed(2)}% | TTS: ${(gTVal * 100).toFixed(2)}% (Target ≥ 60.0%)`;
     }
+    const gtcSummary = document.getElementById('gtc-tong-banner-summary');
+    if (gtcSummary) {
+      const gFDiffP = ((gFCard?.diff || 0.0244) * 100).toFixed(2);
+      const gTDiffP = ((gTCard?.diff || 0.0165) * 100).toFixed(2);
+      gtcSummary.innerHTML = `• <strong>%GTC Tổng Toàn Vùng (${currW}):</strong> Full hàng đạt <strong>${(gFVal * 100).toFixed(2)}%</strong> (${gFDiffP >= 0 ? '+' : ''}${gFDiffP}%p WoW so với ${prevW}) và TTS đạt <strong>${(gTVal * 100).toFixed(2)}%</strong> (${gTDiffP >= 0 ? '+' : ''}${gTDiffP}%p WoW) — <strong style="color:#10b981;">Bứt phá mạnh vượt ngưỡng cam kết Target ≥ 60.0%</strong>!<br>• <strong>Đánh Giá:</strong> Cả 5 tỉnh và 20 AM đều cải thiện rõ rệt sau khi sản lượng giao hạ nhiệt sau tuần 10.10.`;
+    }
+
+    // Dynamic GTC TTS Ca 1 Banner
+    const gtcCa1Summary = document.getElementById('banner-gtc-ca1-summary');
+    if (gtcCa1Summary) {
+      gtcCa1Summary.innerHTML = `• <strong>Toàn Vùng TTS Ca 1 (${currW}):</strong> Ca 1 thuần sáng đạt <strong>81.27%</strong> (+1.94%p WoW so với 79.33% ${prevW}), <strong style="color:#10b981;">vượt xa cam kết SLA ≥ 76.0%</strong>! Ca 1 + Tồn đạt <strong>68.00%</strong> (+1.39%p WoW so với 66.61% ${prevW}).`;
+    }
+
+    // Dynamic Gán Banner
     const ganBadge = document.querySelector('#tab-gan .exec-banner-actions span');
+    const ganFullRow = D.gan?.overview?.find(r => r.indicator?.includes('Full') && r.indicator?.includes('Tổng'));
+    const ganTtsRow = D.gan?.overview?.find(r => r.indicator?.includes('TTS') && r.indicator?.includes('Tổng'));
+    const ganFullVal = ganFullRow?.[currW.toLowerCase()] || 0.8741;
+    const ganTtsVal = ganTtsRow?.[currW.toLowerCase()] || 0.8869;
     if (ganBadge) {
-      ganBadge.textContent = `Gán Tổng ${currW}: 86.3% (Target ≥ 90.0%)`;
+      ganBadge.textContent = `Gán Tổng ${currW}: ${(ganFullVal * 100).toFixed(1)}% (Target ≥ 90.0%)`;
     }
+    const ganSummary = document.getElementById('banner-gan-summary');
+    if (ganSummary) {
+      const ganCa1Full = D.gan?.overview?.find(r => r.indicator?.includes('Full') && r.indicator?.includes('Ca1 + Tồn'))?.[currW.toLowerCase()] || 0.9370;
+      const ganCa1Tts = D.gan?.overview?.find(r => r.indicator?.includes('TTS') && r.indicator?.includes('Ca1 + Tồn'))?.[currW.toLowerCase()] || 0.9561;
+      const ganCa2Full = D.gan?.overview?.find(r => r.indicator?.includes('Full') && r.indicator?.includes('Ca2'))?.[currW.toLowerCase()] || 0.6357;
+      const ganCa2Tts = D.gan?.overview?.find(r => r.indicator?.includes('TTS') && r.indicator?.includes('Ca2'))?.[currW.toLowerCase()] || 0.6227;
+      ganSummary.innerHTML = `• <strong>Gán Tổng (Ca1+Ca2+Tồn ${currW}):</strong> Full hàng đạt <strong>${(ganFullVal * 100).toFixed(2)}%</strong> (+4.01%p WoW so với 83.40% ${prevW}); TTS đạt <strong>${(ganTtsVal * 100).toFixed(2)}%</strong> (+1.11%p WoW so với 87.58% ${prevW}).<br>• <strong>Gán Ca 1 + Tồn:</strong> Full hàng đạt <strong>${(ganCa1Full * 100).toFixed(2)}%</strong> (+4.61%p WoW, <strong style="color:#10b981;">vượt chuẩn ≥ 90%</strong>); TTS đạt <strong>${(ganCa1Tts * 100).toFixed(2)}%</strong> (+0.76%p WoW, <strong style="color:#10b981;">vượt chuẩn ≥ 90%</strong>).<br>• <strong>Gán Ca 2:</strong> Full hàng đạt <strong>${(ganCa2Full * 100).toFixed(2)}%</strong> (+5.90%p WoW); TTS đạt <strong>${(ganCa2Tts * 100).toFixed(2)}%</strong> (+4.83%p WoW).`;
+    }
+    const purpleBadge = document.querySelector('#tab-gan .badge-tag-purple');
+    if (purpleBadge) {
+      purpleBadge.textContent = `${w1} ➔ ${currW}`;
+    }
+
+    // Dynamic ODR Banner
     const odrBadge = document.querySelector('#tab-odr .exec-banner-actions span');
+    const oFCard = D.overview?.cards?.find(c => c.id === 'odr_full');
+    const oFVal = oFCard?.val || 0.9338;
+    const oTRow = D.odr?.overview?.find(r => r.label === 'TTS');
+    const oTVal = oTRow?.[currW.toLowerCase()] || 0.9404;
     if (odrBadge) {
-      const oF = D.overview?.cards?.find(c => c.id === 'odr_full')?.val || 0.9312;
-      const oT = D.odr?.overview?.find(r => r.label === 'TTS')?.[currW.toLowerCase()] || D.odr?.overview?.find(r => r.label === 'TTS')?.w41 || 0.9480;
-      odrBadge.textContent = `ODR Full: ${(oF * 100).toFixed(1)}% | TTS: ${(oT * 100).toFixed(1)}% (Target ≥ 92.0%)`;
+      odrBadge.textContent = `ODR Full: ${(oFVal * 100).toFixed(1)}% | TTS: ${(oTVal * 100).toFixed(1)}% (Target ≥ 92.0%)`;
     }
+    const odrSummary = document.getElementById('banner-odr-summary');
+    if (odrSummary) {
+      const oFDiffP = ((oFCard?.diff || 0.0141) * 100).toFixed(2);
+      odrSummary.innerHTML = `• <strong>Toàn Vùng ${currW}:</strong> Full Hàng bứt phá đạt <strong>${(oFVal * 100).toFixed(2)}%</strong> (${oFDiffP >= 0 ? '+' : ''}${oFDiffP}%p WoW so với ${prevW}: 91.97%) — <strong style="color:#10b981;">Chính thức VƯỢT CHUẨN SLA ≥ 92.0%</strong>! Kênh TTS đạt <strong>${(oTVal * 100).toFixed(2)}%</strong> (-0.44%p WoW), tiếp tục giữ vững trên ngưỡng cam kết 92.0%.`;
+    }
+
+    // Dynamic LTC Banner
     const ltcBadge = document.querySelector('#tab-ltc .exec-banner-actions span');
+    const lFCard = D.overview?.cards?.find(c => c.id === 'ltc_full');
+    const lFVal = lFCard?.val || 0.9208;
+    const lTRow = D.ltc?.overview?.find(r => r.label === 'TTS');
+    const lTVal = lTRow?.[currW.toLowerCase()] || 0.9694;
     if (ltcBadge) {
-      const lF = D.overview?.cards?.find(c => c.id === 'ltc_full')?.val || 0.9135;
-      const lT = D.ltc?.overview?.find(r => r.label === 'TTS')?.[currW.toLowerCase()] || D.ltc?.overview?.find(r => r.label === 'TTS')?.w41 || 0.9510;
-      ltcBadge.textContent = `Full: ${(lF * 100).toFixed(1)}% | TTS: ${(lT * 100).toFixed(1)}% (Target ≥ 90.0%)`;
+      ltcBadge.textContent = `Full: ${(lFVal * 100).toFixed(1)}% | TTS: ${(lTVal * 100).toFixed(1)}% (Target ≥ 90.0%)`;
     }
+    const ltcTitle = document.getElementById('banner-ltc-title');
+    if (ltcTitle) {
+      ltcTitle.textContent = `PHÂN TÍCH CHỈ SỐ %LTC (LẤY THÀNH CÔNG) THEO 20 AM & 5 TỈNH (TARGET ≥ 90.0%) (${currW})`;
+    }
+    const ltcSummary = document.getElementById('banner-ltc-summary');
+    if (ltcSummary) {
+      const lFDiffP = ((lFCard?.diff || 0.0130) * 100).toFixed(2);
+      ltcSummary.innerHTML = `• <strong>Toàn Vùng ${currW}:</strong> Full hàng đạt <strong>${(lFVal * 100).toFixed(2)}%</strong> (${lFDiffP >= 0 ? '+' : ''}${lFDiffP}%p WoW so với 90.78% ${prevW}); TTS đạt <strong>${(lTVal * 100).toFixed(2)}%</strong> (+0.96%p WoW so với 95.97% ${prevW}) — Tiếp tục giữ vững và <strong style="color:#10b981;">vượt chuẩn cam kết Target ≥ 90.0%</strong>.<br>• <strong>Đánh Giá:</strong> Tiến độ thu gom hàng và xử lý ca lấy được kiểm soát nhịp nhàng trên toàn địa bàn 5 tỉnh thành.`;
+    }
+
+    // Dynamic OPR TTS Banner
     const oprBadge = document.querySelector('#tab-opr-tts .exec-banner-actions span');
     if (oprBadge) {
       oprBadge.textContent = `OPR TTS ${currW}: 83.5% (Vượt KPI ≥ 80.0%)`;
     }
+
+    // Dynamic Rớt LC Banner
     const rotBadge = document.getElementById('banner-rot-lc-badge');
+    const totR = D.rot_lc?.overview?.tot_rot || 231;
+    const rateR = D.rot_lc?.overview?.rate_curr ? (D.rot_lc.overview.rate_curr * 100).toFixed(2) : '1.88';
     if (rotBadge) {
-      const totR = D.rot_lc?.overview?.tot_rot || 219;
-      const rateR = D.rot_lc?.overview?.rate_curr ? (D.rot_lc.overview.rate_curr * 100).toFixed(2) : '1.69';
       rotBadge.textContent = `Tổng rớt ${currW}: ${totR} đơn (${rateR}%)`;
     }
+    const rotSummary = document.getElementById('banner-rot-lc-summary');
+    if (rotSummary) {
+      const totCan = D.rot_lc?.overview?.tot_can || 12303;
+      rotSummary.innerHTML = `• <strong>Tổng đơn rớt toàn vùng ${currW}:</strong> Tỷ lệ rớt đạt <strong>${rateR}%</strong> (tổng ${totR} đơn rớt / ${totCan.toLocaleString('vi-VN')} đơn cần LC, tăng +0.49%p WoW so với 1.39% ${prevW}) — Tiếp tục kiểm soát tốt dưới ngưỡng Target ≤ 2.00%!`;
+    }
+
+    // Dynamic FD Banner
     const fdBadge = document.querySelector('#tab-fd .exec-banner-meta span:first-child');
+    const fR = D.fd?.overview?.rate_fd ? (D.fd.overview.rate_fd * 100).toFixed(2) : '6.84';
     if (fdBadge) {
-      const fR = D.fd?.overview?.rate_fd ? (D.fd.overview.rate_fd * 100).toFixed(2) : '7.77';
       fdBadge.textContent = `Target Toàn Vùng ≤ 6.0% (${currW}: ${fR}%)`;
+    }
+    const fdSummary = document.getElementById('banner-fd-summary');
+    if (fdSummary) {
+      fdSummary.innerHTML = `Chu kỳ ${currW} (${dateRange}) &nbsp;|&nbsp; So sánh biến động WoW với tuần trước (${prevW}) &nbsp;|&nbsp; Tách riêng Full Hàng và TikTok Shop`;
+    }
+
+    // Dynamic Overview Summary
+    const ovSummary = document.getElementById('banner-overview-summary');
+    if (ovSummary) {
+      ovSummary.innerHTML = `• <strong>Sản lượng Giao Full Hàng:</strong> Đạt <strong>${vFull.toLocaleString('vi-VN')} đơn</strong> (Tuần ${currW} ${dateRange}, giảm -43,427 đơn / -11.41% WoW so với ${prevW}: 380,455 đơn sau sóng Mega Sale 10.10).<br>• <strong>%GTC Tổng Toàn Vùng:</strong> Đạt <strong>${(gFVal * 100).toFixed(2)}%</strong> (+2.44%p WoW) — Bứt phá mạnh vượt mốc cam kết danh dự 62.0%.<br>• <strong>Chất lượng Dịch vụ (ODR & LTC):</strong> %ODR Full đạt <strong>${(oFVal * 100).toFixed(2)}%</strong> (vượt chuẩn SLA ≥ 92.0%); %LTC Full đạt <strong>${(lFVal * 100).toFixed(2)}%</strong> (vượt chuẩn Target ≥ 90.0%).`;
     }
     const ovSubtitle = document.querySelector('#table-overview-kpi-data')?.closest('.report-card')?.querySelector('.report-card-tools span');
     if (ovSubtitle) {
@@ -828,7 +915,7 @@
     const calloutEl = document.getElementById('vol-spotlight-callout-container');
     if (!calloutEl) return;
 
-    const currW = D.meta?.latest_week || 'W41';
+    const currW = D.meta?.latest_week || 'W43';
     calloutEl.setAttribute('data-type', 'province');
 
     const rawTinhFull = D.san_luong?.tinh_full || D.san_luong?.tinh || [];
@@ -2294,7 +2381,7 @@
 
   
   // --------------------------------------------------------------------------
-  // CHART: SẢN LƯỢNG 5 TỈNH QUA 4 TUẦN (W38 - W41) & TỶ LỆ TĂNG TRƯỞNG % WoW
+  // CHART: SẢN LƯỢNG 5 TỈNH QUA 4 TUẦN (W40 - W43) & TỶ LỆ TĂNG TRƯỞNG % WoW
   // --------------------------------------------------------------------------
   function renderTinhVol4WeeksChart() {
     const ctx = document.getElementById('chart-tinh-vol-4weeks');
@@ -2320,7 +2407,7 @@
     // Update summary badge
     const badgeEl = document.getElementById('tinh-vol-summary-badge');
     if (badgeEl) {
-      const curW = weekLabels[3] || 'W42';
+      const curW = weekLabels[3] || 'W43';
       if (isTTS) {
         badgeEl.innerHTML = `🛒 TikTok Shop ${curW}: <strong>73.732 đơn</strong> (+175 đơn / +0,2% WoW)`;
         badgeEl.style.color = '#ea580c';
@@ -2577,8 +2664,8 @@
     const titleEl = document.getElementById('tinh-vol-chart-header-title');
     if (titleEl) {
       titleEl.textContent = (ch === 'tts') 
-        ? 'BIỂU ĐỒ SẢN LƯỢNG 5 TỈNH QUA 4 TUẦN (W38 – W41) — TIKTOK SHOP & TỶ LỆ TĂNG TRƯỞNG % WoW'
-        : 'BIỂU ĐỒ SẢN LƯỢNG 5 TỈNH QUA 4 TUẦN (W38 – W41) — FULL HÀNG & TỶ LỆ TĂNG TRƯỞNG % WoW';
+        ? 'BIỂU ĐỒ SẢN LƯỢNG 5 TỈNH QUA 4 TUẦN (W40 – W43) — TIKTOK SHOP & TỶ LỆ TĂNG TRƯỞNG % WoW'
+        : 'BIỂU ĐỒ SẢN LƯỢNG 5 TỈNH QUA 4 TUẦN (W40 – W43) — FULL HÀNG & TỶ LỆ TĂNG TRƯỞNG % WoW';
     }
     renderTinhVol4WeeksChart();
   };
@@ -3318,7 +3405,7 @@
 
   
   // --------------------------------------------------------------------------
-  // CHART: %GTC 5 TỈNH QUA 4 TUẦN (W38 - W41) & BIẾN ĐỘNG Δ %p WoW
+  // CHART: %GTC 5 TỈNH QUA 4 TUẦN (W40 - W43) & BIẾN ĐỘNG Δ %p WoW
   // --------------------------------------------------------------------------
   function renderTinhGtc4WeeksChart() {
     const ctx = document.getElementById('chart-gtc-tinh-4weeks');
@@ -3344,7 +3431,7 @@
     // Update summary badge
     const badgeEl = document.getElementById('gtc-tinh-summary-badge');
     if (badgeEl) {
-      const curW = weekLabels[3] || 'W42';
+      const curW = weekLabels[3] || 'W43';
       if (isTTS) {
         badgeEl.innerHTML = `🛒 TikTok Shop ${curW}: <strong>62,83%</strong> (-0,72%p WoW — Vượt Target)`;
         badgeEl.style.color = '#ea580c';
@@ -3619,8 +3706,8 @@
     const titleEl = document.getElementById('gtc-tinh-chart-header-title');
     if (titleEl) {
       titleEl.textContent = (ch === 'tts') 
-        ? 'BIỂU ĐỒ %GTC 5 TỈNH QUA 4 TUẦN (W38 – W41) — TIKTOK SHOP & BIẾN ĐỘNG Δ %p WoW'
-        : 'BIỂU ĐỒ %GTC 5 TỈNH QUA 4 TUẦN (W38 – W41) — FULL HÀNG & BIẾN ĐỘNG Δ %p WoW (TARGET ≥ 60.0%)';
+        ? 'BIỂU ĐỒ %GTC 5 TỈNH QUA 4 TUẦN (W40 – W43) — TIKTOK SHOP & BIẾN ĐỘNG Δ %p WoW'
+        : 'BIỂU ĐỒ %GTC 5 TỈNH QUA 4 TUẦN (W40 – W43) — FULL HÀNG & BIẾN ĐỘNG Δ %p WoW (TARGET ≥ 60.0%)';
     }
     renderTinhGtc4WeeksChart();
   };
@@ -4993,7 +5080,7 @@
 
   
   // --------------------------------------------------------------------------
-  // CHART: %ODR 5 TỈNH QUA 4 TUẦN (W38 - W41) & BIẾN ĐỘNG Δ %p WoW
+  // CHART: %ODR 5 TỈNH QUA 4 TUẦN (W40 - W43) & BIẾN ĐỘNG Δ %p WoW
   // --------------------------------------------------------------------------
   function renderTinhOdr4WeeksChart() {
     const ctx = document.getElementById('chart-odr-tinh-4weeks');
@@ -5019,7 +5106,7 @@
     // Update summary badge
     const badgeEl = document.getElementById('odr-tinh-summary-badge');
     if (badgeEl) {
-      const curW = weekLabels[3] || 'W42';
+      const curW = weekLabels[3] || 'W43';
       if (isTTS) {
         badgeEl.innerHTML = `🛒 TikTok Shop ${curW}: <strong>92,85%</strong> — Đạt chuẩn cam kết SLA ≥ 92.0%`;
         badgeEl.style.color = '#ea580c';
@@ -5294,8 +5381,8 @@
     const titleEl = document.getElementById('odr-tinh-chart-header-title');
     if (titleEl) {
       titleEl.textContent = (ch === 'tts') 
-        ? 'BIỂU ĐỒ %ODR 5 TỈNH QUA 4 TUẦN (W38 – W41) — TIKTOK SHOP & BIẾN ĐỘNG Δ %p WoW'
-        : 'BIỂU ĐỒ %ODR 5 TỈNH QUA 4 TUẦN (W38 – W41) — FULL HÀNG & BIẾN ĐỘNG Δ %p WoW (TARGET ≥ 92.0%)';
+        ? 'BIỂU ĐỒ %ODR 5 TỈNH QUA 4 TUẦN (W40 – W43) — TIKTOK SHOP & BIẾN ĐỘNG Δ %p WoW'
+        : 'BIỂU ĐỒ %ODR 5 TỈNH QUA 4 TUẦN (W40 – W43) — FULL HÀNG & BIẾN ĐỘNG Δ %p WoW (TARGET ≥ 92.0%)';
     }
     renderTinhOdr4WeeksChart();
   };
@@ -6466,17 +6553,26 @@
   // --------------------------------------------------------------------------
   function renderTransportTab() {
     if (!D.rot_lc) return;
+    const currW = D.meta?.latest_week || 'W43';
+    const prevW = D.meta?.prev_week || 'W42';
+    const rot = D.rot_lc.overview || {};
+    const totCan = rot.tot_can || 12303;
+    const totRot = rot.tot_rot || 231;
+    const rateCurr = rot.rate_curr ? (rot.rate_curr * 100).toFixed(2) : '1.88';
+    const ratePrev = rot.rate_prev ? (rot.rate_prev * 100).toFixed(2) : '1.39';
+    const diffPct = rot.diff !== undefined ? (rot.diff >= 0 ? `+${(rot.diff * 100).toFixed(2)}%p` : `${(rot.diff * 100).toFixed(2)}%p`) : '+0.49%p';
+
     const rTitle = document.getElementById('banner-rot-lc-title');
-    if (rTitle) rTitle.innerHTML = 'PHÂN TÍCH TỶ TRỌNG RỚT ĐƠN LUÂN CHUYỂN THEO AM &amp; TỈNH THÀNH (W42)';
+    if (rTitle) rTitle.innerHTML = `PHÂN TÍCH TỶ TRỌNG RỚT ĐƠN LUÂN CHUYỂN THEO AM &amp; TỈNH THÀNH (${currW})`;
     const rSummary = document.getElementById('banner-rot-lc-summary');
     if (rSummary) {
       rSummary.innerHTML = `
-        • <strong>Tổng đơn rớt toàn vùng W42:</strong> Tỷ lệ rớt đạt <strong>1.39%</strong> (tổng 193 đơn rớt / 13,776 đơn cần LC, giảm <strong>-0.49%p WoW</strong> so với 1.88% W41) — Tiếp tục kiểm soát rất tốt dưới ngưỡng Target ≤ 2.00%!<br/>
+        • <strong>Tổng đơn rớt toàn vùng ${currW}:</strong> Tỷ lệ rớt đạt <strong>${rateCurr}%</strong> (tổng ${fNum(totRot)} đơn rớt / ${fNum(totCan)} đơn cần LC, biến động <strong>${diffPct} WoW</strong> so với ${ratePrev}% ${prevW}) — Tiếp tục kiểm soát rất tốt dưới ngưỡng Target ≤ 2.00%!<br/>
         • <strong>Đánh Giá:</strong> Các bưu cục và trung tâm khai thác phối hợp đồng bộ, hạn chế tối đa rớt kết nối ca luân chuyển.
       `;
     }
     const rBadge = document.getElementById('banner-rot-lc-badge');
-    if (rBadge) rBadge.textContent = 'Tổng rớt W42: 193 đơn (1.39%)';
+    if (rBadge) rBadge.textContent = `Tổng rớt ${currW}: ${fNum(totRot)} đơn (${rateCurr}%)`;
 
     const prevKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2].toLowerCase() : 'w37';
     const currKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1].toLowerCase() : 'w38';
@@ -6939,7 +7035,7 @@
   function renderFdTab() {
     if (!D.fd) return;
 
-    const currW = D.meta?.latest_week || 'W42';
+    const currW = D.meta?.latest_week || 'W43';
     const prevW = D.meta?.prev_week || 'W41';
 
     // Dynamically update Table 2 headers (table-fd-top-bc)
@@ -6969,9 +7065,9 @@
       const elRateTts = document.getElementById('kpi-fd-rate-tts');
       if (elVolFull) elVolFull.innerHTML = `${fNum(s.vol_full)} <small>đơn ${currW}</small>`;
       const metaVolFull = document.querySelector('#tab-fd .kpi-strip .kpi-tile:nth-child(1) .kpi-tile-meta span:last-child');
-      if (metaVolFull) metaVolFull.textContent = 'W41: 365,628 đ (+3.7% WoW)';
+      if (metaVolFull) metaVolFull.textContent = `${prevW}: 380,455 đ (-11.4% WoW)`;
       const metaVolTts = document.querySelector('#tab-fd .kpi-strip .kpi-tile:nth-child(3) .kpi-tile-meta span:last-child');
-      if (metaVolTts) metaVolTts.textContent = 'W41: 73,443 đ (-6.4% WoW)';
+      if (metaVolTts) metaVolTts.textContent = `${prevW}: 73,732 đ (-1.5% WoW)`;
       if (elRateFull) {
         const prevFullTxt = s.rate_full_prev ? ` <small style="color: var(--text-muted); font-size: 13px; font-weight: 600;">(${prevW}: ${fPct(s.rate_full_prev)})</small>` : '';
         elRateFull.innerHTML = `${fPct(s.rate_full)}${prevFullTxt}`;
@@ -7609,7 +7705,8 @@
       const p815 = tot ? (d815 / tot * 100).toFixed(1) : '14.8';
       const pgt15 = tot ? (dgt15 / tot * 100).toFixed(1) : '0.0';
 
-      if (donutTitle) donutTitle.textContent = 'CƠ CẤU HÀNG TỒN AGING >5 NGÀY THEO NHÓM TUỔI (W42 - REALTIME 20/10)';
+      if (donutTitle) const currW = D.meta?.latest_week || 'W43';
+      if (donutTitle) donutTitle.textContent = `CƠ CẤU HÀNG TỒN AGING >5 NGÀY THEO NHÓM TUỔI (${currW} - REALTIME 26/10)`;
       if (donutBadge) {
         donutBadge.className = 'badge-tag badge-tag-red';
         donutBadge.textContent = `Tổng tồn: ${fNum(tot)} đơn`;
@@ -7817,7 +7914,7 @@
             </div>
           </div>
           <div style="font-size: 12px; color: var(--text-main); line-height: 1.5;">
-            👉 <strong>Trọng tâm điều hành tuần W42:</strong> Vừa phải kéo hàng tồn aging tại các bưu cục Lâm Đồng (Lang Biang 2, Đức Trọng 1, Tân Hà, Hòa Ninh), vừa phải dọn sạch các điểm nghẽn luân chuyển tại Khánh Hòa (Tây Nha Trang, Cam Linh) để bảo toàn chỉ số SLA toàn vùng!
+            👉 <strong>Trọng tâm điều hành tuần W43:</strong> Vừa phải kéo hàng tồn aging tại các bưu cục Lâm Đồng (Lang Biang 2, Đức Trọng 1, Tân Hà, Hòa Ninh), vừa phải dọn sạch các điểm nghẽn luân chuyển tại Khánh Hòa (Tây Nha Trang, Cam Linh) để bảo toàn chỉ số SLA toàn vùng!
           </div>
         `;
       }
@@ -7863,7 +7960,7 @@
     charts.agingProgress = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['Tuần W41', 'Tuần W42 (Realtime)'],
+        labels: ['Tuần W42', 'Tuần W43 (Realtime)'],
         datasets: [{
           data: [1420, (D.aging && D.aging.total) ? D.aging.total : 856],
           backgroundColor: ['#94a3b8', '#10b981'],
@@ -8091,8 +8188,8 @@
     const report = D.cod_report || {};
 
     // Dynamic Banner & KPIs
-let prevPeriod = report.prev_period || 'Tuần N-1 (05/10 - 11/10)';
-    let currPeriod = report.curr_period || 'Tuần N (12/10 - 18/10)';
+let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+    let currPeriod = report.curr_period || 'Tuần N (19/10 - 25/10)';
     if (prevPeriod.includes('01/08') || prevPeriod.includes('08/09')) {
       prevPeriod = 'Tuần N-1 (05/10 - 11/10)';
     }
@@ -8278,8 +8375,8 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (05/10 - 11/10)';
     if (charts.codTmAmBar) charts.codTmAmBar.destroy();
 
     const report = D.cod_report || {};
-    let prevLabel = report.prev_period || 'Tuần N-1 (05/10 - 11/10)';
-    let currLabel = report.curr_period || 'Tuần N (12/10 - 18/10)';
+    let prevLabel = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+    let currLabel = report.curr_period || 'Tuần N (19/10 - 25/10)';
     if (prevLabel.includes('01/08') || prevLabel.includes('08/09')) {
       prevLabel = 'Tuần N-1 (05/10 - 11/10)';
     }
@@ -9107,18 +9204,36 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (05/10 - 11/10)';
     renderKdNhomAWarningTable();
 
     // 0. Dynamic KPI cards and header
+    const currW = D.meta?.latest_week || 'W43';
+    const prevW = D.meta?.prev_week || 'W42';
+    const kdTot = D.kinh_doanh?.total || {};
+    const f30Tot = D.f30?.total || {};
+    const revCurrTr = kdTot.rev_curr ? (kdTot.rev_curr / 1e6).toFixed(1) : '1.143,2';
+    const revPrevTr = kdTot.rev_prev ? (kdTot.rev_prev / 1e6).toFixed(1) : '1.088,6';
+    const revDiffPct = kdTot.pct_diff_rev !== undefined ? (kdTot.pct_diff_rev >= 0 ? `+${kdTot.pct_diff_rev}%` : `${kdTot.pct_diff_rev}%`) : '+5.0%';
+    const volCurr = kdTot.vol_curr || 38531;
+    const volPrev = kdTot.vol_prev || 36367;
+    const volDiff = kdTot.diff_vol !== undefined ? (kdTot.diff_vol >= 0 ? `+${fNum(kdTot.diff_vol)}` : `${fNum(kdTot.diff_vol)}`) : '+2.164';
+    const volDiffPct = volPrev ? ((kdTot.diff_vol / volPrev) * 100).toFixed(1) : '6.0';
+    const f30KhCurr = f30Tot.kh_curr || 97;
+    const f30KhPrev = f30Tot.kh_prev || 112;
+    const f30DiffKh = f30Tot.diff_kh !== undefined ? (f30Tot.diff_kh >= 0 ? `+${f30Tot.diff_kh}` : `${f30Tot.diff_kh}`) : '-15';
+    const f30PctKh = f30Tot.pct_diff_kh !== undefined ? (f30Tot.pct_diff_kh >= 0 ? `+${f30Tot.pct_diff_kh}%` : `${f30Tot.pct_diff_kh}%`) : '-13.4%';
+    const f30RevCurrTr = f30Tot.rev_curr ? (f30Tot.rev_curr / 1e6).toFixed(1) : '14.5';
+    const f30PctRev = f30Tot.pct_diff_rev !== undefined ? (f30Tot.pct_diff_rev >= 0 ? `+${f30Tot.pct_diff_rev}%` : `${f30Tot.pct_diff_rev}%`) : '-26.4%';
+
     const kdRevHeader = document.getElementById('kd-kpi-rev-header');
-    if (kdRevHeader) kdRevHeader.textContent = 'Tổng Doanh Thu Kỳ Này (11–17/10 - W42)';
+    if (kdRevHeader) kdRevHeader.textContent = `Tổng Doanh Thu Kỳ Này (18–24/10 - ${currW})`;
     const kdVolHeader = document.getElementById('kd-kpi-vol-header');
-    if (kdVolHeader) kdVolHeader.textContent = 'Tổng Volume Giao (11–17/10 - W42)';
+    if (kdVolHeader) kdVolHeader.textContent = `Tổng Volume Giao (18–24/10 - ${currW})`;
     const kdBannerBadge = document.getElementById('kd-banner-badge');
-    if (kdBannerBadge) kdBannerBadge.textContent = 'Doanh Thu W42: 1.088,3 Tr (-2,1%) | Volume: 36.361 đ (+2,1%) | F30: 111 Shop (-0,9%)';
+    if (kdBannerBadge) kdBannerBadge.textContent = `Doanh Thu ${currW}: ${revCurrTr} Tr (${revDiffPct}) | Volume: ${fNum(volCurr)} đ (+${volDiffPct}%) | F30: ${f30KhCurr} Shop (${f30PctKh})`;
     const kdBannerSummary = document.getElementById('kd-banner-summary');
     if (kdBannerSummary) {
       kdBannerSummary.innerHTML = `
-        • <strong>Doanh Thu Toàn Vùng Kỳ 11–17/10 (W42):</strong> Đạt <strong>1.088,3 triệu VNĐ</strong> (Kỳ 4–10/10 (W41): 1.111,5 triệu ➔ Giảm <strong>-23,1 triệu VNĐ / -2,1% WoW</strong>).<br/>
-        • <strong>Tổng Volume Giao Kinh Doanh:</strong> Đạt <strong>36.361 đơn</strong> (Kỳ 4–10/10 (W41): 35.599 đơn ➔ Tăng <strong>+762 đơn / +2,1% WoW</strong>).<br/>
-        • <strong>Tăng Trưởng Khách Hàng Mới (F30):</strong> Đạt <strong>111 shop mới</strong> (Kỳ 4–10/10: 112 shop ➔ Giảm <strong>-1 shop / -0,9% WoW</strong>) mang lại <strong>8,6 triệu VNĐ</strong> (-48,8% WoW).
+        • <strong>Doanh Thu Toàn Vùng Kỳ 18–24/10 (${currW}):</strong> Đạt <strong>${revCurrTr} triệu VNĐ</strong> (Kỳ 11–17/10 (${prevW}): ${revPrevTr} triệu ➔ Biến động <strong>${revDiffPct} WoW</strong>).<br/>
+        • <strong>Tổng Volume Giao Kinh Doanh:</strong> Đạt <strong>${fNum(volCurr)} đơn</strong> (Kỳ 11–17/10 (${prevW}): ${fNum(volPrev)} đơn ➔ Tăng <strong>${volDiff} đơn / +${volDiffPct}% WoW</strong>).<br/>
+        • <strong>Tăng Trưởng Khách Hàng Mới (F30):</strong> Đạt <strong>${f30KhCurr} shop mới</strong> (Kỳ 11–17/10: ${f30KhPrev} shop ➔ Biến động <strong>${f30DiffKh} shop / ${f30PctKh} WoW</strong>) mang lại <strong>${f30RevCurrTr} triệu VNĐ</strong> (${f30PctRev} WoW).
       `;
     }
 
@@ -10051,7 +10166,7 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (05/10 - 11/10)';
     // Sắp xếp tăng dần theo tỷ lệ gán (thấp nhất lên đầu)
     list.sort((a, b) => (a.gan_rate || 0) - (b.gan_rate || 0));
 
-    const currW = D.meta?.latest_week || 'W42';
+    const currW = D.meta?.latest_week || 'W43';
     const countEl = document.getElementById('gan-bc-count');
     if (countEl) countEl.textContent = `Đang hiển thị: ${list.length} bưu cục (Tuần ${currW})`;
 
@@ -10176,7 +10291,7 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (05/10 - 11/10)';
       return isDesc ? (vB - vA) : (vA - vB);
     });
 
-    const currW = D.meta?.latest_week || 'W42';
+    const currW = D.meta?.latest_week || 'W43';
     const countEl = document.getElementById('opr-bc-count');
     if (countEl) {
       const filterTxt = state.oprBcFilter === 'most_late' ? 'Điểm Nóng Trễ ≥ 50 Đơn' : 
