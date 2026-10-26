@@ -12102,7 +12102,7 @@
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 60,
-      "last_updated": "10:13 - 26/10/2026"
+      "last_updated": "10:45 - 26/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 2728.07,
@@ -12137,7 +12137,7 @@
         "fixed_cost": 705.72,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 23
       },
       {
@@ -12150,7 +12150,7 @@
         "fixed_cost": 644.92,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, NAK",
         "truck_count": 9
       },
       {
@@ -12163,7 +12163,7 @@
         "fixed_cost": 259.63,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Công Định",
+        "primary_ncc": "Công Định, NAK",
         "truck_count": 5
       },
       {
@@ -12176,7 +12176,7 @@
         "fixed_cost": 200.17,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Trâm Hoá, Tốt và Rẻ",
+        "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
         "truck_count": 7
       },
       {
@@ -12189,7 +12189,7 @@
         "fixed_cost": 91.14,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
+        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
         "truck_count": 11
       },
       {
@@ -12218,7 +12218,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 36,
-        "active_ktcs": "KTC Nam Nha Trang, KTC Khánh Hòa, KTC Đức Trọng, KTC Bình Thuận, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Khánh Hòa, KTC Bình Thuận, KTC Bắc Nha Trang, KTC Đức Trọng, KTC Nam Nha Trang"
       },
       {
         "ncc": "NAK",
@@ -12231,7 +12231,7 @@
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 9,
-        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
+        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
       },
       {
         "ncc": "Công Định",
@@ -23376,7 +23376,7 @@
         "date_iso": "2026-10-22",
         "truck": "29H-76917",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Hiệp Thạnh -> (LDO) Đơn Dương -> (LDO) D'Ran -> (LDO) Nam Ban Lâm Hà -> (LDO) Tân Hà Lâm Hà -> (LDO) Đinh Văn Lâm Hà -> Kho Chuyển Tiếp Đức Trọng",
+        "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Đơn Dương -> (LDO) D'Ran -> (LDO) Nam Ban Lâm Hà -> (LDO) Tân Hà Lâm Hà -> (LDO) Đinh Văn Lâm Hà -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
         "type": "Cố định",
         "cost_str": "1.631.034 đ",
@@ -23421,7 +23421,7 @@
         "date_iso": "2026-10-25",
         "truck": "29H-76917",
         "capacity": "1900",
-        "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Hiệp Thạnh -> (LDO) Đơn Dương -> (LDO) D'Ran -> (LDO) Nam Ban Lâm Hà -> (LDO) Tân Hà Lâm Hà -> (LDO) Đinh Văn Lâm Hà -> Kho Chuyển Tiếp Đức Trọng",
+        "route": "Kho Chuyển Tiếp Đức Trọng -> (LDO) Đơn Dương -> (LDO) D'Ran -> (LDO) Nam Ban Lâm Hà -> (LDO) Tân Hà Lâm Hà -> (LDO) Đinh Văn Lâm Hà -> Kho Chuyển Tiếp Đức Trọng",
         "ktc": "KTC Đức Trọng",
         "type": "Cố định",
         "cost_str": "1.631.034 đ",
