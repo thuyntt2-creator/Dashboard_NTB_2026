@@ -4867,6 +4867,8 @@ def showcase_slide():
 
 @app.route('/kich-ban')
 @app.route('/script')
+@app.route('/KICH_BAN_THUYET_TRINH_W43_NAM_TRUNG_BO.html')
+@app.route('/kich-ban-w43')
 @app.route('/KICH_BAN_THUYET_TRINH_W42_NAM_TRUNG_BO.html')
 @app.route('/kich-ban-w42')
 @app.route('/KICH_BAN_THUYET_TRINH_W41_NAM_TRUNG_BO.html')
@@ -4878,7 +4880,7 @@ def showcase_slide():
 def meeting_script_w38():
     root_dir = os.path.dirname(os.path.abspath(__file__))
     target_file = "KICH_BAN_THUYET_TRINH_W41_NAM_TRUNG_BO.html"
-    for f_cand in ["KICH_BAN_THUYET_TRINH_W42_NAM_TRUNG_BO.html", "KICH_BAN_THUYET_TRINH_W41_NAM_TRUNG_BO.html", "KICH_BAN_THUYET_TRINH_W40_NAM_TRUNG_BO.html", "KICH_BAN_THUYET_TRINH_W39_NAM_TRUNG_BO.html", "KICH_BAN_THUYET_TRINH_W38_NAM_TRUNG_BO.html"]:
+    for f_cand in ["KICH_BAN_THUYET_TRINH_W43_NAM_TRUNG_BO.html", "KICH_BAN_THUYET_TRINH_W42_NAM_TRUNG_BO.html", "KICH_BAN_THUYET_TRINH_W41_NAM_TRUNG_BO.html", "KICH_BAN_THUYET_TRINH_W40_NAM_TRUNG_BO.html", "KICH_BAN_THUYET_TRINH_W39_NAM_TRUNG_BO.html", "KICH_BAN_THUYET_TRINH_W38_NAM_TRUNG_BO.html"]:
         if os.path.exists(os.path.join(root_dir, f_cand)):
             target_file = f_cand
             break
@@ -4900,6 +4902,7 @@ def meeting_script():
 @app.route('/KICH_BAN_THUYET_TRINH_W40_NAM_TRUNG_BO.docx')
 @app.route('/KICH_BAN_CANH_BAO_BUU_CUC_W38_VS_W39.docx')
 @app.route('/KICH_BAN_THUYET_TRINH_MOI_NHAT.docx')
+@app.route('/KICH_BAN_THUYET_TRINH_W43_NAM_TRUNG_BO.docx')
 @app.route('/KICH_BAN_THUYET_TRINH_W42_NAM_TRUNG_BO.docx')
 @app.route('/KICH_BAN_THUYET_TRINH_W39_INSIGHT_CHUYEN_SAU_CHINH_SUA.docx')
 @app.route('/KICH_BAN_THUYET_TRINH_W39_INSIGHT_CHUYEN_SAU.docx')
@@ -4914,7 +4917,7 @@ def serve_meeting_assets():
     root_dir = os.path.dirname(os.path.abspath(__file__))
     req_file = request.path.lstrip('/')
     if req_file == 'download-doc':
-        for cand in ['KICH_BAN_THUYET_TRINH_W42_NAM_TRUNG_BO.docx', 'KICH_BAN_THUYET_TRINH_W41_NAM_TRUNG_BO.docx', 'KICH_BAN_THUYET_TRINH_W40_NAM_TRUNG_BO.docx', 'KICH_BAN_THUYET_TRINH_W39_NAM_TRUNG_BO.docx', 'KICH_BAN_THUYET_TRINH_W38_NAM_TRUNG_BO.docx']:
+        for cand in ['KICH_BAN_THUYET_TRINH_W43_NAM_TRUNG_BO.docx', 'KICH_BAN_THUYET_TRINH_W42_NAM_TRUNG_BO.docx', 'KICH_BAN_THUYET_TRINH_W41_NAM_TRUNG_BO.docx', 'KICH_BAN_THUYET_TRINH_W40_NAM_TRUNG_BO.docx', 'KICH_BAN_THUYET_TRINH_W39_NAM_TRUNG_BO.docx', 'KICH_BAN_THUYET_TRINH_W38_NAM_TRUNG_BO.docx']:
             if os.path.exists(os.path.join(root_dir, cand)):
                 req_file = cand
                 break

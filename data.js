@@ -11717,7 +11717,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 60,
-      "last_updated": "11:58 - 26/10/2026"
+      "last_updated": "12:29 - 26/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 2728.07,
@@ -11752,7 +11752,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 705.72,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 23
       },
       {
@@ -11778,7 +11778,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 259.63,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "NAK, Công Định",
+        "primary_ncc": "Công Định, NAK",
         "truck_count": 5
       },
       {
@@ -11791,7 +11791,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 200.17,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Trâm Hoá, Tốt và Rẻ",
+        "primary_ncc": "Tốt và Rẻ, Trâm Hoá",
         "truck_count": 7
       },
       {
@@ -11804,7 +11804,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 91.14,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 11
       },
       {
@@ -11833,7 +11833,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 36,
-        "active_ktcs": "KTC Bình Thuận, KTC Nam Nha Trang, KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Đức Trọng"
+        "active_ktcs": "KTC Đức Trọng, KTC Bình Thuận, KTC Bắc Nha Trang, KTC Khánh Hòa, KTC Nam Nha Trang"
       },
       {
         "ncc": "NAK",
@@ -11846,7 +11846,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 9,
-        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
+        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
       },
       {
         "ncc": "Công Định",
@@ -38942,8 +38942,8 @@ window.DASHBOARD_DATA = {
         "cost_str": "936.458 đ",
         "cost": 936458.4,
         "trips_equivalent": 1,
-        "trip_code": "",
-        "ontime": ""
+        "trip_code": "E261024AXW3AZF7",
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39392,8 +39392,8 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.449.493 đ",
         "cost": 1449493.1,
         "trips_equivalent": 1,
-        "trip_code": "",
-        "ontime": ""
+        "trip_code": "E2610241ZD5EH6Z",
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -39842,8 +39842,8 @@ window.DASHBOARD_DATA = {
         "cost_str": "969.022 đ",
         "cost": 969021.6,
         "trips_equivalent": 1,
-        "trip_code": "",
-        "ontime": ""
+        "trip_code": "E261024WS01HZ22",
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
@@ -42992,8 +42992,8 @@ window.DASHBOARD_DATA = {
         "cost_str": "996.794 đ",
         "cost": 996794.4,
         "trips_equivalent": 1,
-        "trip_code": "",
-        "ontime": ""
+        "trip_code": "E2610244J3ECCC6",
+        "ontime": "100,0%"
       },
       {
         "ncc": "Mạnh Cường",
