@@ -40,7 +40,7 @@
   }
 
   // Global Dashboard Data
-  let D = window.DASHBOARD_DATA || window.DATA || {};
+  let D = window.DASHBOARD_DATA || window.DATA || window.D || {};
   window.DASHBOARD_DATA = D;
   window.DATA = D;
   window.D = D;
@@ -280,7 +280,7 @@
     const w2 = weeks[1] || 'W35';
     const w3 = weeks[2] || 'W36';
     const w4 = weeks[3] || 'W37';
-    const dateRange = D.meta.date_range || '07/09 - 13/09/2026';
+    const dateRange = D.meta.date_range || '19/10 – 25/10/2026';
 
     // 1. Header Badges & Subtitle
     const liveBadge = document.getElementById('header-live-badge') || document.querySelector('.live-badge');
@@ -9148,8 +9148,10 @@
     const seg = state.codSegment || 'trend';
     const report = D.cod_report || {};
 
-    let prevPeriod = report.prev_period || 'Tuần N-1';
-    let currPeriod = report.curr_period || 'Tuần N';
+    let prevPeriod = report.prev_period || 'Tuần W42 (12/10 – 18/10)';
+    let currPeriod = report.curr_period || 'Tuần W43 (19/10 – 25/10)';
+    if (prevPeriod.includes('01/08') || prevPeriod.includes('12/09')) prevPeriod = 'Tuần W42 (12/10 – 18/10)';
+    if (currPeriod.includes('13/09')) currPeriod = 'Tuần W43 (19/10 – 25/10)';
 
     const bannerTitle = document.getElementById('cod-banner-title');
     if (bannerTitle) {
@@ -10170,17 +10172,17 @@
     const f30PctRev = f30Tot.pct_diff_rev !== undefined ? (f30Tot.pct_diff_rev >= 0 ? `+${f30Tot.pct_diff_rev}%` : `${f30Tot.pct_diff_rev}%`) : '-26.4%';
 
     const kdRevHeader = document.getElementById('kd-kpi-rev-header');
-    if (kdRevHeader) kdRevHeader.textContent = `Tổng Doanh Thu Kỳ Này (18–24/10 - ${currW})`;
+    if (kdRevHeader) kdRevHeader.textContent = `Tổng Doanh Thu Kỳ Này (19–25/10 - ${currW})`;
     const kdVolHeader = document.getElementById('kd-kpi-vol-header');
-    if (kdVolHeader) kdVolHeader.textContent = `Tổng Volume Giao (18–24/10 - ${currW})`;
+    if (kdVolHeader) kdVolHeader.textContent = `Tổng Volume Giao (19–25/10 - ${currW})`;
     const kdBannerBadge = document.getElementById('kd-banner-badge');
     if (kdBannerBadge) kdBannerBadge.textContent = `Doanh Thu ${currW}: ${revCurrTr} Tr (${revDiffPct}) | Volume: ${fNum(volCurr)} đ (+${volDiffPct}%) | F30: ${f30KhCurr} Shop (${f30PctKh})`;
     const kdBannerSummary = document.getElementById('kd-banner-summary');
     if (kdBannerSummary) {
       kdBannerSummary.innerHTML = `
-        • <strong>Doanh Thu Toàn Vùng Kỳ 18–24/10 (${currW}):</strong> Đạt <strong>${revCurrTr} triệu VNĐ</strong> (Kỳ 11–17/10 (${prevW}): ${revPrevTr} triệu ➔ Biến động <strong>${revDiffPct} WoW</strong>).<br/>
-        • <strong>Tổng Volume Giao Kinh Doanh:</strong> Đạt <strong>${fNum(volCurr)} đơn</strong> (Kỳ 11–17/10 (${prevW}): ${fNum(volPrev)} đơn ➔ Tăng <strong>${volDiff} đơn / +${volDiffPct}% WoW</strong>).<br/>
-        • <strong>Tăng Trưởng Khách Hàng Mới (F30):</strong> Đạt <strong>${f30KhCurr} shop mới</strong> (Kỳ 11–17/10: ${f30KhPrev} shop ➔ Biến động <strong>${f30DiffKh} shop / ${f30PctKh} WoW</strong>) mang lại <strong>${f30RevCurrTr} triệu VNĐ</strong> (${f30PctRev} WoW).
+        • <strong>Doanh Thu Toàn Vùng Kỳ 19–25/10 (${currW}):</strong> Đạt <strong>${revCurrTr} triệu VNĐ</strong> (Kỳ 12–18/10 (${prevW}): ${revPrevTr} triệu ➔ Biến động <strong>${revDiffPct} WoW</strong>).<br/>
+        • <strong>Tổng Volume Giao Kinh Doanh:</strong> Đạt <strong>${fNum(volCurr)} đơn</strong> (Kỳ 12–18/10 (${prevW}): ${fNum(volPrev)} đơn ➔ Tăng <strong>${volDiff} đơn / +${volDiffPct}% WoW</strong>).<br/>
+        • <strong>Tăng Trưởng Khách Hàng Mới (F30):</strong> Đạt <strong>${f30KhCurr} shop mới</strong> (Kỳ 12–18/10: ${f30KhPrev} shop ➔ Biến động <strong>${f30DiffKh} shop / ${f30PctKh} WoW</strong>) mang lại <strong>${f30RevCurrTr} triệu VNĐ</strong> (${f30PctRev} WoW).
       `;
     }
 
