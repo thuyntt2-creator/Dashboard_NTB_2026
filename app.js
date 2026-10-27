@@ -7864,6 +7864,8 @@
         }
       }
     });
+  }
+
   window.toggleAgingSpeech = function() {
     const el = document.getElementById('aging-speech-body');
     const btn = document.getElementById('aging-speech-toggle-btn');

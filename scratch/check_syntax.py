@@ -1,48 +1,51 @@
-import re
+import os
+from playwright.sync_api import sync_playwright
 
-with open('app.js', encoding='utf-8') as f:
-    text = f.read()
+test_html = """<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/acorn/8.11.3/acorn.min.js"></script>
+</head>
+<body>
+<script>
+window.testCode = function(code) {
+    try {
+        acorn.parse(code, {ecmaVersion: 2020});
+        return {status: 'OK'};
+    } catch (e) {
+        return {status: 'ERR', message: e.message, loc: e.loc};
+    }
+};
+</script>
+</body>
+</html>
+"""
 
-# Remove comments
-# 1. Block comments
-text = re.sub(r'/\*[\s\S]*?\*/', '', text)
-# 2. Line comments
-text = re.sub(r'//.*', '', text)
+os.makedirs("scratch", exist_ok=True)
+with open("scratch/test_acorn.html", "w", encoding="utf-8") as f:
+    f.write(test_html)
 
-stack = []
-in_str = None
-esc = False
-line = 1
+with open("app.js", "r", encoding="utf-8") as f:
+    code = f.read()
 
-for i, ch in enumerate(text):
-    if ch == '\n':
-        line += 1
-    if esc:
-        esc = False
-        continue
-    if ch == '\\':
-        esc = True
-        continue
-    if in_str:
-        if ch == in_str:
-            in_str = None
-        continue
-    if ch in ('"', "'", '`'):
-        in_str = ch
-        continue
-    if ch in ('(', '[', '{'):
-        stack.append((ch, line))
-    elif ch in (')', ']', '}'):
-        if not stack:
-            print(f"Error: unexpected {ch} at line {line}")
+with sync_playwright() as p:
+    browser = p.chromium.launch(headless=True)
+    page = browser.new_page()
+    url = "file:///" + os.path.abspath("scratch/test_acorn.html").replace("\\", "/")
+    page.goto(url)
+    
+    res = page.evaluate("code => window.testCode(code)", code)
+    print("Original:", res)
+    
+    # Check what if we add closing brace:
+    for extra in range(1, 5):
+        test_c = code.rstrip()
+        if test_c.endswith(")();"):
+            test_c = test_c[:-4] + ("}\n" * extra) + ")();"
+        res = page.evaluate("code => window.testCode(code)", test_c)
+        print(f"With {extra} extra braces:", res)
+        if res.get("status") == "OK":
+            print(f"SUCCESS with {extra} extra braces!")
             break
-        last, last_line = stack.pop()
-        matches = {')': '(', ']': '[', '}': '{'}
-        if matches[ch] != last:
-            print(f"Error: mismatched {ch} at line {line} with {last} from line {last_line}")
-            break
-else:
-    if stack:
-        print("Unclosed:", stack[-10:])
-    else:
-        print("PERFECT: All brackets and braces match 100%!")
+            
+    browser.close()

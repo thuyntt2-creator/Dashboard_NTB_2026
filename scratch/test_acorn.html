@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/acorn/8.11.3/acorn.min.js"></script>
+</head>
+<body>
+<script>
+window.testCode = function(code) {
+    try {
+        acorn.parse(code, {ecmaVersion: 2020});
+        return {status: 'OK'};
+    } catch (e) {
+        return {status: 'ERR', message: e.message, loc: e.loc};
+    }
+};
+</script>
+</body>
+</html>
