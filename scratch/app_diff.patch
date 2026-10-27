@@ -1,0 +1,1540 @@
+diff --git a/app.js b/app.js
+index 98813d23..596ce2bd 100644
+--- a/app.js
++++ b/app.js
+@@ -61,7 +61,8 @@
+   const charts = {
+     tinhVol4Weeks: null,
+     tinhGtc4Weeks: null,
+-    tinhOdr4Weeks: null,};
++    tinhOdr4Weeks: null,
++    agingCustomer: null,};
+ 
+   // App State - LIGHT THEME BY DEFAULT & 12 DEDICATED SECTIONS
+   const state = {
+@@ -321,11 +322,30 @@
+       const volTtsPct = volTts.diff_pct !== undefined ? (volTts.diff_pct > 0 ? `+${(volTts.diff_pct * 100).toFixed(1)}%` : `${(volTts.diff_pct * 100).toFixed(1)}%`) : '';
+ 
+       ovBannerSummary.innerHTML = `
+-        • <strong>Sản lượng Giao Full Hàng:</strong> Đạt <strong>${(volFull.val || 311503).toLocaleString('vi-VN')} đơn</strong> (Tuần ${currW} (${dateRange}), ${volFullDiff} đơn / ${volFullPct} WoW so với ${prevW}).<br>
+-        • <strong>Sản lượng TikTok Shop (TTS):</strong> Đạt <strong>${(volTts.val || 72253).toLocaleString('vi-VN')} đơn</strong> (${volTtsDiff} đơn / ${volTtsPct} WoW so với ${prevW}), chiếm ${ttsShare} tổng sản lượng toàn vùng.<br>
+-        • <strong>Chất lượng vận hành bứt phá:</strong> %ODR Full đạt <strong>${odrFull.val ? (odrFull.val * 100).toFixed(1) + '%' : '93.1%'}</strong>, %LTC đạt <strong>${ltcFull.val ? (ltcFull.val * 100).toFixed(1) + '%' : '91.4%'}</strong>. Tỷ lệ Rớt LC <strong>${rotLc.val ? (rotLc.val * 100).toFixed(2) + '%' : '1.69%'}</strong>. Tỷ lệ %FD Hoàn Trả <strong>${fdRate}</strong>.<br>
+-        • <strong>Chỉ số %GTC:</strong> Full hàng đạt <strong>${gtcFull.val ? (gtcFull.val * 100).toFixed(1) + '%' : '60.9%'}</strong>, TTS đạt <strong>${gtcTts.val ? (gtcTts.val * 100).toFixed(1) + '%' : '63.4%'}</strong> — Hoàn thành xuất sắc mục tiêu GTC ≥ 60%!
+-      `;
++      <div class="banner-pill-grid">
++        <div class="banner-pill pill-cyan">
++          <div class="pill-icon">📦</div>
++          <div class="pill-content">
++            <span class="pill-label">SẢN LƯỢNG GIAO FULL HÀNG</span>
++            <div class="pill-val">${(volFull.val || 337027).toLocaleString('vi-VN')} đ <span class="pill-sub red">${volFullDiff} đ / ${volFullPct} WoW</span></div>
++          </div>
++        </div>
++        <div class="banner-pill pill-emerald">
++          <div class="pill-icon">🎯</div>
++          <div class="pill-content">
++            <span class="pill-label">%GTC TỔNG TOÀN VÙNG</span>
++            <div class="pill-val">${gtcFull.val ? (gtcFull.val * 100).toFixed(2) + '%' : '62.86%'} <span class="pill-sub green">▲ +2.44%p (Vượt Chuẩn ≥ 62.0%)</span></div>
++          </div>
++        </div>
++        <div class="banner-pill pill-violet">
++          <div class="pill-icon">⚡</div>
++          <div class="pill-content">
++            <span class="pill-label">CHẤT LƯỢNG DỊCH VỤ VẬN HÀNH</span>
++            <div class="pill-val">ODR ${odrFull.val ? (odrFull.val * 100).toFixed(2) + '%' : '93.38%'} &nbsp;|&nbsp; LTC ${ltcFull.val ? (ltcFull.val * 100).toFixed(2) + '%' : '92.08%'}</div>
++          </div>
++        </div>
++      </div>
++    `;
+     }
+ 
+     const ovBannerActions = document.querySelector('#tab-overview .exec-banner-actions span');
+@@ -357,7 +377,7 @@
+ 
+     // 4. Tab 2: Sản Lượng
+     const volChartTitle = document.getElementById('chart-vol-am-title');
+-    if (volChartTitle) volChartTitle.textContent = `SẢN LƯỢNG GIAO 20 AM (CỘT ${prevW} vs ${currW} + ĐƯỜNG BIẾN ĐỘNG Δ)`;
++    if (volChartTitle) volChartTitle.textContent = `SẢN LƯỢNG GIAO 19 AM (CỘT ${prevW} vs ${currW} + ĐƯỜNG BIẾN ĐỘNG Δ)`;
+     const btnVolFull = document.querySelector('[data-mode="w34_vs_w35_full"]');
+     if (btnVolFull) btnVolFull.textContent = `📊 Sản Lượng Full Hàng (Cột ${prevW} vs ${currW} + Đường Line Δ)`;
+     const btnVolTts = document.querySelector('[data-mode="w34_vs_w35_tts"]');
+@@ -398,7 +418,7 @@
+ 
+     // 5. Tab 3: %GTC Tổng
+     const gtcTitle = document.getElementById('chart-gtc-tong-title');
+-    if (gtcTitle) gtcTitle.textContent = `BIỂU ĐỒ SO SÁNH %GTC TỔNG ${prevW} vs ${currW} THEO 20 AM (FULL HÀNG)`;
++    if (gtcTitle) gtcTitle.textContent = `BIỂU ĐỒ SO SÁNH %GTC TỔNG ${prevW} vs ${currW} THEO 19 AM (FULL HÀNG)`;
+     const thGtcFullPrev = document.querySelector('#table-gtc-full-detailed thead th:nth-child(4)');
+     const thGtcFullCurr = document.querySelector('#table-gtc-full-detailed thead th:nth-child(5)');
+     if (thGtcFullPrev) thGtcFullPrev.textContent = prevW;
+@@ -592,15 +612,15 @@
+       } else if (t.includes('TỔNG QUAN VÙNG NTB — TỶ LỆ % GÁN')) {
+         el.innerHTML = `<i data-lucide="layout-grid" style="color: var(--ghn-orange);"></i> TỔNG QUAN VÙNG NTB — TỶ LỆ % GÁN (4 TUẦN ${w1} – ${currW})`;
+       } else if (t.includes('PHÂN TÍCH SẢN LƯỢNG GIAO TOÀN VÙNG, 5 TỈNH THÀNH')) {
+-        el.textContent = `PHÂN TÍCH SẢN LƯỢNG GIAO TOÀN VÙNG, 5 TỈNH THÀNH & 20 AM (${currW})`;
++        el.textContent = `PHÂN TÍCH SẢN LƯỢNG GIAO TOÀN VÙNG, 5 TỈNH THÀNH & 19 AM (${currW})`;
+       } else if (t.includes('PHÂN TÍCH HIỆU SUẤT %GTC TỔNG TOÀN MẠNG')) {
+-        el.textContent = `PHÂN TÍCH HIỆU SUẤT %GTC TỔNG TOÀN MẠNG THEO 20 AM & 5 TỈNH (${currW})`;
++        el.textContent = `PHÂN TÍCH HIỆU SUẤT %GTC TỔNG TOÀN MẠNG THEO 19 AM & 5 TỈNH (${currW})`;
+       } else if (t.includes('PHÂN TÍCH CHUYÊN SÂU %GTC CA 1 TIKTOK SHOP')) {
+         el.textContent = `PHÂN TÍCH CHUYÊN SÂU %GTC CA 1 TIKTOK SHOP (TARGET SLA ≥ 76.0%) (${currW})`;
+-      } else if (t.includes('SO SÁNH TỶ LỆ GÁN 20 AM:')) {
+-        el.textContent = `SO SÁNH TỶ LỆ GÁN 20 AM: % GÁN CA 1+TỒN vs % GÁN CA 2 vs % GÁN TỔNG (${currW})`;
+-      } else if (t.includes('% RỚT LUÂN CHUYỂN THEO 20 AM PHỤ TRÁCH')) {
+-        el.textContent = `% RỚT LUÂN CHUYỂN THEO 20 AM PHỤ TRÁCH (${currW})`;
++      } else if (t.includes('SO SÁNH TỶ LỆ GÁN 19 AM:')) {
++        el.textContent = `SO SÁNH TỶ LỆ GÁN 19 AM: % GÁN CA 1+TỒN vs % GÁN CA 2 vs % GÁN TỔNG (${currW})`;
++      } else if (t.includes('% RỚT LUÂN CHUYỂN THEO 19 AM PHỤ TRÁCH')) {
++        el.textContent = `% RỚT LUÂN CHUYỂN THEO 19 AM PHỤ TRÁCH (${currW})`;
+       } else if (t.includes('DANH SÁCH TOP 20 BƯU CỤC CÓ TỶ LỆ RỚT LUÂN CHUYỂN CAO NHẤT')) {
+         el.textContent = `DANH SÁCH TOP 20 BƯU CỤC CÓ TỶ LỆ RỚT LUÂN CHUYỂN CAO NHẤT (${currW})`;
+       } else if (t.includes('BÁO CÁO TỶ LỆ %FD (RETURN / HOÀN TRẢ)')) {
+@@ -647,7 +667,7 @@
+     if (gtcSummary) {
+       const gFDiffP = ((gFCard?.diff || 0.0244) * 100).toFixed(2);
+       const gTDiffP = ((gTCard?.diff || 0.0165) * 100).toFixed(2);
+-      gtcSummary.innerHTML = `• <strong>%GTC Tổng Toàn Vùng (${currW}):</strong> Full hàng đạt <strong>${(gFVal * 100).toFixed(2)}%</strong> (${gFDiffP >= 0 ? '+' : ''}${gFDiffP}%p WoW so với ${prevW}) và TTS đạt <strong>${(gTVal * 100).toFixed(2)}%</strong> (${gTDiffP >= 0 ? '+' : ''}${gTDiffP}%p WoW) — <strong style="color:#10b981;">Bứt phá mạnh vượt ngưỡng cam kết Target ≥ 60.0%</strong>!<br>• <strong>Đánh Giá:</strong> Cả 5 tỉnh và 20 AM đều cải thiện rõ rệt sau khi sản lượng giao hạ nhiệt sau tuần 10.10.`;
++      gtcSummary.innerHTML = `• <strong>%GTC Tổng Toàn Vùng (${currW}):</strong> Full hàng đạt <strong>${(gFVal * 100).toFixed(2)}%</strong> (${gFDiffP >= 0 ? '+' : ''}${gFDiffP}%p WoW so với ${prevW}) và TTS đạt <strong>${(gTVal * 100).toFixed(2)}%</strong> (${gTDiffP >= 0 ? '+' : ''}${gTDiffP}%p WoW) — <strong style="color:#10b981;">Bứt phá mạnh vượt ngưỡng cam kết Target ≥ 60.0%</strong>!<br>• <strong>Đánh Giá:</strong> Cả 5 tỉnh và 19 AM đều cải thiện rõ rệt sau khi sản lượng giao hạ nhiệt sau tuần 10.10.`;
+     }
+ 
+     // Dynamic GTC TTS Ca 1 Banner
+@@ -704,7 +724,7 @@
+     }
+     const ltcTitle = document.getElementById('banner-ltc-title');
+     if (ltcTitle) {
+-      ltcTitle.textContent = `PHÂN TÍCH CHỈ SỐ %LTC (LẤY THÀNH CÔNG) THEO 20 AM & 5 TỈNH (TARGET ≥ 90.0%) (${currW})`;
++      ltcTitle.textContent = `PHÂN TÍCH CHỈ SỐ %LTC (LẤY THÀNH CÔNG) THEO 19 AM & 5 TỈNH (TARGET ≥ 90.0%) (${currW})`;
+     }
+     const ltcSummary = document.getElementById('banner-ltc-summary');
+     if (ltcSummary) {
+@@ -745,7 +765,31 @@
+     // Dynamic Overview Summary
+     const ovSummary = document.getElementById('banner-overview-summary');
+     if (ovSummary) {
+-      ovSummary.innerHTML = `• <strong>Sản lượng Giao Full Hàng:</strong> Đạt <strong>${vFull.toLocaleString('vi-VN')} đơn</strong> (Tuần ${currW} ${dateRange}, giảm -43,427 đơn / -11.41% WoW so với ${prevW}: 380,455 đơn sau sóng Mega Sale 10.10).<br>• <strong>%GTC Tổng Toàn Vùng:</strong> Đạt <strong>${(gFVal * 100).toFixed(2)}%</strong> (+2.44%p WoW) — Bứt phá mạnh vượt mốc cam kết danh dự 62.0%.<br>• <strong>Chất lượng Dịch vụ (ODR & LTC):</strong> %ODR Full đạt <strong>${(oFVal * 100).toFixed(2)}%</strong> (vượt chuẩn SLA ≥ 92.0%); %LTC Full đạt <strong>${(lFVal * 100).toFixed(2)}%</strong> (vượt chuẩn Target ≥ 90.0%).`;
++      ovSummary.innerHTML = `
++      <div class="banner-pill-grid">
++        <div class="banner-pill pill-cyan">
++          <div class="pill-icon">📦</div>
++          <div class="pill-content">
++            <span class="pill-label">SẢN LƯỢNG GIAO FULL HÀNG</span>
++            <div class="pill-val">${vFull.toLocaleString('vi-VN')} đ <span class="pill-sub red">▼ -11.41% WoW (-43,427 đ sau Mega 10.10)</span></div>
++          </div>
++        </div>
++        <div class="banner-pill pill-emerald">
++          <div class="pill-icon">🎯</div>
++          <div class="pill-content">
++            <span class="pill-label">%GTC TỔNG TOÀN VÙNG</span>
++            <div class="pill-val">${(gFVal * 100).toFixed(2)}% <span class="pill-sub green">▲ +2.44%p (Vượt Cam Kết Danh Dự ≥ 62.0%)</span></div>
++          </div>
++        </div>
++        <div class="banner-pill pill-violet">
++          <div class="pill-icon">⚡</div>
++          <div class="pill-content">
++            <span class="pill-label">CHẤT LƯỢNG DỊCH VỤ VẬN HÀNH</span>
++            <div class="pill-val">ODR ${(oFVal * 100).toFixed(2)}% <span class="pill-sub green">▲ +1.41%p</span> &nbsp;|&nbsp; LTC ${(lFVal * 100).toFixed(2)}% <span class="pill-sub green">▲ +1.30%p</span></div>
++          </div>
++        </div>
++      </div>
++    `;
+     }
+     const ovSubtitle = document.querySelector('#table-overview-kpi-data')?.closest('.report-card')?.querySelector('.report-card-tools span');
+     if (ovSubtitle) {
+@@ -778,7 +822,7 @@
+ 
+   function populateAMFilter() {
+     if (!D.gtc_tong || !D.gtc_tong.am) return;
+-    selectAM.innerHTML = '<option value="ALL" selected>Tất cả AM (20 AM)</option>';
++    selectAM.innerHTML = '<option value="ALL" selected>Tất cả AM (19 AM)</option>';
+     D.gtc_tong.am.forEach(item => {
+       const opt = document.createElement('option');
+       opt.value = item.am;
+@@ -1030,6 +1074,7 @@
+         const targetId = tab.getAttribute('data-tab');
+         const targetView = document.getElementById(targetId);
+         if (targetView) targetView.classList.add('active');
++        if (window.lucide) lucide.createIcons();
+ 
+         // Move GHN Express Delivery Truck to this tab!
+         updateGhnTruckPosition(tab);
+@@ -1119,6 +1164,20 @@
+ 
+     btnMeeting.addEventListener('click', toggleMeetingMode);
+ 
++    // Switch to Tab Kich Ban when clicking Header button
++    const btnHeaderKichban = document.getElementById('btn-header-kichban');
++    if (btnHeaderKichban) {
++      btnHeaderKichban.addEventListener('click', (e) => {
++        e.preventDefault();
++        const tabKichBan = document.querySelector('button[data-tab="tab-kichban"]');
++        if (tabKichBan) {
++          tabKichBan.click();
++          tabKichBan.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
++        }
++      });
++    }
++
++
+     // Volume Table Mode Pills (Split vs Full Only vs TTS Only)
+     const volTableModePills = document.querySelectorAll('#vol-table-mode-pills .chart-mode-pill');
+     volTableModePills.forEach(pill => {
+@@ -1530,6 +1589,7 @@
+       renderAgingTab();
+       renderAgingChart();
+     try { renderAgingDonutChart(); } catch(e) {}
++    try { renderAgingCustomerChart(); } catch(e) {}
+     try { renderAgingProgressChart(); } catch(e) {}
+     } else if (tabId === 'tab-commercial') {
+       renderCommercialTab();
+@@ -1602,6 +1662,10 @@
+       const ganDiff = ganFullRow.diff !== undefined ? ganFullRow.diff : 0.0144;
+       const ganTtsVal = ganTtsRow[latestWeek.toLowerCase()] !== undefined ? ganTtsRow[latestWeek.toLowerCase()] : (ganTtsRow.w37 || ganTtsRow.w36 || 0.8343);
+       const ganTtsDiff = ganTtsRow.diff !== undefined ? ganTtsRow.diff : 0.0142;
++      const ganCa1Row = ganOverview.find(r => r.indicator && r.indicator.includes('Full hàng – Ca1 + Tồn')) || {};
++      const ganCa2Row = ganOverview.find(r => r.indicator && r.indicator.includes('Full hàng – Ca2')) || {};
++      const ganCa1Val = ganCa1Row[latestWeek.toLowerCase()] !== undefined ? ganCa1Row[latestWeek.toLowerCase()] : 0.9370;
++      const ganCa2Val = ganCa2Row[latestWeek.toLowerCase()] !== undefined ? ganCa2Row[latestWeek.toLowerCase()] : 0.6357;
+ 
+                   // 5. ODR
+       const odrOverview = D.odr?.overview || [];
+@@ -1720,7 +1784,7 @@
+           title: `Tỷ Lệ Gán Vận Hành (${latestWeek})`,
+           mainVal: fPct(ganVal),
+           mainUnit: `Full Hàng (${ganDiff >= 0 ? '▲ +' : '▼ '}${(Math.abs(ganDiff)*100).toFixed(1)}%p)`,
+-          subVal: `Ca 1+Tồn: 89.1% · Ca 2: 57.7% | TTS: ${fPct(ganTtsVal)}`, 
++          subVal: `Ca 1+Tồn: ${fPct(ganCa1Val)} · Ca 2: ${fPct(ganCa2Val)} | TTS: ${fPct(ganTtsVal)}`, 
+           diff: ganDiff,
+           isHigherBetter: true,
+           colorCls: 'kpi-purple',
+@@ -1780,6 +1844,17 @@
+           isHigherBetter: true,
+           colorCls: 'kpi-amber',
+           icon: 'shopping-bag'
++        },
++        {
++          id: 'truythu_pair',
++          title: `Truy Thu (${latestWeek})`,
++          mainVal: `${((D.truy_thu_report?.summary?.can_thu_curr || 241649125) / 1e6).toFixed(1)} Tr ₫`,
++          mainUnit: `Cần Thu (${(D.truy_thu_report?.summary?.diff_can_thu || 155389854) >= 0 ? '▲ +' : '▼ '}${Math.abs((D.truy_thu_report?.summary?.diff_can_thu || 155389854) / 1e6).toFixed(1)} Tr)`,
++          subVal: `${fNum(D.truy_thu_report?.summary?.total_records_curr || 1889)} Ticket | ${prevWeek}: ${((D.truy_thu_report?.summary?.can_thu_prev || 86259271) / 1e6).toFixed(1)} Tr`,
++          diff: (D.truy_thu_report?.summary?.can_thu_prev ? ((D.truy_thu_report?.summary?.diff_can_thu || 0) / D.truy_thu_report.summary.can_thu_prev) : 1.801),
++          isHigherBetter: false,
++          colorCls: 'kpi-red',
++          icon: 'shield-alert'
+         }
+       ];
+ 
+@@ -2688,7 +2763,7 @@
+     const ttsMap = {};
+     amTtsList.forEach(t => ttsMap[t.am] = t);
+ 
+-    // Master 20 AM dataset combining accurate Full and TTS figures
++    // Master 19 AM dataset combining accurate Full and TTS figures
+     let list = amFullList.map(r => {
+       const tts = ttsMap[r.am] || {};
+       const volFullCurr = r[currKey] !== undefined ? r[currKey] : (r.w35 || r.vol || 0);
+@@ -2919,12 +2994,12 @@
+     if (seg === 'full' && btnFull) {
+       btnFull.classList.add('btn-primary', 'active');
+       btnFull.classList.remove('btn-secondary');
+-      if (titleEl) titleEl.textContent = `BIỂU ĐỒ SO SÁNH %GTC TỔNG ${prevLabel} vs ${currLabel} THEO 20 AM (FULL HÀNG)`;
++      if (titleEl) titleEl.textContent = `BIỂU ĐỒ SO SÁNH %GTC TỔNG ${prevLabel} vs ${currLabel} THEO 19 AM (FULL HÀNG)`;
+       if (badgeEl) { badgeEl.textContent = 'Full Hàng'; badgeEl.className = 'badge-tag badge-tag-blue'; }
+     } else if (seg === 'tts' && btnTts) {
+       btnTts.classList.add('btn-primary', 'active');
+       btnTts.classList.remove('btn-secondary');
+-      if (titleEl) titleEl.textContent = `BIỂU ĐỒ SO SÁNH %GTC TỔNG ${prevLabel} vs ${currLabel} THEO 20 AM (TIKTOK SHOP)`;
++      if (titleEl) titleEl.textContent = `BIỂU ĐỒ SO SÁNH %GTC TỔNG ${prevLabel} vs ${currLabel} THEO 19 AM (TIKTOK SHOP)`;
+       if (badgeEl) { badgeEl.textContent = 'TikTok Shop (TTS)'; badgeEl.className = 'badge-tag badge-tag-green'; }
+     } else if (seg === 'compare' && btnCompare) {
+       btnCompare.classList.add('btn-primary', 'active');
+@@ -3065,10 +3140,16 @@
+ 
+       const filterMode = state.gtcBatOnFilter || 'warn';
+       if (filterMode === 'warn') {
+-        // Chỉ lọc đúng 7 bưu cục rơi vào Nhóm Cảnh Báo theo chuẩn (%GTC 7d < 45% HOẶC So sánh đỉnh < 70%)
+-        listBatOn = listBatOn.filter(r => r.gtc_7d < 45.0 || r.ratio < 70.0 || r.trang_thai === 'Nằm TOP Bất ổn');
+-      } else {
+-        // 'all': Hiển thị toàn bộ 86 bưu cục NTB
++        // LẤY HẾT TẤT CẢ CÁC NHÓM TRỪ NHÓM BÌNH THƯỜNG (theo chỉ đạo điều hành NTB)
++        listBatOn = listBatOn.filter(r => r.trang_thai && r.trang_thai.trim().toLowerCase() !== 'bình thường');
++      } else if (filterMode === 'top_bat_on') {
++        listBatOn = listBatOn.filter(r => r.trang_thai === 'Nằm TOP Bất ổn');
++      } else if (filterMode === 'n1_50') {
++        listBatOn = listBatOn.filter(r => r.trang_thai === 'GTC N-1 < 50%');
++      } else if (filterMode === 'nhay_nhom') {
++        listBatOn = listBatOn.filter(r => r.trang_thai === 'Chuẩn bị nhảy nhóm');
++      } else if (filterMode === 'cap_canh_bao') {
++        listBatOn = listBatOn.filter(r => r.trang_thai === 'Cấp cảnh báo');
+       }
+ 
+       // Search filtering
+@@ -3082,8 +3163,8 @@
+ 
+       const warnPill = document.querySelector('#gtc-baton-filter-pills [data-filter="warn"]');
+       if (warnPill) {
+-        const warnCount = (D.gtc_tong.buu_cuc_bat_on || []).filter(r => r.gtc_7d < 45.0 || r.ratio < 70.0 || r.trang_thai === 'Nằm TOP Bất Ổn').length;
+-        warnPill.textContent = `🚨 Nhóm Cảnh Báo Bất Ổn (${warnCount} BC)`;
++        const warnCount = (D.gtc_tong.buu_cuc_bat_on || []).filter(r => r.trang_thai && r.trang_thai.trim().toLowerCase() !== 'bình thường').length;
++        warnPill.textContent = `🚨 Nhóm Cảnh Báo / Bất Ổn (${warnCount} BC)`;
+       }
+       const allPill = document.querySelector('#gtc-baton-filter-pills [data-filter="all"]');
+       if (allPill && D.gtc_tong.buu_cuc_bat_on) {
+@@ -3099,20 +3180,28 @@
+         const isN1Low = row.d11_val > 0 && row.d11_val < 50.0;
+         const isSelected = state.selectedAM === row.am;
+ 
+-        // Trạng thái badge theo chuẩn điều hành (%GTC 7d < 45% hoặc Tỷ lệ đỉnh < 70%)
+-        const isWarned = isRed || isRatioLow || row.trang_thai === 'Nằm TOP Bất ổn';
+-        let statusBadge = '<span class="badge-tag badge-tag-green" style="font-size:11.5px; font-weight:700;">🟢 Bình thường</span>';
+-        let causeBadge = '<span style="color:#64748b; font-size:11.5px;">Bình thường</span>';
+-
+-        if (isWarned) {
+-          statusBadge = '<span class="badge-tag badge-tag-red" style="font-weight:800; font-size:11.5px;">🔴 Bất ổn</span>';
+-          if (isRed && isRatioLow) {
+-            causeBadge = '<span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC &lt; 45% &amp; Đỉnh &lt; 70%</span>';
+-          } else if (isRed) {
+-            causeBadge = '<span class="bold" style="color:#dc2626; font-size:11px; font-weight:800;">🔴 GTC 7N &lt; 45%</span>';
+-          } else {
+-            causeBadge = '<span class="bold" style="color:#ea580c; font-size:11px; font-weight:800;">📉 Rơi Phong Độ (&lt;70%)</span>';
+-          }
++        const tt = (row.trang_thai || '').trim();
++        let statusBadge = '';
++        if (tt === 'Nằm TOP Bất ổn') {
++          statusBadge = '<span class="badge-tag badge-tag-red" style="font-weight:800; font-size:11.5px; background:#fee2e2; color:#dc2626; border:1px solid #fca5a5;">🔴 Nằm TOP Bất ổn</span>';
++        } else if (tt === 'GTC N-1 < 50%') {
++          statusBadge = '<span class="badge-tag badge-tag-amber" style="font-weight:800; font-size:11.5px; background:#fef3c7; color:#b45309; border:1px solid #fde68a;">⚠️ GTC N-1 &lt; 50%</span>';
++        } else if (tt === 'Chuẩn bị nhảy nhóm') {
++          statusBadge = '<span class="badge-tag badge-tag-blue" style="font-weight:800; font-size:11.5px; background:#eff6ff; color:#1d4ed8; border:1px solid #bfdbfe;">⚡ Chuẩn Bị Nhảy Nhóm</span>';
++        } else if (tt === 'Cấp cảnh báo') {
++          statusBadge = '<span class="badge-tag badge-tag-orange" style="font-weight:800; font-size:11.5px; background:#ffedd5; color:#c2410c; border:1px solid #fed7aa;">📢 Cấp Cảnh Báo</span>';
++        } else {
++          statusBadge = '<span class="badge-tag badge-tag-green" style="font-size:11.5px; font-weight:700;">🟢 Bình thường</span>';
++        }
++
++        const nn = (row.nguyen_nhan || '').trim();
++        let causeBadge = '';
++        if (nn.includes('< 45%')) {
++          causeBadge = '<span class="bold" style="color:#dc2626; font-size:11.5px; font-weight:800;">🔴 GTC &lt; 45%</span>';
++        } else if (nn === 'Bình thường' || !nn) {
++          causeBadge = `<span style="color:#64748b; font-size:11.5px;">${tt !== 'Bình thường' ? tt : 'Bình thường'}</span>`;
++        } else {
++          causeBadge = `<span class="bold" style="color:#ea580c; font-size:11.5px;">${nn}</span>`;
+         }
+ 
+         const isTtsOff = row.ten_bc && (row.ten_bc.includes('Đơn Dương') || row.ten_bc.includes('Tân Hà') || row.ten_bc.includes('Lang Biang - Đà Lạt 1'));
+@@ -3155,7 +3244,7 @@
+       return '<span class="badge-tag badge-tag-red">🔴 Chưa Đạt (&lt;50%)</span>';
+     }
+ 
+-    // 1. BẢNG 1A: %GTC FULL HÀNG (20 AM)
++    // 1. BẢNG 1A: %GTC FULL HÀNG (19 AM)
+     const tblBodyFull = document.querySelector('#table-gtc-full-detailed tbody');
+     if (tblBodyFull) {
+       const latestKey = D.meta?.latest_week ? D.meta.latest_week.toLowerCase() : 'w37';
+@@ -3199,7 +3288,7 @@
+       }).join('');
+     }
+ 
+-    // 2. BẢNG 1B: %GTC TIKTOK SHOP (20 AM)
++    // 2. BẢNG 1B: %GTC TIKTOK SHOP (19 AM)
+     const tblBodyTTS = document.querySelector('#table-gtc-tts-detailed tbody');
+     if (tblBodyTTS) {
+       const latestKey = D.meta?.latest_week ? D.meta.latest_week.toLowerCase() : 'w37';
+@@ -3334,16 +3423,48 @@
+   // --------------------------------------------------------------------------
+   state.searchBcCanhBao = '';
+ 
++  window.syncBcCanhBaoRealtime = async function() {
++    const btn = document.getElementById('btn-sync-bc-canhbao-realtime');
++    const txt = document.getElementById('text-sync-bc-canhbao');
++    if (btn) btn.disabled = true;
++    if (txt) txt.textContent = 'Đang đồng bộ...';
++
++    try {
++      const res = await fetch('/api/sync-bc-canh-bao');
++      const data = await res.json();
++      if (data.success && data.records) {
++        D.bc_canh_bao = data.records;
++        if (!D.bc_canh_bao_meta) D.bc_canh_bao_meta = {};
++        D.bc_canh_bao_meta.update_time = data.update_time;
++        renderBcCanhBaoTable();
++        alert(`✅ ${data.message}\nCập nhật lúc: ${data.update_time}`);
++      } else {
++        alert('❌ Lỗi đồng bộ: ' + (data.error || 'Thất bại'));
++      }
++    } catch (err) {
++      console.error('syncBcCanhBaoRealtime error:', err);
++      alert('❌ Lỗi kết nối API: ' + err.message);
++    } finally {
++      if (btn) btn.disabled = false;
++      if (txt) txt.textContent = '🔄 Đồng Bộ Realtime Google Sheets';
++      if (window.lucide) lucide.createIcons();
++    }
++  };
++
+   function renderBcCanhBaoTable() {
+     window.renderBcCanhBaoTable = renderBcCanhBaoTable;
+     const tblBodies = document.querySelectorAll('.table-bc-canh-bao-body, #table-bc-canh-bao tbody, #table-bc-canh-bao-overview tbody, #table-bc-canhbao-tab tbody');
+     if (!tblBodies || tblBodies.length === 0) return;
+     const raw = D.bc_canh_bao || [];
+-    document.querySelectorAll('.badge-tag-red').forEach(el => {
++    document.querySelectorAll('.badge-tag-red, #badge-bc-canhbao-count').forEach(el => {
+       if (el.textContent && el.textContent.includes('Bưu Cục Cảnh Báo')) {
+         el.textContent = `🚨 ${raw.length} Bưu Cục Cảnh Báo`;
+       }
+     });
++    const timeEl = document.getElementById('text-bc-canhbao-update-time');
++    if (timeEl && D.bc_canh_bao_meta && D.bc_canh_bao_meta.update_time) {
++      timeEl.textContent = `📅 Dữ liệu: ${D.bc_canh_bao_meta.update_time} (Realtime từ Google Sheets)`;
++    }
+     let list = [...raw];
+     if (state.searchBcCanhBao) {
+       const q = state.searchBcCanhBao.toLowerCase();
+@@ -3421,13 +3542,21 @@
+     const badgeEl = document.getElementById('gtc-tinh-summary-badge');
+     if (badgeEl) {
+       const curW = weekLabels[3] || 'W43';
++      const gFCard = D.overview?.cards?.find(c => c.id === 'gtc_full');
++      const gTCard = D.overview?.cards?.find(c => c.id === 'gtc_tts');
++      const gFVal = gFCard?.val || 0.6286;
++      const gFDiff = gFCard?.diff || 0.0244;
++      const gTVal = gTCard?.val || 0.6449;
++      const gTDiff = gTCard?.diff || 0.0165;
+       if (isTTS) {
+-        badgeEl.innerHTML = `🛒 TikTok Shop ${curW}: <strong>62,83%</strong> (-0,72%p WoW — Vượt Target)`;
++        const sign = gTDiff >= 0 ? '+' : '';
++        badgeEl.innerHTML = `⚡ TikTok Shop ${curW}: <strong>${(gTVal * 100).toFixed(2)}%</strong> (${sign}${(gTDiff * 100).toFixed(2)}%p WoW — Vượt Target 60.0%)`;
+         badgeEl.style.color = '#ea580c';
+         badgeEl.style.background = '#fff7ed';
+         badgeEl.style.borderColor = 'rgba(234, 88, 12, 0.3)';
+       } else {
+-        badgeEl.innerHTML = `🎯 Toàn vùng ${curW}: <strong>60,42%</strong> (-0,82%p WoW — Vượt Target)`;
++        const sign = gFDiff >= 0 ? '+' : '';
++        badgeEl.innerHTML = `⚡ Toàn vùng ${curW}: <strong>${(gFVal * 100).toFixed(2)}%</strong> (${sign}${(gFDiff * 100).toFixed(2)}%p WoW — Vượt Target 60.0%)`;
+         badgeEl.style.color = '#2563eb';
+         badgeEl.style.background = '#dbeafe';
+         badgeEl.style.borderColor = 'rgba(37, 99, 235, 0.3)';
+@@ -4894,7 +5023,7 @@
+       return '<span class="badge-tag badge-tag-red">🔴 Chưa Đạt (&lt;92%)</span>';
+     }
+ 
+-    // 1. BẢNG 1A: %ODR FULL HÀNG (20 AM)
++    // 1. BẢNG 1A: %ODR FULL HÀNG (19 AM)
+     const tblBodyFull = document.querySelector('#table-odr-full-detailed tbody');
+     if (tblBodyFull) {
+       const latestKey = D.meta?.latest_week ? D.meta.latest_week.toLowerCase() : 'w37';
+@@ -4938,7 +5067,7 @@
+       }).join('');
+     }
+ 
+-    // 2. BẢNG 1B: %ODR TIKTOK SHOP (20 AM)
++    // 2. BẢNG 1B: %ODR TIKTOK SHOP (19 AM)
+     const tblBodyTTS = document.querySelector('#table-odr-tts-detailed tbody');
+     if (tblBodyTTS) {
+       const latestKey = D.meta?.latest_week ? D.meta.latest_week.toLowerCase() : 'w37';
+@@ -5403,7 +5532,7 @@
+     if (titleChart) {
+       titleChart.textContent = seg === 'compare'
+         ? `BIỂU ĐỒ SO SÁNH TRỰC DIỆN %ODR FULL HÀNG vs %ODR TIKTOK SHOP (${currLabel})`
+-        : `BIỂU ĐỒ %ODR GIAO ĐÚNG HẸN THEO 20 AM (${seg === 'tts' ? 'TIKTOK SHOP' : 'FULL HÀNG'})`;
++        : `BIỂU ĐỒ %ODR GIAO ĐÚNG HẸN THEO 19 AM (${seg === 'tts' ? 'TIKTOK SHOP' : 'FULL HÀNG'})`;
+     }
+ 
+     const amFullList = D.odr.am_full || D.odr.am || [];
+@@ -5718,7 +5847,7 @@
+   function renderLtcTab() {
+     if (!D.ltc) return;
+ 
+-    // 1. BẢNG 1: 20 AM
++    // 1. BẢNG 1: 19 AM
+     const tblBodyAM = document.querySelector('#table-ltc-detailed tbody');
+     if (tblBodyAM && D.ltc.am) {
+       const wKeys = (D.meta?.weeks || ['W34', 'W35', 'W36', 'W37']).map(w => w.toLowerCase());
+@@ -6566,7 +6695,7 @@
+     const prevKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 2].toLowerCase() : 'w37';
+     const currKey = D.meta?.weeks ? D.meta.weeks[D.meta.weeks.length - 1].toLowerCase() : 'w38';
+ 
+-    // 1. BẢNG 1: 20 AM
++    // 1. BẢNG 1: 19 AM
+     const tblBodyAM = document.querySelector('#table-rot-am-detailed tbody');
+     if (tblBodyAM && D.rot_lc.am) {
+       const totalRotAM = D.rot_lc.am.reduce((s, r) => {
+@@ -6841,6 +6970,7 @@
+     renderAgingTab();
+     renderAgingChart();
+     try { renderAgingDonutChart(); } catch(e) {}
++    try { renderAgingCustomerChart(); } catch(e) {}
+     try { renderAgingProgressChart(); } catch(e) {}
+     if (window.lucide) lucide.createIcons();
+   };
+@@ -6955,8 +7085,8 @@
+       if (v4) v4.textContent = topTinh.tinh || '---';
+       if (m4) m4.innerHTML = `<span class="diff-tag diff-neutral">${fNum(topTinh.vol)} đơn (${topTinh.pct}%)</span>`;
+ 
+-      if (chartTitle) chartTitle.textContent = 'BIỂU ĐỒ TOP AM NHIỀU ĐƠN AGING >5 NGÀY VÀ MIỀN TỶ TRỌNG (%)';
+-      if (tblAmTitle) tblAmTitle.textContent = 'BẢNG 1: TOP AM NHIỀU ĐƠN AGING >5 NGÀY NHẤT (SORT GIẢM DẦN)';
++      if (chartTitle) chartTitle.textContent = 'BIỂU ĐỒ 19 AM: TỒN KHO AGING (>5 NGÀY) PHÂN RÃ THEO MỐC NGÀY (5-8N, 8-15N, >15N)';
++      if (tblAmTitle) tblAmTitle.textContent = 'BẢNG 1: BẢNG XẾP HẠNG 19 AM - TỒN KHO AGING (>5 NGÀY)';
+       if (tblBcTitle) tblBcTitle.textContent = 'BẢNG 2: TOP BƯU CỤC (BC) CẦN GIẢI CỨU AGING GẤP';
+     } else if (seg === 'treo_lc' && D.treo_lc) {
+       if (t1) t1.textContent = 'Tổng Đơn Treo LC (≥24h)';
+@@ -6978,8 +7108,8 @@
+       if (v4) v4.textContent = topTinh.tinh || '---';
+       if (m4) m4.innerHTML = `<span class="diff-tag diff-neutral">Treo ≥24h: ${fNum(topTinh.treo_24 || 151)} đ (${topTinh.rate_treo_24 || (topTinh.treo_24/topTinh.vol*100).toFixed(1)}%)</span> <span style="font-size:11px;color:var(--text-muted);">/ ${fNum(topTinh.vol)} đ</span>`;
+ 
+-      if (chartTitle) chartTitle.textContent = 'BIỂU ĐỒ TOP AM NHIỀU ĐƠN TREO LUÂN CHUYỂN (≥24H) VÀ TỶ LỆ TREO (%)';
+-      if (tblAmTitle) tblAmTitle.textContent = 'BẢNG 1: TOP AM THEO ĐƠN TREO LUÂN CHUYỂN (≥24H) (SORT GIẢM DẦN)';
++      if (chartTitle) chartTitle.textContent = 'BIỂU ĐỒ 19 AM: HÀNG TREO LUÂN CHUYỂN (≥24H) PHÂN RÃ THEO MỐC THỜI GIAN (24-36H, 36-72H, 72-120H, >120H)';
++      if (tblAmTitle) tblAmTitle.textContent = 'BẢNG 1: BẢNG XẾP HẠNG 19 AM - HÀNG TREO LUÂN CHUYỂN';
+       if (tblBcTitle) tblBcTitle.textContent = 'BẢNG 2: TOP BƯU CỤC (BC) TREO LUÂN CHUYỂN (≥24H) NHIỀU NHẤT';
+     } else if (seg === 'compare') {
+       if (chartTitle) chartTitle.textContent = 'BIỂU ĐỒ ĐỐI CHIẾU SONG SONG: ĐƠN AGING vs ĐƠN TREO LUÂN CHUYỂN (THEO TOP AM)';
+@@ -7007,8 +7137,8 @@
+     }
+     if (titleEl) {
+       titleEl.innerText = mode === 'tts'
+-        ? 'BIỂU ĐỒ %FD THEO 20 AM – PHÂN KHÚC TIKTOK SHOP (CỘT %FD + MIỀN SẢN LƯỢNG + ĐƯỜNG BIẾN ĐỘNG Δ)'
+-        : 'BIỂU ĐỒ %FD THEO 20 AM – TOÀN MẠNG FULL HÀNG (CỘT %FD + MIỀN SẢN LƯỢNG + ĐƯỜNG BIẾN ĐỘNG Δ)';
++        ? 'BIỂU ĐỒ %FD THEO 19 AM – PHÂN KHÚC TIKTOK SHOP (CỘT %FD + MIỀN SẢN LƯỢNG + ĐƯỜNG BIẾN ĐỘNG Δ)'
++        : 'BIỂU ĐỒ %FD THEO 19 AM – TOÀN MẠNG FULL HÀNG (CỘT %FD + MIỀN SẢN LƯỢNG + ĐƯỜNG BIẾN ĐỘNG Δ)';
+     }
+     renderFdTab();
+   };
+@@ -7090,7 +7220,7 @@
+       }
+     }
+ 
+-    // 2. Bảng 1: 20 AM (Full Hàng vs TTS)
++    // 2. Bảng 1: 19 AM (Full Hàng vs TTS)
+     const tblBodyAM = document.querySelector('#table-fd-am-detailed tbody');
+     if (tblBodyAM && D.fd.am) {
+       let list = [...D.fd.am];
+@@ -7694,7 +7824,7 @@
+       const p815 = tot ? (d815 / tot * 100).toFixed(1) : '14.8';
+       const pgt15 = tot ? (dgt15 / tot * 100).toFixed(1) : '0.0';
+ 
+-      if (donutTitle) const currW = D.meta?.latest_week || 'W43';
++      const currW = D.meta?.latest_week || 'W43';
+       if (donutTitle) donutTitle.textContent = `CƠ CẤU HÀNG TỒN AGING >5 NGÀY THEO NHÓM TUỔI (${currW} - REALTIME 26/10)`;
+       if (donutBadge) {
+         donutBadge.className = 'badge-tag badge-tag-red';
+@@ -7724,12 +7854,12 @@
+       }
+ 
+       // Update Script Card for Aging
+-      if (scriptTitle) scriptTitle.textContent = 'KỊCH BẢN ĐIỀU HÀNH: AGING >5 NGÀY (REALTIME 20/10)';
+-      if (scriptBadge) {
++      if (scriptTitle && scriptTitle.textContent !== undefined) scriptTitle.textContent = 'KỊCH BẢN ĐIỀU HÀNH: AGING >5 NGÀY (REALTIME 20/10)';
++      if (scriptBadge && scriptBadge.textContent !== undefined) {
+         scriptBadge.className = 'badge-tag badge-tag-red';
+         scriptBadge.textContent = 'Aging Realtime';
+       }
+-      if (scriptContent) {
++      if (scriptContent && scriptContent.innerHTML !== undefined) {
+         scriptContent.innerHTML = `
+           <div style="margin-bottom: 10px; padding: 8px 12px; background: #fee2e2; border-left: 4px solid #ef4444; border-radius: 6px;">
+             <div style="font-weight: 800; color: #991b1b; font-size: 13px;">📦 TỔNG HỢP TỒN AGING (>5 NGÀY): ${fNum(tot)} ĐƠN (REALTIME 20/10)</div>
+@@ -7814,12 +7944,12 @@
+       }
+ 
+       // Update Script Card for Treo LC
+-      if (scriptTitle) scriptTitle.textContent = 'KỊCH BẢN ĐIỀU HÀNH: TREO LUÂN CHUYỂN (REALTIME 20/10)';
+-      if (scriptBadge) {
++      if (scriptTitle && scriptTitle.textContent !== undefined) scriptTitle.textContent = 'KỊCH BẢN ĐIỀU HÀNH: TREO LUÂN CHUYỂN (REALTIME 20/10)';
++      if (scriptBadge && scriptBadge.textContent !== undefined) {
+         scriptBadge.className = 'badge-tag badge-tag-blue';
+         scriptBadge.textContent = 'Treo LC Realtime';
+       }
+-      if (scriptContent) {
++      if (scriptContent && scriptContent.innerHTML !== undefined) {
+         scriptContent.innerHTML = `
+           <div style="margin-bottom: 10px; padding: 8px 12px; background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 6px;">
+             <div style="font-weight: 800; color: #1e40af; font-size: 13px;">🚚 TỔNG HỢP HÀNG TREO LUÂN CHUYỂN: ${fNum(totLC)} ĐƠN (REALTIME 20/10)</div>
+@@ -7889,12 +8019,12 @@
+         `;
+       }
+ 
+-      if (scriptTitle) scriptTitle.textContent = 'KỊCH BẢN ĐIỀU HÀNH: ĐỐI SOÁT TỒN ĐỌNG TOÀN DIỆN';
+-      if (scriptBadge) {
++      if (scriptTitle && scriptTitle.textContent !== undefined) scriptTitle.textContent = 'KỊCH BẢN ĐIỀU HÀNH: ĐỐI SOÁT TỒN ĐỌNG TOÀN DIỆN';
++      if (scriptBadge && scriptBadge.textContent !== undefined) {
+         scriptBadge.className = 'badge-tag badge-tag-amber';
+         scriptBadge.textContent = 'Đối Soát Song Song';
+       }
+-      if (scriptContent) {
++      if (scriptContent && scriptContent.innerHTML !== undefined) {
+         scriptContent.innerHTML = `
+           <div style="margin-bottom: 10px; padding: 8px 12px; background: #fffbeb; border-left: 4px solid #f59e0b; border-radius: 6px;">
+             <div style="font-weight: 800; color: #b45309; font-size: 13px;">⚖️ TỔNG TỒN ĐỌNG CẦN XỬ LÝ: ${fNum(totBoth)} ĐƠN</div>
+@@ -7984,6 +8114,258 @@
+     });
+   }
+ 
++    function renderAgingCustomerChart() {
++    const ctx = document.getElementById('chart-aging-customer');
++    if (!ctx) return;
++    if (charts.agingCustomer) charts.agingCustomer.destroy();
++
++    const seg = state.agingSegment || 'aging';
++    const isAging = seg === 'aging';
++    const isTreo = seg === 'treo_lc';
++
++    const custTitle = document.getElementById('aging-cust-title');
++    const custBadge = document.getElementById('aging-cust-badge');
++    const custSummary = document.getElementById('aging-cust-summary-grid');
++
++    if (isAging && D.aging) {
++      const custData = D.aging.by_customer || [];
++      const top1 = custData[0] || { customer: 'SME', vol: 619, pct: 80.8 };
++
++      if (custTitle) custTitle.textContent = 'PHÂN TÍCH TỒN ĐỌNG CẢ VÙNG THEO KHÁCH HÀNG (AGING >5 NGÀY)';
++      if (custBadge) {
++        custBadge.className = 'badge-tag badge-tag-red';
++        custBadge.textContent = 🚨  Tồn Nhiều Nhất (% -  đơn);
++      }
++
++      // Group into SME, TikTok Shop (TTS + Bulky), Shopee (Shopee + Bulky)
++      let sme = { vol: 0, d58: 0, d815: 0, gt15: 0, top_am: '', top_bc: '', pct: 0 };
++      let tts = { vol: 0, d58: 0, d815: 0, gt15: 0, top_am: '', top_bc: '', pct: 0 };
++      let shp = { vol: 0, d58: 0, d815: 0, gt15: 0, top_am: '', top_bc: '', pct: 0 };
++
++      custData.forEach(c => {
++        const name = (c.customer || '').toUpperCase();
++        if (name.includes('SME')) {
++          sme.vol += c.vol || 0;
++          sme.d58 += c.d_5_8 || 0;
++          sme.d815 += c.d_8_15 || 0;
++          sme.gt15 += c.gt_15 || 0;
++          if (!sme.top_am) sme.top_am = c.top_am;
++          if (!sme.top_bc) sme.top_bc = c.top_bc;
++        } else if (name.includes('TTS')) {
++          tts.vol += c.vol || 0;
++          tts.d58 += c.d_5_8 || 0;
++          tts.d815 += c.d_8_15 || 0;
++          tts.gt15 += c.gt_15 || 0;
++          if (!tts.top_am) tts.top_am = c.top_am;
++          if (!tts.top_bc) tts.top_bc = c.top_bc;
++        } else if (name.includes('SHOPEE')) {
++          shp.vol += c.vol || 0;
++          shp.d58 += c.d_5_8 || 0;
++          shp.d815 += c.d_8_15 || 0;
++          shp.gt15 += c.gt_15 || 0;
++          if (!shp.top_am) shp.top_am = c.top_am;
++          if (!shp.top_bc) shp.top_bc = c.top_bc;
++        }
++      });
++      const totAg = D.aging.total || 766;
++      sme.pct = (sme.vol / totAg * 100).toFixed(1);
++      tts.pct = (tts.vol / totAg * 100).toFixed(1);
++      shp.pct = (shp.vol / totAg * 100).toFixed(1);
++
++      const labels = [
++        1. SME ( đ - %),
++        2. TikTok Shop ( đ - %),
++        3. Shopee ( đ - %)
++      ];
++
++      charts.agingCustomer = new Chart(ctx, {
++        type: 'bar',
++        data: {
++          labels: labels,
++          datasets: [
++            {
++              label: '5 – 8 ngày',
++              data: [sme.d58, tts.d58, shp.d58],
++              backgroundColor: '#3b82f6',
++              borderRadius: 3
++            },
++            {
++              label: '8 – 15 ngày',
++              data: [sme.d815, tts.d815, shp.d815],
++              backgroundColor: '#f59e0b',
++              borderRadius: 3
++            },
++            {
++              label: 'Trên 15 ngày',
++              data: [sme.gt15, tts.gt15, shp.gt15],
++              backgroundColor: '#dc2626',
++              borderRadius: 3
++            }
++          ]
++        },
++        options: {
++          indexAxis: 'y',
++          responsive: true,
++          maintainAspectRatio: false,
++          scales: {
++            x: {
++              stacked: true,
++              grid: { color: 'rgba(0,0,0,0.05)' },
++              ticks: { font: { size: 10 } }
++            },
++            y: {
++              stacked: true,
++              grid: { display: false },
++              ticks: { font: { size: 11, weight: 'bold' }, color: 'var(--text-main)' }
++            }
++          },
++          plugins: {
++            legend: {
++              position: 'top',
++              labels: { boxWidth: 10, font: { size: 10 }, padding: 6 }
++            },
++            tooltip: {
++              callbacks: {
++                afterBody: function(context) {
++                  const idx = context[0].dataIndex;
++                  if (idx === 0) return Top AM: 
++Top BC: 
++(Nắm 100% số đơn tồn >15N của cả vùng);
++                  if (idx === 1) return Top AM: 
++Top BC: 
++(81/89 đơn ở mức 5-8N, 0 đơn >15N);
++                  if (idx === 2) return Top AM: 
++Top BC: 
++(Gồm 16 đơn hàng Bulky cồng kềnh);
++                }
++              }
++            }
++          }
++        }
++      });
++
++      if (custSummary) {
++        custSummary.innerHTML = 
++          <div style="padding: 6px 10px; background: rgba(239, 68, 68, 0.08); border: 1.5px solid #ef4444; border-radius: 6px;">
++            <div style="font-size: 10.5px; font-weight: 800; color: #b91c1c;">👑 TOP 1: SME (%)</div>
++            <div style="font-size: 14px; font-weight: 900; color: #dc2626; line-height: 1.2;"> <small style="font-size: 10px;">đơn tồn</small></div>
++            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Giữ <strong>100%</strong> đơn &gt;15N (4 đ). AM: </div>
++          </div>
++          <div style="padding: 6px 10px; background: rgba(59, 130, 246, 0.08); border: 1.5px solid #3b82f6; border-radius: 6px;">
++            <div style="font-size: 10.5px; font-weight: 800; color: #1d4ed8;">TOP 2: TIKTOK SHOP (%)</div>
++            <div style="font-size: 14px; font-weight: 900; color: #2563eb; line-height: 1.2;"> <small style="font-size: 10px;">đơn tồn</small></div>
++            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">91% là 5–8N (81 đ). AM: </div>
++          </div>
++          <div style="padding: 6px 10px; background: rgba(249, 115, 22, 0.08); border: 1.5px solid #f97316; border-radius: 6px;">
++            <div style="font-size: 10.5px; font-weight: 800; color: #c2410c;">TOP 3: SHOPEE (%)</div>
++            <div style="font-size: 14px; font-weight: 900; color: #ea580c; line-height: 1.2;"> <small style="font-size: 10px;">đơn tồn</small></div>
++            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">16 đ Bulky (28%). AM: </div>
++          </div>
++        ;
++      }
++    } else if (isTreo && D.treo_lc) {
++      const custData = D.treo_lc.by_customer || [];
++      const top1 = custData[0] || { customer: 'SME / Khác (OTHER)', vol: 2178, pct: 57.5 };
++      const shpCust = custData.find(c => c.customer.includes('Shopee')) || {};
++
++      if (custTitle) custTitle.textContent = 'PHÂN TÍCH TREO LUÂN CHUYỂN CẢ VÙNG THEO KHÁCH HÀNG';
++      if (custBadge) {
++        custBadge.className = 'badge-tag badge-tag-amber';
++        custBadge.textContent = 🚨  Tồn Nhiều Nhất (%) | Shopee Treo Cao Nhất (%);
++      }
++
++      const labels = custData.map((c, idx) => ${idx + 1}.  ( đ - %));
++      const dataU24 = custData.map(c => c.u_24 || 0);
++      const data24_36 = custData.map(c => c.h_24_36 || 0);
++      const data36_plus = custData.map(c => (c.treo_24 || 0) - (c.h_24_36 || 0));
++
++      charts.agingCustomer = new Chart(ctx, {
++        type: 'bar',
++        data: {
++          labels: labels,
++          datasets: [
++            {
++              label: '< 24h (Đúng hạn)',
++              data: dataU24,
++              backgroundColor: '#10b981',
++              borderRadius: 3
++            },
++            {
++              label: '24 – 36h (Bắt đầu trễ)',
++              data: data24_36,
++              backgroundColor: '#f59e0b',
++              borderRadius: 3
++            },
++            {
++              label: '≥ 36h (Trễ nặng)',
++              data: data36_plus,
++              backgroundColor: '#dc2626',
++              borderRadius: 3
++            }
++          ]
++        },
++        options: {
++          indexAxis: 'y',
++          responsive: true,
++          maintainAspectRatio: false,
++          scales: {
++            x: {
++              stacked: true,
++              grid: { color: 'rgba(0,0,0,0.05)' },
++              ticks: { font: { size: 10 } }
++            },
++            y: {
++              stacked: true,
++              grid: { display: false },
++              ticks: { font: { size: 11, weight: 'bold' }, color: 'var(--text-main)' }
++            }
++          },
++          plugins: {
++            legend: {
++              position: 'top',
++              labels: { boxWidth: 10, font: { size: 10 }, padding: 6 }
++            },
++            tooltip: {
++              callbacks: {
++                afterBody: function(context) {
++                  const idx = context[0].dataIndex;
++                  const item = custData[idx] || {};
++                  return Treo ≥24h:  đơn (%)
++Chiếm % tổng đơn treo cả vùng
++Top AM:  ( đ)
++Top BC: ;
++                }
++              }
++            }
++          }
++        }
++      });
++
++      if (custSummary) {
++        const other = custData[0] || {};
++        const shopee = custData[1] || {};
++        const tts = custData[2] || {};
++        custSummary.innerHTML = 
++          <div style="padding: 6px 10px; background: rgba(59, 130, 246, 0.08); border: 1.5px solid #3b82f6; border-radius: 6px;">
++            <div style="font-size: 10.5px; font-weight: 800; color: #1d4ed8;">👑 TOP 1: OTHER / SME (%)</div>
++            <div style="font-size: 14px; font-weight: 900; color: #2563eb; line-height: 1.2;"> <small style="font-size: 10px;">đơn LC</small></div>
++            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Treo ≥24h: <strong> đ (%)</strong>. AM: </div>
++          </div>
++          <div style="padding: 6px 10px; background: rgba(239, 68, 68, 0.08); border: 1.5px solid #ef4444; border-radius: 6px;">
++            <div style="font-size: 10.5px; font-weight: 800; color: #b91c1c;">🚨 SHOPEE: TREO CAO NHẤT (%)</div>
++            <div style="font-size: 14px; font-weight: 900; color: #dc2626; line-height: 1.2;"> /  <small style="font-size: 10px;">treo</small></div>
++            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Chiếm <strong>%</strong> tổng treo cả vùng! AM: </div>
++          </div>
++          <div style="padding: 6px 10px; background: rgba(16, 185, 129, 0.08); border: 1.5px solid #10b981; border-radius: 6px;">
++            <div style="font-size: 10.5px; font-weight: 800; color: #047857;">TIKTOK SHOP (%)</div>
++            <div style="font-size: 14px; font-weight: 900; color: #059669; line-height: 1.2;"> <small style="font-size: 10px;">đơn LC</small></div>
++            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Treo ≥24h: <strong> đ (%)</strong>. AM: </div>
++          </div>
++        ;
++      }
++    }
++  }
++
+   function renderAgingChart() {
+     const ctx = document.getElementById('chart-aging-bar');
+     if (!ctx) return;
+@@ -7991,7 +8373,6 @@
+ 
+     const seg = state.agingSegment || 'aging';
+     const selectedAM = state.selectedAM;
+-    const hlMode = state.agingHighlight || 'all';
+ 
+     let dataList = [];
+     if (seg === 'aging' && D.aging) {
+@@ -7999,16 +8380,25 @@
+         am: r.am,
+         vol: r.vol,
+         pct: r.pct,
+-        tinh: r.tinh
++        tinh: r.tinh,
++        d_5_8: r.d_5_8 || 0,
++        d_8_15: r.d_8_15 || 0,
++        gt_15: r.gt_15 || 0
+       }));
++      dataList.sort((a, b) => (b.vol || 0) - (a.vol || 0));
+     } else if (seg === 'treo_lc' && D.treo_lc) {
+       dataList = (D.treo_lc.top_am || []).map(r => ({
+         am: r.am,
+-        vol: r.treo_24, // SỐ ĐƠN TREO >= 24H CHUẨN XÁC!
++        vol: r.treo_24, // SỐ ĐƠN TREO >= 24H
+         vol_total: r.vol,
+         pct: r.rate_treo_24 !== undefined ? r.rate_treo_24 : Number((r.treo_24 / (r.vol || 1) * 100).toFixed(1)),
+-        tinh: r.tinh
++        tinh: r.tinh,
++        h_24_36: r.h_24_36 || 0,
++        h_36_72: r.h_36_72 || 0,
++        h_72_120: r.h_72_120 || 0,
++        h_120_plus: r.h_120_plus || 0
+       }));
++      dataList.sort((a, b) => (b.vol || 0) - (a.vol || 0));
+     } else if (seg === 'compare' && D.aging && D.treo_lc) {
+       const agingMap = {};
+       (D.aging.top_am || []).forEach(r => agingMap[r.am] = r.vol);
+@@ -8019,85 +8409,229 @@
+         pct: r.pct,
+         tinh: r.tinh
+       }));
++      dataList.sort((a, b) => (b.vol || 0) - (a.vol || 0));
+     }
+-    dataList.sort((a, b) => (b.vol || 0) - (a.vol || 0));
+ 
+     if (dataList.length === 0) return;
+ 
+     let datasets = [];
+-    if (seg === 'compare') {
++    let isStacked = false;
++
++    if (seg === 'aging') {
++      isStacked = true;
+       datasets = [
+         {
+           type: 'bar',
+-          label: 'Đơn Aging >5 Ngày',
+-          data: dataList.map(d => d.vol),
+-          backgroundColor: dataList.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#ef4444'),
+-          borderRadius: 4,
++          label: '🟡 5 – 8 Ngày',
++          data: dataList.map(d => d.d_5_8),
++          backgroundColor: '#f59e0b',
++          stack: 'agingStack',
++          borderRadius: 0,
+           yAxisID: 'y',
+-          order: 2
++          order: 3
+         },
+         {
+           type: 'bar',
+-          label: 'Đơn Treo LC (≥24h)',
+-          data: dataList.map(d => d.vol_treo),
+-          backgroundColor: dataList.map(d => selectedAM && selectedAM === d.am ? '#f59e0b' : '#3b82f6'),
++          label: '🟠 8 – 15 Ngày',
++          data: dataList.map(d => d.d_8_15),
++          backgroundColor: '#ea580c',
++          stack: 'agingStack',
++          borderRadius: 0,
++          yAxisID: 'y',
++          order: 3
++        },
++        {
++          type: 'bar',
++          label: '🔴 > 15 Ngày',
++          data: dataList.map(d => d.gt_15),
++          backgroundColor: '#dc2626',
++          stack: 'agingStack',
+           borderRadius: 4,
+-          yAxisID: 'yVol',
+-          order: 2
++          yAxisID: 'y',
++          order: 3
++        },
++        {
++          type: 'line',
++          label: '🌊 Tỷ Trọng Vùng (%)',
++          data: dataList.map(d => d.pct),
++          borderColor: '#b91c1c',
++          backgroundColor: 'rgba(185, 28, 28, 0.1)',
++          fill: false,
++          borderWidth: 2.5,
++          tension: 0.35,
++          pointRadius: 4.5,
++          pointBackgroundColor: '#b91c1c',
++          pointBorderColor: '#ffffff',
++          pointBorderWidth: 2,
++          yAxisID: 'yPct',
++          order: 1
+         }
+       ];
+-    } else {
++    } else if (seg === 'treo_lc') {
++      isStacked = true;
+       datasets = [
++        {
++          type: 'bar',
++          label: '🟡 24h – 36h (1–1.5N)',
++          data: dataList.map(d => d.h_24_36),
++          backgroundColor: '#f59e0b',
++          stack: 'treoStack',
++          borderRadius: 0,
++          yAxisID: 'y',
++          order: 3
++        },
++        {
++          type: 'bar',
++          label: '🟠 36h – 72h (1.5–3N)',
++          data: dataList.map(d => d.h_36_72),
++          backgroundColor: '#f97316',
++          stack: 'treoStack',
++          borderRadius: 0,
++          yAxisID: 'y',
++          order: 3
++        },
++        {
++          type: 'bar',
++          label: '🔴 72h – 120h (3–5N)',
++          data: dataList.map(d => d.h_72_120),
++          backgroundColor: '#ef4444',
++          stack: 'treoStack',
++          borderRadius: 0,
++          yAxisID: 'y',
++          order: 3
++        },
++        {
++          type: 'bar',
++          label: '🟣 > 120h (>5N)',
++          data: dataList.map(d => d.h_120_plus),
++          backgroundColor: '#7c3aed',
++          stack: 'treoStack',
++          borderRadius: 4,
++          yAxisID: 'y',
++          order: 3
++        },
+         {
+           type: 'line',
+-          label: seg === 'aging' ? '🌊 Miền Tỷ Trọng Aging (%)' : '🌊 Tỷ Lệ Treo LC (%)',
++          label: '🌊 Tỷ Lệ Treo ≥24h (%)',
+           data: dataList.map(d => d.pct),
+-          fill: true,
+-          backgroundColor: seg === 'aging' ? 'rgba(239, 68, 68, 0.15)' : 'rgba(147, 51, 234, 0.15)',
+-          borderColor: seg === 'aging' ? '#ef4444' : '#9333ea',
+-          borderWidth: 2,
++          borderColor: '#6d28d9',
++          backgroundColor: 'rgba(109, 40, 217, 0.1)',
++          fill: false,
++          borderWidth: 2.5,
+           tension: 0.35,
+-          pointRadius: 5,
+-          pointBackgroundColor: seg === 'aging' ? '#ef4444' : '#9333ea',
++          pointRadius: 4.5,
++          pointBackgroundColor: '#6d28d9',
+           pointBorderColor: '#ffffff',
+           pointBorderWidth: 2,
+           yAxisID: 'yPct',
+-          order: 4
+-        },
++          order: 1
++        }
++      ];
++    } else {
++      isStacked = false;
++      datasets = [
+         {
+           type: 'bar',
+-          label: seg === 'aging' ? 'Số Đơn Aging >5 Ngày' : 'Số Đơn Treo LC (≥24h)',
++          label: 'Đơn Aging >5 Ngày',
+           data: dataList.map(d => d.vol),
+-          backgroundColor: dataList.map(d => {
+-            if (selectedAM && selectedAM === d.am) return '#ef4444';
+-            if (hlMode === 'danger') return d.vol >= (seg === 'aging' ? 100 : 35) ? '#b91c1c' : 'rgba(185, 28, 28, 0.2)';
+-            if (hlMode === 'warning') return d.vol >= (seg === 'aging' ? 30 : 20) ? '#d97706' : 'rgba(217, 119, 6, 0.2)';
+-            return seg === 'aging' ? '#dc2626' : '#2563eb';
+-          }),
+-          borderColor: dataList.map(d => selectedAM && selectedAM === d.am ? '#b91c1c' : 'transparent'),
+-          borderWidth: dataList.map(d => selectedAM && selectedAM === d.am ? 3 : 0),
++          backgroundColor: dataList.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#ef4444'),
+           borderRadius: 4,
+           yAxisID: 'y',
+           order: 2
++        },
++        {
++          type: 'bar',
++          label: 'Đơn Treo LC (≥24h)',
++          data: dataList.map(d => d.vol_treo),
++          backgroundColor: dataList.map(d => selectedAM && selectedAM === d.am ? '#f59e0b' : '#3b82f6'),
++          borderRadius: 4,
++          yAxisID: 'yVol',
++          order: 2
+         }
+       ];
+     }
+ 
++    // Custom Plugin to draw exact order counts inside each bucket segment & total on top
++    const stackedDataLabelsPlugin = {
++      id: 'stackedDataLabelsPlugin',
++      afterDatasetsDraw(chart) {
++        const { ctx, scales: { x, y } } = chart;
++        
++        // 1. Draw numbers inside each bucket if value > 0 and height >= 14px
++        chart.data.datasets.forEach((dataset, datasetIndex) => {
++          if (dataset.type === 'line') return;
++          const meta = chart.getDatasetMeta(datasetIndex);
++          if (!meta.hidden) {
++            meta.data.forEach((element, index) => {
++              const val = dataset.data[index];
++              if (val && val > 0) {
++                const { x: posX, y: posY, base } = element;
++                const barHeight = Math.abs(base - posY);
++                if (barHeight >= 13) {
++                  ctx.save();
++                  ctx.fillStyle = '#ffffff';
++                  ctx.font = '900 10px monospace, sans-serif';
++                  ctx.textAlign = 'center';
++                  ctx.textBaseline = 'middle';
++                  const midY = (posY + base) / 2;
++                  ctx.fillText(val, posX, midY);
++                  ctx.restore();
++                }
++              }
++            });
++          }
++        });
++
++        // 2. Draw TOTAL on top of each AM's bar
++        const barDatasets = chart.data.datasets.filter(ds => ds.type === 'bar');
++        if (barDatasets.length > 0 && isStacked) {
++          chart.data.labels.forEach((label, i) => {
++            let sum = 0;
++            let topY = y.bottom;
++            let posX = 0;
++            barDatasets.forEach((ds, dsIdx) => {
++              sum += (ds.data[i] || 0);
++              const el = chart.getDatasetMeta(dsIdx).data[i];
++              if (el && el.y < topY) {
++                topY = el.y;
++                posX = el.x;
++              }
++            });
++            if (sum > 0 && posX > 0) {
++              ctx.save();
++              ctx.fillStyle = '#0f172a';
++              ctx.font = '900 11.5px monospace, sans-serif';
++              ctx.textAlign = 'center';
++              ctx.textBaseline = 'bottom';
++              ctx.fillText(sum, posX, topY - 3);
++              ctx.restore();
++            }
++          });
++        }
++      }
++    };
++
+     charts.agingBar = new Chart(ctx, {
+       type: 'bar',
+       data: {
+         labels: dataList.map(d => d.am),
+         datasets: datasets
+       },
++      plugins: [stackedDataLabelsPlugin],
+       options: {
+         responsive: true,
+         maintainAspectRatio: false,
+-        layout: { padding: { top: 20, bottom: 8 } },
++        layout: { padding: { top: 24, bottom: 8, left: 4, right: 8 } },
+         scales: {
+           y: {
++            stacked: isStacked,
+             position: 'left',
+             min: 0,
+-            title: { display: true, text: seg === 'compare' ? 'Số Đơn Aging' : 'Số Lượng Đơn Tồn / Treo', font: { weight: '700', size: 11 } },
++            title: { 
++              display: true, 
++              text: seg === 'aging' ? 'Số Đơn Tồn Aging (>5 Ngày)' : (seg === 'treo_lc' ? 'Số Đơn Treo LC (≥24h)' : 'Số Lượng Đơn'), 
++              font: { weight: '800', size: 11.5 } 
++            },
+             ticks: { callback: v => fNum(v) },
+             grid: { color: 'rgba(0,0,0,0.06)' }
+           },
+@@ -8106,7 +8640,11 @@
+             min: 0,
+             display: seg !== 'compare',
+             grid: { drawOnChartArea: false },
+-            title: { display: true, text: 'Tỷ Trọng (%)', font: { weight: '700', size: 11, color: seg === 'aging' ? '#ef4444' : '#9333ea' } },
++            title: { 
++              display: true, 
++              text: seg === 'aging' ? 'Tỷ Trọng Vùng (%)' : 'Tỷ Lệ Treo (%)', 
++              font: { weight: '800', size: 11, color: seg === 'aging' ? '#b91c1c' : '#6d28d9' } 
++            },
+             ticks: { callback: v => v + '%' }
+           },
+           yVol: {
+@@ -8118,17 +8656,29 @@
+             ticks: { callback: v => fNum(v) }
+           },
+           x: {
++            stacked: isStacked,
+             ticks: { maxRotation: 45, minRotation: 25, font: { size: 11, weight: '800' } },
+             grid: { display: false }
+           }
+         },
+         plugins: {
+-          legend: { position: 'top' },
++          legend: { 
++            position: 'top',
++            labels: { font: { weight: '700', size: 11.5 }, usePointStyle: true, boxWidth: 10 }
++          },
+           tooltip: {
+             callbacks: {
+               label: c => {
+-                if (c.dataset.yAxisID === 'yPct') return `🌊 Tỷ trọng vùng: ${c.parsed.y}%`;
++                if (c.dataset.yAxisID === 'yPct') return `🌊 ${c.dataset.label}: ${c.parsed.y}%`;
+                 return `${c.dataset.label}: ${fNum(c.parsed.y)} đơn`;
++              },
++              footer: items => {
++                if (!isStacked) return '';
++                let total = 0;
++                items.forEach(it => {
++                  if (it.dataset.type === 'bar') total += it.parsed.y;
++                });
++                return `📦 TỔNG CỘNG: ${fNum(total)} đơn`;
+               }
+             }
+           }
+@@ -8433,21 +8983,16 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+ 
+     const btnGroup = document.getElementById('truythu-segment-group');
+     if (btnGroup) {
+-      btnGroup.querySelectorAll('.btn').forEach(b => {
+-        b.classList.remove('active', 'btn-primary');
+-        b.classList.add('btn-secondary');
++      btnGroup.querySelectorAll('button').forEach(b => {
++        b.className = 'btn btn-sm btn-secondary';
+       });
+-      const activeBtn = document.getElementById('btn-tt-' + seg);
+-      if (activeBtn) {
+-        activeBtn.classList.remove('btn-secondary');
+-        activeBtn.classList.add('active', 'btn-primary');
+-      }
++      const act = document.getElementById('btn-tt-' + seg);
++      if (act) act.className = 'btn btn-sm btn-primary active';
+     }
+ 
+-    const panels = ['loai', 'bcgiao', 'amticket', 'bcticket'];
+-    panels.forEach(p => {
++    ['loai', 'amticket', 'bcgiao', 'bcticket'].forEach(p => {
+       const el = document.getElementById('truythu-panel-' + p);
+-      if (el) el.style.display = (p === seg) ? 'block' : 'none';
++      if (el) el.style.display = (p === seg ? 'block' : 'none');
+     });
+ 
+     renderTruyThuTab();
+@@ -8461,10 +9006,10 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+   function renderTruyThuTab() {
+     const report = D.truy_thu_report || {};
+     const summary = report.summary || {};
+-    const prevLabel = summary.prev_label || 'Tuần N-1';
+-    const currLabel = summary.curr_label || 'Tuần N';
+-    const prevShort = summary.prev_label && summary.prev_label.includes('(') ? summary.prev_label.split('(')[0].trim() : (summary.prev_label || 'Tuần N-1');
+-    const currShort = summary.curr_label && summary.curr_label.includes('(') ? summary.curr_label.split('(')[0].trim() : (summary.curr_label || 'Tuần N');
++    const prevLabel = summary.prev_label || 'Tuần W42 (12/10 - 18/10)';
++    const currLabel = summary.curr_label || 'Tuần W43 (19/10 - 25/10)';
++    const prevShort = summary.prev_label && summary.prev_label.includes('(') ? summary.prev_label.split('(')[0].trim() : (summary.prev_label || 'Tuần W42');
++    const currShort = summary.curr_label && summary.curr_label.includes('(') ? summary.curr_label.split('(')[0].trim() : (summary.curr_label || 'Tuần W43');
+ 
+     // Update Banner
+     const bannerTitle = document.getElementById('truythu-banner-title');
+@@ -8477,7 +9022,7 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+     }
+     const bannerBadge = document.getElementById('truythu-banner-badge');
+     if (bannerBadge && summary.total_records_curr) {
+-      bannerBadge.textContent = `${currShort}: ${fNum(summary.total_records_curr)} Bản Ghi | Cần Thu ${(summary.can_thu_curr / 1e6).toFixed(1)} Tr`;
++      bannerBadge.textContent = `${currShort}: ${fNum(summary.total_records_curr)} Bản Ghi | Cần Thu ${(summary.can_thu_curr / 1e6).toFixed(1)} Tr ₫`;
+     }
+ 
+     // 4 KPI Comparison Tiles
+@@ -8537,7 +9082,7 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+ 
+     // Dynamic headers for Province table
+     const thProv = document.querySelectorAll('#table-truythu-by-province thead th');
+-    if (thProv.length >= 6) {
++    if (thProv.length >= 7) {
+       thProv[2].textContent = `Đơn ${prevShort}`;
+       thProv[3].textContent = `Đơn ${currShort}`;
+       thProv[5].textContent = `Cần Thu ${prevShort} (Tr ₫)`;
+@@ -8546,7 +9091,7 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+ 
+     // Dynamic headers for Top BC Giao table
+     const thBcGiao = document.querySelectorAll('#table-truythu-top-bc-giao thead th');
+-    if (thBcGiao.length >= 8) {
++    if (thBcGiao.length >= 9) {
+       thBcGiao[4].textContent = `Đơn ${prevShort}`;
+       thBcGiao[5].textContent = `Đơn ${currShort}`;
+       thBcGiao[7].textContent = `Cần Thu ${prevShort} (Tr ₫)`;
+@@ -8555,7 +9100,7 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+ 
+     // Dynamic headers for Top AM table
+     const thAm = document.querySelectorAll('#table-truythu-top-am thead th');
+-    if (thAm.length >= 6) {
++    if (thAm.length >= 7) {
+       thAm[2].textContent = `Ticket ${prevShort}`;
+       thAm[3].textContent = `Ticket ${currShort}`;
+       thAm[5].textContent = `Cần Thu ${prevShort} (Tr ₫)`;
+@@ -8579,9 +9124,9 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+             <td class="num">${fNum(r.don_prev)}</td>
+             <td class="num bold" style="background: rgba(2, 132, 199, 0.08); color: #0284c7; font-weight:900;">${fNum(r.don_curr)}</td>
+             <td class="num bold" style="color: ${r.diff_don > 0 ? '#dc2626' : '#16a34a'};">${diffDonSign}${fNum(r.diff_don)}</td>
+-            <td class="num">${(r.can_thu_prev / 1e6).toFixed(1)} Tr</td>
+-            <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: #dc2626; font-size:13px; font-weight:900;">${(r.can_thu_curr / 1e6).toFixed(1)} Tr</td>
+-            <td class="num bold" style="color: ${r.diff_can_thu > 0 ? '#dc2626' : '#16a34a'};">${diffSign}${(r.diff_can_thu / 1e6).toFixed(1)} Tr</td>
++            <td class="num">${(r.can_thu_prev / 1e6).toFixed(1)} Tr ₫</td>
++            <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: #dc2626; font-size:13px; font-weight:900;">${(r.can_thu_curr / 1e6).toFixed(1)} Tr ₫</td>
++            <td class="num bold" style="color: ${r.diff_can_thu > 0 ? '#dc2626' : '#16a34a'};">${diffSign}${(r.diff_can_thu / 1e6).toFixed(1)} Tr ₫</td>
+           </tr>
+         `;
+       }).join('');
+@@ -8605,9 +9150,9 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+             <td class="num">${fNum(r.don_prev)}</td>
+             <td class="num bold" style="background: rgba(2, 132, 199, 0.08); color: #0284c7; font-weight:900;">${fNum(r.don_curr)}</td>
+             <td class="num bold" style="color: ${r.diff_don > 0 ? '#dc2626' : '#16a34a'};">${diffDonSign}${fNum(r.diff_don)}</td>
+-            <td class="num">${(r.can_thu_prev / 1e6).toFixed(1)} Tr</td>
+-            <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: #dc2626; font-size:13px; font-weight:900;">${(r.can_thu_curr / 1e6).toFixed(1)} Tr</td>
+-            <td class="num bold" style="color: ${r.diff_can_thu > 0 ? '#dc2626' : '#16a34a'};">${diffSign}${(r.diff_can_thu / 1e6).toFixed(1)} Tr</td>
++            <td class="num">${(r.can_thu_prev / 1e6).toFixed(1)} Tr ₫</td>
++            <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: #dc2626; font-size:13px; font-weight:900;">${(r.can_thu_curr / 1e6).toFixed(1)} Tr ₫</td>
++            <td class="num bold" style="color: ${r.diff_can_thu > 0 ? '#dc2626' : '#16a34a'};">${diffSign}${(r.diff_can_thu / 1e6).toFixed(1)} Tr ₫</td>
+             <td class="num bold">${r.pct_can_thu_diff}</td>
+           </tr>
+         `;
+@@ -8624,16 +9169,16 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+         const rowClass = isSelected ? 'presenter-laser-box' : '';
+         const diffSign = r.diff_can_thu > 0 ? '+' : '';
+         const diffTkSign = r.diff_ticket > 0 ? '+' : '';
+-        let levelBadge = '—';
++        let levelBadge = '-';
+         const lv = r.level || '';
+-        if (lv.includes('Rất cao')) {
+-          levelBadge = `<span class="badge-tag badge-tag-red" style="font-size:11px; font-weight:800;">🔴 Rất cao</span>`;
++        if (lv.includes('Rất cao') || lv.includes('40 Tr')) {
++          levelBadge = `<span class="badge-tag badge-tag-red" style="font-size:11px; font-weight:800;">🚨 Rất cao</span>`;
+         } else if (lv.includes('kiểm soát')) {
+-          levelBadge = `<span class="badge-tag badge-tag-amber" style="font-size:11px;">🟡 Cần kiểm soát</span>`;
++          levelBadge = `<span class="badge-tag badge-tag-amber" style="font-size:11px; font-weight:700;">⚠️ Cần kiểm soát</span>`;
+         } else if (lv.includes('ticket')) {
+           levelBadge = `<span class="badge-tag badge-tag-amber" style="font-size:11px;">⚠️ Nhiều ticket</span>`;
+         } else if (lv) {
+-          levelBadge = `<span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Tốt</span>`;
++          levelBadge = `<span class="badge-tag badge-tag-green" style="font-size:11px; font-weight:700;">🟢 Tốt</span>`;
+         }
+ 
+         return `
+@@ -8643,9 +9188,9 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+             <td class="num">${fNum(r.ticket_prev)}</td>
+             <td class="num bold" style="background: rgba(2, 132, 199, 0.08); color: #0369a1; font-size:13.5px; font-weight:900;">${fNum(r.ticket_curr)}</td>
+             <td class="num bold" style="color: ${r.diff_ticket > 0 ? '#dc2626' : '#16a34a'};">${diffTkSign}${fNum(r.diff_ticket)} (${r.pct_ticket_diff})</td>
+-            <td class="num">${(r.can_thu_prev / 1e6).toFixed(1)} Tr</td>
+-            <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: #dc2626; font-size:13.5px; font-weight:900;">${(r.can_thu_curr / 1e6).toFixed(1)} Tr</td>
+-            <td class="num bold" style="color: ${r.diff_can_thu > 0 ? '#dc2626' : '#16a34a'};">${diffSign}${(r.diff_can_thu / 1e6).toFixed(1)} Tr</td>
++            <td class="num">${(r.can_thu_prev / 1e6).toFixed(1)} Tr ₫</td>
++            <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: #dc2626; font-size:13.5px; font-weight:900;">${(r.can_thu_curr / 1e6).toFixed(1)} Tr ₫</td>
++            <td class="num bold" style="color: ${r.diff_can_thu > 0 ? '#dc2626' : '#16a34a'};">${diffSign}${(r.diff_can_thu / 1e6).toFixed(1)} Tr ₫</td>
+             <td class="num bold">${r.pct_can_thu_diff}</td>
+             <td class="center">${levelBadge}</td>
+             <td style="font-size: 11.5px; color: var(--text-muted);">${r.top_bc_culprit}</td>
+@@ -8712,21 +9257,21 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+     } else if (sortBy === 'diff_don') {
+       items.sort((a, b) => (b.diff_don || 0) - (a.diff_don || 0));
+     } else if (sortBy === 'name') {
+-      items.sort((a, b) => a.loai.localeCompare(b.loai));
++      items.sort((a, b) => a.loai.localeCompare(b.loai, 'vi'));
+     }
+ 
+     tblLoai.innerHTML = items.map((r, i) => {
+       const diffSign = r.diff_can_thu > 0 ? '+' : '';
+       const diffDonSign = r.diff_don > 0 ? '+' : '';
+       const isSpike = r.diff_can_thu >= 10e6;
+-      let evalHtml = '—';
++      let evalHtml = '-';
+       const ev = r.eval || '';
+-      if (ev.includes('Tăng mạnh')) {
+-        evalHtml = `<span class="badge-tag badge-tag-red" style="font-size:11px; font-weight:800;">🔴 Tăng mạnh</span>`;
+-      } else if (ev.includes('Cảnh báo')) {
+-        evalHtml = `<span class="badge-tag badge-tag-amber" style="font-size:11px;">⚠️ Tăng</span>`;
+-      } else if (ev.includes('Giảm')) {
+-        evalHtml = `<span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Giảm</span>`;
++      if (ev.includes('Tăng mạnh') || ev.includes('Bất thường')) {
++        evalHtml = `<span class="badge-tag badge-tag-red" style="font-size:11px; font-weight:800;">🚨 Tăng mạnh</span>`;
++      } else if (ev.includes('Cảnh báo') || ev.includes('tăng')) {
++        evalHtml = `<span class="badge-tag badge-tag-amber" style="font-size:11px; font-weight:700;">⚠️ Tăng</span>`;
++      } else if (ev.includes('Giảm') || ev.includes('tốt')) {
++        evalHtml = `<span class="badge-tag badge-tag-green" style="font-size:11px; font-weight:700;">🟢 Giảm</span>`;
+       } else if (ev) {
+         evalHtml = `<span class="badge-tag badge-tag-blue" style="font-size:11px;">${ev}</span>`;
+       }
+@@ -8741,9 +9286,9 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+           <td class="num">${fNum(r.don_prev)}</td>
+           <td class="num bold" style="background: rgba(2, 132, 199, 0.08); color: #0284c7; font-weight:900;">${fNum(r.don_curr)}</td>
+           <td class="num bold" style="color: ${r.diff_don > 0 ? '#dc2626' : (r.diff_don < 0 ? '#16a34a' : 'inherit')};">${diffDonSign}${fNum(r.diff_don)} (${r.pct_don_diff})</td>
+-          <td class="num">${(r.can_thu_prev / 1e6).toFixed(1)} Tr</td>
+-          <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: #dc2626; font-size:13px; font-weight:900;">${(r.can_thu_curr / 1e6).toFixed(1)} Tr</td>
+-          <td class="num bold" style="color: ${r.diff_can_thu > 0 ? '#dc2626' : (r.diff_can_thu < 0 ? '#16a34a' : 'inherit')};">${diffSign}${(r.diff_can_thu / 1e6).toFixed(1)} Tr</td>
++          <td class="num">${(r.can_thu_prev / 1e6).toFixed(1)} Tr ₫</td>
++          <td class="num bold" style="background: rgba(220, 38, 38, 0.08); color: #dc2626; font-size:13px; font-weight:900;">${(r.can_thu_curr / 1e6).toFixed(1)} Tr ₫</td>
++          <td class="num bold" style="color: ${r.diff_can_thu > 0 ? '#dc2626' : (r.diff_can_thu < 0 ? '#16a34a' : 'inherit')};">${diffSign}${(r.diff_can_thu / 1e6).toFixed(1)} Tr ₫</td>
+           <td class="num bold" style="color: ${r.diff_can_thu > 0 ? '#dc2626' : (r.diff_can_thu < 0 ? '#16a34a' : 'inherit')};">${r.pct_can_thu_diff}</td>
+           <td class="center">${evalHtml}</td>
+         </tr>
+@@ -8758,8 +9303,8 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+ 
+     const report = D.truy_thu_report || {};
+     const summary = report.summary || {};
+-    const prevLabel = summary.prev_label && summary.prev_label.includes('(') ? summary.prev_label.split('(')[0].trim() : (summary.prev_label || 'Tuần N-1');
+-    const currLabel = summary.curr_label && summary.curr_label.includes('(') ? summary.curr_label.split('(')[0].trim() : (summary.curr_label || 'Tuần N');
++    const prevLabel = summary.prev_label && summary.prev_label.includes('(') ? summary.prev_label.split('(')[0].trim() : (summary.prev_label || 'Tuần W42');
++    const currLabel = summary.curr_label && summary.curr_label.includes('(') ? summary.curr_label.split('(')[0].trim() : (summary.curr_label || 'Tuần W43');
+ 
+     let items = [...(report.by_loai || [])];
+     const sortBy = state.truythuLoaiSort || 'tien';
+@@ -8777,7 +9322,7 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+     charts.truyThuLoaiBar = new Chart(ctx, {
+       type: 'bar',
+       data: {
+-        labels: top8.map(d => d.loai.length > 22 ? d.loai.substring(0, 20) + '...' : d.loai),
++        labels: top8.map(d => d.loai.length > 20 ? d.loai.substring(0, 18) + '...' : d.loai),
+         datasets: [
+           {
+             label: `${prevLabel} (Tr ₫)`,
+@@ -8788,7 +9333,7 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+           {
+             label: `${currLabel} (Tr ₫)`,
+             data: top8.map(d => Number(((d.can_thu_curr || 0) / 1e6).toFixed(1))),
+-            backgroundColor: '#ef4444',
++            backgroundColor: '#dc2626',
+             borderRadius: 4
+           }
+         ]
+@@ -8811,6 +9356,7 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+           legend: { position: 'top' },
+           tooltip: {
+             callbacks: {
++              title: c => top8[c[0].dataIndex].loai,
+               label: c => ` ${c.dataset.label}: ${fNum(c.parsed.y)} Triệu VNĐ`
+             }
+           }
+@@ -8826,8 +9372,8 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+ 
+     const report = D.truy_thu_report || {};
+     const summary = report.summary || {};
+-    const prevLabel = summary.prev_label && summary.prev_label.includes('(') ? summary.prev_label.split('(')[0].trim() : (summary.prev_label || 'Tuần N-1');
+-    const currLabel = summary.curr_label && summary.curr_label.includes('(') ? summary.curr_label.split('(')[0].trim() : (summary.curr_label || 'Tuần N');
++    const prevLabel = summary.prev_label && summary.prev_label.includes('(') ? summary.prev_label.split('(')[0].trim() : (summary.prev_label || 'Tuần W42');
++    const currLabel = summary.curr_label && summary.curr_label.includes('(') ? summary.curr_label.split('(')[0].trim() : (summary.curr_label || 'Tuần W43');
+ 
+     const top12 = [...(report.top_bc || [])].slice(0, 12).sort((a, b) => (a.bc || "").localeCompare(b.bc || "", "vi"));
+     if (top12.length === 0) return;
+@@ -8835,7 +9381,7 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+     charts.truyThuBcGiaoBar = new Chart(ctx, {
+       type: 'bar',
+       data: {
+-        labels: top12.map(d => d.bc.replace('(KHO) ', '').replace('(LDO) ', '').replace('(DNO) ', '').replace('(BTH) ', '')),
++        labels: top12.map(d => d.bc.replace('(KHO) ', '').replace('(LDO) ', '').replace('(DNO) ', '').replace('(BTH) ', '').replace('(NTH) ', '')),
+         datasets: [
+           {
+             label: `${prevLabel} (Tr ₫)`,
+@@ -8885,10 +9431,10 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+ 
+     const report = D.truy_thu_report || {};
+     const summary = report.summary || {};
+-    const prevLabel = summary.prev_label && summary.prev_label.includes('(') ? summary.prev_label.split('(')[0].trim() : (summary.prev_label || 'Tuần N-1');
+-    const currLabel = summary.curr_label && summary.curr_label.includes('(') ? summary.curr_label.split('(')[0].trim() : (summary.curr_label || 'Tuần N');
++    const prevLabel = summary.prev_label && summary.prev_label.includes('(') ? summary.prev_label.split('(')[0].trim() : (summary.prev_label || 'Tuần W42');
++    const currLabel = summary.curr_label && summary.curr_label.includes('(') ? summary.curr_label.split('(')[0].trim() : (summary.curr_label || 'Tuần W43');
+ 
+-    const top10 = [...(report.by_am || [])].sort((a, b) => compareVietnameseNames(a.am, b.am));
++    const top10 = [...(report.by_am || [])].slice(0, 10).sort((a, b) => compareVietnameseNames(a.am, b.am));
+     if (top10.length === 0) return;
+ 
+     charts.truyThuAmDual = new Chart(ctx, {
+@@ -8975,6 +9521,9 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+     if (charts.truyThuBcTicketBar) charts.truyThuBcTicketBar.destroy();
+ 
+     const report = D.truy_thu_report || {};
++    const summary = report.summary || {};
++    const currLabel = summary.curr_label && summary.curr_label.includes('(') ? summary.curr_label.split('(')[0].trim() : (summary.curr_label || 'Tuần W43');
++
+     const top15 = [...(report.top_bc || [])].sort((a, b) => b.don_curr - a.don_curr).slice(0, 15).sort((a, b) => (a.bc || "").localeCompare(b.bc || "", "vi"));
+     if (top15.length === 0) return;
+ 
+@@ -8983,10 +9532,10 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+     charts.truyThuBcTicketBar = new Chart(ctx, {
+       type: 'bar',
+       data: {
+-        labels: top15.map(d => d.bc.replace('(KHO) ', '').replace('(LDO) ', '').replace('(DNO) ', '').replace('(BTH) ', '')),
++        labels: top15.map(d => d.bc.replace('(KHO) ', '').replace('(LDO) ', '').replace('(DNO) ', '').replace('(BTH) ', '').replace('(NTH) ', '')),
+         datasets: [
+           {
+-            label: 'Số Lượng Ticket Tuần N',
++            label: `Số Lượng Ticket (${currLabel})`,
+             data: top15.map(d => d.don_curr),
+             backgroundColor: top15.map(d => selectedAM && selectedAM === d.am ? '#ef4444' : '#dc2626'),
+             borderColor: top15.map(d => selectedAM && selectedAM === d.am ? '#991b1b' : 'transparent'),
+@@ -9002,7 +9551,7 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+         scales: {
+           y: {
+             min: 0,
+-            title: { display: true, text: 'Số Ticket Vi Phạm (Tuần N)', font: { weight: '700', size: 11 } },
++            title: { display: true, text: `Số Ticket Vi Phạm (${currLabel})`, font: { weight: '700', size: 11 } },
+             grid: { color: 'rgba(0,0,0,0.06)' }
+           },
+           x: {
+@@ -10144,7 +10693,7 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+ 
+     let list = [...D.gan.top_bc_chua_gan];
+     if (state.ganBcFilter === 'worst') {
+-      list = list.filter(r => (r.gan_rate || 0) < 75.0);
++      list = list.filter(r => (r.gan_rate_w43 !== undefined ? r.gan_rate_w43 : (r.gan_rate || 0)) < 65.0);
+     }
+ 
+     if (state.searchGanBc) {
+@@ -10152,8 +10701,12 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+       list = list.filter(r => (r.ten_bc && r.ten_bc.toLowerCase().includes(q)) || (r.am && r.am.toLowerCase().includes(q)) || (r.tinh && r.tinh.toLowerCase().includes(q)));
+     }
+ 
+-    // Sắp xếp tăng dần theo tỷ lệ gán (thấp nhất lên đầu)
+-    list.sort((a, b) => (a.gan_rate || 0) - (b.gan_rate || 0));
++    // Sắp xếp tăng dần theo tỷ lệ gán W43 (thấp nhất lên đầu)
++    list.sort((a, b) => {
++      const valA = a.gan_rate_w43 !== undefined ? a.gan_rate_w43 : (a.gan_rate || 0);
++      const valB = b.gan_rate_w43 !== undefined ? b.gan_rate_w43 : (b.gan_rate || 0);
++      return valA - valB;
++    });
+ 
+     const currW = D.meta?.latest_week || 'W43';
+     const countEl = document.getElementById('gan-bc-count');
+@@ -10165,17 +10718,22 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+     }
+ 
+     tbl.innerHTML = list.map((b, i) => {
+-      const gr = b.gan_rate || 0;
+-      const cgr = b.chua_gan_rate || (100 - gr);
+-      const ca1 = b.gan_rate_ca1 || 0;
+-      const ca2 = b.gan_rate_ca2 || 0;
++      const gr = b.gan_rate_w43 !== undefined ? b.gan_rate_w43 : (b.gan_rate || 0);
++      const w42 = b.gan_rate_w42 !== undefined ? b.gan_rate_w42 : 0;
++      const diff = b.diff_gan !== undefined ? b.diff_gan : (gr - w42);
++      const ca1 = b.ca1 || `${(b.gan_rate_ca1 || 0).toFixed(1)}%`;
++      const ca2 = b.ca2 || (b.gan_rate_ca2 ? `${b.gan_rate_ca2.toFixed(1)}%` : '--');
++
++      let diffStr = diff > 0 ? `+${diff.toFixed(1)}%p` : (diff < 0 ? `${diff.toFixed(1)}%p` : '0.0%p');
++      let diffStyle = diff > 0 ? 'color: #16a34a; font-weight: 800;' : (diff < 0 ? 'color: #dc2626; font-weight: 800;' : 'color: #64748b; font-weight: 700;');
++
+       let badge = '<span class="badge-tag badge-tag-green" style="font-size:11px;">🟢 Đạt Chuẩn</span>';
+       let rowBg = 'transparent';
+       let rateBg = '#dcfce7';
+       let rateColor = '#16a34a';
+ 
+       if (gr < 60.0) {
+-        badge = '<span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11.5px;">🚨 Báo Động Đỏ (&lt;60%)</span>';
++        badge = '<span class="badge-tag badge-tag-red" style="font-weight:900; font-size:11px;">🚨 Báo Động Đỏ (&lt;60%)</span>';
+         rowBg = 'rgba(239, 68, 68, 0.08)';
+         rateBg = '#dc2626';
+         rateColor = '#ffffff';
+@@ -10190,17 +10748,23 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
+         rateColor = '#c2410c';
+       }
+ 
++      const ca1Val = parseFloat(String(ca1).replace('%', '') || 0);
++      const ca1Color = ca1Val < 80.0 ? '#dc2626' : '#16a34a';
++      const ca2Val = parseFloat(String(ca2).replace('%', '') || 0);
++      const ca2Color = ca2 === '--' || ca2Val < 50.0 ? '#dc2626' : (ca2Val < 70.0 ? '#ea580c' : '#16a34a');
++
+       return `
+         <tr style="cursor: pointer; background: ${rowBg};" onclick="selectAndHighlightAM('${b.am}')">
+           <td class="center" style="font-weight:800; color:${gr < 60.0 ? '#dc2626' : 'inherit'};">${i + 1}</td>
+-          <td class="bold" style="font-size:13.5px; font-weight:800; color:${gr < 60.0 ? '#b91c1c' : '#1e293b'};">${b.ten_bc}</td>
++          <td class="bold" style="font-size:13px; font-weight:800; color:${gr < 60.0 ? '#b91c1c' : '#1e293b'};">${b.ten_bc}</td>
+           <td style="font-weight:700; color:#2563eb;">${b.am}</td>
+           <td style="color:#64748b; font-size:12px;">${b.tinh || ''}</td>
+-          <td class="num bold">${(b.vol || 0).toLocaleString()}</td>
+-
+-          <td class="num bold" style="background: ${rateBg}; color: ${rateColor}; font-size: 13.5px; font-weight: 900;">${gr.toFixed(1)}%</td>
+-          <td class="num" style="font-weight:700; color:${ca1 < 80 ? '#dc2626' : '#16a34a'};">${ca1.toFixed(1)}%</td>
+-          <td class="num" style="font-weight:700; color:${ca2 < 30 ? '#dc2626' : '#ea580c'};">${ca2 > 0 ? ca2.toFixed(1) + '%' : '--'}</td>
++          <td class="num bold">${typeof b.vol === 'number' ? b.vol.toLocaleString() : b.vol}</td>
++          <td class="num bold" style="background: #f1f5f9; color: #334155; font-size: 13px;">${w42.toFixed(1)}%</td>
++          <td class="num bold" style="background: ${rateBg}; color: ${rateColor}; font-size: 13px; font-weight: 900;">${gr.toFixed(1)}%</td>
++          <td class="num" style="${diffStyle} font-size: 12.5px;">${diffStr}</td>
++          <td class="num" style="font-weight:700; color:${ca1Color};">${ca1}</td>
++          <td class="num" style="font-weight:700; color:${ca2Color};">${ca2}</td>
+           <td class="center">${badge}</td>
+         </tr>
+       `;

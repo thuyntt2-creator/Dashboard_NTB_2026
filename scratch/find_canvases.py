@@ -1,12 +1,7 @@
-import sys
-import re
-
-sys.stdout.reconfigure(encoding='utf-8')
-
+# -*- coding: utf-8 -*-
 with open('index.html', 'r', encoding='utf-8') as f:
-    text = f.read()
+    lines = f.readlines()
 
-canvases = re.findall(r'<canvas[^>]*id=["\']([^"\']+)["\']', text)
-print("All canvas IDs in index.html:")
-for c in canvases:
-    print(" -", c)
+for i, line in enumerate(lines):
+    if '<canvas' in line:
+        print(f"Line {i+1}: {line.strip()}")

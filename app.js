@@ -8114,7 +8114,7 @@
     });
   }
 
-    function renderAgingCustomerChart() {
+  function renderAgingCustomerChart() {
     const ctx = document.getElementById('chart-aging-customer');
     if (!ctx) return;
     if (charts.agingCustomer) charts.agingCustomer.destroy();
@@ -8134,7 +8134,7 @@
       if (custTitle) custTitle.textContent = 'PHÂN TÍCH TỒN ĐỌNG CẢ VÙNG THEO KHÁCH HÀNG (AGING >5 NGÀY)';
       if (custBadge) {
         custBadge.className = 'badge-tag badge-tag-red';
-        custBadge.textContent = 🚨  Tồn Nhiều Nhất (% -  đơn);
+        custBadge.textContent = `🚨 ${top1.customer} Tồn Nhiều Nhất (${top1.pct}% - ${fNum(top1.vol)} đơn)`;
       }
 
       // Group into SME, TikTok Shop (TTS + Bulky), Shopee (Shopee + Bulky)
@@ -8173,9 +8173,9 @@
       shp.pct = (shp.vol / totAg * 100).toFixed(1);
 
       const labels = [
-        1. SME ( đ - %),
-        2. TikTok Shop ( đ - %),
-        3. Shopee ( đ - %)
+        `1. SME (${fNum(sme.vol)} đ - ${sme.pct}%)`,
+        `2. TikTok Shop (${fNum(tts.vol)} đ - ${tts.pct}%)`,
+        `3. Shopee (${fNum(shp.vol)} đ - ${shp.pct}%)`
       ];
 
       charts.agingCustomer = new Chart(ctx, {
@@ -8228,15 +8228,9 @@
               callbacks: {
                 afterBody: function(context) {
                   const idx = context[0].dataIndex;
-                  if (idx === 0) return Top AM: 
-Top BC: 
-(Nắm 100% số đơn tồn >15N của cả vùng);
-                  if (idx === 1) return Top AM: 
-Top BC: 
-(81/89 đơn ở mức 5-8N, 0 đơn >15N);
-                  if (idx === 2) return Top AM: 
-Top BC: 
-(Gồm 16 đơn hàng Bulky cồng kềnh);
+                  if (idx === 0) return `Top AM: ${sme.top_am}\nTop BC: ${sme.top_bc}\n(Nắm 100% số đơn tồn >15N của cả vùng)`;
+                  if (idx === 1) return `Top AM: ${tts.top_am}\nTop BC: ${tts.top_bc}\n(81/89 đơn ở mức 5-8N, 0 đơn >15N)`;
+                  if (idx === 2) return `Top AM: ${shp.top_am}\nTop BC: ${shp.top_bc}\n(Gồm 16 đơn hàng Bulky cồng kềnh)`;
                 }
               }
             }
@@ -8245,36 +8239,36 @@ Top BC:
       });
 
       if (custSummary) {
-        custSummary.innerHTML = 
+        custSummary.innerHTML = `
           <div style="padding: 6px 10px; background: rgba(239, 68, 68, 0.08); border: 1.5px solid #ef4444; border-radius: 6px;">
-            <div style="font-size: 10.5px; font-weight: 800; color: #b91c1c;">👑 TOP 1: SME (%)</div>
-            <div style="font-size: 14px; font-weight: 900; color: #dc2626; line-height: 1.2;"> <small style="font-size: 10px;">đơn tồn</small></div>
-            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Giữ <strong>100%</strong> đơn &gt;15N (4 đ). AM: </div>
+            <div style="font-size: 10.5px; font-weight: 800; color: #b91c1c;">👑 TOP 1: SME (${sme.pct}%)</div>
+            <div style="font-size: 14px; font-weight: 900; color: #dc2626; line-height: 1.2;">${fNum(sme.vol)} <small style="font-size: 10px;">đơn tồn</small></div>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Giữ <strong>100%</strong> đơn &gt;15N (${sme.gt15} đ). AM: ${sme.top_am || 'Lê Minh Đại'}</div>
           </div>
           <div style="padding: 6px 10px; background: rgba(59, 130, 246, 0.08); border: 1.5px solid #3b82f6; border-radius: 6px;">
-            <div style="font-size: 10.5px; font-weight: 800; color: #1d4ed8;">TOP 2: TIKTOK SHOP (%)</div>
-            <div style="font-size: 14px; font-weight: 900; color: #2563eb; line-height: 1.2;"> <small style="font-size: 10px;">đơn tồn</small></div>
-            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">91% là 5–8N (81 đ). AM: </div>
+            <div style="font-size: 10.5px; font-weight: 800; color: #1d4ed8;">TOP 2: TIKTOK SHOP (${tts.pct}%)</div>
+            <div style="font-size: 14px; font-weight: 900; color: #2563eb; line-height: 1.2;">${fNum(tts.vol)} <small style="font-size: 10px;">đơn tồn</small></div>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">91% là 5–8N (${tts.d58} đ). AM: ${tts.top_am || 'Nguyễn Duy Long'}</div>
           </div>
           <div style="padding: 6px 10px; background: rgba(249, 115, 22, 0.08); border: 1.5px solid #f97316; border-radius: 6px;">
-            <div style="font-size: 10.5px; font-weight: 800; color: #c2410c;">TOP 3: SHOPEE (%)</div>
-            <div style="font-size: 14px; font-weight: 900; color: #ea580c; line-height: 1.2;"> <small style="font-size: 10px;">đơn tồn</small></div>
-            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">16 đ Bulky (28%). AM: </div>
+            <div style="font-size: 10.5px; font-weight: 800; color: #c2410c;">TOP 3: SHOPEE (${shp.pct}%)</div>
+            <div style="font-size: 14px; font-weight: 900; color: #ea580c; line-height: 1.2;">${fNum(shp.vol)} <small style="font-size: 10px;">đơn tồn</small></div>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">16 đ Bulky (28%). AM: ${shp.top_am || 'Nguyễn Duy Long'}</div>
           </div>
-        ;
+        `;
       }
     } else if (isTreo && D.treo_lc) {
       const custData = D.treo_lc.by_customer || [];
       const top1 = custData[0] || { customer: 'SME / Khác (OTHER)', vol: 2178, pct: 57.5 };
-      const shpCust = custData.find(c => c.customer.includes('Shopee')) || {};
+      const shpCust = custData.find(c => (c.customer || '').includes('Shopee')) || {};
 
       if (custTitle) custTitle.textContent = 'PHÂN TÍCH TREO LUÂN CHUYỂN CẢ VÙNG THEO KHÁCH HÀNG';
       if (custBadge) {
         custBadge.className = 'badge-tag badge-tag-amber';
-        custBadge.textContent = 🚨  Tồn Nhiều Nhất (%) | Shopee Treo Cao Nhất (%);
+        custBadge.textContent = `🚨 ${top1.customer} Tồn Nhiều Nhất (${top1.pct}%) | Shopee Treo Cao Nhất (${shpCust.rate_treo_24 || '24.9'}%)`;
       }
 
-      const labels = custData.map((c, idx) => ${idx + 1}.  ( đ - %));
+      const labels = custData.map((c, idx) => `${idx + 1}. ${c.customer} (${fNum(c.vol)} đ - ${c.pct}%)`);
       const dataU24 = custData.map(c => c.u_24 || 0);
       const data24_36 = custData.map(c => c.h_24_36 || 0);
       const data36_plus = custData.map(c => (c.treo_24 || 0) - (c.h_24_36 || 0));
@@ -8330,10 +8324,7 @@ Top BC:
                 afterBody: function(context) {
                   const idx = context[0].dataIndex;
                   const item = custData[idx] || {};
-                  return Treo ≥24h:  đơn (%)
-Chiếm % tổng đơn treo cả vùng
-Top AM:  ( đ)
-Top BC: ;
+                  return `Treo ≥24h: ${fNum(item.treo_24)} đơn (${item.rate_treo_24}%)\nChiếm ${item.pct}% tổng đơn treo cả vùng\nTop AM: ${item.top_am || ''} (${fNum(item.top_am_vol)} đ)\nTop BC: ${item.top_bc || ''}`;
                 }
               }
             }
@@ -8345,28 +8336,28 @@ Top BC: ;
         const other = custData[0] || {};
         const shopee = custData[1] || {};
         const tts = custData[2] || {};
-        custSummary.innerHTML = 
+        custSummary.innerHTML = `
           <div style="padding: 6px 10px; background: rgba(59, 130, 246, 0.08); border: 1.5px solid #3b82f6; border-radius: 6px;">
-            <div style="font-size: 10.5px; font-weight: 800; color: #1d4ed8;">👑 TOP 1: OTHER / SME (%)</div>
-            <div style="font-size: 14px; font-weight: 900; color: #2563eb; line-height: 1.2;"> <small style="font-size: 10px;">đơn LC</small></div>
-            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Treo ≥24h: <strong> đ (%)</strong>. AM: </div>
+            <div style="font-size: 10.5px; font-weight: 800; color: #1d4ed8;">👑 TOP 1: OTHER / SME (${other.pct || '57.5'}%)</div>
+            <div style="font-size: 14px; font-weight: 900; color: #2563eb; line-height: 1.2;">${fNum(other.vol || 2178)} <small style="font-size: 10px;">đơn LC</small></div>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Treo ≥24h: <strong>${fNum(other.treo_24 || 356)} đ (${other.rate_treo_24 || '16.3'}%)</strong>. AM: ${other.top_am || 'Nguyễn Duy Long'}</div>
           </div>
           <div style="padding: 6px 10px; background: rgba(239, 68, 68, 0.08); border: 1.5px solid #ef4444; border-radius: 6px;">
-            <div style="font-size: 10.5px; font-weight: 800; color: #b91c1c;">🚨 SHOPEE: TREO CAO NHẤT (%)</div>
-            <div style="font-size: 14px; font-weight: 900; color: #dc2626; line-height: 1.2;"> /  <small style="font-size: 10px;">treo</small></div>
-            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Chiếm <strong>%</strong> tổng treo cả vùng! AM: </div>
+            <div style="font-size: 10.5px; font-weight: 800; color: #b91c1c;">🚨 SHOPEE: TREO CAO NHẤT (${shopee.rate_treo_24 || '24.9'}%)</div>
+            <div style="font-size: 14px; font-weight: 900; color: #dc2626; line-height: 1.2;">${fNum(shopee.treo_24 || 254)} / ${fNum(shopee.vol || 1019)} <small style="font-size: 10px;">treo</small></div>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Chiếm <strong>${shopee.pct || '26.9'}%</strong> tổng treo cả vùng! AM: ${shopee.top_am || 'Trần Văn Phước'}</div>
           </div>
           <div style="padding: 6px 10px; background: rgba(16, 185, 129, 0.08); border: 1.5px solid #10b981; border-radius: 6px;">
-            <div style="font-size: 10.5px; font-weight: 800; color: #047857;">TIKTOK SHOP (%)</div>
-            <div style="font-size: 14px; font-weight: 900; color: #059669; line-height: 1.2;"> <small style="font-size: 10px;">đơn LC</small></div>
-            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Treo ≥24h: <strong> đ (%)</strong>. AM: </div>
+            <div style="font-size: 10.5px; font-weight: 800; color: #047857;">TIKTOK SHOP (${tts.pct || '15.6'}%)</div>
+            <div style="font-size: 14px; font-weight: 900; color: #059669; line-height: 1.2;">${fNum(tts.vol || 591)} <small style="font-size: 10px;">đơn LC</small></div>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Treo ≥24h: <strong>${fNum(tts.treo_24 || 78)} đ (${tts.rate_treo_24 || '13.2'}%)</strong>. AM: ${tts.top_am || 'Nguyễn Duy Long'}</div>
           </div>
-        ;
+        `;
       }
     }
   }
 
-  function renderAgingChart() {
+    function renderAgingChart() {
     const ctx = document.getElementById('chart-aging-bar');
     if (!ctx) return;
     if (charts.agingBar) charts.agingBar.destroy();
