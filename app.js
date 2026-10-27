@@ -6137,6 +6137,41 @@
     const _vungPrev = _totalVol > 0 ? _wtdPrev / _totalVol : 0;
     const _diff = _vungCurr - _vungPrev;
     const _kpiOk = _vungCurr >= 0.80;
+    const _dayPassList = _ams.filter(r => ((r.vol_day === 0) ? 0 : (getDayVal(r) || 0)) >= 0.80);
+    const _dayFailList = _ams.filter(r => ((r.vol_day === 0) ? 0 : (getDayVal(r) || 0)) < 0.80);
+    const _nightPassList = _ams.filter(r => ((r.vol_night === 0) ? 0 : (getNightVal(r) || 0)) >= 0.80);
+    const _nightFailList = _ams.filter(r => ((r.vol_night === 0) ? 0 : (getNightVal(r) || 0)) < 0.80);
+
+    // Lưu dữ liệu OPR shift cho modal tương tác
+    window._oprShiftData = {
+      currLabel,
+      prevLabel,
+      ams: _ams.map(r => {
+        const dVal = (r.vol_day === 0) ? 0 : (getDayVal(r) || 0);
+        const nVal = (r.vol_night === 0) ? 0 : (getNightVal(r) || 0);
+        const tVal = getTotalVal(r) || 0;
+        return {
+          am: r.am,
+          vol_day: r.vol_day || 0,
+          opr_day: dVal,
+          fail_day: (r.vol_day || 0) > 0 ? Math.round(r.vol_day * (1 - (dVal > 1 ? 0 : dVal))) : 0,
+          vol_night: r.vol_night || 0,
+          opr_night: nVal,
+          fail_night: (r.vol_night || 0) > 0 ? Math.round(r.vol_night * (1 - (nVal > 1 ? 0 : nVal))) : 0,
+          vol_total: r.vol_total || ((r.vol_day || 0) + (r.vol_night || 0)),
+          opr_total: tVal
+        };
+      }),
+      vungCurrDay: _vungCurrDay,
+      vungCurrNight: _vungCurrNight,
+      volDay: _volDay,
+      volNight: _volNight,
+      dayPassCount: _dayPassList.length,
+      dayFailCount: _dayFailList.length,
+      nightPassCount: _nightPassList.length,
+      nightFailCount: _nightFailList.length
+    };
+
     const _vungEl = document.getElementById('opr-tts-vung-total');
     if (_vungEl) {
       const diffTxt = (_diff >= 0 ? '▲ +' : '▼ ') + Math.abs(_diff * 100).toFixed(1) + '%p WoW';
@@ -6161,9 +6196,23 @@
             </div>
           </div>
           <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
-            <div style="display:flex; gap:8px;">
-              <span class="badge-tag badge-tag-amber" style="font-size:11px; padding:5px 10px;">☀️ Ca Ngày: <strong>${(_vungCurrDay*100).toFixed(1)}%</strong></span>
-              <span class="badge-tag badge-tag-purple" style="font-size:11px; padding:5px 10px;">🌙 Ca Đêm: <strong>${(_vungCurrNight*100).toFixed(1)}%</strong></span>
+            <div style="display:flex; gap:10px; align-items:center;">
+              <button type="button" 
+                      class="opr-shift-interactive-btn opr-shift-day-btn" 
+                      onclick="window.openOprShiftBreakdown('day')"
+                      title="Nhấn để xem chi tiết bao nhiêu AM đạt KPI Ca Ngày (9h–19h)">
+                <span>☀️ Ca Ngày: <strong>${(_vungCurrDay*100).toFixed(1)}%</strong></span>
+                <span class="opr-shift-count-badge opr-shift-count-green">${_dayPassList.length}/${_ams.length} AM Đạt</span>
+                <span class="opr-shift-arrow">↗</span>
+              </button>
+              <button type="button" 
+                      class="opr-shift-interactive-btn opr-shift-night-btn" 
+                      onclick="window.openOprShiftBreakdown('night')"
+                      title="Nhấn để xem chi tiết bao nhiêu AM đạt KPI Ca Đêm (19h–9h)">
+                <span>🌙 Ca Đêm: <strong>${(_vungCurrNight*100).toFixed(1)}%</strong></span>
+                <span class="opr-shift-count-badge opr-shift-count-red">${_nightPassList.length}/${_ams.length} AM Đạt</span>
+                <span class="opr-shift-arrow">↗</span>
+              </button>
             </div>
             ${kpiBadge}
           </div>
@@ -6394,6 +6443,260 @@
       }).join('');
     }
   }
+
+  // --------------------------------------------------------------------------
+  // OPR SHIFT BREAKDOWN MODAL (CA NGÀY vs CA ĐÊM)
+  // --------------------------------------------------------------------------
+  window.openOprShiftBreakdown = function(shift = 'day') {
+    window._currentOprShift = shift;
+    window._currentOprFilter = 'all';
+
+    let modal = document.getElementById('opr-shift-modal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'opr-shift-modal';
+      modal.className = 'opr-shift-modal-overlay';
+      modal.onclick = function(e) {
+        if (e.target === modal) window.closeOprShiftModal();
+      };
+      document.body.appendChild(modal);
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') window.closeOprShiftModal();
+      });
+    }
+
+    window.renderOprShiftModalContent();
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeOprShiftModal = function() {
+    const modal = document.getElementById('opr-shift-modal');
+    if (modal) {
+      modal.style.display = 'none';
+    }
+    document.body.style.overflow = '';
+  };
+
+  window.switchOprShift = function(shift) {
+    window._currentOprShift = shift;
+    window._currentOprFilter = 'all';
+    window.renderOprShiftModalContent();
+  };
+
+  window.filterOprShiftModal = function(filter) {
+    window._currentOprFilter = filter;
+    window.renderOprShiftModalContent();
+  };
+
+  window.goToAMFromModal = function(amName) {
+    window.closeOprShiftModal();
+    if (typeof selectAndHighlightAM === 'function') {
+      selectAndHighlightAM(amName);
+    }
+    const targetEl = document.querySelector(`tr[data-entity="${amName}"]`) || document.getElementById('opr-failed-ams-container');
+    if (targetEl) {
+      targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
+  window.renderOprShiftModalContent = function() {
+    const modal = document.getElementById('opr-shift-modal');
+    if (!modal || !window._oprShiftData) return;
+
+    const data = window._oprShiftData;
+    const shift = window._currentOprShift || 'day';
+    const filter = window._currentOprFilter || 'all';
+    const isDay = shift === 'day';
+
+    // Sắp xếp AM theo OPR ca tương ứng giảm dần
+    const amsList = [...data.ams].sort((a, b) => {
+      const valA = isDay ? a.opr_day : a.opr_night;
+      const valB = isDay ? b.opr_day : b.opr_night;
+      return valB - valA;
+    });
+
+    const passList = amsList.filter(r => (isDay ? r.opr_day : r.opr_night) >= 0.80);
+    const failList = amsList.filter(r => (isDay ? r.opr_day : r.opr_night) < 0.80);
+
+    let displayList = amsList;
+    if (filter === 'pass') displayList = passList;
+    if (filter === 'fail') displayList = failList;
+
+    const rateVung = isDay ? (data.vungCurrDay * 100).toFixed(1) : (data.vungCurrNight * 100).toFixed(1);
+    const totalVol = isDay ? data.volDay : data.volNight;
+    const isPassVung = parseFloat(rateVung) >= 80.0;
+
+    const titleIcon = isDay ? '☀️' : '🌙';
+    const titleText = isDay ? 'CHI TIẾT HIỆU SUẤT OPR CA NGÀY (9H – 19H)' : 'CHI TIẾT HIỆU SUẤT OPR CA ĐÊM (19H – 9H SÁNG HÔM SAU)';
+
+    const insightHtml = isDay
+      ? `<div class="opr-shift-insight-box insight-day">
+          <strong>💡 Nhận định Ca Ngày (9h – 19h):</strong> Toàn vùng làm rất tốt, đạt tới <strong style="color:#047857;">${rateVung}%</strong> với <strong style="color:#047857;">${passList.length}/${data.ams.length} AM vượt chuẩn KPI (≥ 80.0%)</strong>. 
+          Chỉ có <strong>${failList.length} AM chưa đạt</strong> (${failList.map(r => r.am).join(', ')}), nguyên nhân chủ yếu do phát sinh sản lượng rất thấp (1–2 đơn) và bị trễ 1 đơn.
+        </div>`
+      : `<div class="opr-shift-insight-box insight-night">
+          <strong>🚨 Cảnh báo Ca Đêm (19h – 9h):</strong> Tỷ lệ OPR ca đêm toàn vùng tụt dốc thê thảm chỉ còn <strong style="color:#b91c1c;">${rateVung}%</strong>! 
+          Có tới <strong style="color:#b91c1c;">${failList.length}/${data.ams.length} AM không đạt chuẩn</strong> (&lt; 80.0%), trong đó nhiều AM rớt rất sâu: AM Lê Hồng Phong (2.1%), Trần Thị Nhung (4.0%), Lê Văn Trường (6.0%). 
+          Toàn vùng chỉ có đúng <strong style="color:#047857;">${passList.length} AM</strong> giữ vững chuẩn gồm: <strong>${passList.map(r => r.am).join(', ')}</strong>.
+        </div>`;
+
+    modal.innerHTML = `
+      <div class="opr-shift-modal-card">
+        <!-- Modal Header -->
+        <div class="opr-shift-modal-header">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:26px;">${titleIcon}</span>
+            <div>
+              <div style="font-size:16px; font-weight:900; color:var(--text-main); text-transform:uppercase; letter-spacing:0.3px;">
+                ${titleText}
+              </div>
+              <div style="font-size:11.5px; color:var(--text-muted); font-weight:600; margin-top:2px;">
+                Dữ liệu tuần ${data.currLabel} • Chuẩn KPI ≥ 80.0% • Toàn vùng có ${data.ams.length} AM
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:12px;">
+            <!-- Shift Switcher -->
+            <div class="opr-shift-segmented-control">
+              <button type="button" 
+                      onclick="window.switchOprShift('day')" 
+                      class="opr-shift-segmented-btn ${isDay ? 'active day-active' : ''}">
+                ☀️ Ca Ngày (${data.dayPassCount}/${data.ams.length})
+              </button>
+              <button type="button" 
+                      onclick="window.switchOprShift('night')" 
+                      class="opr-shift-segmented-btn ${!isDay ? 'active night-active' : ''}">
+                🌙 Ca Đêm (${data.nightPassCount}/${data.ams.length})
+              </button>
+            </div>
+
+            <button type="button" 
+                    onclick="window.closeOprShiftModal()" 
+                    style="border:none; background:transparent; font-size:24px; cursor:pointer; color:var(--text-muted); width:36px; height:36px; display:flex; align-items:center; justify-content:center; border-radius:10px; transition:all 0.15s;" 
+                    onmouseover="this.style.background='rgba(0,0,0,0.06)'" 
+                    onmouseout="this.style.background='transparent'" 
+                    title="Đóng (Esc)">✕</button>
+          </div>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="opr-shift-modal-body">
+          <!-- 4 Stat Metric Cards -->
+          <div class="opr-stat-grid">
+            <div class="opr-stat-card" style="border-top:3px solid ${isPassVung ? '#10b981' : '#ef4444'};">
+              <div class="opr-stat-card-title">Tỷ Lệ OPR Toàn Vùng</div>
+              <div class="opr-stat-card-val" style="color:${isPassVung ? '#10b981' : '#ef4444'};">${rateVung}%</div>
+              <div class="opr-stat-card-sub" style="color:${isPassVung ? '#047857' : '#b91c1c'};">
+                ${isPassVung ? '✅ Vượt chuẩn KPI ≥ 80%' : '❌ Chưa đạt chuẩn KPI (<80%)'}
+              </div>
+            </div>
+
+            <div class="opr-stat-card" style="border-top:3px solid #10b981;">
+              <div class="opr-stat-card-title">Số AM Vượt Chuẩn</div>
+              <div class="opr-stat-card-val" style="color:#10b981;">${passList.length} <span style="font-size:15px; font-weight:700; color:var(--text-muted);">/ ${data.ams.length} AM</span></div>
+              <div class="opr-stat-card-sub" style="color:#047857;">Tỷ lệ: ${(passList.length / data.ams.length * 100).toFixed(1)}% AM</div>
+            </div>
+
+            <div class="opr-stat-card" style="border-top:3px solid #ef4444;">
+              <div class="opr-stat-card-title">Số AM Chưa Đạt</div>
+              <div class="opr-stat-card-val" style="color:#ef4444;">${failList.length} <span style="font-size:15px; font-weight:700; color:var(--text-muted);">/ ${data.ams.length} AM</span></div>
+              <div class="opr-stat-card-sub" style="color:#b91c1c;">Tỷ lệ: ${(failList.length / data.ams.length * 100).toFixed(1)}% AM</div>
+            </div>
+
+            <div class="opr-stat-card" style="border-top:3px solid #6366f1;">
+              <div class="opr-stat-card-title">Tổng Đơn Trong Ca</div>
+              <div class="opr-stat-card-val" style="color:#6366f1;">${totalVol.toLocaleString('vi-VN')}</div>
+              <div class="opr-stat-card-sub" style="color:var(--text-muted);">Sản lượng thực tế toàn ca</div>
+            </div>
+          </div>
+
+          <!-- Insight Commentary Box -->
+          ${insightHtml}
+
+          <!-- Filter Tabs & Header -->
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:14px;">
+            <div style="font-size:13px; font-weight:800; text-transform:uppercase; letter-spacing:0.3px; color:var(--text-main);">
+              Danh Sách Xếp Hạng ${displayList.length} AM (${isDay ? 'Ca Ngày' : 'Ca Đêm'})
+            </div>
+
+            <div style="display:flex; gap:6px;">
+              <button type="button" 
+                      onclick="window.filterOprShiftModal('all')" 
+                      style="padding:5px 12px; border-radius:8px; border:1px solid ${filter === 'all' ? 'var(--ghn-orange)' : 'var(--border-color)'}; background:${filter === 'all' ? 'var(--ghn-orange-light, #fff4ed)' : 'var(--bg-card)'}; color:${filter === 'all' ? 'var(--ghn-orange)' : 'var(--text-muted)'}; font-size:11.5px; font-weight:800; cursor:pointer;">
+                Tất Cả (${amsList.length})
+              </button>
+              <button type="button" 
+                      onclick="window.filterOprShiftModal('pass')" 
+                      style="padding:5px 12px; border-radius:8px; border:1px solid ${filter === 'pass' ? '#10b981' : 'var(--border-color)'}; background:${filter === 'pass' ? '#ecfdf5' : 'var(--bg-card)'}; color:${filter === 'pass' ? '#047857' : 'var(--text-muted)'}; font-size:11.5px; font-weight:800; cursor:pointer;">
+                🟢 Đạt KPI (${passList.length})
+              </button>
+              <button type="button" 
+                      onclick="window.filterOprShiftModal('fail')" 
+                      style="padding:5px 12px; border-radius:8px; border:1px solid ${filter === 'fail' ? '#ef4444' : 'var(--border-color)'}; background:${filter === 'fail' ? '#fef2f2' : 'var(--bg-card)'}; color:${filter === 'fail' ? '#b91c1c' : 'var(--text-muted)'}; font-size:11.5px; font-weight:800; cursor:pointer;">
+                🔴 Chưa Đạt (${failList.length})
+              </button>
+            </div>
+          </div>
+
+          <!-- AM Grid -->
+          <div class="opr-am-grid">
+            ${displayList.map((r, idx) => {
+              const val = isDay ? r.opr_day : r.opr_night;
+              const pct = (val * 100).toFixed(1);
+              const isPass = val >= 0.80;
+              const vol = isDay ? r.vol_day : r.vol_night;
+              const fail = isDay ? r.fail_day : r.fail_night;
+              const pass = Math.max(0, vol - fail);
+              const rank = idx + 1;
+
+              const badgeHtml = val >= 0.92
+                ? '<span class="badge-tag badge-tag-green" style="font-size:10.5px; font-weight:800; padding:3px 8px;">🏆 Xuất Sắc (≥92%)</span>'
+                : (isPass
+                  ? '<span class="badge-tag badge-tag-green" style="font-size:10.5px; font-weight:800; padding:3px 8px;">🟢 Đạt Chuẩn (≥80%)</span>'
+                  : '<span class="badge-tag badge-tag-red" style="font-size:10.5px; font-weight:800; padding:3px 8px;">🔴 Chưa Đạt (&lt;80%)</span>');
+
+              return `
+                <div class="opr-am-card ${isPass ? 'pass' : 'fail'}" onclick="window.goToAMFromModal('${r.am}')" title="Nhấp để định vị AM này ở bảng bên dưới">
+                  <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                      <div style="display:flex; align-items:center; gap:8px;">
+                        <span style="font-size:11px; font-weight:900; background:var(--bg-surface-alt, #f1f5f9); color:var(--text-muted); width:22px; height:22px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px;">#${rank}</span>
+                        <span style="font-size:14px; font-weight:800; color:var(--text-main);">${r.am}</span>
+                      </div>
+                      ${badgeHtml}
+                    </div>
+
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;">
+                      <div style="font-size:24px; font-weight:900; color:${isPass ? '#10b981' : '#ef4444'}; font-family:var(--font-mono, monospace); line-height:1;">
+                        ${pct}%
+                      </div>
+                      <div style="font-size:11.5px; font-weight:700; color:var(--text-muted);">
+                        Vol: <strong style="color:var(--text-main);">${vol.toLocaleString('vi-VN')}</strong> đơn
+                      </div>
+                    </div>
+
+                    <!-- Mini Progress Bar with 80% target line -->
+                    <div style="position:relative; height:7px; background:var(--border-subtle, #e2e8f0); border-radius:9999px; overflow:hidden; margin-bottom:8px;">
+                      <div style="width:${Math.min(100, Math.max(0, val * 100))}%; height:100%; background:${isPass ? '#10b981' : '#ef4444'}; border-radius:9999px; transition:width 0.4s ease;"></div>
+                      <div style="position:absolute; left:80%; top:0; bottom:0; width:2px; background:#475569; z-index:2;" title="Chuẩn KPI 80%"></div>
+                    </div>
+                  </div>
+
+                  <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:var(--text-muted); padding-top:6px; border-top:1px dashed var(--border-subtle, #e2e8f0);">
+                    <span>Giao đạt: <strong style="color:#10b981;">${pass}</strong> • Trễ: <strong style="color:${fail > 0 ? '#ef4444' : 'var(--text-muted)'};">${fail}</strong></span>
+                    <span style="color:var(--ghn-orange); font-weight:700; display:inline-flex; align-items:center; gap:2px;">Xem chi tiết ↗</span>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+  };
 
   function renderOprGroupedChart() {
     const ctx = document.getElementById('chart-opr-tts-grouped');

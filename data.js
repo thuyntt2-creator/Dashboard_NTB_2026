@@ -13165,20 +13165,20 @@ window.DASHBOARD_DATA = {
   },
   "transport_costs": {
     "region": {
-      "total_cost": 2732.78,
-      "total_cost_formatted": "2.732.782.061 đ",
-      "total_trips": 2606,
-      "avg_cost_per_trip": 1.05,
-      "avg_cost_per_trip_formatted": "1.048.650 đ/chuyến",
+      "total_cost": 2738.92,
+      "total_cost_formatted": "2.738.919.033 đ",
+      "total_trips": 2666,
+      "avg_cost_per_trip": 1.03,
+      "avg_cost_per_trip_formatted": "1.027.351 đ/chuyến",
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 60,
-      "last_updated": "11:03 - 27/10/2026"
+      "last_updated": "11:39 - 27/10/2026"
     },
     "surge_fixed": {
-      "fixed_cost": 2732.78,
+      "fixed_cost": 2738.92,
       "fixed_cost_pct": 100.0,
-      "fixed_trips": 2606,
+      "fixed_trips": 2666,
       "surge_cost": 0.0,
       "surge_cost_pct": 0.0,
       "surge_trips": 0,
@@ -13208,7 +13208,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 698.74,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 22
       },
       {
@@ -13221,7 +13221,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 644.89,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, NAK",
+        "primary_ncc": "NAK, Mạnh Cường",
         "truck_count": 9
       },
       {
@@ -13252,15 +13252,15 @@ window.DASHBOARD_DATA = {
       },
       {
         "ktc": "KTC Bắc Nha Trang",
-        "total_cost": 89.74,
-        "total_cost_raw": 89737009.90000007,
-        "total_trips": 277,
-        "cost_per_trip": 0.32,
-        "cost_per_trip_raw": 323960.3245487367,
-        "fixed_cost": 89.74,
+        "total_cost": 95.87,
+        "total_cost_raw": 95873981.90000007,
+        "total_trips": 337,
+        "cost_per_trip": 0.28,
+        "cost_per_trip_raw": 284492.52789317525,
+        "fixed_cost": 95.87,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 11
       },
       {
@@ -13289,7 +13289,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 35,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Bình Thuận, KTC Nam Nha Trang, KTC Khánh Hòa, KTC Đức Trọng"
+        "active_ktcs": "KTC Đức Trọng, KTC Khánh Hòa, KTC Bắc Nha Trang, KTC Bình Thuận, KTC Nam Nha Trang"
       },
       {
         "ncc": "NAK",
@@ -13318,6 +13318,19 @@ window.DASHBOARD_DATA = {
         "active_ktcs": "KTC Bảo Lộc"
       },
       {
+        "ncc": "Mạnh Cường (BCCK)",
+        "total_cost": 129.56,
+        "total_cost_raw": 129558300.0,
+        "total_trips": 330,
+        "cost_per_trip": 0.39,
+        "cost_per_trip_raw": 392600.9090909091,
+        "fixed_cost": 129.56,
+        "surge_cost": 0.0,
+        "surge_pct": 0.0,
+        "truck_count": 8,
+        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
+      },
+      {
         "ncc": "Lâm Ngọc Thành",
         "total_cost": 124.08,
         "total_cost_raw": 124079102.60000014,
@@ -13329,19 +13342,6 @@ window.DASHBOARD_DATA = {
         "surge_pct": 0.0,
         "truck_count": 6,
         "active_ktcs": "KTC Đắk Nông"
-      },
-      {
-        "ncc": "Mạnh Cường (BCCK)",
-        "total_cost": 123.42,
-        "total_cost_raw": 123421328.0,
-        "total_trips": 270,
-        "cost_per_trip": 0.46,
-        "cost_per_trip_raw": 457116.02962962963,
-        "fixed_cost": 123.42,
-        "surge_cost": 0.0,
-        "surge_pct": 0.0,
-        "truck_count": 7,
-        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Tốt và Rẻ",
@@ -48417,13 +48417,28 @@ window.DASHBOARD_DATA = {
         "date_iso": "",
         "truck": "50E-19875",
         "capacity": "Bưu cục CK",
+        "route": "Kho CK Bắc Nha Trang đến các điểm giao nội khu vực KV1-Khánh Hòa 5",
+        "ktc": "KTC Bắc Nha Trang",
+        "type": "Cố định",
+        "cost_str": "2.045.657 đ",
+        "cost": 2045657.0,
+        "trips_equivalent": 30,
+        "trip_code": "HĐ_BCCK_1",
+        "ontime": "100%"
+      },
+      {
+        "ncc": "Mạnh Cường (BCCK)",
+        "date": "Hàng ngày",
+        "date_iso": "",
+        "truck": "50E-19875",
+        "capacity": "Bưu cục CK",
         "route": "Kho CK Diên Điền đến các điểm giao nội khu vực KV1-Khánh Hòa 1",
         "ktc": "KTC Khánh Hòa",
         "type": "Cố định",
         "cost_str": "5.114.143 đ",
         "cost": 5114143.0,
         "trips_equivalent": 30,
-        "trip_code": "HĐ_BCCK_1",
+        "trip_code": "HĐ_BCCK_2",
         "ontime": "100%"
       },
       {
@@ -48438,7 +48453,22 @@ window.DASHBOARD_DATA = {
         "cost_str": "5.284.615 đ",
         "cost": 5284615.0,
         "trips_equivalent": 30,
-        "trip_code": "HĐ_BCCK_2",
+        "trip_code": "HĐ_BCCK_3",
+        "ontime": "100%"
+      },
+      {
+        "ncc": "Mạnh Cường (BCCK)",
+        "date": "Hàng ngày",
+        "date_iso": "",
+        "truck": "79C-11913",
+        "capacity": "Bưu cục CK",
+        "route": "Kho CK Bắc Nha Trang đến các điểm giao nội khu vực KV1-Khánh Hòa 5",
+        "ktc": "KTC Bắc Nha Trang",
+        "type": "Cố định",
+        "cost_str": "4.091.315 đ",
+        "cost": 4091315.0,
+        "trips_equivalent": 30,
+        "trip_code": "HĐ_BCCK_4",
         "ontime": "100%"
       },
       {
@@ -48453,7 +48483,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "24.547.888 đ",
         "cost": 24547888.0,
         "trips_equivalent": 30,
-        "trip_code": "HĐ_BCCK_3",
+        "trip_code": "HĐ_BCCK_5",
         "ontime": "100%"
       },
       {
@@ -48468,7 +48498,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "6.307.444 đ",
         "cost": 6307444.0,
         "trips_equivalent": 30,
-        "trip_code": "HĐ_BCCK_4",
+        "trip_code": "HĐ_BCCK_6",
         "ontime": "100%"
       },
       {
@@ -48483,7 +48513,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "3.068.486 đ",
         "cost": 3068486.0,
         "trips_equivalent": 30,
-        "trip_code": "HĐ_BCCK_5",
+        "trip_code": "HĐ_BCCK_7",
         "ontime": "100%"
       },
       {
@@ -48498,7 +48528,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "30.855.332 đ",
         "cost": 30855332.0,
         "trips_equivalent": 30,
-        "trip_code": "HĐ_BCCK_6",
+        "trip_code": "HĐ_BCCK_8",
         "ontime": "100%"
       },
       {
@@ -48513,7 +48543,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "1.022.829 đ",
         "cost": 1022829.0,
         "trips_equivalent": 30,
-        "trip_code": "HĐ_BCCK_7",
+        "trip_code": "HĐ_BCCK_9",
         "ontime": "100%"
       },
       {
@@ -48528,7 +48558,7 @@ window.DASHBOARD_DATA = {
         "cost_str": "16.365.259 đ",
         "cost": 16365259.0,
         "trips_equivalent": 30,
-        "trip_code": "HĐ_BCCK_8",
+        "trip_code": "HĐ_BCCK_10",
         "ontime": "100%"
       },
       {
@@ -48543,11 +48573,11 @@ window.DASHBOARD_DATA = {
         "cost_str": "30.855.332 đ",
         "cost": 30855332.0,
         "trips_equivalent": 30,
-        "trip_code": "HĐ_BCCK_9",
+        "trip_code": "HĐ_BCCK_11",
         "ontime": "100%"
       }
     ],
-    "all_trips_count": 2345
+    "all_trips_count": 2347
   },
   "kinh_doanh": {
     "am": [
