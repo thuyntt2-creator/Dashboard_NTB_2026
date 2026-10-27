@@ -13173,7 +13173,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 60,
-      "last_updated": "10:27 - 27/10/2026"
+      "last_updated": "11:03 - 27/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 2732.78,
@@ -13247,7 +13247,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 198.27,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Tốt và Rẻ, Lâm Ngọc Thành",
+        "primary_ncc": "Lâm Ngọc Thành, Trâm Hoá",
         "truck_count": 8
       },
       {
@@ -13289,7 +13289,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 35,
-        "active_ktcs": "KTC Khánh Hòa, KTC Đức Trọng, KTC Bình Thuận, KTC Nam Nha Trang, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Bình Thuận, KTC Khánh Hòa, KTC Bắc Nha Trang, KTC Nam Nha Trang, KTC Đức Trọng"
       },
       {
         "ncc": "NAK",
@@ -13341,7 +13341,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 7,
-        "active_ktcs": "KTC Bắc Nha Trang, KTC Khánh Hòa"
+        "active_ktcs": "KTC Khánh Hòa, KTC Bắc Nha Trang"
       },
       {
         "ncc": "Tốt và Rẻ",
@@ -54157,6 +54157,1185 @@ window.DASHBOARD_DATA = {
         "ton_24h": 245,
         "pct_24h": 0.003974885215049402,
         "avg_lt": 4.699796117494363
+      }
+    ]
+  },
+  "cod_report": {
+    "summary_text": "Tuần N-1 (01/08-12/09): 39.9% TM   ➔   Tuần N (13/09-25/10): 41.2% TM   |   Biến động: +1.2% (Xấu đi ⚠️)",
+    "prev_period": "Tuần N-1 (01/08-12/09)",
+    "curr_period": "Tuần N (13/09-25/10)",
+    "metrics": [
+      {
+        "chi_so": "Tổng COD (Triệu VNĐ)",
+        "prev": "537,342.4",
+        "curr": "516,041.3",
+        "diff_val": "-21,301.1",
+        "diff_pct": "-4.0%",
+        "eval": "–"
+      },
+      {
+        "chi_so": "Tiền mặt (Triệu VNĐ)",
+        "prev": "214,652.9",
+        "curr": "212,458.9",
+        "diff_val": "-2,194.0",
+        "diff_pct": "-1.0%",
+        "eval": "–"
+      },
+      {
+        "chi_so": "Chuyển khoản (Triệu VNĐ)",
+        "prev": "322,689.6",
+        "curr": "303,582.4",
+        "diff_val": "-19,107.2",
+        "diff_pct": "-5.9%",
+        "eval": "–"
+      },
+      {
+        "chi_so": "Tỷ lệ Tiền mặt (% TM)",
+        "prev": "39.9%",
+        "curr": "41.2%",
+        "diff_val": "1.2%",
+        "diff_pct": "3.1%",
+        "eval": "▲ Xấu (Tăng TM)"
+      },
+      {
+        "chi_so": "Tỷ lệ Chuyển khoản (% CK)",
+        "prev": "60.1%",
+        "curr": "58.8%",
+        "diff_val": "-1.2%",
+        "diff_pct": "-2.0%",
+        "eval": "▼ Xấu (Giảm CK)"
+      }
+    ],
+    "am_comparison": [
+      {
+        "stt": "1",
+        "am": "Lê Hồng Phong",
+        "prev_tm": "69.9%",
+        "curr_tm": "80.7%",
+        "diff": "+10.7%",
+        "trend": "▲ Tăng 10.7%",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "2",
+        "am": "Lê Thanh Nhựt",
+        "prev_tm": "70.8%",
+        "curr_tm": "80.0%",
+        "diff": "+9.2%",
+        "trend": "▲ Tăng 9.2%",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "3",
+        "am": "Huỳnh Thị Kim Chi",
+        "prev_tm": "75.0%",
+        "curr_tm": "74.2%",
+        "diff": "-0.8%",
+        "trend": "▼ Giảm 0.8%",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "4",
+        "am": "Trương Quang Linh",
+        "prev_tm": "62.3%",
+        "curr_tm": "72.5%",
+        "diff": "+10.3%",
+        "trend": "▲ Tăng 10.3%",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "5",
+        "am": "Trần Thị Nhung",
+        "prev_tm": "71.4%",
+        "curr_tm": "64.7%",
+        "diff": "-6.7%",
+        "trend": "▼ Giảm 6.7%",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "6",
+        "am": "Phan Nguyễn Yến Nhi",
+        "prev_tm": "45.0%",
+        "curr_tm": "62.7%",
+        "diff": "+17.7%",
+        "trend": "▲ Tăng 17.7%",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "7",
+        "am": "Nguyễn Đỗ Minh Nghĩa",
+        "prev_tm": "41.8%",
+        "curr_tm": "55.5%",
+        "diff": "+13.7%",
+        "trend": "▲ Tăng 13.7%",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "8",
+        "am": "Lê Văn Trường",
+        "prev_tm": "44.7%",
+        "curr_tm": "46.2%",
+        "diff": "+1.4%",
+        "trend": "▲ Tăng 1.4%",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "9",
+        "am": "Nguyễn Thị Tuyết Thơ",
+        "prev_tm": "42.1%",
+        "curr_tm": "44.3%",
+        "diff": "+2.3%",
+        "trend": "▲ Tăng 2.3%",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "10",
+        "am": "Nguyễn Hoàng Phi",
+        "prev_tm": "40.0%",
+        "curr_tm": "40.5%",
+        "diff": "+0.6%",
+        "trend": "▲ Tăng 0.6%",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "11",
+        "am": "Nguyễn Lê Nguyên Vũ",
+        "prev_tm": "41.0%",
+        "curr_tm": "38.9%",
+        "diff": "-2.1%",
+        "trend": "▼ Giảm 2.1%",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "12",
+        "am": "Phan Đình Duy",
+        "prev_tm": "30.1%",
+        "curr_tm": "37.4%",
+        "diff": "+7.3%",
+        "trend": "▲ Tăng 7.3%",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "13",
+        "am": "Lê Minh Lợi",
+        "prev_tm": "33.5%",
+        "curr_tm": "34.3%",
+        "diff": "+0.8%",
+        "trend": "▲ Tăng 0.8%",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "14",
+        "am": "Hồng Bích Nga",
+        "prev_tm": "36.6%",
+        "curr_tm": "32.4%",
+        "diff": "-4.1%",
+        "trend": "▼ Giảm 4.1%",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "15",
+        "am": "Nguyễn Thanh Long",
+        "prev_tm": "24.9%",
+        "curr_tm": "32.4%",
+        "diff": "+7.4%",
+        "trend": "▲ Tăng 7.4%",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "16",
+        "am": "Nguyễn Ngọc Khánh",
+        "prev_tm": "28.6%",
+        "curr_tm": "31.7%",
+        "diff": "+3.1%",
+        "trend": "▲ Tăng 3.1%",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "17",
+        "am": "#N/A",
+        "prev_tm": "26.1%",
+        "curr_tm": "31.1%",
+        "diff": "+5.0%",
+        "trend": "▲ Tăng 5.0%",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "18",
+        "am": "Nguyễn Duy Long",
+        "prev_tm": "23.1%",
+        "curr_tm": "24.1%",
+        "diff": "+0.9%",
+        "trend": "▲ Tăng 0.9%",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "19",
+        "am": "Cao Thị Thanh Thủy",
+        "prev_tm": "17.6%",
+        "curr_tm": "16.3%",
+        "diff": "-1.4%",
+        "trend": "▼ Giảm 1.4%",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "20",
+        "am": "Thái Thị Thanh Thư",
+        "prev_tm": "6.0%",
+        "curr_tm": "4.9%",
+        "diff": "-1.2%",
+        "trend": "▼ Giảm 1.2%",
+        "level": "🟢 Ổn"
+      }
+    ],
+    "bc_details": [
+      {
+        "stt": "1",
+        "am": "Lê Hồng Phong",
+        "bc": "(DNO) ĐL Nam Gia Nghĩa 2",
+        "prev_tm": "–",
+        "curr_tm": "100.0%",
+        "diff": "–",
+        "cash_m": "0.2",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "2",
+        "am": "Lê Hồng Phong",
+        "bc": "(DNO) Bắc Gia Nghĩa",
+        "prev_tm": "92.3%",
+        "curr_tm": "94.2%",
+        "diff": "+1.9%",
+        "cash_m": "2,493.3",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "3",
+        "am": "Lê Thanh Nhựt",
+        "bc": "(BTH) Hàm Thuận",
+        "prev_tm": "85.7%",
+        "curr_tm": "92.1%",
+        "diff": "+6.4%",
+        "cash_m": "7,976.5",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "4",
+        "am": "Trần Thị Nhung",
+        "bc": "(DNO) Quảng Khê",
+        "prev_tm": "94.2%",
+        "curr_tm": "92.0%",
+        "diff": "-2.3%",
+        "cash_m": "2,390.3",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "5",
+        "am": "Lê Thanh Nhựt",
+        "bc": "(BTH) Đồng Kho",
+        "prev_tm": "84.3%",
+        "curr_tm": "86.3%",
+        "diff": "+2.0%",
+        "cash_m": "7,992.5",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "6",
+        "am": "Lê Thanh Nhựt",
+        "bc": "(BTH) Hàm Liêm",
+        "prev_tm": "68.1%",
+        "curr_tm": "85.4%",
+        "diff": "+17.3%",
+        "cash_m": "5,058.7",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "7",
+        "am": "Huỳnh Thị Kim Chi",
+        "bc": "(LDO) Đam Rông 3",
+        "prev_tm": "82.9%",
+        "curr_tm": "85.1%",
+        "diff": "+2.2%",
+        "cash_m": "4,888.8",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "8",
+        "am": "Nguyễn Đỗ Minh Nghĩa",
+        "bc": "(LDO) Cát Tiên",
+        "prev_tm": "52.1%",
+        "curr_tm": "84.3%",
+        "diff": "+32.2%",
+        "cash_m": "2,977.8",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "9",
+        "am": "Lê Hồng Phong",
+        "bc": "(DNO) Kiến Đức",
+        "prev_tm": "55.7%",
+        "curr_tm": "83.6%",
+        "diff": "+27.9%",
+        "cash_m": "3,473.4",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "10",
+        "am": "Huỳnh Thị Kim Chi",
+        "bc": "(LDO) Đinh Văn Lâm Hà",
+        "prev_tm": "78.1%",
+        "curr_tm": "82.4%",
+        "diff": "+4.3%",
+        "cash_m": "5,643.5",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "11",
+        "am": "Trần Thị Nhung",
+        "bc": "(DNO) Đức Lập",
+        "prev_tm": "88.1%",
+        "curr_tm": "77.9%",
+        "diff": "-10.2%",
+        "cash_m": "8,953.2",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "12",
+        "am": "Nguyễn Ngọc Khánh",
+        "bc": "(BTH) Lương Sơn",
+        "prev_tm": "79.6%",
+        "curr_tm": "77.6%",
+        "diff": "-2.0%",
+        "cash_m": "2,795.5",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "13",
+        "am": "Nguyễn Thị Tuyết Thơ",
+        "bc": "(LDO) Ninh Gia",
+        "prev_tm": "68.8%",
+        "curr_tm": "77.5%",
+        "diff": "+8.7%",
+        "cash_m": "4,148.4",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "14",
+        "am": "Trần Thị Nhung",
+        "bc": "(DNO) Krông Nô",
+        "prev_tm": "87.4%",
+        "curr_tm": "77.2%",
+        "diff": "-10.2%",
+        "cash_m": "4,759.1",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "15",
+        "am": "Nguyễn Hoàng Phi",
+        "bc": "(KHO) Diên Khánh 2",
+        "prev_tm": "73.8%",
+        "curr_tm": "76.1%",
+        "diff": "+2.3%",
+        "cash_m": "5,275.8",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "16",
+        "am": "Lê Hồng Phong",
+        "bc": "(DNO) Nhân Cơ 1",
+        "prev_tm": "–",
+        "curr_tm": "76.0%",
+        "diff": "–",
+        "cash_m": "1,073.3",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "17",
+        "am": "Hồng Bích Nga",
+        "bc": "(LDO) Hòa Ninh",
+        "prev_tm": "98.5%",
+        "curr_tm": "75.3%",
+        "diff": "-23.2%",
+        "cash_m": "3,461.0",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "18",
+        "am": "Nguyễn Hoàng Phi",
+        "bc": "(KHO) Cam Lâm 1",
+        "prev_tm": "87.5%",
+        "curr_tm": "74.6%",
+        "diff": "-12.9%",
+        "cash_m": "2,884.3",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "19",
+        "am": "Lê Thanh Nhựt",
+        "bc": "(BTH) Đức Linh",
+        "prev_tm": "63.7%",
+        "curr_tm": "73.1%",
+        "diff": "+9.4%",
+        "cash_m": "9,006.4",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "20",
+        "am": "Trương Quang Linh",
+        "bc": "(DNO) Quảng Tín",
+        "prev_tm": "62.3%",
+        "curr_tm": "72.5%",
+        "diff": "+10.3%",
+        "cash_m": "2,404.1",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "21",
+        "am": "Trần Thị Nhung",
+        "bc": "(DNO) Trường Xuân",
+        "prev_tm": "69.5%",
+        "curr_tm": "72.0%",
+        "diff": "+2.5%",
+        "cash_m": "2,308.1",
+        "level": "🔴 Nghiêm trọng"
+      },
+      {
+        "stt": "22",
+        "am": "Lê Hồng Phong",
+        "bc": "(DNO) Đông Gia Nghĩa",
+        "prev_tm": "67.2%",
+        "curr_tm": "68.6%",
+        "diff": "+1.4%",
+        "cash_m": "2,362.5",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "23",
+        "am": "#N/A",
+        "bc": "(DNO) Nhân Cơ",
+        "prev_tm": "51.4%",
+        "curr_tm": "65.9%",
+        "diff": "+14.5%",
+        "cash_m": "707.4",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "24",
+        "am": "Trần Thị Nhung",
+        "bc": "(DNO) Tuy Đức",
+        "prev_tm": "66.1%",
+        "curr_tm": "65.6%",
+        "diff": "-0.5%",
+        "cash_m": "2,135.7",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "25",
+        "am": "Lê Thanh Nhựt",
+        "bc": "(BTH) Tuyên Quang",
+        "prev_tm": "51.5%",
+        "curr_tm": "65.6%",
+        "diff": "+14.0%",
+        "cash_m": "5,028.3",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "26",
+        "am": "Lê Văn Trường",
+        "bc": "(LDO) Lang Biang - Đà Lạt 2",
+        "prev_tm": "65.6%",
+        "curr_tm": "65.0%",
+        "diff": "-0.6%",
+        "cash_m": "6,460.6",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "27",
+        "am": "Phan Đình Duy",
+        "bc": "(KHO) Tu Bông",
+        "prev_tm": "64.1%",
+        "curr_tm": "64.9%",
+        "diff": "+0.8%",
+        "cash_m": "3,555.5",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "28",
+        "am": "Nguyễn Lê Nguyên Vũ",
+        "bc": "(LDO) Đức Trọng 1",
+        "prev_tm": "60.8%",
+        "curr_tm": "64.8%",
+        "diff": "+4.1%",
+        "cash_m": "1,958.2",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "29",
+        "am": "Huỳnh Thị Kim Chi",
+        "bc": "(LDO) Tân Hà Lâm Hà",
+        "prev_tm": "73.5%",
+        "curr_tm": "63.2%",
+        "diff": "-10.3%",
+        "cash_m": "2,969.6",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "30",
+        "am": "Nguyễn Ngọc Khánh",
+        "bc": "(BTH) Bắc Bình",
+        "prev_tm": "51.3%",
+        "curr_tm": "62.9%",
+        "diff": "+11.6%",
+        "cash_m": "3,070.3",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "31",
+        "am": "Phan Nguyễn Yến Nhi",
+        "bc": "(LDO) Đơn Dương",
+        "prev_tm": "45.0%",
+        "curr_tm": "62.7%",
+        "diff": "+17.7%",
+        "cash_m": "4,764.2",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "32",
+        "am": "Nguyễn Hoàng Phi",
+        "bc": "(KHO) Diên Thọ",
+        "prev_tm": "54.6%",
+        "curr_tm": "59.4%",
+        "diff": "+4.8%",
+        "cash_m": "2,396.5",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "33",
+        "am": "Lê Văn Trường",
+        "bc": "(LDO) D'Ran",
+        "prev_tm": "–",
+        "curr_tm": "59.1%",
+        "diff": "–",
+        "cash_m": "1,404.4",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "34",
+        "am": "Nguyễn Lê Nguyên Vũ",
+        "bc": "(LDO) Di Linh",
+        "prev_tm": "63.3%",
+        "curr_tm": "58.6%",
+        "diff": "-4.7%",
+        "cash_m": "4,958.5",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "35",
+        "am": "Trần Thị Nhung",
+        "bc": "(DNO) Quảng Sơn",
+        "prev_tm": "56.8%",
+        "curr_tm": "57.1%",
+        "diff": "+0.4%",
+        "cash_m": "2,024.7",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "36",
+        "am": "Huỳnh Thị Kim Chi",
+        "bc": "(LDO) Nam Ban Lâm Hà",
+        "prev_tm": "60.1%",
+        "curr_tm": "56.1%",
+        "diff": "-4.0%",
+        "cash_m": "2,072.8",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "37",
+        "am": "Nguyễn Thanh Long",
+        "bc": "(KHO) Cam Linh",
+        "prev_tm": "28.2%",
+        "curr_tm": "54.9%",
+        "diff": "+26.7%",
+        "cash_m": "4,333.0",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "38",
+        "am": "Nguyễn Duy Long",
+        "bc": "(NTH) Thuận Nam",
+        "prev_tm": "57.3%",
+        "curr_tm": "54.5%",
+        "diff": "-2.8%",
+        "cash_m": "2,346.4",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "39",
+        "am": "Phan Đình Duy",
+        "bc": "(KHO) Vạn Ninh",
+        "prev_tm": "50.2%",
+        "curr_tm": "53.1%",
+        "diff": "+3.0%",
+        "cash_m": "2,972.2",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "40",
+        "am": "Nguyễn Đỗ Minh Nghĩa",
+        "bc": "(LDO) Đạ Tẻh",
+        "prev_tm": "30.4%",
+        "curr_tm": "51.5%",
+        "diff": "+21.1%",
+        "cash_m": "2,786.0",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "41",
+        "am": "Nguyễn Duy Long",
+        "bc": "(NTH) Phước Dinh",
+        "prev_tm": "62.6%",
+        "curr_tm": "50.2%",
+        "diff": "-12.4%",
+        "cash_m": "3,916.4",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "42",
+        "am": "Hồng Bích Nga",
+        "bc": "(LDO) Bảo Lâm 1",
+        "prev_tm": "51.4%",
+        "curr_tm": "50.0%",
+        "diff": "-1.4%",
+        "cash_m": "2,127.0",
+        "level": "🟡 Cần cải thiện"
+      },
+      {
+        "stt": "43",
+        "am": "Nguyễn Thị Tuyết Thơ",
+        "bc": "(LDO) Đức Trọng 2",
+        "prev_tm": "51.6%",
+        "curr_tm": "49.7%",
+        "diff": "-1.9%",
+        "cash_m": "3,531.8",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "44",
+        "am": "Nguyễn Duy Long",
+        "bc": "(NTH) Phan Rang",
+        "prev_tm": "45.4%",
+        "curr_tm": "49.5%",
+        "diff": "+4.1%",
+        "cash_m": "6,618.1",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "45",
+        "am": "Hồng Bích Nga",
+        "bc": "(LDO) 1 Bảo Lộc",
+        "prev_tm": "50.0%",
+        "curr_tm": "48.2%",
+        "diff": "-1.8%",
+        "cash_m": "3,151.7",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "46",
+        "am": "Lê Văn Trường",
+        "bc": "(LDO) Lâm Viên - Đà Lạt 1",
+        "prev_tm": "34.5%",
+        "curr_tm": "48.1%",
+        "diff": "+13.6%",
+        "cash_m": "2,993.8",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "47",
+        "am": "Nguyễn Thanh Long",
+        "bc": "(KHO) Bắc Cam Ranh",
+        "prev_tm": "25.9%",
+        "curr_tm": "46.5%",
+        "diff": "+20.6%",
+        "cash_m": "1,900.8",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "48",
+        "am": "Cao Thị Thanh Thủy",
+        "bc": "(BTH) Hàm Tân",
+        "prev_tm": "48.3%",
+        "curr_tm": "44.1%",
+        "diff": "-4.2%",
+        "cash_m": "2,325.6",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "49",
+        "am": "Phan Đình Duy",
+        "bc": "(KHO) Tây Nha Trang",
+        "prev_tm": "26.5%",
+        "curr_tm": "43.3%",
+        "diff": "+16.9%",
+        "cash_m": "3,421.6",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "50",
+        "am": "#N/A",
+        "bc": "(KHO) CK Diên Điền",
+        "prev_tm": "34.4%",
+        "curr_tm": "41.3%",
+        "diff": "+6.9%",
+        "cash_m": "1,919.4",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "51",
+        "am": "Nguyễn Đỗ Minh Nghĩa",
+        "bc": "(LDO) Đạ Huoai",
+        "prev_tm": "45.8%",
+        "curr_tm": "40.7%",
+        "diff": "-5.1%",
+        "cash_m": "2,183.5",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "52",
+        "am": "Nguyễn Ngọc Khánh",
+        "bc": "(BTH) Phú Thủy",
+        "prev_tm": "31.2%",
+        "curr_tm": "40.6%",
+        "diff": "+9.4%",
+        "cash_m": "4,544.8",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "53",
+        "am": "Nguyễn Hoàng Phi",
+        "bc": "(KHO) Diên Khánh 1",
+        "prev_tm": "40.1%",
+        "curr_tm": "39.1%",
+        "diff": "-0.9%",
+        "cash_m": "1,703.1",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "54",
+        "am": "Trần Thị Nhung",
+        "bc": "(DNO) Cư Jút",
+        "prev_tm": "61.3%",
+        "curr_tm": "38.8%",
+        "diff": "-22.4%",
+        "cash_m": "2,489.8",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "55",
+        "am": "Phan Đình Duy",
+        "bc": "(KHO) Khánh Sơn",
+        "prev_tm": "37.8%",
+        "curr_tm": "38.8%",
+        "diff": "+1.0%",
+        "cash_m": "1,234.2",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "56",
+        "am": "Trần Thị Nhung",
+        "bc": "(DNO) Đức An",
+        "prev_tm": "30.4%",
+        "curr_tm": "38.4%",
+        "diff": "+7.9%",
+        "cash_m": "1,940.3",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "57",
+        "am": "Cao Thị Thanh Thủy",
+        "bc": "(BTH) Hàm Thuận Nam",
+        "prev_tm": "36.2%",
+        "curr_tm": "35.4%",
+        "diff": "-0.8%",
+        "cash_m": "1,392.2",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "58",
+        "am": "Lê Văn Trường",
+        "bc": "(LDO) Xuân Hương - Đà Lạt",
+        "prev_tm": "27.1%",
+        "curr_tm": "34.9%",
+        "diff": "+7.9%",
+        "cash_m": "2,274.3",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "59",
+        "am": "Lê Minh Lợi",
+        "bc": "(LDO) Lang Biang - Đà Lạt 1",
+        "prev_tm": "33.5%",
+        "curr_tm": "34.3%",
+        "diff": "+0.8%",
+        "cash_m": "1,301.3",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "60",
+        "am": "Lê Văn Trường",
+        "bc": "(LDO) Xuân Trường - Đà Lạt",
+        "prev_tm": "48.5%",
+        "curr_tm": "34.1%",
+        "diff": "-14.5%",
+        "cash_m": "1,659.7",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "61",
+        "am": "Nguyễn Hoàng Phi",
+        "bc": "(KHO) Khánh Vĩnh",
+        "prev_tm": "36.0%",
+        "curr_tm": "32.3%",
+        "diff": "-3.7%",
+        "cash_m": "762.7",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "62",
+        "am": "Nguyễn Hoàng Phi",
+        "bc": "(KHO) Tân Định",
+        "prev_tm": "–",
+        "curr_tm": "28.3%",
+        "diff": "–",
+        "cash_m": "698.4",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "63",
+        "am": "Nguyễn Ngọc Khánh",
+        "bc": "(BTH) Hàm Thắng",
+        "prev_tm": "22.6%",
+        "curr_tm": "22.2%",
+        "diff": "-0.3%",
+        "cash_m": "2,168.1",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "64",
+        "am": "Lê Văn Trường",
+        "bc": "(LDO) Lâm Viên - Đà Lạt 2",
+        "prev_tm": "24.4%",
+        "curr_tm": "22.0%",
+        "diff": "-2.4%",
+        "cash_m": "890.2",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "65",
+        "am": "Thái Thị Thanh Thư",
+        "bc": "(KHO) Nam Nha Trang 1",
+        "prev_tm": "19.9%",
+        "curr_tm": "19.6%",
+        "diff": "-0.4%",
+        "cash_m": "2,053.1",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "66",
+        "am": "Phan Đình Duy",
+        "bc": "(KHO) Đông Ninh Hòa",
+        "prev_tm": "2.3%",
+        "curr_tm": "19.0%",
+        "diff": "+16.7%",
+        "cash_m": "1,043.0",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "67",
+        "am": "Phan Đình Duy",
+        "bc": "(KHO) Nha Trang",
+        "prev_tm": "15.8%",
+        "curr_tm": "18.1%",
+        "diff": "+2.3%",
+        "cash_m": "1,790.7",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "68",
+        "am": "Nguyễn Hoàng Phi",
+        "bc": "(KHO) Ninh Hòa 1",
+        "prev_tm": "15.6%",
+        "curr_tm": "12.9%",
+        "diff": "-2.6%",
+        "cash_m": "128.6",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "69",
+        "am": "Nguyễn Duy Long",
+        "bc": "(NTH) Ninh Sơn",
+        "prev_tm": "6.2%",
+        "curr_tm": "11.6%",
+        "diff": "+5.3%",
+        "cash_m": "693.0",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "70",
+        "am": "Nguyễn Hoàng Phi",
+        "bc": "(KHO) Ninh Hòa 2",
+        "prev_tm": "1.2%",
+        "curr_tm": "2.9%",
+        "diff": "+1.7%",
+        "cash_m": "288.9",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "71",
+        "am": "Nguyễn Lê Nguyên Vũ",
+        "bc": "(LDO) 3 Bảo Lộc",
+        "prev_tm": "2.0%",
+        "curr_tm": "2.9%",
+        "diff": "+0.9%",
+        "cash_m": "196.9",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "72",
+        "am": "Thái Thị Thanh Thư",
+        "bc": "(KHO) Nam Nha Trang 2",
+        "prev_tm": "1.2%",
+        "curr_tm": "2.7%",
+        "diff": "+1.6%",
+        "cash_m": "261.9",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "73",
+        "am": "Nguyễn Duy Long",
+        "bc": "(NTH) Bảo An",
+        "prev_tm": "0.7%",
+        "curr_tm": "2.5%",
+        "diff": "+1.8%",
+        "cash_m": "133.6",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "74",
+        "am": "Hồng Bích Nga",
+        "bc": "(LDO) B'Lao",
+        "prev_tm": "0.1%",
+        "curr_tm": "1.2%",
+        "diff": "+1.1%",
+        "cash_m": "96.6",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "75",
+        "am": "Nguyễn Thanh Long",
+        "bc": "(KHO) Cam Lâm 2",
+        "prev_tm": "20.8%",
+        "curr_tm": "1.0%",
+        "diff": "-19.7%",
+        "cash_m": "78.2",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "76",
+        "am": "Thái Thị Thanh Thư",
+        "bc": "(KHO) Nam Nha Trang 3",
+        "prev_tm": "0.4%",
+        "curr_tm": "0.8%",
+        "diff": "+0.4%",
+        "cash_m": "65.3",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "77",
+        "am": "Thái Thị Thanh Thư",
+        "bc": "(KHO) Bắc Nha Trang",
+        "prev_tm": "2.8%",
+        "curr_tm": "0.7%",
+        "diff": "-2.2%",
+        "cash_m": "103.2",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "78",
+        "am": "#N/A",
+        "bc": "(KHO) Nam Nha Trang 5",
+        "prev_tm": "0.4%",
+        "curr_tm": "0.6%",
+        "diff": "+0.2%",
+        "cash_m": "16.0",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "79",
+        "am": "Nguyễn Duy Long",
+        "bc": "(NTH) Ninh Chử",
+        "prev_tm": "0.8%",
+        "curr_tm": "0.5%",
+        "diff": "-0.3%",
+        "cash_m": "39.2",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "80",
+        "am": "Thái Thị Thanh Thư",
+        "bc": "(KHO) CK Bắc Nha Trang",
+        "prev_tm": "3.1%",
+        "curr_tm": "0.5%",
+        "diff": "-2.6%",
+        "cash_m": "34.0",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "81",
+        "am": "Cao Thị Thanh Thủy",
+        "bc": "(BTH) Tân Hải",
+        "prev_tm": "2.6%",
+        "curr_tm": "0.1%",
+        "diff": "-2.4%",
+        "cash_m": "6.3",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "82",
+        "am": "Cao Thị Thanh Thủy",
+        "bc": "(BTH) Phước Hội",
+        "prev_tm": "0.4%",
+        "curr_tm": "0.1%",
+        "diff": "-0.3%",
+        "cash_m": "8.3",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "83",
+        "am": "Nguyễn Duy Long",
+        "bc": "(BTH) Liên Hương",
+        "prev_tm": "0.0%",
+        "curr_tm": "0.0%",
+        "diff": "-0.0%",
+        "cash_m": "2.2",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "84",
+        "am": "Nguyễn Thị Tuyết Thơ",
+        "bc": "(LDO) Hiệp Thạnh",
+        "prev_tm": "0.6%",
+        "curr_tm": "0.0%",
+        "diff": "-0.6%",
+        "cash_m": "0.4",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "85",
+        "am": "Nguyễn Ngọc Khánh",
+        "bc": "(BTH) Phú Quý",
+        "prev_tm": "1.8%",
+        "curr_tm": "0.0%",
+        "diff": "-1.8%",
+        "cash_m": "0.1",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "86",
+        "am": "Nguyễn Duy Long",
+        "bc": "(BTH) Phan Rí Cửa",
+        "prev_tm": "0.0%",
+        "curr_tm": "0.0%",
+        "diff": "0.0%",
+        "cash_m": "0.0",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "87",
+        "am": "Hồng Bích Nga",
+        "bc": "(LDO) Bảo Lâm 3",
+        "prev_tm": "0.0%",
+        "curr_tm": "0.0%",
+        "diff": "-0.0%",
+        "cash_m": "0.0",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "88",
+        "am": "Nguyễn Ngọc Khánh",
+        "bc": "(BTH) Mũi Né",
+        "prev_tm": "2.3%",
+        "curr_tm": "0.0%",
+        "diff": "-2.3%",
+        "cash_m": "0.0",
+        "level": "🟢 Ổn"
+      },
+      {
+        "stt": "89",
+        "am": "Thái Thị Thanh Thư",
+        "bc": "(KHO) Nam Nha Trang",
+        "prev_tm": "–",
+        "curr_tm": "0.0%",
+        "diff": "–",
+        "cash_m": "0.0",
+        "level": "🟢 Ổn"
+      }
+    ],
+    "actions": [
+      {
+        "am": "Lê Hồng Phong",
+        "prev_tm": "69.9%",
+        "curr_tm": "80.7%",
+        "diff": "+10.7%",
+        "action": "⚠️ CẢNH BÁO: Tăng 10.7% TM so với tuần trước (70% ➔ 81%).\n• Yêu cầu giải trình biến động tăng ngay trong ngày.\n• Kiểm tra danh sách Shop phát sinh tiền mặt mới.",
+        "deadline": "Gấp trong 24h"
+      },
+      {
+        "am": "Lê Thanh Nhựt",
+        "prev_tm": "70.8%",
+        "curr_tm": "80.0%",
+        "diff": "+9.2%",
+        "action": "⚠️ CẢNH BÁO: Tăng 9.2% TM so với tuần trước (71% ➔ 80%).\n• Yêu cầu giải trình biến động tăng ngay trong ngày.\n• Kiểm tra danh sách Shop phát sinh tiền mặt mới.",
+        "deadline": "Gấp trong 24h"
+      },
+      {
+        "am": "Huỳnh Thị Kim Chi",
+        "prev_tm": "75.0%",
+        "curr_tm": "74.2%",
+        "diff": "-0.8%",
+        "action": "🔴 Mức rất cao (≥70% TM). Vẫn duy trì mức cao qua 2 tuần.\n• Lập biên bản làm việc 1-1 với AM.\n• Đẩy mạnh cài đặt QR/POS tại các bưu cục trực thuộc.",
+        "deadline": "Trong 3 ngày"
+      },
+      {
+        "am": "Trương Quang Linh",
+        "prev_tm": "62.3%",
+        "curr_tm": "72.5%",
+        "diff": "+10.3%",
+        "action": "⚠️ CẢNH BÁO: Tăng 10.3% TM so với tuần trước (62% ➔ 73%).\n• Yêu cầu giải trình biến động tăng ngay trong ngày.\n• Kiểm tra danh sách Shop phát sinh tiền mặt mới.",
+        "deadline": "Gấp trong 24h"
+      },
+      {
+        "am": "Trần Thị Nhung",
+        "prev_tm": "71.4%",
+        "curr_tm": "64.7%",
+        "diff": "-6.7%",
+        "action": "🟡 Đang ở ngưỡng cảnh báo (50% - 70%).\n• Tiếp tục theo dõi và yêu cầu tối ưu tỷ lệ CK cho các Shop lớn.",
+        "deadline": "Cuối tuần N"
+      },
+      {
+        "am": "Phan Nguyễn Yến Nhi",
+        "prev_tm": "45.0%",
+        "curr_tm": "62.7%",
+        "diff": "+17.7%",
+        "action": "⚠️ CẢNH BÁO: Tăng 17.7% TM so với tuần trước (45% ➔ 63%).\n• Yêu cầu giải trình biến động tăng ngay trong ngày.\n• Kiểm tra danh sách Shop phát sinh tiền mặt mới.",
+        "deadline": "Gấp trong 24h"
+      },
+      {
+        "am": "Nguyễn Đỗ Minh Nghĩa",
+        "prev_tm": "41.8%",
+        "curr_tm": "55.5%",
+        "diff": "+13.7%",
+        "action": "⚠️ CẢNH BÁO: Tăng 13.7% TM so với tuần trước (42% ➔ 56%).\n• Yêu cầu giải trình biến động tăng ngay trong ngày.\n• Kiểm tra danh sách Shop phát sinh tiền mặt mới.",
+        "deadline": "Gấp trong 24h"
       }
     ]
   }

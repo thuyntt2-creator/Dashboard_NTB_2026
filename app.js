@@ -8717,15 +8717,8 @@
     const seg = state.codSegment || 'trend';
     const report = D.cod_report || {};
 
-    // Dynamic Banner & KPIs
-let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
-    let currPeriod = report.curr_period || 'Tuần N (19/10 - 25/10)';
-    if (prevPeriod.includes('01/08') || prevPeriod.includes('08/09')) {
-      prevPeriod = 'Tuần N-1 (05/10 - 11/10)';
-    }
-    if (currPeriod.includes('09/09')) {
-      currPeriod = 'Tuần N (12/10 - 18/10)';
-    }
+    let prevPeriod = report.prev_period || 'Tuần N-1';
+    let currPeriod = report.curr_period || 'Tuần N';
 
     const bannerTitle = document.getElementById('cod-banner-title');
     if (bannerTitle) {
@@ -8905,14 +8898,8 @@ let prevPeriod = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
     if (charts.codTmAmBar) charts.codTmAmBar.destroy();
 
     const report = D.cod_report || {};
-    let prevLabel = report.prev_period || 'Tuần N-1 (12/10 - 18/10)';
-    let currLabel = report.curr_period || 'Tuần N (19/10 - 25/10)';
-    if (prevLabel.includes('01/08') || prevLabel.includes('08/09')) {
-      prevLabel = 'Tuần N-1 (05/10 - 11/10)';
-    }
-    if (currLabel.includes('09/09')) {
-      currLabel = 'Tuần N (12/10 - 18/10)';
-    }
+    let prevLabel = report.prev_period || 'Tuần N-1';
+    let currLabel = report.curr_period || 'Tuần N';
 
     const cashMetric = (report.metrics || []).find(m => m.chi_so.includes('Tiền mặt') && !m.chi_so.includes('Tỷ lệ'));
     const bankMetric = (report.metrics || []).find(m => m.chi_so.includes('Chuyển khoản'));
