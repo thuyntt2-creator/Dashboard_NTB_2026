@@ -1,2 +1,3 @@
-2026/10/26-17:02:06.623 1f6fc Creating DB C:\Users\lap4all\Desktop\New folder\scratch\cdp_err_profile\Default\shared_proto_db since it was missing.
-2026/10/26-17:02:06.642 1f6fc Reusing MANIFEST C:\Users\lap4all\Desktop\New folder\scratch\cdp_err_profile\Default\shared_proto_db/MANIFEST-000001
+2026/10/26-17:26:28.915 18514 Reusing MANIFEST C:\Users\lap4all\Desktop\New folder\scratch\cdp_err_profile\Default\shared_proto_db/MANIFEST-000001
+2026/10/26-17:26:28.916 18514 Recovering log #3
+2026/10/26-17:26:28.916 18514 Reusing old log C:\Users\lap4all\Desktop\New folder\scratch\cdp_err_profile\Default\shared_proto_db/000003.log 

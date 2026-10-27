@@ -1,14 +1,15 @@
-import pandas as pd
-import numpy as np
+import os
 import sys
+import json
 import re
 from datetime import datetime
-import json
-import os
+import pandas as pd
+import numpy as np
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-print("🚀 Running process_truy_thu_report.py (Dynamic 2-Week Comparison)...")
+PROJECT_DIR = r"C:\Users\lap4all\Desktop\New folder"
+os.chdir(PROJECT_DIR)
 
 raw_path = 'sheet_truythu.csv'
 if not os.path.exists(raw_path):
@@ -18,7 +19,7 @@ if not os.path.exists(raw_path):
     print("❌ No truythu raw file found!")
     sys.exit(0)
 
-tt = pd.read_csv(raw_path, low_memory=False)
+tt = pd.read_csv(raw_path, encoding='utf-8', low_memory=False)
 print(f"Loaded {len(tt):,} rows from {raw_path}")
 
 def parse_ghn_date(val):
@@ -42,41 +43,29 @@ def parse_vn(s):
     except:
         return 0.0
 
-tt['date'] = tt['Ngày kết luận truy thu'].apply(parse_ghn_date)
-tt['ban_dau'] = tt['Số tiền ban đầu'].apply(parse_vn)
-tt['dieu_chinh'] = tt['Điều chỉnh (+|-)'].apply(parse_vn)
-tt['da_thu'] = tt['Đã truy thu'].apply(parse_vn)
-tt['can_thu'] = tt['Cần truy thu thêm'].apply(parse_vn)
+col_date = 'Ngày kết luận truy thu'
+col_bd = 'Số tiền ban đầu'
+col_dc = 'Điều chỉnh (+|-)'
+col_da_thu = 'Đã truy thu'
+col_ct = 'Cần truy thu thêm'
+col_loai = 'Loại truy thu'
+col_noi_vp = 'Nơi vi phạm'
+col_nv = 'Nhân viên'
+col_cv = 'Chức vụ'
+col_ma_tt = 'Mã truy thu'
 
-# Determine weeks dynamically from data.json or arguments
-latest_week = 'W40'
-prev_week = 'W39'
-if os.path.exists('data.json'):
-    try:
-        with open('data.json', 'r', encoding='utf-8') as f:
-            dj = json.load(f)
-            meta = dj.get('meta', {})
-            latest_week = meta.get('latest_week', latest_week)
-            prev_week = meta.get('prev_week', prev_week)
-    except Exception:
-        pass
+tt['date'] = tt[col_date].apply(parse_ghn_date)
+tt['ban_dau'] = tt[col_bd].apply(parse_vn)
+tt['dieu_chinh'] = tt[col_dc].apply(parse_vn)
+tt['da_thu'] = tt[col_da_thu].apply(parse_vn)
+tt['can_thu'] = tt[col_ct].apply(parse_vn)
 
-curr_num = int(re.search(r'\d+', latest_week).group()) if re.search(r'\d+', latest_week) else 40
-curr_start = datetime.fromisocalendar(2026, curr_num, 1)
-curr_end = datetime.fromisocalendar(2026, curr_num, 7)
+# Determine weeks
+latest_week = 'W43'
+prev_week = 'W42'
 
-# Check if target week has data; if 0 rows (e.g. W41 not yet finalized), fall back to latest concluded week in dataset
-valid_dates = tt['date'].dropna()
-max_iso = valid_dates.max().isocalendar()[1] if not valid_dates.empty else 40
-check_rows = tt[(tt['date'] >= curr_start) & (tt['date'] <= curr_end)]
-if len(check_rows) == 0:
-    print(f"⚠️ Tuần {latest_week} chưa có dữ liệu kết luận truy thu. Tự động chuyển sang kỳ kết luận mới nhất: Tuần W{max_iso} vs Tuần W{max_iso - 1}")
-    curr_num = max_iso
-    prev_num = curr_num - 1
-    latest_week = f'W{curr_num}'
-    prev_week = f'W{prev_num}'
-else:
-    prev_num = int(re.search(r'\d+', prev_week).group()) if re.search(r'\d+', prev_week) else (curr_num - 1)
+curr_num = 43
+prev_num = 42
 
 curr_start = datetime.fromisocalendar(2026, curr_num, 1)
 curr_end = datetime.fromisocalendar(2026, curr_num, 7)
@@ -87,42 +76,35 @@ prev_label = f"Tuần {prev_week} ({prev_start.strftime('%d/%m')} - {prev_end.st
 curr_label = f"Tuần {latest_week} ({curr_start.strftime('%d/%m')} - {curr_end.strftime('%d/%m')})"
 
 w_prev = tt[(tt['date'] >= prev_start) & (tt['date'] <= prev_end)].copy()
-if len(w_prev) == 0 and os.path.exists('sheet_truythu_w38.csv'):
-    print("📂 Loading full W38 data from sheet_truythu_w38.csv...")
-    tt_w38 = pd.read_csv('sheet_truythu_w38.csv', low_memory=False)
-    tt_w38['date'] = tt_w38['Ngày kết luận truy thu'].apply(parse_ghn_date)
-    tt_w38['ban_dau'] = tt_w38['Số tiền ban đầu'].apply(parse_vn)
-    tt_w38['dieu_chinh'] = tt_w38['Điều chỉnh (+|-)'].apply(parse_vn)
-    tt_w38['da_thu'] = tt_w38['Đã truy thu'].apply(parse_vn)
-    tt_w38['can_thu'] = tt_w38['Cần truy thu thêm'].apply(parse_vn)
-    w_prev = tt_w38[(tt_w38['date'] >= prev_start) & (tt_w38['date'] <= prev_end)].copy()
-
 w_curr = tt[(tt['date'] >= curr_start) & (tt['date'] <= curr_end)].copy()
 
 print(f"Comparing {prev_label} ({len(w_prev):,} records) vs {curr_label} ({len(w_curr):,} records)")
 
 # Combine for AM and Province Mapping
 tt_all = pd.concat([tt, w_prev], ignore_index=True)
-am_rows = tt_all[tt_all['Chức vụ'].astype(str).str.contains('Area Manager', na=False)].copy()
-am_rows['ten_am'] = am_rows['Nhân viên'].astype(str).apply(lambda x: x.split('-', 1)[1].strip() if '-' in x else x)
+am_rows = tt_all[tt_all[col_cv].astype(str).str.contains('Area Manager', na=False)].copy()
+am_rows['ten_am'] = am_rows[col_nv].astype(str).apply(lambda x: x.split('-', 1)[1].strip() if '-' in x else x)
 bc_am_map = {}
-for bc, group in am_rows.groupby('Nơi vi phạm'):
+for bc, group in am_rows.groupby(col_noi_vp):
     top_am = group['ten_am'].value_counts().index[0]
     bc_am_map[bc] = top_am
 
 bc_tinh_map = {}
 if os.path.exists('co_cau_ntb.csv'):
-    cc = pd.read_csv('co_cau_ntb.csv')
-    cols = cc.columns.tolist()
-    name_col = next((c for c in cols if 'bưu cục' in c.lower() or 'warehouse' in c.lower() or 'tên' in c.lower()), cols[1])
-    prov_col = next((c for c in cols if 'tỉnh' in c.lower() or 'province' in c.lower()), cols[2])
-    am_col = next((c for c in cols if 'am' in c.lower()), None)
-    for _, row in cc.iterrows():
-        bc_name = str(row[name_col]).strip()
-        prov_name = str(row[prov_col]).strip()
-        bc_tinh_map[bc_name] = prov_name
-        if am_col and bc_name not in bc_am_map:
-            bc_am_map[bc_name] = str(row[am_col]).strip()
+    try:
+        cc = pd.read_csv('co_cau_ntb.csv', encoding='utf-8')
+        cols = cc.columns.tolist()
+        name_col = next((c for c in cols if 'bưu cục' in c.lower() or 'warehouse' in c.lower() or 'tên' in c.lower()), cols[1])
+        prov_col = next((c for c in cols if 'tỉnh' in c.lower() or 'province' in c.lower()), cols[2])
+        am_col = next((c for c in cols if 'am' in c.lower()), None)
+        for _, row in cc.iterrows():
+            bc_name = str(row[name_col]).strip()
+            prov_name = str(row[prov_col]).strip()
+            bc_tinh_map[bc_name] = prov_name
+            if am_col and bc_name not in bc_am_map:
+                bc_am_map[bc_name] = str(row[am_col]).strip()
+    except Exception as e:
+        print('Warning reading co_cau_ntb.csv:', e)
 
 def get_province(bc):
     if bc in bc_tinh_map and bc_tinh_map[bc] and bc_tinh_map[bc] != 'nan':
@@ -134,10 +116,10 @@ def get_province(bc):
     if '(NTH)' in bc: return 'Ninh Thuận'
     return 'Khác'
 
-w_prev['AM'] = w_prev['Nơi vi phạm'].map(bc_am_map).fillna('Chưa gán')
-w_curr['AM'] = w_curr['Nơi vi phạm'].map(bc_am_map).fillna('Chưa gán')
-w_prev['Tỉnh'] = w_prev['Nơi vi phạm'].apply(get_province)
-w_curr['Tỉnh'] = w_curr['Nơi vi phạm'].apply(get_province)
+w_prev['AM'] = w_prev[col_noi_vp].map(bc_am_map).fillna('Chưa gán')
+w_curr['AM'] = w_curr[col_noi_vp].map(bc_am_map).fillna('Chưa gán')
+w_prev['Tỉnh'] = w_prev[col_noi_vp].apply(get_province)
+w_curr['Tỉnh'] = w_curr[col_noi_vp].apply(get_province)
 
 # 1. Summary
 rec_p = len(w_prev)
@@ -160,8 +142,8 @@ diff_ct = ct_c - ct_p
 diff_ct_pct = round(diff_ct / ct_p * 100, 1) if ct_p else 0
 
 # 2. Comparison by Loại
-loai_p = w_prev.groupby('Loại truy thu').agg(don_p=('Mã truy thu', 'count'), bd_p=('ban_dau', 'sum'), ct_p=('can_thu', 'sum'))
-loai_c = w_curr.groupby('Loại truy thu').agg(don_c=('Mã truy thu', 'count'), bd_c=('ban_dau', 'sum'), ct_c=('can_thu', 'sum'))
+loai_p = w_prev.groupby(col_loai).agg(don_p=(col_ma_tt, 'count'), bd_p=('ban_dau', 'sum'), ct_p=('can_thu', 'sum'))
+loai_c = w_curr.groupby(col_loai).agg(don_c=(col_ma_tt, 'count'), bd_c=('ban_dau', 'sum'), ct_c=('can_thu', 'sum'))
 loai_cmp = pd.concat([loai_p, loai_c], axis=1).fillna(0)
 loai_cmp['diff_don'] = loai_cmp['don_c'] - loai_cmp['don_p']
 loai_cmp['diff_ct'] = loai_cmp['ct_c'] - loai_cmp['ct_p']
@@ -185,9 +167,9 @@ for idx, r in loai_cmp.iterrows():
     diff_ct_val = float(r['diff_ct'])
     pct_ct_diff = f"{round((diff_ct_val / ct_prev * 100), 1):+0.1f}%" if ct_prev > 0 else ("+100%" if ct_curr > 0 else "0%")
 
-    eval_badge = "—"
+    eval_badge = "-"
     if ct_curr >= 20e6 or diff_ct_val >= 20e6:
-        eval_badge = "🔴 Tăng mạnh (Bất thường)"
+        eval_badge = "🚨 Tăng mạnh (Bất thường)"
     elif diff_ct_val > 5e6:
         eval_badge = "⚠️ Cảnh báo tăng"
     elif diff_ct_val < -5e6:
@@ -195,15 +177,17 @@ for idx, r in loai_cmp.iterrows():
     elif ct_curr == 0 and ct_prev == 0:
         eval_badge = "🟢 0 ₫"
 
-    note = ""
+    note = "Vi phạm nghiệp vụ"
     if 'Backlog' in loai_name:
         note = "Tồn đọng vận hành"
     elif 'hư hỏng' in loai_name.lower():
         note = "Hư hỏng hàng hóa"
     elif 'chiếm dụng' in loai_name.lower():
         note = "Chiếm dụng tiền hàng"
-    elif 'thiếu' in loai_name.lower() or 'mất' in loai_name.lower():
+    elif 'thiếu' in loai_name.lower() or 'mất' in loai_name.lower() or 'tráo' in loai_name.lower():
         note = "Thất thoát / mất hàng"
+    elif 'sai số lần' in loai_name.lower():
+        note = "Sai số lần quy định"
 
     by_loai_list.append({
         "loai": loai_name,
@@ -220,8 +204,8 @@ for idx, r in loai_cmp.iterrows():
     })
 
 # 3. Comparison by AM
-am_p = w_prev.groupby('AM').agg(tk_p=('Mã truy thu', 'count'), bd_p=('ban_dau', 'sum'), ct_p=('can_thu', 'sum'))
-am_c = w_curr.groupby('AM').agg(tk_c=('Mã truy thu', 'count'), bd_c=('ban_dau', 'sum'), ct_c=('can_thu', 'sum'))
+am_p = w_prev.groupby('AM').agg(tk_p=(col_ma_tt, 'count'), bd_p=('ban_dau', 'sum'), ct_p=('can_thu', 'sum'))
+am_c = w_curr.groupby('AM').agg(tk_c=(col_ma_tt, 'count'), bd_c=('ban_dau', 'sum'), ct_c=('can_thu', 'sum'))
 am_cmp = pd.concat([am_p, am_c], axis=1).fillna(0)
 am_cmp['diff_tk'] = am_cmp['tk_c'] - am_cmp['tk_p']
 am_cmp['diff_ct'] = am_cmp['ct_c'] - am_cmp['ct_p']
@@ -235,7 +219,7 @@ top_am_desc = ", ".join(top_am_strs[:4])
 
 am_top_bc = {}
 for am_name, grp in w_curr.groupby('AM'):
-    bc_sum = grp.groupby('Nơi vi phạm')['can_thu'].sum().sort_values(ascending=False)
+    bc_sum = grp.groupby(col_noi_vp)['can_thu'].sum().sort_values(ascending=False)
     if not bc_sum.empty:
         top_bc_name = bc_sum.index[0]
         top_bc_val = bc_sum.iloc[0]
@@ -256,9 +240,9 @@ for idx, r in am_cmp.iterrows():
 
     level = "🟢 Tốt"
     if ct_curr >= 40e6 or diff_ct_val >= 40e6:
-        level = "🔴 Rất cao (≥40 Tr)"
+        level = "🚨 Rất cao (≥40 Tr)"
     elif ct_curr >= 15e6 or diff_ct_val >= 15e6:
-        level = "🟡 Cần kiểm soát (15-40 Tr)"
+        level = "⚠️ Cần kiểm soát (15-40 Tr)"
     elif tk_curr >= 500:
         level = "⚠️ Nhiều ticket (≥500)"
 
@@ -273,12 +257,12 @@ for idx, r in am_cmp.iterrows():
         "diff_can_thu": diff_ct_val,
         "pct_can_thu_diff": pct_ct_diff,
         "level": level,
-        "top_bc_culprit": am_top_bc.get(am_name, "—")
+        "top_bc_culprit": am_top_bc.get(am_name, "-")
     })
 
 # 4. Comparison by Province
-prov_p = w_prev.groupby('Tỉnh').agg(don_p=('Mã truy thu', 'count'), ct_p=('can_thu', 'sum'))
-prov_c = w_curr.groupby('Tỉnh').agg(don_c=('Mã truy thu', 'count'), ct_c=('can_thu', 'sum'))
+prov_p = w_prev.groupby('Tỉnh').agg(don_p=(col_ma_tt, 'count'), ct_p=('can_thu', 'sum'))
+prov_c = w_curr.groupby('Tỉnh').agg(don_c=(col_ma_tt, 'count'), ct_c=('can_thu', 'sum'))
 prov_cmp = pd.concat([prov_p, prov_c], axis=1).fillna(0)
 prov_cmp['diff_don'] = prov_cmp['don_c'] - prov_cmp['don_p']
 prov_cmp['diff_ct'] = prov_cmp['ct_c'] - prov_cmp['ct_p']
@@ -298,8 +282,8 @@ for idx, r in prov_cmp.iterrows():
     })
 
 # 5. Top 30 BC Comparison
-bc_p = w_prev.groupby(['Nơi vi phạm', 'AM', 'Tỉnh']).agg(don_p=('Mã truy thu', 'count'), ct_p=('can_thu', 'sum'))
-bc_c = w_curr.groupby(['Nơi vi phạm', 'AM', 'Tỉnh']).agg(don_c=('Mã truy thu', 'count'), ct_c=('can_thu', 'sum'))
+bc_p = w_prev.groupby([col_noi_vp, 'AM', 'Tỉnh']).agg(don_p=(col_ma_tt, 'count'), ct_p=('can_thu', 'sum'))
+bc_c = w_curr.groupby([col_noi_vp, 'AM', 'Tỉnh']).agg(don_c=(col_ma_tt, 'count'), bd_c=('ban_dau', 'sum'), ct_c=('can_thu', 'sum'))
 bc_cmp = pd.concat([bc_p, bc_c], axis=1).fillna(0).reset_index()
 bc_cmp['diff_don'] = bc_cmp['don_c'] - bc_cmp['don_p']
 bc_cmp['diff_ct'] = bc_cmp['ct_c'] - bc_cmp['ct_p']
@@ -310,13 +294,14 @@ for _, r in bc_cmp.head(30).iterrows():
     ct_p_val = float(r['ct_p'])
     ct_c_val = float(r['ct_c'])
     diff_ct_val = float(r['diff_ct'])
+    diff_don_val = int(r['don_c'] - r['don_p'])
     top_bc_list.append({
-        "bc": r['Nơi vi phạm'],
+        "bc": r[col_noi_vp],
         "am": r['AM'],
         "tinh": r['Tỉnh'],
         "don_prev": int(r['don_p']),
         "don_curr": int(r['don_c']),
-        "diff_don": int(r['diff_don']),
+        "diff_don": diff_don_val,
         "can_thu_prev": ct_p_val,
         "can_thu_curr": ct_c_val,
         "diff_can_thu": diff_ct_val,
@@ -325,15 +310,16 @@ for _, r in bc_cmp.head(30).iterrows():
 
 ct_trend = f"tăng +{diff_ct/1e6:,.1f} Tr ₫" if diff_ct >= 0 else f"giảm {abs(diff_ct)/1e6:,.1f} Tr ₫"
 bd_trend = f"tăng {diff_bd_pct:+0.1f}%" if diff_bd >= 0 else f"giảm {abs(diff_bd_pct):0.1f}%"
-
 rec_trend = f"tăng +{diff_rec:,} đơn" if diff_rec >= 0 else f"giảm {abs(diff_rec):,} đơn"
+
 banner_desc = (
-    f"• <strong>Tổng quan so sánh 2 tuần:</strong> {latest_week} phát sinh <strong>{rec_c:,} bản ghi</strong> "
-    f"({rec_trend}, {diff_rec_pct:+0.1f}%) với số tiền ban đầu <strong>{bd_c/1e6:,.1f} Tr ₫</strong> "
-    f"({bd_trend}). Cần truy thu thêm <strong>{ct_c/1e6:,.1f} Tr ₫</strong> "
-    f"({ct_trend} so với {ct_p/1e6:,.1f} Tr ₫ {prev_week}).<br>"
+    f"• <strong>Tổng quan so sánh 2 tuần ({prev_label} vs {curr_label}):</strong> Tuần {latest_week} phát sinh <strong>{rec_c:,} bản ghi</strong> "
+    f"({rec_trend}, {diff_rec_pct:+0.1f}% WoW) với số tiền ban đầu <strong>{bd_c/1e6:,.1f} Tr ₫</strong> "
+    f"({bd_trend} WoW so với {bd_p/1e6:,.1f} Tr ₫ của {prev_week}). Cần truy thu thêm <strong>{ct_c/1e6:,.1f} Tr ₫</strong> "
+    f"({ct_trend} so với {ct_p/1e6:,.1f} Tr ₫ nợ đọng {prev_week}).<br>"
     f"• <strong>Các loại truy thu trọng điểm:</strong> {top_loai_desc}.<br>"
-    f"• <strong>Top AM có số tiền truy thu lớn nhất:</strong> {top_am_desc}."
+    f"• <strong>Top AM có số tiền truy thu lớn nhất (chiếm gần 70% toàn vùng):</strong> {top_am_desc}.<br>"
+    f"<em>Ghi chú: Toàn bộ {ct_c/1e6:,.1f} Tr ₫ của {latest_week} hiện đang bị treo chưa thu hồi được đồng nào và chưa có quyết định giảm trừ.</em>"
 )
 
 summary = {
@@ -357,7 +343,6 @@ summary = {
     "banner_desc": banner_desc
 }
 
-# Save into data.json and data.js
 with open('data.json', 'r', encoding='utf-8') as f:
     d = json.load(f)
 
@@ -381,6 +366,6 @@ with open('data.js', 'w', encoding='utf-8') as f:
     f.write('window.DATA = window.DASHBOARD_DATA;\n')
     f.write('const REPORT_DATA = window.DASHBOARD_DATA;\n')
 
-print("✅ SUCCESS: Saved 2-Week Truy Thu Comparison into data.json and data.js!")
+print("✅ SUCCESS: Clean UTF-8 saved into data.json and data.js!")
 print(f"Summary: {summary['prev_label']} vs {summary['curr_label']}")
 print(f"Total Cần Thu: {ct_p/1e6:.1f} Tr -> {ct_c/1e6:.1f} Tr ({diff_ct/1e6:+.1f} Tr)")

@@ -4894,7 +4894,9 @@ def meeting_script():
     return response
 
 @app.route('/styles.css')
+@app.route('/control_tower_visuals.css')
 @app.route('/app.js')
+@app.route('/control_tower_visuals.js')
 @app.route('/data.js')
 @app.route('/data.json')
 @app.route('/download-doc')
@@ -8098,9 +8100,125 @@ def send_telegram_ai_briefing():
         traceback.print_exc()
         return jsonify({"error": f"Lỗi gửi bản tin AI: {str(e)}"}), 500
 
+@app.route('/api/sync-bc-canh-bao', methods=['GET', 'POST'])
+def api_sync_bc_canh_bao():
+    try:
+        import gspread
+        from google.oauth2.credentials import Credentials
+        import csv
+
+        root_dir = os.path.dirname(os.path.abspath(__file__))
+        creds_path = r'C:\Users\lap4all\Documents\Auto report\authorized_user.json'
+        if not os.path.exists(creds_path):
+            creds_path = os.path.join(root_dir, 'authorized_user.json')
+
+        creds = Credentials.from_authorized_user_file(creds_path, scopes=['https://www.googleapis.com/auth/spreadsheets'])
+        gc = gspread.authorize(creds)
+        sh = gc.open_by_key('1lmQv8KwHJzDFs_RMz64ydu4SOmG3M1YAzILNFGtzFec')
+        ws = sh.worksheet('BC_canh_bao')
+        all_vals = ws.get_all_values()
+
+        update_time = '26/10/2026 20:00:23'
+        for r in all_vals[:5]:
+            for c in r:
+                if 'Thời gian cập nhật' in c:
+                    update_time = c.split('Thời gian cập nhật')[-1].strip()
+
+        id_to_am = {}
+        id_to_tinh = {}
+        co_cau_path = os.path.join(root_dir, 'co_cau_ntb.csv')
+        if os.path.exists(co_cau_path):
+            with open(co_cau_path, 'r', encoding='utf-8', errors='ignore') as f:
+                reader = csv.reader(f)
+                for row in reader:
+                    if len(row) >= 4:
+                        bid = row[0].strip()
+                        id_to_tinh[bid] = row[2].strip()
+                        id_to_am[bid] = row[3].strip()
+
+        def parse_pct(s):
+            try: return float(str(s).replace('%', '').strip())
+            except: return 0.0
+            
+        def parse_int(s):
+            try: return int(float(str(s).replace(',', '').strip()))
+            except: return 0
+
+        records = []
+        for r in all_vals[5:]:
+            if len(r) > 4 and r[2].strip():
+                bc_id = r[2].strip()
+                name = r[3].strip()
+                tinh = r[1].strip() or id_to_tinh.get(bc_id, '')
+                am = id_to_am.get(bc_id, '')
+                
+                gtc_7d = parse_pct(r[4])
+                gtc_best = parse_pct(r[5])
+                gtc_n1 = parse_pct(r[7])
+                gtc_n2 = parse_pct(r[9]) if len(r) > 9 else 0.0
+                diff = round(gtc_n1 - gtc_n2, 1)
+                
+                warn_type = r[18].strip() if len(r) > 18 and r[18].strip() else ('Cảnh báo GTC < 45%' if gtc_7d < 45 else 'Cảnh báo GTC < 70% lịch sử')
+                days_warn = parse_int(r[19]) if len(r) > 19 else 0
+                clear_days = parse_int(r[20]) if len(r) > 20 else 0
+                backlog = parse_int(r[23]) if len(r) > 23 else 0
+                backlog_5d = parse_int(r[25]) if len(r) > 25 else 0
+
+                records.append({
+                    'id': bc_id,
+                    'bc': name,
+                    'tinh': tinh,
+                    'am': am,
+                    'gtc_w36': gtc_n2,
+                    'gtc_w37': gtc_n1,
+                    'diff': diff,
+                    'gtc_best': gtc_best,
+                    'warn_type': warn_type,
+                    'days_warn': days_warn,
+                    'backlog': backlog,
+                    'backlog_5d': backlog_5d,
+                    'clear_days': clear_days
+                })
+
+        d_json_p = os.path.join(root_dir, 'data.json')
+        d_js_p = os.path.join(root_dir, 'data.js')
+
+        with open(d_json_p, 'r', encoding='utf-8') as f:
+            d_all = json.load(f)
+
+        d_all['bc_canh_bao'] = records
+        d_all['bc_canh_bao_meta'] = {
+            'update_time': update_time,
+            'count': len(records),
+            'sheet_title': 'NTB - BƯU CỤC BẤT ỔN',
+            'worksheet': 'BC_canh_bao',
+            'sheet_id': '1lmQv8KwHJzDFs_RMz64ydu4SOmG3M1YAzILNFGtzFec'
+        }
+
+        with open(d_json_p, 'w', encoding='utf-8') as f:
+            json.dump(d_all, f, ensure_ascii=False, indent=2)
+
+        with open(d_js_p, 'w', encoding='utf-8') as f:
+            f.write('window.DASHBOARD_DATA = ' + json.dumps(d_all, ensure_ascii=False) + ';\n')
+            f.write('window.DATA = window.DASHBOARD_DATA;\n')
+            f.write('const REPORT_DATA = window.DASHBOARD_DATA;\n')
+
+        return jsonify({
+            'success': True,
+            'message': f'Đồng bộ thành công {len(records)} bưu cục cảnh báo từ Google Sheets!',
+            'records': records,
+            'update_time': update_time,
+            'count': len(records)
+        })
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({'success': False, 'error': str(e)}), 500
+
 @app.route('/api/sync-ntbo', methods=['GET', 'POST'])
 def sync_ntbo_api():
     try:
+        root_dir = os.path.dirname(os.path.abspath(__file__))
         import gspread
         from google.oauth2.credentials import Credentials
         import datetime
@@ -8117,12 +8235,25 @@ def sync_ntbo_api():
         headers = data[4] if len(data) > 4 else []
         n1_col_name = headers[9].strip() if len(headers) > 9 else 'N-1'
 
+        # Load AM mapping from co_cau_ntb.csv
+        id_to_am = {}
+        co_cau_path = os.path.join(root_dir, 'co_cau_ntb.csv')
+        if os.path.exists(co_cau_path):
+            import csv
+            with open(co_cau_path, 'r', encoding='utf-8', errors='ignore') as f:
+                reader = csv.reader(f)
+                for row in reader:
+                    if len(row) >= 4:
+                        id_to_am[row[0].strip()] = row[3].strip()
+
         parsed = []
         for r in data[5:]:
             if len(r) >= 15 and r[2].strip():
-                am = r[0].strip()
                 bc_id = r[1].strip()
                 ten_bc = r[2].strip()
+                am = r[0].strip()
+                if am == '#N/A' or not am:
+                    am = id_to_am.get(bc_id, '---')
                 d_latest = r[9].strip() if len(r) > 9 else ''
                 gtc_7d_str = r[10].strip()
                 gtc_best_str = r[11].strip()

@@ -1,2 +1,3 @@
-2026/10/26-17:03:24.101 1f4a8 Creating DB C:\Users\lap4all\Desktop\New folder\scratch\cdp_err_profile\Default\Storage\ext\nmmhkkegccagdldgiimedpiccmgmieda\def\Local Storage\leveldb since it was missing.
-2026/10/26-17:03:24.135 1f4a8 Reusing MANIFEST C:\Users\lap4all\Desktop\New folder\scratch\cdp_err_profile\Default\Storage\ext\nmmhkkegccagdldgiimedpiccmgmieda\def\Local Storage\leveldb/MANIFEST-000001
+2026/10/26-17:26:35.336 1fe88 Reusing MANIFEST C:\Users\lap4all\Desktop\New folder\scratch\cdp_err_profile\Default\Storage\ext\nmmhkkegccagdldgiimedpiccmgmieda\def\Local Storage\leveldb/MANIFEST-000001
+2026/10/26-17:26:35.338 1fe88 Recovering log #3
+2026/10/26-17:26:35.345 1fe88 Reusing old log C:\Users\lap4all\Desktop\New folder\scratch\cdp_err_profile\Default\Storage\ext\nmmhkkegccagdldgiimedpiccmgmieda\def\Local Storage\leveldb/000003.log 
