@@ -4865,6 +4865,17 @@ def showcase_slide():
     root_dir = os.path.dirname(os.path.abspath(__file__))
     return send_from_directory(root_dir, 'showcase_presentation.html')
 
+@app.route('/kich-ban-cod-truy-thu')
+@app.route('/KICH_BAN_NOP_COD_QR_VA_TRUY_THU_W43.html')
+def meeting_script_cod_truythu():
+    root_dir = os.path.dirname(os.path.abspath(__file__))
+    return send_from_directory(root_dir, 'KICH_BAN_NOP_COD_QR_VA_TRUY_THU_W43.html')
+
+@app.route('/KICH_BAN_NOP_COD_QR_VA_TRUY_THU_W43.docx')
+def download_cod_truythu_docx():
+    root_dir = os.path.dirname(os.path.abspath(__file__))
+    return send_from_directory(root_dir, 'KICH_BAN_NOP_COD_QR_VA_TRUY_THU_W43.docx', as_attachment=True)
+
 @app.route('/kich-ban')
 @app.route('/script')
 @app.route('/KICH_BAN_THUYET_TRINH_W43_NAM_TRUNG_BO.html')

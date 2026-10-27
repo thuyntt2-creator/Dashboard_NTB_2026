@@ -7931,11 +7931,14 @@
           <tr style="background: #1e3a8a; color: #ffffff;">
             <th class="center" style="width: 44px; color:#ffffff;">#</th>
             <th style="color:#ffffff;">AM Phụ Trách</th>
+            <th class="num" style="background: #059669; color: #ffffff; font-weight:700;">&lt; 24h (Đúng hạn)</th>
             <th class="num" style="background: #d97706; color: #ffffff; font-weight:700;">24 – 36h</th>
             <th class="num" style="background: #ea580c; color: #ffffff; font-weight:700;">36 – 72h</th>
             <th class="num" style="background: #dc2626; color: #ffffff; font-weight:700;">72 – 120h</th>
             <th class="num" style="background: #991b1b; color: #ffffff; font-weight:700;">Trên 120h</th>
+            <th class="num" style="background: #fee2e2; color: #b91c1c; font-weight:900;">Treo ≥24h (⚠️)</th>
             <th class="num" style="background: #1e3a8a; color: #ffffff; font-weight:800;">Tổng Luân Chuyển</th>
+            <th class="num" style="background: #334155; color: #ffffff; font-weight:700;">% Treo</th>
           </tr>
         `;
       } else {
@@ -7994,20 +7997,26 @@
             </tr>
           `;
         } else if (isTreo) {
+          const u24 = row.u_24 !== undefined ? row.u_24 : (row.vol - (row.treo_24 || 0));
           const h24 = row.h_24_36 !== undefined ? row.h_24_36 : 0;
           const h36 = row.h_36_72 !== undefined ? row.h_36_72 : 0;
           const h72 = row.h_72_120 !== undefined ? row.h_72_120 : 0;
           const h120 = row.h_120_plus !== undefined ? row.h_120_plus : ((row.h_120_192 || 0) + (row.h_192_plus || 0));
+          const treo24 = row.treo_24 !== undefined ? row.treo_24 : (h24 + h36 + h72 + h120);
+          const rateTreo = row.rate_treo_24 !== undefined ? row.rate_treo_24 : (row.vol ? Number((treo24 / row.vol * 100).toFixed(1)) : 0);
 
           return `
             <tr data-entity="${row.am}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightAM('${row.am}')">
               <td class="center">${renderRankPill(i)}</td>
               <td class="bold" style="font-size:13px; font-weight:800; color:${isSelected ? '#ef4444' : 'inherit'};">${row.am} <small style="color:var(--text-muted); font-weight:normal;">(${row.tinh || ''})</small></td>
+              <td class="num" style="background: rgba(16, 185, 129, 0.05); font-weight:600; color:#059669;">${fNum(u24)}</td>
               <td class="num" style="background: rgba(217, 119, 6, 0.05); font-weight:600; color:${h24 > 0 ? '#d97706' : '#64748b'};">${fNum(h24)}</td>
               <td class="num" style="background: rgba(234, 88, 12, 0.05); font-weight:600; color:${h36 > 0 ? '#ea580c' : '#64748b'};">${fNum(h36)}</td>
               <td class="num" style="background: rgba(220, 38, 38, 0.06); font-weight:600; color:${h72 > 0 ? '#dc2626' : '#64748b'};">${fNum(h72)}</td>
               <td class="num bold" style="background: rgba(153, 27, 27, 0.08); color:${h120 > 0 ? '#991b1b' : '#64748b'};">${fNum(h120)}</td>
-              <td class="num bold" style="background: rgba(0,0,0,0.02); color: #475569; font-size:13px; font-weight:700;">${fNum(row.vol)}</td>
+              <td class="num bold" style="background: #fee2e2; color:#b91c1c; font-size:13.5px; font-weight:900;">${fNum(treo24)}</td>
+              <td class="num bold" style="background: rgba(0,0,0,0.02); color: #1e293b; font-size:13px; font-weight:700;">${fNum(row.vol)}</td>
+              <td class="num bold" style="color: ${rateTreo >= 15 ? '#dc2626' : (rateTreo >= 8 ? '#ea580c' : '#10b981')}; font-weight:800;">${rateTreo}%</td>
             </tr>
           `;
         } else {
@@ -8030,24 +8039,34 @@
           <tr style="background: #fde047; font-weight: 900; border-top: 2px solid #ca8a04;">
             <td class="center">⭐</td>
             <td class="bold" style="font-size: 13.5px; text-transform: uppercase;">TỔNG VÙNG</td>
-            <td class="num bold" style="font-size: 13.5px; color: #0369a1;">${fNum(D.aging.total_5_8 || 365)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #b45309;">${fNum(D.aging.total_8_15 || 59)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #b91c1c;">${fNum(D.aging.total_gt_15 || 7)}</td>
-            <td class="num bold" style="background: #f59e0b; color: #000000; font-size:14.5px;">${fNum(D.aging.total || 431)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #0369a1;">${fNum(D.aging.total_5_8 || 547)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #b45309;">${fNum(D.aging.total_8_15 || 216)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #b91c1c;">${fNum(D.aging.total_gt_15 || 6)}</td>
+            <td class="num bold" style="background: #f59e0b; color: #000000; font-size:14.5px;">${fNum(D.aging.total || 769)}</td>
           </tr>
         `;
       } else if (isTreo && D.treo_lc) {
+        const totU24 = D.treo_lc.total_u24 || 3375;
+        const tot24 = D.treo_lc.total_24_36 || 144;
+        const tot36 = D.treo_lc.total_36_72 || 127;
+        const tot72 = D.treo_lc.total_72_120 || 36;
+        const tot120 = D.treo_lc.total_120_plus || 29;
+        const totTreo24 = D.treo_lc.total_treo_24 || 336;
+        const totLC = D.treo_lc.total || 3711;
+        const pctTreo = (totTreo24 / totLC * 100).toFixed(1);
+
         rowsHtml += `
           <tr style="background: #fde047; font-weight: 900; border-top: 2px solid #ca8a04;">
             <td class="center">⭐</td>
             <td class="bold" style="font-size: 13.5px; text-transform: uppercase;">TỔNG VÙNG</td>
-            <td class="num bold" style="font-size: 13.5px; color: #0284c7;">${fNum(D.treo_lc.total_u24 || 4287)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #d97706;">${fNum(D.treo_lc.total_24_36 || 165)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #ea580c;">${fNum(D.treo_lc.total_36_72 || 132)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #dc2626;">${fNum(D.treo_lc.total_72_120 || 31)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #991b1b;">${fNum(D.treo_lc.total_120_plus || 45)}</td>
-            <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size:14.5px; font-weight:900;">${fNum(D.treo_lc.total_treo_24 || 373)}</td>
-            <td class="num bold" style="background: #f1f5f9; color: #1e293b; font-size:13.5px;">${fNum(D.treo_lc.total || 4660)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #059669;">${fNum(totU24)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #d97706;">${fNum(tot24)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #ea580c;">${fNum(tot36)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #dc2626;">${fNum(tot72)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #991b1b;">${fNum(tot120)}</td>
+            <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size:14.5px; font-weight:900;">${fNum(totTreo24)}</td>
+            <td class="num bold" style="background: #f1f5f9; color: #1e293b; font-size:13.5px; font-weight:800;">${fNum(totLC)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #b91c1c; font-weight:900;">${pctTreo}%</td>
           </tr>
         `;
       }
@@ -8076,11 +8095,14 @@
           <tr style="background: #1e3a8a; color: #ffffff;">
             <th class="center" style="width: 44px; color:#ffffff;">#</th>
             <th style="color:#ffffff;">Bưu Cục Điểm Nóng</th>
+            <th class="num" style="background: #059669; color: #ffffff; font-weight:700;">&lt; 24h (Đúng hạn)</th>
             <th class="num" style="background: #d97706; color: #ffffff; font-weight:700;">24 – 36h</th>
             <th class="num" style="background: #ea580c; color: #ffffff; font-weight:700;">36 – 72h</th>
             <th class="num" style="background: #dc2626; color: #ffffff; font-weight:700;">72 – 120h</th>
             <th class="num" style="background: #991b1b; color: #ffffff; font-weight:700;">Trên 120h</th>
+            <th class="num" style="background: #fee2e2; color: #b91c1c; font-weight:900;">Treo ≥24h (⚠️)</th>
             <th class="num" style="background: #1e3a8a; color: #ffffff; font-weight:800;">Tổng Luân Chuyển</th>
+            <th class="num" style="background: #334155; color: #ffffff; font-weight:700;">% Treo</th>
           </tr>
         `;
       } else {
@@ -8126,20 +8148,26 @@
             </tr>
           `;
         } else if (isTreo) {
+          const u24 = row.u_24 !== undefined ? row.u_24 : (row.vol - (row.treo_24 || 0));
           const h24 = row.h_24_36 !== undefined ? row.h_24_36 : 0;
           const h36 = row.h_36_72 !== undefined ? row.h_36_72 : 0;
           const h72 = row.h_72_120 !== undefined ? row.h_72_120 : 0;
           const h120 = row.h_120_plus !== undefined ? row.h_120_plus : ((row.h_120_192 || 0) + (row.h_192_plus || 0));
+          const treo24 = row.treo_24 !== undefined ? row.treo_24 : (h24 + h36 + h72 + h120);
+          const rateTreo = row.rate_treo_24 !== undefined ? row.rate_treo_24 : (row.vol ? Number((treo24 / row.vol * 100).toFixed(1)) : 0);
 
           return `
             <tr data-entity="${row.am}" class="${rowClass}" style="cursor: pointer;" onclick="selectAndHighlightAM('${row.am}')">
               <td class="center">${renderRankPill(i)}</td>
               <td class="bold" style="font-size:13px; font-weight:800;">${row.bc} <small style="color:var(--text-muted);">(${row.am})</small></td>
+              <td class="num" style="background: rgba(16, 185, 129, 0.05); font-weight:600; color:#059669;">${fNum(u24)}</td>
               <td class="num" style="background: rgba(217, 119, 6, 0.05); font-weight:600; color:${h24 > 0 ? '#d97706' : '#64748b'};">${fNum(h24)}</td>
               <td class="num" style="background: rgba(234, 88, 12, 0.05); font-weight:600; color:${h36 > 0 ? '#ea580c' : '#64748b'};">${fNum(h36)}</td>
               <td class="num" style="background: rgba(220, 38, 38, 0.06); font-weight:600; color:${h72 > 0 ? '#dc2626' : '#64748b'};">${fNum(h72)}</td>
               <td class="num bold" style="background: rgba(153, 27, 27, 0.08); color:${h120 > 0 ? '#991b1b' : '#64748b'};">${fNum(h120)}</td>
-              <td class="num bold" style="background: rgba(0,0,0,0.02); color: #475569; font-size:13px; font-weight:700;">${fNum(row.vol)}</td>
+              <td class="num bold" style="background: #fee2e2; color:#b91c1c; font-size:13.5px; font-weight:900;">${fNum(treo24)}</td>
+              <td class="num bold" style="background: rgba(0,0,0,0.02); color: #1e293b; font-size:13px; font-weight:700;">${fNum(row.vol)}</td>
+              <td class="num bold" style="color: ${rateTreo >= 15 ? '#dc2626' : (rateTreo >= 8 ? '#ea580c' : '#10b981')}; font-weight:800;">${rateTreo}%</td>
             </tr>
           `;
         } else {
@@ -8159,17 +8187,26 @@
 
       // Add Total Row at bottom for BC
       if (isTreo && D.treo_lc) {
+        const totU24 = D.treo_lc.total_u24 || 3375;
+        const tot24 = D.treo_lc.total_24_36 || 144;
+        const tot36 = D.treo_lc.total_36_72 || 127;
+        const tot72 = D.treo_lc.total_72_120 || 36;
+        const tot120 = D.treo_lc.total_120_plus || 29;
+        const totTreo24 = D.treo_lc.total_treo_24 || 336;
+        const totLC = D.treo_lc.total || 3711;
+        const pctTreo = (totTreo24 / totLC * 100).toFixed(1);
+
         bcRowsHtml += `
           <tr style="background: #fde047; font-weight: 900; border-top: 2px solid #ca8a04;">
             <td class="center">⭐</td>
             <td class="bold" style="font-size: 13.5px; text-transform: uppercase;">TỔNG VÙNG (${listBC.length} BC)</td>
-            <td class="num bold" style="font-size: 13.5px; color: #0284c7;">${fNum(D.treo_lc.total_u24 || 4287)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #d97706;">${fNum(D.treo_lc.total_24_36 || 165)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #ea580c;">${fNum(D.treo_lc.total_36_72 || 132)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #dc2626;">${fNum(D.treo_lc.total_72_120 || 31)}</td>
-            <td class="num bold" style="font-size: 13.5px; color: #991b1b;">${fNum(D.treo_lc.total_120_plus || 45)}</td>
-            <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size:14.5px; font-weight:900;">${fNum(D.treo_lc.total_treo_24 || 373)}</td>
-            <td class="num bold" style="background: #f1f5f9; color: #1e293b; font-size:13.5px;">${fNum(D.treo_lc.total || 4660)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #059669;">${fNum(totU24)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #d97706;">${fNum(tot24)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #ea580c;">${fNum(tot36)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #dc2626;">${fNum(tot72)}</td>
+            <td class="num bold" style="font-size: 13.5px; color: #991b1b;">${fNum(tot120)}</td>
+            <td class="num bold" style="background: #fee2e2; color: #b91c1c; font-size:14.5px; font-weight:900;">${fNum(totTreo24)}</td>
+            <td class="num bold" style="background: #f1f5f9; color: #1e293b; font-size:13.5px; font-weight:800;">${fNum(totLC)}</td>
           </tr>
         `;
       }
@@ -8244,7 +8281,10 @@
       }
 
       // Update Script Card for Aging
-      if (scriptTitle && scriptTitle.textContent !== undefined) scriptTitle.textContent = 'KỊCH BẢN ĐIỀU HÀNH: AGING >5 NGÀY (REALTIME 20/10)';
+      const liveDateStr = (D.aging && D.aging.update_time) ? D.aging.update_time.split(' ')[0] : '27/10/2026';
+
+      // Update Script Card for Aging
+      if (scriptTitle && scriptTitle.textContent !== undefined) scriptTitle.textContent = `KỊCH BẢN ĐIỀU HÀNH: AGING >5 NGÀY (REALTIME ${liveDateStr})`;
       if (scriptBadge && scriptBadge.textContent !== undefined) {
         scriptBadge.className = 'badge-tag badge-tag-red';
         scriptBadge.textContent = 'Aging Realtime';
@@ -8252,33 +8292,31 @@
       if (scriptContent && scriptContent.innerHTML !== undefined) {
         scriptContent.innerHTML = `
           <div style="margin-bottom: 10px; padding: 8px 12px; background: #fee2e2; border-left: 4px solid #ef4444; border-radius: 6px;">
-            <div style="font-weight: 800; color: #991b1b; font-size: 13px;">📦 TỔNG HỢP TỒN AGING (>5 NGÀY): ${fNum(tot)} ĐƠN (REALTIME 20/10)</div>
+            <div style="font-weight: 800; color: #991b1b; font-size: 13px;">📦 TỔNG HỢP TỒN AGING (>5 NGÀY): ${fNum(tot)} ĐƠN (REALTIME ${liveDateStr})</div>
             <div style="font-size: 12px; color: #7f1d1d; margin-top: 2px;">
-              • 5–8 ngày: <strong>${fNum(d58)} đơn (${p58}%)</strong> | 8–15 ngày: <strong>${fNum(d815)} đơn (${p815}%)</strong> | >15 ngày: <strong style="color:#059669;">${fNum(dgt15)} đơn (0%) 🟢 Đã giải phóng sạch!</strong>
+              • 5–8 ngày: <strong>${fNum(d58)} đơn (${p58}%)</strong> | 8–15 ngày: <strong>${fNum(d815)} đơn (${p815}%)</strong> | >15 ngày: <strong style="color:${dgt15 > 0 ? '#dc2626' : '#059669'};">${fNum(dgt15)} đơn (${pgt15}%)</strong>
             </div>
           </div>
           <div style="margin-bottom: 10px;">
-            <strong style="color: #c2410c;">🚨 ĐIỂM DANH TOP 5 AM & BƯU CỤC TỒN CAO NHẤT HÔM NAY:</strong>
+            <strong style="color: #c2410c;">🚨 ĐIỂM DANH TOP AM & BƯU CỤC TỒN AGING CAO NHẤT HÔM NAY:</strong>
             <ul style="margin: 4px 0 0 16px; padding: 0;">
-              <li><strong>AM Lê Văn Trường:</strong> Tồn 215 đ (25.1%) — Điểm nóng: BC Lang Biang 2 ngâm tới <strong>191 đơn</strong>!</li>
-              <li><strong>AM Nguyễn Lê Nguyên Vũ:</strong> Tồn 170 đ (19.9%) — Điểm nóng: BC Đức Trọng 1 ngâm tới <strong>150 đơn</strong>!</li>
-              <li><strong>AM Hồng Bích Nga:</strong> Tồn 114 đ (13.3%) — Điểm nóng: BC Hòa Ninh ngâm <strong>91 đơn</strong>.</li>
-              <li><strong>AM Huỳnh Thị Kim Chi:</strong> Tồn 108 đ (12.6%) — Điểm nóng: BC Tân Hà Lâm Hà ngâm <strong>92 đơn</strong>.</li>
-              <li><strong>AM Phan Đình Duy:</strong> Tồn 62 đ (BC Nha Trang 24 đ, Tây Nha Trang 17 đ).</li>
+              <li><strong>AM Huỳnh Thị Kim Chi (Lâm Đồng):</strong> Tồn cao với nhóm đơn 5-8 ngày tại các tuyến huyện.</li>
+              <li><strong>AM Lê Văn Trường & AM Nguyễn Lê Nguyên Vũ (Lâm Đồng):</strong> Chiếm phần lớn tồn đọng khu vực Đà Lạt - Đức Trọng.</li>
+              <li><strong>AM Phan Đình Duy & AM Nguyễn Thanh Long (Khánh Hòa):</strong> Tồn 168 đơn toàn tỉnh Khánh Hòa.</li>
             </ul>
-            <div style="font-size: 11.5px; color: #b91c1c; font-weight: 700; margin-top: 3px;">⚠️ Lưu ý: Tỉnh Lâm Đồng tập trung tới hơn 70% tổng lượng hàng tồn aging của toàn vùng!</div>
+            <div style="font-size: 11.5px; color: #b91c1c; font-weight: 700; margin-top: 3px;">⚠️ Lưu ý: Tỉnh Lâm Đồng tập trung tới 336 đơn (chiếm 43.7% tổng tồn aging toàn vùng)!</div>
           </div>
           <div style="margin-bottom: 8px; padding: 6px 10px; background: #fff7ed; border-left: 3px solid #ea580c; border-radius: 4px;">
             <strong style="color: #ea580c;">🎯 MỆNH LỆNH ĐIỀU HÀNH 48H:</strong>
             <div style="font-size: 12px; color: #9a3412;">
-              1. AM Trường, Vũ, Chi, Nga trực tiếp xuống 4 kho điểm nóng (Lang Biang 2, Đức Trọng 1, Tân Hà, Hòa Ninh) rà soát vật lý từng kiện, giải phóng tối thiểu 60% lượng tồn trước 17h00 ngày mai!<br/>
+              1. Toàn bộ bưu cục rà soát kho, ưu tiên gán giao xử lý sạch 6 đơn tồn nguy cơ &gt;15 ngày ngay hôm nay!<br/>
               2. Áp dụng quy tắc "Xếp sọt đảo ngược": Hàng tồn cũ bắt buộc xếp lên miệng sọt xuất ca 1 sáng, không để shipper bốc đơn mới bỏ quên đơn cũ.
             </div>
           </div>
           <div style="padding: 6px 10px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 4px;">
-            <strong style="color: #0f172a;">🎤 LỜI THOẠI TRÌNH BÀY NHANH TẠI CUỘC HỌP:</strong>
+            <strong style="color: #0f172a;">🎤 LỜI THOẠI TRÌNH BÀY TẠI CUỘC HỌP:</strong>
             <div style="font-size: 12px; color: #334155; font-style: italic;">
-              "Thưa các anh chị, toàn vùng hiện có 856 đơn tồn >5 ngày, điểm sáng là nhóm nguy cơ đền bù >15 ngày đã kéo về 0 đơn! Tuy nhiên, hơn 70% lượng tồn dồn tại Lâm Đồng, đặc biệt là 4 bưu cục Lang Biang 2 (191 đ), Đức Trọng 1 (150 đ), Tân Hà (92 đ) và Hòa Ninh (91 đ). Yêu cầu 4 AM phụ trách xuống kho giải tỏa ngay 60% tồn trước 17h chiều mai!"
+              "Toàn vùng ghi nhận 769 đơn tồn quá 5 ngày, trong đó 71% là tồn 5-8 ngày và chỉ có 6 đơn trên 15 ngày. Gần một nửa lượng tồn aging tập trung tại Lâm Đồng (336 đơn). Yêu cầu các AM bám sát đôn đốc bưu cục giao dứt điểm các đơn 8-15 ngày trước khi trôi qua mốc 15 ngày!"
             </div>
           </div>
         `;
@@ -8289,19 +8327,20 @@
       chartColors = ['#3b82f6', '#f59e0b', '#10b981'];
 
     } else if (isTreo) {
-      const totLC = (D.treo_lc && D.treo_lc.total) ? D.treo_lc.total : 4103;
-      const u24 = (D.treo_lc && D.treo_lc.total_u24) ? D.treo_lc.total_u24 : 3685;
-      const t24 = (D.treo_lc && D.treo_lc.total_24_36) ? D.treo_lc.total_24_36 : 210;
-      const t36 = (D.treo_lc && D.treo_lc.total_36_72) ? D.treo_lc.total_36_72 : 143;
-      const t72 = ((D.treo_lc && D.treo_lc.total_72_120) || 44) + ((D.treo_lc && D.treo_lc.total_120_plus) || 21);
+      const totLC = (D.treo_lc && D.treo_lc.total) ? D.treo_lc.total : 3711;
+      const u24 = (D.treo_lc && D.treo_lc.total_u24) ? D.treo_lc.total_u24 : 3375;
+      const t24 = (D.treo_lc && D.treo_lc.total_24_36) ? D.treo_lc.total_24_36 : 144;
+      const t36 = (D.treo_lc && D.treo_lc.total_36_72) ? D.treo_lc.total_36_72 : 127;
+      const t72 = ((D.treo_lc && D.treo_lc.total_72_120) || 36) + ((D.treo_lc && D.treo_lc.total_120_plus) || 29);
       const treo24 = (D.treo_lc && D.treo_lc.total_treo_24) ? D.treo_lc.total_treo_24 : (t24 + t36 + t72);
 
       const pu24 = (u24 / totLC * 100).toFixed(1);
       const pt24 = (t24 / totLC * 100).toFixed(1);
       const pt36 = (t36 / totLC * 100).toFixed(1);
       const pt72 = (t72 / totLC * 100).toFixed(1);
+      const liveDateStrLC = (D.treo_lc && D.treo_lc.update_time) ? D.treo_lc.update_time.split(' ')[0] : '27/10/2026';
 
-      if (donutTitle) donutTitle.textContent = `CƠ CẤU ${fNum(totLC)} ĐƠN LUÂN CHUYỂN THEO THỜI GIAN (REALTIME 20/10)`;
+      if (donutTitle) donutTitle.textContent = `CƠ CẤU ${fNum(totLC)} ĐƠN LUÂN CHUYỂN THEO THỜI GIAN (REALTIME ${liveDateStrLC})`;
       if (donutBadge) {
         donutBadge.className = 'badge-tag badge-tag-amber';
         donutBadge.textContent = `Treo ≥24h: ${fNum(treo24)} đơn (${(treo24 / totLC * 100).toFixed(1)}%)`;
@@ -8334,7 +8373,7 @@
       }
 
       // Update Script Card for Treo LC
-      if (scriptTitle && scriptTitle.textContent !== undefined) scriptTitle.textContent = 'KỊCH BẢN ĐIỀU HÀNH: TREO LUÂN CHUYỂN (REALTIME 20/10)';
+      if (scriptTitle && scriptTitle.textContent !== undefined) scriptTitle.textContent = `KỊCH BẢN ĐIỀU HÀNH: TREO LUÂN CHUYỂN (REALTIME ${liveDateStrLC})`;
       if (scriptBadge && scriptBadge.textContent !== undefined) {
         scriptBadge.className = 'badge-tag badge-tag-blue';
         scriptBadge.textContent = 'Treo LC Realtime';
@@ -8342,32 +8381,32 @@
       if (scriptContent && scriptContent.innerHTML !== undefined) {
         scriptContent.innerHTML = `
           <div style="margin-bottom: 10px; padding: 8px 12px; background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 6px;">
-            <div style="font-weight: 800; color: #1e40af; font-size: 13px;">🚚 TỔNG HỢP HÀNG TREO LUÂN CHUYỂN: ${fNum(totLC)} ĐƠN (REALTIME 20/10)</div>
+            <div style="font-weight: 800; color: #1e40af; font-size: 13px;">🚚 TỔNG HỢP HÀNG TREO LUÂN CHUYỂN: ${fNum(totLC)} ĐƠN (REALTIME ${liveDateStrLC})</div>
             <div style="font-size: 12px; color: #1e3a8a; margin-top: 2px;">
-              • Lưu thông ổn định (&lt;24h): <strong>${fNum(u24)} đơn (${pu24}%)</strong> | ⚠️ Tồn treo ≥24h: <strong style="color:#ea580c;">${fNum(treo24)} đơn (${(treo24 / totLC * 100).toFixed(1)}%)</strong> | 🚨 Trễ nặng ≥36h: <strong style="color:#dc2626;">208 đơn (5.1%)</strong>
+              • Lưu thông ổn định (&lt;24h): <strong>${fNum(u24)} đơn (${pu24}%)</strong> | ⚠️ Tồn treo ≥24h: <strong style="color:#ea580c;">${fNum(treo24)} đơn (${(treo24 / totLC * 100).toFixed(1)}%)</strong> | 🚨 Trễ nặng ≥36h: <strong style="color:#dc2626;">${fNum(t36 + t72)} đơn (${((t36 + t72) / totLC * 100).toFixed(1)}%)</strong>
             </div>
           </div>
           <div style="margin-bottom: 10px;">
-            <strong style="color: #b91c1c;">📍 TOP AM & BƯU CỤC ĐIỂM NÓNG TREO ≥24H:</strong>
+            <strong style="color: #b91c1c;">📍 TOP 5 AM ĐIỂM NÓNG TREO ≥24H:</strong>
             <ul style="margin: 4px 0 0 16px; padding: 0;">
-              <li><strong>AM Phan Đình Duy (Khánh Hòa):</strong> 85 đơn treo ≥24h (20.3% vùng) — Điểm nóng: BC Tây Nha Trang (<strong>38 đơn treo</strong>).</li>
-              <li><strong>AM Nguyễn Thanh Long (Cam Ranh):</strong> 55 đơn treo ≥24h — Điểm nóng số 1: BC Cam Linh có tới <strong>44 đơn treo</strong>!</li>
-              <li><strong>AM Huỳnh Thị Kim Chi (Lâm Hà):</strong> 47 đơn treo ≥24h — BC Đam Rông 3 (<strong>28 đơn treo</strong>).</li>
-              <li><strong>AM Trần Thị Nhung (Đắk Nông):</strong> 44 đơn treo ≥24h.</li>
-              <li><strong>AM Nguyễn Duy Long (Ninh Thuận):</strong> 36 đơn treo ≥24h — BC Phước Dinh (<strong>30 đơn treo</strong>).</li>
+              <li><strong>AM Lê Hồng Phong (Đắk Nông):</strong> 53 đơn treo ≥24h (tỷ lệ treo 26.8%!) — Điểm nóng số 1 toàn vùng.</li>
+              <li><strong>AM Trần Thị Nhung (Đắk Nông):</strong> 49 đơn treo ≥24h (13.9% tổng LC).</li>
+              <li><strong>AM Huỳnh Thị Kim Chi (Lâm Đồng):</strong> 41 đơn treo ≥24h (24.6% tổng LC).</li>
+              <li><strong>AM Nguyễn Thanh Long (Khánh Hòa):</strong> 39 đơn treo ≥24h (24.1% tổng LC).</li>
+              <li><strong>AM Nguyễn Duy Long (Ninh Thuận):</strong> 30 đơn treo ≥24h (5.7% tổng LC).</li>
             </ul>
           </div>
           <div style="margin-bottom: 8px; padding: 6px 10px; background: #fff7ed; border-left: 3px solid #ea580c; border-radius: 4px;">
             <strong style="color: #ea580c;">🎯 MỆNH LỆNH VẬN TẢI & KTC:</strong>
             <div style="font-size: 12px; color: #9a3412;">
-              1. Xe gom KTC rà soát ngay các chuyến xe kết nối Cam Linh, Tây Nha Trang, Đam Rông. Bưu cục phải quét nhận kiện ngay khi xe tới, cấm ngâm bao ảo!<br/>
-              2. Xử lý dứt điểm 208 đơn trễ ≥36h ngay trong ngày hôm nay 20/10!
+              1. Xe gom KTC rà soát ngay các chuyến xe kết nối Đắk Nông và Lâm Đồng. Bưu cục phải quét nhận kiện ngay khi xe tới, cấm ngâm bao ảo!<br/>
+              2. Xử lý dứt điểm các đơn trễ ≥36h ngay trong ngày hôm nay!
             </div>
           </div>
           <div style="padding: 6px 10px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 4px;">
-            <strong style="color: #0f172a;">🎤 LỜI THOẠI TRÌNH BÀY NHANH TẠI CUỘC HỌP:</strong>
+            <strong style="color: #0f172a;">🎤 LỜI THOẠI TRÌNH BÀY TẠI CUỘC HỌP:</strong>
             <div style="font-size: 12px; color: #334155; font-style: italic;">
-              "Toàn vùng có 4.103 đơn đang luân chuyển, tỷ lệ đúng hạn đạt gần 90%. Tuy nhiên đang có 418 đơn treo trên 24h, nặng nhất là 208 đơn đã trôi quá 36h! Nặng nhất là anh Phan Đình Duy 85 đơn và anh Nguyễn Thanh Long 44 đơn treo tại bưu cục Cam Linh. Yêu cầu bưu cục quét nhận hàng ngay, không để hàng nằm chết trên xe hay ngâm bao tại bưu cục!"
+              "Toàn vùng có 3.711 đơn đang luân chuyển, tỷ lệ đúng hạn đạt 90.9%. Hiện có 336 đơn treo trên 24h, điểm nóng tập trung tại Đắk Nông với AM Lê Hồng Phong (53 đơn) và AM Trần Thị Nhung (49 đơn). Yêu cầu các bưu cục quét nhận hàng ngay, không để hàng nằm chết trên xe hay ngâm bao tại bưu cục!"
             </div>
           </div>
         `;
@@ -11282,5 +11321,7 @@
       `;
     }).join('');
   }
+}
+)();
 
-})();
+
