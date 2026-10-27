@@ -4444,19 +4444,78 @@
 <div class="exec-banner-text">
 <h3 id="aging-banner-title">ĐIỀU HÀNH XỬ LÝ HÀNG AGING TỒN ĐỌNG &amp; TREO LUÂN CHUYỂN</h3>
 <p id="aging-banner-desc">
-              • <strong>Aging Tồn Kho (>5 ngày):</strong> Toàn vùng ghi nhận <strong>856 đơn</strong> (5–8 ngày: <strong>729 đ / 85.2%</strong>; 8–15 ngày: <strong>127 đ / 14.8%</strong>; >15 ngày: <strong>0 đ / 0.0% 🟢</strong>). Top 1 AM: <strong>Lê Văn Trường (215 đ / 25.1%)</strong>, BC Lang Biang 2 (191 đ); <strong>Nguyễn Lê Nguyên Vũ (170 đ / 19.9%)</strong>, BC Đức Trọng 1 (150 đ).<br/>
-              • <strong>Hàng Treo Luân Chuyển:</strong> Toàn vùng có <strong>4.103 đơn</strong> đang lưu chuyển, trong đó <strong>89.8% (3.685 đơn)</strong> luân chuyển đúng hạn &lt;24h. Đơn tồn <strong>Treo ≥24h: 418 đơn (10.2%)</strong>, trễ nặng <strong>≥36h: 208 đơn (5.1%)</strong>. Điểm nóng treo: AM <strong>Phan Đình Duy (85 đơn treo / 20.3%)</strong> tại BC Tây Nha Trang (38 đ); AM <strong>Nguyễn Thanh Long (55 đơn treo)</strong> tại BC Cam Linh (44 đ).
+              • <strong>Aging Tồn Kho (>5 ngày):</strong> Toàn vùng ghi nhận <strong>769 đơn</strong> (5–8 ngày: <strong>547 đ / 71.1%</strong>; 8–15 ngày: <strong>216 đ / 28.1%</strong>; >15 ngày: <strong>6 đ / 0.8% 🟢</strong>). Top 1 AM: <strong>Nguyễn Lê Nguyên Vũ (80 đ / 10.4%)</strong>, BC Đức Trọng 1 (55 đ); <strong>Nguyễn Duy Long (79 đ / 10.3%)</strong>; <strong>Lê Văn Trường (66 đ / 8.6%)</strong>, BC Lang Biang 2 (40 đ); <strong>Huỳnh Thị Kim Chi (65 đ / 8.5%)</strong>, BC Tân Hà Lâm Hà (51 đ); <strong>Nguyễn Thanh Long (61 đ / 7.9%)</strong>, BC Cam Linh (52 đ).<br/>
+              • <strong>Hàng Treo Luân Chuyển:</strong> Toàn vùng có <strong>3.711 đơn</strong> đang lưu chuyển, trong đó <strong>90.9% (3.375 đơn)</strong> luân chuyển đúng hạn &lt;24h. Đơn tồn <strong>Treo ≥24h: 336 đơn (9.1%)</strong>, trễ nặng <strong>≥36h: 192 đơn (5.2%)</strong>. Điểm nóng treo: AM <strong>Lê Hồng Phong (53 đơn / 15.8%)</strong> tại BC Bắc Gia Nghĩa (34 đ); AM <strong>Trần Thị Nhung (49 đơn / 14.6%)</strong> tại BC Quảng Khê (17 đ) &amp; Đức Lập (15 đ); AM <strong>Huỳnh Thị Kim Chi (41 đơn)</strong> tại BC Tân Hà Lâm Hà (19 đ); AM <strong>Nguyễn Thanh Long (39 đơn)</strong> tại BC Cam Linh (38 đ).
             </p>
 </div>
 </div>
 <div class="exec-banner-actions" style="display: flex; align-items: center; gap: 8px;">
 <span class="badge-tag badge-tag-red" id="aging-badge-summary" style="font-size: 12px; padding: 6px 12px;">
-            Aging (&gt;5N): 431 đơn | Treo LC (≥24h): 373 / 4.660 đơn
+            Aging (&gt;5N): 769 đơn | Treo LC (≥24h): 336 / 3.711 đơn
           </span>
 <button class="btn btn-sm btn-primary" id="btn-sync-realtime-aging" onclick="syncRealtimeAgingTreo()" style="font-size: 12px; font-weight: 700; padding: 6px 12px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
 <i data-lucide="refresh-cw" style="width: 14px; height: 14px;"></i> ⚡ Làm Mới Real-time
           </button>
 </div>
+</div>
+<!-- Kịch Bản Thuyết Trình & Điều Hành Aging & Treo LC (W43) -->
+<div class="report-card" style="margin-bottom: 20px; border-left: 5px solid #ef4444; background: var(--bg-surface); box-shadow: 0 4px 16px rgba(239, 68, 68, 0.08);">
+  <div class="report-card-header" style="cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="window.toggleAgingSpeech()">
+    <div class="report-card-title" style="display: flex; align-items: center; gap: 10px; color: #b91c1c; font-weight: 800; font-size: 14px;">
+      <i data-lucide="mic" style="color: #ef4444;"></i>
+      <span>🎙️ KỊCH BẢN THUYẾT TRÌNH ĐIỀU HÀNH: AGING TỒN ĐỌNG &amp; TREO LUÂN CHUYỂN (W43)</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <button type="button" class="btn btn-sm btn-secondary" onclick="event.stopPropagation(); window.copyAgingSpeech();" style="font-size: 11.5px; font-weight: 700;">
+        📋 Sao Chép
+      </button>
+      <button type="button" class="btn btn-sm btn-primary" id="aging-speech-toggle-btn" style="font-size: 11.5px; font-weight: 700;">
+        Thu Gọn ▲
+      </button>
+    </div>
+  </div>
+  <div class="report-card-body" id="aging-speech-body" style="padding: 18px 24px; line-height: 1.75; font-size: 13.5px; color: var(--text-body);">
+    <div id="aging-speech-text">
+      <p style="margin-bottom: 12px; font-style: italic; color: var(--text-muted);">
+        🗣️ <strong>LỜI NÓI THUYẾT TRÌNH BÁO CÁO (KHI BẬT TAB 12 DASHBOARD AGING &amp; TREO LC):</strong>
+      </p>
+      <p style="margin-bottom: 12px;">
+        <em>"Kính thưa Ban Giám Đốc và toàn thể Hội nghị Giao ban, chuyển sang Tab 12 về tình hình Hàng tồn Aging và Treo luân chuyển toàn vùng Nam Trung Bộ:</em>
+      </p>
+      <div style="background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; padding: 12px 16px; border-radius: 8px; margin-bottom: 14px;">
+        <strong style="color: #b91c1c; text-transform: uppercase; font-size: 13px;">📍 1. BỨC TRANH HÀNG TỒN AGING (&gt;5 NGÀY): TOÀN VÙNG GHI NHẬN 769 ĐƠN</strong><br/>
+        • <strong>Cơ cấu tuổi hàng tồn:</strong><br/>
+        &nbsp;&nbsp;+ <strong>Nhóm 5 – 8 ngày:</strong> Có <strong>547 đơn</strong> (chiếm <strong>71.1%</strong> tổng lượng tồn) ➔ Đây là lượng hàng mới chớm quá hạn, hoàn toàn nằm trong khả năng bưu tá giải tỏa nhanh trong 24h–48h tới.<br/>
+        &nbsp;&nbsp;+ <strong>Nhóm 8 – 15 ngày:</strong> Có <strong>216 đơn</strong> (chiếm <strong>28.1%</strong>).<br/>
+        &nbsp;&nbsp;+ <strong>Nhóm trên 15 ngày:</strong> Toàn vùng duy trì xuất sắc chỉ còn đúng <strong>6 đơn</strong> (chiếm vỏn vẹn <strong>0.8%</strong>) ➔ Giữ vững kỷ luật kho bãi sạch sẽ toàn mạng lưới!<br/>
+        • <strong>Top AM có lượng tồn Aging cao nhất:</strong><br/>
+        &nbsp;&nbsp;- <strong>AM Nguyễn Lê Nguyên Vũ (Lâm Đồng):</strong> <strong>80 đơn</strong> (chiếm 10.4% toàn vùng | tập trung <strong>55 đơn</strong> tại BC <strong>Đức Trọng 1</strong> do bán kính giao rộng và khách hẹn).<br/>
+        &nbsp;&nbsp;- <strong>AM Nguyễn Duy Long (Ninh Thuận / Bình Thuận):</strong> <strong>79 đơn</strong> (chiếm 10.3%).<br/>
+        &nbsp;&nbsp;- <strong>AM Lê Văn Trường (Lâm Đồng):</strong> <strong>66 đơn</strong> (tập trung <strong>40 đơn</strong> tại BC <strong>Lang Biang - Đà Lạt 2</strong>).<br/>
+        &nbsp;&nbsp;- <strong>AM Huỳnh Thị Kim Chi (Lâm Đồng):</strong> <strong>65 đơn</strong> (tập trung <strong>51 đơn</strong> tại BC <strong>Tân Hà Lâm Hà</strong>).<br/>
+        &nbsp;&nbsp;- <strong>AM Nguyễn Thanh Long (Khánh Hòa):</strong> <strong>61 đơn</strong> (tập trung <strong>52 đơn</strong> tại BC <strong>Cam Linh</strong>).
+      </div>
+
+      <div style="background: rgba(59, 130, 246, 0.05); border-left: 4px solid #2563eb; padding: 12px 16px; border-radius: 8px; margin-bottom: 14px;">
+        <strong style="color: #1d4ed8; text-transform: uppercase; font-size: 13px;">📍 2. BỨC TRANH HÀNG TREO LUÂN CHUYỂN (LC): 3.711 ĐƠN ĐANG TRÊN ĐƯỜNG</strong><br/>
+        • <strong>Chất lượng dòng chảy luân chuyển:</strong> Có tới <strong>90.9% (3.375 đơn)</strong> luân chuyển hoàn toàn đúng hạn dưới 24h, dòng xe KTC kết nối liên tục.<br/>
+        • <strong>Đơn tồn Treo ≥24h:</strong> Toàn vùng ghi nhận <strong>336 đơn (9.1%)</strong>, trong đó số đơn trễ nặng <strong>≥36h là 192 đơn (5.2%)</strong>.<br/>
+        • <strong>Điểm nóng luân chuyển cần KTC và Bưu cục phối hợp giải tỏa:</strong><br/>
+        &nbsp;&nbsp;- <strong>AM Lê Hồng Phong (Đắk Nông):</strong> <strong>53 đơn treo</strong> (điểm nóng tại BC <strong>Bắc Gia Nghĩa: 34 đơn</strong>).<br/>
+        &nbsp;&nbsp;- <strong>AM Trần Thị Nhung (Đắk Nông):</strong> <strong>49 đơn treo</strong> (tập trung tại BC <strong>Quảng Khê 17 đơn</strong> và BC <strong>Đức Lập 15 đơn</strong> do cung đường huyện dốc).<br/>
+        &nbsp;&nbsp;- <strong>AM Huỳnh Thị Kim Chi (Lâm Đồng):</strong> <strong>41 đơn treo</strong> (BC <strong>Tân Hà Lâm Hà: 19 đơn</strong>).<br/>
+        &nbsp;&nbsp;- <strong>AM Nguyễn Thanh Long (Khánh Hòa):</strong> <strong>39 đơn treo</strong> (BC <strong>Cam Linh: 38 đơn</strong>).<br/>
+        &nbsp;&nbsp;- <strong>AM Nguyễn Duy Long:</strong> <strong>30 đơn treo</strong>.
+      </div>
+
+      <div style="background: rgba(245, 158, 11, 0.06); border-left: 4px solid #f59e0b; padding: 12px 16px; border-radius: 8px;">
+        <strong style="color: #b45309; text-transform: uppercase; font-size: 13px;">🔍 NGUYÊN NHÂN CỐT LÕI &amp; MỆNH LỆNH HÀNH ĐỘNG TUẦN W44:</strong><br/>
+        1. <strong>Đôn đốc kỷ luật quét mã 'Đến Bưu Cục':</strong> Gần 45% số đơn treo &gt;24h thực tế xe KTC đã hạ tải tại cửa kho bưu cục nhưng nhân sự bưu cục chưa quét nhập bao kịp thời, khiến trạng thái đơn vẫn bị treo ảo trên hệ thống. Yêu cầu các BC <strong>Cam Linh, Đức Trọng 1, Lang Biang 2, Bắc Gia Nghĩa</strong> quét nhận dứt điểm ngay khi xe trả hàng.<br/>
+        2. <strong>Xử lý 6 đơn Aging &gt;15 ngày:</strong> Yêu cầu AM Nguyễn Lê Nguyên Vũ, AM Lê Văn Trường trực tiếp đối soát, nếu thất lạc phải làm thủ tục bồi hoàn dứt điểm trước 28/10, dứt khoát không để ngâm kho chuyển hóa thành nợ xấu.<br/>
+        3. <strong>Mục tiêu tác chiến W44:</strong> Kéo giảm tỷ lệ Treo luân chuyển ≥24h từ <strong>9.1% xuống dưới 5.0%</strong>, và đưa tổng lượng tồn Aging &gt;5 ngày toàn vùng về dưới <strong>500 đơn</strong>!"
+      </div>
+    </div>
+  </div>
 </div>
 <!-- Segment Selector: Aging vs Treo LC vs Compare -->
 <div class="view-mode-bar" style="margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; background: var(--bg-surface); padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
@@ -6188,8 +6247,8 @@ Xin trân trọng cảm ơn Ban Giám đốc và toàn thể Hội nghị đã c
 </div>
 </div>
 <!-- Scripts -->
-<script src="data.js?v=1793076040"></script>
-<script src="app.js?v=1793076040"></script>
+<script src="data.js?v=1793078102"></script>
+<script src="app.js?v=1793078102"></script>
 <script src="control_tower_visuals.js?v=1793025262"></script>
 </body>
 </html>

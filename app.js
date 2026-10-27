@@ -7675,11 +7675,16 @@
 
     const mode = state.fdChartMode || 'full';
     const selectedAM = state.selectedAM;
+    const currW = D.meta?.latest_week || 'W43';
+    const prevW = D.meta?.prev_week || 'W42';
 
     let sorted = [...D.fd.am].map(r => {
       let name = r.am;
       if (name === 'AM Nghĩa') name = 'Nguyễn Đỗ Minh Nghĩa';
       if (name === 'AM Nhi') name = 'Phan Nguyễn Yến Nhi';
+      if (name === 'AM Phong') name = 'Lê Hồng Phong';
+      if (name === 'AM Khánh') name = 'Nguyễn Ngọc Khánh';
+      if (name === 'Lê Thị Kim Chi' || name === 'AM Chi') name = 'Huỳnh Thị Kim Chi';
       return { ...r, am: name };
     }).sort((a, b) => mode === "tts" ? (b.rate_tts || 0) - (a.rate_tts || 0) : (b.rate_full || 0) - (a.rate_full || 0));
 
@@ -7719,7 +7724,7 @@
           },
           {
             type: 'bar',
-            label: mode === 'tts' ? `%FD TTS ${D.meta?.prev_week || 'W36'} (Tuần Trước)` : `%FD Full ${D.meta?.prev_week || 'W36'} (Tuần Trước)`,
+            label: mode === 'tts' ? `%FD TTS ${prevW} (Tuần Trước)` : `%FD Full ${prevW} (Tuần Trước)`,
             data: prevData,
             backgroundColor: '#94a3b8',
             borderRadius: 4,
@@ -7728,7 +7733,7 @@
           },
           {
             type: 'bar',
-            label: mode === 'tts' ? `%FD TTS ${D.meta?.latest_week || 'W37'} (Hiện Tại)` : `%FD Full ${D.meta?.latest_week || 'W37'} (Hiện Tại)`,
+            label: mode === 'tts' ? `%FD TTS ${currW} (Hiện Tại)` : `%FD Full ${currW} (Hiện Tại)`,
             data: rateData,
             backgroundColor: barColors,
             borderRadius: 4,
@@ -7757,7 +7762,40 @@
         maintainAspectRatio: false,
         interaction: { mode: 'index', intersect: false },
         plugins: {
-          legend: { position: 'top' },
+          legend: { 
+            position: 'top',
+            labels: {
+              color: () => document.body.getAttribute('data-theme') === 'dark' ? '#f1f5f9' : '#0f172a',
+              font: { weight: '700', size: 11.5, family: "'Plus Jakarta Sans', sans-serif" }
+            }
+          },
+          datalabels: {
+            display: (context) => {
+              // Hiển thị nhãn số sắc nét cho cột %FD hiện tại (index 2) và điểm biến động (index 3)
+              return context.datasetIndex === 2 || context.datasetIndex === 3;
+            },
+            color: (context) => {
+              if (context.datasetIndex === 3) {
+                return context.dataset.data[context.dataIndex] <= 0 ? '#047857' : '#b91c1c';
+              }
+              return document.body.getAttribute('data-theme') === 'dark' ? '#f8fafc' : '#0f172a';
+            },
+            anchor: (context) => context.datasetIndex === 3 ? 'center' : 'end',
+            align: (context) => context.datasetIndex === 3 ? 'bottom' : 'top',
+            offset: 4,
+            font: {
+              size: 11,
+              weight: '800',
+              family: "'JetBrains Mono', monospace"
+            },
+            formatter: (val, context) => {
+              if (context.datasetIndex === 3) {
+                const s = val > 0 ? '+' : '';
+                return `${s}${val}%`;
+              }
+              return `${val}%`;
+            }
+          },
           tooltip: {
             callbacks: {
               label: (c) => {
@@ -7775,15 +7813,33 @@
           y: {
             type: 'linear',
             position: 'left',
-            title: { display: true, text: '%FD Return (%)', font: { weight: '700', size: 11 } },
-            ticks: { callback: v => v + '%' }
+            title: { 
+              display: true, 
+              text: '%FD Return (%)', 
+              color: () => document.body.getAttribute('data-theme') === 'dark' ? '#f1f5f9' : '#0f172a',
+              font: { weight: '800', size: 12, family: "'Plus Jakarta Sans', sans-serif" } 
+            },
+            ticks: { 
+              color: () => document.body.getAttribute('data-theme') === 'dark' ? '#cbd5e1' : '#334155',
+              font: { weight: '700', size: 11 },
+              callback: v => v + '%' 
+            }
           },
           yVol: {
             type: 'linear',
             position: 'right',
             grid: { drawOnChartArea: false },
-            title: { display: true, text: 'Sản Lượng Giao (Đơn)', font: { weight: '700', size: 11 } },
-            ticks: { callback: v => fNum(v) }
+            title: { 
+              display: true, 
+              text: 'Sản Lượng Giao (Đơn)', 
+              color: () => document.body.getAttribute('data-theme') === 'dark' ? '#f1f5f9' : '#0f172a',
+              font: { weight: '800', size: 12, family: "'Plus Jakarta Sans', sans-serif" } 
+            },
+            ticks: { 
+              color: () => document.body.getAttribute('data-theme') === 'dark' ? '#cbd5e1' : '#334155',
+              font: { weight: '700', size: 11 },
+              callback: v => fNum(v) 
+            }
           },
           yDiff: {
             type: 'linear',
@@ -7791,12 +7847,43 @@
             grid: { drawOnChartArea: false }
           },
           x: {
-            ticks: { maxRotation: 45, minRotation: 30, font: { size: 10 } }
+            ticks: { 
+              maxRotation: 45, 
+              minRotation: 35, 
+              color: () => document.body.getAttribute('data-theme') === 'dark' ? '#f8fafc' : '#0f172a',
+              font: { 
+                size: 12, 
+                weight: '800', 
+                family: "'Plus Jakarta Sans', sans-serif" 
+              } 
+            },
+            grid: {
+              display: false
+            }
           }
         }
       }
     });
-  }
+  window.toggleAgingSpeech = function() {
+    const el = document.getElementById('aging-speech-body');
+    const btn = document.getElementById('aging-speech-toggle-btn');
+    if (el) {
+      const isHidden = el.style.display === 'none';
+      el.style.display = isHidden ? 'block' : 'none';
+      if (btn) btn.textContent = isHidden ? 'Thu Gọn ▲' : 'Mở Rộng ▼';
+    }
+  };
+
+  window.copyAgingSpeech = function() {
+    const el = document.getElementById('aging-speech-text');
+    if (el) {
+      navigator.clipboard.writeText(el.innerText).then(() => {
+        alert('Đã sao chép kịch bản thuyết trình Aging & Treo LC tuần W43 vào bộ nhớ tạm!');
+      }).catch(err => {
+        console.error('Không thể sao chép:', err);
+      });
+    }
+  };
 
   function renderAgingTab() {
     const seg = state.agingSegment || 'aging';
