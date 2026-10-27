@@ -13173,7 +13173,7 @@ window.DASHBOARD_DATA = {
       "ncc_count": 7,
       "ktc_count": 7,
       "total_trucks": 60,
-      "last_updated": "08:06 - 27/10/2026"
+      "last_updated": "08:38 - 27/10/2026"
     },
     "surge_fixed": {
       "fixed_cost": 2732.78,
@@ -13208,7 +13208,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 698.74,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 22
       },
       {
@@ -13221,7 +13221,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 644.89,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, NAK",
+        "primary_ncc": "NAK, Mạnh Cường",
         "truck_count": 9
       },
       {
@@ -13247,7 +13247,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 198.27,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Tốt và Rẻ, Trâm Hoá",
+        "primary_ncc": "Lâm Ngọc Thành, Trâm Hoá",
         "truck_count": 8
       },
       {
@@ -13260,7 +13260,7 @@ window.DASHBOARD_DATA = {
         "fixed_cost": 89.74,
         "surge_cost": 0.0,
         "surge_pct": 0.0,
-        "primary_ncc": "Mạnh Cường, Mạnh Cường (BCCK)",
+        "primary_ncc": "Mạnh Cường (BCCK), Mạnh Cường",
         "truck_count": 11
       },
       {
@@ -13289,7 +13289,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 35,
-        "active_ktcs": "KTC Bình Thuận, KTC Nam Nha Trang, KTC Khánh Hòa, KTC Đức Trọng, KTC Bắc Nha Trang"
+        "active_ktcs": "KTC Bình Thuận, KTC Bắc Nha Trang, KTC Đức Trọng, KTC Nam Nha Trang, KTC Khánh Hòa"
       },
       {
         "ncc": "NAK",
@@ -13302,7 +13302,7 @@ window.DASHBOARD_DATA = {
         "surge_cost": 0.0,
         "surge_pct": 0.0,
         "truck_count": 9,
-        "active_ktcs": "KTC Bảo Lộc, KTC Đức Trọng"
+        "active_ktcs": "KTC Đức Trọng, KTC Bảo Lộc"
       },
       {
         "ncc": "Công Định",
