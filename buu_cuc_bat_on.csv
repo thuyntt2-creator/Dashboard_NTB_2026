@@ -8,10 +8,10 @@ Tổng số lượng BC cảnh báo,"Logic:
 - Nếu %GTC < 70% Mốc %GTC tốt nhất trong lịch sử => Cảnh báo",,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,10/27/2026,,10/26/2026,,24/10/2026,,,,27/10/2026,,,,,,,,Thời gian cập nhật 28/10/2026 07:00:19,,,,,,,
+,,,,,,,10/27/2026,,10/26/2026,,24/10/2026,,,,27/10/2026,,,,,,,,Thời gian cập nhật 28/10/2026 07:30:18,,,,,,,
 Vùng,Tỉnh,ID Bưu cục,Tên Bưu cục,%GTC_TB 7 ngày (1),%GTC_tốt nhất (6 tháng gần nhất. Số tính theo tuần) (2),%Tỷ trọng (1)/(2),%GTC_N-1,VolGTC_N-1,%GTC_N-2,VolGTC_N-2,%GTC_N-3,VolGTC_N-3,Tỷ trọng vol cần giao / toàn quốc ngày N-1,VolGTC_TB 7 ngày,"Tổng Vol cần giao
 (3) + (4)","Vol_Tồn
 (3)","Vol_Mới
 (4)",Cảnh báo,Số ngày nằm trong danh sách cảnh báo - 3 tháng gần nhất,Số ngày dự kiến clear hàng,Số lượng nhân sự có gán đơn giao N-1,Điều tiết hàng (Giới hạn hàng về bưu cục),Backlog tồn đọng,%Backlog tồn đọng đã gán,Backlog >5 ngày,%FD_N-1 (ALL KH),%OntimeSLA_N-1 (TTS),%OPR_N-1 (TTS),%VolGTC <24h_N-1 (TTS),Volume tạo mới_N-1 (ALL KH)
-NTB,Lâm Đồng,22389000,(LDO) Đức Trọng 1,35.10%,56.71%,61.89%,32.03%,18900.00%,33.38%,222,0.5034883721,433,0,292,590,414,176,Cảnh báo GTC < 45%,91,2,,,539,41.00%,56,,,96.61%,,
-NTB,Lâm Đồng,22051000,(LDO) Lang Biang - Đà Lạt 1,36.58%,48.04%,76.15%,39.03%,32200.00%,23.55%,187,0.2818035427,175,0,238,825,569,256,Cảnh báo GTC < 45%,87,3,,,727,52.41%,37,,,100.00%,,
+NTB,Lâm Đồng,22389000,(LDO) Đức Trọng 1,35.10%,56.71%,61.89%,32.03%,18900.00%,33.38%,222,0.5034883721,433,0,292,590,414,176,Cảnh báo GTC < 45%,91,2,,,663,33.18%,55,,,96.61%,,241
+NTB,Lâm Đồng,22051000,(LDO) Lang Biang - Đà Lạt 1,36.58%,48.04%,76.15%,39.03%,32200.00%,23.55%,187,0.2818035427,175,0,238,825,569,256,Cảnh báo GTC < 45%,87,3,,,727,52.41%,37,,,100.00%,,397
