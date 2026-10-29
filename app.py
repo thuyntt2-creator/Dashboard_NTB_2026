@@ -568,7 +568,7 @@ def get_db_engine():
     global _db_engine
     if _db_engine is not None:
         return _db_engine
-    db_url = os.environ.get("DATABASE_URL") or os.environ.get("POSTGRES_URL")
+    db_url = os.environ.get("DATABASE_URL") or os.environ.get("POSTGRES_URL") or "postgresql://neondb_owner:npg_AyQ9gXpjI7Tt@ep-small-dream-azg9vt9g-pooler.c-3.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
     if db_url:
         db_url = db_url.strip()
         # Ensure correct driver for PostgreSQL in SQLAlchemy
